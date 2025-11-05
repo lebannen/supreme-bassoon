@@ -1,0 +1,23 @@
+{
+  "language": "German",
+  "word": "läuft",
+  "is_inflected_form": true,
+  "lemma": "laufen",
+  "form_type": "verb_form",
+  "grammatical_features": {
+    "person": "3",
+    "number": "singular",
+    "tense": "present"
+  },
+  "pronunciations": [
+    {
+      "ipa": "[lɔʏ̯ft]",
+      "dialect": "Germany",
+      "audio_url": "https://commons.wikimedia.org/wiki/File:De-läuft.ogg"
+    }
+  ],
+  "metadata": {
+    "parsed_at": "2025-11-04T23:39:36.221017",
+    "parser_version": "0.1.0"
+  }
+}

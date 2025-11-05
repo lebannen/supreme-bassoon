@@ -1,0 +1,42 @@
+{
+  "language": "Spanish",
+  "lemma": "hablar",
+  "part_of_speech": "verb",
+  "pronunciations": [
+    {
+      "ipa": null,
+      "dialect": "Peru",
+      "audio_url": "https://commons.wikimedia.org/wiki/File:LL-Q1321 (spa)-Rodrigo5260-hablar.wav"
+    }
+  ],
+  "etymology": "root From , from . doublet, which was borrowed from Latin.",
+  "definitions": [
+    {
+      "definition_number": 1,
+      "text": "to talk; to speak; to communicate using words",
+      "examples": []
+    },
+    {
+      "definition_number": 2,
+      "text": "to speak gl",
+      "examples": []
+    },
+    {
+      "definition_number": 2,
+      "text": "to speak gl",
+      "examples": []
+    }
+  ],
+  "word_forms": [
+    {
+      "template": "es-conj",
+      "form_type": "conjugation"
+    }
+  ],
+  "related_words": [],
+  "translations": {},
+  "metadata": {
+    "parsed_at": "2025-11-04T23:29:02.589301",
+    "parser_version": "0.1.0"
+  }
+}

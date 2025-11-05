@@ -1,0 +1,53 @@
+{
+  "language": "German",
+  "lemma": "Haus",
+  "part_of_speech": "noun",
+  "pronunciations": [
+    {
+      "ipa": "[haʊ̯s]",
+      "dialect": null,
+      "audio_url": "https://commons.wikimedia.org/wiki/File:De-Haus.ogg"
+    },
+    {
+      "ipa": null,
+      "dialect": "Germany",
+      "audio_url": "https://commons.wikimedia.org/wiki/File:De-Haus2.ogg"
+    }
+  ],
+  "etymology": "From , from , from , from . Cognate with , , , , , , , , . doublet.",
+  "definitions": [
+    {
+      "definition_number": 1,
+      "text": "house",
+      "examples": []
+    },
+    {
+      "definition_number": 2,
+      "text": "home",
+      "examples": []
+    },
+    {
+      "definition_number": 3,
+      "text": "theatre",
+      "examples": []
+    },
+    {
+      "definition_number": 3,
+      "text": "theatre",
+      "examples": []
+    }
+  ],
+  "word_forms": [
+    {
+      "template": "de-ndecl",
+      "form_type": "declension",
+      "form": "n,,^er"
+    }
+  ],
+  "related_words": [],
+  "translations": {},
+  "metadata": {
+    "parsed_at": "2025-11-04T23:29:02.591899",
+    "parser_version": "0.1.0"
+  }
+}

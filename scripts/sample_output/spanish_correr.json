@@ -1,0 +1,103 @@
+{
+  "language": "Spanish",
+  "lemma": "correr",
+  "part_of_speech": "verb",
+  "pronunciations": [
+    {
+      "ipa": null,
+      "dialect": "Colombia",
+      "audio_url": "https://commons.wikimedia.org/wiki/File:LL-Q1321 (spa)-AdrianAbdulBaha-correr.wav"
+    }
+  ],
+  "etymology": "inh+, from , from . root",
+  "definitions": [
+    {
+      "definition_number": 1,
+      "text": "to run, to jog",
+      "examples": []
+    },
+    {
+      "definition_number": 2,
+      "text": "to flow",
+      "examples": []
+    },
+    {
+      "definition_number": 3,
+      "text": "to shoo, chase away, drive away",
+      "examples": []
+    },
+    {
+      "definition_number": 4,
+      "text": "to throw out; to fire; to expel",
+      "examples": []
+    },
+    {
+      "definition_number": 5,
+      "text": "to walk away",
+      "examples": []
+    },
+    {
+      "definition_number": 6,
+      "text": "to cop out, to shirk",
+      "examples": []
+    },
+    {
+      "definition_number": 7,
+      "text": "to elapse gl",
+      "examples": []
+    },
+    {
+      "definition_number": 8,
+      "text": "to go around, spread gl",
+      "examples": []
+    },
+    {
+      "definition_number": 9,
+      "text": "to rush",
+      "examples": []
+    },
+    {
+      "definition_number": 10,
+      "text": "to draw gl",
+      "examples": []
+    },
+    {
+      "definition_number": 11,
+      "text": "to have an orgasm",
+      "examples": [
+        {
+          "text": "RQ:Mañas Kronen",
+          "translation": null
+        }
+      ]
+    },
+    {
+      "definition_number": 12,
+      "text": "to move",
+      "examples": []
+    },
+    {
+      "definition_number": 12,
+      "text": "to move",
+      "examples": []
+    }
+  ],
+  "word_forms": [
+    {
+      "template": "es-conj",
+      "form_type": "conjugation"
+    },
+    {
+      "template": "es-conj",
+      "form_type": "conjugation",
+      "form": "correrse",
+      "reflexive": true
+    }
+  ],
+  "related_words": [],
+  "translations": {},
+  "metadata": {
+    "parsed_at": "2025-11-04T23:29:02.588782",
+    "parser_version": "0.1.0"
+  }
+}

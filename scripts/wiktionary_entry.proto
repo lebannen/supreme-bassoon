@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+message Pronunciation {
+  string ipa = 1;
+  string dialect = 2;
+  string audio_url = 3;
+}
+
+message Example {
+  string text = 1;
+  string translation = 2;
+}
+
+message Definition {
+  int32 definition_number = 1;
+  string text = 2;
+  repeated Example examples = 3;
+}
+
+message WordForm {
+  string template = 1;
+  string form_type = 2;
+  string form = 3;
+  bool reflexive = 4;
+}
+
+message Metadata {
+  string parsed_at = 1;
+  string parser_version = 2;
+}
+
+message GrammaticalFeatures {
+  string person = 1;
+  string number = 2;
+  string tense = 3;
+  string mood = 4;
+  string gender = 5;
+  string participle = 6;
+  string aspect = 7;
+  string form = 8;
+}
+
+// Lemma entry (main word entry)
+message LemmaEntry {
+  string language = 1;
+  string lemma = 2;
+  bool is_inflected_form = 3;
+  string part_of_speech = 4;
+  repeated Pronunciation pronunciations = 5;
+  string etymology = 6;
+  repeated Definition definitions = 7;
+  repeated WordForm word_forms = 8;
+  Metadata metadata = 9;
+}
+
+// Inflected form entry
+message InflectedEntry {
+  string language = 1;
+  string word = 2;
+  bool is_inflected_form = 3;
+  string lemma = 4;
+  string form_type = 5;
+  GrammaticalFeatures grammatical_features = 6;
+  repeated Pronunciation pronunciations = 7;
+  Metadata metadata = 8;
+}
+
+// Union type for both
+message WiktionaryEntry {
+  oneof entry {
+    LemmaEntry lemma_entry = 1;
+    InflectedEntry inflected_entry = 2;
+  }
+}

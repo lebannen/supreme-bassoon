@@ -1,0 +1,92 @@
+{
+  "language": "French",
+  "lemma": "parler",
+  "part_of_speech": "verb",
+  "pronunciations": [
+    {
+      "ipa": null,
+      "dialect": null,
+      "audio_url": "https://commons.wikimedia.org/wiki/File:Fr-parler.ogg"
+    },
+    {
+      "ipa": null,
+      "dialect": "<<Switzerland>> (<<Valais>>)",
+      "audio_url": "https://commons.wikimedia.org/wiki/File:LL-Q150 (fra)-DSwissK-parler.wav"
+    },
+    {
+      "ipa": null,
+      "dialect": "<<France>> (<<Paris>>)",
+      "audio_url": "https://commons.wikimedia.org/wiki/File:LL-Q150 (fra)-GrandCelinien-parler.wav"
+    },
+    {
+      "ipa": null,
+      "dialect": "<<France>> (<<Toulouse>>)",
+      "audio_url": "https://commons.wikimedia.org/wiki/File:LL-Q150 (fra)-Lepticed7-parler.wav"
+    },
+    {
+      "ipa": null,
+      "dialect": "<<France>> (<<Vosges>>)",
+      "audio_url": "https://commons.wikimedia.org/wiki/File:LL-Q150 (fra)-LoquaxFR-parler.wav"
+    },
+    {
+      "ipa": null,
+      "dialect": "France",
+      "audio_url": "https://commons.wikimedia.org/wiki/File:LL-Q150 (fra)-Mecanautes-parler.wav"
+    },
+    {
+      "ipa": null,
+      "dialect": "<<France>> (<<Brétigny-sur-Orge>>)",
+      "audio_url": "https://commons.wikimedia.org/wiki/File:LL-Q150 (fra)-Pamputt-parler.wav"
+    },
+    {
+      "ipa": null,
+      "dialect": "<<France>> (<<Vosges>>)",
+      "audio_url": "https://commons.wikimedia.org/wiki/File:LL-Q150 (fra)-Poslovitch-parler.wav"
+    },
+    {
+      "ipa": null,
+      "dialect": "<<France>> (<<Lyon>>)",
+      "audio_url": "https://commons.wikimedia.org/wiki/File:LL-Q150 (fra)-WikiLucas00-parler.wav"
+    },
+    {
+      "ipa": null,
+      "dialect": "<<France>> (<<Somain>>)",
+      "audio_url": "https://commons.wikimedia.org/wiki/File:LL-Q150 (fra)-Jérémy-Günther-Heinz Jähnick-parler.wav"
+    }
+  ],
+  "etymology": "root inh+, from , from , from , from .",
+  "definitions": [
+    {
+      "definition_number": 1,
+      "text": "to speak, talk",
+      "examples": []
+    },
+    {
+      "definition_number": 2,
+      "text": "to be able to communicate in a language; to speak",
+      "examples": []
+    },
+    {
+      "definition_number": 3,
+      "text": "to cant; (of a coat of arms) to make a pun of its bearer's name",
+      "examples": []
+    },
+    {
+      "definition_number": 4,
+      "text": "parlance",
+      "examples": []
+    },
+    {
+      "definition_number": 5,
+      "text": "vernacular, dialect",
+      "examples": []
+    }
+  ],
+  "word_forms": [],
+  "related_words": [],
+  "translations": {},
+  "metadata": {
+    "parsed_at": "2025-11-04T23:29:02.590663",
+    "parser_version": "0.1.0"
+  }
+}

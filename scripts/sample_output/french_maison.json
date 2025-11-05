@@ -1,0 +1,52 @@
+{
+  "language": "French",
+  "lemma": "maison",
+  "part_of_speech": "noun",
+  "pronunciations": [
+    {
+      "ipa": null,
+      "dialect": "France,West",
+      "audio_url": "https://commons.wikimedia.org/wiki/File:Fr-une maison-fr-ouest.ogg"
+    },
+    {
+      "ipa": null,
+      "dialect": "<<France>> (<<Vosges>>)",
+      "audio_url": "https://commons.wikimedia.org/wiki/File:LL-Q150 (fra)-LoquaxFR-maison.wav"
+    },
+    {
+      "ipa": null,
+      "dialect": "<<France>> (<<Vosges>>)",
+      "audio_url": "https://commons.wikimedia.org/wiki/File:LL-Q150 (fra)-Poslovitch-maison.wav"
+    },
+    {
+      "ipa": null,
+      "dialect": "<<France>> (<<Lyon>>)",
+      "audio_url": "https://commons.wikimedia.org/wiki/File:LL-Q150 (fra)-WikiLucas00-maison.wav"
+    },
+    {
+      "ipa": null,
+      "dialect": "<<France>> (<<Somain>>)",
+      "audio_url": "https://commons.wikimedia.org/wiki/File:LL-Q150 (fra)-Jérémy-Günther-Heinz Jähnick-maison.wav"
+    }
+  ],
+  "etymology": "inh+, from , m, inherited from , from m (whence also m+). doublet, a borrowing.",
+  "definitions": [
+    {
+      "definition_number": 1,
+      "text": "house",
+      "examples": []
+    },
+    {
+      "definition_number": 1,
+      "text": "house",
+      "examples": []
+    }
+  ],
+  "word_forms": [],
+  "related_words": [],
+  "translations": {},
+  "metadata": {
+    "parsed_at": "2025-11-04T23:29:02.590143",
+    "parser_version": "0.1.0"
+  }
+}

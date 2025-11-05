@@ -1,0 +1,74 @@
+{
+  "language": "German",
+  "lemma": "laufen",
+  "is_inflected_form": false,
+  "part_of_speech": "verb",
+  "pronunciations": [
+    {
+      "ipa": "/ˈlaʊ̯fən/",
+      "dialect": "Germany",
+      "audio_url": "https://commons.wikimedia.org/wiki/File:De-laufen2.ogg"
+    },
+    {
+      "ipa": null,
+      "dialect": null,
+      "audio_url": "https://commons.wikimedia.org/wiki/File:De-laufen.ogg"
+    }
+  ],
+  "etymology": "dercat From , from , m, from . Cognate with , and m, .",
+  "definitions": [
+    {
+      "definition_number": 1,
+      "text": "to walk; to jog; to run",
+      "examples": []
+    },
+    {
+      "definition_number": 2,
+      "text": "to flow; to leak; to run",
+      "examples": []
+    },
+    {
+      "definition_number": 3,
+      "text": "to be in progress; to run",
+      "examples": []
+    },
+    {
+      "definition_number": 4,
+      "text": "to happen, to go on, to take place",
+      "examples": []
+    },
+    {
+      "definition_number": 5,
+      "text": "to run, to execute (a program)",
+      "examples": []
+    },
+    {
+      "definition_number": 6,
+      "text": "to be in order; to work; to function",
+      "examples": []
+    },
+    {
+      "definition_number": 7,
+      "text": "to pass; to flow",
+      "examples": []
+    },
+    {
+      "definition_number": 7,
+      "text": "to pass; to flow",
+      "examples": []
+    }
+  ],
+  "word_forms": [
+    {
+      "template": "de-conj",
+      "form_type": "conjugation",
+      "form": "laufen<läuft#lief,gelaufen.sein>"
+    }
+  ],
+  "related_words": [],
+  "translations": {},
+  "metadata": {
+    "parsed_at": "2025-11-04T23:39:36.220627",
+    "parser_version": "0.1.0"
+  }
+}
