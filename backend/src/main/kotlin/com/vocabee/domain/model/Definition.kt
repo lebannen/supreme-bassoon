@@ -24,12 +24,6 @@ data class Definition(
     @Column(name = "definition_text", nullable = false, columnDefinition = "TEXT")
     val definitionText: String,
 
-    @Column(columnDefinition = "TEXT")
-    val etymology: String? = null,
-
-    @Column(name = "usage_notes", columnDefinition = "TEXT")
-    val usageNotes: String? = null,
-
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(columnDefinition = "jsonb")
     val metadata: Map<String, Any>? = null,

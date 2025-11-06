@@ -25,14 +25,27 @@ interface WordRepository : JpaRepository<Word, Long> {
     ): List<Word>
 
     @Query("""
-        SELECT w FROM Word w
-        LEFT JOIN FETCH w.definitions d
-        LEFT JOIN FETCH w.pronunciations p
+        SELECT DISTINCT w FROM Word w
+        LEFT JOIN FETCH w.definitions
         WHERE w.languageCode = :languageCode
         AND w.lemma = :lemma
     """)
-    fun findWithDetails(
+    fun findWithDefinitions(
         @Param("languageCode") languageCode: String,
         @Param("lemma") lemma: String
     ): Word?
+
+    fun findByIsInflectedFormTrueAndLemmaId(lemmaId: Long): List<Word>
+
+    @Query("""
+        SELECT w FROM Word w
+        WHERE w.languageCode = :languageCode
+        AND w.isInflectedForm = false
+        ORDER BY w.frequencyRank NULLS LAST
+        LIMIT :limit
+    """)
+    fun findLemmasByLanguage(
+        @Param("languageCode") languageCode: String,
+        @Param("limit") limit: Int
+    ): List<Word>
 }

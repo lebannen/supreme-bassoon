@@ -1,6 +1,7 @@
 package com.vocabee.web.api
 
 import com.vocabee.service.VocabularyService
+import com.vocabee.web.dto.LanguageDto
 import com.vocabee.web.dto.SearchResultDto
 import com.vocabee.web.dto.WordDto
 import org.springframework.http.ResponseEntity
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/v1")
-@CrossOrigin(origins = ["*"])  // Configure properly in production
 class VocabularyController(
     private val vocabularyService: VocabularyService
 ) {
@@ -31,6 +31,12 @@ class VocabularyController(
             ?: return ResponseEntity.notFound().build()
 
         return ResponseEntity.ok(word)
+    }
+
+    @GetMapping("/languages")
+    fun getAllLanguages(): ResponseEntity<List<LanguageDto>> {
+        val languages = vocabularyService.getAllLanguages()
+        return ResponseEntity.ok(languages)
     }
 
     @GetMapping("/health")

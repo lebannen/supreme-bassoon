@@ -25,6 +25,6 @@ data class Pronunciation(
     @Column(name = "audio_url", columnDefinition = "TEXT")
     val audioUrl: String? = null,
 
-    @Column(length = 50)
+    @Column(length = 200)
     val dialect: String? = null
 )

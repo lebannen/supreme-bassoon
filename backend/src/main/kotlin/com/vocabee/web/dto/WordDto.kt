@@ -5,17 +5,21 @@ data class WordDto(
     val languageCode: String,
     val lemma: String,
     val partOfSpeech: String?,
+    val etymology: String?,
+    val usageNotes: String?,
     val frequencyRank: Int?,
+    val isInflectedForm: Boolean = false,
+    val lemmaId: Long? = null,
+    val grammaticalFeatures: Map<String, Any>? = null,
     val definitions: List<DefinitionDto> = emptyList(),
     val pronunciations: List<PronunciationDto> = emptyList(),
-    val wordForms: List<WordFormDto> = emptyList()
+    val inflectedForms: List<InflectedFormDto> = emptyList()
 )
 
 data class DefinitionDto(
     val id: Long,
     val definitionNumber: Int,
     val definitionText: String,
-    val etymology: String?,
     val examples: List<ExampleDto> = emptyList()
 )
 
@@ -26,11 +30,11 @@ data class PronunciationDto(
     val dialect: String?
 )
 
-data class WordFormDto(
+data class InflectedFormDto(
     val id: Long,
     val form: String,
-    val formType: String?,
-    val metadata: Map<String, Any>?
+    val partOfSpeech: String?,
+    val grammaticalFeatures: Map<String, Any>?
 )
 
 data class ExampleDto(
@@ -49,4 +53,10 @@ data class WordSummaryDto(
     val lemma: String,
     val partOfSpeech: String?,
     val frequencyRank: Int?
+)
+
+data class LanguageDto(
+    val code: String,
+    val name: String,
+    val entryCount: Int
 )
