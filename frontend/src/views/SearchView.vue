@@ -73,6 +73,25 @@
           <div class="word-title">
             <h2>{{ selectedWord.lemma }}</h2>
             <Tag v-if="selectedWord.partOfSpeech" :value="selectedWord.partOfSpeech" severity="info" />
+            <Tag v-if="selectedWord.isInflectedForm" value="inflected form" severity="secondary" />
+          </div>
+        </div>
+
+        <div v-if="selectedWord.baseForm" class="base-form-section">
+          <h3>Base Form</h3>
+          <div class="base-form-info">
+            <a class="base-form-lemma" @click="loadBaseForm(selectedWord.baseForm.lemma)">
+              {{ selectedWord.baseForm.lemma }}
+            </a>
+            <Tag v-if="selectedWord.baseForm.partOfSpeech" :value="selectedWord.baseForm.partOfSpeech" severity="info" />
+          </div>
+          <div v-if="selectedWord.grammaticalFeatures" class="grammatical-features">
+            <Tag
+              v-for="(value, key) in selectedWord.grammaticalFeatures"
+              :key="key"
+              :value="`${key}: ${value}`"
+              severity="secondary"
+            />
           </div>
         </div>
 
@@ -205,6 +224,27 @@ async function onWordSelect(event: { data: WordSummary }) {
   }
 }
 
+async function loadBaseForm(lemma: string) {
+  if (!selectedLanguage.value) return
+
+  isLoadingWord.value = true
+  wordError.value = null
+  selectedWord.value = null
+
+  try {
+    const word = await getWord(selectedLanguage.value, lemma)
+    if (word) {
+      selectedWord.value = word
+    } else {
+      wordError.value = 'Word details not found'
+    }
+  } catch (error) {
+    wordError.value = 'Failed to load word details'
+  } finally {
+    isLoadingWord.value = false
+  }
+}
+
 onMounted(() => {
   loadLanguages()
 })
@@ -214,7 +254,13 @@ onMounted(() => {
 .search-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 1.5rem;
+}
+
+h1 {
+  color: var(--text-color);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 .description {
@@ -224,9 +270,10 @@ onMounted(() => {
 
 .search-section {
   background: var(--surface-card);
-  padding: 2rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--surface-border);
+  margin-bottom: 1.5rem;
 }
 
 .field {
@@ -241,11 +288,12 @@ onMounted(() => {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
+  color: var(--text-color);
 }
 
 .search-input-wrapper {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .search-input-wrapper .p-inputtext {
@@ -253,22 +301,28 @@ onMounted(() => {
 }
 
 .results-section {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .results-section h2 {
   margin-bottom: 1rem;
+  color: var(--text-color);
+  font-weight: 600;
 }
 
 .no-results {
   text-align: center;
-  padding: 3rem;
+  padding: 4rem 2rem;
+  background: var(--surface-card);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--surface-border);
   color: var(--text-color-secondary);
 }
 
 .no-results p {
   margin-top: 1rem;
   font-size: 1.1rem;
+  color: var(--text-color-secondary);
 }
 
 .word-details {
@@ -290,6 +344,49 @@ onMounted(() => {
 
 .word-title h2 {
   margin: 0;
+  color: var(--text-color);
+}
+
+.base-form-section {
+  padding: 1rem;
+  background: var(--surface-section);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--border-radius);
+}
+
+.base-form-section h3 {
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--text-color-secondary);
+  font-weight: 600;
+}
+
+.base-form-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.base-form-lemma {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.base-form-lemma:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+.grammatical-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .definitions h3,
@@ -299,19 +396,27 @@ onMounted(() => {
   font-size: 1.1rem;
   margin-bottom: 0.75rem;
   color: var(--text-color-secondary);
+  font-weight: 600;
 }
 
 .definition {
   margin-bottom: 1.5rem;
 }
 
+.definition:last-child {
+  margin-bottom: 0;
+}
+
 .definition-text {
   margin-bottom: 0.5rem;
+  color: var(--text-color);
+  line-height: 1.6;
 }
 
 .definition-number {
   font-weight: 600;
   margin-right: 0.5rem;
+  color: var(--primary-color);
 }
 
 .examples {
@@ -326,6 +431,7 @@ onMounted(() => {
   margin-bottom: 0.5rem;
   font-style: italic;
   color: var(--text-color-secondary);
+  line-height: 1.5;
 }
 
 .example-text {
@@ -337,6 +443,12 @@ onMounted(() => {
   font-style: normal;
 }
 
+.etymology p,
+.usage-notes p {
+  color: var(--text-color-secondary);
+  line-height: 1.7;
+}
+
 .forms-grid {
   display: flex;
   flex-wrap: wrap;
@@ -346,7 +458,7 @@ onMounted(() => {
 .loading-word {
   display: flex;
   justify-content: center;
-  padding: 2rem;
+  padding: 3rem;
 }
 
 .word-error {
@@ -355,5 +467,23 @@ onMounted(() => {
 
 .text-muted {
   color: var(--text-color-secondary);
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .search-section {
+    padding: 1.25rem;
+  }
+
+  .search-input-wrapper {
+    flex-direction: column;
+  }
+
+  .examples {
+    margin-left: 1rem;
+  }
 }
 </style>

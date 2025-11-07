@@ -10,13 +10,18 @@ import org.springframework.transaction.annotation.Transactional
 @Transactional(readOnly = true)
 class VocabularyService(
     private val wordRepository: WordRepository,
-    private val languageRepository: LanguageRepository
+    private val languageRepository: LanguageRepository,
+    private val searchRankingService: SearchRankingService
 ) {
 
     fun searchWords(languageCode: String, query: String): SearchResultDto {
-        val words = wordRepository.searchByLemma(languageCode, query)
+        // Stage 1: Get up to 2000 candidates from database with basic ranking
+        val candidates = wordRepository.searchByLemma(languageCode, query)
 
-        val summaries = words.map { word ->
+        // Stage 2: Apply sophisticated application-layer ranking and limit to top 500
+        val rankedWords = searchRankingService.rankAndLimit(candidates, query, languageCode)
+
+        val summaries = rankedWords.map { word ->
             WordSummaryDto(
                 id = word.id!!,
                 lemma = word.lemma,
@@ -32,7 +37,18 @@ class VocabularyService(
     }
 
     fun getWord(languageCode: String, lemma: String): WordDto? {
-        val word = wordRepository.findWithDefinitions(languageCode, lemma) ?: return null
+        // Get all entries for this lemma (e.g., "avoir" has both noun and verb)
+        val words = wordRepository.findAllWithDefinitions(languageCode, lemma)
+
+        // Order by POS priority: verb > noun > adjective > other
+        val word = words.sortedBy {
+            when (it.partOfSpeech?.lowercase()) {
+                "verb" -> 0
+                "noun" -> 1
+                "adjective" -> 2
+                else -> 3
+            }
+        }.firstOrNull() ?: return null
 
         // Get inflected forms if this is a lemma (not an inflected form itself)
         val inflectedForms = if (!word.isInflectedForm) {
@@ -49,6 +65,19 @@ class VocabularyService(
             emptyList()
         }
 
+        // Get base form if this is an inflected form
+        val baseForm = if (word.isInflectedForm && word.lemmaId != null) {
+            wordRepository.findById(word.lemmaId).map { base ->
+                BaseFormDto(
+                    id = base.id!!,
+                    lemma = base.lemma,
+                    partOfSpeech = base.partOfSpeech
+                )
+            }.orElse(null)
+        } else {
+            null
+        }
+
         return WordDto(
             id = word.id!!,
             languageCode = word.languageCode,
@@ -60,6 +89,7 @@ class VocabularyService(
             isInflectedForm = word.isInflectedForm,
             lemmaId = word.lemmaId,
             grammaticalFeatures = word.grammaticalFeatures,
+            baseForm = baseForm,
             definitions = word.definitions.map { def ->
                 DefinitionDto(
                     id = def.id!!,

@@ -43,6 +43,7 @@ data class WordEntryJson(
 
 data class InflectedFormInfo(
     val lemma: String,
+    val part_of_speech: String?,
     val person: String?,
     val number: String?,
     val tense: String?,

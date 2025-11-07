@@ -16,8 +16,18 @@ interface WordRepository : JpaRepository<Word, Long> {
     @Query("""
         SELECT w FROM Word w
         WHERE w.languageCode = :languageCode
-        AND LOWER(w.lemma) LIKE LOWER(CONCAT('%', :query, '%'))
-        ORDER BY w.frequencyRank NULLS LAST, w.lemma
+        AND LOWER(w.normalized) LIKE LOWER(CONCAT('%', :query, '%'))
+        ORDER BY
+          CASE
+            WHEN LOWER(w.lemma) = LOWER(:query) THEN 0
+            WHEN LOWER(w.lemma) LIKE LOWER(CONCAT(:query, '%')) THEN 1
+            WHEN LOWER(w.normalized) = LOWER(:query) THEN 2
+            WHEN LOWER(w.normalized) LIKE LOWER(CONCAT(:query, '%')) THEN 3
+            ELSE 4
+          END,
+          w.frequencyRank NULLS LAST,
+          w.lemma
+        LIMIT 2000
     """)
     fun searchByLemma(
         @Param("languageCode") languageCode: String,
@@ -30,10 +40,10 @@ interface WordRepository : JpaRepository<Word, Long> {
         WHERE w.languageCode = :languageCode
         AND w.lemma = :lemma
     """)
-    fun findWithDefinitions(
+    fun findAllWithDefinitions(
         @Param("languageCode") languageCode: String,
         @Param("lemma") lemma: String
-    ): Word?
+    ): List<Word>
 
     fun findByIsInflectedFormTrueAndLemmaId(lemmaId: Long): List<Word>
 

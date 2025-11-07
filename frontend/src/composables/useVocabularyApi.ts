@@ -45,6 +45,12 @@ export interface InflectedForm {
   grammaticalFeatures: Record<string, any> | null
 }
 
+export interface BaseForm {
+  id: number
+  lemma: string
+  partOfSpeech: string | null
+}
+
 export interface Word {
   id: number
   languageCode: string
@@ -56,6 +62,7 @@ export interface Word {
   isInflectedForm: boolean
   lemmaId: number | null
   grammaticalFeatures: Record<string, any> | null
+  baseForm: BaseForm | null
   definitions: Definition[]
   pronunciations: Pronunciation[]
   inflectedForms: InflectedForm[]

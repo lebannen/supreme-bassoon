@@ -135,12 +135,15 @@ class LanguageExtractor:
                 lang_section = extract_language_section(wikitext, language)
 
                 if lang_section:
-                    # Parse the section
-                    parsed = parse_entry(language, title, lang_section)
+                    # Parse the section (returns list of entries, one per POS)
+                    parsed_entries = parse_entry(language, title, lang_section)
 
-                    # Write to output
-                    self.write_entry(language, parsed)
-                    extracted_count += 1
+                    # Write each entry (one per POS section)
+                    for parsed in parsed_entries:
+                        self.write_entry(language, parsed)
+
+                    if parsed_entries:
+                        extracted_count += 1
 
             except Exception as e:
                 self.stats['errors'] += 1

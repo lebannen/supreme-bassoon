@@ -24,51 +24,188 @@ class WikitextParser:
         self.lemma = lemma
         self.wikitext = wikitext
 
-    def parse(self) -> Dict[str, Any]:
+    def parse(self) -> List[Dict[str, Any]]:
         """
         Parse the wikitext and return structured data.
 
         Detects if this is an inflected form entry or a lemma entry
-        and parses accordingly.
+        and parses accordingly. For lemma entries with multiple POS sections,
+        returns one entry per POS.
+
+        Returns:
+            List of entries (one per POS section for lemmas, or one for inflected forms)
         """
         # Check if this is an inflected form
         inflected_info = self._detect_inflected_form()
 
         if inflected_info:
-            # Parse as inflected form
+            # Parse as inflected form - return single entry
             result = {
                 "language": self.language,
                 "word": self.lemma,
                 "is_inflected_form": True,
-                "lemma": inflected_info["lemma"],
-                "form_type": inflected_info["form_type"],
+                "inflected_form_of": {
+                    "lemma": inflected_info["lemma"],
+                    "part_of_speech": inflected_info.get("part_of_speech"),
+                    "person": inflected_info["features"].get("person"),
+                    "number": inflected_info["features"].get("number"),
+                    "tense": inflected_info["features"].get("tense"),
+                    "mood": inflected_info["features"].get("mood"),
+                    "gender": inflected_info["features"].get("gender"),
+                    "case": inflected_info["features"].get("case")
+                },
+                "part_of_speech": inflected_info.get("part_of_speech"),
                 "grammatical_features": inflected_info["features"],
                 "pronunciations": self._extract_pronunciations(),
                 "metadata": {
                     "parsed_at": datetime.now().isoformat(),
-                    "parser_version": "0.1.0"
+                    "parser_version": "0.2.0"
                 }
             }
+            return [result]
         else:
-            # Parse as lemma (main entry)
-            result = {
+            # Parse as lemma - split by POS sections
+            return self._parse_pos_sections()
+
+    def _parse_pos_sections(self) -> List[Dict[str, Any]]:
+        """
+        Parse multiple POS sections and return one entry per POS.
+
+        For entries like "avoir" which has both ===Noun=== and ===Verb===,
+        this creates separate JSON entries for each.
+        """
+        entries = []
+
+        # Find all POS section headers
+        pos_pattern = r'^===\s*(Noun|Verb|Adjective|Adverb|Pronoun|Preposition|Conjunction|Interjection|Particle|Determiner|Article|Numeral|Proper noun|Phrase)\s*===\s*$'
+
+        # Split wikitext by POS headers
+        lines = self.wikitext.split('\n')
+        current_pos = None
+        current_section_lines = []
+
+        # Extract etymology and pronunciation once (shared across POS)
+        etymology = self._extract_etymology()
+        pronunciations = self._extract_pronunciations()
+
+        for i, line in enumerate(lines):
+            pos_match = re.match(pos_pattern, line, re.IGNORECASE)
+
+            if pos_match:
+                # Save previous section if any
+                if current_pos and current_section_lines:
+                    section_text = '\n'.join(current_section_lines)
+                    entry = self._parse_single_pos_section(
+                        current_pos, section_text, etymology, pronunciations
+                    )
+                    if entry:
+                        entries.append(entry)
+
+                # Start new section
+                current_pos = pos_match.group(1).strip()
+                current_section_lines = [line]
+            elif current_pos:
+                # Stop at next level-3 header that's not a POS
+                if re.match(r'^===\s*[^=]', line) and not pos_match:
+                    # Save current section and stop
+                    if current_section_lines:
+                        section_text = '\n'.join(current_section_lines)
+                        entry = self._parse_single_pos_section(
+                            current_pos, section_text, etymology, pronunciations
+                        )
+                        if entry:
+                            entries.append(entry)
+                    current_pos = None
+                    current_section_lines = []
+                else:
+                    current_section_lines.append(line)
+
+        # Handle last section
+        if current_pos and current_section_lines:
+            section_text = '\n'.join(current_section_lines)
+            entry = self._parse_single_pos_section(
+                current_pos, section_text, etymology, pronunciations
+            )
+            if entry:
+                entries.append(entry)
+
+        # If no POS sections found, parse as single entry (legacy behavior)
+        if not entries:
+            entry = {
                 "language": self.language,
                 "lemma": self.lemma,
                 "is_inflected_form": False,
                 "part_of_speech": self._extract_pos(),
-                "pronunciations": self._extract_pronunciations(),
-                "etymology": self._extract_etymology(),
+                "pronunciations": pronunciations,
+                "etymology": etymology,
                 "definitions": self._extract_definitions(),
                 "word_forms": self._extract_word_forms(),
-                "related_words": [],  # TODO: implement
-                "translations": {},  # TODO: implement
+                "related_words": [],
+                "translations": {},
                 "metadata": {
                     "parsed_at": datetime.now().isoformat(),
-                    "parser_version": "0.1.0"
+                    "parser_version": "0.2.0"
                 }
             }
+            entries.append(entry)
 
-        return result
+        return entries
+
+    def _parse_single_pos_section(
+        self,
+        pos: str,
+        section_text: str,
+        etymology: Optional[str],
+        pronunciations: List[Dict[str, Any]]
+    ) -> Optional[Dict[str, Any]]:
+        """
+        Parse a single POS section.
+        """
+        # Normalize POS
+        pos_map = {
+            'Noun': 'noun',
+            'Verb': 'verb',
+            'Adjective': 'adjective',
+            'Adverb': 'adverb',
+            'Pronoun': 'pronoun',
+            'Preposition': 'preposition',
+            'Conjunction': 'conjunction',
+            'Interjection': 'interjection',
+            'Particle': 'particle',
+            'Determiner': 'determiner',
+            'Article': 'article',
+            'Numeral': 'numeral',
+            'Proper noun': 'proper_noun',
+            'Phrase': 'phrase',
+        }
+
+        normalized_pos = pos_map.get(pos, pos.lower())
+
+        # Create a temporary parser with just this section
+        temp_parser = WikitextParser(self.language, self.lemma, section_text)
+        definitions = temp_parser._extract_definitions()
+        word_forms = temp_parser._extract_word_forms()
+
+        # Skip empty sections (no definitions)
+        if not definitions:
+            return None
+
+        return {
+            "language": self.language,
+            "lemma": self.lemma,
+            "is_inflected_form": False,
+            "part_of_speech": normalized_pos,
+            "pronunciations": pronunciations,
+            "etymology": etymology,
+            "definitions": definitions,
+            "word_forms": word_forms,
+            "related_words": [],
+            "translations": {},
+            "metadata": {
+                "parsed_at": datetime.now().isoformat(),
+                "parser_version": "0.2.0"
+            }
+        }
 
     def _detect_inflected_form(self) -> Optional[Dict[str, Any]]:
         """
@@ -77,6 +214,21 @@ class WikitextParser:
         Returns None if this is a lemma (main entry).
         Returns dict with lemma, form_type, and features if inflected form.
         """
+        # First check for {{head|lang|verb form}}, {{head|lang|noun form}}, etc. to extract POS
+        pos_from_head = None
+        head_match = re.search(r'\{\{head\|[^|]+\|(verb|noun|adj|adv|participle|gerund) form\}\}', self.wikitext)
+        if head_match:
+            form_type = head_match.group(1)
+            # Map form type to part of speech
+            if form_type in ('verb', 'participle', 'gerund'):
+                pos_from_head = 'verb'
+            elif form_type == 'noun':
+                pos_from_head = 'noun'
+            elif form_type == 'adj':
+                pos_from_head = 'adjective'
+            elif form_type == 'adv':
+                pos_from_head = 'adverb'
+
         # Look for form-of templates:
         # {{verb form of|de|laufen||1|s|pres}}
         # {{noun form of|...}}
@@ -99,16 +251,20 @@ class WikitextParser:
         for pattern in form_of_patterns:
             match = re.search(pattern, self.wikitext)
             if match:
-                return self._parse_form_of_template(match.group(0))
+                result = self._parse_form_of_template(match.group(0))
+                # If form-of template didn't provide POS, use the one from head template
+                if result and not result.get("part_of_speech") and pos_from_head:
+                    result["part_of_speech"] = pos_from_head
+                return result
 
-        # Also check for {{head|lang|verb form}}, {{head|lang|noun form}}, etc.
-        head_match = re.search(r'\{\{head\|[^|]+\|(verb|noun|adj|adv|participle|gerund) form\}\}', self.wikitext)
+        # If we have head template indicating form but no form-of template, try broader search
         if head_match:
-            # If we have a head template indicating form, but no form-of template yet,
-            # try to find the form-of template more broadly
             form_of_match = re.search(r'\{\{[^}]*form of[^}]+\}\}', self.wikitext, re.IGNORECASE)
             if form_of_match:
-                return self._parse_form_of_template(form_of_match.group(0))
+                result = self._parse_form_of_template(form_of_match.group(0))
+                if result and not result.get("part_of_speech") and pos_from_head:
+                    result["part_of_speech"] = pos_from_head
+                return result
 
         return None
 
@@ -139,18 +295,23 @@ class WikitextParser:
 
         template_name = parts[0]
 
-        # Determine form type from template name
+        # Determine form type and part of speech from template name
         if 'verb form' in template_name:
             result["form_type"] = "verb_form"
+            result["part_of_speech"] = "verb"
         elif 'noun form' in template_name:
             result["form_type"] = "noun_form"
+            result["part_of_speech"] = "noun"
         elif 'adj form' in template_name or 'adjective form' in template_name:
             result["form_type"] = "adjective_form"
+            result["part_of_speech"] = "adjective"
         elif 'past participle' in template_name:
             result["form_type"] = "participle"
+            result["part_of_speech"] = "verb"
             result["features"]["participle"] = "past"
         elif 'present participle' in template_name or 'gerund' in template_name:
             result["form_type"] = "participle"
+            result["part_of_speech"] = "verb"
             result["features"]["participle"] = "present"
         else:
             result["form_type"] = "inflected_form"
@@ -586,7 +747,7 @@ class WikitextParser:
         return text
 
 
-def parse_entry(language: str, lemma: str, wikitext: str) -> Dict[str, Any]:
+def parse_entry(language: str, lemma: str, wikitext: str) -> List[Dict[str, Any]]:
     """
     Parse a single language section from a Wiktionary entry.
 
@@ -596,7 +757,7 @@ def parse_entry(language: str, lemma: str, wikitext: str) -> Dict[str, Any]:
         wikitext: Wikitext content for this language section
 
     Returns:
-        Structured dictionary with parsed data
+        List of structured dictionaries (one per POS section for lemmas)
     """
     parser = WikitextParser(language, lemma, wikitext)
     return parser.parse()

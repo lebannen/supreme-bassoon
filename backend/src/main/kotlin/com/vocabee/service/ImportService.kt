@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory
 import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import jakarta.persistence.EntityManager
 import java.io.BufferedReader
 import java.io.InputStream
 import java.io.InputStreamReader
@@ -22,7 +23,8 @@ import java.util.zip.GZIPInputStream
 class ImportService(
     private val wordRepository: WordRepository,
     private val languageRepository: LanguageRepository,
-    private val objectMapper: ObjectMapper
+    private val objectMapper: ObjectMapper,
+    private val entityManager: EntityManager
 ) {
     private val logger = LoggerFactory.getLogger(ImportService::class.java)
     private val progressMap = ConcurrentHashMap<String, ImportProgress>()
@@ -30,6 +32,13 @@ class ImportService(
     companion object {
         const val BATCH_SIZE = 50
     }
+
+    data class ImportStats(
+        val processedEntries: Long,
+        val successfulEntries: Long,
+        val failedEntries: Long,
+        val currentBatch: Int
+    )
 
     fun getProgress(importId: String): ImportProgress? = progressMap[importId]
 
@@ -106,85 +115,154 @@ class ImportService(
     private fun processJsonlFile(importId: String, languageCode: String, fileBytes: ByteArray) {
         logger.info("Starting to process JSONL file for import $importId, ${fileBytes.size} bytes")
 
-        // First pass: count total entries
-        val countReader = BufferedReader(InputStreamReader(fileBytes.inputStream(), Charsets.UTF_8))
-        val totalEntries = countReader.useLines { it.count().toLong() }
-        logger.info("Import $importId: Counted $totalEntries total entries")
-
-        updateProgress(importId) {
-            it.copy(
-                totalEntries = totalEntries,
-                message = "Processing entries..."
-            )
-        }
+        // Cache for lemma lookup (word -> word ID)
+        val lemmaCache = mutableMapOf<String, Long>()
 
         var processedEntries = 0L
         var successfulEntries = 0L
         var failedEntries = 0L
-        var currentBatch = 0
 
-        val wordBatch = mutableListOf<Word>()
+        // First pass: count and separate entries
+        logger.info("Import $importId: Parsing and separating entries...")
+        val baseFormEntries = mutableListOf<WordEntryJson>()
+        val inflectedFormEntries = mutableListOf<WordEntryJson>()
 
-        // Cache for lemma lookup (word -> word ID)
-        val lemmaCache = mutableMapOf<String, Long>()
-
-        // Second pass: process entries
-        val processReader = BufferedReader(InputStreamReader(fileBytes.inputStream(), Charsets.UTF_8))
-        logger.info("Import $importId: Starting to process entries")
-
-        processReader.useLines { lines ->
+        val parseReader = BufferedReader(InputStreamReader(fileBytes.inputStream(), Charsets.UTF_8))
+        parseReader.useLines { lines ->
             lines.forEach { line ->
                 try {
                     val entry = objectMapper.readValue<WordEntryJson>(line)
-
-                    val word = createWordFromEntry(languageCode, entry, lemmaCache)
-                    wordBatch.add(word)
-
-                    // Process batch when it reaches BATCH_SIZE
-                    if (wordBatch.size >= BATCH_SIZE) {
-                        logger.info("Import $importId: Processing batch $currentBatch with ${wordBatch.size} words")
-                        try {
-                            val savedCount = processBatch(wordBatch, lemmaCache, languageCode)
-                            currentBatch++
-                            successfulEntries += savedCount
-                            logger.info("Import $importId: Batch ${currentBatch-1} saved successfully, total successful: $successfulEntries")
-                        } catch (e: Exception) {
-                            logger.warn("Import $importId: Batch $currentBatch failed, retrying word-by-word: ${e.javaClass.simpleName} - ${e.message}")
-                            // Retry word by word to isolate problematic entries
-                            wordBatch.forEach { word ->
-                                try {
-                                    val savedCount = processBatch(listOf(word), lemmaCache, languageCode)
-                                    successfulEntries += savedCount
-                                } catch (wordError: Exception) {
-                                    logger.warn("Import $importId: Failed to save word '${word.lemma}': ${wordError.javaClass.simpleName} - ${wordError.message}")
-                                    failedEntries++
-                                }
-                            }
-                            currentBatch++
-                        }
-                        wordBatch.clear()
-                    }
-
-                    processedEntries++
-
-                    // Update progress every 100 entries
-                    if (processedEntries % 100 == 0L) {
-                        logger.debug("Import $importId: Processed $processedEntries/$totalEntries entries")
-                        updateProgress(importId) {
-                            it.copy(
-                                processedEntries = processedEntries,
-                                successfulEntries = successfulEntries,
-                                failedEntries = failedEntries,
-                                currentBatch = currentBatch,
-                                message = "Processing entry $processedEntries of $totalEntries"
-                            )
-                        }
+                    if (entry.is_inflected_form == true) {
+                        inflectedFormEntries.add(entry)
+                    } else {
+                        baseFormEntries.add(entry)
                     }
                 } catch (e: Exception) {
-                    logger.warn("Import $importId: Failed to process entry at line $processedEntries: ${e.javaClass.simpleName} - ${e.message}")
-                    failedEntries++
-                    processedEntries++
+                    logger.warn("Import $importId: Failed to parse entry: ${e.message}")
                 }
+            }
+        }
+
+        val totalEntries = (baseFormEntries.size + inflectedFormEntries.size).toLong()
+        logger.info("Import $importId: Found ${baseFormEntries.size} base forms and ${inflectedFormEntries.size} inflected forms")
+
+        updateProgress(importId) {
+            it.copy(
+                totalEntries = totalEntries,
+                message = "Processing base forms..."
+            )
+        }
+
+        // Second pass: process base forms first
+        logger.info("Import $importId: Processing base forms...")
+        var currentBatch = 0
+        processEntryList(
+            importId, languageCode, baseFormEntries, lemmaCache, totalEntries,
+            processedEntries, successfulEntries, failedEntries, currentBatch
+        ).also {
+            processedEntries = it.processedEntries
+            successfulEntries = it.successfulEntries
+            failedEntries = it.failedEntries
+            currentBatch = it.currentBatch
+        }
+
+        updateProgress(importId) {
+            it.copy(
+                processedEntries = processedEntries,
+                successfulEntries = successfulEntries,
+                failedEntries = failedEntries,
+                message = "Processing inflected forms..."
+            )
+        }
+
+        // Third pass: process inflected forms
+        logger.info("Import $importId: Processing inflected forms...")
+        processEntryList(
+            importId, languageCode, inflectedFormEntries, lemmaCache, totalEntries,
+            processedEntries, successfulEntries, failedEntries, currentBatch
+        ).also {
+            processedEntries = it.processedEntries
+            successfulEntries = it.successfulEntries
+            failedEntries = it.failedEntries
+        }
+
+        updateProgress(importId) {
+            it.copy(
+                processedEntries = processedEntries,
+                successfulEntries = successfulEntries,
+                failedEntries = failedEntries,
+                message = "Import completed: $successfulEntries successful, $failedEntries failed"
+            )
+        }
+    }
+
+    private fun processEntryList(
+        importId: String,
+        languageCode: String,
+        entries: List<WordEntryJson>,
+        lemmaCache: MutableMap<String, Long>,
+        totalEntries: Long,
+        startProcessed: Long,
+        startSuccessful: Long,
+        startFailed: Long,
+        startBatch: Int
+    ): ImportStats {
+        var processedEntries = startProcessed
+        var successfulEntries = startSuccessful
+        var failedEntries = startFailed
+        var currentBatch = startBatch
+
+        val wordBatch = mutableListOf<Word>()
+
+        entries.forEach { entry ->
+            try {
+                val word = createWordFromEntry(languageCode, entry, lemmaCache)
+                wordBatch.add(word)
+
+                // Process batch when it reaches BATCH_SIZE
+                if (wordBatch.size >= BATCH_SIZE) {
+                    logger.info("Import $importId: Processing batch $currentBatch with ${wordBatch.size} words")
+                    try {
+                        val savedCount = processBatch(wordBatch, lemmaCache, languageCode)
+                        currentBatch++
+                        successfulEntries += savedCount
+                        logger.info("Import $importId: Batch ${currentBatch-1} saved successfully, total successful: $successfulEntries")
+                    } catch (e: Exception) {
+                        logger.warn("Import $importId: Batch $currentBatch failed, retrying word-by-word: ${e.javaClass.simpleName} - ${e.message}")
+                        // Retry word by word to isolate problematic entries
+                        wordBatch.forEach { word ->
+                            try {
+                                val savedCount = processBatch(listOf(word), lemmaCache, languageCode)
+                                successfulEntries += savedCount
+                            } catch (wordError: Exception) {
+                                logger.warn("Import $importId: Failed to save word '${word.lemma}': ${wordError.javaClass.simpleName} - ${wordError.message}")
+                                failedEntries++
+                            }
+                        }
+                        currentBatch++
+                    }
+                    wordBatch.clear()
+                }
+
+                processedEntries++
+
+                // Update progress every 100 entries
+                if (processedEntries % 100 == 0L) {
+                    logger.debug("Import $importId: Processed $processedEntries/$totalEntries entries")
+                    updateProgress(importId) {
+                        it.copy(
+                            processedEntries = processedEntries,
+                            successfulEntries = successfulEntries,
+                            failedEntries = failedEntries,
+                            currentBatch = currentBatch,
+                            message = "Processing entry $processedEntries of $totalEntries"
+                        )
+                    }
+                }
+            } catch (e: Exception) {
+                logger.warn("Import $importId: Failed to process entry at line $processedEntries: ${e.javaClass.simpleName} - ${e.message}")
+                failedEntries++
+                processedEntries++
             }
         }
 
@@ -216,6 +294,8 @@ class ImportService(
                 message = "Import completed: $successfulEntries successful, $failedEntries failed"
             )
         }
+
+        return ImportStats(processedEntries, successfulEntries, failedEntries, currentBatch)
     }
 
     @Transactional
@@ -252,7 +332,9 @@ class ImportService(
         val isInflectedForm = entry.is_inflected_form ?: false
 
         val lemmaId = if (isInflectedForm && entry.inflected_form_of != null) {
-            val lemmaKey = "${entry.inflected_form_of.lemma}|${entry.part_of_speech}"
+            // Use part_of_speech from inflected_form_of structure, fallback to entry.part_of_speech
+            val pos = entry.inflected_form_of.part_of_speech ?: entry.part_of_speech
+            val lemmaKey = "${entry.inflected_form_of.lemma}|${pos}"
             lemmaCache[lemmaKey]
         } else null
 
@@ -267,11 +349,18 @@ class ImportService(
             }.takeIf { it.isNotEmpty() }
         } else null
 
+        // For inflected forms, use part_of_speech from inflected_form_of, fallback to entry
+        val partOfSpeech = if (isInflectedForm && entry.inflected_form_of != null) {
+            entry.inflected_form_of.part_of_speech ?: entry.part_of_speech
+        } else {
+            entry.part_of_speech
+        }
+
         val word = Word(
             languageCode = languageCode,
             lemma = wordText,
             normalized = normalized,
-            partOfSpeech = entry.part_of_speech,
+            partOfSpeech = partOfSpeech,
             etymology = entry.etymology,
             usageNotes = entry.usage_notes,
             isInflectedForm = isInflectedForm,
@@ -331,8 +420,17 @@ class ImportService(
     fun clearAllWords(): Long {
         logger.info("Clearing all words from database")
         val count = wordRepository.count()
-        wordRepository.deleteAll()
-        logger.info("Deleted $count words from database")
+
+        // Use TRUNCATE for much faster deletion
+        // TRUNCATE words CASCADE will automatically truncate all dependent tables
+        // (examples, definitions, pronunciations) due to foreign key relationships
+        logger.info("Truncating tables...")
+
+        // PostgreSQL TRUNCATE with CASCADE and RESTART IDENTITY
+        // This is much faster than DELETE as it doesn't scan the table row-by-row
+        entityManager.createNativeQuery("TRUNCATE TABLE words RESTART IDENTITY CASCADE").executeUpdate()
+
+        logger.info("Deleted $count words from database using TRUNCATE")
         return count
     }
 

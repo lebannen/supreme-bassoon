@@ -275,7 +275,13 @@ onUnmounted(() => {
 .import-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 1.5rem;
+}
+
+h1 {
+  color: var(--text-color);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 .description {
@@ -285,29 +291,35 @@ onUnmounted(() => {
 
 .upload-section {
   background: var(--surface-card);
-  padding: 2rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--surface-border);
+  margin-bottom: 1.5rem;
 }
 
 .field {
   margin-bottom: 1.5rem;
 }
 
+.field:last-child {
+  margin-bottom: 0;
+}
+
 .field label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
+  color: var(--text-color);
 }
 
 .button-group {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
 }
 
 .progress-section {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .progress-info {
@@ -325,8 +337,9 @@ onUnmounted(() => {
 .stat {
   text-align: center;
   padding: 1rem;
-  background: var(--surface-ground);
-  border-radius: 6px;
+  background: var(--surface-section);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--border-radius);
 }
 
 .stat label {
@@ -339,6 +352,7 @@ onUnmounted(() => {
 .stat span {
   font-size: 1.5rem;
   font-weight: 600;
+  color: var(--text-color);
 }
 
 .progress-bar-container {
@@ -359,5 +373,29 @@ onUnmounted(() => {
 
 .history-section h2 {
   margin-bottom: 1rem;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .import-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .upload-section {
+    padding: 1.25rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .button-group button {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 </style>

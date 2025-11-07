@@ -11,6 +11,7 @@ data class WordDto(
     val isInflectedForm: Boolean = false,
     val lemmaId: Long? = null,
     val grammaticalFeatures: Map<String, Any>? = null,
+    val baseForm: BaseFormDto? = null,
     val definitions: List<DefinitionDto> = emptyList(),
     val pronunciations: List<PronunciationDto> = emptyList(),
     val inflectedForms: List<InflectedFormDto> = emptyList()
@@ -35,6 +36,12 @@ data class InflectedFormDto(
     val form: String,
     val partOfSpeech: String?,
     val grammaticalFeatures: Map<String, Any>?
+)
+
+data class BaseFormDto(
+    val id: Long,
+    val lemma: String,
+    val partOfSpeech: String?
 )
 
 data class ExampleDto(
