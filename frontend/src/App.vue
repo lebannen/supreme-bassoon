@@ -18,6 +18,11 @@ const items = ref([
     command: () => router.push('/search')
   },
   {
+    label: 'Book',
+    icon: 'pi pi-book',
+    command: () => router.push('/book')
+  },
+  {
     label: 'Import',
     icon: 'pi pi-upload',
     command: () => router.push('/import')
