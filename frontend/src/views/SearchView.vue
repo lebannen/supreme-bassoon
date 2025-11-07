@@ -67,187 +67,104 @@
       <p>No words found for "{{ searchQuery }}"</p>
     </div>
 
-    <Dialog v-model:visible="showWordDialog" :header="selectedWord?.lemma" :modal="true" :style="{ width: '50vw' }" :breakpoints="{ '960px': '75vw', '640px': '90vw' }">
-      <div v-if="selectedWord && !isLoadingWord" class="word-details">
-        <div class="word-header">
-          <div class="word-title">
-            <h2>{{ selectedWord.lemma }}</h2>
-            <Tag v-if="selectedWord.partOfSpeech" :value="selectedWord.partOfSpeech" severity="info" />
-            <Tag v-if="selectedWord.isInflectedForm" value="inflected form" severity="secondary" />
-          </div>
-        </div>
-
-        <div v-if="selectedWord.baseForm" class="base-form-section">
-          <h3>Base Form</h3>
-          <div class="base-form-info">
-            <a class="base-form-lemma" @click="loadBaseForm(selectedWord.baseForm.lemma)">
-              {{ selectedWord.baseForm.lemma }}
-            </a>
-            <Tag v-if="selectedWord.baseForm.partOfSpeech" :value="selectedWord.baseForm.partOfSpeech" severity="info" />
-          </div>
-          <div v-if="selectedWord.grammaticalFeatures" class="grammatical-features">
-            <Tag
-              v-for="(value, key) in selectedWord.grammaticalFeatures"
-              :key="key"
-              :value="`${key}: ${value}`"
-              severity="secondary"
-            />
-          </div>
-        </div>
-
-        <div v-if="selectedWord.definitions.length > 0" class="definitions">
-          <h3>Definitions</h3>
-          <div v-for="def in selectedWord.definitions" :key="def.id" class="definition">
-            <div class="definition-text">
-              <span class="definition-number">{{ def.definitionNumber }}.</span>
-              {{ def.definitionText }}
-            </div>
-            <div v-if="def.examples.length > 0" class="examples">
-              <div v-for="example in def.examples" :key="example.id" class="example">
-                <i class="pi pi-angle-right"></i>
-                <span class="example-text">{{ example.sentenceText }}</span>
-                <span v-if="example.translation" class="example-translation">{{ example.translation }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div v-if="selectedWord.etymology" class="etymology">
-          <h3>Etymology</h3>
-          <p>{{ selectedWord.etymology }}</p>
-        </div>
-
-        <div v-if="selectedWord.usageNotes" class="usage-notes">
-          <h3>Usage Notes</h3>
-          <p>{{ selectedWord.usageNotes }}</p>
-        </div>
-
-        <div v-if="selectedWord.inflectedForms.length > 0" class="inflected-forms">
-          <h3>Inflected Forms</h3>
-          <div class="forms-grid">
-            <Tag v-for="form in selectedWord.inflectedForms" :key="form.id" :value="form.form" />
-          </div>
-        </div>
-      </div>
-      <div v-else-if="isLoadingWord" class="loading-word">
-        <ProgressSpinner />
-      </div>
-      <div v-else-if="wordError" class="word-error">
-        <Message severity="error" :closable="false">{{ wordError }}</Message>
-      </div>
-    </Dialog>
+    <WordCard
+      v-model:visible="showWordDialog"
+      :word="selectedWord"
+      :loading="isLoadingWord"
+      :error="wordError"
+      @word-click="loadWord"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import Select from 'primevue/select'
-import InputText from 'primevue/inputtext'
-import Button from 'primevue/button'
-import DataTable from 'primevue/datatable'
-import Column from 'primevue/column'
-import Tag from 'primevue/tag'
-import Message from 'primevue/message'
-import Dialog from 'primevue/dialog'
-import ProgressSpinner from 'primevue/progressspinner'
-import { useVocabularyApi, type Language, type SearchResult, type Word, type WordSummary } from '../composables/useVocabularyApi'
+import { ref, onMounted } from 'vue';
+import Select from 'primevue/select';
+import InputText from 'primevue/inputtext';
+import Button from 'primevue/button';
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+import Tag from 'primevue/tag';
+import Message from 'primevue/message';
+import WordCard from '../components/WordCard.vue';
+import { useVocabularyApi, type Language, type SearchResult, type Word, type WordSummary } from '../composables/useVocabularyApi';
 
-const { getLanguages, searchWords, getWord } = useVocabularyApi()
+const { getLanguages, searchWords, getWord } = useVocabularyApi();
 
-const languages = ref<Language[]>([])
-const selectedLanguage = ref<string>('')
-const searchQuery = ref<string>('')
-const searchResults = ref<SearchResult | null>(null)
-const hasSearched = ref(false)
-const isLoadingLanguages = ref(false)
-const isSearching = ref(false)
-const searchError = ref<string | null>(null)
+const languages = ref<Language[]>([]);
+const selectedLanguage = ref<string>('');
+const searchQuery = ref<string>('');
+const searchResults = ref<SearchResult | null>(null);
+const hasSearched = ref(false);
+const isLoadingLanguages = ref(false);
+const isSearching = ref(false);
+const searchError = ref<string | null>(null);
 
-const showWordDialog = ref(false)
-const selectedWord = ref<Word | null>(null)
-const isLoadingWord = ref(false)
-const wordError = ref<string | null>(null)
+const showWordDialog = ref(false);
+const selectedWord = ref<Word | null>(null);
+const isLoadingWord = ref(false);
+const wordError = ref<string | null>(null);
 
 async function loadLanguages() {
-  isLoadingLanguages.value = true
+  isLoadingLanguages.value = true;
   try {
-    languages.value = await getLanguages()
-    // Auto-select first language if available
+    languages.value = await getLanguages();
     if (languages.value.length > 0) {
-      selectedLanguage.value = languages.value[0].code
+      selectedLanguage.value = languages.value[0].code;
     }
   } catch (error) {
-    searchError.value = 'Failed to load languages'
+    searchError.value = 'Failed to load languages';
   } finally {
-    isLoadingLanguages.value = false
+    isLoadingLanguages.value = false;
   }
 }
 
 async function performSearch() {
   if (!selectedLanguage.value || !searchQuery.value.trim()) {
-    return
+    return;
   }
-
-  isSearching.value = true
-  searchError.value = null
-  hasSearched.value = true
-
+  isSearching.value = true;
+  searchError.value = null;
+  hasSearched.value = true;
   try {
-    const results = await searchWords(selectedLanguage.value, searchQuery.value.trim())
-    searchResults.value = results
+    const results = await searchWords(selectedLanguage.value, searchQuery.value.trim());
+    searchResults.value = results;
   } catch (error) {
-    searchError.value = 'Search failed. Please try again.'
+    searchError.value = 'Search failed. Please try again.';
   } finally {
-    isSearching.value = false
+    isSearching.value = false;
   }
 }
 
-async function onWordSelect(event: { data: WordSummary }) {
-  if (!selectedLanguage.value) return
-
-  isLoadingWord.value = true
-  wordError.value = null
-  showWordDialog.value = true
-  selectedWord.value = null
-
-  try {
-    const word = await getWord(selectedLanguage.value, event.data.lemma)
-    if (word) {
-      selectedWord.value = word
-    } else {
-      wordError.value = 'Word details not found'
-    }
-  } catch (error) {
-    wordError.value = 'Failed to load word details'
-  } finally {
-    isLoadingWord.value = false
-  }
+function onWordSelect(event: { data: WordSummary }) {
+  loadWord(event.data.lemma);
 }
 
-async function loadBaseForm(lemma: string) {
-  if (!selectedLanguage.value) return
+async function loadWord(lemma: string) {
+  if (!selectedLanguage.value) return;
 
-  isLoadingWord.value = true
-  wordError.value = null
-  selectedWord.value = null
+  showWordDialog.value = true;
+  isLoadingWord.value = true;
+  wordError.value = null;
+  selectedWord.value = null;
 
   try {
-    const word = await getWord(selectedLanguage.value, lemma)
+    const word = await getWord(selectedLanguage.value, lemma);
     if (word) {
-      selectedWord.value = word
+      selectedWord.value = word;
     } else {
-      wordError.value = 'Word details not found'
+      wordError.value = 'Word details not found';
     }
   } catch (error) {
-    wordError.value = 'Failed to load word details'
+    wordError.value = 'Failed to load word details';
   } finally {
-    isLoadingWord.value = false
+    isLoadingWord.value = false;
   }
 }
 
 onMounted(() => {
-  loadLanguages()
-})
+  loadLanguages();
+});
 </script>
 
 <style scoped>
@@ -325,146 +242,6 @@ h1 {
   color: var(--text-color-secondary);
 }
 
-.word-details {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.word-header {
-  border-bottom: 1px solid var(--surface-border);
-  padding-bottom: 1rem;
-}
-
-.word-title {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.word-title h2 {
-  margin: 0;
-  color: var(--text-color);
-}
-
-.base-form-section {
-  padding: 1rem;
-  background: var(--surface-section);
-  border: 1px solid var(--surface-border);
-  border-radius: var(--border-radius);
-}
-
-.base-form-section h3 {
-  font-size: 1.1rem;
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-  color: var(--text-color-secondary);
-  font-weight: 600;
-}
-
-.base-form-info {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
-.base-form-lemma {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  cursor: pointer;
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-
-.base-form-lemma:hover {
-  opacity: 0.7;
-  text-decoration: underline;
-}
-
-.grammatical-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.definitions h3,
-.etymology h3,
-.usage-notes h3,
-.inflected-forms h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.75rem;
-  color: var(--text-color-secondary);
-  font-weight: 600;
-}
-
-.definition {
-  margin-bottom: 1.5rem;
-}
-
-.definition:last-child {
-  margin-bottom: 0;
-}
-
-.definition-text {
-  margin-bottom: 0.5rem;
-  color: var(--text-color);
-  line-height: 1.6;
-}
-
-.definition-number {
-  font-weight: 600;
-  margin-right: 0.5rem;
-  color: var(--primary-color);
-}
-
-.examples {
-  margin-left: 2rem;
-  margin-top: 0.5rem;
-}
-
-.example {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-style: italic;
-  color: var(--text-color-secondary);
-  line-height: 1.5;
-}
-
-.example-text {
-  flex: 1;
-}
-
-.example-translation {
-  color: var(--text-color);
-  font-style: normal;
-}
-
-.etymology p,
-.usage-notes p {
-  color: var(--text-color-secondary);
-  line-height: 1.7;
-}
-
-.forms-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.loading-word {
-  display: flex;
-  justify-content: center;
-  padding: 3rem;
-}
-
-.word-error {
-  padding: 1rem;
-}
-
 .text-muted {
   color: var(--text-color-secondary);
 }
@@ -480,10 +257,6 @@ h1 {
 
   .search-input-wrapper {
     flex-direction: column;
-  }
-
-  .examples {
-    margin-left: 1rem;
   }
 }
 </style>

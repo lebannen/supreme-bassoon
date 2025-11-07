@@ -2,117 +2,87 @@
   <div class="book-container">
     <div class="book">
       <div class="page-wrapper">
-        <!-- Left static page (hide during backward flip) -->
+        <!-- Left static page -->
         <div class="page left-page" :class="{ hidden: isFlipping && flipDirection === 'backward' }">
-          <div class="page-content">
-            <div class="page-number">{{ currentPage * 2 - 1 }}</div>
-            <div class="page-text">
-              <slot name="left-page" :page="currentPage * 2 - 1">
-                {{ getPageContent(currentPage * 2 - 1) }}
-              </slot>
-            </div>
-          </div>
+          <PageComponent
+            :page-number="currentPage * 2 - 1"
+            :content="getPageContent(currentPage * 2 - 1)"
+            @word-click="$emit('word-click', $event)"
+          />
         </div>
 
-        <!-- Right static page (hide during forward flip) -->
+        <!-- Right static page -->
         <div class="page right-page" :class="{ hidden: isFlipping && flipDirection === 'forward' }">
-          <div class="page-content">
-            <div class="page-number">{{ currentPage * 2 }}</div>
-            <div class="page-text">
-              <slot name="right-page" :page="currentPage * 2">
-                {{ getPageContent(currentPage * 2) }}
-              </slot>
-            </div>
-          </div>
+          <PageComponent
+            :page-number="currentPage * 2"
+            :content="getPageContent(currentPage * 2)"
+            @word-click="$emit('word-click', $event)"
+          />
         </div>
 
-        <!-- Next right page (visible behind flipping page during forward navigation) -->
-        <div
-          v-if="isFlipping && flipDirection === 'forward'"
-          class="page right-page underneath-page underneath-page-right"
-        >
-          <div class="page-content">
-            <div class="page-number">{{ currentPage * 2 + 2 }}</div>
-            <div class="page-text">
-              {{ getPageContent(currentPage * 2 + 2) }}
-            </div>
-          </div>
+        <!-- Next right page (underneath) -->
+        <div v-if="isFlipping && flipDirection === 'forward'" class="page right-page underneath-page underneath-page-right">
+          <PageComponent
+            :page-number="currentPage * 2 + 2"
+            :content="getPageContent(currentPage * 2 + 2)"
+            @word-click="$emit('word-click', $event)"
+          />
         </div>
 
-        <!-- Previous left page (visible behind flipping page during backward navigation) -->
-        <div
-          v-if="isFlipping && flipDirection === 'backward'"
-          class="page left-page underneath-page underneath-page-left"
-        >
-          <div class="page-content">
-            <div class="page-number">{{ currentPage * 2 - 3 }}</div>
-            <div class="page-text">
-              {{ getPageContent(currentPage * 2 - 3) }}
-            </div>
-          </div>
+        <!-- Previous left page (underneath) -->
+        <div v-if="isFlipping && flipDirection === 'backward'" class="page left-page underneath-page underneath-page-left">
+          <PageComponent
+            :page-number="currentPage * 2 - 3"
+            :content="getPageContent(currentPage * 2 - 3)"
+            @word-click="$emit('word-click', $event)"
+          />
         </div>
 
-        <!-- Flipping page for forward navigation -->
-        <div
-          v-if="isFlipping && flipDirection === 'forward'"
-          class="page flipping-page flipping-forward"
-        >
-          <div class="page-content front">
-            <div class="page-number">{{ currentPage * 2 }}</div>
-            <div class="page-text">
-              {{ getPageContent(currentPage * 2) }}
-            </div>
-          </div>
-          <div class="page-content back">
-            <div class="page-number">{{ currentPage * 2 + 1 }}</div>
-            <div class="page-text">
-              {{ getPageContent(currentPage * 2 + 1) }}
-            </div>
-          </div>
+        <!-- Flipping page (forward) -->
+        <div v-if="isFlipping && flipDirection === 'forward'" class="page flipping-page flipping-forward">
+          <PageComponent
+            class="front"
+            :page-number="currentPage * 2"
+            :content="getPageContent(currentPage * 2)"
+            @word-click="$emit('word-click', $event)"
+          />
+          <PageComponent
+            class="back"
+            :page-number="currentPage * 2 + 1"
+            :content="getPageContent(currentPage * 2 + 1)"
+            @word-click="$emit('word-click', $event)"
+          />
         </div>
 
-        <!-- Flipping page for backward navigation -->
-        <div
-          v-if="isFlipping && flipDirection === 'backward'"
-          class="page flipping-page flipping-backward"
-        >
-          <div class="page-content front">
-            <div class="page-number">{{ currentPage * 2 - 1 }}</div>
-            <div class="page-text">
-              {{ getPageContent(currentPage * 2 - 1) }}
-            </div>
-          </div>
-          <div class="page-content back">
-            <div class="page-number">{{ currentPage * 2 - 2 }}</div>
-            <div class="page-text">
-              {{ getPageContent(currentPage * 2 - 2) }}
-            </div>
-          </div>
+        <!-- Flipping page (backward) -->
+        <div v-if="isFlipping && flipDirection === 'backward'" class="page flipping-page flipping-backward">
+          <PageComponent
+            class="front"
+            :page-number="currentPage * 2 - 1"
+            :content="getPageContent(currentPage * 2 - 1)"
+            @word-click="$emit('word-click', $event)"
+          />
+          <PageComponent
+            class="back"
+            :page-number="currentPage * 2 - 2"
+            :content="getPageContent(currentPage * 2 - 2)"
+            @word-click="$emit('word-click', $event)"
+          />
         </div>
       </div>
 
-      <!-- Book spine -->
       <div class="spine"></div>
     </div>
 
-    <!-- Navigation controls -->
     <div class="book-controls">
-      <button
-        class="control-btn prev-btn"
-        @click="previousPage"
-        :disabled="currentPage === 1 || isFlipping"
-      >
+      <button class="control-btn prev-btn" @click="previousPage" :disabled="currentPage === 1 || isFlipping">
         <i class="pi pi-chevron-left"></i>
         Previous
       </button>
       <span class="page-indicator">
         Page {{ currentPage * 2 - 1 }}-{{ currentPage * 2 }} of {{ totalPages }}
       </span>
-      <button
-        class="control-btn next-btn"
-        @click="nextPage"
-        :disabled="currentPage * 2 >= totalPages || isFlipping"
-      >
+      <button class="control-btn next-btn" @click="nextPage" :disabled="currentPage * 2 >= totalPages || isFlipping">
         Next
         <i class="pi pi-chevron-right"></i>
       </button>
@@ -121,73 +91,66 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed } from 'vue';
+import PageComponent from './PageComponent.vue';
 
 interface Props {
-  pages?: string[]
-  content?: string
-  pageSize?: number
+  pages?: string[];
+  content?: string;
+  pageSize?: number;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   pages: () => [],
   content: '',
-  pageSize: 300
-})
+  pageSize: 300,
+});
 
-const currentPage = ref(1)
-const isFlipping = ref(false)
-const flipDirection = ref<'forward' | 'backward'>('forward')
+defineEmits(['word-click']);
 
-const totalPages = computed(() => {
+const currentPage = ref(1);
+const isFlipping = ref(false);
+const flipDirection = ref<'forward' | 'backward'>('forward');
+
+const bookPages = computed(() => {
   if (props.pages.length > 0) {
-    return props.pages.length
+    return props.pages;
   }
   if (props.content) {
-    // Split content into pages based on pageSize
-    return Math.ceil(props.content.length / props.pageSize)
+    const result = [];
+    for (let i = 0; i < props.content.length; i += props.pageSize) {
+      result.push(props.content.substring(i, i + props.pageSize));
+    }
+    return result;
   }
-  return 2
-})
+  return ['Page 1 content', 'Page 2 content'];
+});
+
+const totalPages = computed(() => bookPages.value.length);
 
 function getPageContent(pageNum: number): string {
-  if (pageNum > totalPages.value || pageNum < 1) return ''
-
-  if (props.pages.length > 0) {
-    return props.pages[pageNum - 1] || ''
-  }
-
-  if (props.content) {
-    const start = (pageNum - 1) * props.pageSize
-    const end = start + props.pageSize
-    return props.content.substring(start, end)
-  }
-
-  return `Page ${pageNum} content`
+  if (pageNum < 1 || pageNum > totalPages.value) return '';
+  return bookPages.value[pageNum - 1] || '';
 }
 
-async function nextPage() {
-  if (currentPage.value * 2 >= totalPages.value || isFlipping.value) return
-
-  flipDirection.value = 'forward'
-  isFlipping.value = true
-
+function nextPage() {
+  if (currentPage.value * 2 >= totalPages.value || isFlipping.value) return;
+  flipDirection.value = 'forward';
+  isFlipping.value = true;
   setTimeout(() => {
-    currentPage.value++
-    isFlipping.value = false
-  }, 600)
+    currentPage.value++;
+    isFlipping.value = false;
+  }, 600);
 }
 
-async function previousPage() {
-  if (currentPage.value === 1 || isFlipping.value) return
-
-  flipDirection.value = 'backward'
-  isFlipping.value = true
-
+function previousPage() {
+  if (currentPage.value === 1 || isFlipping.value) return;
+  flipDirection.value = 'backward';
+  isFlipping.value = true;
   setTimeout(() => {
-    currentPage.value--
-    isFlipping.value = false
-  }, 600)
+    currentPage.value--;
+    isFlipping.value = false;
+  }, 600);
 }
 </script>
 
@@ -207,10 +170,7 @@ async function previousPage() {
   height: 600px;
   display: flex;
   transform-style: preserve-3d;
-  background: linear-gradient(to bottom,
-    var(--surface-ground) 0%,
-    var(--surface-section) 50%,
-    var(--surface-ground) 100%);
+  background: linear-gradient(to bottom, var(--surface-ground) 0%, var(--surface-section) 50%, var(--surface-ground) 100%);
   padding: 20px;
   border-radius: 12px;
 }
@@ -286,110 +246,69 @@ async function previousPage() {
 }
 
 @keyframes flipForward {
-  0% {
-    transform: rotateY(0deg);
-  }
-  100% {
-    transform: rotateY(-180deg);
-  }
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(-180deg); }
 }
 
 @keyframes flipBackward {
-  0% {
-    transform: rotateY(0deg);
-  }
-  100% {
-    transform: rotateY(180deg);
-  }
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(180deg); }
 }
 
-.page-content {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  padding: 3rem 2.5rem;
-  backface-visibility: hidden;
-  overflow: hidden;
-  background: #f5f5dc;
-}
-
-@media (prefers-color-scheme: dark) {
-  .page-content {
-    background: #2a2a2a;
-  }
-}
-
-.page-content.front {
+:deep(.page-content.front) {
   transform: rotateY(0deg);
 }
 
-.page-content.back {
+:deep(.page-content.back) {
   transform: rotateY(180deg);
 }
 
-.left-page .page-content {
+.left-page :deep(.page-content) {
   border-radius: 8px 0 0 8px;
 }
 
-.right-page .page-content {
+.right-page :deep(.page-content) {
   border-radius: 0 8px 8px 0;
 }
 
-.flipping-forward .page-content.front {
+.flipping-forward :deep(.page-content.front) {
   border-radius: 0 8px 8px 0;
 }
 
-.flipping-forward .page-content.back {
+.flipping-forward :deep(.page-content.back) {
   border-radius: 8px 0 0 8px;
 }
 
-.flipping-backward .page-content.front {
+.flipping-backward :deep(.page-content.front) {
   border-radius: 8px 0 0 8px;
 }
 
-.flipping-backward .page-content.back {
+.flipping-backward :deep(.page-content.back) {
   border-radius: 0 8px 8px 0;
 }
 
-.page-number {
-  position: absolute;
-  bottom: 2rem;
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
-  font-family: serif;
-}
-
-.left-page .page-number {
+.left-page :deep(.page-number) {
   left: 2.5rem;
 }
 
-.right-page .page-number {
+.right-page :deep(.page-number) {
   right: 2.5rem;
 }
 
-.flipping-forward .page-content.front .page-number {
+.flipping-forward :deep(.front .page-number) {
   right: 2.5rem;
 }
 
-.flipping-forward .page-content.back .page-number {
+.flipping-forward :deep(.back .page-number) {
   left: 2.5rem;
 }
 
-.flipping-backward .page-content.front .page-number {
+.flipping-backward :deep(.front .page-number) {
   left: 2.5rem;
 }
 
-.flipping-backward .page-content.back .page-number {
+.flipping-backward :deep(.back .page-number) {
   right: 2.5rem;
-}
-
-.page-text {
-  font-family: 'Georgia', serif;
-  font-size: 1rem;
-  line-height: 1.8;
-  color: var(--text-color);
-  text-align: justify;
-  white-space: pre-wrap;
 }
 
 .spine {
@@ -398,12 +317,7 @@ async function previousPage() {
   top: 5%;
   bottom: 5%;
   width: 3px;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.2) 50%,
-    rgba(0, 0, 0, 0.1)
-  );
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.1));
   transform: translateX(-50%);
   z-index: 1;
 }
@@ -456,12 +370,10 @@ async function previousPage() {
     width: 600px;
     height: 450px;
   }
-
-  .page-content {
+  :deep(.page-content) {
     padding: 2rem 1.5rem;
   }
-
-  .page-text {
+  :deep(.page-text) {
     font-size: 0.9rem;
   }
 }
@@ -471,12 +383,10 @@ async function previousPage() {
     width: 400px;
     height: 300px;
   }
-
-  .page-content {
+  :deep(.page-content) {
     padding: 1.5rem 1rem;
   }
-
-  .page-text {
+  :deep(.page-text) {
     font-size: 0.8rem;
     line-height: 1.6;
   }
