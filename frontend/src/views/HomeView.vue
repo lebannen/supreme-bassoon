@@ -1,9 +1,25 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
+import { computed } from 'vue'
 import Button from 'primevue/button'
 import Card from 'primevue/card'
+import InlineMessage from 'primevue/inlinemessage'
+import { useAuthStore } from '@/stores/auth'
 
 const router = useRouter()
+const authStore = useAuthStore()
+
+const greetingName = computed(() => {
+  if (!authStore.user) return null
+  return authStore.user.displayName || authStore.user.email?.split('@')[0] || 'there'
+})
+
+const timeBasedGreeting = computed(() => {
+  const hour = new Date().getHours()
+  if (hour < 12) return 'Good morning'
+  if (hour < 18) return 'Good afternoon'
+  return 'Good evening'
+})
 
 const features = [
   {
@@ -33,6 +49,13 @@ const features = [
   <div class="home-container">
     <section class="hero-section">
       <div class="hero-content">
+        <!-- Personalized greeting for authenticated users -->
+        <div v-if="authStore.isAuthenticated" class="welcome-message">
+          <InlineMessage severity="success" icon="pi pi-user">
+            {{ timeBasedGreeting }}, {{ greetingName }}! Welcome back to Vocabee.
+          </InlineMessage>
+        </div>
+
         <h1 class="hero-title">
           <i class="pi pi-book"></i>
           Vocabee
@@ -44,6 +67,14 @@ const features = [
           Explore millions of words across multiple languages with detailed definitions,
           examples, and linguistic insights
         </p>
+
+        <!-- Show login prompt for unauthenticated users -->
+        <div v-if="!authStore.isAuthenticated" class="auth-prompt">
+          <InlineMessage severity="info" icon="pi pi-info-circle">
+            Sign in to unlock personal vocabulary tracking and import features
+          </InlineMessage>
+        </div>
+
         <div class="hero-actions">
           <Button
             label="Start Searching"
@@ -51,13 +82,25 @@ const features = [
             size="large"
             @click="router.push('/search')"
           />
+
+          <!-- Show different secondary action based on auth state -->
           <Button
-            label="Learn More"
-            icon="pi pi-info-circle"
+            v-if="authStore.isAuthenticated"
+            label="My Vocabulary"
+            icon="pi pi-book"
             size="large"
             severity="secondary"
             outlined
-            @click="router.push('/about')"
+            @click="router.push('/book')"
+          />
+          <Button
+            v-else
+            label="Get Started"
+            icon="pi pi-user-plus"
+            size="large"
+            severity="secondary"
+            outlined
+            @click="router.push('/register')"
           />
         </div>
       </div>
@@ -114,6 +157,23 @@ const features = [
 .hero-content {
   max-width: 800px;
   margin: 0 auto;
+}
+
+.welcome-message,
+.auth-prompt {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.welcome-message :deep(.p-inline-message) {
+  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+}
+
+.auth-prompt :deep(.p-inline-message) {
+  font-size: 0.95rem;
+  padding: 0.65rem 1rem;
 }
 
 .hero-title {

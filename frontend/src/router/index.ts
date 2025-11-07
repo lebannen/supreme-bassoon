@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import { useAuthStore } from '@/stores/auth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,6 +11,21 @@ const router = createRouter({
       component: HomeView,
     },
     {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/LoginView.vue'),
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: () => import('../views/RegisterView.vue'),
+    },
+    {
+      path: '/auth/callback',
+      name: 'auth-callback',
+      component: () => import('../views/AuthCallbackView.vue'),
+    },
+    {
       path: '/search',
       name: 'search',
       component: () => import('../views/SearchView.vue'),
@@ -18,6 +34,7 @@ const router = createRouter({
       path: '/import',
       name: 'import',
       component: () => import('../views/ImportView.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/about',
@@ -33,6 +50,25 @@ const router = createRouter({
       component: () => import('../views/BookView.vue'),
     },
   ],
+})
+
+// Navigation guard for authentication
+router.beforeEach((to, from, next) => {
+  const authStore = useAuthStore()
+
+  // Check if the route requires authentication
+  if (to.meta.requiresAuth && !authStore.isAuthenticated) {
+    // Redirect to login page
+    next({
+      name: 'login',
+      query: { redirect: to.fullPath } // Save the intended destination
+    })
+  } else if ((to.name === 'login' || to.name === 'register') && authStore.isAuthenticated) {
+    // If already logged in, redirect to home
+    next({ name: 'home' })
+  } else {
+    next()
+  }
 })
 
 export default router

@@ -8,6 +8,7 @@ import ConfirmationService from 'primevue/confirmationservice'
 
 import App from './App.vue'
 import router from './router'
+import { useAuthStore } from './stores/auth'
 
 // PrimeIcons
 import 'primeicons/primeicons.css'
@@ -25,5 +26,9 @@ app.use(PrimeVue, {
   }
 })
 app.use(ConfirmationService)
+
+// Initialize auth from localStorage
+const authStore = useAuthStore()
+authStore.initAuth()
 
 app.mount('#app')

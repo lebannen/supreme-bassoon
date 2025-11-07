@@ -2,6 +2,9 @@ spring:
   application:
     name: vocabee-backend
 
+  profiles:
+    active: local
+
   datasource:
     url: jdbc:postgresql://localhost:5432/vocabee
     username: vocabee
@@ -10,7 +13,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: validate  # Let Flyway handle schema
+      ddl-auto: none  # Let Flyway handle schema
     show-sql: false
     properties:
       hibernate:
