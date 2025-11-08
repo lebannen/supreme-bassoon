@@ -1,4 +1,5 @@
 <template>
+  <Toast />
   <div class="search-container">
     <h1>Vocabulary Search</h1>
     <p class="description">Search for words and explore their definitions</p>
@@ -59,6 +60,29 @@
             <span v-else class="text-muted">-</span>
           </template>
         </Column>
+        <Column header="Vocabulary" v-if="authStore.isAuthenticated">
+          <template #body="slotProps">
+            <Button
+              v-if="!isInVocabulary(slotProps.data.id)"
+              icon="pi pi-bookmark"
+              label="Add"
+              size="small"
+              outlined
+              @click.stop="addToVocabulary(slotProps.data)"
+              :aria-label="`Add ${slotProps.data.lemma} to vocabulary`"
+            />
+            <Button
+              v-else
+              icon="pi pi-check"
+              label="In Vocabulary"
+              size="small"
+              severity="success"
+              text
+              disabled
+              :aria-label="`${slotProps.data.lemma} is already in vocabulary`"
+            />
+          </template>
+        </Column>
       </DataTable>
     </div>
 
@@ -86,10 +110,17 @@ import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import Tag from 'primevue/tag';
 import Message from 'primevue/message';
+import Toast from 'primevue/toast';
+import { useToast } from 'primevue/usetoast';
 import WordCard from '../components/WordCard.vue';
 import { useVocabularyApi, type Language, type SearchResult, type Word, type WordSummary } from '../composables/useVocabularyApi';
+import { useVocabularyStore } from '@/stores/vocabulary';
+import { useAuthStore } from '@/stores/auth';
 
 const { getLanguages, searchWords, getWord } = useVocabularyApi();
+const vocabularyStore = useVocabularyStore();
+const authStore = useAuthStore();
+const toast = useToast();
 
 const languages = ref<Language[]>([]);
 const selectedLanguage = ref<string>('');
@@ -162,8 +193,47 @@ async function loadWord(lemma: string) {
   }
 }
 
+async function addToVocabulary(word: WordSummary) {
+  if (!authStore.isAuthenticated) {
+    toast.add({
+      severity: 'warn',
+      summary: 'Authentication Required',
+      detail: 'Please log in to add words to your vocabulary',
+      life: 3000,
+    });
+    return;
+  }
+
+  const result = await vocabularyStore.addWord({
+    wordId: word.id,
+  });
+
+  if (result) {
+    toast.add({
+      severity: 'success',
+      summary: 'Word Added',
+      detail: `"${word.lemma}" has been added to your vocabulary`,
+      life: 3000,
+    });
+  } else if (vocabularyStore.error) {
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: vocabularyStore.error,
+      life: 3000,
+    });
+  }
+}
+
+function isInVocabulary(wordId: number): boolean {
+  return vocabularyStore.isWordInVocabulary(wordId);
+}
+
 onMounted(() => {
   loadLanguages();
+  if (authStore.isAuthenticated) {
+    vocabularyStore.fetchVocabulary();
+  }
 });
 </script>
 

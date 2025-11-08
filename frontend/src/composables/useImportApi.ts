@@ -26,6 +26,15 @@ export function useImportApi() {
   const isUploading = ref(false)
   const uploadError = ref<string | null>(null)
 
+  function getAuthHeaders(): HeadersInit {
+    const token = localStorage.getItem('auth_token')
+    const headers: HeadersInit = {}
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`
+    }
+    return headers
+  }
+
   async function uploadFile(
     file: File,
     languageCode: string
@@ -40,6 +49,7 @@ export function useImportApi() {
 
       const response = await fetch(`${API_BASE}/import/upload`, {
         method: 'POST',
+        headers: getAuthHeaders(),
         body: formData
       })
 
@@ -63,7 +73,13 @@ export function useImportApi() {
     onComplete: () => void,
     onError: (error: Error) => void
   ): () => void {
-    const eventSource = new EventSource(`${API_BASE}/import/progress/${importId}`)
+    // EventSource doesn't support custom headers, so we need to pass token as query param
+    const token = localStorage.getItem('auth_token')
+    const url = token
+      ? `${API_BASE}/import/progress/${importId}?token=${encodeURIComponent(token)}`
+      : `${API_BASE}/import/progress/${importId}`
+
+    const eventSource = new EventSource(url)
 
     eventSource.addEventListener('progress', (event: MessageEvent) => {
       try {
@@ -97,7 +113,9 @@ export function useImportApi() {
 
   async function getImportStatus(importId: string): Promise<ImportProgress | null> {
     try {
-      const response = await fetch(`${API_BASE}/import/progress/${importId}/status`)
+      const response = await fetch(`${API_BASE}/import/progress/${importId}/status`, {
+        headers: getAuthHeaders()
+      })
 
       if (!response.ok) {
         return null
@@ -112,7 +130,9 @@ export function useImportApi() {
 
   async function getAllImports(): Promise<ImportProgress[]> {
     try {
-      const response = await fetch(`${API_BASE}/import/progress`)
+      const response = await fetch(`${API_BASE}/import/progress`, {
+        headers: getAuthHeaders()
+      })
 
       if (!response.ok) {
         return []
@@ -128,7 +148,8 @@ export function useImportApi() {
   async function clearDatabase(): Promise<{ message: string; deletedCount: number } | null> {
     try {
       const response = await fetch(`${API_BASE}/import/clear`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: getAuthHeaders()
       })
 
       if (!response.ok) {

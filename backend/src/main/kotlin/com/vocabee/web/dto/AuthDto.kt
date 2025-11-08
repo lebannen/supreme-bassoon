@@ -24,3 +24,9 @@ data class UserDto(
     val learningLanguages: List<String>,
     val roles: List<String>
 )
+
+data class UpdateProfileRequest(
+    val displayName: String?,
+    val nativeLanguage: String?,
+    val learningLanguages: List<String>?
+)

@@ -83,4 +83,18 @@ class UserService(
             passwordEncoder.matches(password, it)
         } ?: false
     }
+
+    fun updateProfile(
+        userId: Long,
+        displayName: String?,
+        nativeLanguage: String?,
+        learningLanguages: List<String>?
+    ): User? {
+        return userRepository.findById(userId).map { user ->
+            displayName?.let { user.displayName = it }
+            nativeLanguage?.let { user.nativeLanguage = it }
+            learningLanguages?.let { user.learningLanguages = it }
+            userRepository.save(user)
+        }.orElse(null)
+    }
 }

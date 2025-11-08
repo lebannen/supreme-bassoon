@@ -18,19 +18,10 @@ from wikitext_parser import parse_entry
 
 
 # Target languages to extract
+# NOTE: Only extracting French and German to fix the "plural of" template bug
 TARGET_LANGUAGES = [
-    'Spanish',
-    'Italian',
-    'Russian',
-    'Portuguese',
     'French',
-    'German',
-    'Swedish',
-    'Chinese',
-    'Finnish',
-    'Japanese',
-    'Polish',
-    'Dutch'
+    'German'
 ]
 
 

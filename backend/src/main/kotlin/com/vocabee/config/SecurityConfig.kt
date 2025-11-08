@@ -1,11 +1,14 @@
 package com.vocabee.config
 
+import com.vocabee.security.JwtAuthenticationFilter
 import com.vocabee.security.OAuth2AuthenticationSuccessHandler
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
+import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.web.SecurityFilterChain
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 import org.springframework.web.cors.CorsConfiguration
 import org.springframework.web.cors.CorsConfigurationSource
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource
@@ -13,7 +16,8 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource
 @Configuration
 @EnableWebSecurity
 class SecurityConfig(
-    private val oAuth2AuthenticationSuccessHandler: OAuth2AuthenticationSuccessHandler
+    private val oAuth2AuthenticationSuccessHandler: OAuth2AuthenticationSuccessHandler,
+    private val jwtAuthenticationFilter: JwtAuthenticationFilter
 ) {
 
     @Bean
@@ -21,10 +25,11 @@ class SecurityConfig(
         http
             .csrf { it.disable() }
             .cors { it.configurationSource(corsConfigurationSource()) }
+            .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
             .authorizeHttpRequests { auth ->
                 auth
                     .requestMatchers("/api/auth/**", "/login/**", "/oauth2/**", "/error").permitAll()
-                    .requestMatchers("/api/vocabulary/**", "/api/words/**", "/api/languages/**", "/api/import/**").permitAll()
+                    .requestMatchers("/api/v1/**").permitAll()
                     .anyRequest().authenticated()
             }
             .oauth2Login { oauth2 ->
@@ -32,6 +37,18 @@ class SecurityConfig(
                     .successHandler(oAuth2AuthenticationSuccessHandler)
                     .failureUrl("/login?error=true")
             }
+            .exceptionHandling { exceptions ->
+                exceptions.authenticationEntryPoint { request, response, _ ->
+                    // For API requests, return 401 instead of redirecting
+                    if (request.requestURI.startsWith("/api/")) {
+                        response.sendError(401, "Unauthorized")
+                    } else {
+                        // For non-API requests, redirect to login page
+                        response.sendRedirect("/login")
+                    }
+                }
+            }
+            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter::class.java)
 
         return http.build()
     }

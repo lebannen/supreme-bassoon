@@ -11,6 +11,8 @@ interface WordRepository : JpaRepository<Word, Long> {
 
     fun findByLanguageCodeAndLemma(languageCode: String, lemma: String): Word?
 
+    fun findByLanguageCodeAndNormalized(languageCode: String, normalized: String): List<Word>
+
     fun findByLanguageCode(languageCode: String): List<Word>
 
     @Query("""

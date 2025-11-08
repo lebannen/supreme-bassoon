@@ -25,11 +25,26 @@ const items = computed(() => {
       command: () => router.push('/search')
     },
     {
-      label: 'Book',
-      icon: 'pi pi-book',
-      command: () => router.push('/book')
+      label: 'Word Sets',
+      icon: 'pi pi-list',
+      command: () => router.push('/word-sets')
     }
   ]
+
+  // Only show Vocabulary when authenticated
+  if (authStore.isAuthenticated) {
+    baseItems.push({
+      label: 'Vocabulary',
+      icon: 'pi pi-bookmark',
+      command: () => router.push('/vocabulary')
+    })
+  }
+
+  baseItems.push({
+    label: 'Book',
+    icon: 'pi pi-book',
+    command: () => router.push('/book')
+  })
 
   // Only show Import when authenticated
   if (authStore.isAuthenticated) {
@@ -54,7 +69,7 @@ const userMenuItems = ref([
     label: 'Profile',
     icon: 'pi pi-user',
     command: () => {
-      // TODO: Navigate to profile page when implemented
+      router.push('/profile')
     }
   },
   {

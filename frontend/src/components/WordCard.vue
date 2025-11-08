@@ -1,4 +1,5 @@
 <template>
+  <Toast />
   <Dialog :visible="visible" @update:visible="$emit('update:visible', $event)" :header="word?.lemma" :modal="true" :style="{ width: '50vw' }" :breakpoints="{ '960px': '75vw', '640px': '90vw' }">
     <div v-if="word && !loading" class="word-details">
       <div class="word-header">
@@ -6,6 +7,23 @@
           <h2>{{ word.lemma }}</h2>
           <Tag v-if="word.partOfSpeech" :value="word.partOfSpeech" severity="info" />
           <Tag v-if="word.isInflectedForm" value="inflected form" severity="secondary" />
+        </div>
+        <div v-if="authStore.isAuthenticated" class="vocabulary-action">
+          <Button
+            v-if="!isInVocabulary(word.id)"
+            icon="pi pi-bookmark"
+            label="Add to Vocabulary"
+            @click="addToVocabulary(word)"
+            outlined
+          />
+          <Button
+            v-else
+            icon="pi pi-check"
+            label="In Vocabulary"
+            severity="success"
+            text
+            disabled
+          />
         </div>
       </div>
 
@@ -73,9 +91,14 @@
 <script setup lang="ts">
 import Dialog from 'primevue/dialog';
 import Tag from 'primevue/tag';
+import Button from 'primevue/button';
 import ProgressSpinner from 'primevue/progressspinner';
 import Message from 'primevue/message';
+import Toast from 'primevue/toast';
+import { useToast } from 'primevue/usetoast';
 import type { Word } from '../composables/useVocabularyApi';
+import { useVocabularyStore } from '@/stores/vocabulary';
+import { useAuthStore } from '@/stores/auth';
 
 interface Props {
   word: Word | null;
@@ -86,6 +109,46 @@ interface Props {
 
 defineProps<Props>();
 defineEmits(['update:visible', 'word-click']);
+
+const vocabularyStore = useVocabularyStore();
+const authStore = useAuthStore();
+const toast = useToast();
+
+async function addToVocabulary(word: Word) {
+  if (!authStore.isAuthenticated) {
+    toast.add({
+      severity: 'warn',
+      summary: 'Authentication Required',
+      detail: 'Please log in to add words to your vocabulary',
+      life: 3000,
+    });
+    return;
+  }
+
+  const result = await vocabularyStore.addWord({
+    wordId: word.id,
+  });
+
+  if (result) {
+    toast.add({
+      severity: 'success',
+      summary: 'Word Added',
+      detail: `"${word.lemma}" has been added to your vocabulary`,
+      life: 3000,
+    });
+  } else if (vocabularyStore.error) {
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: vocabularyStore.error,
+      life: 3000,
+    });
+  }
+}
+
+function isInVocabulary(wordId: number): boolean {
+  return vocabularyStore.isWordInVocabulary(wordId);
+}
 </script>
 
 <style scoped>
@@ -98,12 +161,22 @@ defineEmits(['update:visible', 'word-click']);
 .word-header {
   border-bottom: 1px solid var(--surface-border);
   padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 }
 
 .word-title {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex: 1;
+}
+
+.vocabulary-action {
+  display: flex;
+  align-items: center;
 }
 
 .word-title h2 {

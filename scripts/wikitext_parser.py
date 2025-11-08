@@ -738,6 +738,53 @@ class WikitextParser:
         # Remove bold/italic
         text = re.sub(r"'{2,}", '', text)
 
+        # Expand form-of templates BEFORE general template cleanup
+        # These templates need special handling to preserve the referenced word
+        # Format: {{plural of|lang|word}} -> "plural of word"
+        # Format: {{feminine of|lang|word}} -> "feminine of word"
+        def expand_form_of(match):
+            template = match.group(0)
+            # Remove {{ and }}
+            template_clean = template.strip('{}')
+            parts = [p.strip() for p in template_clean.split('|')]
+
+            if len(parts) < 2:
+                return match.group(1) if len(match.groups()) > 0 else template
+
+            template_name = parts[0]
+
+            # Common form-of templates
+            # Usually format is: {{template|lang|word}} or {{template|word}}
+            # We want to extract the word (last meaningful parameter)
+
+            # Find the target word (skip language code if present)
+            target_word = None
+            for i in range(1, len(parts)):
+                part = parts[i].strip()
+                # Skip language codes (2-3 letter codes)
+                if len(part) > 3 or i == len(parts) - 1:
+                    target_word = part
+                    break
+
+            if target_word:
+                return f"{template_name} {target_word}"
+            else:
+                return template_name
+
+        # Apply to common form-of templates
+        form_of_templates = [
+            'plural of', 'feminine of', 'masculine of', 'singular of',
+            'past of', 'present of', 'past tense of', 'past participle of',
+            'gerund of', 'present participle of', 'comparative of', 'superlative of',
+            'diminutive of', 'augmentative of', 'alternative form of', 'archaic form of',
+            'obsolete form of', 'inflection of', 'conjugation of'
+        ]
+
+        for template in form_of_templates:
+            # Match templates with this name
+            pattern = r'\{\{' + re.escape(template) + r'(\|[^}]+)?\}\}'
+            text = re.sub(pattern, expand_form_of, text)
+
         # Remove remaining templates (conservative - just remove the template syntax)
         text = re.sub(r'\{\{([^}|]+)(\|[^}]*)?\}\}', r'\1', text)
 

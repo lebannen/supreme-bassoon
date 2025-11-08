@@ -17,13 +17,13 @@ data class User(
     val passwordHash: String? = null,
 
     @Column(name = "display_name", length = 100)
-    val displayName: String? = null,
+    var displayName: String? = null,
 
     @Column(name = "native_language", length = 10)
-    val nativeLanguage: String = "en",
+    var nativeLanguage: String = "en",
 
     @Column(name = "learning_languages", columnDefinition = "varchar[]")
-    val learningLanguages: List<String> = listOf("fr", "de"),
+    var learningLanguages: List<String> = listOf("fr", "de"),
 
     @Column(name = "oauth_provider", length = 50)
     val oauthProvider: String? = null,

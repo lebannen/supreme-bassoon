@@ -67,3 +67,16 @@ data class LanguageDto(
     val name: String,
     val entryCount: Int
 )
+
+// User vocabulary DTOs
+data class VocabularyWordDto(
+    val vocabularyId: Long,
+    val word: WordSummaryDto,
+    val notes: String?,
+    val addedAt: String
+)
+
+data class AddWordToVocabularyRequest(
+    val wordId: Long,
+    val notes: String? = null
+)

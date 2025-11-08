@@ -5,6 +5,7 @@ import com.vocabee.service.UserService
 import com.vocabee.web.dto.AuthResponse
 import com.vocabee.web.dto.LoginRequest
 import com.vocabee.web.dto.RegisterRequest
+import com.vocabee.web.dto.UpdateProfileRequest
 import com.vocabee.web.dto.UserDto
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -96,6 +97,38 @@ class AuthController(
             nativeLanguage = user.nativeLanguage,
             learningLanguages = user.learningLanguages,
             roles = user.roles.map { it.role }
+        )
+
+        return ResponseEntity.ok(userDto)
+    }
+
+    @PutMapping("/profile")
+    fun updateProfile(
+        @RequestHeader("Authorization") authorization: String,
+        @RequestBody request: UpdateProfileRequest
+    ): ResponseEntity<UserDto> {
+        val token = authorization.removePrefix("Bearer ")
+
+        val email = jwtService.getUserEmailFromToken(token)
+            ?: return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build()
+
+        val user = userService.findByEmail(email)
+            ?: return ResponseEntity.status(HttpStatus.NOT_FOUND).build()
+
+        val updatedUser = userService.updateProfile(
+            userId = user.id!!,
+            displayName = request.displayName,
+            nativeLanguage = request.nativeLanguage,
+            learningLanguages = request.learningLanguages
+        ) ?: return ResponseEntity.status(HttpStatus.NOT_FOUND).build()
+
+        val userDto = UserDto(
+            id = updatedUser.id!!,
+            email = updatedUser.email,
+            displayName = updatedUser.displayName,
+            nativeLanguage = updatedUser.nativeLanguage,
+            learningLanguages = updatedUser.learningLanguages,
+            roles = updatedUser.roles.map { it.role }
         )
 
         return ResponseEntity.ok(userDto)

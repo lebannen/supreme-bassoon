@@ -26,6 +26,18 @@ const router = createRouter({
       component: () => import('../views/AuthCallbackView.vue'),
     },
     {
+      path: '/profile',
+      name: 'profile',
+      component: () => import('../views/ProfileView.vue'),
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/vocabulary',
+      name: 'vocabulary',
+      component: () => import('../views/VocabularyView.vue'),
+      meta: { requiresAuth: true }
+    },
+    {
       path: '/search',
       name: 'search',
       component: () => import('../views/SearchView.vue'),
@@ -35,6 +47,11 @@ const router = createRouter({
       name: 'import',
       component: () => import('../views/ImportView.vue'),
       meta: { requiresAuth: true }
+    },
+    {
+      path: '/word-sets',
+      name: 'word-sets',
+      component: () => import('../views/WordSetsView.vue'),
     },
     {
       path: '/about',

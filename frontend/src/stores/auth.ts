@@ -97,6 +97,27 @@ export const useAuthStore = defineStore('auth', () => {
     localStorage.removeItem('auth_user')
   }
 
+  async function updateProfile(data: {
+    displayName?: string
+    nativeLanguage?: string
+    learningLanguages?: string[]
+  }) {
+    loading.value = true
+    error.value = null
+
+    try {
+      const updatedUser = await apiService.updateProfile(data)
+      user.value = updatedUser
+      localStorage.setItem('auth_user', JSON.stringify(updatedUser))
+      return true
+    } catch (err) {
+      error.value = err instanceof Error ? err.message : 'Failed to update profile'
+      return false
+    } finally {
+      loading.value = false
+    }
+  }
+
   return {
     user,
     token,
@@ -108,5 +129,6 @@ export const useAuthStore = defineStore('auth', () => {
     register,
     fetchCurrentUser,
     logout,
+    updateProfile,
   }
 })
