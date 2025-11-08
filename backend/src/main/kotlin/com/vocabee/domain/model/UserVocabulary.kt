@@ -22,5 +22,24 @@ data class UserVocabulary(
     var notes: String? = null,
 
     @Column(name = "added_at", nullable = false, updatable = false)
-    val addedAt: Instant = Instant.now()
+    val addedAt: Instant = Instant.now(),
+
+    // Spaced Repetition System (SRS) fields
+    @Column(name = "next_review_at")
+    var nextReviewAt: Instant? = null,
+
+    @Column(name = "review_count", nullable = false)
+    var reviewCount: Int = 0,
+
+    @Column(name = "consecutive_successes", nullable = false)
+    var consecutiveSuccesses: Int = 0,
+
+    @Column(name = "current_interval_hours", nullable = false)
+    var currentIntervalHours: Int = 20,
+
+    @Column(name = "last_reviewed_at")
+    var lastReviewedAt: Instant? = null,
+
+    @Column(name = "ease_factor", nullable = false)
+    var easeFactor: Double = 1.0
 )
