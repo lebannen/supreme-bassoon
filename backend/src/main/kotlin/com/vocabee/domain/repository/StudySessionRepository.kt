@@ -24,7 +24,7 @@ interface StudySessionRepository : JpaRepository<StudySession, Long> {
     fun existsByUserIdAndStatus(userId: Long, status: SessionStatus): Boolean
 
     // Find sessions within a date range
-    @Query("SELECT s FROM StudySession s WHERE s.userId = :userId AND s.startedAt BETWEEN :startDate AND :endDate")
+    @Query("SELECT s FROM StudySession s WHERE s.user.id = :userId AND s.startedAt BETWEEN :startDate AND :endDate")
     fun findByUserIdAndDateRange(
         @Param("userId") userId: Long,
         @Param("startDate") startDate: Instant,

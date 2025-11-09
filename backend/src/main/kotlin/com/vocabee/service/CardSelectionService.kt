@@ -95,27 +95,27 @@ class CardSelectionService {
      * @return Priority score
      */
     private fun calculatePriorityScore(item: StudySessionItem): Int {
-        // Recently failed words get highest priority (lower score)
-        val recentFailBonus = if (item.incorrectCount > item.correctCount) {
-            -1000
-        } else {
-            0
+        // Base priority: show NEW words first (lower score)
+        val basePriority = when (item.status) {
+            ItemStatus.NEW -> 0
+            ItemStatus.LEARNING -> 100
+            ItemStatus.COMPLETED -> 1000  // Should never be selected
         }
 
         // Words with more attempts get higher priority (lower score) - they're struggling
-        val attemptsBonus = -(item.attemptsCount * 10)
+        val attemptsBonus = -(item.attemptsCount * 15)
 
-        // Words with consecutive correct answers get lower priority (higher score)
-        val streakPenalty = item.consecutiveCorrect * 20
-
-        // New words get lower priority than learning words (higher score)
-        val newWordPenalty = if (item.status == ItemStatus.NEW) {
-            100
+        // Recently failed words get a moderate boost (not too extreme)
+        val recentFailBonus = if (item.incorrectCount > item.correctCount && item.attemptsCount > 0) {
+            -30
         } else {
             0
         }
 
-        return recentFailBonus + attemptsBonus + streakPenalty + newWordPenalty
+        // Words with consecutive correct answers get lower priority (higher score)
+        val streakPenalty = item.consecutiveCorrect * 25
+
+        return basePriority + attemptsBonus + recentFailBonus + streakPenalty
     }
 
     /**

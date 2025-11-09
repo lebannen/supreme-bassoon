@@ -22,7 +22,7 @@ data class StudySessionItem(
     @JoinColumn(name = "user_vocabulary_id")
     val userVocabulary: UserVocabulary? = null,
 
-    @Column(nullable = false)
+    @Column(name = "attempts", nullable = false)
     var attemptsCount: Int = 0,
 
     @Column(name = "correct_count", nullable = false)
@@ -69,6 +69,13 @@ data class StudySessionItem(
             incorrectCount++
             consecutiveCorrect = 0
             status = ItemStatus.LEARNING
+        }
+
+        // Auto-complete after 5 attempts to prevent getting stuck on difficult words
+        // This ensures the session progresses even if user struggles with some words
+        if (attemptsCount >= 5 && status != ItemStatus.COMPLETED) {
+            status = ItemStatus.COMPLETED
+            finalResult = if (correctCount > incorrectCount) ItemResult.SUCCESS else ItemResult.FAILED
         }
 
         lastShownAt = Instant.now()

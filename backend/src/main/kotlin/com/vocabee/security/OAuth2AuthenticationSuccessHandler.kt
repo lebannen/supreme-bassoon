@@ -46,7 +46,7 @@ class OAuth2AuthenticationSuccessHandler(
         val token = jwtService.generateToken(user)
 
         // Redirect to frontend with token
-        val targetUrl = UriComponentsBuilder.fromUriString("http://localhost:5174/auth/callback")
+        val targetUrl = UriComponentsBuilder.fromUriString("http://localhost:5173/auth/callback")
             .queryParam("token", token)
             .build()
             .toUriString()

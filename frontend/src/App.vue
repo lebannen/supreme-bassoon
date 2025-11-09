@@ -38,6 +38,11 @@ const items = computed(() => {
       icon: 'pi pi-bookmark',
       command: () => router.push('/vocabulary')
     })
+    baseItems.push({
+      label: 'Study',
+      icon: 'pi pi-graduation-cap',
+      command: () => router.push('/study')
+    })
   }
 
   baseItems.push({

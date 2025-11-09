@@ -103,9 +103,9 @@ class SrsIntervalCalculator {
     fun updateEaseFactor(currentEaseFactor: Double, wasCorrect: Boolean): Double {
         val adjustment = if (wasCorrect) 0.0 else -0.2
 
-        // Ease factor should stay between 1.3 and 2.5
+        // Ease factor should stay between 1.0 and 2.5
         val newEaseFactor = currentEaseFactor + adjustment
-        return newEaseFactor.coerceIn(1.3, 2.5)
+        return newEaseFactor.coerceIn(1.0, 2.5)
     }
 
     /**

@@ -66,6 +66,18 @@ const router = createRouter({
       name: 'book',
       component: () => import('../views/BookView.vue'),
     },
+    {
+      path: '/study',
+      name: 'study',
+      component: () => import('../views/StudyHomeView.vue'),
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/study/session',
+      name: 'study-session',
+      component: () => import('../views/StudySessionView.vue'),
+      meta: { requiresAuth: true }
+    },
   ],
 })
 
