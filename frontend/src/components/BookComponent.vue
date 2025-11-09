@@ -106,7 +106,7 @@ const props = withDefaults(defineProps<Props>(), {
   pageSize: 300,
 });
 
-defineEmits(['word-click']);
+const emit = defineEmits(['word-click', 'page-change']);
 
 const currentPage = ref(1);
 const isFlipping = ref(false);
@@ -140,6 +140,7 @@ function nextPage() {
   setTimeout(() => {
     currentPage.value++;
     isFlipping.value = false;
+    emit('page-change', currentPage.value * 2 - 1, totalPages.value);
   }, 600);
 }
 
@@ -150,6 +151,7 @@ function previousPage() {
   setTimeout(() => {
     currentPage.value--;
     isFlipping.value = false;
+    emit('page-change', currentPage.value * 2 - 1, totalPages.value);
   }, 600);
 }
 </script>

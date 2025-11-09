@@ -737,6 +737,9 @@ class WikitextParser:
         - Bold/italic markup
         - etc.
         """
+        # Remove HTML comments <!--...-->
+        text = re.sub(r'<!--.*?-->', '', text, flags=re.DOTALL)
+
         # Remove references <ref>...</ref>
         text = re.sub(r'<ref[^>]*>.*?</ref>', '', text, flags=re.DOTALL)
 
@@ -747,7 +750,11 @@ class WikitextParser:
             'gloss', 'qualifier', 'q', 'topics', 'categorize', 'cln',
             'c', 'C', 'trans-top', 'trans-bottom', 'trans-mid',
             'see', 'seeCites', 'RQ:', 'cite', 'quote-book', 'quote-journal',
-            'ux', 'uxi', 'usex', 'afex'  # Usage examples have special handling
+            'ux', 'uxi', 'usex', 'afex',  # Usage examples have special handling
+            # Template abbreviations that should be removed
+            'gl', 'gloss', 'n-g', 'non-gloss', 'non-gloss definition',
+            '+obj', 'transitive', 'intransitive', 'senseid', 'sense',
+            'ngd', 'defdate'
         ]
 
         # Remove these templates entirely
@@ -812,8 +819,8 @@ class WikitextParser:
             pattern = r'\{\{' + re.escape(template) + r'(\|[^}]+)?\}\}'
             text = re.sub(pattern, expand_form_of, text)
 
-        # Remove remaining templates (conservative - just remove the template syntax)
-        text = re.sub(r'\{\{([^}|]+)(\|[^}]*)?\}\}', r'\1', text)
+        # Remove remaining templates entirely (don't leave template name behind)
+        text = re.sub(r'\{\{[^}]*\}\}', '', text)
 
         # Clean up extra whitespace
         text = re.sub(r'\s+', ' ', text).strip()

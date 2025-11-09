@@ -1,12 +1,49 @@
 # Vocabee - Language Learning Platform
 
-A language learning application powered by Wiktionary data, featuring vocabulary exercises and AI-generated content.
+A comprehensive language learning application powered by Wiktionary data, featuring:
+- 🔍 Word lookup from 4M+ Wiktionary entries
+- 📚 Interactive reading texts with progress tracking
+- 📖 Beautiful paginated book reader with word click definitions
+- ✨ Spaced repetition study system
+- 🎯 Personal vocabulary management
+- 📊 OAuth2 authentication and user profiles
+
+## Features
+
+### ✅ Completed Features (M1 MVP)
+
+**User Management:**
+- User registration and login (email/password + OAuth2 Google)
+- JWT-based authentication
+- User profiles with language preferences
+
+**Vocabulary System:**
+- Browse 4M+ words from Wiktionary across 12 languages
+- Add words to personal vocabulary with notes
+- View and manage personal word lists
+- Pre-made vocabulary sets for structured learning
+
+**Reading System:**
+- Browse reading texts filtered by language, level (A1-C2), and topic
+- Beautiful 3D book reader with page flip animations
+- Click any word to see full Wiktionary definition
+- Automatic progress tracking (current page saved)
+- Completion tracking
+- Import custom texts via drag-and-drop UI
+
+**Study System:**
+- Spaced repetition flashcard reviews
+- Multiple study modes (standard, detailed)
+- Smart scheduling based on performance
+- Progress tracking and statistics
 
 ## Tech Stack
 
 - **Frontend**: Vue 3 + TypeScript + PrimeVue
 - **Backend**: Kotlin + Spring Boot 3
 - **Database**: PostgreSQL 15
+- **Authentication**: OAuth2 (Google) + JWT
+- **Testing**: JUnit 5, TestContainers, MockK
 - **Deployment**: Docker + nginx
 
 ## Project Structure
@@ -14,9 +51,29 @@ A language learning application powered by Wiktionary data, featuring vocabulary
 ```
 vocabee/
 ├── frontend/          # Vue.js application
+│   ├── src/
+│   │   ├── components/    # Reusable components
+│   │   │   ├── reading/   # Reading text components
+│   │   │   ├── study/     # Study session components
+│   │   │   └── ...
+│   │   ├── views/         # Page components
+│   │   ├── composables/   # Composition API logic
+│   │   ├── stores/        # Pinia state management
+│   │   └── router/        # Vue Router config
 ├── backend/           # Spring Boot API
+│   ├── src/main/kotlin/com/vocabee/
+│   │   ├── domain/        # Entities & repositories
+│   │   ├── service/       # Business logic
+│   │   ├── web/           # Controllers & DTOs
+│   │   ├── config/        # Security, CORS, etc.
+│   │   └── ...
+│   ├── src/main/resources/
+│   │   └── db/migration/  # Flyway migrations
+│   └── src/test/          # Unit & integration tests
 ├── scripts/           # Python data processing
 ├── parsed_data/       # Extracted Wiktionary data (4.2M entries)
+├── texts/             # Sample reading texts (JSON format)
+├── docs/              # Project documentation
 ├── nginx/             # nginx configuration
 └── docker-compose.yml # Container orchestration
 ```
@@ -94,10 +151,31 @@ The parsed Wiktionary data includes:
 
 ### Backend API (`/api/`)
 
-- `GET /api/languages` - List available languages
-- `GET /api/words/:language` - Get words for a language
-- `GET /api/word/:id` - Get word details with definitions, pronunciations, etc.
-- `POST /api/progress` - Save user learning progress
+**Vocabulary:**
+- `GET /api/v1/languages` - List available languages
+- `GET /api/v1/words/{language}/{lemma}` - Get word details
+- `GET /api/vocabulary` - Get user's personal vocabulary
+- `POST /api/vocabulary` - Add word to vocabulary
+- `DELETE /api/vocabulary/{wordId}` - Remove word from vocabulary
+
+**Reading Texts:**
+- `GET /api/reading/texts` - Browse texts (with optional filters)
+- `GET /api/reading/texts/{id}` - Get specific text
+- `POST /api/reading/texts/import` - Import text from JSON
+- `GET /api/reading/texts/{id}/progress` - Get user's reading progress
+- `POST /api/reading/texts/{id}/progress` - Update reading progress
+- `POST /api/reading/texts/{id}/complete` - Mark text as completed
+
+**Study Sessions:**
+- `POST /api/study/sessions` - Start new study session
+- `POST /api/study/sessions/{id}/response` - Submit answer
+
+**Authentication:**
+- `POST /api/auth/register` - Register new user
+- `POST /api/auth/login` - Login with credentials
+- `GET /oauth2/authorization/google` - Google OAuth2 login
+
+**Health:**
 - `GET /actuator/health` - Health check
 
 ## Data Processing

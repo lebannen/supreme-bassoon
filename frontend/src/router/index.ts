@@ -67,6 +67,23 @@ const router = createRouter({
       component: () => import('../views/BookView.vue'),
     },
     {
+      path: '/reading',
+      name: 'reading-library',
+      component: () => import('../views/ReadingLibraryView.vue'),
+    },
+    {
+      path: '/reading/:id',
+      name: 'ReadingText',
+      component: () => import('../views/BookView.vue'),
+      props: true
+    },
+    {
+      path: '/reading/import',
+      name: 'reading-import',
+      component: () => import('../views/ReadingImportView.vue'),
+      meta: { requiresAuth: true }
+    },
+    {
       path: '/study',
       name: 'study',
       component: () => import('../views/StudyHomeView.vue'),

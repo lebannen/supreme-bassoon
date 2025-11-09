@@ -46,9 +46,9 @@ const items = computed(() => {
   }
 
   baseItems.push({
-    label: 'Book',
+    label: 'Reading',
     icon: 'pi pi-book',
-    command: () => router.push('/book')
+    command: () => router.push('/reading')
   })
 
   // Only show Import when authenticated

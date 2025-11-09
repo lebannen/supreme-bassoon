@@ -30,6 +30,8 @@ class SecurityConfig(
                 auth
                     .requestMatchers("/api/auth/**", "/login/**", "/oauth2/**", "/error").permitAll()
                     .requestMatchers("/api/v1/**").permitAll()
+                    .requestMatchers("/api/reading/texts", "/api/reading/texts/*", "/api/reading/texts/import").permitAll()  // Public text browsing and import
+                    .requestMatchers("/api/reading/**").authenticated()  // Progress tracking requires auth
                     .anyRequest().authenticated()
             }
             .oauth2Login { oauth2 ->

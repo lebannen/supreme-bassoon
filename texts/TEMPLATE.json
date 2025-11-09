@@ -1,0 +1,10 @@
+{
+  "title": "Title of the Text",
+  "language_code": "fr",
+  "level": "A1",
+  "topic": "daily_life",
+  "description": "Brief description of what this text is about",
+  "author": "ai",
+  "source": "ai-generated",
+  "content": "Put the generated text here.\n\nUse \\n\\n for paragraph breaks.\n\n\"Use quotes for dialogue,\" said the person.\n\nMore paragraphs as needed."
+}
