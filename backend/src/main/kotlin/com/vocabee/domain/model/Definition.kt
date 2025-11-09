@@ -7,7 +7,13 @@ import org.hibernate.type.SqlTypes
 @Entity
 @Table(
     name = "definitions",
-    indexes = [Index(name = "idx_definitions_word", columnList = "word_id")]
+    indexes = [Index(name = "idx_definitions_word", columnList = "word_id")],
+    uniqueConstraints = [
+        UniqueConstraint(
+            name = "uk_definitions_word_number",
+            columnNames = ["word_id", "definition_number"]
+        )
+    ]
 )
 data class Definition(
     @Id

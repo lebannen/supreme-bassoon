@@ -10,7 +10,7 @@ import gzip
 from pathlib import Path
 from query_entry import WiktionaryQuery
 from test_parser import extract_language_section, parse_xml_to_wikitext
-from wikitext_parser import parse_entry
+from wikitext_parser import WikitextParser
 
 
 def parse_language_to_jsonl_gz(
@@ -30,10 +30,24 @@ def parse_language_to_jsonl_gz(
         xml_file: Path to Wiktionary XML file
         limit: Optional limit on number of entries to process
     """
+    # Check if language is supported
+    if not WikitextParser.is_supported_language(language):
+        raise ValueError(f"Unsupported language: {language}. Supported languages: {', '.join(WikitextParser.SUPPORTED_LANGUAGES.keys())}")
+
+    language_code = WikitextParser.get_language_code(language)
     query = WiktionaryQuery(index_db, xml_file)
 
     # Open gzip file for writing
     with gzip.open(output_file, 'wt', encoding='utf-8', compresslevel=9) as f:
+        # Write metadata as first line
+        metadata = {
+            "_metadata": True,
+            "language": language,
+            "language_code": language_code,
+            "parser_version": "0.2.0"
+        }
+        f.write(json.dumps(metadata, ensure_ascii=False) + '\n')
+
         count = 0
 
         # In practice, you'd query the index for specific language entries
@@ -53,11 +67,13 @@ def parse_language_to_jsonl_gz(
                 continue
 
             # Parse the entry
-            parsed = parse_entry(language, title, lang_section)
+            parser = WikitextParser(language, title, lang_section)
+            parsed_entries = parser.parse()
 
-            # Write as single line JSON
-            f.write(json.dumps(parsed, ensure_ascii=False) + '\n')
-            count += 1
+            # Write each entry as single line JSON
+            for parsed in parsed_entries:
+                f.write(json.dumps(parsed, ensure_ascii=False) + '\n')
+                count += 1
 
             if count % 1000 == 0:
                 print(f'Processed {count} entries...')
@@ -74,16 +90,26 @@ def read_jsonl_gz(file_path: str, limit: int = 5):
     print('='*70)
 
     with gzip.open(file_path, 'rt', encoding='utf-8') as f:
+        entry_count = 0
+
         for i, line in enumerate(f):
-            if i >= limit:
+            entry = json.loads(line)
+
+            # Skip metadata line
+            if entry.get('_metadata'):
+                print(f'Metadata: {entry["language"]} ({entry["language_code"]}) - Parser v{entry.get("parser_version", "unknown")}')
+                print('='*70)
+                continue
+
+            if entry_count >= limit:
                 break
 
-            entry = json.loads(line)
             lemma = entry.get('lemma') or entry.get('word')
             is_inflected = entry.get('is_inflected_form', False)
             entry_type = 'inflected' if is_inflected else 'lemma'
 
-            print(f'{i+1}. {lemma} ({entry_type})')
+            print(f'{entry_count+1}. {lemma} ({entry_type})')
+            entry_count += 1
 
 
 if __name__ == '__main__':

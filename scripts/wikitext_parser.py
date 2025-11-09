@@ -19,10 +19,36 @@ class WikitextParser:
     Extracts structured data from a language section of a Wiktionary entry.
     """
 
+    # Supported languages (12 languages from V1 migration)
+    SUPPORTED_LANGUAGES = {
+        'Spanish': 'es',
+        'Italian': 'it',
+        'Russian': 'ru',
+        'Portuguese': 'pt',
+        'French': 'fr',
+        'German': 'de',
+        'Swedish': 'sv',
+        'Chinese': 'zh',
+        'Finnish': 'fi',
+        'Japanese': 'ja',
+        'Polish': 'pl',
+        'Dutch': 'nl'
+    }
+
     def __init__(self, language: str, lemma: str, wikitext: str):
         self.language = language
         self.lemma = lemma
         self.wikitext = wikitext
+
+    @classmethod
+    def is_supported_language(cls, language: str) -> bool:
+        """Check if a language is supported."""
+        return language in cls.SUPPORTED_LANGUAGES
+
+    @classmethod
+    def get_language_code(cls, language: str) -> Optional[str]:
+        """Get ISO language code for a language name."""
+        return cls.SUPPORTED_LANGUAGES.get(language)
 
     def parse(self) -> List[Dict[str, Any]]:
         """
@@ -565,6 +591,7 @@ class WikitextParser:
             # Stop at next level-3 header (new section)
             if in_definition_section and re.match(r'^===', line) and current_def:
                 definitions.append(current_def)
+                current_def = None  # Prevent double-add at end of loop
                 break
 
             if not in_definition_section:

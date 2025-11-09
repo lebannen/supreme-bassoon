@@ -2,23 +2,10 @@
   <div class="import-container">
     <h1>Import Language Data</h1>
     <p class="description">
-      Upload JSON or JSON.gz files containing language vocabulary data
+      Upload JSONL.gz files containing language vocabulary data. Language will be automatically detected from the file.
     </p>
 
     <div class="upload-section">
-      <div class="field">
-        <label for="language-select">Language</label>
-        <Select
-          id="language-select"
-          v-model="selectedLanguage"
-          :options="languages"
-          optionLabel="name"
-          optionValue="code"
-          placeholder="Select a language"
-          class="w-full"
-        />
-      </div>
-
       <div class="field">
         <label>Select File</label>
         <FileUpload
@@ -27,10 +14,13 @@
           :auto="false"
           :customUpload="true"
           @select="onFileSelect"
-          accept=".json,.gz"
-          :maxFileSize="500000000"
+          accept=".jsonl.gz,.gz"
+          :maxFileSize="1000000000"
           chooseLabel="Choose File"
         />
+        <small v-if="selectedFile" class="file-info">
+          Selected: {{ selectedFile.name }} ({{ formatFileSize(selectedFile.size) }})
+        </small>
       </div>
 
       <div class="button-group">
@@ -38,7 +28,7 @@
           label="Start Import"
           icon="pi pi-upload"
           @click="startImport"
-          :disabled="!selectedFile || !selectedLanguage || isUploading"
+          :disabled="!selectedFile || isUploading"
           :loading="isUploading"
         />
         <Button
@@ -149,7 +139,6 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import Button from 'primevue/button'
 import FileUpload from 'primevue/fileupload'
-import Select from 'primevue/select'
 import ProgressBar from 'primevue/progressbar'
 import Card from 'primevue/card'
 import Message from 'primevue/message'
@@ -162,22 +151,6 @@ import { useImportApi, type ImportProgress } from '../composables/useImportApi'
 const { isUploading, uploadError, uploadFile, connectToProgressStream, getAllImports, clearDatabase } = useImportApi()
 const confirm = useConfirm()
 
-const languages = [
-  { code: 'es', name: 'Spanish' },
-  { code: 'it', name: 'Italian' },
-  { code: 'ru', name: 'Russian' },
-  { code: 'pt', name: 'Portuguese' },
-  { code: 'fr', name: 'French' },
-  { code: 'de', name: 'German' },
-  { code: 'sv', name: 'Swedish' },
-  { code: 'zh', name: 'Chinese' },
-  { code: 'fi', name: 'Finnish' },
-  { code: 'ja', name: 'Japanese' },
-  { code: 'pl', name: 'Polish' },
-  { code: 'nl', name: 'Dutch' }
-]
-
-const selectedLanguage = ref('')
 const selectedFile = ref<File | null>(null)
 const currentImport = ref<ImportProgress | null>(null)
 const importHistory = ref<ImportProgress[]>([])
@@ -190,6 +163,14 @@ function onFileSelect(event: any) {
   if (files && files.length > 0) {
     selectedFile.value = files[0]
   }
+}
+
+function formatFileSize(bytes: number): string {
+  if (bytes === 0) return '0 Bytes'
+  const k = 1024
+  const sizes = ['Bytes', 'KB', 'MB', 'GB']
+  const i = Math.floor(Math.log(bytes) / Math.log(k))
+  return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i]
 }
 
 function confirmClearDatabase() {
@@ -213,9 +194,10 @@ function confirmClearDatabase() {
 }
 
 async function startImport() {
-  if (!selectedFile.value || !selectedLanguage.value) return
+  if (!selectedFile.value) return
 
-  const response = await uploadFile(selectedFile.value, selectedLanguage.value)
+  // Language will be auto-detected from file metadata
+  const response = await uploadFile(selectedFile.value)
 
   if (response) {
     // Connect to progress stream
@@ -310,6 +292,13 @@ h1 {
   margin-bottom: 0.5rem;
   font-weight: 600;
   color: var(--text-color);
+}
+
+.file-info {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--text-color-secondary);
+  font-size: 0.875rem;
 }
 
 .button-group {

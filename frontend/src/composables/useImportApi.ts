@@ -37,7 +37,7 @@ export function useImportApi() {
 
   async function uploadFile(
     file: File,
-    languageCode: string
+    languageCode?: string
   ): Promise<ImportStartResponse | null> {
     isUploading.value = true
     uploadError.value = null
@@ -45,7 +45,11 @@ export function useImportApi() {
     try {
       const formData = new FormData()
       formData.append('file', file)
-      formData.append('languageCode', languageCode)
+
+      // Only add languageCode if provided (otherwise will auto-detect from file)
+      if (languageCode) {
+        formData.append('languageCode', languageCode)
+      }
 
       const response = await fetch(`${API_BASE}/import/upload`, {
         method: 'POST',
@@ -80,6 +84,7 @@ export function useImportApi() {
       : `${API_BASE}/import/progress/${importId}`
 
     const eventSource = new EventSource(url)
+    let isClosed = false
 
     eventSource.addEventListener('progress', (event: MessageEvent) => {
       try {
@@ -91,22 +96,29 @@ export function useImportApi() {
     })
 
     eventSource.addEventListener('complete', () => {
+      isClosed = true
       eventSource.close()
       onComplete()
     })
 
     eventSource.addEventListener('not_found', () => {
+      isClosed = true
       eventSource.close()
       onError(new Error('Import not found'))
     })
 
     eventSource.onerror = (error) => {
-      eventSource.close()
-      onError(new Error('Connection error'))
+      // Only report error if we didn't intentionally close the connection
+      if (!isClosed) {
+        isClosed = true
+        eventSource.close()
+        onError(new Error('Connection error'))
+      }
     }
 
     // Return cleanup function
     return () => {
+      isClosed = true
       eventSource.close()
     }
   }

@@ -51,23 +51,8 @@ class ImportService(
         inputStream: InputStream,
         isGzipped: Boolean
     ) {
-        val language = languageRepository.findByCode(languageCode)
-        if (language == null) {
-            logger.error("Import $importId failed: Language not found: $languageCode")
-            updateProgress(importId) {
-                it.copy(
-                    status = ImportStatus.FAILED,
-                    error = "Language not found: $languageCode",
-                    completedAt = LocalDateTime.now()
-                )
-            }
-            return
-        }
-
         updateProgress(importId) {
             it.copy(
-                languageCode = languageCode,
-                languageName = language.name,
                 status = ImportStatus.PROCESSING,
                 message = "Reading file..."
             )
@@ -128,19 +113,56 @@ class ImportService(
         val inflectedFormEntries = mutableListOf<WordEntryJson>()
 
         val parseReader = BufferedReader(InputStreamReader(fileBytes.inputStream(), Charsets.UTF_8))
+        var detectedLanguageCode: String? = null
+
         parseReader.useLines { lines ->
-            lines.forEach { line ->
+            lines.forEachIndexed { index, line ->
                 try {
                     val entry = objectMapper.readValue<WordEntryJson>(line)
+
+                    // Check for metadata line (first line)
+                    if (index == 0 && entry.is_metadata == true) {
+                        detectedLanguageCode = entry.language_code
+                        logger.info("Import $importId: Detected language from metadata: ${entry.language} (${entry.language_code})")
+                        return@forEachIndexed
+                    }
+
                     if (entry.is_inflected_form == true) {
                         inflectedFormEntries.add(entry)
                     } else {
                         baseFormEntries.add(entry)
                     }
                 } catch (e: Exception) {
-                    logger.warn("Import $importId: Failed to parse entry: ${e.message}")
+                    logger.warn("Import $importId: Failed to parse entry at line $index: ${e.message}")
                 }
             }
+        }
+
+        // Use detected language code if available, otherwise use provided one
+        val finalLanguageCode = detectedLanguageCode ?: languageCode
+        logger.info("Import $importId: Using language code: $finalLanguageCode")
+
+        // Validate that the language exists in database
+        val language = languageRepository.findByCode(finalLanguageCode)
+        if (language == null) {
+            logger.error("Import $importId failed: Language not found: $finalLanguageCode")
+            updateProgress(importId) {
+                it.copy(
+                    status = ImportStatus.FAILED,
+                    error = "Language not found: $finalLanguageCode",
+                    completedAt = LocalDateTime.now()
+                )
+            }
+            return
+        }
+
+        // Update progress with detected language info
+        updateProgress(importId) {
+            it.copy(
+                languageCode = finalLanguageCode,
+                languageName = language.name,
+                message = if (detectedLanguageCode != null) "Detected language: ${language.name}" else "Processing ${language.name}"
+            )
         }
 
         val totalEntries = (baseFormEntries.size + inflectedFormEntries.size).toLong()
@@ -157,7 +179,7 @@ class ImportService(
         logger.info("Import $importId: Processing base forms...")
         var currentBatch = 0
         processEntryList(
-            importId, languageCode, baseFormEntries, lemmaCache, totalEntries,
+            importId, finalLanguageCode, baseFormEntries, lemmaCache, totalEntries,
             processedEntries, successfulEntries, failedEntries, currentBatch
         ).also {
             processedEntries = it.processedEntries
@@ -178,7 +200,7 @@ class ImportService(
         // Third pass: process inflected forms
         logger.info("Import $importId: Processing inflected forms...")
         processEntryList(
-            importId, languageCode, inflectedFormEntries, lemmaCache, totalEntries,
+            importId, finalLanguageCode, inflectedFormEntries, lemmaCache, totalEntries,
             processedEntries, successfulEntries, failedEntries, currentBatch
         ).also {
             processedEntries = it.processedEntries
@@ -422,15 +444,33 @@ class ImportService(
         val count = wordRepository.count()
 
         // Use TRUNCATE for much faster deletion
-        // TRUNCATE words CASCADE will automatically truncate all dependent tables
-        // (examples, definitions, pronunciations) due to foreign key relationships
-        logger.info("Truncating tables...")
+        // Truncate all tables that depend on words, in order of dependency
+        logger.info("Truncating all word-related tables...")
 
-        // PostgreSQL TRUNCATE with CASCADE and RESTART IDENTITY
+        // PostgreSQL TRUNCATE with RESTART IDENTITY CASCADE
         // This is much faster than DELETE as it doesn't scan the table row-by-row
-        entityManager.createNativeQuery("TRUNCATE TABLE words RESTART IDENTITY CASCADE").executeUpdate()
+        // Truncating words will cascade to all dependent tables:
+        // - definitions, pronunciations, examples (direct children)
+        // - user_vocabulary (references words)
+        // - word_set_items (references words)
+        // - study_session_items (references words and user_vocabulary)
+        // - study_session_attempts (references study_session_items)
+        entityManager.createNativeQuery(
+            """
+            TRUNCATE TABLE
+                study_session_attempts,
+                study_session_items,
+                user_vocabulary,
+                word_set_items,
+                examples,
+                definitions,
+                pronunciations,
+                words
+            RESTART IDENTITY CASCADE
+            """.trimIndent()
+        ).executeUpdate()
 
-        logger.info("Deleted $count words from database using TRUNCATE")
+        logger.info("Deleted $count words and all related data from database using TRUNCATE")
         return count
     }
 

@@ -1,7 +1,6 @@
 <template>
   <div class="word-sets-container">
     <Toast />
-    <ConfirmDialog />
 
     <div class="word-sets-content">
       <div class="header">
@@ -176,7 +175,6 @@ import Tag from 'primevue/tag'
 import Message from 'primevue/message'
 import Toast from 'primevue/toast'
 import { useToast } from 'primevue/usetoast'
-import ConfirmDialog from 'primevue/confirmdialog'
 import { useConfirm } from 'primevue/useconfirm'
 import ProgressSpinner from 'primevue/progressspinner'
 import Dialog from 'primevue/dialog'

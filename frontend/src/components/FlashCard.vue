@@ -41,7 +41,7 @@
             </div>
 
             <div class="definitions-section">
-              <div v-for="def in displayedWord.definitions" :key="def.id" class="definition">
+              <div v-for="def in uniqueDefinitions" :key="def.id" class="definition">
                 <div class="definition-text">
                   <span class="definition-number">{{ def.definitionNumber }}.</span>
                   {{ def.definitionText }}
@@ -105,6 +105,18 @@ const isFlipped = ref(false)
 const displayedWord = ref(props.word)
 const displayedProgress = ref(props.progress)
 const displayedSrsInfo = ref(props.srsInfo)
+
+// Remove duplicate definitions based on definitionNumber
+const uniqueDefinitions = computed(() => {
+  const seen = new Set<number>()
+  return displayedWord.value.definitions.filter(def => {
+    if (seen.has(def.definitionNumber)) {
+      return false
+    }
+    seen.add(def.definitionNumber)
+    return true
+  })
+})
 
 // Update displayed content with a delay during flip animation
 function updateDisplayedContent() {

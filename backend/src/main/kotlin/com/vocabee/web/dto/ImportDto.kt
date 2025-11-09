@@ -35,10 +35,17 @@ data class WordEntryJson(
     val inflected_form_of: InflectedFormInfo?,
     val definitions: List<DefinitionJson>?,
     val pronunciations: List<PronunciationJson>?,
-    val examples: List<ExampleJson>?
+    val examples: List<ExampleJson>?,
+    // Metadata fields (present only in first line of JSONL)
+    val _metadata: Boolean?,
+    val language: String?,
+    val language_code: String?
 ) {
     // Get the actual word/lemma text
     fun getWordText(): String = word ?: lemma ?: throw IllegalStateException("Both word and lemma are null")
+
+    // Check if this is a metadata entry
+    val is_metadata: Boolean get() = _metadata == true
 }
 
 data class InflectedFormInfo(

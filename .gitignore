@@ -23,6 +23,7 @@ build/
 *.db-journal
 wiktionary_split/
 parsed_data/
+wiktionary_jsonl/
 wiktionary_language_stats.txt
 wiktionary_samples.txt
 wiktionary_index.db

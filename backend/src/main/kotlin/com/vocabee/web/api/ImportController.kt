@@ -24,7 +24,7 @@ class ImportController(
     @PostMapping("/upload", consumes = [MediaType.MULTIPART_FORM_DATA_VALUE])
     fun uploadLanguageFile(
         @RequestParam("file") file: MultipartFile,
-        @RequestParam("languageCode") languageCode: String
+        @RequestParam("languageCode", required = false) languageCode: String?
     ): ResponseEntity<ImportStartResponse> {
         if (file.isEmpty) {
             return ResponseEntity.badRequest().body(
@@ -38,17 +38,20 @@ class ImportController(
         val filename = file.originalFilename ?: ""
         val isGzipped = filename.endsWith(".gz")
 
-        logger.info("Received file upload: $filename for language: $languageCode")
+        // Use a placeholder for now, will be detected from file metadata
+        val placeholderLanguageCode = languageCode ?: "unknown"
 
-        val importId = importService.createImport(languageCode)
+        logger.info("Received file upload: $filename, provided language: ${languageCode ?: "auto-detect"}")
+
+        val importId = importService.createImport(placeholderLanguageCode)
 
         // Copy file bytes to memory before async processing to avoid ClosedChannelException
         val fileBytes = file.bytes
 
-        // Start async import
+        // Start async import (will auto-detect language from metadata if not provided)
         importService.importLanguageData(
             importId = importId,
-            languageCode = languageCode,
+            languageCode = placeholderLanguageCode,
             inputStream = fileBytes.inputStream(),
             isGzipped = isGzipped
         )
