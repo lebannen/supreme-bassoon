@@ -1,5 +1,8 @@
 <template>
   <div class="book-container">
+    <!-- Audio Player -->
+    <AudioPlayer v-if="audioUrl" :audio-url="audioUrl" />
+
     <div class="book">
       <div class="page-wrapper">
         <!-- Left static page -->
@@ -93,17 +96,20 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import PageComponent from './PageComponent.vue';
+import AudioPlayer from './AudioPlayer.vue';
 
 interface Props {
   pages?: string[];
   content?: string;
   pageSize?: number;
+  audioUrl?: string | null;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   pages: () => [],
   content: '',
   pageSize: 300,
+  audioUrl: null,
 });
 
 const emit = defineEmits(['word-click', 'page-change']);

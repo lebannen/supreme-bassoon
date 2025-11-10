@@ -50,5 +50,8 @@ data class ReadingText(
     val author: String? = null,
 
     @Column(length = 100)
-    val source: String? = null
+    val source: String? = null,
+
+    @Column(length = 500)
+    val audioUrl: String? = null
 )

@@ -1,0 +1,86 @@
+version: '3.8'
+
+# Development-only infrastructure services
+# Use this when running backend/frontend locally
+# Usage: docker-compose -f docker-compose.dev.yml up -d
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: vocabee-postgres-dev
+    environment:
+      POSTGRES_DB: vocabee
+      POSTGRES_USER: vocabee
+      POSTGRES_PASSWORD: vocabee
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-dev-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vocabee"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - vocabee-dev
+
+  # MinIO - S3-compatible object storage
+  minio:
+    image: minio/minio:latest
+    container_name: vocabee-minio-dev
+    ports:
+      - "9000:9000"      # S3 API endpoint
+      - "9001:9001"      # Web Console
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin123
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio-dev-data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    networks:
+      - vocabee-dev
+
+  # MinIO bucket setup (runs once to create buckets)
+  minio-setup:
+    image: minio/mc:latest
+    container_name: vocabee-minio-setup
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      /bin/sh -c "
+      echo 'Waiting for MinIO to be ready...';
+      sleep 5;
+
+      echo 'Setting up MinIO alias...';
+      mc alias set local http://minio:9000 minioadmin minioadmin123;
+
+      echo 'Creating buckets...';
+      mc mb local/vocabee-audio --ignore-existing;
+      mc mb local/vocabee-files --ignore-existing;
+
+      echo 'Setting public download policy...';
+      mc anonymous set download local/vocabee-audio;
+      mc anonymous set download local/vocabee-files;
+
+      echo 'MinIO setup complete!';
+      exit 0;
+      "
+    networks:
+      - vocabee-dev
+
+volumes:
+  postgres-dev-data:
+    driver: local
+  minio-dev-data:
+    driver: local
+
+networks:
+  vocabee-dev:
+    driver: bridge

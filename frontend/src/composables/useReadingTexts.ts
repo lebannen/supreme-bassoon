@@ -18,6 +18,7 @@ export interface ReadingText {
   updatedAt: string
   author: string | null
   source: string | null
+  audioUrl: string | null
 }
 
 export interface ReadingProgress {

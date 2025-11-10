@@ -51,12 +51,32 @@ const items = computed(() => {
     command: () => router.push('/reading')
   })
 
-  // Only show Import when authenticated
-  if (authStore.isAuthenticated) {
-    baseItems.push({
-      label: 'Import',
+  // Admin menu with dropdown
+  const adminItems = [
+    {
+      label: 'Import Words',
       icon: 'pi pi-upload',
-      command: () => router.push('/import')
+      command: () => router.push('/import'),
+      visible: authStore.isAuthenticated
+    },
+    {
+      label: 'Import Texts',
+      icon: 'pi pi-file-import',
+      command: () => router.push('/reading/import'),
+      visible: authStore.isAuthenticated
+    },
+    {
+      label: 'Manage Texts',
+      icon: 'pi pi-cog',
+      command: () => router.push('/reading/admin')
+    }
+  ].filter(item => item.visible !== false)
+
+  if (adminItems.length > 0) {
+    baseItems.push({
+      label: 'Admin',
+      icon: 'pi pi-wrench',
+      items: adminItems
     })
   }
 

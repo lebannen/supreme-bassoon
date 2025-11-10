@@ -59,10 +59,27 @@ class ReadingController(
             topic = request.topic,
             description = request.description,
             author = request.author,
-            source = request.source
+            source = request.source,
+            audioUrl = request.audioUrl
         )
 
         return ResponseEntity.ok(text.toDto())
+    }
+
+    @PatchMapping("/texts/{id}/audio")
+    fun updateAudioUrl(
+        @PathVariable id: Long,
+        @RequestBody request: com.vocabee.web.dto.UpdateAudioUrlRequest
+    ): ResponseEntity<ReadingTextDto> {
+        logger.info("Updating audio URL for text $id")
+
+        return try {
+            val updatedText = readingTextService.updateAudioUrl(id, request.audioUrl)
+            ResponseEntity.ok(updatedText.toDto())
+        } catch (e: IllegalArgumentException) {
+            logger.error("Text not found: ${e.message}")
+            ResponseEntity.notFound().build()
+        }
     }
 
     @GetMapping("/texts/{id}/progress")
@@ -156,7 +173,8 @@ class ReadingController(
         createdAt = createdAt,
         updatedAt = updatedAt,
         author = author,
-        source = source
+        source = source,
+        audioUrl = audioUrl
     )
 
     private fun UserReadingProgress.toDto() = UserReadingProgressDto(

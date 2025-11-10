@@ -43,6 +43,10 @@ dependencies {
     implementation("org.postgresql:postgresql")
     implementation("org.flywaydb:flyway-core")
 
+    // Storage (S3/MinIO)
+    implementation("software.amazon.awssdk:s3:2.20.0")
+    implementation("org.apache.tika:tika-core:2.9.0")
+
     // Development
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 

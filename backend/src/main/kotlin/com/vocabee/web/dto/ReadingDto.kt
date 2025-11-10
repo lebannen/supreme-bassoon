@@ -17,7 +17,8 @@ data class ReadingTextDto(
     val createdAt: LocalDateTime,
     val updatedAt: LocalDateTime,
     val author: String?,
-    val source: String?
+    val source: String?,
+    val audioUrl: String?
 )
 
 data class UserReadingProgressDto(
@@ -37,6 +38,10 @@ data class UpdateProgressRequest(
     val totalPages: Int
 )
 
+data class UpdateAudioUrlRequest(
+    val audioUrl: String
+)
+
 data class ImportTextRequest(
     val title: String,
     val content: String,
@@ -45,5 +50,6 @@ data class ImportTextRequest(
     val topic: String?,
     val description: String?,
     val author: String?,
-    val source: String?
+    val source: String?,
+    val audioUrl: String?
 )

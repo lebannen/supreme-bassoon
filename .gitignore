@@ -28,6 +28,10 @@ wiktionary_language_stats.txt
 wiktionary_samples.txt
 wiktionary_index.db
 
+# Generated audio files
+audio_generated/
+audio_generation_progress.json
+
 # IDEs
 .idea/
 .vscode/

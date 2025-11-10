@@ -84,6 +84,11 @@ const router = createRouter({
       meta: { requiresAuth: true }
     },
     {
+      path: '/reading/admin',
+      name: 'reading-admin',
+      component: () => import('../views/ReadingAdminView.vue'),
+    },
+    {
       path: '/study',
       name: 'study',
       component: () => import('../views/StudyHomeView.vue'),

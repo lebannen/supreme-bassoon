@@ -70,7 +70,8 @@ class ReadingTextService(
         topic: String? = null,
         description: String? = null,
         author: String? = null,
-        source: String? = null
+        source: String? = null,
+        audioUrl: String? = null
     ): ReadingText {
         logger.info("Creating new reading text: $title")
 
@@ -91,10 +92,25 @@ class ReadingTextService(
             estimatedMinutes = estimatedMinutes,
             author = author,
             source = source,
+            audioUrl = audioUrl,
             isPublished = true  // Auto-publish imported texts
         )
 
         return readingTextRepository.save(text)
+    }
+
+    /**
+     * Update audio URL for a reading text
+     */
+    @Transactional
+    fun updateAudioUrl(textId: Long, audioUrl: String): ReadingText {
+        logger.info("Updating audio URL for text $textId")
+
+        val text = readingTextRepository.findById(textId).orElse(null)
+            ?: throw IllegalArgumentException("Reading text not found with id: $textId")
+
+        val updatedText = text.copy(audioUrl = audioUrl)
+        return readingTextRepository.save(updatedText)
     }
 
     /**

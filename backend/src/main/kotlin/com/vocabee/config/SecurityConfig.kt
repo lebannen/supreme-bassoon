@@ -30,7 +30,8 @@ class SecurityConfig(
                 auth
                     .requestMatchers("/api/auth/**", "/login/**", "/oauth2/**", "/error").permitAll()
                     .requestMatchers("/api/v1/**").permitAll()
-                    .requestMatchers("/api/reading/texts", "/api/reading/texts/*", "/api/reading/texts/import").permitAll()  // Public text browsing and import
+                    .requestMatchers("/api/files/**").permitAll()  // File uploads
+                    .requestMatchers("/api/reading/texts", "/api/reading/texts/*", "/api/reading/texts/import", "/api/reading/texts/*/audio").permitAll()  // Public text browsing, import, and audio updates
                     .requestMatchers("/api/reading/**").authenticated()  // Progress tracking requires auth
                     .anyRequest().authenticated()
             }
@@ -59,7 +60,7 @@ class SecurityConfig(
     fun corsConfigurationSource(): CorsConfigurationSource {
         val configuration = CorsConfiguration()
         configuration.allowedOrigins = listOf("http://localhost:5173", "http://localhost:5174", "http://localhost:8080")
-        configuration.allowedMethods = listOf("GET", "POST", "PUT", "DELETE", "OPTIONS")
+        configuration.allowedMethods = listOf("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
         configuration.allowedHeaders = listOf("*")
         configuration.allowCredentials = true
 

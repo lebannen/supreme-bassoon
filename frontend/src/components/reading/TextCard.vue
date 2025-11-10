@@ -31,6 +31,10 @@
             <i class="pi pi-clock"></i>
             <span>{{ text.estimatedMinutes }} min</span>
           </div>
+          <div v-if="text.audioUrl" class="stat audio-stat">
+            <i class="pi pi-volume-up"></i>
+            <span>Audio</span>
+          </div>
         </div>
       </div>
     </template>
@@ -178,6 +182,15 @@ function getPreview(content: string): string {
 
 .stat i {
   font-size: 1rem;
+}
+
+.stat.audio-stat {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.stat.audio-stat i {
+  color: var(--primary-color);
 }
 
 .card-footer {

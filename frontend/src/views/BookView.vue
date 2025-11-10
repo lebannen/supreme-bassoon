@@ -41,6 +41,7 @@
 
         <BookComponent
           :content="currentText.content"
+          :audio-url="currentText.audioUrl"
           :pageSize="300"
           @word-click="onWordClick"
           @page-change="onPageChange"

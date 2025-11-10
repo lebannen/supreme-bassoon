@@ -37,6 +37,18 @@ server:
     include-message: always
     include-stacktrace: on_param
 
+storage:
+  type: s3
+  s3:
+    endpoint: ${S3_ENDPOINT:http://localhost:9000}
+    region: ${S3_REGION:us-east-1}
+    access-key: ${S3_ACCESS_KEY:minioadmin}
+    secret-key: ${S3_SECRET_KEY:minioadmin123}
+    path-style-enabled: true
+    buckets:
+      audio: vocabee-audio
+      files: vocabee-files
+
 logging:
   level:
     com.vocabee: DEBUG
