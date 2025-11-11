@@ -10,6 +10,10 @@
 
       <template #content>
         <form @submit.prevent="handleLogin" class="flex flex-col gap-6">
+          <Message v-if="route.query.expired === 'true'" severity="warn" :closable="true">
+            Your session has expired. Please log in again.
+          </Message>
+
           <Message v-if="authStore.error" severity="error" :closable="false">
             {{ authStore.error }}
           </Message>

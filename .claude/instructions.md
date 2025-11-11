@@ -1,12 +1,15 @@
 # Development Instructions for AI Assistants
 
 ## Backend Management
-- **NEVER start or restart the backend** - The user manages this manually
+- **NEVER start or restart the backend** - The user manages this manually!
+- **NEVER start or restart the backend** - The user manages this manually!
+- **NEVER start or restart the backend** - The user manages this manually!
 - Backend runs on port 8080 via `./gradlew bootRun`
 - Only make code changes to backend files, never execute gradle commands to run it
 - If backend changes are made, inform the user but let them restart it themselves
 
 ## Frontend Management
+- **NEVER start or restart the frontend** - The user manages this manually
 - Frontend development server can be managed as needed
 - Runs on a separate port from backend
 

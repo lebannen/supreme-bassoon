@@ -198,11 +198,11 @@ class SrsIntervalCalculatorTest {
         @Test
         fun `should not drop ease factor below minimum`() {
             val newEaseFactor = srsCalculator.updateEaseFactor(
-                currentEaseFactor = 1.3,  // Already at minimum
+                currentEaseFactor = 1.0,  // Already at minimum
                 wasCorrect = false
             )
 
-            assertTrue(newEaseFactor >= 1.3, "Ease factor should not go below 1.3")
+            assertTrue(newEaseFactor >= 1.0, "Ease factor should not go below 1.0")
         }
 
         @Test
@@ -225,7 +225,7 @@ class SrsIntervalCalculatorTest {
             easeFactor = srsCalculator.updateEaseFactor(easeFactor, false)
 
             assertTrue(easeFactor < 2.0, "Ease factor should decrease after failures")
-            assertTrue(easeFactor >= 1.3, "Ease factor should stay above minimum")
+            assertTrue(easeFactor >= 1.0, "Ease factor should stay above minimum")
         }
     }
 

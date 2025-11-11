@@ -33,6 +33,8 @@ class SecurityConfig(
                     .requestMatchers("/api/files/**").permitAll()  // File uploads
                     .requestMatchers("/api/reading/texts", "/api/reading/texts/*", "/api/reading/texts/import", "/api/reading/texts/*/audio").permitAll()  // Public text browsing, import, and audio updates
                     .requestMatchers("/api/reading/**").authenticated()  // Progress tracking requires auth
+                    .requestMatchers("/api/exercises/*/attempt", "/api/exercises/*/progress").authenticated()  // Attempts and progress require auth (must be before general exercises)
+                    .requestMatchers("/api/exercises/**").permitAll()  // Public exercise browsing
                     .anyRequest().authenticated()
             }
             .oauth2Login { oauth2 ->

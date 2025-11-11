@@ -1,8 +1,8 @@
 # Vocabee Development Roadmap
 
-**Version:** 1.1
+**Version:** 1.2
 **Last Updated:** January 2025
-**Status:** ✅ **M1 MVP COMPLETED**
+**Status:** ✅ M1 COMPLETED | 🚧 **M2 IN PROGRESS** (Exercise System - Phase 1)
 
 ---
 
@@ -319,7 +319,48 @@ CREATE TABLE user_vocabulary_sets (
 
 ---
 
-## M2 and Beyond - Future Enhancements
+## M2 - Interactive Exercise System 🚧 **IN PROGRESS**
+
+**Start Date:** January 2025
+**Target:** Implement comprehensive exercise system for language learning
+
+### M2 Goals
+1. Build reusable exercise infrastructure
+2. Implement multiple exercise types progressively
+3. Create curated exercise collections
+4. Enable AI-assisted exercise generation (later phase)
+
+### M2 Progress Status
+
+**Phase 0: Infrastructure** ✅ **COMPLETE**
+- ✅ Database schema (exercises, exercise_types, user_exercise_attempts)
+- ✅ Backend services (ExerciseService, ExerciseValidationService)
+- ✅ API endpoints with authentication
+- ✅ Frontend types, composables, and views
+- ✅ JSONB support for flexible exercise content
+
+**Phase 1: Multiple Choice Exercises** 🚧 **95% COMPLETE**
+- ✅ Backend validation logic
+- ✅ Frontend component (MultipleChoiceExercise.vue)
+- ✅ 5 sample French A1 exercises
+- ✅ Full submit → validate → display flow
+- ⏳ UI polish (color contrast improvements)
+- ⏳ Additional sample content (5 more exercises)
+
+**Phase 2: Matching Exercises** ⏳ **PLANNED**
+**Phase 3: Sentence Scramble** ⏳ **PLANNED**
+**Phase 4: Exercise Collections** ⏳ **PLANNED**
+**Phase 5: Additional Types** ⏳ **PLANNED**
+**Phase 6: AI Generation** ⏳ **PLANNED**
+
+### M2 Current Focus
+- Completing Phase 1 UI polish
+- Creating additional sample exercises
+- Preparing for Phase 2 (Matching) or Phase 4 (Collections)
+
+---
+
+## M3 and Beyond - Future Enhancements
 
 ### Exercise Types (Polish one at a time)
 
@@ -612,6 +653,17 @@ The M1 MVP is complete and functional. The application now provides a complete e
 
 ---
 
-**Document Status:** ✅ M1 Complete - Ready for M2 Planning
+**Document Status:** ✅ M1 Complete | 🚧 M2 In Progress (Phase 1 - Multiple Choice 95%)
+**Progress:**
+- M1 MVP: ✅ Complete
+- M2 Phase 0 (Infrastructure): ✅ Complete
+- M2 Phase 1 (Multiple Choice): 🚧 95% Complete
+
+**Next Milestones:**
+1. Complete M2 Phase 1 UI polish
+2. Begin M2 Phase 2 (Matching) or Phase 4 (Collections)
+3. Implement remaining exercise types
+
 **Author:** Claude Code
+**Created:** November 2024
 **Last Updated:** January 2025

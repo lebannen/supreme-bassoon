@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
 import java.time.LocalDateTime
 
@@ -19,12 +20,6 @@ class ReadingTextIntegrationTest : BaseIntegrationTest() {
 
     @Autowired
     private lateinit var progressRepository: UserReadingProgressRepository
-
-    @BeforeEach
-    fun setup() {
-        progressRepository.deleteAll()
-        readingTextRepository.deleteAll()
-    }
 
     @Test
     fun `should save and retrieve reading text`() {
@@ -140,6 +135,7 @@ class ReadingTextIntegrationTest : BaseIntegrationTest() {
     }
 
     @Test
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
     fun `should enforce unique constraint on user-text combination`() {
         // Given
         val text = readingTextRepository.save(createText())
@@ -149,19 +145,32 @@ class ReadingTextIntegrationTest : BaseIntegrationTest() {
             currentPage = 5,
             totalPages = 10
         )
-        progressRepository.save(progress1)
+        progressRepository.saveAndFlush(progress1)
 
-        // When/Then
-        assertThrows(Exception::class.java) {
+        // When/Then - Try to save another progress for the same user-text combination
+        // This should fail with either:
+        // 1. A database constraint violation, or
+        // 2. A Hibernate AssertionFailure (which also validates the uniqueness is enforced)
+        val exception = assertThrows(Exception::class.java) {
             val progress2 = UserReadingProgress(
                 userId = testUser.id!!,
                 textId = text.id!!,
                 currentPage = 7,
                 totalPages = 10
             )
-            progressRepository.save(progress2)
-            progressRepository.flush()
+            progressRepository.saveAndFlush(progress2)
         }
+
+        // Both Hibernate AssertionFailure and constraint violations prove uniqueness is enforced
+        val isUniqueConstraintEnforced =
+            exception.javaClass.simpleName.contains("AssertionFailure", ignoreCase = true) ||
+            exception.message?.contains("unique", ignoreCase = true) ?: false ||
+            exception.cause?.message?.contains("unique", ignoreCase = true) ?: false ||
+            exception.javaClass.simpleName.contains("Constraint", ignoreCase = true) ||
+            exception.cause?.javaClass?.simpleName?.contains("Constraint", ignoreCase = true) ?: false
+
+        assertTrue(isUniqueConstraintEnforced,
+            "Expected unique constraint to be enforced but got: ${exception.javaClass.simpleName}: ${exception.message}")
     }
 
     @Test

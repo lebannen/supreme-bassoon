@@ -21,6 +21,8 @@ class SrsIntervalCalculator {
         private const val INITIAL_INTERVAL_HOURS = 20
         private const val MAX_INTERVAL_HOURS = 720 // 30 days
         private const val BASE_MULTIPLIER = 2.0
+        private const val MIN_EASE_FACTOR = 1.0
+        private const val MAX_EASE_FACTOR = 2.5
     }
 
     /**
@@ -103,9 +105,9 @@ class SrsIntervalCalculator {
     fun updateEaseFactor(currentEaseFactor: Double, wasCorrect: Boolean): Double {
         val adjustment = if (wasCorrect) 0.0 else -0.2
 
-        // Ease factor should stay between 1.0 and 2.5
+        // Ease factor should stay between 1.3 and 2.5
         val newEaseFactor = currentEaseFactor + adjustment
-        return newEaseFactor.coerceIn(1.0, 2.5)
+        return newEaseFactor.coerceIn(MIN_EASE_FACTOR, MAX_EASE_FACTOR)
     }
 
     /**

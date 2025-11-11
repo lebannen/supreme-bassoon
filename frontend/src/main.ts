@@ -10,6 +10,7 @@ import ToastService from 'primevue/toastservice'
 import App from './App.vue'
 import router from './router'
 import { useAuthStore } from './stores/auth'
+import { setupApiInterceptor } from './utils/apiInterceptor'
 
 // PrimeIcons
 import 'primeicons/primeicons.css'
@@ -28,6 +29,9 @@ app.use(PrimeVue, {
 })
 app.use(ConfirmationService)
 app.use(ToastService)
+
+// Setup API interceptor to handle 401 errors globally
+setupApiInterceptor()
 
 // Initialize auth from localStorage
 const authStore = useAuthStore()

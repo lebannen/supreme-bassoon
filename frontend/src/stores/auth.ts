@@ -11,14 +11,21 @@ export const useAuthStore = defineStore('auth', () => {
 
   const isAuthenticated = computed(() => !!token.value && !!user.value)
 
-  // Initialize from localStorage
-  function initAuth() {
+  // Initialize from localStorage and validate token
+  async function initAuth() {
     const storedToken = localStorage.getItem('auth_token')
     const storedUser = localStorage.getItem('auth_user')
 
     if (storedToken && storedUser) {
       token.value = storedToken
       user.value = JSON.parse(storedUser)
+
+      // Validate token by fetching current user
+      const isValid = await fetchCurrentUser()
+      if (!isValid) {
+        console.warn('Stored token is invalid, logging out')
+        logout()
+      }
     }
   }
 

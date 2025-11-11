@@ -95,10 +95,10 @@ class CardSelectionService {
      * @return Priority score
      */
     private fun calculatePriorityScore(item: StudySessionItem): Int {
-        // Base priority: show NEW words first (lower score)
+        // Base priority: show LEARNING words first (lower score), then NEW words
         val basePriority = when (item.status) {
-            ItemStatus.NEW -> 0
-            ItemStatus.LEARNING -> 100
+            ItemStatus.LEARNING -> 0   // Highest priority
+            ItemStatus.NEW -> 100       // Lower priority than learning
             ItemStatus.COMPLETED -> 1000  // Should never be selected
         }
 

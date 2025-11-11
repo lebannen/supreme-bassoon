@@ -31,7 +31,13 @@ const items = computed(() => {
     }
   ]
 
-  // Only show Vocabulary when authenticated
+  baseItems.push({
+    label: 'Reading',
+    icon: 'pi pi-book',
+    command: () => router.push('/reading')
+  })
+
+  // Only show Vocabulary, Study, and Exercises when authenticated
   if (authStore.isAuthenticated) {
     baseItems.push({
       label: 'Vocabulary',
@@ -43,13 +49,12 @@ const items = computed(() => {
       icon: 'pi pi-graduation-cap',
       command: () => router.push('/study')
     })
+    baseItems.push({
+      label: 'Exercises',
+      icon: 'pi pi-pencil',
+      command: () => router.push('/exercises')
+    })
   }
-
-  baseItems.push({
-    label: 'Reading',
-    icon: 'pi pi-book',
-    command: () => router.push('/reading')
-  })
 
   // Admin menu with dropdown
   const adminItems = [

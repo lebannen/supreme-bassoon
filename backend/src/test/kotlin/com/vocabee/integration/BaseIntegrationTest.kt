@@ -56,6 +56,21 @@ abstract class BaseIntegrationTest {
     @Autowired
     protected lateinit var jwtService: JwtService
 
+    @Autowired(required = false)
+    protected var userExerciseAttemptRepository: com.vocabee.domain.repository.UserExerciseAttemptRepository? = null
+
+    @Autowired(required = false)
+    protected var exerciseRepository: com.vocabee.domain.repository.ExerciseRepository? = null
+
+    @Autowired(required = false)
+    protected var baseUserReadingProgressRepository: com.vocabee.domain.repository.UserReadingProgressRepository? = null
+
+    @Autowired(required = false)
+    protected var baseReadingTextRepository: com.vocabee.domain.repository.ReadingTextRepository? = null
+
+    @Autowired
+    protected lateinit var entityManager: jakarta.persistence.EntityManager
+
     protected lateinit var testUser: User
     protected lateinit var testToken: String
 
@@ -72,20 +87,46 @@ abstract class BaseIntegrationTest {
 
     @BeforeEach
     fun baseSetup() {
-        // Clean up database before each test
+        // Create test user at the start of each test
+        testUser = createTestUser()
+        testToken = jwtService.generateToken(testUser)
+    }
+
+    @org.junit.jupiter.api.AfterEach
+    fun baseTeardown() {
+        // Clear entity manager to discard any failed entities (e.g., from constraint violations)
+        // This prevents "don't flush the Session after an exception occurs" errors
+        entityManager.clear()
+
+        // Clean up database after each test
+        // Delete in order to respect foreign key constraints
+
+        // Reading text progress (must delete before reading texts and users)
+        baseUserReadingProgressRepository?.deleteAll()
+
+        // Exercise attempts (must delete before exercises and users)
+        userExerciseAttemptRepository?.deleteAll()
+
+        // Study session tables (must delete before words and users)
         studySessionAttemptRepository.deleteAll()
         studySessionItemRepository.deleteAll()
         studySessionRepository.deleteAll()
+
+        // Vocabulary tables (must delete before words and users)
         userVocabularyRepository.deleteAll()
         wordSetItemRepository.deleteAll()
         wordSetRepository.deleteAll()
-        wordRepository.deleteAll()
-        userRepository.deleteAll()
-        languageRepository.deleteAll()
 
-        // Create test user
-        testUser = createTestUser()
-        testToken = jwtService.generateToken(testUser)
+        // Now delete entities that reference languages
+        baseReadingTextRepository?.deleteAll()  // References languages
+        exerciseRepository?.deleteAll()          // References languages
+        wordRepository.deleteAll()               // References languages
+
+        // Delete users
+        userRepository.deleteAll()
+
+        // NOTE: We don't delete languages because they're seeded by migrations (V1)
+        // and are meant to persist across tests
     }
 
     protected fun createTestUser(email: String = "test@example.com"): User {
@@ -98,6 +139,13 @@ abstract class BaseIntegrationTest {
     }
 
     protected fun createTestLanguage(code: String = "fr", name: String = "French"): Language {
+        // Check if language already exists (from migrations or previous tests)
+        val existing = languageRepository.findAll().firstOrNull { it.code == code }
+        if (existing != null) {
+            return existing
+        }
+
+        // Otherwise create it
         val language = Language(
             code = code,
             name = name
