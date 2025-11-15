@@ -56,6 +56,22 @@
             @submit="handleSubmit"
           />
 
+          <ListeningExercise
+            v-else-if="exercise.type === 'listening'"
+            :key="`l-${exercise.id}`"
+            ref="exerciseComponent"
+            :content="exercise.content"
+            @submit="handleSubmit"
+          />
+
+          <ClozeReadingExercise
+            v-else-if="exercise.type === 'cloze_reading'"
+            :key="`cr-${exercise.id}`"
+            ref="exerciseComponent"
+            :content="exercise.content"
+            @submit="handleSubmit"
+          />
+
           <!-- Placeholder for other types -->
           <div v-else class="placeholder">
             <Message severity="info">
@@ -84,6 +100,8 @@ import MultipleChoiceExercise from '@/components/MultipleChoiceExercise.vue'
 import FillInBlankExercise from '@/components/FillInBlankExercise.vue'
 import SentenceScrambleExercise from '@/components/SentenceScrambleExercise.vue'
 import MatchingExercise from '@/components/MatchingExercise.vue'
+import ListeningExercise from '@/components/ListeningExercise.vue'
+import ClozeReadingExercise from '@/components/ClozeReadingExercise.vue'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 import Tag from 'primevue/tag'
@@ -95,7 +113,7 @@ const route = useRoute()
 const { getExercise, submitAttempt, loading } = useExerciseApi()
 
 const exercise = ref<Exercise | null>(null)
-const exerciseComponent = ref<InstanceType<typeof MultipleChoiceExercise | typeof FillInBlankExercise | typeof SentenceScrambleExercise | typeof MatchingExercise> | null>(null)
+const exerciseComponent = ref<InstanceType<typeof MultipleChoiceExercise | typeof FillInBlankExercise | typeof SentenceScrambleExercise | typeof MatchingExercise | typeof ListeningExercise | typeof ClozeReadingExercise> | null>(null)
 const startTime = ref<number>(Date.now())
 const lastUserResponse = ref<any>(null)
 

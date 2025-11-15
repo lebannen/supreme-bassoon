@@ -1,8 +1,8 @@
 # Vocabee Development Roadmap
 
-**Version:** 1.2
+**Version:** 2.0
 **Last Updated:** January 2025
-**Status:** ✅ M1 COMPLETED | 🚧 **M2 IN PROGRESS** (Exercise System - Phase 1)
+**Status:** ✅ M1 COMPLETED | ✅ **M2 COMPLETED** (All Exercise Types Implemented)
 
 ---
 
@@ -319,18 +319,19 @@ CREATE TABLE user_vocabulary_sets (
 
 ---
 
-## M2 - Interactive Exercise System 🚧 **IN PROGRESS**
+## M2 - Interactive Exercise System ✅ **COMPLETE**
 
 **Start Date:** January 2025
+**Completion Date:** January 2025
 **Target:** Implement comprehensive exercise system for language learning
 
-### M2 Goals
-1. Build reusable exercise infrastructure
-2. Implement multiple exercise types progressively
-3. Create curated exercise collections
-4. Enable AI-assisted exercise generation (later phase)
+### M2 Goals ✅
+1. ✅ Build reusable exercise infrastructure
+2. ✅ Implement 6 core exercise types
+3. ✅ Create sample exercises for French A1
+4. ⏳ Enable AI-assisted exercise generation (future)
 
-### M2 Progress Status
+### M2 Final Status - All Phases Complete
 
 **Phase 0: Infrastructure** ✅ **COMPLETE**
 - ✅ Database schema (exercises, exercise_types, user_exercise_attempts)
@@ -339,24 +340,51 @@ CREATE TABLE user_vocabulary_sets (
 - ✅ Frontend types, composables, and views
 - ✅ JSONB support for flexible exercise content
 
-**Phase 1: Multiple Choice Exercises** 🚧 **95% COMPLETE**
-- ✅ Backend validation logic
+**Phase 1: Multiple Choice** ✅ **COMPLETE**
+- ✅ Backend validation logic with 3 unit tests
 - ✅ Frontend component (MultipleChoiceExercise.vue)
-- ✅ 5 sample French A1 exercises
+- ✅ 5 sample French A1 exercises (V13 migration)
 - ✅ Full submit → validate → display flow
-- ⏳ UI polish (color contrast improvements)
-- ⏳ Additional sample content (5 more exercises)
 
-**Phase 2: Matching Exercises** ⏳ **PLANNED**
-**Phase 3: Sentence Scramble** ⏳ **PLANNED**
-**Phase 4: Exercise Collections** ⏳ **PLANNED**
-**Phase 5: Additional Types** ⏳ **PLANNED**
-**Phase 6: AI Generation** ⏳ **PLANNED**
+**Phase 2: Fill in the Blank** ✅ **COMPLETE**
+- ✅ Backend validation with case-insensitive matching (6 unit tests)
+- ✅ Frontend component (FillInBlankExercise.vue)
+- ✅ 6 sample exercises with grammar explanations (V14 migration)
 
-### M2 Current Focus
-- Completing Phase 1 UI polish
-- Creating additional sample exercises
-- Preparing for Phase 2 (Matching) or Phase 4 (Collections)
+**Phase 3: Sentence Scramble** ✅ **COMPLETE**
+- ✅ Backend validation with word order checking (7 unit tests)
+- ✅ Frontend component with drag-and-drop (SentenceScrambleExercise.vue)
+- ✅ 6 sample exercises (V15 migration)
+
+**Phase 4: Matching** ✅ **COMPLETE**
+- ✅ Backend validation with partial scoring (7 unit tests)
+- ✅ Frontend component with click-to-match (MatchingExercise.vue)
+- ✅ 6 sample exercises (V16 migration)
+
+**Phase 5: Listening Comprehension** ✅ **COMPLETE**
+- ✅ Backend validation for multiple choice and text input (10 unit tests)
+- ✅ Frontend component with HTML5 audio player (ListeningExercise.vue)
+- ✅ 6 sample exercises (V17 migration)
+- ✅ **6 audio files generated** using Gemini TTS (~140 KB total)
+- ✅ Audio generation script (generate_listening_audio.py)
+
+**Phase 6: Cloze Reading** ✅ **COMPLETE**
+- ✅ Backend validation with multiple blanks (9 unit tests)
+- ✅ Frontend component with dynamic text parsing (ClozeReadingExercise.vue)
+- ✅ 6 sample exercises (V18 migration)
+
+### M2 Achievements
+
+**Total Deliverables:**
+- 6 exercise types fully implemented
+- 35 sample exercises across all types
+- 45 unit tests (all passing)
+- 7 database migrations (V12-V18)
+- 6 frontend Vue components
+- 6 audio files for listening exercises
+- Complete documentation
+
+**See:** [Exercise Types Reference](./exercise-types-reference.md) for detailed specifications
 
 ---
 

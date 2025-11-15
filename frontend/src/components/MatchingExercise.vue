@@ -304,8 +304,15 @@ defineExpose({
 }
 
 .match-item.matched {
-  background: var(--blue-50);
-  border-color: var(--blue-400);
+  background: #e0e7ff !important;
+  border-color: #818cf8 !important;
+  border-width: 2px;
+  cursor: not-allowed;
+}
+
+.match-item.matched .item-content {
+  color: #4338ca !important;
+  font-weight: 600;
 }
 
 .match-item.available {

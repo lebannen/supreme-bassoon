@@ -277,11 +277,230 @@ class ExerciseValidationService {
     }
 
     private fun validateListening(content: JsonNode, userResponses: JsonNode): ValidationResult {
-        throw NotImplementedError("Listening validation not yet implemented")
+        // Get question type (multiple_choice or text_input)
+        val questionType = content.get("questionType")?.asText() ?: "multiple_choice"
+
+        return when (questionType) {
+            "multiple_choice" -> validateListeningMultipleChoice(content, userResponses)
+            "text_input" -> validateListeningTextInput(content, userResponses)
+            else -> throw IllegalStateException("Invalid question type: $questionType")
+        }
+    }
+
+    private fun validateListeningMultipleChoice(content: JsonNode, userResponses: JsonNode): ValidationResult {
+        // Extract user's selected option
+        val selectedOption = userResponses.get("selectedOption")?.asText()
+            ?: return ValidationResult(
+                isCorrect = false,
+                score = 0.0,
+                feedback = "No option selected",
+                correctAnswers = null
+            )
+
+        // Get correct answer
+        val correctAnswer = content.get("correctAnswer")?.asText()
+            ?: throw IllegalStateException("No correct answer defined in exercise content")
+
+        // Check if user's answer is correct
+        val isCorrect = selectedOption == correctAnswer
+
+        // Get additional content for feedback
+        val explanation = content.get("explanation")?.asText() ?: ""
+        val transcript = content.get("transcript")?.asText()
+
+        // Build feedback message
+        val feedback = if (isCorrect) {
+            buildString {
+                append("Correct! ")
+                if (explanation.isNotEmpty()) {
+                    append(explanation)
+                }
+                if (transcript != null) {
+                    append(" Transcript: \"$transcript\"")
+                }
+            }
+        } else {
+            buildString {
+                append("Incorrect. ")
+                if (explanation.isNotEmpty()) {
+                    append(explanation)
+                    append(" ")
+                }
+                if (transcript != null) {
+                    append("Transcript: \"$transcript\"")
+                }
+            }
+        }
+
+        return ValidationResult(
+            isCorrect = isCorrect,
+            score = if (isCorrect) 100.0 else 0.0,
+            feedback = feedback,
+            correctAnswers = objectMapper.createObjectNode().apply {
+                put("correctAnswer", correctAnswer)
+                if (transcript != null) {
+                    put("transcript", transcript)
+                }
+            }
+        )
+    }
+
+    private fun validateListeningTextInput(content: JsonNode, userResponses: JsonNode): ValidationResult {
+        // Extract user's answer
+        val userAnswer = userResponses.get("answer")?.asText()?.trim()
+            ?: return ValidationResult(
+                isCorrect = false,
+                score = 0.0,
+                feedback = "No answer provided",
+                correctAnswers = null
+            )
+
+        // Get correct answer(s) - could be a single string or array of acceptable answers
+        val correctAnswerNode = content.get("correctAnswer")
+            ?: throw IllegalStateException("No correct answer defined in exercise content")
+
+        val acceptableAnswers = if (correctAnswerNode.isArray) {
+            val answers = mutableListOf<String>()
+            correctAnswerNode.forEach { answers.add(it.asText()) }
+            answers
+        } else {
+            listOf(correctAnswerNode.asText())
+        }
+
+        // Check if user's answer matches any acceptable answer (case-insensitive)
+        val isCorrect = acceptableAnswers.any { it.equals(userAnswer, ignoreCase = true) }
+
+        // Get additional content for feedback
+        val explanation = content.get("explanation")?.asText() ?: ""
+        val transcript = content.get("transcript")?.asText()
+
+        // Build feedback message
+        val feedback = if (isCorrect) {
+            buildString {
+                append("Correct! ")
+                if (explanation.isNotEmpty()) {
+                    append(explanation)
+                }
+                if (transcript != null) {
+                    append(" Transcript: \"$transcript\"")
+                }
+            }
+        } else {
+            buildString {
+                append("Incorrect. The correct answer is '${acceptableAnswers.first()}'. ")
+                if (explanation.isNotEmpty()) {
+                    append(explanation)
+                    append(" ")
+                }
+                if (transcript != null) {
+                    append("Transcript: \"$transcript\"")
+                }
+            }
+        }
+
+        return ValidationResult(
+            isCorrect = isCorrect,
+            score = if (isCorrect) 100.0 else 0.0,
+            feedback = feedback,
+            correctAnswers = objectMapper.createObjectNode().apply {
+                put("correctAnswer", acceptableAnswers.first())
+                if (transcript != null) {
+                    put("transcript", transcript)
+                }
+            }
+        )
     }
 
     private fun validateClozeReading(content: JsonNode, userResponses: JsonNode): ValidationResult {
-        throw NotImplementedError("Cloze reading validation not yet implemented")
+        // Extract user's answers
+        val userAnswers = userResponses.get("answers")
+        if (userAnswers == null || !userAnswers.isObject) {
+            return ValidationResult(
+                isCorrect = false,
+                score = 0.0,
+                feedback = "No answers provided",
+                correctAnswers = null
+            )
+        }
+
+        // Extract blanks definitions
+        val blanks = content.get("blanks")
+            ?: throw IllegalStateException("No blanks defined in exercise content")
+
+        if (!blanks.isArray) {
+            throw IllegalStateException("Blanks must be an array")
+        }
+
+        // Build map of correct answers for each blank
+        val correctAnswers = mutableMapOf<String, List<String>>()
+        blanks.forEach { blank ->
+            val blankId = blank.get("id")?.asText()
+            val correctAnswerNode = blank.get("correctAnswer")
+
+            if (blankId != null && correctAnswerNode != null) {
+                val acceptableAnswers = if (correctAnswerNode.isArray) {
+                    val answers = mutableListOf<String>()
+                    correctAnswerNode.forEach { answers.add(it.asText()) }
+                    answers
+                } else {
+                    listOf(correctAnswerNode.asText())
+                }
+                correctAnswers[blankId] = acceptableAnswers
+            }
+        }
+
+        // Count correct and incorrect answers
+        var correctCount = 0
+        var incorrectCount = 0
+        val incorrectBlanks = mutableListOf<String>()
+
+        correctAnswers.forEach { (blankId, acceptableAnswers) ->
+            val userAnswer = userAnswers.get(blankId)?.asText()?.trim()
+
+            if (userAnswer != null) {
+                val isCorrect = acceptableAnswers.any { it.equals(userAnswer, ignoreCase = true) }
+                if (isCorrect) {
+                    correctCount++
+                } else {
+                    incorrectCount++
+                    incorrectBlanks.add("Blank $blankId: '$userAnswer' (should be '${acceptableAnswers.first()}')")
+                }
+            } else {
+                incorrectCount++
+                incorrectBlanks.add("Blank $blankId: not answered")
+            }
+        }
+
+        val totalBlanks = correctAnswers.size
+        val isCorrect = correctCount == totalBlanks && incorrectCount == 0
+
+        // Calculate partial score
+        val score = if (totalBlanks == 0) 0.0 else (correctCount.toDouble() / totalBlanks) * 100.0
+
+        // Build feedback message
+        val feedback = if (isCorrect) {
+            "Perfect! All blanks are correct."
+        } else {
+            buildString {
+                append("You got $correctCount out of $totalBlanks correct. ")
+                if (incorrectBlanks.isNotEmpty()) {
+                    append("Incorrect: ${incorrectBlanks.joinToString(", ")}.")
+                }
+            }
+        }
+
+        return ValidationResult(
+            isCorrect = isCorrect,
+            score = score,
+            feedback = feedback,
+            correctAnswers = objectMapper.createObjectNode().apply {
+                val correctAnswersNode = objectMapper.createObjectNode()
+                correctAnswers.forEach { (blankId, acceptableAnswers) ->
+                    correctAnswersNode.put(blankId, acceptableAnswers.first())
+                }
+                set<JsonNode>("correctAnswers", correctAnswersNode)
+            }
+        )
     }
 }
 

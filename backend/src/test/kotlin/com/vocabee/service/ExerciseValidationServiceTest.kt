@@ -649,6 +649,546 @@ class ExerciseValidationServiceTest {
     }
 
     @Nested
+    @DisplayName("Listening Validation")
+    inner class ListeningValidation {
+
+        @Test
+        @DisplayName("Should validate correct multiple choice answer")
+        fun shouldValidateCorrectMultipleChoiceAnswer() {
+            // Given
+            val content = objectMapper.readTree("""
+                {
+                    "audioUrl": "/audio/bonjour.mp3",
+                    "question": "What greeting did you hear?",
+                    "questionType": "multiple_choice",
+                    "options": [
+                        {"id": "a", "text": "Bonjour"},
+                        {"id": "b", "text": "Bonsoir"},
+                        {"id": "c", "text": "Au revoir"},
+                        {"id": "d", "text": "Salut"}
+                    ],
+                    "correctAnswer": "a",
+                    "transcript": "Bonjour",
+                    "explanation": "The speaker said 'Bonjour', which means 'Hello' or 'Good day'."
+                }
+            """)
+
+            val userResponses = objectMapper.readTree("""
+                {
+                    "selectedOption": "a"
+                }
+            """)
+
+            // When
+            val result = validationService.validate("listening", content, userResponses)
+
+            // Then
+            assertTrue(result.isCorrect)
+            assertEquals(100.0, result.score)
+            assertTrue(result.feedback.contains("Correct"))
+            assertTrue(result.feedback.contains("Transcript"))
+        }
+
+        @Test
+        @DisplayName("Should validate incorrect multiple choice answer")
+        fun shouldValidateIncorrectMultipleChoiceAnswer() {
+            // Given
+            val content = objectMapper.readTree("""
+                {
+                    "audioUrl": "/audio/bonjour.mp3",
+                    "question": "What greeting did you hear?",
+                    "questionType": "multiple_choice",
+                    "options": [
+                        {"id": "a", "text": "Bonjour"},
+                        {"id": "b", "text": "Bonsoir"},
+                        {"id": "c", "text": "Au revoir"}
+                    ],
+                    "correctAnswer": "a",
+                    "transcript": "Bonjour",
+                    "explanation": "The speaker said 'Bonjour', not 'Bonsoir'."
+                }
+            """)
+
+            val userResponses = objectMapper.readTree("""
+                {
+                    "selectedOption": "b"
+                }
+            """)
+
+            // When
+            val result = validationService.validate("listening", content, userResponses)
+
+            // Then
+            assertFalse(result.isCorrect)
+            assertEquals(0.0, result.score)
+            assertTrue(result.feedback.contains("Incorrect"))
+        }
+
+        @Test
+        @DisplayName("Should validate correct text input answer")
+        fun shouldValidateCorrectTextInputAnswer() {
+            // Given
+            val content = objectMapper.readTree("""
+                {
+                    "audioUrl": "/audio/word.mp3",
+                    "question": "Type what you heard:",
+                    "questionType": "text_input",
+                    "correctAnswer": "bonjour",
+                    "transcript": "Bonjour",
+                    "explanation": "The word is 'bonjour', meaning 'hello'."
+                }
+            """)
+
+            val userResponses = objectMapper.readTree("""
+                {
+                    "answer": "bonjour"
+                }
+            """)
+
+            // When
+            val result = validationService.validate("listening", content, userResponses)
+
+            // Then
+            assertTrue(result.isCorrect)
+            assertEquals(100.0, result.score)
+            assertTrue(result.feedback.contains("Correct"))
+        }
+
+        @Test
+        @DisplayName("Should validate text input case-insensitively")
+        fun shouldValidateTextInputCaseInsensitively() {
+            // Given
+            val content = objectMapper.readTree("""
+                {
+                    "audioUrl": "/audio/word.mp3",
+                    "question": "Type what you heard:",
+                    "questionType": "text_input",
+                    "correctAnswer": "bonjour",
+                    "transcript": "Bonjour"
+                }
+            """)
+
+            val userResponses = objectMapper.readTree("""
+                {
+                    "answer": "BONJOUR"
+                }
+            """)
+
+            // When
+            val result = validationService.validate("listening", content, userResponses)
+
+            // Then
+            assertTrue(result.isCorrect)
+            assertEquals(100.0, result.score)
+        }
+
+        @Test
+        @DisplayName("Should validate incorrect text input answer")
+        fun shouldValidateIncorrectTextInputAnswer() {
+            // Given
+            val content = objectMapper.readTree("""
+                {
+                    "audioUrl": "/audio/word.mp3",
+                    "question": "Type what you heard:",
+                    "questionType": "text_input",
+                    "correctAnswer": "bonjour",
+                    "transcript": "Bonjour",
+                    "explanation": "The correct word is 'bonjour'."
+                }
+            """)
+
+            val userResponses = objectMapper.readTree("""
+                {
+                    "answer": "bonsoir"
+                }
+            """)
+
+            // When
+            val result = validationService.validate("listening", content, userResponses)
+
+            // Then
+            assertFalse(result.isCorrect)
+            assertEquals(0.0, result.score)
+            assertTrue(result.feedback.contains("Incorrect"))
+            assertTrue(result.feedback.contains("bonjour"))
+        }
+
+        @Test
+        @DisplayName("Should handle multiple acceptable text answers")
+        fun shouldHandleMultipleAcceptableTextAnswers() {
+            // Given
+            val content = objectMapper.readTree("""
+                {
+                    "audioUrl": "/audio/word.mp3",
+                    "question": "Type what you heard:",
+                    "questionType": "text_input",
+                    "correctAnswer": ["hi", "hello", "hey"],
+                    "transcript": "Hi"
+                }
+            """)
+
+            val userResponses = objectMapper.readTree("""
+                {
+                    "answer": "hello"
+                }
+            """)
+
+            // When
+            val result = validationService.validate("listening", content, userResponses)
+
+            // Then
+            assertTrue(result.isCorrect)
+            assertEquals(100.0, result.score)
+        }
+
+        @Test
+        @DisplayName("Should handle missing selection for multiple choice")
+        fun shouldHandleMissingSelectionForMultipleChoice() {
+            // Given
+            val content = objectMapper.readTree("""
+                {
+                    "audioUrl": "/audio/word.mp3",
+                    "question": "What did you hear?",
+                    "questionType": "multiple_choice",
+                    "correctAnswer": "a"
+                }
+            """)
+
+            val userResponses = objectMapper.readTree("""
+                {}
+            """)
+
+            // When
+            val result = validationService.validate("listening", content, userResponses)
+
+            // Then
+            assertFalse(result.isCorrect)
+            assertEquals(0.0, result.score)
+            assertEquals("No option selected", result.feedback)
+        }
+
+        @Test
+        @DisplayName("Should handle missing answer for text input")
+        fun shouldHandleMissingAnswerForTextInput() {
+            // Given
+            val content = objectMapper.readTree("""
+                {
+                    "audioUrl": "/audio/word.mp3",
+                    "question": "Type what you heard:",
+                    "questionType": "text_input",
+                    "correctAnswer": "bonjour"
+                }
+            """)
+
+            val userResponses = objectMapper.readTree("""
+                {}
+            """)
+
+            // When
+            val result = validationService.validate("listening", content, userResponses)
+
+            // Then
+            assertFalse(result.isCorrect)
+            assertEquals(0.0, result.score)
+            assertEquals("No answer provided", result.feedback)
+        }
+
+        @Test
+        @DisplayName("Should default to multiple choice when questionType is missing")
+        fun shouldDefaultToMultipleChoiceWhenQuestionTypeIsMissing() {
+            // Given
+            val content = objectMapper.readTree("""
+                {
+                    "audioUrl": "/audio/word.mp3",
+                    "question": "What did you hear?",
+                    "correctAnswer": "a"
+                }
+            """)
+
+            val userResponses = objectMapper.readTree("""
+                {
+                    "selectedOption": "a"
+                }
+            """)
+
+            // When
+            val result = validationService.validate("listening", content, userResponses)
+
+            // Then
+            assertTrue(result.isCorrect)
+            assertEquals(100.0, result.score)
+        }
+    }
+
+    @Nested
+    @DisplayName("Cloze Reading Validation")
+    inner class ClozeReadingValidation {
+
+        @Test
+        @DisplayName("Should validate all correct answers")
+        fun shouldValidateAllCorrectAnswers() {
+            // Given
+            val content = objectMapper.readTree("""
+                {
+                    "text": "Je ___1___ au marché. J'___2___ des pommes et du pain. C'___3___ délicieux.",
+                    "blanks": [
+                        {"id": "1", "correctAnswer": "vais"},
+                        {"id": "2", "correctAnswer": "achète"},
+                        {"id": "3", "correctAnswer": "est"}
+                    ]
+                }
+            """)
+
+            val userResponses = objectMapper.readTree("""
+                {
+                    "answers": {
+                        "1": "vais",
+                        "2": "achète",
+                        "3": "est"
+                    }
+                }
+            """)
+
+            // When
+            val result = validationService.validate("cloze_reading", content, userResponses)
+
+            // Then
+            assertTrue(result.isCorrect)
+            assertEquals(100.0, result.score)
+            assertTrue(result.feedback.contains("Perfect!"))
+        }
+
+        @Test
+        @DisplayName("Should validate with case-insensitive matching")
+        fun shouldValidateWithCaseInsensitiveMatching() {
+            // Given
+            val content = objectMapper.readTree("""
+                {
+                    "text": "Bonjour, je m'appelle ___1___.",
+                    "blanks": [
+                        {"id": "1", "correctAnswer": "Marie"}
+                    ]
+                }
+            """)
+
+            val userResponses = objectMapper.readTree("""
+                {
+                    "answers": {
+                        "1": "marie"
+                    }
+                }
+            """)
+
+            // When
+            val result = validationService.validate("cloze_reading", content, userResponses)
+
+            // Then
+            assertTrue(result.isCorrect)
+            assertEquals(100.0, result.score)
+        }
+
+        @Test
+        @DisplayName("Should validate partial correct answers")
+        fun shouldValidatePartialCorrectAnswers() {
+            // Given
+            val content = objectMapper.readTree("""
+                {
+                    "text": "Il ___1___ un livre. Le livre ___2___ intéressant.",
+                    "blanks": [
+                        {"id": "1", "correctAnswer": "lit"},
+                        {"id": "2", "correctAnswer": "est"}
+                    ]
+                }
+            """)
+
+            val userResponses = objectMapper.readTree("""
+                {
+                    "answers": {
+                        "1": "lit",
+                        "2": "était"
+                    }
+                }
+            """)
+
+            // When
+            val result = validationService.validate("cloze_reading", content, userResponses)
+
+            // Then
+            assertFalse(result.isCorrect)
+            assertEquals(50.0, result.score)
+            assertTrue(result.feedback.contains("1 out of 2 correct"))
+        }
+
+        @Test
+        @DisplayName("Should handle multiple acceptable answers")
+        fun shouldHandleMultipleAcceptableAnswers() {
+            // Given
+            val content = objectMapper.readTree("""
+                {
+                    "text": "Je ___1___ content.",
+                    "blanks": [
+                        {"id": "1", "correctAnswer": ["suis", "me sens"]}
+                    ]
+                }
+            """)
+
+            val userResponses = objectMapper.readTree("""
+                {
+                    "answers": {
+                        "1": "me sens"
+                    }
+                }
+            """)
+
+            // When
+            val result = validationService.validate("cloze_reading", content, userResponses)
+
+            // Then
+            assertTrue(result.isCorrect)
+            assertEquals(100.0, result.score)
+        }
+
+        @Test
+        @DisplayName("Should handle missing answers")
+        fun shouldHandleMissingAnswers() {
+            // Given
+            val content = objectMapper.readTree("""
+                {
+                    "text": "Je ___1___ français. Tu ___2___ anglais.",
+                    "blanks": [
+                        {"id": "1", "correctAnswer": "parle"},
+                        {"id": "2", "correctAnswer": "parles"}
+                    ]
+                }
+            """)
+
+            val userResponses = objectMapper.readTree("""
+                {
+                    "answers": {
+                        "1": "parle"
+                    }
+                }
+            """)
+
+            // When
+            val result = validationService.validate("cloze_reading", content, userResponses)
+
+            // Then
+            assertFalse(result.isCorrect)
+            assertEquals(50.0, result.score)
+            assertTrue(result.feedback.contains("not answered"))
+        }
+
+        @Test
+        @DisplayName("Should handle all incorrect answers")
+        fun shouldHandleAllIncorrectAnswers() {
+            // Given
+            val content = objectMapper.readTree("""
+                {
+                    "text": "Elle ___1___ à Paris. Nous ___2___ à Lyon.",
+                    "blanks": [
+                        {"id": "1", "correctAnswer": "habite"},
+                        {"id": "2", "correctAnswer": "habitons"}
+                    ]
+                }
+            """)
+
+            val userResponses = objectMapper.readTree("""
+                {
+                    "answers": {
+                        "1": "travaille",
+                        "2": "travaillons"
+                    }
+                }
+            """)
+
+            // When
+            val result = validationService.validate("cloze_reading", content, userResponses)
+
+            // Then
+            assertFalse(result.isCorrect)
+            assertEquals(0.0, result.score)
+            assertTrue(result.feedback.contains("0 out of 2 correct"))
+        }
+
+        @Test
+        @DisplayName("Should handle empty answers object")
+        fun shouldHandleEmptyAnswersObject() {
+            // Given
+            val content = objectMapper.readTree("""
+                {
+                    "text": "Je ___1___ français.",
+                    "blanks": [
+                        {"id": "1", "correctAnswer": "parle"}
+                    ]
+                }
+            """)
+
+            val userResponses = objectMapper.readTree("""
+                {
+                    "answers": {}
+                }
+            """)
+
+            // When
+            val result = validationService.validate("cloze_reading", content, userResponses)
+
+            // Then
+            assertFalse(result.isCorrect)
+            assertEquals(0.0, result.score)
+            assertTrue(result.feedback.contains("not answered"))
+        }
+
+        @Test
+        @DisplayName("Should handle no answers provided")
+        fun shouldHandleNoAnswersProvided() {
+            // Given
+            val content = objectMapper.readTree("""
+                {
+                    "text": "Je ___1___ français.",
+                    "blanks": [
+                        {"id": "1", "correctAnswer": "parle"}
+                    ]
+                }
+            """)
+
+            val userResponses = objectMapper.readTree("""
+                {}
+            """)
+
+            // When
+            val result = validationService.validate("cloze_reading", content, userResponses)
+
+            // Then
+            assertFalse(result.isCorrect)
+            assertEquals(0.0, result.score)
+            assertEquals("No answers provided", result.feedback)
+        }
+
+        @Test
+        @DisplayName("Should throw exception when blanks is missing")
+        fun shouldThrowExceptionWhenBlanksIsMissing() {
+            // Given
+            val content = objectMapper.readTree("""
+                {
+                    "text": "Some text"
+                }
+            """)
+
+            val userResponses = objectMapper.readTree("""
+                {
+                    "answers": {}
+                }
+            """)
+
+            // When & Then
+            assertThrows(IllegalStateException::class.java) {
+                validationService.validate("cloze_reading", content, userResponses)
+            }
+        }
+    }
+
+    @Nested
     @DisplayName("Unsupported Exercise Types")
     inner class UnsupportedTypes {
 
