@@ -20,6 +20,12 @@ interface ExerciseRepository : JpaRepository<Exercise, Long> {
 
     fun findByExerciseType_TypeKey(typeKey: String): List<Exercise>
 
+    fun findByTitleAndLanguageCodeAndModuleNumber(
+        title: String,
+        languageCode: String,
+        moduleNumber: Int
+    ): Exercise?
+
     @Query("""
         SELECT e FROM Exercise e
         WHERE e.languageCode = :languageCode

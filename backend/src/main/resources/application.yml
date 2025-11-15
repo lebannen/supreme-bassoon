@@ -49,6 +49,12 @@ storage:
       audio: vocabee-audio
       files: vocabee-files
 
+gemini:
+  api:
+    key: ${GEMINI_API_KEY:}
+  tts:
+    model: gemini-2.5-flash-preview-tts
+
 logging:
   level:
     com.vocabee: DEBUG

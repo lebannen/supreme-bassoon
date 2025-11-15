@@ -107,10 +107,28 @@ const router = createRouter({
       meta: { requiresAuth: true }
     },
     {
+      path: '/modules',
+      name: 'modules',
+      component: () => import('../views/ModuleView.vue'),
+      meta: { requiresAuth: true }
+    },
+    {
       path: '/exercises/:id',
       name: 'exercise-detail',
       component: () => import('../views/ExerciseDetailView.vue'),
       props: true,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/admin/audio-test',
+      name: 'audio-test',
+      component: () => import('../views/AudioTestView.vue'),
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/admin/exercise-import',
+      name: 'exercise-import',
+      component: () => import('../views/ExerciseImportView.vue'),
       meta: { requiresAuth: true }
     },
   ],

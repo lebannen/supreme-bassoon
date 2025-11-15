@@ -18,45 +18,86 @@ const items = computed(() => {
       label: 'Home',
       icon: 'pi pi-home',
       command: () => router.push('/')
-    },
+    }
+  ]
+
+  // Learn menu - structured learning content
+  if (authStore.isAuthenticated) {
+    baseItems.push({
+      label: 'Learn',
+      icon: 'pi pi-graduation-cap',
+      items: [
+        {
+          label: 'Study (Flashcards)',
+          icon: 'pi pi-clone',
+          command: () => router.push('/study')
+        },
+        {
+          label: 'Modules',
+          icon: 'pi pi-folder-open',
+          command: () => router.push('/modules')
+        },
+        {
+          label: 'Reading Library',
+          icon: 'pi pi-book',
+          command: () => router.push('/reading')
+        }
+      ]
+    })
+  } else {
+    // Show Reading to non-authenticated users
+    baseItems.push({
+      label: 'Reading',
+      icon: 'pi pi-book',
+      command: () => router.push('/reading')
+    })
+  }
+
+  // Practice menu - exercises and word sets
+  const practiceItems = [
     {
-      label: 'Search',
-      icon: 'pi pi-search',
-      command: () => router.push('/search')
+      label: 'All Exercises',
+      icon: 'pi pi-pencil',
+      command: () => router.push('/exercises'),
+      visible: authStore.isAuthenticated
     },
     {
       label: 'Word Sets',
       icon: 'pi pi-list',
       command: () => router.push('/word-sets')
     }
-  ]
+  ].filter(item => item.visible !== false)
 
-  baseItems.push({
-    label: 'Reading',
-    icon: 'pi pi-book',
-    command: () => router.push('/reading')
-  })
-
-  // Only show Vocabulary, Study, and Exercises when authenticated
-  if (authStore.isAuthenticated) {
+  if (practiceItems.length > 0) {
     baseItems.push({
-      label: 'Vocabulary',
-      icon: 'pi pi-bookmark',
-      command: () => router.push('/vocabulary')
-    })
-    baseItems.push({
-      label: 'Study',
-      icon: 'pi pi-graduation-cap',
-      command: () => router.push('/study')
-    })
-    baseItems.push({
-      label: 'Exercises',
+      label: 'Practice',
       icon: 'pi pi-pencil',
-      command: () => router.push('/exercises')
+      items: practiceItems
     })
   }
 
-  // Admin menu with dropdown
+  // Resources menu - tools and saved content
+  const resourceItems = [
+    {
+      label: 'Search Dictionary',
+      icon: 'pi pi-search',
+      command: () => router.push('/search')
+    },
+    {
+      label: 'My Vocabulary',
+      icon: 'pi pi-bookmark',
+      command: () => router.push('/vocabulary'),
+      visible: authStore.isAuthenticated
+    }
+  ].filter(item => item.visible !== false)
+
+  baseItems.push({
+    label: 'Resources',
+    icon: 'pi pi-database',
+    items: resourceItems
+  })
+
+  // Admin menu
   const adminItems = [
     {
       label: 'Import Words',
@@ -71,9 +112,25 @@ const items = computed(() => {
       visible: authStore.isAuthenticated
     },
     {
+      label: 'Import Exercises',
+      icon: 'pi pi-cloud-upload',
+      command: () => router.push('/admin/exercise-import'),
+      visible: authStore.isAuthenticated
+    },
+    {
+      separator: true,
+      visible: authStore.isAuthenticated
+    },
+    {
       label: 'Manage Texts',
       icon: 'pi pi-cog',
       command: () => router.push('/reading/admin')
+    },
+    {
+      label: 'Audio Test',
+      icon: 'pi pi-volume-up',
+      command: () => router.push('/admin/audio-test'),
+      visible: authStore.isAuthenticated
     }
   ].filter(item => item.visible !== false)
 

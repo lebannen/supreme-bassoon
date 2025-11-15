@@ -2,6 +2,7 @@
   "module": 1,
   "title": "The First Contact (Les Premiers Contacts)",
   "cefr_level": "A1",
+  "language_code": "fr",
   "exercises": [
     {
       "type": "multiple_choice",
@@ -93,7 +94,6 @@
       "title": "Listening: 'Salut'",
       "instructions": "Listen to the audio and choose the word you heard.",
       "content": {
-        "audioUrl": "/audio/fr/a1/m1/salut.mp3",
         "question": "What greeting did you hear?",
         "questionType": "multiple_choice",
         "options": [

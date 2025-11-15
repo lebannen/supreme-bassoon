@@ -133,26 +133,26 @@ class ExerciseValidationService {
             )
         }
 
-        // Extract correct words order
-        val correctWords = content.get("words")
-            ?: throw IllegalStateException("No correct words defined in exercise content")
+        // Get the correct sentence
+        val correctSentence = content.get("sentence")?.asText()
+            ?: throw IllegalStateException("No correct sentence defined in exercise content")
 
-        if (!correctWords.isArray) {
-            throw IllegalStateException("Words must be an array")
-        }
+        // Parse the correct sentence to get the correct order of words
+        // Remove punctuation and split by spaces
+        val correctWordsList = correctSentence
+            .replace(Regex("[?.!,;:]"), "")  // Remove punctuation
+            .trim()
+            .split(Regex("\\s+"))  // Split by whitespace
+            .filter { it.isNotEmpty() }
 
-        // Convert to lists for comparison
+        // Convert user's ordered words to list
         val userWordsList = mutableListOf<String>()
         userOrderedWords.forEach { userWordsList.add(it.asText()) }
-
-        val correctWordsList = mutableListOf<String>()
-        correctWords.forEach { correctWordsList.add(it.asText()) }
 
         // Compare the arrays
         val isCorrect = userWordsList == correctWordsList
 
         // Get additional content for feedback
-        val correctSentence = content.get("sentence")?.asText() ?: correctWordsList.joinToString(" ")
         val translation = content.get("translation")?.asText()
         val grammarExplanation = content.get("grammarExplanation")?.asText() ?: ""
 
@@ -183,7 +183,9 @@ class ExerciseValidationService {
             score = if (isCorrect) 100.0 else 0.0,
             feedback = feedback,
             correctAnswers = objectMapper.createObjectNode().apply {
-                set<JsonNode>("correctWords", correctWords)
+                val correctWordsArray = objectMapper.createArrayNode()
+                correctWordsList.forEach { correctWordsArray.add(it) }
+                set<JsonNode>("correctWords", correctWordsArray)
                 put("correctSentence", correctSentence)
             }
         )
