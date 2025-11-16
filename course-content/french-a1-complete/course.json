@@ -1,0 +1,20 @@
+{
+  "slug": "french-a1-complete",
+  "name": "French A1 - Sophie's Parisian Journey",
+  "languageCode": "fr",
+  "cefrLevel": "A1",
+  "description": "Follow Sophie, an American professional, as she moves to Paris and navigates her new life in France. Learn French through her authentic experiences - from her first day in the city to making friends, finding an apartment, and discovering Parisian culture. Master essential greetings, daily conversations, and practical vocabulary through engaging stories and interactive exercises.",
+  "objectives": [
+    "Introduce yourself and greet others in various situations",
+    "Handle practical situations: hotels, restaurants, shopping",
+    "Ask for and give directions in French",
+    "Talk about daily routines and hobbies",
+    "Describe family, friends, and personal relationships",
+    "Make plans and appointments",
+    "Discuss weather and seasons",
+    "Use numbers for prices, dates, and time",
+    "Express basic needs and preferences",
+    "Understand and respond to simple questions about personal details"
+  ],
+  "estimatedHours": 45
+}

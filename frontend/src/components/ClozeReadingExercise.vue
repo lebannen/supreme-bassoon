@@ -70,12 +70,20 @@
         :disabled="!allBlanksAnswered"
         @click="submitAnswer"
       />
-      <Button
-        v-else
-        label="Try Again"
-        icon="pi pi-refresh"
-        @click="resetExercise"
-      />
+      <template v-else>
+        <Button
+          v-if="isCorrect"
+          :label="`Next (${autoAdvanceSeconds}s)`"
+          icon="pi pi-arrow-right"
+          @click="handleNext"
+        />
+        <Button
+          v-else
+          label="Try Again"
+          icon="pi pi-refresh"
+          @click="resetExercise"
+        />
+      </template>
     </div>
   </div>
 </template>
@@ -110,6 +118,7 @@ interface Props {
 const props = defineProps<Props>()
 const emit = defineEmits<{
   submit: [response: { answers: Record<string, string> }]
+  next: []
 }>()
 
 const userAnswers = ref<Record<string, string>>({})
@@ -118,6 +127,8 @@ const isCorrect = ref(false)
 const feedback = ref('')
 const showHint = ref(false)
 const correctAnswersMap = ref<Record<string, string>>({})
+const autoAdvanceTimer = ref<number | null>(null)
+const autoAdvanceSeconds = ref(3)
 
 const hint = computed(() => props.content.hint || '')
 const textSegments = ref<TextSegment[]>([])
@@ -149,7 +160,8 @@ function initializeExercise() {
 
 function parseTextIntoSegments() {
   const segments: TextSegment[] = []
-  const regex = /___(\d+)___/g
+  // Support both {blankN} and ___N___ formats
+  const regex = /\{blank(\d+)\}|___(\d+)___/g
   let lastIndex = 0
   let match
 
@@ -162,10 +174,11 @@ function parseTextIntoSegments() {
       })
     }
 
-    // Add the blank
+    // Add the blank - blankId is in capture group 1 for {blankN} or group 2 for ___N___
+    const blankId = match[1] || match[2]
     segments.push({
       type: 'blank',
-      blankId: match[1]
+      blankId: `blank${blankId}`
     })
 
     lastIndex = regex.lastIndex
@@ -216,7 +229,34 @@ function submitAnswer() {
   emit('submit', { answers: userAnswers.value })
 }
 
+function startAutoAdvance() {
+  autoAdvanceSeconds.value = 3
+
+  const countdown = setInterval(() => {
+    autoAdvanceSeconds.value--
+    if (autoAdvanceSeconds.value <= 0) {
+      clearInterval(countdown)
+      handleNext()
+    }
+  }, 1000)
+
+  autoAdvanceTimer.value = countdown
+}
+
+function stopAutoAdvance() {
+  if (autoAdvanceTimer.value) {
+    clearInterval(autoAdvanceTimer.value)
+    autoAdvanceTimer.value = null
+  }
+}
+
+function handleNext() {
+  stopAutoAdvance()
+  emit('next')
+}
+
 function resetExercise() {
+  stopAutoAdvance()
   clearAllAnswers()
   showResult.value = false
   isCorrect.value = false
@@ -236,6 +276,11 @@ function setResult(result: { isCorrect: boolean; feedback: string; userResponse?
 
   if (result.userResponse?.answers) {
     userAnswers.value = result.userResponse.answers
+  }
+
+  // Start auto-advance countdown for correct answers
+  if (result.isCorrect) {
+    startAutoAdvance()
   }
 }
 

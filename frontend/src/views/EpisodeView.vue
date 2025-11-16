@@ -12,6 +12,7 @@ import FillInBlankExercise from '@/components/FillInBlankExercise.vue'
 import SentenceScrambleExercise from '@/components/SentenceScrambleExercise.vue'
 import MatchingExercise from '@/components/MatchingExercise.vue'
 import ClozeReadingExercise from '@/components/ClozeReadingExercise.vue'
+import ListeningExercise from '@/components/ListeningExercise.vue'
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
 const route = useRoute()
@@ -77,7 +78,7 @@ const progress = computed(() => {
   if (!episode.value || episode.value.contentItems.length === 0) return 0
   const completed = completedExercises.value.length
   const total = episode.value.contentItems.length
-  return (completed / total) * 100
+  return Math.round((completed / total) * 100)
 })
 
 const isEpisodeCompleted = computed(() => {
@@ -139,6 +140,16 @@ async function loadProgress() {
       const progressData = await response.json()
       hasReadContent.value = progressData.hasReadContent
       completedExercises.value = progressData.completedExercises || []
+
+      // Set currentExerciseIndex to first incomplete exercise
+      if (episode.value && episode.value.contentItems.length > 0) {
+        const firstIncompleteIndex = episode.value.contentItems.findIndex(item => {
+          return item.exercise && !completedExercises.value.includes(item.exercise.id)
+        })
+
+        // If found an incomplete exercise, start there. Otherwise start at beginning
+        currentExerciseIndex.value = firstIncompleteIndex >= 0 ? firstIncompleteIndex : 0
+      }
     }
   } catch (err) {
     console.error('Error loading progress:', err)
@@ -168,15 +179,22 @@ async function handleExerciseSubmit(response: any) {
 
   const exerciseId = currentExercise.value.exercise.id
 
+  // Format request according to backend SubmitAttemptRequest DTO
+  const attemptRequest = {
+    userResponses: response,
+    durationSeconds: null,  // TODO: Track time spent on exercise
+    hintsUsed: 0
+  }
+
   try {
-    const validationResponse = await fetch(`${API_BASE}/api/exercises/${exerciseId}/validate`, {
+    const validationResponse = await fetch(`${API_BASE}/api/exercises/${exerciseId}/attempt`, {
       method: 'POST',
       headers: getAuthHeaders(),
-      body: JSON.stringify(response)
+      body: JSON.stringify(attemptRequest)
     })
 
     if (!validationResponse.ok) {
-      throw new Error('Failed to validate exercise')
+      throw new Error('Failed to submit exercise attempt')
     }
 
     const result = await validationResponse.json()
@@ -190,12 +208,18 @@ async function handleExerciseSubmit(response: any) {
     if (result.isCorrect && !completedExercises.value.includes(exerciseId)) {
       completedExercises.value.push(exerciseId)
 
-      // Auto-advance after a short delay
-      setTimeout(() => {
-        if (currentExerciseIndex.value < (episode.value?.contentItems.length || 0) - 1) {
-          currentExerciseIndex.value++
-        }
-      }, 2000)
+      // Save progress to backend
+      const episodeId = route.params.id
+      try {
+        await fetch(`${API_BASE}/api/episodes/${episodeId}/complete-exercise/${exerciseId}`, {
+          method: 'POST',
+          headers: getAuthHeaders()
+        })
+      } catch (err) {
+        console.error('Error saving exercise progress:', err)
+      }
+
+      // Note: Auto-advance is now handled by the exercise component with countdown
     }
   } catch (err) {
     console.error('Error submitting exercise:', err)
@@ -204,6 +228,12 @@ async function handleExerciseSubmit(response: any) {
 
 function goToExercise(index: number) {
   currentExerciseIndex.value = index
+}
+
+function handleNext() {
+  if (currentExerciseIndex.value < (episode.value?.contentItems.length || 0) - 1) {
+    currentExerciseIndex.value++
+  }
 }
 
 function goToNextEpisode() {
@@ -359,33 +389,51 @@ onMounted(() => {
               <!-- Exercise Component -->
               <MultipleChoiceExercise
                 v-if="currentExercise.exercise.type === 'multiple_choice'"
+                :key="currentExercise.exercise.id"
                 ref="exerciseComponentRef"
                 :content="currentExercise.exercise.content"
                 @submit="handleExerciseSubmit"
+                @next="handleNext"
               />
               <FillInBlankExercise
                 v-else-if="currentExercise.exercise.type === 'fill_in_blank'"
+                :key="currentExercise.exercise.id"
                 ref="exerciseComponentRef"
                 :content="currentExercise.exercise.content"
                 @submit="handleExerciseSubmit"
+                @next="handleNext"
               />
               <SentenceScrambleExercise
                 v-else-if="currentExercise.exercise.type === 'sentence_scramble'"
+                :key="currentExercise.exercise.id"
                 ref="exerciseComponentRef"
                 :content="currentExercise.exercise.content"
                 @submit="handleExerciseSubmit"
+                @next="handleNext"
               />
               <MatchingExercise
                 v-else-if="currentExercise.exercise.type === 'matching'"
+                :key="currentExercise.exercise.id"
                 ref="exerciseComponentRef"
                 :content="currentExercise.exercise.content"
                 @submit="handleExerciseSubmit"
+                @next="handleNext"
               />
               <ClozeReadingExercise
                 v-else-if="currentExercise.exercise.type === 'cloze_reading'"
+                :key="currentExercise.exercise.id"
                 ref="exerciseComponentRef"
                 :content="currentExercise.exercise.content"
                 @submit="handleExerciseSubmit"
+                @next="handleNext"
+              />
+              <ListeningExercise
+                v-else-if="currentExercise.exercise.type === 'listening'"
+                :key="currentExercise.exercise.id"
+                ref="exerciseComponentRef"
+                :content="currentExercise.exercise.content"
+                @submit="handleExerciseSubmit"
+                @next="handleNext"
               />
               <Message v-else severity="warn">
                 Exercise type "{{ currentExercise.exercise.type }}" not supported yet.

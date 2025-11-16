@@ -69,15 +69,23 @@
         v-if="!showResult"
         label="Submit Answer"
         icon="pi pi-check"
-        :disabled="!selectedAnswer"
+        :disabled="!allAnswersFilled"
         @click="submitAnswer"
       />
-      <Button
-        v-else
-        label="Try Again"
-        icon="pi pi-refresh"
-        @click="reset"
-      />
+      <template v-else>
+        <Button
+          v-if="isCorrect"
+          :label="`Next (${autoAdvanceSeconds}s)`"
+          icon="pi pi-arrow-right"
+          @click="handleNext"
+        />
+        <Button
+          v-else
+          label="Try Again"
+          icon="pi pi-refresh"
+          @click="reset"
+        />
+      </template>
     </div>
   </div>
 </template>
@@ -115,6 +123,7 @@ interface Props {
 const props = defineProps<Props>()
 const emit = defineEmits<{
   submit: [response: { answer?: string; answers?: string[] }]
+  next: []
 }>()
 
 // Support both old and new formats
@@ -134,6 +143,8 @@ const showHint = ref(false)
 const showResult = ref(false)
 const feedback = ref<string | null>(null)
 const isCorrect = ref(false)
+const autoAdvanceTimer = ref<number | null>(null)
+const autoAdvanceSeconds = ref(3)
 
 // Parse the sentence and split it into parts (text and blank)
 const sentenceParts = computed(() => {
@@ -213,6 +224,32 @@ function submitAnswer() {
   }
 }
 
+function startAutoAdvance() {
+  autoAdvanceSeconds.value = 3
+
+  const countdown = setInterval(() => {
+    autoAdvanceSeconds.value--
+    if (autoAdvanceSeconds.value <= 0) {
+      clearInterval(countdown)
+      handleNext()
+    }
+  }, 1000)
+
+  autoAdvanceTimer.value = countdown
+}
+
+function stopAutoAdvance() {
+  if (autoAdvanceTimer.value) {
+    clearInterval(autoAdvanceTimer.value)
+    autoAdvanceTimer.value = null
+  }
+}
+
+function handleNext() {
+  stopAutoAdvance()
+  emit('next')
+}
+
 function setResult(result: { isCorrect: boolean; feedback: string; userResponse?: any; blankResults?: boolean[] }) {
   if (isMultiBlank.value && result.blankResults) {
     // Multi-blank result
@@ -231,9 +268,15 @@ function setResult(result: { isCorrect: boolean; feedback: string; userResponse?
   showResult.value = true
   isCorrect.value = result.isCorrect
   feedback.value = result.feedback
+
+  // Start auto-advance countdown for correct answers
+  if (result.isCorrect) {
+    startAutoAdvance()
+  }
 }
 
 function reset() {
+  stopAutoAdvance()
   selectedAnswer.value = null
   userAnswer.value = null
   selectedAnswers.value = new Array(selectedAnswers.value.length).fill(null)

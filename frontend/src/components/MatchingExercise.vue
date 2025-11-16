@@ -91,12 +91,20 @@
         :disabled="Object.keys(userMatches).length !== leftItems.length"
         @click="submitAnswer"
       />
-      <Button
-        v-else
-        label="Try Again"
-        icon="pi pi-refresh"
-        @click="resetExercise"
-      />
+      <template v-else>
+        <Button
+          v-if="isCorrect"
+          :label="`Next (${autoAdvanceSeconds}s)`"
+          icon="pi pi-arrow-right"
+          @click="handleNext"
+        />
+        <Button
+          v-else
+          label="Try Again"
+          icon="pi pi-refresh"
+          @click="resetExercise"
+        />
+      </template>
     </div>
   </div>
 </template>
@@ -118,6 +126,7 @@ interface Props {
 const props = defineProps<Props>()
 const emit = defineEmits<{
   submit: [response: { matches: Record<string, string> }]
+  next: []
 }>()
 
 const leftItems = ref<Array<{ left: string; right: string }>>([])
@@ -130,6 +139,8 @@ const feedback = ref('')
 const showHint = ref(false)
 const hint = computed(() => props.content.hint || '')
 const correctMatches = ref<Record<string, string>>({})
+const autoAdvanceTimer = ref<number | null>(null)
+const autoAdvanceSeconds = ref(3)
 
 onMounted(() => {
   initializeExercise()
@@ -215,6 +226,7 @@ function submitAnswer() {
 }
 
 function resetExercise() {
+  stopAutoAdvance()
   userMatches.value = {}
   selectedLeft.value = null
   showResult.value = false
@@ -224,6 +236,32 @@ function resetExercise() {
   initializeExercise()
 }
 
+function startAutoAdvance() {
+  autoAdvanceSeconds.value = 3
+
+  const countdown = setInterval(() => {
+    autoAdvanceSeconds.value--
+    if (autoAdvanceSeconds.value <= 0) {
+      clearInterval(countdown)
+      handleNext()
+    }
+  }, 1000)
+
+  autoAdvanceTimer.value = countdown
+}
+
+function stopAutoAdvance() {
+  if (autoAdvanceTimer.value) {
+    clearInterval(autoAdvanceTimer.value)
+    autoAdvanceTimer.value = null
+  }
+}
+
+function handleNext() {
+  stopAutoAdvance()
+  emit('next')
+}
+
 function setResult(result: { isCorrect: boolean; feedback: string; userResponse?: any }) {
   if (result.userResponse && result.userResponse.matches) {
     userMatches.value = result.userResponse.matches
@@ -231,6 +269,11 @@ function setResult(result: { isCorrect: boolean; feedback: string; userResponse?
   showResult.value = true
   isCorrect.value = result.isCorrect
   feedback.value = result.feedback
+
+  // Start auto-advance countdown for correct answers
+  if (result.isCorrect) {
+    startAutoAdvance()
+  }
 }
 
 defineExpose({

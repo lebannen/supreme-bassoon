@@ -1,0 +1,1123 @@
+{
+  "moduleNumber": 2,
+  "title": "Sophie Finds a Home",
+  "theme": "Housing and Accommodation",
+  "description": "Sophie needs to find an apartment in Paris! Follow her as she visits apartments, meets her landlady, and learns vocabulary for describing homes, rooms, and furniture.",
+  "objectives": [
+    "Describe rooms and parts of a house/apartment",
+    "Ask about rent, utilities, and apartment features",
+    "Understand and use furniture vocabulary",
+    "Express likes and dislikes about living spaces",
+    "Ask practical questions about housing"
+  ],
+  "estimatedMinutes": 200,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "DIALOGUE",
+      "title": "Visiting an Apartment",
+      "content": "Agent Immobilier: Bonjour, Mademoiselle Martin! Je suis Claire Rousseau, l'agent immobilier. Enchantée!\n\nSophie: Bonjour! Enchantée, Madame Rousseau.\n\nAgent: Alors, voici l'appartement. C'est un deux-pièces au troisième étage. Il y a un salon, une chambre, une cuisine et une salle de bain.\n\nSophie: C'est joli! Le salon est très lumineux.\n\nAgent: Oui, il y a deux grandes fenêtres. La chambre est par ici. Elle est petite mais confortable.\n\nSophie: D'accord. Est-ce qu'il y a un placard?\n\nAgent: Oui, regardez, il y a un grand placard ici. La cuisine est équipée avec un four, un réfrigérateur et une cuisinière.\n\nSophie: Parfait! Et la salle de bain?\n\nAgent: La voici. Il y a une douche, pas de baignoire.\n\nSophie: Ce n'est pas un problème. Quel est le loyer?\n\nAgent: Le loyer est de mille deux cents euros par mois, charges comprises.\n\nSophie: Les charges sont comprises? Ça inclut l'électricité et l'eau?\n\nAgent: Oui, exactement. L'internet n'est pas inclus. Il faut s'abonner séparément.\n\nSophie: Je comprends. L'appartement me plaît beaucoup. Quand est-ce que je peux emménager?\n\nAgent: Vous pouvez emménager le premier du mois prochain.\n\nSophie: Excellent! Qu'est-ce que je dois faire pour louer l'appartement?\n\nAgent: Il faut me donner vos documents: passeport, contrat de travail, et les trois dernières fiches de paie.\n\nSophie: D'accord. Je vous les envoie demain par email.\n\nAgent: Parfait! À bientôt, Mademoiselle Martin!\n\nSophie: À bientôt! Merci beaucoup!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Agent Immobilier",
+          "voice": "Despina",
+          "description": "A professional real estate agent"
+        },
+        {
+          "name": "Sophie",
+          "voice": "Puck",
+          "description": "An American woman looking for an apartment in Paris"
+        }
+      ],
+      "audioStyle": "This is a professional apartment viewing. Claire is polite and informative, showing Sophie around. Sophie is interested and asks practical questions about the apartment.",
+      "estimatedMinutes": 30,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Type of Apartment",
+            "instructions": "What type of apartment is Sophie viewing?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "How many rooms does the apartment have? (not including kitchen/bathroom)"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "One room (studio)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Two rooms (salon + bedroom)",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Three rooms",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Four rooms",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The agent says 'C'est un deux-pièces' - it's a two-room apartment, with a salon (living room) and a chambre (bedroom).",
+              "hint": "In French, 'pièce' refers to the main living spaces, not counting kitchen and bathroom."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Monthly Rent",
+            "instructions": "How much is the monthly rent?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What is the monthly rent for the apartment?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "1000 euros",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "1200 euros",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "1500 euros",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "2000 euros",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The agent states: 'Le loyer est de mille deux cents euros par mois' - The rent is 1200 euros per month.",
+              "hint": "'Mille deux cents' means 1200."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Room Vocabulary",
+            "instructions": "Match the French room names with their English translations.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "salon",
+                  "right": "living room"
+                },
+                {
+                  "left": "chambre",
+                  "right": "bedroom"
+                },
+                {
+                  "left": "cuisine",
+                  "right": "kitchen"
+                },
+                {
+                  "left": "salle de bain",
+                  "right": "bathroom"
+                },
+                {
+                  "left": "placard",
+                  "right": "closet"
+                }
+              ],
+              "hint": "These are common rooms you find in an apartment."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Appliance Vocabulary",
+            "instructions": "Match the French appliances with their English names.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "réfrigérateur",
+                  "right": "refrigerator"
+                },
+                {
+                  "left": "four",
+                  "right": "oven"
+                },
+                {
+                  "left": "cuisinière",
+                  "right": "stove"
+                },
+                {
+                  "left": "douche",
+                  "right": "shower"
+                },
+                {
+                  "left": "fenêtre",
+                  "right": "window"
+                }
+              ],
+              "hint": "Think about appliances and fixtures you find in a kitchen and bathroom."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: What is the rent?",
+            "instructions": "Complete the question about rent.",
+            "content": {
+              "text": "Quel est le _____ ?",
+              "blanks": [
+                {
+                  "correctAnswer": "loyer",
+                  "acceptableAnswers": ["loyer"],
+                  "options": ["loyer", "prix", "chambre", "salon"]
+                }
+              ],
+              "translation": "What is the rent?",
+              "hint": "The specific word for 'rent' in French."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: There is/There are",
+            "instructions": "Complete the sentences using 'il y a'.",
+            "content": {
+              "text": "_____ un salon, une chambre et une cuisine. _____ deux grandes fenêtres.",
+              "blanks": [
+                {
+                  "correctAnswer": "Il y a",
+                  "acceptableAnswers": ["Il y a", "il y a"],
+                  "options": ["Il y a", "C'est", "Il est", "Ce sont"]
+                },
+                {
+                  "correctAnswer": "Il y a",
+                  "acceptableAnswers": ["Il y a", "il y a"],
+                  "options": ["Il y a", "C'est", "Ils sont", "Ce sont"]
+                }
+              ],
+              "translation": "There is a living room, a bedroom, and a kitchen. There are two large windows.",
+              "hint": "'Il y a' means 'there is' or 'there are' - it works for both singular and plural."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: What's included?",
+            "instructions": "What is included in the rent?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What utilities are included in the 1200 euros rent?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Everything including internet",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Electricity and water, but not internet",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Only water",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Nothing is included",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The agent says 'charges comprises' includes electricity and water, but internet must be subscribed separately: 'L'internet n'est pas inclus.'",
+              "hint": "The agent mentions that charges are included, but something must be subscribed to separately."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 10,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: The apartment pleases me",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": ["L'appartement", "me", "plaît", "beaucoup"],
+              "correctOrder": ["L'appartement", "me", "plaît", "beaucoup"],
+              "translation": "I really like the apartment",
+              "explanation": "'Plaire' means 'to please/be pleasing to'. The structure is: [thing] + [indirect object pronoun] + plaît. So literally: 'The apartment pleases me a lot'.",
+              "hint": "In French, you say 'the apartment pleases me' rather than 'I like the apartment'."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Sophie's Apartment Visit",
+            "instructions": "Fill in the details about the apartment.",
+            "content": {
+              "text": "Sophie visits an apartment with the {blank1} estate agent. The apartment is a {blank2}-room apartment on the third floor. The living room is very {blank3} with two large windows. The kitchen is equipped with a refrigerator, oven, and {blank4}. The bathroom has a {blank5}, not a bathtub. The monthly {blank6} is {blank7} euros, with charges included. Sophie can {blank8} on the first of next month.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "real"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": ["two", "2", "deux"]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": ["lumineux", "bright"]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": ["stove", "cuisinière"]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": ["shower", "douche"]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": ["rent", "loyer"]
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": ["1200", "mille deux cents"]
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": ["move in", "emménager"]
+                }
+              ],
+              "hint": "Review the dialogue for specific details about the apartment."
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 25,
+            "difficultyRating": 1.8
+          }
+        },
+        {
+          "orderIndex": 10,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Expression: Charges comprises",
+            "instructions": "What does 'charges comprises' mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What does 'charges comprises' mean in the context of rent?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Utilities included",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Furniture included",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Credit card accepted",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Pets allowed",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Charges' refers to utility costs (electricity, water, heating, etc.) and 'comprises' means 'included'. So it means the utilities are included in the rent price.",
+              "hint": "This phrase tells you what's included in the monthly payment."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.4
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Meeting Madame Laurent, the Landlady",
+      "content": "Madame Laurent: Bonjour, vous devez être Mademoiselle Martin!\n\nSophie: Oui, bonjour Madame Laurent! Enchantée de vous rencontrer.\n\nMadame Laurent: Enchantée! Bienvenue dans l'immeuble! Je suis la propriétaire de l'appartement.\n\nSophie: Merci beaucoup! Je suis très contente d'être ici.\n\nMadame Laurent: Alors, voici les clés de l'appartement. Il y en a deux: une pour la porte d'entrée de l'immeuble et une pour votre appartement.\n\nSophie: Parfait, merci.\n\nMadame Laurent: Quelques informations importantes: la poubelle est dans la cour, derrière l'immeuble. Il faut sortir les ordures le mardi et le vendredi.\n\nSophie: D'accord, le mardi et le vendredi. Compris!\n\nMadame Laurent: Les boîtes aux lettres sont en bas, dans l'entrée. La vôtre est la numéro 3A.\n\nSophie: 3A, très bien.\n\nMadame Laurent: Si vous avez un problème avec l'appartement - plomberie, électricité, chauffage - vous pouvez m'appeler à tout moment.\n\nSophie: C'est très gentil, merci. J'ai votre numéro de téléphone.\n\nMadame Laurent: Il y a une laverie automatique dans la rue, à cinquante mètres d'ici, si vous n'avez pas de machine à laver.\n\nSophie: Ah oui, je n'en ai pas encore. C'est bon à savoir!\n\nMadame Laurent: Et une dernière chose: il y a un code pour la porte d'entrée. C'est le 4782. Vous pouvez le noter?\n\nSophie: Oui, bien sûr. 4-7-8-2. Je le note.\n\nMadame Laurent: Excellent! Si vous avez des questions, je suis dans l'appartement 1B, au rez-de-chaussée.\n\nSophie: Merci infiniment, Madame Laurent. Vous êtes très aimable.\n\nMadame Laurent: De rien, ma chère. Bienvenue chez vous!\n\nSophie: Merci!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Madame Laurent",
+          "voice": "Gacrux",
+          "description": "A kind, mature landlady who wants to help her new tenant"
+        },
+        {
+          "name": "Sophie",
+          "voice": "Puck",
+          "description": "An American woman grateful and attentive to important information"
+        }
+      ],
+      "audioStyle": "Madame Laurent is warm and motherly, giving Sophie practical information about the building. Sophie is respectful and appreciative, carefully noting down important details.",
+      "estimatedMinutes": 30,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: How many keys?",
+            "instructions": "How many keys did Sophie receive?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "How many keys does Sophie receive?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "One",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Two",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Three",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Four",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Madame Laurent says: 'Il y en a deux: une pour la porte d'entrée de l'immeuble et une pour votre appartement' - There are two: one for the building entrance and one for your apartment.",
+              "hint": "One key is for the building, and another is for the apartment."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Garbage Days",
+            "instructions": "When should Sophie take out the garbage?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "On which days should the garbage be taken out?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Monday and Thursday",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Tuesday and Friday",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Wednesday and Saturday",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Every day",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Madame Laurent explains: 'Il faut sortir les ordures le mardi et le vendredi' - You must take out the garbage on Tuesday and Friday.",
+              "hint": "Madame Laurent mentions two specific days of the week."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Building Vocabulary",
+            "instructions": "Match the French building terms with their English translations.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "immeuble",
+                  "right": "building"
+                },
+                {
+                  "left": "propriétaire",
+                  "right": "owner/landlord"
+                },
+                {
+                  "left": "porte d'entrée",
+                  "right": "entrance door"
+                },
+                {
+                  "left": "boîte aux lettres",
+                  "right": "mailbox"
+                },
+                {
+                  "left": "cour",
+                  "right": "courtyard"
+                }
+              ],
+              "hint": "Think about parts of an apartment building and who manages it."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: The entrance code",
+            "instructions": "What is the entrance code?",
+            "content": {
+              "text": "Le code pour la porte d'entrée est le _____ .",
+              "blanks": [
+                {
+                  "correctAnswer": "4782",
+                  "acceptableAnswers": ["4782"],
+                  "options": ["4782", "4872", "4728", "4287"]
+                }
+              ],
+              "translation": "The code for the entrance door is 4782.",
+              "hint": "Madame Laurent says the code is 4-7-8-2."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: Days of the week",
+            "instructions": "Fill in the days when garbage must be taken out.",
+            "content": {
+              "text": "Il faut sortir les ordures le _____ et le _____.",
+              "blanks": [
+                {
+                  "correctAnswer": "mardi",
+                  "acceptableAnswers": ["mardi"],
+                  "options": ["mardi", "lundi", "mercredi", "jeudi"]
+                },
+                {
+                  "correctAnswer": "vendredi",
+                  "acceptableAnswers": ["vendredi"],
+                  "options": ["vendredi", "samedi", "dimanche", "jeudi"]
+                }
+              ],
+              "translation": "You must take out the garbage on Tuesday and Friday.",
+              "hint": "Listen for the two days mentioned by Madame Laurent."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Where is Madame Laurent's apartment?",
+            "instructions": "Where does Madame Laurent live in the building?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Where is Madame Laurent's apartment located?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Apartment 1B on the ground floor",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Apartment 3A on the third floor",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Apartment 2B on the second floor",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "She doesn't live in the building",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Madame Laurent tells Sophie: 'je suis dans l'appartement 1B, au rez-de-chaussée' - I'm in apartment 1B, on the ground floor.",
+              "hint": "'Rez-de-chaussée' means ground floor."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: You can call me",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": ["Vous", "pouvez", "m'appeler", "à", "tout", "moment"],
+              "correctOrder": ["Vous", "pouvez", "m'appeler", "à", "tout", "moment"],
+              "translation": "You can call me at any time",
+              "explanation": "'À tout moment' means 'at any time'. 'M'appeler' means 'to call me' (me + appeler).",
+              "hint": "Start with 'Vous pouvez' (you can)."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Sophie Meets Her Landlady",
+            "instructions": "Complete the summary of Sophie's meeting with Madame Laurent.",
+            "content": {
+              "text": "Madame Laurent is the {blank1} of the apartment. She gives Sophie {blank2} keys - one for the building entrance and one for the apartment. The {blank3} is located in the courtyard behind the building, and garbage must be taken out on {blank4} and {blank5}. Sophie's mailbox number is {blank6}. If Sophie has problems with plumbing, electricity, or heating, she can {blank7} Madame Laurent. The entrance code is {blank8}.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": ["owner", "landlady", "propriétaire"]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": ["two", "2", "deux"]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": ["garbage", "poubelle", "trash"]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": ["Tuesday", "mardi"]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": ["Friday", "vendredi"]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": ["3A"]
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": ["call", "appeler"]
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": ["4782"]
+                }
+              ],
+              "hint": "Review the dialogue for all the practical information Madame Laurent shares."
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 25,
+            "difficultyRating": 1.8
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "listening",
+            "title": "Understanding Locations",
+            "instructions": "Listen and answer about the laundromat location.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Il y a une laverie automatique dans la rue, à cinquante mètres d'ici.",
+              "question": "Where is the laundromat?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "In the building basement"
+                },
+                {
+                  "id": "b",
+                  "text": "In the street, 50 meters away"
+                },
+                {
+                  "id": "c",
+                  "text": "In the courtyard"
+                },
+                {
+                  "id": "d",
+                  "text": "On the ground floor"
+                }
+              ],
+              "correctAnswer": "b",
+              "explanation": "'Dans la rue, à cinquante mètres d'ici' means 'in the street, 50 meters from here'.",
+              "hint": "Listen for the distance mentioned."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.6,
+            "generateAudio": true
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 3,
+      "type": "STORY",
+      "title": "Sophie's First Night",
+      "content": "Sophie stood in her new apartment, surrounded by boxes and suitcases. The afternoon sun streamed through the large windows of the salon, making the empty space feel warm and welcoming.\n\n\"C'est chez moi,\" she whispered to herself. \"This is my home.\"\n\nShe decided to start unpacking. First, she opened the box marked \"Chambre\" - bedroom. Inside were her sheets, pillows, and blankets. She made her bed carefully, enjoying the simple task. Then she unpacked her clothes and hung them in the placard.\n\nIn the kitchen, she arranged her few dishes in the cabinets. She didn't have much yet - just some plates, glasses, forks, knives, and spoons that she had bought at a store near the apartment. \"Il faut acheter plus de choses,\" she noted mentally. I need to buy more things.\n\nAs evening approached, Sophie felt hungry. She hadn't bought groceries yet, so she decided to go to the small épicerie on the corner that Madame Laurent had mentioned.\n\nThe shop owner, a friendly man named Monsieur Petit, greeted her warmly.\n\n\"Bonsoir, mademoiselle! Vous êtes nouvelle dans le quartier?\"\n\n\"Oui, je viens d'emménager aujourd'hui,\" Sophie replied. \"J'habite au 15 rue Daguerre.\"\n\n\"Ah, bienvenue! Vous avez besoin de quelque chose?\"\n\nSophie bought bread, cheese, tomatoes, and a bottle of water. Simple, but perfect for her first meal in her new home.\n\nBack in her apartment, Sophie ate her simple dinner at the small table by the window. She looked out at the Paris street below, watching people walk by, hearing the sounds of the city. She took out her phone and sent a message to her mother in New York:\n\n\"I'm here, in my own apartment in Paris. It's small but perfect. I'm so happy!\"\n\nAs night fell, Sophie felt tired but content. Tomorrow would be her first day of work at TechParis. A new job, a new home, a new life. She smiled as she got ready for bed. Paris was beginning to feel like home.",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Narrator",
+          "voice": "Vindemiatrix",
+          "description": "Story narrator with warm, engaging voice"
+        }
+      ],
+      "audioStyle": "This is a narrative story with a warm, calm tone. The narrator reads with natural pacing, creating an immersive experience as Sophie settles into her new Parisian apartment.",
+      "estimatedMinutes": 25,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: What does Sophie do first?",
+            "instructions": "What is the first thing Sophie unpacks?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What is the first thing Sophie unpacks in her new apartment?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Kitchen items",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Bedroom items (sheets, pillows, blankets)",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Books",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Electronics",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The story says: 'First, she opened the box marked \"Chambre\" - bedroom. Inside were her sheets, pillows, and blankets.'",
+              "hint": "Sophie starts with items for sleeping."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: The shop owner",
+            "instructions": "What is the name of the shop owner?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What is the name of the shop owner at the épicerie?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Monsieur Dubois",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Monsieur Laurent",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Monsieur Petit",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Monsieur Martin",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The story states: 'The shop owner, a friendly man named Monsieur Petit, greeted her warmly.'",
+              "hint": "His last name means 'small' in French."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Furniture & Items",
+            "instructions": "Match the French words with their English translations.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "lit",
+                  "right": "bed"
+                },
+                {
+                  "left": "assiettes",
+                  "right": "plates"
+                },
+                {
+                  "left": "verres",
+                  "right": "glasses"
+                },
+                {
+                  "left": "fourchettes",
+                  "right": "forks"
+                },
+                {
+                  "left": "couteaux",
+                  "right": "knives"
+                }
+              ],
+              "hint": "Think about furniture and kitchen items mentioned in the story."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: It's my home",
+            "instructions": "Complete Sophie's thought.",
+            "content": {
+              "text": "C'est _____ moi.",
+              "blanks": [
+                {
+                  "correctAnswer": "chez",
+                  "acceptableAnswers": ["chez"],
+                  "options": ["chez", "à", "pour", "de"]
+                }
+              ],
+              "translation": "It's my home / at my place.",
+              "hint": "'Chez' is used with people to mean 'at someone's place/home'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: I just moved in",
+            "instructions": "Complete what Sophie tells the shop owner.",
+            "content": {
+              "text": "Oui, je viens _____ aujourd'hui.",
+              "blanks": [
+                {
+                  "correctAnswer": "d'emménager",
+                  "acceptableAnswers": ["d'emménager"],
+                  "options": ["d'emménager", "d'arriver", "de partir", "de venir"]
+                }
+              ],
+              "translation": "Yes, I just moved in today.",
+              "hint": "'Venir de + infinitive' means 'to have just done something'. The verb for 'to move in' is 'emménager'."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "What did Sophie buy for dinner?",
+            "instructions": "What items did Sophie purchase at the épicerie?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What did Sophie buy for her first meal?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Bread, cheese, tomatoes, and water",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Pasta, sauce, and wine",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Chicken, rice, and vegetables",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Croissants and coffee",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The story says: 'Sophie bought bread, cheese, tomatoes, and a bottle of water.'",
+              "hint": "It's a simple, classic French meal."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: I live at...",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": ["J'habite", "au", "15", "rue", "Daguerre"],
+              "correctOrder": ["J'habite", "au", "15", "rue", "Daguerre"],
+              "translation": "I live at 15 Daguerre Street",
+              "explanation": "In French addresses, you use 'habiter au' (to live at) followed by the number and street name.",
+              "hint": "Start with the verb 'J'habite' (I live)."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Sophie's First Evening",
+            "instructions": "Complete the summary of Sophie's first evening.",
+            "content": {
+              "text": "Sophie unpacks her belongings in her new apartment. She starts with her {blank1} items like sheets and pillows. She hangs her clothes in the {blank2}. In the kitchen, she arranges her {blank3}, glasses, and utensils. She feels {blank4} and goes to the local {blank5} shop where she meets the owner, Monsieur {blank6}. She buys bread, {blank7}, tomatoes, and water for her first meal. She eats dinner by the {blank8} while looking at the Paris street below. Tomorrow is her first day at {blank9}.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": ["bedroom", "chambre"]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": ["closet", "placard"]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": ["plates", "assiettes", "dishes"]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": ["hungry", "faim"]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": ["grocery", "épicerie"]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "Petit"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": ["cheese", "fromage"]
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": ["window", "fenêtre"]
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "TechParis"
+                }
+              ],
+              "hint": "Review the story for details about Sophie's first evening in her apartment."
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 25,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Expression: Avoir besoin de",
+            "instructions": "What does 'avoir besoin de' mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "When Monsieur Petit asks 'Vous avez besoin de quelque chose?', what does he mean?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Do you need something?",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Do you like something?",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Do you have something?",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Do you want to buy something expensive?",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Avoir besoin de' means 'to need'. It's a common expression using the verb 'avoir' (to have) + 'besoin de' (need of).",
+              "hint": "The shop owner is asking if she requires anything."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.3
+          }
+        }
+      ]
+    }
+  ]
+}

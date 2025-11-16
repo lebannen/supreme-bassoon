@@ -63,15 +63,19 @@ class GeminiAudioGenerationService(
             throw RuntimeException("Gemini API key not configured. Please set GEMINI_API_KEY environment variable.")
         }
 
-        val useMultiSpeaker = speakers.isNotEmpty() && speakers.size <= 2
-        logger.info("Generating audio for transcript: '$transcript' (multi-speaker: $useMultiSpeaker)")
+        // Multi-speaker API requires exactly 2 speakers
+        // For 0 or 1 speakers, use single-speaker API
+        val useMultiSpeaker = speakers.size == 2
+        logger.info("Generating audio for transcript (length: ${transcript.length}) - multi-speaker: $useMultiSpeaker, speakers: ${speakers.size}")
 
         try {
             // Call Gemini TTS API
             val (pcmData, sampleRate, bitsPerSample) = if (useMultiSpeaker) {
                 callGeminiTTSMultiSpeaker(transcript, speakers, stylePrompt)
             } else {
-                callGeminiTTS(transcript, voice)
+                // Use single-speaker API with first speaker's voice, or default voice parameter
+                val singleVoice = speakers.firstOrNull()?.voice ?: voice
+                callGeminiTTS(transcript, singleVoice, stylePrompt)
             }
 
             // Convert PCM to WAV
@@ -99,13 +103,20 @@ class GeminiAudioGenerationService(
         }
     }
 
-    private fun callGeminiTTS(text: String, voice: String): Triple<ByteArray, Int, Int> {
+    private fun callGeminiTTS(text: String, voice: String, stylePrompt: String? = null): Triple<ByteArray, Int, Int> {
+        // Combine style prompt with text if provided
+        val fullText = if (stylePrompt != null) {
+            "$stylePrompt\n\n$text"
+        } else {
+            text
+        }
+
         val requestBody = mapOf(
             "contents" to listOf(
                 mapOf(
                     "role" to "user",
                     "parts" to listOf(
-                        mapOf("text" to text)
+                        mapOf("text" to fullText)
                     )
                 )
             ),
@@ -164,9 +175,11 @@ class GeminiAudioGenerationService(
         stylePrompt: String?
     ): Triple<ByteArray, Int, Int> {
         // Build multi-speaker voice configuration
-        val speakerConfigs = speakers.take(2).map { speaker ->
+        // Note: Gemini expects speaker labels to be simple like "A" and "B" or "Speaker 1" and "Speaker 2"
+        val speakerLabels = listOf("A", "B")
+        val speakerConfigs = speakers.take(2).mapIndexed { index, speaker ->
             mapOf(
-                "speaker" to speaker.name,
+                "speaker" to speakerLabels[index],
                 "voiceConfig" to mapOf(
                     "prebuiltVoiceConfig" to mapOf(
                         "voiceName" to speaker.voice
@@ -175,12 +188,26 @@ class GeminiAudioGenerationService(
             )
         }
 
-        // Combine style prompt with the dialogue text
-        val fullText = if (stylePrompt != null) {
-            "$stylePrompt\n\n$text"
-        } else {
-            text
+        // Normalize dialogue text to use standardized speaker labels
+        // Replace original speaker names with "A:" and "B:"
+        var normalizedText = text
+        speakers.take(2).forEachIndexed { index, speaker ->
+            // Match both "Speaker Name:" and "Speaker Name :" patterns (with optional colon variations)
+            normalizedText = normalizedText.replace(
+                Regex("${Regex.escape(speaker.name)}\\s*:", RegexOption.IGNORE_CASE),
+                "${speakerLabels[index]}:"
+            )
         }
+
+        // Combine style prompt with the normalized dialogue text
+        val fullText = if (stylePrompt != null) {
+            "$stylePrompt\n\n$normalizedText"
+        } else {
+            normalizedText
+        }
+
+        logger.info("Normalized dialogue text for Gemini multi-speaker TTS")
+        logger.debug("Original text length: ${text.length}, Normalized text length: ${normalizedText.length}")
 
         val requestBody = mapOf(
             "contents" to listOf(

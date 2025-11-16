@@ -1,0 +1,799 @@
+{
+  "moduleNumber": 8,
+  "title": "Meeting Thomas's Family",
+  "theme": "Family & Friends",
+  "description": "Sophie is invited to meet Thomas's family! Learn family vocabulary, how to describe people, talk about ages and relationships, and use possessive adjectives.",
+  "objectives": [
+    "Learn family vocabulary (mother, father, sister, brother, etc.)",
+    "Use possessive adjectives (mon, ma, mes, ton, ta, tes, son, sa, ses)",
+    "Talk about age using 'avoir + number + ans'",
+    "Describe physical appearance and personality",
+    "Discuss family relationships"
+  ],
+  "estimatedMinutes": 175,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "DIALOGUE",
+      "title": "Dîner en Famille",
+      "content": "Thomas: Sophie, j'ai une question. Dimanche prochain, ma famille organise un dîner. Tu voudrais venir?\n\nSophie: Oh! C'est très gentil! Mais... tu es sûr? Je ne veux pas déranger...\n\nThomas: Mais non, pas du tout! Mes parents ont très envie de te rencontrer. Je leur ai beaucoup parlé de toi!\n\nSophie: D'accord alors! Avec plaisir! Qui va être là?\n\nThomas: Mes parents, bien sûr. Ma mère s'appelle Anne et mon père s'appelle Jean. Et ma petite sœur Émilie va venir aussi.\n\nSophie: Tu as une sœur! Je ne savais pas! Elle a quel âge?\n\nThomas: Elle a vingt-trois ans. Elle étudie la médecine à Lyon.\n\nSophie: C'est super! Et tes parents, ils habitent où?\n\nThomas: Ils habitent dans le 15ème arrondissement, pas très loin d'ici.\n\n[Dimanche, chez les Dubois]\n\nMme Dubois: Bonsoir Sophie! Bienvenue! Entrez, entrez!\n\nSophie: Bonsoir Madame Dubois. Merci beaucoup de votre invitation. Tenez, c'est pour vous.\n\nMme Dubois: Oh, des fleurs! Comme c'est gentil! Merci beaucoup!\n\nM. Dubois: Bonsoir Sophie! Enchanté! Thomas nous a beaucoup parlé de vous.\n\nSophie: Enchantée, Monsieur Dubois!\n\nÉmilie: Salut! Moi, c'est Émilie, la petite sœur! Bienvenue!\n\nSophie: Salut Émilie! Enchantée! Thomas m'a dit que tu études la médecine?\n\nÉmilie: Oui, c'est difficile mais j'adore ça! Et toi, tu es informaticienne, c'est ça?\n\nSophie: Oui, exactement! Je travaille avec Thomas chez TechParis.\n\nMme Dubois: Venez, le dîner est prêt! Installez-vous!\n\n[À table]\n\nM. Dubois: Alors Sophie, vous avez de la famille en Amérique?\n\nSophie: Oui, mes parents habitent à New York. Mon père s'appelle Robert et ma mère s'appelle Linda.\n\nMme Dubois: Et vous avez des frères et sœurs?\n\nSophie: Oui, j'ai un grand frère. Il s'appelle Michael. Il a trente-deux ans.\n\nThomas: Qu'est-ce qu'il fait comme travail?\n\nSophie: Il est professeur d'anglais dans un lycée. Il est marié et il a deux enfants, mes neveux!\n\nÉmilie: Oh, tu es tante! C'est mignon! Ils ont quel âge?\n\nSophie: Lucas a cinq ans et Emma a trois ans. Ils sont adorables! Regardez, j'ai des photos!\n\nMme Dubois: Oh, qu'ils sont mignons! Emma ressemble à votre frère.\n\nSophie: Oui, c'est vrai! Et Lucas ressemble à sa mère.\n\nM. Dubois: Votre famille vous manque?\n\nSophie: Oui, beaucoup. Mais on s'appelle souvent par vidéo. Et ils vont venir me rendre visite en été!\n\nThomas: C'est super! On pourra leur faire visiter Paris!\n\nÉmilie: Et ta grand-mère, Thomas? Elle va bien?\n\nThomas: Oui, mamie va très bien! Elle a quatre-vingt-deux ans mais elle est en pleine forme!\n\nSophie: Quatre-vingt-deux ans! C'est merveilleux!\n\nMme Dubois: Oui, ma mère est incroyable. Elle fait encore du jardinage et de la peinture!\n\n[Plus tard]\n\nSophie: Merci beaucoup pour ce délicieux dîner! Vous êtes très accueillants!\n\nM. Dubois: C'était un plaisir, Sophie. Revenez quand vous voulez!\n\nMme Dubois: Oui, vous faites partie de la famille maintenant!\n\nSophie: Merci! Vous êtes adorables!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Thomas",
+          "voice": "Achird",
+          "description": "Sophie's colleague inviting her to meet his family"
+        },
+        {
+          "name": "Sophie",
+          "voice": "Puck",
+          "description": "An American woman meeting her friend's family for the first time"
+        },
+        {
+          "name": "Mme Dubois",
+          "voice": "Vindemiatrix",
+          "description": "Thomas's mother, gentle and welcoming"
+        },
+        {
+          "name": "M. Dubois",
+          "voice": "Schedar",
+          "description": "Thomas's father, warm and friendly"
+        },
+        {
+          "name": "Émilie",
+          "voice": "Leda",
+          "description": "Thomas's younger sister, energetic and friendly"
+        }
+      ],
+      "audioStyle": "A warm family dinner. The Dubois family is welcoming and interested in Sophie. The atmosphere is relaxed and friendly. Sophie is a bit nervous at first but quickly feels comfortable.",
+      "estimatedMinutes": 35,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Sister's age",
+            "instructions": "How old is Thomas's sister?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What is Émilie's age?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "20 years old",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "23 years old",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "25 years old",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "27 years old",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Thomas says: 'Elle a vingt-trois ans' - She is 23 years old.",
+              "hint": "Thomas mentions her age when describing his sister."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: What does Émilie study?",
+            "instructions": "What is Émilie studying?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What does Émilie study in Lyon?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Law",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Medicine",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Engineering",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Literature",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Thomas says: 'Elle étudie la médecine à Lyon' - She studies medicine in Lyon.",
+              "hint": "It's a medical field."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Family Members",
+            "instructions": "Match the French family terms with their English translations.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "mère",
+                  "right": "mother"
+                },
+                {
+                  "left": "père",
+                  "right": "father"
+                },
+                {
+                  "left": "sœur",
+                  "right": "sister"
+                },
+                {
+                  "left": "frère",
+                  "right": "brother"
+                },
+                {
+                  "left": "grand-mère",
+                  "right": "grandmother"
+                }
+              ],
+              "hint": "These are immediate family members."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Extended Family",
+            "instructions": "Match more family vocabulary.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "neveu",
+                  "right": "nephew"
+                },
+                {
+                  "left": "nièce",
+                  "right": "niece"
+                },
+                {
+                  "left": "tante",
+                  "right": "aunt"
+                },
+                {
+                  "left": "oncle",
+                  "right": "uncle"
+                },
+                {
+                  "left": "enfants",
+                  "right": "children"
+                }
+              ],
+              "hint": "Extended family relationships."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: My mother",
+            "instructions": "Complete with the correct possessive adjective.",
+            "content": {
+              "text": "_____ mère s'appelle Anne.",
+              "blanks": [
+                {
+                  "correctAnswer": "Ma",
+                  "acceptableAnswers": ["Ma", "ma"],
+                  "options": ["Ma", "Mon", "Mes", "Sa"]
+                }
+              ],
+              "translation": "My mother is named Anne.",
+              "hint": "'Mère' is feminine singular."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: Age expression",
+            "instructions": "Complete the sentence about age.",
+            "content": {
+              "text": "Elle _____ vingt-trois ans.",
+              "blanks": [
+                {
+                  "correctAnswer": "a",
+                  "acceptableAnswers": ["a"],
+                  "options": ["a", "est", "ai", "as"]
+                }
+              ],
+              "translation": "She is 23 years old.",
+              "hint": "Use the verb 'avoir' (to have) for age in French."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: I have a brother",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": ["J'ai", "un", "grand", "frère"],
+              "correctOrder": ["J'ai", "un", "grand", "frère"],
+              "translation": "I have an older brother",
+              "explanation": "'Grand frère' means 'older brother' (literally 'big brother'). 'Petit frère' would be 'younger brother'.",
+              "hint": "Start with 'J'ai' (I have)."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Sophie's brother's profession",
+            "instructions": "What does Sophie's brother do?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What is Michael's profession?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Doctor",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "English teacher",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "IT professional",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Engineer",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie says: 'Il est professeur d'anglais dans un lycée' - He is an English teacher in a high school.",
+              "hint": "He works at a school."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: My parents",
+            "instructions": "Complete with the correct possessive adjective.",
+            "content": {
+              "text": "_____ parents habitent à New York.",
+              "blanks": [
+                {
+                  "correctAnswer": "Mes",
+                  "acceptableAnswers": ["Mes", "mes"],
+                  "options": ["Mes", "Mon", "Ma", "Ses"]
+                }
+              ],
+              "translation": "My parents live in New York.",
+              "hint": "'Parents' is plural."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 10,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Family Dinner Summary",
+            "instructions": "Complete the summary of the family dinner.",
+            "content": {
+              "text": "Thomas invites Sophie to meet his {blank1}. His mother's name is {blank2} and his father's name is {blank3}. Thomas has a younger {blank4} named Émilie who is {blank5} years old and studies {blank6} in Lyon. Sophie talks about her family: her parents live in {blank7}, and she has an older {blank8} named Michael who is an English {blank9}. Michael is married and has two children, making Sophie an {blank10}. The children are Lucas (5 years old) and Emma (3 years old). Thomas's {blank11} is 82 years old and still very active. The Dubois family is very welcoming and tells Sophie she is part of the family now.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "family"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "Anne"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "Jean"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": ["sister", "sœur"]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": ["23", "vingt-trois"]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": ["medicine", "médecine"]
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": ["New York"]
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": ["brother", "frère"]
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "teacher"
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": ["aunt", "tante"]
+                },
+                {
+                  "id": "blank11",
+                  "correctAnswer": ["grandmother", "grand-mère"]
+                }
+              ],
+              "hint": "Review the dialogue for family details."
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 25,
+            "difficultyRating": 1.8
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Photos de Famille",
+      "content": "Émilie: Sophie, tu peux me montrer des photos de ta famille? Je suis curieuse!\n\nSophie: Bien sûr! Regarde, voici mes parents.\n\nÉmilie: Ils sont très élégants! Ta mère est blonde?\n\nSophie: Oui, ma mère est blonde et elle a les yeux bleus. Mon père a les cheveux gris maintenant, mais avant il était brun.\n\nÉmilie: Et ça, c'est ton frère?\n\nSophie: Oui, c'est Michael avec sa femme Sarah et leurs enfants.\n\nÉmilie: Il est grand! Il te ressemble un peu.\n\nSophie: Tu trouves? On me dit souvent ça! On a les mêmes yeux et le même sourire.\n\nÉmilie: Et ses enfants sont adorables! La petite fille a les cheveux bouclés!\n\nSophie: Oui, Emma a des boucles magnifiques! Et Lucas ressemble beaucoup à son père.\n\nÉmilie: Ton frère a l'air sympa!\n\nSophie: Oh oui, il est très gentil et drôle. On s'entend très bien. Et toi, tu t'entends bien avec Thomas?\n\nÉmilie: Oui, très bien! Même si on se dispute quelquefois, comme tous les frères et sœurs! Mais Thomas est vraiment un bon grand frère.\n\nSophie: Je vois ça! Il est très attentionné.\n\nÉmilie: Regarde, voici des photos de notre famille. Ça, c'est notre grand-mère quand elle était jeune!\n\nSophie: Elle était très belle! Elle ressemble à ta mère.\n\nÉmilie: Oui! Et ça, c'est notre oncle Pierre, le frère de mon père, et sa femme Isabelle.\n\nSophie: Ils ont des enfants?\n\nÉmilie: Oui, deux filles. Mes cousines Léa et Chloé. Elles ont seize et quatorze ans.\n\nSophie: Vous êtes une grande famille!\n\nÉmilie: Oui, et c'est génial! On se voit souvent pour les fêtes et les anniversaires. Et ta famille, vous vous voyez souvent?\n\nSophie: Avant oui, très souvent. Mais maintenant que je suis en France, c'est plus difficile. On s'appelle beaucoup par vidéo.\n\nÉmilie: Ça doit être dur d'être loin de sa famille.\n\nSophie: Oui, parfois. Mais ils viennent me voir cet été! Je suis très excitée!\n\nÉmilie: C'est super! On pourra les rencontrer?\n\nSophie: Bien sûr! Ce sera avec plaisir!\n\nÉmilie: Et toi, tu décris comment ta personnalité?\n\nSophie: Moi? Euh... je suis assez ouverte et sociable. J'aime rencontrer des gens. Je suis curieuse aussi, j'aime apprendre de nouvelles choses.\n\nÉmilie: C'est vrai! Et tu es très courageuse aussi! Venir vivre dans un autre pays...\n\nSophie: Merci! C'est gentil. Et toi, comment tu es?\n\nÉmilie: Moi, je suis plutôt énergique et optimiste. Un peu bavarde aussi!\n\nSophie: Ha ha! C'est une bonne qualité! On s'entend bien, je trouve.\n\nÉmilie: Oui, moi aussi! On est amies maintenant!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Émilie",
+          "voice": "Leda",
+          "description": "Thomas's friendly and curious younger sister"
+        },
+        {
+          "name": "Sophie",
+          "voice": "Puck",
+          "description": "An American woman sharing about her family"
+        }
+      ],
+      "audioStyle": "A friendly conversation between two young women bonding over family photos. Émilie is curious and enthusiastic. Sophie is open and happy to share. The tone is warm and friendly.",
+      "estimatedMinutes": 25,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Mother's appearance",
+            "instructions": "How is Sophie's mother described?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What does Sophie's mother look like?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Blonde hair and blue eyes",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Brown hair and brown eyes",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Red hair and green eyes",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Gray hair and blue eyes",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie says: 'Ma mère est blonde et elle a les yeux bleus' - My mother is blonde and she has blue eyes.",
+              "hint": "Listen for hair and eye color."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Physical Descriptions",
+            "instructions": "Match the French physical descriptions with English.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "blonde",
+                  "right": "blonde"
+                },
+                {
+                  "left": "brun(e)",
+                  "right": "dark-haired/brunette"
+                },
+                {
+                  "left": "les yeux bleus",
+                  "right": "blue eyes"
+                },
+                {
+                  "left": "les cheveux bouclés",
+                  "right": "curly hair"
+                },
+                {
+                  "left": "grand(e)",
+                  "right": "tall"
+                }
+              ],
+              "hint": "These describe physical appearance."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Personality Traits",
+            "instructions": "Match French personality words with English.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "gentil(le)",
+                  "right": "kind/nice"
+                },
+                {
+                  "left": "drôle",
+                  "right": "funny"
+                },
+                {
+                  "left": "sympa",
+                  "right": "nice/friendly"
+                },
+                {
+                  "left": "sociable",
+                  "right": "sociable"
+                },
+                {
+                  "left": "courageux(se)",
+                  "right": "brave/courageous"
+                }
+              ],
+              "hint": "These describe someone's character."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: He resembles...",
+            "instructions": "Complete the sentence about resemblance.",
+            "content": {
+              "text": "Il _____ à son père.",
+              "blanks": [
+                {
+                  "correctAnswer": "ressemble",
+                  "acceptableAnswers": ["ressemble"],
+                  "options": ["ressemble", "regarde", "voit", "parle"]
+                }
+              ],
+              "translation": "He resembles/looks like his father.",
+              "hint": "'Ressembler à' means 'to resemble/look like'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: She has blue eyes",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": ["Elle", "a", "les", "yeux", "bleus"],
+              "correctOrder": ["Elle", "a", "les", "yeux", "bleus"],
+              "translation": "She has blue eyes",
+              "explanation": "To describe eye color, use: avoir + les yeux + color. The definite article 'les' is always used.",
+              "hint": "Start with 'Elle a'."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: His wife",
+            "instructions": "Complete with the correct possessive adjective.",
+            "content": {
+              "text": "C'est Michael avec _____ femme Sarah.",
+              "blanks": [
+                {
+                  "correctAnswer": "sa",
+                  "acceptableAnswers": ["sa"],
+                  "options": ["sa", "son", "ses", "leur"]
+                }
+              ],
+              "translation": "This is Michael with his wife Sarah.",
+              "hint": "'Femme' (wife) is feminine singular."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Cousins' ages",
+            "instructions": "How old are Émilie's cousins?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What are the ages of Émilie's cousins Léa and Chloé?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "14 and 12",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "16 and 14",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "18 and 16",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "15 and 13",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Émilie says: 'Elles ont seize et quatorze ans' - They are 16 and 14 years old.",
+              "hint": "Listen for 'seize et quatorze'."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: We get along well",
+            "instructions": "Complete the expression.",
+            "content": {
+              "text": "On s'_____ très bien.",
+              "blanks": [
+                {
+                  "correctAnswer": "entend",
+                  "acceptableAnswers": ["entend"],
+                  "options": ["entend", "aime", "parle", "voit"]
+                }
+              ],
+              "translation": "We get along very well.",
+              "hint": "'S'entendre bien' means 'to get along well'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Family Photos Conversation",
+            "instructions": "Complete the summary of their conversation about family.",
+            "content": {
+              "text": "Émilie asks Sophie to show {blank1} of her family. Sophie's mother is {blank2} with blue eyes. Her father has {blank3} hair now but was brown-haired before. Sophie's brother Michael is {blank4} and resembles Sophie. Emma has beautiful {blank5} hair. Michael is described as {blank6} and funny. Émilie's cousins are named {blank7} and Chloé, aged 16 and 14. Sophie describes herself as {blank8} and sociable. Émilie says she is {blank9} and optimistic. Sophie's family will visit in the {blank10}, and Émilie is excited to meet them. The two young women become friends.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": ["photos", "pictures"]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "blonde"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": ["gray", "grey", "gris"]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "tall"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": ["curly", "bouclés"]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": ["kind", "nice", "gentil"]
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "Léa"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": ["open", "ouverte"]
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": ["energetic", "énergique"]
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": "summer"
+                }
+              ],
+              "hint": "Review the dialogue for family descriptions."
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 25,
+            "difficultyRating": 1.8
+          }
+        },
+        {
+          "orderIndex": 10,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Expression: Tu trouves?",
+            "instructions": "What does this expression mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "When Émilie says 'Il te ressemble un peu' and Sophie responds 'Tu trouves?', what does she mean?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Do you think so? / You think?",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Did you find it?",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Are you sure?",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "I don't agree",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Tu trouves?' is a common expression meaning 'Do you think so?' or 'You think?' used when someone makes an observation about you.",
+              "hint": "It's a way of asking if someone agrees with what they just said."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.4
+          }
+        }
+      ]
+    }
+  ]
+}

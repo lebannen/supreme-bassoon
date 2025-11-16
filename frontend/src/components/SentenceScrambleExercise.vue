@@ -74,12 +74,20 @@
         :disabled="userOrderedWords.length !== totalWords"
         @click="submitAnswer"
       />
-      <Button
-        v-else
-        label="Try Again"
-        icon="pi pi-refresh"
-        @click="reset"
-      />
+      <template v-else>
+        <Button
+          v-if="isCorrect"
+          :label="`Next (${autoAdvanceSeconds}s)`"
+          icon="pi pi-arrow-right"
+          @click="handleNext"
+        />
+        <Button
+          v-else
+          label="Try Again"
+          icon="pi pi-refresh"
+          @click="reset"
+        />
+      </template>
     </div>
   </div>
 </template>
@@ -102,6 +110,7 @@ interface Props {
 const props = defineProps<Props>()
 const emit = defineEmits<{
   submit: [response: { orderedWords: string[] }]
+  next: []
 }>()
 
 const userOrderedWords = ref<string[]>([])
@@ -110,6 +119,8 @@ const showHint = ref(false)
 const showResult = ref(false)
 const feedback = ref<string | null>(null)
 const isCorrect = ref(false)
+const autoAdvanceTimer = ref<number | null>(null)
+const autoAdvanceSeconds = ref(3)
 
 const totalWords = computed(() => props.content.words.length)
 const translation = computed(() => props.content.translation)
@@ -158,6 +169,32 @@ function submitAnswer() {
   emit('submit', { orderedWords: userOrderedWords.value })
 }
 
+function startAutoAdvance() {
+  autoAdvanceSeconds.value = 3
+
+  const countdown = setInterval(() => {
+    autoAdvanceSeconds.value--
+    if (autoAdvanceSeconds.value <= 0) {
+      clearInterval(countdown)
+      handleNext()
+    }
+  }, 1000)
+
+  autoAdvanceTimer.value = countdown
+}
+
+function stopAutoAdvance() {
+  if (autoAdvanceTimer.value) {
+    clearInterval(autoAdvanceTimer.value)
+    autoAdvanceTimer.value = null
+  }
+}
+
+function handleNext() {
+  stopAutoAdvance()
+  emit('next')
+}
+
 function setResult(result: { isCorrect: boolean; feedback: string; userResponse?: any }) {
   // Restore user's answer from parent if component was recreated
   if (result.userResponse && result.userResponse.orderedWords) {
@@ -168,9 +205,15 @@ function setResult(result: { isCorrect: boolean; feedback: string; userResponse?
   showResult.value = true
   isCorrect.value = result.isCorrect
   feedback.value = result.feedback
+
+  // Start auto-advance countdown for correct answers
+  if (result.isCorrect) {
+    startAutoAdvance()
+  }
 }
 
 function reset() {
+  stopAutoAdvance()
   userOrderedWords.value = []
   showHint.value = false
   showResult.value = false

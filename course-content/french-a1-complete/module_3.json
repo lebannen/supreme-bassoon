@@ -1,0 +1,812 @@
+{
+  "moduleNumber": 3,
+  "title": "Sophie's First Meals Out",
+  "theme": "At the Restaurant",
+  "description": "Sophie explores Parisian cuisine! Learn how to order food and drinks, understand menus, ask about dishes, and navigate restaurants in France.",
+  "objectives": [
+    "Order food and drinks in a restaurant",
+    "Understand basic menu vocabulary",
+    "Ask questions about dishes and ingredients",
+    "Request the bill and understand payment",
+    "Express food preferences and dietary needs"
+  ],
+  "estimatedMinutes": 190,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "DIALOGUE",
+      "title": "Lunch with Thomas at a Café",
+      "content": "Thomas: Sophie! Bienvenue pour ton premier jour! Comment ça va?\n\nSophie: Bonjour Thomas! Ça va bien, merci! Je suis un peu nerveuse mais excitée.\n\nThomas: Ne t'inquiète pas! L'équipe est super sympa. On va déjeuner ensemble? Il y a un bon café juste à côté.\n\nSophie: Oh oui, avec plaisir!\n\n[Au café]\n\nServeur: Bonjour! Vous êtes prêts à commander?\n\nThomas: Oui. Pour moi, je vais prendre le plat du jour. C'est quoi aujourd'hui?\n\nServeur: Aujourd'hui, c'est un poulet rôti avec des légumes et des pommes de terre.\n\nThomas: Parfait, je prends ça. Et toi, Sophie?\n\nSophie: Euh... qu'est-ce que vous recommandez?\n\nServeur: La salade niçoise est excellente. Ou le croque-monsieur, si vous préférez quelque chose de chaud.\n\nSophie: Je vais prendre la salade niçoise, s'il vous plaît.\n\nServeur: Très bon choix! Et comme boisson?\n\nThomas: Une carafe d'eau, s'il vous plaît.\n\nSophie: Et un café pour moi, s'il vous plaît.\n\nServeur: Un café maintenant ou après le repas?\n\nSophie: Ah, après le repas, c'est mieux.\n\nServeur: D'accord, parfait!\n\n[Pendant le repas]\n\nThomas: Alors, tu aimes ta salade?\n\nSophie: Oui, c'est délicieux! Il y a du thon, des olives, des œufs... C'est frais et bon!\n\nThomas: Tu vas voir, la cuisine française est incroyable. Il y a tellement de choses à découvrir!\n\nSophie: Je suis impatiente! Thomas, comment je demande l'addition?\n\nThomas: Tu dis \"L'addition, s'il vous plaît\" au serveur.\n\nSophie: D'accord, merci!\n\n[Plus tard]\n\nSophie: Excusez-moi, l'addition, s'il vous plaît!\n\nServeur: Voilà! Ça fait vingt-huit euros.\n\nSophie: On peut payer séparément?\n\nServeur: Bien sûr! Alors, quatorze euros chacun.\n\nThomas: Non, non, Sophie! C'est moi qui invite aujourd'hui. C'est ton premier jour!\n\nSophie: Oh, c'est très gentil! Merci Thomas!\n\nThomas: De rien! Bienvenue à Paris!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Thomas",
+          "voice": "Achird",
+          "description": "Sophie's friendly colleague"
+        },
+        {
+          "name": "Sophie",
+          "voice": "Puck",
+          "description": "An American woman on her first day at work"
+        },
+        {
+          "name": "Serveur",
+          "voice": "Algieba",
+          "description": "A professional waiter at a Parisian café"
+        }
+      ],
+      "audioStyle": "A friendly lunch conversation between colleagues. Thomas is warm and welcoming, Sophie is curious and grateful, and the waiter is professional and helpful.",
+      "estimatedMinutes": 30,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: What is the plat du jour?",
+            "instructions": "What is today's special dish?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What is the plat du jour (dish of the day)?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Salade niçoise",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Roast chicken with vegetables and potatoes",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Croque-monsieur",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Fish with rice",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The waiter says: 'Aujourd'hui, c'est un poulet rôti avec des légumes et des pommes de terre' - Today it's roast chicken with vegetables and potatoes.",
+              "hint": "Listen to what the waiter describes as today's special."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: What did Sophie order?",
+            "instructions": "What food did Sophie choose?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What dish did Sophie order?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Poulet rôti (roast chicken)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Croque-monsieur",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Salade niçoise",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Soup",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie says: 'Je vais prendre la salade niçoise, s'il vous plaît' - I'll have the niçoise salad, please.",
+              "hint": "Sophie asks for a recommendation and chooses the salad."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Restaurant Vocabulary",
+            "instructions": "Match the French restaurant terms with their English meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "plat du jour",
+                  "right": "dish of the day"
+                },
+                {
+                  "left": "l'addition",
+                  "right": "the bill/check"
+                },
+                {
+                  "left": "commander",
+                  "right": "to order"
+                },
+                {
+                  "left": "déjeuner",
+                  "right": "lunch / to have lunch"
+                },
+                {
+                  "left": "repas",
+                  "right": "meal"
+                }
+              ],
+              "hint": "These are essential words for dining out in France."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Food Vocabulary",
+            "instructions": "Match the French food words with their English translations.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "poulet",
+                  "right": "chicken"
+                },
+                {
+                  "left": "légumes",
+                  "right": "vegetables"
+                },
+                {
+                  "left": "pommes de terre",
+                  "right": "potatoes"
+                },
+                {
+                  "left": "thon",
+                  "right": "tuna"
+                },
+                {
+                  "left": "œufs",
+                  "right": "eggs"
+                }
+              ],
+              "hint": "Think about ingredients mentioned in the dialogue."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: I will have...",
+            "instructions": "Complete the order phrase.",
+            "content": {
+              "text": "Je vais _____ la salade niçoise, s'il vous plaît.",
+              "blanks": [
+                {
+                  "correctAnswer": "prendre",
+                  "acceptableAnswers": ["prendre"],
+                  "options": ["prendre", "manger", "boire", "avoir"]
+                }
+              ],
+              "translation": "I will have the niçoise salad, please.",
+              "hint": "The verb means 'to take/have' when ordering food."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: Asking for recommendations",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": ["Qu'est-ce", "que", "vous", "recommandez", "?"],
+              "correctOrder": ["Qu'est-ce", "que", "vous", "recommandez", "?"],
+              "translation": "What do you recommend?",
+              "explanation": "This is a polite way to ask for a recommendation in a restaurant. 'Recommander' means 'to recommend'.",
+              "hint": "Start with the question phrase 'Qu'est-ce que' (what)."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: Asking for the bill",
+            "instructions": "How do you ask for the bill?",
+            "content": {
+              "text": "_____, s'il vous plaît!",
+              "blanks": [
+                {
+                  "correctAnswer": "L'addition",
+                  "acceptableAnswers": ["L'addition", "l'addition"],
+                  "options": ["L'addition", "Le menu", "La carte", "Le plat"]
+                }
+              ],
+              "translation": "The bill, please!",
+              "hint": "This is the word for 'the bill' or 'the check' in French."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Total Cost",
+            "instructions": "How much was the total bill?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What was the total cost for both meals?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "14 euros",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "20 euros",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "28 euros",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "35 euros",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The waiter says: 'Ça fait vingt-huit euros' - That makes 28 euros. When split, it's 14 euros each.",
+              "hint": "The waiter states the total before they discuss splitting it."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Lunch at the Café",
+            "instructions": "Complete the summary of Sophie and Thomas's lunch.",
+            "content": {
+              "text": "It's Sophie's first {blank1} at work. Thomas invites her to {blank2} at a nearby café. Thomas orders the {blank3} du jour, which is roast chicken with vegetables and potatoes. Sophie asks what the waiter {blank4} and orders the salade {blank5}. For drinks, they get a carafe of {blank6} and Sophie orders a {blank7} to have after the meal. The total bill is {blank8} euros. Thomas insists on paying because it's Sophie's first day.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": ["day", "jour"]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": ["lunch", "déjeuner"]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "plat"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": ["recommends", "recommandez"]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "niçoise"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": ["water", "eau"]
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": ["coffee", "café"]
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": ["28", "vingt-huit"]
+                }
+              ],
+              "hint": "Review the dialogue for details about what they ordered and paid."
+            },
+            "estimatedDurationSeconds": 150,
+            "pointsValue": 25,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 10,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Expression: C'est moi qui invite",
+            "instructions": "What does Thomas mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "When Thomas says 'C'est moi qui invite', what does he mean?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "I'm inviting you / It's my treat",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "I'm invited",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "I need an invitation",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "I'm leaving",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'C'est moi qui invite' literally means 'it's me who invites' and is used to say 'it's my treat' or 'I'm paying'.",
+              "hint": "Thomas doesn't want Sophie to pay on her first day."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.4
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Dinner at a Traditional French Restaurant",
+      "content": "Serveur: Bonsoir! Vous avez réservé?\n\nSophie: Non, nous n'avons pas de réservation. Vous avez une table pour deux personnes?\n\nServeur: Oui, bien sûr. Suivez-moi, s'il vous plaît. Voilà, cette table près de la fenêtre, ça vous convient?\n\nSophie: Parfait, merci!\n\nServeur: Voici le menu. Je reviens dans quelques minutes pour prendre votre commande.\n\n[Sophie regarde le menu avec son amie américaine, Lisa]\n\nLisa: Tout est en français! Sophie, tu peux m'aider?\n\nSophie: Oui! Alors, en entrée, il y a de la soupe à l'oignon, des escargots, du foie gras...\n\nLisa: Des escargots?! Non merci! Je vais prendre la soupe.\n\nSophie: Moi aussi. Et pour le plat principal, il y a du bœuf bourguignon, du saumon grillé, du coq au vin...\n\nLisa: Le saumon grillé, ça a l'air bon. Et toi?\n\nSophie: Je vais essayer le bœuf bourguignon. C'est un plat traditionnel français.\n\n[Le serveur revient]\n\nServeur: Vous êtes prêtes, mesdames?\n\nSophie: Oui. Pour commencer, deux soupes à l'oignon, s'il vous plaît.\n\nServeur: Très bien. Et ensuite?\n\nSophie: Un saumon grillé et un bœuf bourguignon.\n\nServeur: Excellent choix! Le bœuf bourguignon vient avec des pommes de terre ou du riz. Vous préférez?\n\nSophie: Des pommes de terre, s'il vous plaît.\n\nServeur: Parfait. Et comme boisson?\n\nLisa: On peut avoir la carte des vins?\n\nServeur: Bien sûr, la voici.\n\nSophie: Nous allons prendre une bouteille de vin rouge de la maison.\n\nServeur: Excellent. Et de l'eau aussi?\n\nLisa: Oui, une carafe d'eau, s'il vous plaît.\n\nServeur: Très bien! Je vous apporte ça tout de suite.\n\n[Après le repas]\n\nServeur: Ça vous a plu?\n\nSophie: Oui, c'était délicieux! Le bœuf bourguignon était incroyable!\n\nLisa: Le saumon aussi était excellent!\n\nServeur: Je suis content que ça vous ait plu. Vous désirez un dessert? Nous avons une tarte tatin maison, de la crème brûlée, ou du gâteau au chocolat.\n\nSophie: Oh, la crème brûlée pour moi!\n\nLisa: Et moi, la tarte tatin.\n\nServeur: Parfait! Et un café?\n\nLisa: Deux cafés, s'il vous plaît.\n\nServeur: Très bien!\n\n[À la fin]\n\nSophie: L'addition, s'il vous plaît.\n\nServeur: Voilà. Ça fait quatre-vingt-quinze euros.\n\nLisa: On partage? Chacune paie la moitié?\n\nSophie: D'accord! Voilà ma carte bancaire.\n\nServeur: Vous payez ensemble ou séparément?\n\nSophie: Séparément, s'il vous plaît.",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Serveur",
+          "voice": "Algieba",
+          "description": "A professional waiter at a traditional French restaurant"
+        },
+        {
+          "name": "Sophie",
+          "voice": "Puck",
+          "description": "An American woman now comfortable ordering in French"
+        },
+        {
+          "name": "Lisa",
+          "voice": "Laomedeia",
+          "description": "Sophie's American friend visiting Paris"
+        }
+      ],
+      "audioStyle": "A pleasant dinner at a nice restaurant. The waiter is attentive and professional. Sophie is confident with her French, helping her friend Lisa navigate the menu.",
+      "estimatedMinutes": 35,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Reservation",
+            "instructions": "Did Sophie have a reservation?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Did Sophie and Lisa have a reservation?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Yes, for 7pm",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "No, they didn't",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Yes, for 3 people",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "The dialogue doesn't say",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie says: 'Non, nous n'avons pas de réservation' - No, we don't have a reservation. But they still got a table.",
+              "hint": "The waiter asks if they have a reservation."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Course Names",
+            "instructions": "Match the French course names with their English equivalents.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "entrée",
+                  "right": "appetizer/starter"
+                },
+                {
+                  "left": "plat principal",
+                  "right": "main course"
+                },
+                {
+                  "left": "dessert",
+                  "right": "dessert"
+                },
+                {
+                  "left": "carte des vins",
+                  "right": "wine list"
+                },
+                {
+                  "left": "carte bancaire",
+                  "right": "bank card/credit card"
+                }
+              ],
+              "hint": "These are the different parts of a French meal and payment terms."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Food Items",
+            "instructions": "Match the French dishes with their English names.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "soupe à l'oignon",
+                  "right": "onion soup"
+                },
+                {
+                  "left": "escargots",
+                  "right": "snails"
+                },
+                {
+                  "left": "saumon grillé",
+                  "right": "grilled salmon"
+                },
+                {
+                  "left": "bœuf bourguignon",
+                  "right": "beef burgundy"
+                },
+                {
+                  "left": "crème brûlée",
+                  "right": "crème brûlée"
+                }
+              ],
+              "hint": "These are classic French dishes mentioned in the dialogue."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: For starters...",
+            "instructions": "Complete the order for appetizers.",
+            "content": {
+              "text": "Pour commencer, deux soupes _____, s'il vous plaît.",
+              "blanks": [
+                {
+                  "correctAnswer": "à l'oignon",
+                  "acceptableAnswers": ["à l'oignon", "a l'oignon"],
+                  "options": ["à l'oignon", "au poulet", "aux légumes", "à la tomate"]
+                }
+              ],
+              "translation": "To start, two onion soups, please.",
+              "hint": "This is a famous French soup made with onions."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: What did Sophie order?",
+            "instructions": "What was Sophie's main course?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What main dish did Sophie choose?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Grilled salmon",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Beef bourguignon",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Coq au vin",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Escargots",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie says: 'Je vais essayer le bœuf bourguignon. C'est un plat traditionnel français' - I'm going to try beef bourguignon. It's a traditional French dish.",
+              "hint": "Sophie wanted to try a traditional French dish."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: Side dish preference",
+            "instructions": "Complete the waiter's question about side dishes.",
+            "content": {
+              "text": "Le bœuf bourguignon vient avec des pommes de terre ou du riz. Vous _____ ?",
+              "blanks": [
+                {
+                  "correctAnswer": "préférez",
+                  "acceptableAnswers": ["préférez"],
+                  "options": ["préférez", "voulez", "aimez", "prenez"]
+                }
+              ],
+              "translation": "The beef bourguignon comes with potatoes or rice. Which do you prefer?",
+              "hint": "This verb means 'to prefer'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: Did you enjoy it?",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": ["Ça", "vous", "a", "plu", "?"],
+              "correctOrder": ["Ça", "vous", "a", "plu", "?"],
+              "translation": "Did you like it? / Did you enjoy it?",
+              "explanation": "'Plaire' (to please) is used in the past tense here. 'Ça vous a plu?' literally means 'Did it please you?'",
+              "hint": "The waiter asks this after the meal to see if they enjoyed it."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Total bill",
+            "instructions": "What was the total cost?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What was the total bill for the dinner?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "75 euros",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "85 euros",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "95 euros",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "105 euros",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The waiter says: 'Ça fait quatre-vingt-quinze euros' - That makes 95 euros.",
+              "hint": "Listen for 'quatre-vingt-quinze'."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Dinner at the Restaurant",
+            "instructions": "Complete the summary of the dinner.",
+            "content": {
+              "text": "Sophie and Lisa go to a French restaurant without a {blank1}. They get a table near the {blank2}. For starters, they both order {blank3} à l'oignon. For the main course, Lisa orders {blank4} grillé and Sophie orders {blank5} bourguignon with potatoes. They order a bottle of red {blank6} from the house. For dessert, Sophie has crème {blank7} and Lisa has tarte {blank8}. The total bill is {blank9} euros, which they split in half.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": ["reservation", "réservation"]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": ["window", "fenêtre"]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": ["soupe", "soup"]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "saumon"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "bœuf"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": ["wine", "vin"]
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "brûlée"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "tatin"
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": ["95", "quatre-vingt-quinze"]
+                }
+              ],
+              "hint": "Review the dialogue for what they ordered at each course."
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 25,
+            "difficultyRating": 1.8
+          }
+        },
+        {
+          "orderIndex": 10,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "listening",
+            "title": "Understanding Payment Options",
+            "instructions": "Listen and answer about payment.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Vous payez ensemble ou séparément?",
+              "question": "What is the waiter asking?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Are you paying together or separately?"
+                },
+                {
+                  "id": "b",
+                  "text": "Do you want to pay now?"
+                },
+                {
+                  "id": "c",
+                  "text": "Cash or card?"
+                },
+                {
+                  "id": "d",
+                  "text": "Would you like a receipt?"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "'Ensemble' means 'together' and 'séparément' means 'separately'. The waiter is asking how they want to split the bill.",
+              "hint": "The waiter wants to know if they're splitting the payment."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.5,
+            "generateAudio": true
+          }
+        }
+      ]
+    }
+  ]
+}

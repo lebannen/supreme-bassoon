@@ -91,12 +91,20 @@
         :disabled="!canSubmit"
         @click="submitAnswer"
       />
-      <Button
-        v-else
-        label="Try Again"
-        icon="pi pi-refresh"
-        @click="resetExercise"
-      />
+      <template v-else>
+        <Button
+          v-if="isCorrect"
+          :label="`Next (${autoAdvanceSeconds}s)`"
+          icon="pi pi-arrow-right"
+          @click="handleNext"
+        />
+        <Button
+          v-else
+          label="Try Again"
+          icon="pi pi-refresh"
+          @click="resetExercise"
+        />
+      </template>
     </div>
   </div>
 </template>
@@ -127,6 +135,7 @@ interface Props {
 const props = defineProps<Props>()
 const emit = defineEmits<{
   submit: [response: { selectedOption?: string; answer?: string }]
+  next: []
 }>()
 
 const audioPlayer = ref<HTMLAudioElement | null>(null)
@@ -137,6 +146,8 @@ const isCorrect = ref(false)
 const feedback = ref('')
 const showHint = ref(false)
 const correctAnswer = ref<string>('')
+const autoAdvanceTimer = ref<number | null>(null)
+const autoAdvanceSeconds = ref(3)
 
 const questionType = computed(() => props.content.questionType || 'multiple_choice')
 const audioUrl = computed(() => props.content.audioUrl)
@@ -167,7 +178,34 @@ function submitAnswer() {
   }
 }
 
+function startAutoAdvance() {
+  autoAdvanceSeconds.value = 3
+
+  const countdown = setInterval(() => {
+    autoAdvanceSeconds.value--
+    if (autoAdvanceSeconds.value <= 0) {
+      clearInterval(countdown)
+      handleNext()
+    }
+  }, 1000)
+
+  autoAdvanceTimer.value = countdown
+}
+
+function stopAutoAdvance() {
+  if (autoAdvanceTimer.value) {
+    clearInterval(autoAdvanceTimer.value)
+    autoAdvanceTimer.value = null
+  }
+}
+
+function handleNext() {
+  stopAutoAdvance()
+  emit('next')
+}
+
 function resetExercise() {
+  stopAutoAdvance()
   selectedOption.value = null
   userAnswer.value = ''
   showResult.value = false
@@ -198,6 +236,11 @@ function setResult(result: { isCorrect: boolean; feedback: string; userResponse?
     } else if (result.userResponse.answer) {
       userAnswer.value = result.userResponse.answer
     }
+  }
+
+  // Start auto-advance countdown for correct answers
+  if (result.isCorrect) {
+    startAutoAdvance()
   }
 }
 

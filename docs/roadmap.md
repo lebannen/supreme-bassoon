@@ -388,11 +388,11 @@ CREATE TABLE user_vocabulary_sets (
 
 ---
 
-## M2.5 - Structured Course System ✅ **COMPLETE**
+## M2.5 - Structured Course System + UX Enhancements ✅ **COMPLETE**
 
 **Start Date:** January 2025
-**Completion Date:** January 2025
-**Target:** Implement comprehensive course content management system
+**Completion Date:** January 16, 2025
+**Target:** Implement comprehensive course content management system with professional UX
 
 ### M2.5 Goals ✅
 1. ✅ Create course/module/episode data model
@@ -461,12 +461,24 @@ CREATE TABLE user_vocabulary_sets (
 - Module reusability and versioning
 
 **Content Created:**
-- Course: French A1 - Complete Beginner
-- Module 1: 2 episodes (STORY, DIALOGUE)
-- Module 2: 3 episodes (all DIALOGUE types)
-- 6 multi-speaker audio files generated
+- Course: French A1 - Sophie's Parisian Journey (Complete)
+- 10 modules covering full A1 curriculum
+- 24 episodes (mix of STORY and DIALOGUE)
+- 240+ exercises across all 6 types
+- 24 episode audio files (multi-speaker dialogues)
+- ~35 listening exercise audio files
 - Voice selection guide with 30+ voices categorized
 - Sample JSON structures for all content types
+
+**UX Enhancements (All Exercise Types):**
+- ✅ Auto-advance with 3-second countdown on correct answers
+- ✅ "Next" button instead of "Try Again" for correct answers
+- ✅ Progress persistence - saves to backend database
+- ✅ Resume from first incomplete exercise on return
+- ✅ Component state isolation with Vue :key
+- ✅ Progress percentage rounding (no decimal spam)
+- ✅ Visual feedback improvements (green/red indicators)
+- ✅ Smooth transitions between exercises
 
 ---
 
@@ -763,18 +775,30 @@ The M1 MVP is complete and functional. The application now provides a complete e
 
 ---
 
-**Document Status:** ✅ M1 Complete | ✅ M2 Complete | ✅ M2.5 Complete (Structured Courses)
+**Document Status:** ✅ M1 Complete | ✅ M2 Complete | ✅ M2.5 Complete (Structured Courses + UX)
 **Progress:**
-- M1 MVP: ✅ Complete
-- M2 Exercise System: ✅ Complete (All 6 types)
-- M2.5 Structured Course System: ✅ Complete
+- M1 MVP: ✅ Complete (Authentication, Vocabulary, Reading, Spaced Repetition)
+- M2 Exercise System: ✅ Complete (All 6 types with 45 unit tests)
+- M2.5 Structured Course System: ✅ Complete (Full French A1 course, 240+ exercises)
+- M2.5 UX Enhancements: ✅ Complete (Auto-advance, progress persistence, visual polish)
+
+**Latest Achievements (January 16, 2025):**
+- ✅ Auto-advance with countdown on all exercise types
+- ✅ Progress persistence with backend integration
+- ✅ Complete French A1 course (10 modules, 24 episodes, 240+ exercises)
+- ✅ Multi-speaker audio generation with Gemini TTS
+- ✅ Listening exercise audio generation
+- ✅ All exercise validation issues resolved
+- ✅ Professional UX with smooth learning flow
 
 **Next Milestones:**
-1. Create additional course content (Module 3+)
-2. Implement AI-assisted content generation
-3. Mobile optimization and PWA support
-4. Advanced analytics and learning insights
+1. User testing and feedback collection
+2. Mobile optimization and PWA support
+3. Additional language courses (Spanish, German)
+4. AI-assisted content generation
+5. Advanced analytics and learning insights
+6. Social features (study groups, leaderboards)
 
 **Author:** Claude Code
 **Created:** November 2024
-**Last Updated:** January 2025
+**Last Updated:** January 16, 2025

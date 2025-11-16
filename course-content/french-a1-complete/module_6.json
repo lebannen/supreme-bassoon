@@ -1,0 +1,909 @@
+{
+  "moduleNumber": 6,
+  "title": "Sophie's Daily Routine",
+  "theme": "Daily Life and Time",
+  "description": "Follow Sophie through a typical day in Paris! Learn to talk about daily routines, tell time, and use reflexive verbs to describe your day from morning to night.",
+  "objectives": [
+    "Describe daily routines and activities",
+    "Tell time in French",
+    "Use reflexive verbs (se réveiller, se laver, s'habiller)",
+    "Talk about frequency (always, often, sometimes, never)",
+    "Compare weekday and weekend routines"
+  ],
+  "estimatedMinutes": 165,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "STORY",
+      "title": "Une Journée Typique",
+      "content": "Sophie's alarm clock rings. \"Dring dring!\" It's 7:00 AM. She opens her eyes slowly.\n\n\"Je me réveille à sept heures,\" she mumbles sleepily. I wake up at seven o'clock.\n\nShe gets out of bed and walks to the bathroom. First, she takes a shower. \"Je me douche,\" she says, turning on the water. The warm shower helps her wake up fully.\n\nAfter her shower, Sophie brushes her teeth and gets dressed. \"Je me brosse les dents et je m'habille.\" She chooses a comfortable outfit for work - black pants and a blue sweater.\n\nIn the kitchen, Sophie makes her breakfast. She prepares coffee - \"Je prépare du café\" - and toasts some bread. While eating, she checks her phone and reads the news. \"Je prends mon petit déjeuner à sept heures et demie.\" I have my breakfast at 7:30.\n\nAt 8:15, Sophie leaves her apartment. \"Je quitte l'appartement à huit heures et quart.\" She takes the metro to work. The journey takes about 20 minutes.\n\nSophie arrives at the office at 8:45. \"J'arrive au bureau à neuf heures moins le quart.\" She greets her colleagues: \"Bonjour tout le monde!\"\n\nHer workday is busy. She has meetings, writes code, and collaborates with Thomas and the team. At noon, they take a lunch break. \"Nous déjeunons à midi.\" Sophie usually goes to a nearby café or brings a sandwich.\n\nThe afternoon passes quickly. Sophie works on her projects, answers emails, and has video calls with clients. At 6:00 PM, it's time to go home. \"Je finis le travail à six heures.\"\n\nOn her way home, Sophie sometimes stops at the grocery store or bakery. \"Quelquefois, je fais les courses.\" Sometimes I do the shopping.\n\nAt home, around 7:30 PM, Sophie prepares dinner. She likes to cook simple French dishes she's learned. \"Je prépare le dîner et je mange vers huit heures.\" I prepare dinner and eat around 8 o'clock.\n\nAfter dinner, Sophie relaxes. She might read a book in French - \"Je lis un livre\" - or watch a French TV series to practice. \"Je regarde la télé.\" Sometimes she calls her family in New York.\n\nAround 10:30 PM, Sophie starts getting ready for bed. She takes another shower, puts on her pajamas, and sets her alarm for the next day.\n\n\"Je me couche à onze heures,\" she says, climbing into bed. I go to bed at eleven o'clock. She's tired but happy. Tomorrow will be another good day in Paris.",
+      "generateAudio": true,
+      "estimatedMinutes": 25,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Wake-up Time",
+            "instructions": "What time does Sophie wake up?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "At what time does Sophie wake up?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "6:00 AM",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "7:00 AM",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "7:30 AM",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "8:00 AM",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie says: 'Je me réveille à sept heures' - I wake up at seven o'clock.",
+              "hint": "Listen for when her alarm rings."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Reflexive Verbs",
+            "instructions": "Match the French reflexive verbs with their English meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "se réveiller",
+                  "right": "to wake up"
+                },
+                {
+                  "left": "se doucher",
+                  "right": "to shower"
+                },
+                {
+                  "left": "se brosser les dents",
+                  "right": "to brush one's teeth"
+                },
+                {
+                  "left": "s'habiller",
+                  "right": "to get dressed"
+                },
+                {
+                  "left": "se coucher",
+                  "right": "to go to bed"
+                }
+              ],
+              "hint": "These are daily routine activities."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Daily Activities",
+            "instructions": "Match the French activities with their English translations.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "prendre le petit déjeuner",
+                  "right": "to have breakfast"
+                },
+                {
+                  "left": "quitter l'appartement",
+                  "right": "to leave the apartment"
+                },
+                {
+                  "left": "arriver au bureau",
+                  "right": "to arrive at the office"
+                },
+                {
+                  "left": "déjeuner",
+                  "right": "to have lunch"
+                },
+                {
+                  "left": "préparer le dîner",
+                  "right": "to prepare dinner"
+                }
+              ],
+              "hint": "Think about activities throughout the day."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: I wake up at...",
+            "instructions": "Complete the sentence about waking up.",
+            "content": {
+              "text": "Je _____ réveille à sept heures.",
+              "blanks": [
+                {
+                  "correctAnswer": "me",
+                  "acceptableAnswers": [
+                    "me",
+                    "m'"
+                  ],
+                  "options": [
+                    "me",
+                    "te",
+                    "se",
+                    "nous"
+                  ]
+                }
+              ],
+              "translation": "I wake up at seven o'clock.",
+              "hint": "Reflexive pronoun for 'je' (I)."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: I get dressed",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Je",
+                "m'habille",
+                "pour",
+                "le",
+                "travail"
+              ],
+              "correctOrder": [
+                "Je",
+                "m'habille",
+                "pour",
+                "le",
+                "travail"
+              ],
+              "translation": "I get dressed for work",
+              "explanation": "'S'habiller' is a reflexive verb. 'Pour le travail' means 'for work'.",
+              "hint": "Start with the subject pronoun."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Arrival Time",
+            "instructions": "When does Sophie arrive at the office?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What time does Sophie arrive at work?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "8:15",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "8:45",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "9:00",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "9:15",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie says: 'J'arrive au bureau à neuf heures moins le quart' - I arrive at the office at a quarter to nine (8:45).",
+              "hint": "'Moins le quart' means 'minus a quarter' or 'quarter to'."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: Frequency adverb",
+            "instructions": "Complete the sentence with the correct frequency word.",
+            "content": {
+              "text": "_____, je fais les courses.",
+              "blanks": [
+                {
+                  "correctAnswer": "Quelquefois",
+                  "acceptableAnswers": [
+                    "Quelquefois",
+                    "quelquefois"
+                  ],
+                  "options": [
+                    "Quelquefois",
+                    "Toujours",
+                    "Jamais",
+                    "Souvent"
+                  ]
+                }
+              ],
+              "translation": "Sometimes, I do the shopping.",
+              "hint": "The word means 'sometimes' in French."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Bedtime",
+            "instructions": "What time does Sophie go to bed?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "At what time does Sophie go to bed?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "10:00 PM",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "10:30 PM",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "11:00 PM",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Midnight",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie says: 'Je me couche à onze heures' - I go to bed at eleven o'clock.",
+              "hint": "Listen for 'Je me couche à...'"
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Sophie's Daily Routine",
+            "instructions": "Complete the summary of Sophie's typical day.",
+            "content": {
+              "text": "Sophie wakes up at {blank1} AM and takes a {blank2}. She has {blank3} at 7:30. She leaves her apartment at {blank4} and takes the {blank5} to work. She arrives at the office at {blank6}. At noon, she has {blank7} with her colleagues. She finishes work at {blank8} PM. In the evening, she prepares {blank9} and eats around 8 PM. She goes to bed at {blank10} PM.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": [
+                    "7",
+                    "seven",
+                    "sept"
+                  ]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": [
+                    "shower",
+                    "douche"
+                  ]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": [
+                    "breakfast",
+                    "petit déjeuner"
+                  ]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": [
+                    "8:15",
+                    "huit heures et quart"
+                  ]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "metro",
+                    "métro"
+                  ]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": [
+                    "8:45",
+                    "neuf heures moins le quart"
+                  ]
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": [
+                    "lunch",
+                    "déjeuner"
+                  ]
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": [
+                    "6",
+                    "six",
+                    "18:00"
+                  ]
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": [
+                    "dinner",
+                    "dîner"
+                  ]
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": [
+                    "11",
+                    "eleven",
+                    "onze"
+                  ]
+                }
+              ],
+              "hint": "Review Sophie's schedule throughout the day."
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 25,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 10,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: Time expression",
+            "instructions": "Complete the time expression.",
+            "content": {
+              "text": "Je prends mon petit déjeuner _____ sept heures et demie.",
+              "blanks": [
+                {
+                  "correctAnswer": "à",
+                  "acceptableAnswers": [
+                    "à",
+                    "a"
+                  ],
+                  "options": [
+                    "à",
+                    "de",
+                    "en",
+                    "pour"
+                  ]
+                }
+              ],
+              "translation": "I have my breakfast at 7:30.",
+              "hint": "This preposition is used for specific times."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrator",
+          "voice": "Vindemiatrix",
+          "description": "Story narrator with warm, engaging voice"
+        }
+      ],
+      "audioStyle": "This is a narrative story with a warm, calm tone. The narrator reads with natural pacing, creating an immersive storytelling experience."
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Le Weekend vs La Semaine",
+      "content": "Thomas: Salut Sophie! Ça va?\n\nSophie: Salut Thomas! Oui, ça va bien. Et toi?\n\nThomas: Bien, merci! Dis-moi, tu te lèves toujours si tôt?\n\nSophie: En semaine, oui. Je me réveille à sept heures pour le travail. Mais le weekend, c'est différent!\n\nThomas: Ah oui? Tu fais la grasse matinée le weekend?\n\nSophie: Exactement! Le samedi et le dimanche, je me lève vers dix heures. C'est merveilleux!\n\nThomas: Ha ha! Moi aussi! Et qu'est-ce que tu fais le weekend?\n\nSophie: Le samedi matin, je fais souvent du jogging. Ensuite, je vais au marché pour acheter des fruits et des légumes frais.\n\nThomas: C'est bien! Tu vas à quel marché?\n\nSophie: Au marché de la rue Daguerre, près de chez moi. C'est très sympa. Et toi, qu'est-ce que tu fais le weekend?\n\nThomas: Le samedi, je fais du sport aussi. Je joue au football avec des amis. L'après-midi, je vais souvent au cinéma ou je lis.\n\nSophie: Tu aimes lire? Moi aussi! Qu'est-ce que tu lis en ce moment?\n\nThomas: Un roman policier français. C'est intéressant mais un peu difficile pour toi, je pense. Tu lis en français?\n\nSophie: Oui, mais des livres plus simples. Je lis des livres pour enfants! C'est parfait pour apprendre.\n\nThomas: Bonne idée! Et le dimanche, tu fais quoi?\n\nSophie: Le dimanche, je me repose. Je prends un long petit déjeuner, je regarde des films, je téléphone à ma famille en Amérique. C'est ma journée calme.\n\nThomas: Ça a l'air bien! Moi, le dimanche, je déjeune toujours chez mes parents. C'est la tradition familiale.\n\nSophie: C'est mignon! Ta famille te manque pendant la semaine?\n\nThomas: Un peu, oui. Mais on se voit tous les dimanches, alors ça va. Et toi, ta famille te manque?\n\nSophie: Oui, beaucoup. Mais on s'appelle souvent par vidéo. La technologie, c'est génial!\n\nThomas: Absolument! Bon, il est midi. On déjeune ensemble?\n\nSophie: Avec plaisir! Allons-y!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Thomas",
+          "voice": "Achird",
+          "description": "Sophie's friendly colleague"
+        },
+        {
+          "name": "Sophie",
+          "voice": "Puck",
+          "description": "An American woman talking about her routine"
+        }
+      ],
+      "audioStyle": "A casual, friendly conversation between colleagues discussing their daily and weekend routines. Both are relaxed and interested in each other's lives.",
+      "estimatedMinutes": 25,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Weekend wake-up",
+            "instructions": "When does Sophie wake up on weekends?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What time does Sophie get up on weekends?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "7:00 AM",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "8:00 AM",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Around 10:00 AM",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Noon",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie says: 'Le samedi et le dimanche, je me lève vers dix heures' - On Saturday and Sunday, I get up around 10 o'clock.",
+              "hint": "She sleeps in on weekends."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Saturday activity",
+            "instructions": "What does Sophie do on Saturday mornings?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What does Sophie often do on Saturday mornings?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "She goes jogging",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "She plays football",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "She goes to the cinema",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "She stays in bed",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie says: 'Le samedi matin, je fais souvent du jogging' - On Saturday morning, I often go jogging.",
+              "hint": "It's a sport activity."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Frequency Words",
+            "instructions": "Match the French frequency adverbs with their English meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "toujours",
+                  "right": "always"
+                },
+                {
+                  "left": "souvent",
+                  "right": "often"
+                },
+                {
+                  "left": "quelquefois",
+                  "right": "sometimes"
+                },
+                {
+                  "left": "rarement",
+                  "right": "rarely"
+                },
+                {
+                  "left": "jamais",
+                  "right": "never"
+                }
+              ],
+              "hint": "These words describe how often you do something."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Weekend Activities",
+            "instructions": "Match the French activities with their English translations.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "faire la grasse matinée",
+                  "right": "to sleep in"
+                },
+                {
+                  "left": "faire du jogging",
+                  "right": "to go jogging"
+                },
+                {
+                  "left": "aller au marché",
+                  "right": "to go to the market"
+                },
+                {
+                  "left": "jouer au football",
+                  "right": "to play football"
+                },
+                {
+                  "left": "se reposer",
+                  "right": "to rest"
+                }
+              ],
+              "hint": "Think about leisure activities."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: On weekends",
+            "instructions": "Complete the phrase about weekends.",
+            "content": {
+              "text": "Le _____, je me lève vers dix heures.",
+              "blanks": [
+                {
+                  "correctAnswer": "weekend",
+                  "acceptableAnswers": [
+                    "weekend",
+                    "week-end",
+                    "samedi"
+                  ],
+                  "options": [
+                    "weekend",
+                    "lundi",
+                    "matin",
+                    "soir"
+                  ]
+                }
+              ],
+              "translation": "On weekends, I get up around 10 o'clock.",
+              "hint": "The word for 'weekend' in French."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: I often go jogging",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Je",
+                "fais",
+                "souvent",
+                "du",
+                "jogging"
+              ],
+              "correctOrder": [
+                "Je",
+                "fais",
+                "souvent",
+                "du",
+                "jogging"
+              ],
+              "translation": "I often go jogging",
+              "explanation": "'Faire du jogging' means 'to go jogging'. The frequency word 'souvent' typically comes after the verb.",
+              "hint": "Start with the subject pronoun."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Thomas's Sunday",
+            "instructions": "What does Thomas do every Sunday?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What is Thomas's Sunday tradition?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "He plays football",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "He has lunch with his parents",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "He goes to the cinema",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "He goes jogging",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Thomas says: 'Le dimanche, je déjeune toujours chez mes parents. C'est la tradition familiale' - On Sunday, I always have lunch at my parents'. It's a family tradition.",
+              "hint": "It's a family tradition."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: What are you reading?",
+            "instructions": "Complete the question.",
+            "content": {
+              "text": "Qu'est-ce que tu _____ en ce moment ?",
+              "blanks": [
+                {
+                  "correctAnswer": "lis",
+                  "acceptableAnswers": [
+                    "lis"
+                  ],
+                  "options": [
+                    "lis",
+                    "lire",
+                    "lit",
+                    "lisez"
+                  ]
+                }
+              ],
+              "translation": "What are you reading right now?",
+              "hint": "Conjugate 'lire' (to read) for 'tu'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Weekend Routines",
+            "instructions": "Complete the comparison of weekday and weekend routines.",
+            "content": {
+              "text": "During the week, Sophie wakes up at {blank1} AM for work. On weekends, she sleeps in and gets up around {blank2}. On Saturday mornings, she goes {blank3}. Then she goes to the {blank4} to buy fresh produce. Thomas plays {blank5} with friends on Saturdays. On {blank6}, Sophie relaxes and calls her family. Thomas has {blank7} at his parents' house every Sunday. Both Sophie and Thomas enjoy {blank8} - Sophie reads children's books in French while Thomas reads French detective novels.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": [
+                    "7",
+                    "seven"
+                  ]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": [
+                    "10",
+                    "ten",
+                    "dix"
+                  ]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": [
+                    "jogging",
+                    "running"
+                  ]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": [
+                    "market",
+                    "marché"
+                  ]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "football",
+                    "soccer"
+                  ]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": [
+                    "Sunday",
+                    "Sundays",
+                    "dimanche"
+                  ]
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": [
+                    "lunch",
+                    "déjeuner"
+                  ]
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": [
+                    "reading",
+                    "lire",
+                    "books"
+                  ]
+                }
+              ],
+              "hint": "Review the dialogue for details about their routines."
+            },
+            "estimatedDurationSeconds": 150,
+            "pointsValue": 25,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 10,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Expression: Faire la grasse matinée",
+            "instructions": "What does this expression mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What does 'faire la grasse matinée' mean?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "To sleep in / sleep late",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "To have a big breakfast",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "To wake up early",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "To be lazy",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Faire la grasse matinée' literally means 'to make the fat morning' but it means 'to sleep in' or 'sleep late' on weekends or holidays.",
+              "hint": "It's something people enjoy doing on weekends."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.3
+          }
+        }
+      ]
+    }
+  ]
+}

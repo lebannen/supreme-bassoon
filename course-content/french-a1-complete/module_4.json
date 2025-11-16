@@ -1,0 +1,767 @@
+{
+  "moduleNumber": 4,
+  "title": "Sophie Goes Shopping",
+  "theme": "Shopping & Numbers",
+  "description": "Sophie needs to buy things for her new life in Paris! Learn shopping vocabulary, how to ask about prices, sizes, and colors, and master French numbers.",
+  "objectives": [
+    "Ask about prices and understand numbers 1-100",
+    "Shop for clothes, groceries, and household items",
+    "Ask about sizes, colors, and availability",
+    "Use shopping expressions and payment vocabulary",
+    "Navigate different types of stores"
+  ],
+  "estimatedMinutes": 185,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "DIALOGUE",
+      "title": "At the Clothing Store",
+      "content": "Vendeuse: Bonjour! Je peux vous aider?\n\nSophie: Bonjour! Oui, je cherche un manteau pour l'hiver.\n\nVendeuse: Très bien! Quelle taille faites-vous?\n\nSophie: Je fais du 38.\n\nVendeuse: Parfait! Et quelle couleur préférez-vous?\n\nSophie: J'aime le noir ou le bleu marine.\n\nVendeuse: Regardez, j'ai ce joli manteau bleu marine. Il est en laine, très chaud pour l'hiver parisien.\n\nSophie: Oh, il est beau! Je peux l'essayer?\n\nVendeuse: Bien sûr! Les cabines d'essayage sont au fond du magasin, à gauche.\n\n[Sophie essaie le manteau]\n\nVendeuse: Alors, il vous plaît?\n\nSophie: Oui, beaucoup! Il me va bien. C'est combien?\n\nVendeuse: Il coûte cent vingt euros.\n\nSophie: Cent vingt euros... D'accord. Vous acceptez les cartes bancaires?\n\nVendeuse: Oui, bien sûr! Cartes bancaires, espèces, tout est accepté.\n\nSophie: Parfait. Je le prends!\n\nVendeuse: Excellent choix! Vous voulez un sac?\n\nSophie: Oui, s'il vous plaît.\n\nVendeuse: Voilà! Ça fait cent vingt euros. Vous pouvez taper votre code ici.\n\nSophie: Merci beaucoup!\n\nVendeuse: De rien! Bonne journée et profitez bien de votre manteau!\n\nSophie: Merci, au revoir!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Vendeuse",
+          "voice": "Autonoe",
+          "description": "A friendly saleswoman at a clothing store"
+        },
+        {
+          "name": "Sophie",
+          "voice": "Puck",
+          "description": "An American woman shopping for winter clothes"
+        }
+      ],
+      "audioStyle": "A helpful shopping interaction. The saleswoman is professional and friendly, helping Sophie find what she needs. Sophie is polite and asks practical questions.",
+      "estimatedMinutes": 25,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: What is Sophie looking for?",
+            "instructions": "What does Sophie want to buy?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What is Sophie shopping for?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "A dress",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "A winter coat",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Shoes",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "A hat",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie says: 'Je cherche un manteau pour l'hiver' - I'm looking for a coat for winter.",
+              "hint": "She needs something warm for the Parisian winter."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Price",
+            "instructions": "How much does the coat cost?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What is the price of the coat?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "100 euros",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "110 euros",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "120 euros",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "130 euros",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The saleswoman says: 'Il coûte cent vingt euros' - It costs 120 euros.",
+              "hint": "Listen for 'cent vingt' which means 120."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Shopping Vocabulary",
+            "instructions": "Match the French shopping terms with their English meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "manteau",
+                  "right": "coat"
+                },
+                {
+                  "left": "taille",
+                  "right": "size"
+                },
+                {
+                  "left": "couleur",
+                  "right": "color"
+                },
+                {
+                  "left": "essayer",
+                  "right": "to try on"
+                },
+                {
+                  "left": "cabine d'essayage",
+                  "right": "fitting room"
+                }
+              ],
+              "hint": "These are common words used when shopping for clothes."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Colors",
+            "instructions": "Match the French color words with their English translations.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "noir",
+                  "right": "black"
+                },
+                {
+                  "left": "bleu marine",
+                  "right": "navy blue"
+                },
+                {
+                  "left": "blanc",
+                  "right": "white"
+                },
+                {
+                  "left": "rouge",
+                  "right": "red"
+                },
+                {
+                  "left": "vert",
+                  "right": "green"
+                }
+              ],
+              "hint": "Learn these essential color words for shopping."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: What size?",
+            "instructions": "Complete the question about size.",
+            "content": {
+              "text": "Quelle _____ faites-vous ?",
+              "blanks": [
+                {
+                  "correctAnswer": "taille",
+                  "acceptableAnswers": ["taille"],
+                  "options": ["taille", "couleur", "prix", "forme"]
+                }
+              ],
+              "translation": "What size do you wear?",
+              "hint": "The word for 'size' in French."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: How much is it?",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": ["C'est", "combien", "?"],
+              "correctOrder": ["C'est", "combien", "?"],
+              "translation": "How much is it?",
+              "explanation": "'C'est combien?' is the simplest way to ask about price in French. You can also say 'Ça coûte combien?'",
+              "hint": "This is a very simple question - just 3 words!"
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: I'll take it!",
+            "instructions": "Complete Sophie's decision to buy the coat.",
+            "content": {
+              "text": "Je le _____ !",
+              "blanks": [
+                {
+                  "correctAnswer": "prends",
+                  "acceptableAnswers": ["prends"],
+                  "options": ["prends", "veux", "achète", "aime"]
+                }
+              ],
+              "translation": "I'll take it!",
+              "hint": "This verb means 'to take' and is commonly used when deciding to buy something."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Expression: Il me va bien",
+            "instructions": "What does Sophie mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "When Sophie says 'Il me va bien', what does she mean?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "It fits me well",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "I'm going well",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "It's expensive",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "I don't like it",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Aller bien à quelqu'un' means 'to fit/suit someone well'. It's used for clothes that look good or fit properly.",
+              "hint": "Sophie is saying something positive about how the coat fits her."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Shopping for a Coat",
+            "instructions": "Complete the summary of Sophie's shopping trip.",
+            "content": {
+              "text": "Sophie goes to a clothing store to buy a {blank1} for winter. She wears size {blank2}. She likes the colors {blank3} or navy blue. The saleswoman shows her a nice navy blue coat made of {blank4}. Sophie tries it on in the {blank5} room. The coat fits well and costs {blank6} euros. Sophie decides to buy it and pays with her bank {blank7}. The saleswoman gives her a {blank8} for the coat.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": ["coat", "manteau"]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "38"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": ["black", "noir"]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": ["wool", "laine"]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": ["fitting", "essayage"]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": ["120", "cent vingt"]
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": ["card", "carte"]
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": ["bag", "sac"]
+                }
+              ],
+              "hint": "Review the dialogue for all the shopping details."
+            },
+            "estimatedDurationSeconds": 150,
+            "pointsValue": 25,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 10,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: Payment methods",
+            "instructions": "Complete the statement about payment.",
+            "content": {
+              "text": "Cartes bancaires, _____, tout est accepté.",
+              "blanks": [
+                {
+                  "correctAnswer": "espèces",
+                  "acceptableAnswers": ["espèces", "especes"],
+                  "options": ["espèces", "chèques", "liquide", "argent"]
+                }
+              ],
+              "translation": "Bank cards, cash, everything is accepted.",
+              "hint": "The French word for 'cash' when paying."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "At the Grocery Store",
+      "content": "Sophie: Bonjour!\n\nÉpicier: Bonjour, mademoiselle! Qu'est-ce que je vous sers?\n\nSophie: Je voudrais des tomates, s'il vous plaît.\n\nÉpicier: Combien en voulez-vous?\n\nSophie: Un kilo, s'il vous plaît.\n\nÉpicier: Voilà! Elles sont très fraîches aujourd'hui. Et avec ceci?\n\nSophie: J'ai besoin aussi de fromage. Vous avez du camembert?\n\nÉpicier: Oui, bien sûr! Celui-ci est excellent. Il vient de Normandie.\n\nSophie: Parfait. Je prends un camembert. Vous avez aussi du pain?\n\nÉpicier: Oui, regardez. J'ai des baguettes, du pain complet, du pain aux céréales...\n\nSophie: Une baguette, s'il vous plaît.\n\nÉpicier: Voilà! C'est tout?\n\nSophie: Non, j'ai besoin de... euh... comment on dit \"eggs\" en français?\n\nÉpicier: Des œufs! Combien vous en faut-il?\n\nSophie: Six œufs, s'il vous plaît.\n\nÉpicier: Très bien. Alors, on a un kilo de tomates, un camembert, une baguette et six œufs. C'est tout?\n\nSophie: Oui, c'est tout. Ça fait combien?\n\nÉpicier: Alors... les tomates, trois euros cinquante. Le camembert, cinq euros. La baguette, un euro dix. Les œufs, deux euros quarante. Ça fait... douze euros en tout.\n\nSophie: Voilà quinze euros.\n\nÉpicier: Merci! Votre monnaie: trois euros. Bonne journée!\n\nSophie: Merci, vous aussi! Au revoir!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Épicier",
+          "voice": "Umbriel",
+          "description": "A friendly local grocer"
+        },
+        {
+          "name": "Sophie",
+          "voice": "Puck",
+          "description": "An American woman shopping for groceries"
+        }
+      ],
+      "audioStyle": "A warm, friendly interaction at a small local grocery. The grocer is patient and helpful, especially when Sophie forgets a word. Sophie is polite and learning how to shop in French.",
+      "estimatedMinutes": 25,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Total cost",
+            "instructions": "How much did Sophie pay in total?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What was the total cost of Sophie's groceries?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "10 euros",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "12 euros",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "15 euros",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "20 euros",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The grocer says: 'Ça fait... douze euros en tout' - That makes... 12 euros in total. Sophie gave 15 euros and got 3 euros change.",
+              "hint": "Listen for 'douze euros' which means 12 euros."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Grocery Items",
+            "instructions": "Match the French grocery words with their English meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "tomates",
+                  "right": "tomatoes"
+                },
+                {
+                  "left": "fromage",
+                  "right": "cheese"
+                },
+                {
+                  "left": "pain",
+                  "right": "bread"
+                },
+                {
+                  "left": "baguette",
+                  "right": "baguette"
+                },
+                {
+                  "left": "œufs",
+                  "right": "eggs"
+                }
+              ],
+              "hint": "These are basic food items Sophie buys at the grocery."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: I would like...",
+            "instructions": "Complete the polite request.",
+            "content": {
+              "text": "Je _____ des tomates, s'il vous plaît.",
+              "blanks": [
+                {
+                  "correctAnswer": "voudrais",
+                  "acceptableAnswers": ["voudrais"],
+                  "options": ["voudrais", "veux", "voulais", "voudrai"]
+                }
+              ],
+              "translation": "I would like some tomatoes, please.",
+              "hint": "This is the conditional form of 'vouloir' (to want), used for polite requests."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: Quantity question",
+            "instructions": "Complete the grocer's question.",
+            "content": {
+              "text": "_____ en voulez-vous ?",
+              "blanks": [
+                {
+                  "correctAnswer": "Combien",
+                  "acceptableAnswers": ["Combien", "combien"],
+                  "options": ["Combien", "Comment", "Quand", "Où"]
+                }
+              ],
+              "translation": "How many/much do you want?",
+              "hint": "This word is used to ask about quantity."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: I need...",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": ["J'ai", "besoin", "de", "fromage"],
+              "correctOrder": ["J'ai", "besoin", "de", "fromage"],
+              "translation": "I need cheese",
+              "explanation": "'Avoir besoin de' means 'to need'. The structure is: subject + avoir + besoin + de + thing needed.",
+              "hint": "Start with 'J'ai' (I have)."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Numbers: Baguette price",
+            "instructions": "How much does the baguette cost?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What is the price of the baguette?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "€1.10",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "€2.10",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "€1.50",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "€0.90",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The grocer says: 'La baguette, un euro dix' - The baguette, one euro ten (€1.10).",
+              "hint": "Listen for 'un euro dix'."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: Measurements",
+            "instructions": "Complete the quantity.",
+            "content": {
+              "text": "Un _____ de tomates, s'il vous plaît.",
+              "blanks": [
+                {
+                  "correctAnswer": "kilo",
+                  "acceptableAnswers": ["kilo"],
+                  "options": ["kilo", "litre", "gramme", "mètre"]
+                }
+              ],
+              "translation": "One kilo of tomatoes, please.",
+              "hint": "This is a common unit of weight for produce."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Expression: Et avec ceci?",
+            "instructions": "What does the grocer mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "When the grocer asks 'Et avec ceci?', what does he mean?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "And with this? / Anything else?",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "How much is this?",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Where is this from?",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Do you like this?",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Et avec ceci?' is a common phrase shopkeepers use to ask 'And with this?' or 'Anything else?'",
+              "hint": "The grocer is asking if Sophie needs anything else."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Shopping for Groceries",
+            "instructions": "Complete the summary of Sophie's grocery shopping.",
+            "content": {
+              "text": "Sophie goes to the local {blank1} store. She buys one {blank2} of tomatoes for €3.50, one {blank3} from Normandy for €5, one {blank4} for €1.10, and six {blank5} for €2.40. When she forgets the French word for eggs, the grocer helps her. The total cost is {blank6} euros. Sophie pays with {blank7} euros and receives {blank8} euros in change.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": ["grocery", "épicerie"]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "kilo"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": ["camembert", "cheese", "fromage"]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "baguette"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": ["eggs", "œufs", "oeufs"]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": ["12", "douze"]
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": ["15", "quinze"]
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": ["3", "trois"]
+                }
+              ],
+              "hint": "Pay attention to the prices and quantities mentioned."
+            },
+            "estimatedDurationSeconds": 150,
+            "pointsValue": 25,
+            "difficultyRating": 1.8
+          }
+        },
+        {
+          "orderIndex": 10,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "listening",
+            "title": "Understanding Prices",
+            "instructions": "Listen to the price breakdown.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Les tomates, trois euros cinquante. Le camembert, cinq euros. La baguette, un euro dix. Les œufs, deux euros quarante.",
+              "question": "What is the most expensive item?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Tomatoes (€3.50)"
+                },
+                {
+                  "id": "b",
+                  "text": "Camembert (€5.00)"
+                },
+                {
+                  "id": "c",
+                  "text": "Baguette (€1.10)"
+                },
+                {
+                  "id": "d",
+                  "text": "Eggs (€2.40)"
+                }
+              ],
+              "correctAnswer": "b",
+              "explanation": "The camembert at 5 euros is the most expensive item Sophie bought.",
+              "hint": "Compare the prices: €3.50, €5, €1.10, and €2.40."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.5,
+            "generateAudio": true
+          }
+        }
+      ]
+    }
+  ]
+}

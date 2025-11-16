@@ -1,8 +1,8 @@
 # Exercise Types Reference Guide
 
-**Version:** 1.0
-**Last Updated:** January 2025
-**Status:** ✅ All 6 Exercise Types Implemented
+**Version:** 1.1
+**Last Updated:** January 16, 2025
+**Status:** ✅ All 6 Exercise Types Implemented + UX Enhancements Complete
 
 ---
 
@@ -328,9 +328,93 @@ Students fill in multiple blanks within a passage. Tests reading comprehension a
 - Paragraph-level exercises
 
 ### Text Formatting
-- Use `___1___`, `___2___`, etc. for blanks
+- Use `{blank1}`, `{blank2}`, etc. for blanks (recommended)
+- Alternative format: `___1___`, `___2___` (legacy, still supported)
 - Blanks are numbered sequentially
 - Text can be any length (recommend 2-4 sentences)
+
+**Format Examples:**
+```json
+// Modern format (recommended):
+"text": "Je {blank1} au marché. J'{blank2} des pommes."
+
+// Legacy format (still supported):
+"text": "Je ___1___ au marché. J'___2___ des pommes."
+```
+
+---
+
+## User Experience Features (All Exercise Types)
+
+### Auto-Advance on Correct Answers
+
+**Feature:** Automatic progression to next exercise after correct completion
+- ✅ 3-second countdown timer
+- ✅ Manual override - click "Next" immediately
+- ✅ Countdown display: "Next (3s)" → "Next (2s)" → "Next (1s)"
+- ✅ Only triggers on correct answers
+- ✅ Incorrect answers show "Try Again" button
+
+**Benefits:**
+- Smooth, uninterrupted learning flow
+- Reduces cognitive load (no decision fatigue)
+- Maintains learning momentum
+- Optional manual control for review
+
+**Implementation:**
+```typescript
+// Countdown automatically advances after 3 seconds
+// User can click Next button to advance immediately
+```
+
+### Progress Persistence
+
+**Feature:** Exercise completion automatically saved to backend
+- ✅ Completed exercises tracked per user per episode
+- ✅ Progress survives page refreshes
+- ✅ Resume from first incomplete exercise
+- ✅ Visual progress indicators (percentage, completed count)
+- ✅ JSONB storage for flexibility
+
+**API Endpoint:**
+```
+POST /api/episodes/{episodeId}/complete-exercise/{exerciseId}
+GET /api/episodes/{episodeId}/progress
+```
+
+**Benefits:**
+- Users can learn at their own pace
+- No lost progress
+- Clear indication of completion status
+- Supports long study sessions
+
+### Visual Feedback
+
+**All exercise types include:**
+- ✅ Clear correct/incorrect indicators (green/red)
+- ✅ Detailed feedback messages with explanations
+- ✅ Hint system (toggle-able)
+- ✅ Disabled submit until answer filled
+- ✅ Loading states during validation
+- ✅ Smooth transitions and animations
+
+### Component Isolation
+
+**Technical Feature:** Vue :key directive prevents state reuse
+- ✅ Each exercise gets fresh component instance
+- ✅ No answer carryover between exercises
+- ✅ Clean state reset on navigation
+- ✅ Prevents UI bugs from component reuse
+
+**Implementation:**
+```vue
+<MultipleChoiceExercise
+  :key="exercise.id"
+  :content="exercise.content"
+  @submit="handleSubmit"
+  @next="handleNext"
+/>
+```
 
 ---
 
@@ -471,17 +555,23 @@ Each type has a dedicated Vue component:
 
 ---
 
-## Sample Exercise Counts
+## Exercise Counts
 
-**Currently in Database:**
-- Multiple Choice: 5 exercises
-- Fill in the Blank: 6 exercises
-- Sentence Scramble: 6 exercises
-- Matching: 6 exercises
-- Listening Comprehension: 6 exercises (with audio files)
-- Cloze Reading: 6 exercises
+**French A1 Complete Course:**
+- Multiple Choice: ~40 exercises
+- Fill in the Blank: ~45 exercises
+- Sentence Scramble: ~40 exercises
+- Matching: ~40 exercises
+- Listening Comprehension: ~35 exercises (with generated audio)
+- Cloze Reading: ~40 exercises
 
-**Total: 35 sample exercises** covering French A1 topics
+**Total: 240+ exercises** across 10 modules, 24 episodes
+
+**Audio Content:**
+- 24 episode audio files (dialogues and stories)
+- ~35 listening exercise audio files
+- All generated with Gemini TTS
+- Multi-speaker support for dialogues
 
 ---
 

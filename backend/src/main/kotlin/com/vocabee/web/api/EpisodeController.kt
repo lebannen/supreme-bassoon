@@ -143,6 +143,51 @@ class EpisodeController(
         return getEpisodeProgress(authorization, id)
     }
 
+    @PostMapping("/{episodeId}/complete-exercise/{exerciseId}")
+    fun markExerciseAsCompleted(
+        @RequestHeader("Authorization") authorization: String,
+        @PathVariable episodeId: Long,
+        @PathVariable exerciseId: Long
+    ): ResponseEntity<EpisodeProgressDto> {
+        val userId = getUserIdFromToken(authorization)
+            ?: return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build()
+
+        logger.info("Marking exercise $exerciseId as completed for user $userId in episode $episodeId")
+
+        var progress = userEpisodeProgressRepository.findByUserIdAndEpisodeId(userId, episodeId)
+            ?: com.vocabee.domain.model.UserEpisodeProgress(
+                userId = userId,
+                episodeId = episodeId
+            )
+
+        // Get current completed exercises
+        val currentCompleted = progress.completedContentItems
+        val completedExercises = if (currentCompleted?.isArray == true) {
+            currentCompleted.map { it.asLong() }.toMutableList()
+        } else {
+            mutableListOf()
+        }
+
+        // Add exercise if not already completed
+        if (!completedExercises.contains(exerciseId)) {
+            completedExercises.add(exerciseId)
+
+            // Convert to JsonNode
+            val mapper = com.fasterxml.jackson.databind.ObjectMapper()
+            val completedJson = mapper.valueToTree<com.fasterxml.jackson.databind.JsonNode>(completedExercises)
+
+            progress = progress.copy(
+                completedContentItems = completedJson,
+                lastActivityAt = java.time.LocalDateTime.now()
+            )
+
+            userEpisodeProgressRepository.save(progress)
+            logger.info("Exercise $exerciseId marked as completed. Total completed: ${completedExercises.size}")
+        }
+
+        return getEpisodeProgress(authorization, episodeId)
+    }
+
     private fun getUserIdFromToken(authorization: String): Long? {
         val token = authorization.removePrefix("Bearer ").trim()
         return jwtService.getUserIdFromToken(token)

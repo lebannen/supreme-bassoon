@@ -60,6 +60,24 @@ const generateAudio = ref(true)
 const importingModule = ref(false)
 const moduleImportResult = ref<ImportResult | null>(null)
 
+// Module import progress
+const importProgress = ref<{
+  importId: string
+  status: string
+  totalModules: number
+  processedModules: number
+  totalEpisodes: number
+  processedEpisodes: number
+  totalExercises: number
+  processedExercises: number
+  audioFilesGenerated: number
+  currentModule: string | null
+  currentEpisode: string | null
+  message: string
+  progressPercentage: number
+  errors: string[]
+} | null>(null)
+
 // Modules management
 const courseModules = ref<Map<number, Module[]>>(new Map())
 const loadingModules = ref<Set<number>>(new Set())
@@ -168,6 +186,76 @@ async function handleModuleFileSelect(event: FileUploadSelectEvent) {
   }
 }
 
+function streamImportProgress(importId: string): EventSource | null {
+  const token = localStorage.getItem('auth_token')
+  if (!token) {
+    error.value = 'Authentication token not found. Please log in again.'
+    importingModule.value = false
+    return null
+  }
+
+  const url = new URL(`${API_BASE}/api/admin/courses/import/progress/${importId}`)
+  url.searchParams.append('token', token)
+
+  const eventSource = new EventSource(url.toString())
+
+  eventSource.addEventListener('progress', (event: MessageEvent) => {
+    try {
+      const data = JSON.parse(event.data)
+      importProgress.value = data
+
+      // Check if completed or failed
+      if (data.status === 'COMPLETED') {
+        importingModule.value = false
+        successMessage.value = `Module imported successfully! ${data.processedEpisodes} episodes, ${data.processedExercises} exercises, ${data.audioFilesGenerated} audio files`
+
+        // Show any errors that occurred during import
+        if (data.errors && data.errors.length > 0) {
+          error.value = `Import completed with ${data.errors.length} warnings. Check console for details.`
+          console.warn('Import warnings:', data.errors)
+        }
+
+        // Clear file and reload if needed
+        moduleFile.value = null
+        // Don't close here - wait for 'complete' event
+      } else if (data.status === 'FAILED') {
+        importingModule.value = false
+        error.value = data.error || 'Import failed'
+        // Don't close here - wait for 'complete' event
+      }
+    } catch (err) {
+      console.error('Error parsing SSE data:', err)
+    }
+  })
+
+  eventSource.addEventListener('complete', () => {
+    console.log('SSE stream completed, closing connection')
+    eventSource.close()
+  })
+
+  eventSource.addEventListener('not_found', () => {
+    console.error('Import not found')
+    error.value = 'Import not found. It may have expired or never existed.'
+    importingModule.value = false
+    eventSource.close()
+  })
+
+  eventSource.onerror = (err) => {
+    console.error('SSE error:', err)
+
+    // Only show error if we're still importing (not if stream just ended normally)
+    if (importingModule.value && (!importProgress.value ||
+        (importProgress.value.status !== 'COMPLETED' && importProgress.value.status !== 'FAILED'))) {
+      error.value = 'Lost connection to import progress stream'
+      importingModule.value = false
+    }
+
+    eventSource.close()
+  }
+
+  return eventSource
+}
+
 async function importModule() {
   if (!selectedCourse.value) {
     error.value = 'Please select a course'
@@ -184,12 +272,14 @@ async function importModule() {
     error.value = null
     successMessage.value = null
     moduleImportResult.value = null
+    importProgress.value = null
 
     const fileContent = await moduleFile.value.text()
     const moduleData = JSON.parse(fileContent)
 
+    // Use async endpoint
     const response = await fetch(
-      `${API_BASE}/api/admin/courses/${selectedCourse.value.slug}/modules/import?generateAudio=${generateAudio.value}`,
+      `${API_BASE}/api/admin/courses/${selectedCourse.value.slug}/modules/import-async?generateAudio=${generateAudio.value}`,
       {
         method: 'POST',
         headers: getAuthHeaders(),
@@ -198,20 +288,25 @@ async function importModule() {
     )
 
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({ message: 'Failed to import module' }))
-      throw new Error(errorData.message || 'Failed to import module')
+      const errorData = await response.json().catch(() => ({ message: 'Failed to start import' }))
+      throw new Error(errorData.message || 'Failed to start import')
     }
 
     const result = await response.json()
-    moduleImportResult.value = result
-    successMessage.value = `Module ${moduleData.moduleNumber} imported successfully!`
 
-    // Clear file
-    moduleFile.value = null
+    // Start streaming progress
+    if (result.importId) {
+      const eventSource = streamImportProgress(result.importId)
+      if (!eventSource) {
+        // Error already set in streamImportProgress
+        return
+      }
+    } else {
+      throw new Error('No import ID received')
+    }
   } catch (err) {
     console.error('Error importing module:', err)
     error.value = err instanceof Error ? err.message : 'Failed to import module'
-  } finally {
     importingModule.value = false
   }
 }
@@ -414,33 +509,58 @@ onMounted(() => {
               label="Import Module"
               icon="pi pi-cloud-upload"
               :loading="importingModule"
-              :disabled="!moduleFile"
+              :disabled="!moduleFile || importingModule"
               @click="importModule"
               class="import-button"
             />
 
-            <!-- Module Import Result -->
-            <div v-if="moduleImportResult" class="import-result">
+            <!-- Import Progress -->
+            <div v-if="importProgress" class="import-progress">
               <Divider />
-              <h4>Import Complete</h4>
-              <p>{{ moduleImportResult.message }}</p>
+              <h4>Import Progress</h4>
 
-              <div v-if="moduleImportResult.stats" class="import-stats">
-                <div class="stat-item">
-                  <i class="pi pi-book"></i>
-                  <span>{{ moduleImportResult.stats.episodesCreated }} episodes created</span>
+              <div class="progress-details">
+                <div class="progress-bar-container">
+                  <ProgressBar :value="importProgress.progressPercentage" />
+                  <span class="progress-percentage">{{ importProgress.progressPercentage }}%</span>
                 </div>
-                <div class="stat-item">
-                  <i class="pi pi-pencil"></i>
-                  <span>{{ moduleImportResult.stats.exercisesCreated }} exercises created</span>
+
+                <div class="progress-message">
+                  <i class="pi pi-info-circle"></i>
+                  <span>{{ importProgress.message }}</span>
                 </div>
-                <div v-if="moduleImportResult.stats.audioGenerated > 0" class="stat-item">
-                  <i class="pi pi-volume-up"></i>
-                  <span>{{ moduleImportResult.stats.audioGenerated }} audio files generated</span>
+
+                <div v-if="importProgress.currentModule" class="current-item">
+                  <strong>Module:</strong> {{ importProgress.currentModule }}
                 </div>
-                <div v-if="moduleImportResult.stats.audioFailed > 0" class="stat-item warning">
-                  <i class="pi pi-exclamation-triangle"></i>
-                  <span>{{ moduleImportResult.stats.audioFailed }} audio generation failed</span>
+
+                <div v-if="importProgress.currentEpisode" class="current-item">
+                  <strong>Episode:</strong> {{ importProgress.currentEpisode }}
+                </div>
+
+                <div class="progress-stats">
+                  <div class="progress-stat">
+                    <Tag value="Modules" severity="info" />
+                    <span>{{ importProgress.processedModules }} / {{ importProgress.totalModules }}</span>
+                  </div>
+                  <div class="progress-stat">
+                    <Tag value="Episodes" severity="info" />
+                    <span>{{ importProgress.processedEpisodes }} / {{ importProgress.totalEpisodes }}</span>
+                  </div>
+                  <div class="progress-stat">
+                    <Tag value="Exercises" severity="info" />
+                    <span>{{ importProgress.processedExercises }} / {{ importProgress.totalExercises }}</span>
+                  </div>
+                  <div v-if="importProgress.audioFilesGenerated > 0" class="progress-stat">
+                    <Tag value="Audio" severity="success" />
+                    <span>{{ importProgress.audioFilesGenerated }} files</span>
+                  </div>
+                </div>
+
+                <div v-if="importProgress.errors && importProgress.errors.length > 0" class="progress-errors">
+                  <Message severity="warn" :closable="false">
+                    {{ importProgress.errors.length }} warning(s) occurred during import
+                  </Message>
                 </div>
               </div>
             </div>
@@ -779,6 +899,89 @@ onMounted(() => {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+.import-progress {
+  margin-top: 1rem;
+}
+
+.import-progress h4 {
+  margin: 1rem 0 0.5rem 0;
+  color: var(--text-color);
+}
+
+.progress-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.progress-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.progress-bar-container :deep(.p-progressbar) {
+  flex: 1;
+  height: 1.5rem;
+}
+
+.progress-percentage {
+  font-weight: 600;
+  color: var(--text-color);
+  min-width: 3rem;
+  text-align: right;
+}
+
+.progress-message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--surface-100);
+  border-radius: 6px;
+  color: var(--text-color);
+}
+
+.progress-message i {
+  color: var(--primary-color);
+}
+
+.current-item {
+  padding: 0.5rem;
+  color: var(--text-color-secondary);
+  font-size: 0.9rem;
+}
+
+.current-item strong {
+  color: var(--text-color);
+}
+
+.progress-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.progress-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: var(--surface-50);
+  border-radius: 6px;
+  align-items: center;
+}
+
+.progress-stat span {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.progress-errors {
+  margin-top: 0.5rem;
+}
+
 @media (max-width: 768px) {
   .course-admin-view {
     padding: 1rem;
@@ -790,6 +993,10 @@ onMounted(() => {
 
   .import-stats {
     font-size: 0.9rem;
+  }
+
+  .progress-stats {
+    grid-template-columns: 1fr;
   }
 }
 </style>

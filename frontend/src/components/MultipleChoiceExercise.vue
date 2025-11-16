@@ -48,7 +48,7 @@
 
     <div class="actions-section">
       <Button
-        v-if="!showResult"
+        v-if="!showResult && hint"
         label="Show Hint"
         icon="pi pi-lightbulb"
         text
@@ -61,12 +61,20 @@
         :disabled="!selectedOption"
         @click="submitAnswer"
       />
-      <Button
-        v-else
-        label="Try Again"
-        icon="pi pi-refresh"
-        @click="reset"
-      />
+      <template v-else>
+        <Button
+          v-if="isCorrect"
+          :label="`Next (${autoAdvanceSeconds}s)`"
+          icon="pi pi-arrow-right"
+          @click="handleNext"
+        />
+        <Button
+          v-else
+          label="Try Again"
+          icon="pi pi-refresh"
+          @click="reset"
+        />
+      </template>
     </div>
   </div>
 </template>
@@ -97,6 +105,7 @@ interface Props {
 const props = defineProps<Props>()
 const emit = defineEmits<{
   submit: [response: { selectedOption: string }]
+  next: []
 }>()
 
 const selectedOption = ref<string | null>(null)
@@ -104,6 +113,8 @@ const showHint = ref(false)
 const showResult = ref(false)
 const feedback = ref<string | null>(null)
 const isCorrect = ref(false)
+const autoAdvanceTimer = ref<number | null>(null)
+const autoAdvanceSeconds = ref(3)
 
 const questionText = computed(() => props.content.question.content)
 const options = computed(() => props.content.options)
@@ -134,9 +145,41 @@ function setResult(result: { isCorrect: boolean; feedback: string; userResponse?
   showResult.value = true
   isCorrect.value = result.isCorrect
   feedback.value = result.feedback
+
+  // Start auto-advance countdown for correct answers
+  if (result.isCorrect) {
+    startAutoAdvance()
+  }
+}
+
+function startAutoAdvance() {
+  autoAdvanceSeconds.value = 3
+
+  const countdown = setInterval(() => {
+    autoAdvanceSeconds.value--
+    if (autoAdvanceSeconds.value <= 0) {
+      clearInterval(countdown)
+      handleNext()
+    }
+  }, 1000)
+
+  autoAdvanceTimer.value = countdown
+}
+
+function stopAutoAdvance() {
+  if (autoAdvanceTimer.value) {
+    clearInterval(autoAdvanceTimer.value)
+    autoAdvanceTimer.value = null
+  }
+}
+
+function handleNext() {
+  stopAutoAdvance()
+  emit('next')
 }
 
 function reset() {
+  stopAutoAdvance()
   selectedOption.value = null
   showHint.value = false
   showResult.value = false

@@ -3,10 +3,12 @@ package com.vocabee.service
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.vocabee.web.dto.ValidationResult
+import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 
 @Service
 class ExerciseValidationService {
+    private val logger = LoggerFactory.getLogger(javaClass)
     private val objectMapper = ObjectMapper()
 
     fun validate(
@@ -240,17 +242,21 @@ class ExerciseValidationService {
             )
         }
 
-        // Get the correct sentence
-        val correctSentence = content.get("sentence")?.asText()
-            ?: throw IllegalStateException("No correct sentence defined in exercise content")
-
-        // Parse the correct sentence to get the correct order of words
-        // Remove punctuation and split by spaces
-        val correctWordsList = correctSentence
-            .replace(Regex("[?.!,;:]"), "")  // Remove punctuation
-            .trim()
-            .split(Regex("\\s+"))  // Split by whitespace
-            .filter { it.isNotEmpty() }
+        // Get the correct order of words
+        // Check for "correctOrder" array first (new format), fall back to "sentence" (old format)
+        val correctWordsList = if (content.has("correctOrder") && content.get("correctOrder").isArray) {
+            content.get("correctOrder").map { it.asText() }
+        } else if (content.has("sentence")) {
+            // Old format: parse sentence string
+            val correctSentence = content.get("sentence").asText()
+            correctSentence
+                .replace(Regex("[?.!,;:]"), "")  // Remove punctuation
+                .trim()
+                .split(Regex("\\s+"))  // Split by whitespace
+                .filter { it.isNotEmpty() }
+        } else {
+            throw IllegalStateException("No correct sentence or correctOrder defined in exercise content")
+        }
 
         // Convert user's ordered words to list
         val userWordsList = mutableListOf<String>()
@@ -259,6 +265,9 @@ class ExerciseValidationService {
         // Compare the arrays
         val isCorrect = userWordsList == correctWordsList
 
+        // Reconstruct the correct sentence for display
+        val correctSentenceDisplay = correctWordsList.joinToString(" ")
+
         // Get additional content for feedback
         val translation = content.get("translation")?.asText()
         val grammarExplanation = content.get("grammarExplanation")?.asText() ?: ""
@@ -266,7 +275,7 @@ class ExerciseValidationService {
         // Build feedback message
         val feedback = if (isCorrect) {
             buildString {
-                append("Correct! The sentence is: \"$correctSentence\"")
+                append("Correct! The sentence is: \"$correctSentenceDisplay\"")
                 if (translation != null) {
                     append(" Translation: $translation")
                 }
@@ -277,7 +286,7 @@ class ExerciseValidationService {
             }
         } else {
             buildString {
-                append("Incorrect. The correct order is: \"$correctSentence\"")
+                append("Incorrect. The correct order is: \"$correctSentenceDisplay\"")
                 if (grammarExplanation.isNotEmpty()) {
                     append(" ")
                     append(grammarExplanation)
@@ -293,7 +302,7 @@ class ExerciseValidationService {
                 val correctWordsArray = objectMapper.createArrayNode()
                 correctWordsList.forEach { correctWordsArray.add(it) }
                 set<JsonNode>("correctWords", correctWordsArray)
-                put("correctSentence", correctSentence)
+                put("correctSentence", correctSentenceDisplay)
             }
         )
     }
@@ -406,12 +415,33 @@ class ExerciseValidationService {
                 correctAnswers = null
             )
 
-        // Get correct answer
-        val correctAnswer = content.get("correctAnswer")?.asText()
-            ?: throw IllegalStateException("No correct answer defined in exercise content")
+        // Get the correct answer - can be specified directly or via isCorrect in options
+        var correctOptionId: String? = content.get("correctAnswer")?.asText()
+
+        // If not found via correctAnswer field, check for isCorrect in options
+        if (correctOptionId == null) {
+            val options = content.get("options")
+            if (options == null) {
+                logger.error("No options found in listening exercise content")
+                throw IllegalStateException("No options defined in exercise content")
+            }
+
+            options.forEach { option ->
+                if (option.get("isCorrect")?.asBoolean() == true) {
+                    correctOptionId = option.get("id")?.asText()
+                }
+            }
+        }
+
+        if (correctOptionId == null) {
+            logger.error("No correct answer found in content: ${content.toString()}")
+            throw IllegalStateException("No correct answer defined in exercise content")
+        }
+
+        logger.debug("Found correct option: $correctOptionId")
 
         // Check if user's answer is correct
-        val isCorrect = selectedOption == correctAnswer
+        val isCorrect = selectedOption == correctOptionId
 
         // Get additional content for feedback
         val explanation = content.get("explanation")?.asText() ?: ""
@@ -446,7 +476,7 @@ class ExerciseValidationService {
             score = if (isCorrect) 100.0 else 0.0,
             feedback = feedback,
             correctAnswers = objectMapper.createObjectNode().apply {
-                put("correctAnswer", correctAnswer)
+                put("correctAnswer", correctOptionId)
                 if (transcript != null) {
                     put("transcript", transcript)
                 }

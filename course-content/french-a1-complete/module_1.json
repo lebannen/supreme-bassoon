@@ -1,0 +1,1127 @@
+{
+  "moduleNumber": 1,
+  "title": "Sophie's First Day in Paris",
+  "theme": "Greetings & Introductions",
+  "description": "Follow Sophie as she arrives in Paris for her new job. Learn essential greetings, how to introduce yourself, and basic polite expressions through her first encounters in France.",
+  "objectives": [
+    "Greet people at different times of day",
+    "Introduce yourself (name, nationality, profession)",
+    "Ask and answer basic questions (How are you? Where are you from?)",
+    "Use polite expressions (please, thank you, excuse me)",
+    "Say goodbye appropriately"
+  ],
+  "estimatedMinutes": 180,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "STORY",
+      "title": "Arrival at Charles de Gaulle",
+      "content": "Sophie's heart raced as the plane touched down at Charles de Gaulle airport. After years of studying French and dreaming about this moment, she was finally here - in Paris! She had accepted a job at a tech company, and today marked the beginning of her new life.\n\nAs she walked through the terminal, pulling her suitcase behind her, she noticed all the signs in French. \"Sortie,\" \"Bagages,\" \"Douane\" - words she had learned but was now seeing in real life.\n\nAt passport control, a young officer greeted her with a warm smile.\n\n\"Bonjour, mademoiselle,\" he said kindly.\n\n\"Bonjour, monsieur,\" Sophie replied, her voice slightly nervous but clear.\n\n\"Passeport, s'il vous plaît,\" he requested.\n\nSophie handed him her American passport. \"Voilà,\" she said, remembering the polite way to present something.\n\nThe officer examined it briefly. \"Vous êtes américaine?\" he asked.\n\n\"Oui, je suis américaine,\" Sophie confirmed. \"Je viens de New York.\"\n\n\"Ah, New York! Et vous venez à Paris pour le tourisme?\"\n\nSophie felt proud to use a full sentence: \"Non, je viens pour le travail. Je suis informaticienne.\"\n\nThe officer looked impressed. \"Très bien! Bienvenue en France!\" He stamped her passport with a satisfying thud.\n\n\"Merci beaucoup!\" Sophie said, taking back her passport.\n\n\"De rien. Bonne journée, mademoiselle!\"\n\n\"Bonne journée!\" Sophie repeated, smiling.\n\nAs she headed toward baggage claim, she heard an announcement: \"Mesdames et messieurs, bienvenue à Paris...\" She understood it! This was really happening. Sophie took a deep breath and smiled. Her French adventure had begun.",
+      "generateAudio": true,
+      "estimatedMinutes": 20,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Sophie's Origin",
+            "instructions": "Answer the question based on the story.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Where is Sophie from?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Paris",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "New York",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "London",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Los Angeles",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie tells the officer: 'Je viens de New York' - I come from New York.",
+              "hint": "Sophie mentions a specific American city."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Why Paris?",
+            "instructions": "Why did Sophie come to Paris?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Why did Sophie come to Paris?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "For tourism",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "For work",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "To study",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "To visit family",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie says: 'Je viens pour le travail' - I come for work. She is an IT professional (informaticienne).",
+              "hint": "The officer asks if she's there for tourism, but Sophie says no."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Basic Greetings",
+            "instructions": "Match the French greetings with their English translations.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Bonjour",
+                  "right": "Hello / Good day"
+                },
+                {
+                  "left": "Merci",
+                  "right": "Thank you"
+                },
+                {
+                  "left": "S'il vous plaît",
+                  "right": "Please"
+                },
+                {
+                  "left": "De rien",
+                  "right": "You're welcome"
+                },
+                {
+                  "left": "Bonne journée",
+                  "right": "Have a good day"
+                }
+              ],
+              "hint": "These are essential polite expressions you use every day."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: I am American",
+            "instructions": "Fill in the blank with the correct word.",
+            "content": {
+              "sentence": "Oui, je _____ américaine.",
+              "correctAnswer": "suis",
+              "options": [
+                "suis",
+                "es",
+                "est",
+                "ai"
+              ],
+              "translation": "Yes, I am American.",
+              "hint": "You need the verb 'être' (to be) conjugated for 'je'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: Asking for Passport",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Passeport",
+                "s'il",
+                "vous",
+                "plaît"
+              ],
+              "correctOrder": [
+                "Passeport",
+                "s'il",
+                "vous",
+                "plaît"
+              ],
+              "translation": "Passport, please",
+              "explanation": "'S'il vous plaît' (please) typically comes after what you're requesting in formal situations.",
+              "hint": "Start with what you want, then add the polite phrase."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: Where are you from?",
+            "instructions": "Complete the question.",
+            "content": {
+              "text": "Vous _____ américaine ?",
+              "blanks": [
+                {
+                  "correctAnswer": "êtes",
+                  "acceptableAnswers": [
+                    "êtes",
+                    "etes"
+                  ],
+                  "options": [
+                    "êtes",
+                    "est",
+                    "suis",
+                    "sont"
+                  ]
+                }
+              ],
+              "translation": "Are you American?",
+              "hint": "Use the verb 'être' conjugated for 'vous' (formal you)."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulary: What does 'Voilà' mean?",
+            "instructions": "Choose the best translation.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What does 'Voilà' mean when presenting something?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Here it is / There you go",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Goodbye",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Thank you",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Please",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Voilà' is used when presenting or giving something to someone, similar to 'here you go' or 'there it is'.",
+              "hint": "Sophie uses this word when handing her passport to the officer."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Complete the Dialogue",
+            "instructions": "Fill in the missing words from the story.",
+            "content": {
+              "text": "At passport control, the officer says {blank1} to greet Sophie. Sophie responds with the same greeting. When asked if she is American, she confirms: Oui, je {blank2} américaine. When the officer welcomes her to France, Sophie says {blank3} to thank him. The officer replies {blank4} to say 'you're welcome'.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "Bonjour"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "suis"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": [
+                    "Merci",
+                    "Merci beaucoup"
+                  ]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": [
+                    "De rien"
+                  ]
+                }
+              ],
+              "hint": "Review the conversation between Sophie and the passport officer."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "What is Sophie's profession?",
+            "instructions": "Based on the story, what does Sophie do for work?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What is Sophie's profession?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Teacher (professeure)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "IT professional (informaticienne)",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Doctor (médecin)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Artist (artiste)",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie tells the officer: 'Je suis informaticienne' - I am an IT professional.",
+              "hint": "She works at a tech company."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrator",
+          "voice": "Vindemiatrix",
+          "description": "Story narrator with warm, engaging voice"
+        }
+      ],
+      "audioStyle": "This is a narrative story with a warm, calm tone. The narrator reads with natural pacing, creating an immersive storytelling experience."
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Checking Into the Hotel",
+      "content": "Réceptionniste: Bonjour, mademoiselle! Bienvenue à l'Hôtel Montmartre. Comment puis-je vous aider?\n\nSophie: Bonjour! J'ai une réservation au nom de Sophie Martin.\n\nRéceptionniste: Parfait! Un instant, s'il vous plaît... Ah oui, je vois. Mademoiselle Sophie Martin, une chambre simple pour cinq nuits. C'est exact?\n\nSophie: Oui, c'est exact. C'est correct.\n\nRéceptionniste: Très bien! Puis-je voir votre passeport, s'il vous plaît?\n\nSophie: Bien sûr. Voilà.\n\nRéceptionniste: Merci beaucoup. Vous êtes américaine, je vois. C'est votre première visite à Paris?\n\nSophie: Non, c'est ma deuxième visite, mais cette fois je viens pour habiter ici. Je commence un nouveau travail lundi.\n\nRéceptionniste: Ah, félicitations! Bienvenue à Paris! Votre chambre est au quatrième étage, chambre numéro 412. Voici votre clé.\n\nSophie: Merci! Est-ce qu'il y a le WiFi?\n\nRéceptionniste: Oui, absolument. Le code est écrit sur cette carte. Le petit déjeuner est servi de sept heures à dix heures au restaurant, au rez-de-chaussée.\n\nSophie: D'accord, merci beaucoup!\n\nRéceptionniste: De rien! Si vous avez besoin de quelque chose, n'hésitez pas à nous appeler. Bonne journée!\n\nSophie: Bonne journée!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Réceptionniste",
+          "voice": "Kore",
+          "description": "A professional and friendly hotel receptionist"
+        },
+        {
+          "name": "Sophie",
+          "voice": "Puck",
+          "description": "An American woman arriving to start her new life in Paris"
+        }
+      ],
+      "audioStyle": "This is a warm, professional conversation. The receptionist is welcoming and helpful. Sophie is polite and slightly tired from her journey but excited about her new adventure.",
+      "estimatedMinutes": 25,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: How many nights?",
+            "instructions": "How long is Sophie staying at the hotel?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "How many nights will Sophie stay at the hotel?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Three nights",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Four nights",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Five nights",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "One week",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The receptionist says: 'une chambre simple pour cinq nuits' - a single room for five nights.",
+              "hint": "Listen for the number when the receptionist confirms the reservation."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Room Number",
+            "instructions": "What is Sophie's room number?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What room number did Sophie receive?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "402",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "412",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "414",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "422",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The receptionist says: 'chambre numéro 412' - room number 412.",
+              "hint": "The room is on the fourth floor (quatrième étage)."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: I have a reservation",
+            "instructions": "Fill in the blank with the correct verb.",
+            "content": {
+              "text": "J'_____ une réservation au nom de Sophie Martin.",
+              "blanks": [
+                {
+                  "correctAnswer": "ai",
+                  "acceptableAnswers": [
+                    "ai"
+                  ],
+                  "options": [
+                    "ai",
+                    "suis",
+                    "es",
+                    "a"
+                  ]
+                }
+              ],
+              "translation": "I have a reservation under the name Sophie Martin.",
+              "hint": "Use the verb 'avoir' (to have) conjugated for 'je'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Hotel Vocabulary",
+            "instructions": "Match the French hotel terms with their English meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "chambre",
+                  "right": "room"
+                },
+                {
+                  "left": "clé",
+                  "right": "key"
+                },
+                {
+                  "left": "étage",
+                  "right": "floor"
+                },
+                {
+                  "left": "petit déjeuner",
+                  "right": "breakfast"
+                },
+                {
+                  "left": "rez-de-chaussée",
+                  "right": "ground floor"
+                }
+              ],
+              "hint": "Think about what you encounter when checking into a hotel."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: Can I help you?",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Comment",
+                "puis-je",
+                "vous",
+                "aider",
+                "?"
+              ],
+              "correctOrder": [
+                "Comment",
+                "puis-je",
+                "vous",
+                "aider",
+                "?"
+              ],
+              "translation": "How can I help you?",
+              "explanation": "This is a formal, polite way to offer assistance. 'Puis-je' is the inverted form of 'je peux' (I can).",
+              "hint": "The question starts with 'Comment' (how)."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: Agreement Phrase",
+            "instructions": "Complete the phrase Sophie uses to confirm.",
+            "content": {
+              "text": "Oui, c'est _____. C'est correct.",
+              "blanks": [
+                {
+                  "correctAnswer": "exact",
+                  "acceptableAnswers": [
+                    "exact"
+                  ],
+                  "options": [
+                    "exact",
+                    "parfait",
+                    "bien",
+                    "bon"
+                  ]
+                }
+              ],
+              "translation": "Yes, that's correct. That's right.",
+              "hint": "This word means 'exact' or 'correct' in English."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Why is Sophie in Paris?",
+            "instructions": "According to the dialogue, why is Sophie in Paris?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Why is Sophie in Paris this time?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "For tourism",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "To live and work there",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "To study French",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "To visit friends",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie says: 'cette fois je viens pour habiter ici. Je commence un nouveau travail lundi' - this time I come to live here. I start a new job Monday.",
+              "hint": "Sophie mentions starting something on Monday."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Fill in the Hotel Conversation",
+            "instructions": "Complete the text about Sophie's hotel check-in.",
+            "content": {
+              "text": "Sophie arrives at the hotel and says she has a {blank1} under her name. The receptionist asks to see her {blank2}. Sophie's room is on the {blank3} floor, room number {blank4}. The {blank5} is served from 7 to 10 in the morning. The receptionist gives Sophie the WiFi {blank6}.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "réservation"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "passeport"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": [
+                    "quatrième",
+                    "4ème",
+                    "4e"
+                  ]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": [
+                    "412"
+                  ]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "petit déjeuner",
+                    "petit-déjeuner"
+                  ]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "code"
+                }
+              ],
+              "hint": "Review the dialogue for specific details about Sophie's check-in."
+            },
+            "estimatedDurationSeconds": 150,
+            "pointsValue": 20,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "What does 'Félicitations' mean?",
+            "instructions": "Choose the correct translation.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What does 'Félicitations' mean?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Congratulations",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Good luck",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Welcome",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Thank you",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The receptionist says 'félicitations' when Sophie mentions her new job. It means 'congratulations'.",
+              "hint": "The receptionist uses this word after hearing about Sophie's new job."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 3,
+      "type": "DIALOGUE",
+      "title": "Meeting Thomas, the Colleague",
+      "content": "Thomas: Bonjour! Vous êtes Sophie Martin?\n\nSophie: Oui, c'est moi! Bonjour!\n\nThomas: Enchanté! Je m'appelle Thomas Dubois. Je travaille avec vous à TechParis. Bienvenue!\n\nSophie: Enchantée, Thomas! Merci beaucoup!\n\nThomas: Comment allez-vous? Le voyage s'est bien passé?\n\nSophie: Oui, très bien, merci. Je suis un peu fatiguée, mais très heureuse d'être ici!\n\nThomas: C'est normal! Vous venez d'où exactement, aux États-Unis?\n\nSophie: Je viens de New York. Et vous, vous êtes de Paris?\n\nThomas: Non, je suis de Lyon, mais j'habite à Paris depuis cinq ans. Vous parlez très bien français!\n\nSophie: Merci! C'est gentil. Mais j'ai encore beaucoup à apprendre.\n\nThomas: Ne vous inquiétez pas! Vous allez progresser très vite. Si vous avez des questions, je suis là pour vous aider.\n\nSophie: C'est très gentil, merci Thomas.\n\nThomas: De rien! Bon, vous commencez lundi, c'est ça?\n\nSophie: Oui, lundi à neuf heures.\n\nThomas: Parfait! On se voit lundi alors. Bon weekend!\n\nSophie: Merci, bon weekend à vous aussi!\n\nThomas: Au revoir, Sophie!\n\nSophie: Au revoir!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Thomas",
+          "voice": "Achird",
+          "description": "A friendly French colleague, helpful and warm"
+        },
+        {
+          "name": "Sophie",
+          "voice": "Puck",
+          "description": "An American woman, a bit nervous but excited to meet her new colleague"
+        }
+      ],
+      "audioStyle": "This is a friendly first meeting between colleagues. Thomas is warm and welcoming, trying to make Sophie feel comfortable. Sophie is enthusiastic but slightly nervous about making a good first impression.",
+      "estimatedMinutes": 25,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Who is Thomas?",
+            "instructions": "What is Thomas's relationship to Sophie?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Who is Thomas?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Sophie's new colleague",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Sophie's French teacher",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "A hotel employee",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Sophie's friend from New York",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Thomas says: 'Je travaille avec vous à TechParis' - I work with you at TechParis.",
+              "hint": "Thomas mentions where he works with Sophie."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Where is Thomas from?",
+            "instructions": "What is Thomas's hometown?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Where is Thomas originally from?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Paris",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Lyon",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Marseille",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Nice",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Thomas says: 'Je suis de Lyon, mais j'habite à Paris depuis cinq ans' - I'm from Lyon, but I've been living in Paris for five years.",
+              "hint": "Thomas is not originally from Paris."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Greeting Expressions",
+            "instructions": "Match the French expressions with their English meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Enchanté(e)",
+                  "right": "Nice to meet you"
+                },
+                {
+                  "left": "Comment allez-vous?",
+                  "right": "How are you? (formal)"
+                },
+                {
+                  "left": "C'est gentil",
+                  "right": "That's kind"
+                },
+                {
+                  "left": "Au revoir",
+                  "right": "Goodbye"
+                },
+                {
+                  "left": "Bon weekend",
+                  "right": "Have a good weekend"
+                }
+              ],
+              "hint": "These are common phrases used when meeting someone and saying goodbye."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: My name is...",
+            "instructions": "Complete Thomas's introduction.",
+            "content": {
+              "text": "Je _____ Thomas Dubois.",
+              "blanks": [
+                {
+                  "correctAnswer": "m'appelle",
+                  "acceptableAnswers": [
+                    "m'appelle"
+                  ],
+                  "options": [
+                    "m'appelle",
+                    "suis",
+                    "viens",
+                    "parle"
+                  ]
+                }
+              ],
+              "translation": "My name is Thomas Dubois.",
+              "hint": "Use the reflexive verb for introducing yourself by name."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: Where are you from?",
+            "instructions": "Put the words in the correct order to form a question.",
+            "content": {
+              "words": [
+                "Vous",
+                "venez",
+                "d'où",
+                "?"
+              ],
+              "correctOrder": [
+                "Vous",
+                "venez",
+                "d'où",
+                "?"
+              ],
+              "translation": "Where are you from? (formal)",
+              "explanation": "'Venir de' means 'to come from'. In questions, 'd'où' (from where) often comes at the end in spoken French.",
+              "hint": "Start with 'Vous' (you) and the verb 'venez' (come)."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: I work with you",
+            "instructions": "Complete the sentence.",
+            "content": {
+              "text": "Je _____ avec vous à TechParis.",
+              "blanks": [
+                {
+                  "correctAnswer": "travaille",
+                  "acceptableAnswers": [
+                    "travaille"
+                  ],
+                  "options": [
+                    "travaille",
+                    "travailles",
+                    "travaillons",
+                    "travaillez"
+                  ]
+                }
+              ],
+              "translation": "I work with you at TechParis.",
+              "hint": "Use the verb 'travailler' (to work) conjugated for 'je'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Expression: What does 'C'est moi' mean?",
+            "instructions": "Choose the correct translation.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "When Thomas asks 'Vous êtes Sophie Martin?' and Sophie replies 'C'est moi!', what does she mean?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "That's me! / It's me!",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Thank you!",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Nice to meet you!",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "I don't know",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'C'est moi' literally means 'it's me' and is used to confirm your identity when someone asks if you're a certain person.",
+              "hint": "Sophie is confirming that she is indeed Sophie Martin."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Sophie Meets Thomas",
+            "instructions": "Complete the summary of their meeting.",
+            "content": {
+              "text": "Thomas introduces himself and says '{blank1}' which means 'nice to meet you'. He asks Sophie how she is by saying '{blank2}'. Sophie responds that she is a bit {blank3} but very happy to be in Paris. Thomas is originally from {blank4} but has lived in Paris for {blank5} years. They will see each other on {blank6} at 9 o'clock when Sophie starts work.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "Enchanté"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": [
+                    "Comment allez-vous",
+                    "Comment allez-vous?"
+                  ]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "fatiguée"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "Lyon"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "cinq",
+                    "5"
+                  ]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "lundi"
+                }
+              ],
+              "hint": "Review the conversation between Sophie and Thomas."
+            },
+            "estimatedDurationSeconds": 150,
+            "pointsValue": 20,
+            "difficultyRating": 1.8
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "listening",
+            "title": "Understanding Encouragement",
+            "instructions": "Listen and answer the question.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Ne vous inquiétez pas! Vous allez progresser très vite.",
+              "question": "What is Thomas telling Sophie?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Don't worry, you'll improve quickly"
+                },
+                {
+                  "id": "b",
+                  "text": "You speak French perfectly"
+                },
+                {
+                  "id": "c",
+                  "text": "The work is very difficult"
+                },
+                {
+                  "id": "d",
+                  "text": "Paris is a beautiful city"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "'Ne vous inquiétez pas' means 'don't worry' and 'progresser' means 'to improve/progress'. Thomas is encouraging Sophie about her French.",
+              "hint": "Thomas is being encouraging about Sophie's French learning."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.6,
+            "generateAudio": true
+          }
+        }
+      ]
+    }
+  ]
+}

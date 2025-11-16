@@ -1,0 +1,822 @@
+{
+  "moduleNumber": 9,
+  "title": "Planning a Weekend Trip",
+  "theme": "Making Plans & Future Tense",
+  "description": "Sophie and Thomas plan a weekend getaway! Learn to make plans, use the near future tense, talk about dates and months, and handle travel situations.",
+  "objectives": [
+    "Use near future tense (aller + infinitive)",
+    "Talk about future plans and intentions",
+    "Understand dates, months, and seasons",
+    "Learn travel vocabulary (train, tickets, reservations)",
+    "Make suggestions and arrangements"
+  ],
+  "estimatedMinutes": 180,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "DIALOGUE",
+      "title": "Planifier un Weekend en Normandie",
+      "content": "Thomas: Sophie, tu es libre le weekend prochain?\n\nSophie: Euh, je crois, oui. Pourquoi?\n\nThomas: J'ai une idée! On pourrait aller en Normandie pour le weekend. Qu'est-ce que tu en penses?\n\nSophie: En Normandie? Oh oui! J'adorerais! Je n'y suis jamais allée!\n\nThomas: Super! Alors, on va partir vendredi soir et rentrer dimanche soir. Ça te va?\n\nSophie: Parfait! Qu'est-ce qu'on va faire là-bas?\n\nThomas: Plein de choses! On va visiter le Mont-Saint-Michel, bien sûr. Et puis les plages du Débarquement, ça t'intéresse?\n\nSophie: Absolument! J'aime beaucoup l'histoire. Et on va dormir où?\n\nThomas: Je vais réserver une chambre d'hôtes à Bayeux. C'est une petite ville charmante, pas loin de tout.\n\nSophie: Génial! Comment on va y aller? En train?\n\nThomas: Oui, c'est plus pratique. Le train part de la Gare Saint-Lazare. Je vais acheter les billets en ligne.\n\nSophie: Attends, laisse-moi participer aux frais! Combien ça coûte?\n\nThomas: Les billets, c'est environ soixante euros par personne. Et la chambre d'hôtes, c'est quatre-vingt-dix euros pour deux nuits.\n\nSophie: D'accord. Je vais te donner ma part. Qu'est-ce qu'on va manger là-bas?\n\nThomas: Oh, la Normandie est célèbre pour sa cuisine! On va manger du camembert, des crêpes, des fruits de mer... C'est délicieux!\n\nSophie: Miam! J'ai déjà faim! Et la météo, tu sais?\n\nThomas: Je vais vérifier... D'après les prévisions, il va faire beau samedi, mais il va pleuvoir un peu dimanche.\n\nSophie: Ce n'est pas grave. On va prendre des parapluies!\n\nThomas: Exactement! Bon, alors c'est décidé. Je vais réserver les billets de train et la chambre d'hôtes ce soir.\n\nSophie: Super! Moi, je vais préparer mon sac ce weekend. Qu'est-ce que je dois apporter?\n\nThomas: Des vêtements confortables pour marcher, un pull chaud parce qu'il fait frais près de la mer, et ton appareil photo bien sûr!\n\nSophie: Évidemment! Je vais prendre beaucoup de photos! Je suis tellement excitée!\n\nThomas: Moi aussi! Ça va être un super weekend!\n\n[Le lendemain]\n\nSophie: Thomas! J'ai une idée! On va inviter Émilie?\n\nThomas: Ma sœur? Pourquoi pas! Elle va adorer ça. Je vais l'appeler tout de suite.\n\nSophie: Parfait! Comme ça, on va être trois!\n\nThomas: Oui, et Émilie connaît bien la Normandie. Elle va pouvoir nous montrer des endroits secrets!\n\nSophie: Génial! C'est vraiment le weekend parfait!\n\nThomas: Absolument! On va bien s'amuser!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Thomas",
+          "voice": "Achird",
+          "description": "Sophie's colleague planning a trip"
+        },
+        {
+          "name": "Sophie",
+          "voice": "Puck",
+          "description": "An enthusiastic American woman excited about traveling"
+        }
+      ],
+      "audioStyle": "An excited planning conversation. Thomas is organized and enthusiastic about showing Sophie Normandy. Sophie is eager and asks many practical questions. The mood is positive and anticipatory.",
+      "estimatedMinutes": 30,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Destination",
+            "instructions": "Where are they planning to go?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Where will Sophie and Thomas travel for the weekend?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Brittany",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Normandy",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Provence",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Loire Valley",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Thomas suggests: 'On pourrait aller en Normandie pour le weekend' - We could go to Normandy for the weekend.",
+              "hint": "It's a region in northern France famous for its beaches."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: How many nights?",
+            "instructions": "How long will they stay?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "How many nights will they stay in Normandy?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "One night",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Two nights",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Three nights",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Four nights",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The chambre d'hôtes costs 'quatre-vingt-dix euros pour deux nuits' - 90 euros for two nights. They leave Friday evening and return Sunday evening.",
+              "hint": "They depart Friday and return Sunday."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Future Tense",
+            "instructions": "Match the French future expressions with their English meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Je vais partir",
+                  "right": "I am going to leave"
+                },
+                {
+                  "left": "On va visiter",
+                  "right": "We are going to visit"
+                },
+                {
+                  "left": "Il va pleuvoir",
+                  "right": "It is going to rain"
+                },
+                {
+                  "left": "Tu vas prendre",
+                  "right": "You are going to take"
+                },
+                {
+                  "left": "Elle va adorer",
+                  "right": "She is going to love"
+                }
+              ],
+              "hint": "Near future is formed with: aller (conjugated) + infinitive."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Travel Vocabulary",
+            "instructions": "Match the French travel words with English.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "billet",
+                  "right": "ticket"
+                },
+                {
+                  "left": "gare",
+                  "right": "train station"
+                },
+                {
+                  "left": "réserver",
+                  "right": "to reserve/book"
+                },
+                {
+                  "left": "chambre d'hôtes",
+                  "right": "bed and breakfast"
+                },
+                {
+                  "left": "parapluie",
+                  "right": "umbrella"
+                }
+              ],
+              "hint": "These are useful words for travel planning."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: We are going to visit",
+            "instructions": "Complete the future tense sentence.",
+            "content": {
+              "text": "On _____ visiter le Mont-Saint-Michel.",
+              "blanks": [
+                {
+                  "correctAnswer": "va",
+                  "acceptableAnswers": ["va"],
+                  "options": ["va", "vais", "vas", "allons"]
+                }
+              ],
+              "translation": "We are going to visit Mont-Saint-Michel.",
+              "hint": "Use 'aller' conjugated for 'on' (we - informal)."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: I am going to reserve",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": ["Je", "vais", "réserver", "les", "billets"],
+              "correctOrder": ["Je", "vais", "réserver", "les", "billets"],
+              "translation": "I am going to reserve the tickets",
+              "explanation": "Near future tense: subject + aller (conjugated) + infinitive verb.",
+              "hint": "Start with the subject 'Je'."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: It's going to rain",
+            "instructions": "Complete the weather prediction.",
+            "content": {
+              "text": "Il _____ pleuvoir dimanche.",
+              "blanks": [
+                {
+                  "correctAnswer": "va",
+                  "acceptableAnswers": ["va"],
+                  "options": ["va", "vais", "es", "est"]
+                }
+              ],
+              "translation": "It is going to rain on Sunday.",
+              "hint": "Use 'aller' conjugated for 'il' (it)."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Train cost",
+            "instructions": "How much does a train ticket cost?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What is the price of one train ticket?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "€50",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "€60",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "€70",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "€90",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Thomas says: 'Les billets, c'est environ soixante euros par personne' - The tickets are about 60 euros per person.",
+              "hint": "Listen for 'soixante euros'."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Planning the Trip",
+            "instructions": "Complete the summary of their travel plans.",
+            "content": {
+              "text": "Thomas invites Sophie to go to {blank1} for the weekend. They will leave {blank2} evening and return {blank3} evening. They're going to visit the {blank4} and the D-Day beaches. Thomas will book a {blank5} in Bayeux. They will travel by {blank6} from Gare Saint-Lazare. Train tickets cost about {blank7} euros per person. The region is famous for {blank8}, crêpes, and seafood. According to the weather forecast, it will be {blank9} on Saturday but will rain on Sunday, so they'll bring {blank10}. Sophie will prepare her bag and bring her camera. They also plan to invite Thomas's {blank11} Émilie to join them.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": ["Normandy", "Normandie"]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "Friday"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "Sunday"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": ["Mont-Saint-Michel", "Mont Saint Michel"]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": ["chambre d'hôtes", "bed and breakfast"]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "train"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": ["60", "soixante"]
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": ["camembert", "cheese"]
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": ["nice", "beautiful", "beau"]
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": ["umbrellas", "parapluies"]
+                },
+                {
+                  "id": "blank11",
+                  "correctAnswer": ["sister", "sœur"]
+                }
+              ],
+              "hint": "Review their planning conversation for all the details."
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 25,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 10,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Expression: Qu'est-ce que tu en penses?",
+            "instructions": "What does this expression mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "When Thomas asks 'Qu'est-ce que tu en penses?', what does he want to know?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "What do you think (about it)?",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "What are you thinking?",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Where do you think?",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "When do you think?",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Qu'est-ce que tu en penses?' means 'What do you think about it?' - asking for someone's opinion on an idea or suggestion.",
+              "hint": "He's asking for Sophie's opinion on his suggestion."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.4
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "À la Gare",
+      "content": "Sophie: Ouf! On est arrivés! J'avais peur qu'on rate le train!\n\nThomas: Ne t'inquiète pas, on a encore quinze minutes. Le train part à dix-huit heures trente.\n\nÉmilie: Bon, je vais chercher un café. Vous voulez quelque chose?\n\nSophie: Oui, un café aussi, s'il te plaît!\n\nThomas: Moi, je vais prendre un jus d'orange. Tiens, voilà cinq euros.\n\n[Émilie part]\n\nSophie: Thomas, on doit composter les billets?\n\nThomas: Non, ce sont des billets électroniques. On va juste les montrer au contrôleur dans le train.\n\nSophie: D'accord. C'est quel quai?\n\nThomas: Voie 12. C'est par là, regarde.\n\nSophie: Parfait! Oh, il y a déjà beaucoup de monde.\n\nThomas: Oui, le vendredi soir, c'est toujours bondé. Tout le monde part en weekend!\n\n[Émilie revient avec les boissons]\n\nÉmilie: Voilà! Trois cafés... non, deux cafés et un jus d'orange!\n\nSophie: Merci! Combien je te dois?\n\nÉmilie: Laisse tomber, c'est ma tournée!\n\nSophie: C'est gentil!\n\nHaut-parleur: \"Attention! Le train à destination de Caen va partir voie 12. Éloignez-vous de la bordure du quai, s'il vous plaît.\"\n\nThomas: C'est nous! Allons-y!\n\n[Dans le train]\n\nSophie: On a réservé des places?\n\nThomas: Oui, on est en voiture 7, places 45, 46 et 47.\n\nÉmilie: C'est par là! Oh regardez, on a de la chance, on a des sièges côté fenêtre!\n\nSophie: Super! Je vais pouvoir admirer le paysage!\n\nContrôleur: Bonjour! Vos billets, s'il vous plaît?\n\nThomas: Voilà, monsieur.\n\nContrôleur: Merci. Tout est en ordre. Bon voyage!\n\nÉmilie: Merci!\n\nSophie: C'est combien de temps jusqu'à Bayeux?\n\nThomas: Environ deux heures et demie. On va arriver vers vingt et une heures.\n\nÉmilie: Parfait! On va pouvoir dîner à l'hôtel en arrivant.\n\nSophie: J'ai tellement hâte de voir la Normandie! Vous y allez souvent?\n\nThomas: Moi, pas très souvent. Mais Émilie y va plus régulièrement, n'est-ce pas?\n\nÉmilie: Oui, j'ai des amis à Caen. J'y vais deux ou trois fois par an.\n\nSophie: Tu vas nous montrer les meilleurs endroits alors!\n\nÉmilie: Absolument! On va passer un super weekend!\n\nThomas: Allez, relaxez-vous! Le voyage commence!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Sophie",
+          "voice": "Puck",
+          "description": "An American woman excited about her train journey"
+        },
+        {
+          "name": "Thomas",
+          "voice": "Achird",
+          "description": "Sophie's organized colleague"
+        },
+        {
+          "name": "Émilie",
+          "voice": "Leda",
+          "description": "Thomas's energetic sister"
+        },
+        {
+          "name": "Contrôleur",
+          "voice": "Iapetus",
+          "description": "A train conductor"
+        },
+        {
+          "name": "Haut-parleur",
+          "voice": "Kore",
+          "description": "Train station announcement"
+        }
+      ],
+      "audioStyle": "An exciting train station and journey scene. Sophie is enthusiastic and asking practical questions. The group is relaxed and happy. The announcement is clear and professional. The conductor is polite and efficient.",
+      "estimatedMinutes": 25,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Departure time",
+            "instructions": "When does the train depart?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "At what time does the train leave?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "6:00 PM",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "6:30 PM",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "7:00 PM",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "7:30 PM",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Thomas says: 'Le train part à dix-huit heures trente' - The train leaves at 6:30 PM (18:30 in 24-hour time).",
+              "hint": "Dix-huit heures trente = 18:30 = 6:30 PM."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Journey duration",
+            "instructions": "How long is the train journey?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "How long does it take to get to Bayeux?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "1.5 hours",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "2 hours",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "2.5 hours",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "3 hours",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Thomas says: 'Environ deux heures et demie' - About two and a half hours.",
+              "hint": "'Deux heures et demie' = 2.5 hours."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Train Vocabulary",
+            "instructions": "Match the French train terms with English.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "quai/voie",
+                  "right": "platform/track"
+                },
+                {
+                  "left": "contrôleur",
+                  "right": "conductor"
+                },
+                {
+                  "left": "voiture",
+                  "right": "train car"
+                },
+                {
+                  "left": "siège",
+                  "right": "seat"
+                },
+                {
+                  "left": "composter",
+                  "right": "to validate (ticket)"
+                }
+              ],
+              "hint": "These are words you need when traveling by train."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: Platform number",
+            "instructions": "Complete the question about the platform.",
+            "content": {
+              "text": "C'est _____ quai ?",
+              "blanks": [
+                {
+                  "correctAnswer": "quel",
+                  "acceptableAnswers": ["quel"],
+                  "options": ["quel", "quelle", "quels", "quelles"]
+                }
+              ],
+              "translation": "Which platform is it?",
+              "hint": "'Quai' (platform) is masculine singular."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: The train is going to leave",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": ["Le", "train", "va", "partir", "voie", "12"],
+              "correctOrder": ["Le", "train", "va", "partir", "voie", "12"],
+              "translation": "The train is going to leave from track 12",
+              "explanation": "Near future: Le train (subject) + va (aller conjugated) + partir (infinitive). 'Voie 12' specifies the platform.",
+              "hint": "Start with the subject 'Le train'."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: How much do I owe you?",
+            "instructions": "Complete the question about payment.",
+            "content": {
+              "text": "Combien je te _____ ?",
+              "blanks": [
+                {
+                  "correctAnswer": "dois",
+                  "acceptableAnswers": ["dois"],
+                  "options": ["dois", "doit", "devez", "doivent"]
+                }
+              ],
+              "translation": "How much do I owe you?",
+              "hint": "Use 'devoir' (to owe) conjugated for 'je'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Seat location",
+            "instructions": "Where are their seats?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What kind of seats do they have?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Aisle seats",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Window seats",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Middle seats",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Standing room",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Émilie says: 'on a de la chance, on a des sièges côté fenêtre!' - we're lucky, we have window seats!",
+              "hint": "Émilie says they're lucky about their seat location."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: I can't wait",
+            "instructions": "Complete Sophie's expression of excitement.",
+            "content": {
+              "text": "J'ai tellement _____ de voir la Normandie !",
+              "blanks": [
+                {
+                  "correctAnswer": "hâte",
+                  "acceptableAnswers": ["hâte", "hate"],
+                  "options": ["hâte", "envie", "besoin", "peur"]
+                }
+              ],
+              "translation": "I can't wait to see Normandy!",
+              "hint": "'Avoir hâte de' means 'to can't wait to / to look forward to'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "At the Train Station",
+            "instructions": "Complete the summary of their train departure.",
+            "content": {
+              "text": "Sophie, Thomas, and Émilie arrive at the train {blank1} with 15 minutes to spare. The train departs at {blank2} PM from platform {blank3}. Émilie buys coffees for everyone. They don't need to {blank4} their tickets because they're electronic. The {blank5} on the loudspeaker announces the train to Caen. They find their seats in car {blank6}, places 45-47. They have {blank7} seats, which makes Sophie happy because she can see the {blank8}. The {blank9} checks their tickets and wishes them a good journey. The journey to Bayeux will take about {blank10} hours. They will arrive around 9 PM and can have dinner at the hotel.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": ["station", "gare"]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": ["6:30", "18:30"]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "12"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": ["validate", "composter"]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": ["announcement", "speaker", "haut-parleur"]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "7"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "window"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": ["landscape", "paysage", "scenery"]
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": ["conductor", "contrôleur"]
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": ["2.5", "two and a half"]
+                }
+              ],
+              "hint": "Follow their journey from arriving at the station to settling into the train."
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 25,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 10,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Expression: C'est ma tournée",
+            "instructions": "What does this expression mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "When Émilie says 'c'est ma tournée', what does she mean?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "It's my treat / I'm buying",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "It's my turn",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "It's my tour",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "It's my round trip",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'C'est ma tournée' literally means 'it's my round' and is used to say 'my treat' or 'I'm buying' when paying for drinks.",
+              "hint": "Émilie is offering to pay for the coffees."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.4
+          }
+        }
+      ]
+    }
+  ]
+}

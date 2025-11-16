@@ -1,0 +1,860 @@
+{
+  "moduleNumber": 5,
+  "title": "Sophie Gets Around Paris",
+  "theme": "Directions & Transportation",
+  "description": "Sophie learns to navigate Paris! Master how to ask for and give directions, use public transportation, and find your way around the city.",
+  "objectives": [
+    "Ask for and understand directions",
+    "Use the metro and bus system",
+    "Understand location prepositions",
+    "Talk about distances and travel time",
+    "Navigate a French city confidently"
+  ],
+  "estimatedMinutes": 175,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "DIALOGUE",
+      "title": "Lost in the Metro",
+      "content": "Sophie: Excusez-moi, monsieur. Comment aller à la tour Eiffel, s'il vous plaît?\n\nPassager: Ah, la tour Eiffel! Vous devez prendre la ligne 6, direction Nation.\n\nSophie: La ligne 6... D'accord. Je la prends où?\n\nPassager: Ici, à la station Montparnasse-Bienvenüe. Vous descendez à Bir-Hakeim.\n\nSophie: Bir-Hakeim. C'est combien de stations?\n\nPassager: C'est... attendez... cinq ou six stations. Environ dix minutes.\n\nSophie: Parfait, merci! Et après, je sors où?\n\nPassager: À la sortie, tournez à droite. Vous verrez la tour Eiffel, elle est juste là! Impossible de la manquer.\n\nSophie: Merci beaucoup, vous êtes très gentil!\n\nPassager: De rien! Bonne visite!\n\n[Dans le métro avec Thomas plus tard]\n\nThomas: Alors Sophie, tu t'habitues au métro parisien?\n\nSophie: Oui, petit à petit! Mais c'est compliqué au début. Il y a beaucoup de lignes!\n\nThomas: C'est vrai. Mais tu vas voir, dans quelques semaines, ce sera automatique!\n\nSophie: J'espère! C'est quelle station pour aller au Louvre?\n\nThomas: Pour le Louvre, tu prends la ligne 1 jusqu'à Palais Royal - Musée du Louvre. C'est direct d'ici.\n\nSophie: Super! Et pour aller au Sacré-Cœur?\n\nThomas: Ah, le Sacré-Cœur... Tu dois prendre la ligne 12 jusqu'à Abbesses, puis tu marches un peu. Ou tu peux prendre le funiculaire!\n\nSophie: Le funiculaire? Qu'est-ce que c'est?\n\nThomas: C'est comme un petit train qui monte la colline de Montmartre. C'est pratique parce que c'est très haut!\n\nSophie: Ah d'accord! J'adore le métro parisien maintenant. C'est tellement pratique!\n\nThomas: Attends de voir aux heures de pointe! C'est moins romantique.\n\nSophie: Ha ha! Je crois que j'ai déjà vu ça ce matin!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Passager",
+          "voice": "Iapetus",
+          "description": "A helpful metro passenger"
+        },
+        {
+          "name": "Sophie",
+          "voice": "Puck",
+          "description": "An American woman learning the metro system"
+        },
+        {
+          "name": "Thomas",
+          "voice": "Achird",
+          "description": "Sophie's colleague helping her navigate"
+        }
+      ],
+      "audioStyle": "A helpful exchange about metro directions. The passenger is friendly and clear. Later, Thomas is casual and encouraging, sharing practical tips about getting around Paris.",
+      "estimatedMinutes": 30,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Which line?",
+            "instructions": "Which metro line should Sophie take to the Eiffel Tower?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Which metro line goes to the Eiffel Tower?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Line 1",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Line 6",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Line 12",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Line 4",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The passenger says: 'Vous devez prendre la ligne 6' - You must take line 6.",
+              "hint": "Listen for 'la ligne' followed by a number."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Where to get off?",
+            "instructions": "At which station should Sophie get off for the Eiffel Tower?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What is the station for the Eiffel Tower?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Montparnasse",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Bir-Hakeim",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Nation",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Abbesses",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The passenger says: 'Vous descendez à Bir-Hakeim' - You get off at Bir-Hakeim.",
+              "hint": "'Descendre' means to get off/go down."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Direction Vocabulary",
+            "instructions": "Match the French direction words with their English meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "à droite",
+                  "right": "to the right"
+                },
+                {
+                  "left": "à gauche",
+                  "right": "to the left"
+                },
+                {
+                  "left": "tout droit",
+                  "right": "straight ahead"
+                },
+                {
+                  "left": "tourner",
+                  "right": "to turn"
+                },
+                {
+                  "left": "descendre",
+                  "right": "to get off/go down"
+                }
+              ],
+              "hint": "These are essential words for getting directions."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Transportation Terms",
+            "instructions": "Match the French transportation terms with English.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "métro",
+                  "right": "metro/subway"
+                },
+                {
+                  "left": "ligne",
+                  "right": "line"
+                },
+                {
+                  "left": "station",
+                  "right": "station"
+                },
+                {
+                  "left": "sortie",
+                  "right": "exit"
+                },
+                {
+                  "left": "direction",
+                  "right": "direction"
+                }
+              ],
+              "hint": "These words are used when talking about the metro."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: How to get to...?",
+            "instructions": "Complete the question asking for directions.",
+            "content": {
+              "text": "Comment _____ à la tour Eiffel, s'il vous plaît ?",
+              "blanks": [
+                {
+                  "correctAnswer": "aller",
+                  "acceptableAnswers": [
+                    "aller"
+                  ],
+                  "options": [
+                    "aller",
+                    "allez",
+                    "vas",
+                    "vais"
+                  ]
+                }
+              ],
+              "translation": "How do I get to the Eiffel Tower, please?",
+              "hint": "Use the infinitive form of the verb 'to go'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: You must take...",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Vous",
+                "devez",
+                "prendre",
+                "la",
+                "ligne",
+                "6"
+              ],
+              "correctOrder": [
+                "Vous",
+                "devez",
+                "prendre",
+                "la",
+                "ligne",
+                "6"
+              ],
+              "translation": "You must take line 6",
+              "explanation": "'Devoir' means 'must/have to'. 'Prendre' means 'to take'. Structure: subject + devoir + infinitive verb.",
+              "hint": "Start with 'Vous' (you)."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: How many stations?",
+            "instructions": "Complete the question about distance.",
+            "content": {
+              "text": "C'est _____ de stations ?",
+              "blanks": [
+                {
+                  "correctAnswer": "combien",
+                  "acceptableAnswers": [
+                    "combien"
+                  ],
+                  "options": [
+                    "combien",
+                    "comment",
+                    "quand",
+                    "où"
+                  ]
+                }
+              ],
+              "translation": "How many stations is it?",
+              "hint": "This word asks about quantity or amount."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Travel time",
+            "instructions": "How long does it take to get to the Eiffel Tower?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "How long is the metro ride to Bir-Hakeim?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "5 minutes",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "About 10 minutes",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "15 minutes",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "20 minutes",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The passenger says: 'Environ dix minutes' - About ten minutes.",
+              "hint": "'Environ' means 'about' or 'approximately'."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Navigating the Paris Metro",
+            "instructions": "Complete the summary about Sophie learning the metro.",
+            "content": {
+              "text": "Sophie asks a passenger how to get to the {blank1} Tower. He tells her to take line {blank2} toward Nation and get off at {blank3}. It takes about {blank4} minutes and is 5-6 stations away. After exiting, she should turn {blank5}. Later, Thomas explains that to go to the Louvre, she takes line {blank6} to Palais Royal. For Sacré-Cœur, she can take line 12 to {blank7} or use the {blank8}. Sophie is getting used to the Paris metro, though Thomas warns her about {blank9} hour!",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "Eiffel"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": [
+                    "6",
+                    "six"
+                  ]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "Bir-Hakeim"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": [
+                    "10",
+                    "dix",
+                    "ten"
+                  ]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "right",
+                    "droite"
+                  ]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": [
+                    "1",
+                    "one"
+                  ]
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "Abbesses"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": [
+                    "funiculaire",
+                    "funicular"
+                  ]
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": [
+                    "rush",
+                    "peak"
+                  ]
+                }
+              ],
+              "hint": "Review both conversations for metro directions and tips."
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 25,
+            "difficultyRating": 1.8
+          }
+        },
+        {
+          "orderIndex": 10,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Expression: Petit à petit",
+            "instructions": "What does this expression mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "When Sophie says 'Oui, petit à petit!', what does she mean?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Yes, little by little / gradually",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Yes, it's very small",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Yes, I'm a little tired",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Yes, very quickly",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Petit à petit' is an expression meaning 'little by little' or 'gradually'. Sophie is saying she's getting used to the metro gradually.",
+              "hint": "It's a positive expression about gradual progress."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.3
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 2,
+      "type": "STORY",
+      "title": "Finding the Office",
+      "content": "On her second week in Paris, Sophie decided to walk to work instead of taking the metro. It was a beautiful morning, and she wanted to explore her neighborhood.\n\nShe left her apartment building and turned right onto rue Daguerre. \"Je tourne à droite,\" she said to herself, practicing her French. At the end of the street, she saw a boulangerie - a bakery. The smell of fresh bread was irresistible.\n\n\"Bonjour!\" said the baker. \"Un croissant, s'il vous plaît,\" Sophie ordered, proud of how natural it sounded now.\n\nWith her warm croissant in hand, she continued her walk. According to her phone's map, she needed to walk straight for about ten minutes, then turn left at the big intersection.\n\nAs she walked, she passed a small park on her left. \"Le parc est à gauche,\" she noted. Some elderly people were sitting on benches, enjoying the morning sun. Children were playing near a fountain.\n\nSophie continued straight ahead - tout droit - along the Boulevard du Montparnasse. She passed cafés where people sat outside drinking coffee and reading newspapers. This was the Paris she had dreamed about!\n\nAt the intersection, she turned left as planned. \"Je tourne à gauche,\" she practiced again. Now she was on Avenue du Maine, getting closer to her office.\n\nSuddenly, she realized she wasn't sure which building was hers. She stopped an older woman walking her dog.\n\n\"Excusez-moi, madame. Où se trouve le numéro 52, s'il vous plaît?\"\n\nThe woman smiled. \"Le 52? C'est juste là, mademoiselle. L'immeuble moderne avec les fenêtres bleues.\"\n\n\"Ah oui! Merci beaucoup, madame!\"\n\n\"De rien. Bonne journée!\"\n\nSophie found her building easily after that. It was the modern building with blue windows, just as the woman had described. She had done it - she had walked to work, ordered in French, asked for directions, and found her way! \n\nAs she entered the building, Thomas was just arriving too.\n\n\"Sophie! Tu as marché? You walked?\"\n\n\"Oui! C'est plus agréable que le métro!\"\n\n\"Bravo! Tu deviens une vraie Parisienne!\" Thomas said with a proud smile.\n\nSophie beamed. A real Parisian! That was the best compliment she could have received.",
+      "generateAudio": true,
+      "estimatedMinutes": 20,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: First Direction",
+            "instructions": "Which way did Sophie turn leaving her building?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What direction did Sophie turn when leaving her apartment?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Left",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Right",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Straight ahead",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "She took a taxi",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The story says: 'She left her apartment building and turned right onto rue Daguerre.'",
+              "hint": "The direction Sophie turns onto rue Daguerre."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: What did Sophie buy?",
+            "instructions": "What did Sophie purchase at the bakery?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What did Sophie buy at the boulangerie?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Bread",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "A croissant",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "A pain au chocolat",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "A tart",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie ordered: 'Un croissant, s'il vous plaît' - One croissant, please.",
+              "hint": "It's a classic French pastry."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Location Prepositions",
+            "instructions": "Match the French prepositions with their English meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "à droite",
+                  "right": "on/to the right"
+                },
+                {
+                  "left": "à gauche",
+                  "right": "on/to the left"
+                },
+                {
+                  "left": "tout droit",
+                  "right": "straight ahead"
+                },
+                {
+                  "left": "près de",
+                  "right": "near"
+                },
+                {
+                  "left": "juste là",
+                  "right": "right there"
+                }
+              ],
+              "hint": "These prepositions help describe where things are located."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: Where is located?",
+            "instructions": "Complete the question asking for a location.",
+            "content": {
+              "text": "Où se _____ le numéro 52, s'il vous plaît ?",
+              "blanks": [
+                {
+                  "correctAnswer": "trouve",
+                  "acceptableAnswers": [
+                    "trouve"
+                  ],
+                  "options": [
+                    "trouve",
+                    "est",
+                    "va",
+                    "vient"
+                  ]
+                }
+              ],
+              "translation": "Where is number 52 located, please?",
+              "hint": "'Se trouver' means 'to be located'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: The park is on the left",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Le",
+                "parc",
+                "est",
+                "à",
+                "gauche"
+              ],
+              "correctOrder": [
+                "Le",
+                "parc",
+                "est",
+                "à",
+                "gauche"
+              ],
+              "translation": "The park is on the left",
+              "explanation": "To describe location, use: [subject] + être + à gauche/à droite/tout droit/près de, etc.",
+              "hint": "Start with the subject 'Le parc'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Building description",
+            "instructions": "How was Sophie's office building described?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What feature identifies Sophie's office building?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Red door",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Blue windows",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Green shutters",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Yellow facade",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The woman says: 'L'immeuble moderne avec les fenêtres bleues' - The modern building with blue windows.",
+              "hint": "The building is modern with a specific colored feature."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: You're becoming...",
+            "instructions": "Complete Thomas's compliment.",
+            "content": {
+              "text": "Tu deviens une vraie _____ !",
+              "blanks": [
+                {
+                  "correctAnswer": "Parisienne",
+                  "acceptableAnswers": [
+                    "Parisienne",
+                    "parisienne"
+                  ],
+                  "options": [
+                    "Parisienne",
+                    "française",
+                    "touriste",
+                    "étudiante"
+                  ]
+                }
+              ],
+              "translation": "You're becoming a real Parisian!",
+              "hint": "The feminine form of someone from Paris."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Sophie's Walk to Work",
+            "instructions": "Complete the summary of Sophie's morning walk.",
+            "content": {
+              "text": "Sophie decides to {blank1} to work instead of taking the metro. She leaves her apartment and turns {blank2} onto rue Daguerre. She stops at a {blank3} and buys a {blank4}. She walks {blank5} along Boulevard du Montparnasse, passing a park on her {blank6}. At the intersection, she turns {blank7}. When she's unsure which building is hers, she asks a woman with a {blank8}. The woman points to the modern building with {blank9} windows. Thomas congratulates Sophie, saying she's becoming a real {blank10}!",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": [
+                    "walk",
+                    "marcher"
+                  ]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": [
+                    "right",
+                    "droite"
+                  ]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": [
+                    "bakery",
+                    "boulangerie"
+                  ]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "croissant"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "straight",
+                    "tout droit"
+                  ]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "left"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "left"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "dog"
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "blue"
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": "Parisian"
+                }
+              ],
+              "hint": "Follow Sophie's journey step by step through the story."
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 25,
+            "difficultyRating": 1.8
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Expression: C'est plus agréable",
+            "instructions": "What does Sophie mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "When Sophie says 'C'est plus agréable que le métro', what does she mean?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "It's more pleasant than the metro",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "It's the same as the metro",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "It's less pleasant than the metro",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "The metro is better",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Plus agréable que' means 'more pleasant than'. Sophie is saying walking is more pleasant than taking the metro.",
+              "hint": "'Plus... que' is used for comparisons."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.4
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrator",
+          "voice": "Vindemiatrix",
+          "description": "Story narrator with warm, engaging voice"
+        }
+      ],
+      "audioStyle": "This is a narrative story with a warm, calm tone. The narrator reads with natural pacing, creating an immersive storytelling experience."
+    }
+  ]
+}

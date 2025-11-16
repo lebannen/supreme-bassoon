@@ -48,13 +48,15 @@ A comprehensive language learning application powered by Wiktionary data, featur
 - Grammar rules and exercise integration
 - Admin interface for course/module management
 
-**Interactive Exercises (M2):**
+**Interactive Exercises (M2 + M2.5 UX Enhancements):**
 - 6 exercise types: Multiple Choice, Fill-in-Blank, Sentence Scramble, Matching, Listening, Cloze Reading
 - Real-time validation with detailed feedback
+- Auto-advance with 3-second countdown on correct answers
+- Progress persistence - resume from last incomplete exercise
 - Support for multi-blank fill-in exercises
-- Audio generation for listening exercises
+- Audio generation for listening exercises with Gemini TTS
 - Attempt tracking and progress monitoring
-- 35+ sample exercises (French A1 level)
+- 240+ exercises in complete French A1 course
 
 ## Tech Stack
 

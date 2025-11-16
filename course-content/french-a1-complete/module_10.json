@@ -1,0 +1,977 @@
+{
+  "moduleNumber": 10,
+  "title": "Sophie's Year in Paris",
+  "theme": "Weather, Seasons & Reflection",
+  "description": "Sophie reflects on her first year in Paris through the four seasons! Learn weather expressions, seasons, months, and basic past tense while celebrating Sophie's journey.",
+  "objectives": [
+    "Talk about weather (il fait beau, il pleut, il neige)",
+    "Learn the four seasons and months",
+    "Describe weather conditions and temperature",
+    "Introduction to passé composé (past tense)",
+    "Reflect on experiences and express feelings"
+  ],
+  "estimatedMinutes": 185,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "STORY",
+      "title": "Les Quatre Saisons à Paris",
+      "content": "Sophie sat in her favorite café near her apartment, a warm cup of coffee in her hands. Through the window, she watched the snow falling gently on the Paris streets. It was December, almost exactly one year since she had arrived in France.\n\n\"Une année complète,\" she whispered to herself. A complete year. So much had happened.\n\nShe remembered her first spring in Paris - **le printemps**. She had arrived in March, when the weather was still cool but getting warmer. \"Au printemps, il fait frais,\" she recalled. In spring, it's cool. The cherry blossoms had been blooming in the parks. She took her first French class, made her first mistakes, tasted her first real croissant. Everything was new and exciting.\n\nIn April, it rained a lot. \"Il pleut beaucoup en avril,\" she had learned. It rains a lot in April. But she didn't mind. She bought a cute Parisian umbrella and learned to love walking in the rain. The city looked so beautiful when wet - the reflections on the cobblestones, the way the lights shimmered.\n\nMay was gorgeous. \"En mai, il fait bon,\" people said. In May, the weather is nice. She had started her job at TechParis. She met Thomas, who became not just a colleague but a dear friend. She found her apartment, met Madame Laurent. She was starting to feel at home.\n\nThen came **l'été** - summer. June, July, August. \"En été, il fait chaud,\" she wrote to her parents. In summer, it's hot. Sometimes it was very hot - \"il fait très chaud\" - especially in July. But Parisians knew how to enjoy it. Long evenings at outdoor cafés, picnics along the Seine, free concerts in parks. Sophie practiced her French every day, and it was getting better.\n\nHer family visited in August. She showed them around Paris - the Eiffel Tower, the Louvre, Montmartre. Her parents were so proud of how well she was managing in a foreign country. \"Tu parles très bien français maintenant!\" her mother had said. You speak French very well now!\n\nSeptember brought **l'automne** - autumn. The weather became cooler. \"En automne, il fait frais,\" Sophie noticed. In autumn, it's cool. The leaves turned gold and red. Sophie loved walking through the Luxembourg Gardens, taking photos of the beautiful colors. She joined a book club to practice French. She made new friends - French friends! People who accepted her, accent and all.\n\nIn October, it was sometimes windy. \"Il fait du vent,\" Thomas would say when they walked to lunch. It's windy. Sophie bought her winter coat, learned about French fashion, discovered new neighborhoods. She felt more confident now, more Parisian.\n\nNovember was gray and rainy. \"Il fait mauvais,\" Madame Laurent would say, shaking her head. The weather is bad. But Sophie found beauty even in the gray days. The cozy cafés, the warm lights in shop windows, the smell of roasting chestnuts on street corners.\n\nAnd now, December - **l'hiver**, winter. \"En hiver, il fait froid,\" everyone said. In winter, it's cold. Sometimes it snowed - \"il neige\" - like today. The city transformed into a winter wonderland. Christmas markets appeared, the Champs-Élysées sparkled with lights.\n\nSophie looked at her journal, where she had written notes throughout the year:\n\n- March: \"J'ai commencé mon travail\" - I started my job\n- April: \"J'ai trouvé un appartement\" - I found an apartment  \n- May: \"J'ai rencontré Thomas\" - I met Thomas\n- June: \"J'ai visité le Louvre\" - I visited the Louvre\n- July: \"J'ai appris à prendre le métro\" - I learned to take the metro\n- August: \"Ma famille est venue me voir\" - My family came to see me\n- September: \"J'ai fait de nouveaux amis\" - I made new friends\n- October: \"J'ai acheté un manteau d'hiver\" - I bought a winter coat\n- November: \"J'ai rencontré la famille de Thomas\" - I met Thomas's family\n- December: \"J'ai décidé de rester\" - I decided to stay\n\nYes, she had decided to stay. Her company offered to extend her contract, and she said yes immediately. Paris was her home now.\n\nThomas appeared at the café door, shaking snow from his coat.\n\n\"Sophie! Il neige! Regarde comme c'est beau!\"\n\n\"Oui,\" Sophie smiled. \"C'est magnifique. Comme toujours à Paris.\"\n\nThomas sat down. \"Tu sais, il y a un an, tu ne parlais presque pas français. Et maintenant, regarde toi!\"\n\nSophie laughed. \"J'ai beaucoup appris cette année. Le français, mais pas seulement. J'ai appris à être courageuse, à m'adapter, à vivre dans une autre culture.\"\n\n\"Et tu vas rester? C'est officiel?\"\n\n\"Oui! J'ai signé mon nouveau contrat hier. Encore deux ans à Paris!\"\n\nThomas sourit. \"C'est génial! Bienvenue, vraie Parisienne!\"\n\nSophie looked out the window at the snowy street, at the beautiful city that had become her home. Spring, summer, autumn, winter - she had experienced them all here. And she would experience them all again.\n\n\"Merci, Paris,\" she thought. \"Pour tout.\"\n\nThank you, Paris. For everything.",
+      "generateAudio": true,
+      "estimatedMinutes": 30,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match the Seasons",
+            "instructions": "Match the French seasons with their English names.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "le printemps",
+                  "right": "spring"
+                },
+                {
+                  "left": "l'été",
+                  "right": "summer"
+                },
+                {
+                  "left": "l'automne",
+                  "right": "autumn/fall"
+                },
+                {
+                  "left": "l'hiver",
+                  "right": "winter"
+                }
+              ],
+              "hint": "The four seasons of the year."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Weather Expressions",
+            "instructions": "Match the French weather expressions with English.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Il fait beau",
+                  "right": "The weather is nice"
+                },
+                {
+                  "left": "Il fait chaud",
+                  "right": "It's hot"
+                },
+                {
+                  "left": "Il fait froid",
+                  "right": "It's cold"
+                },
+                {
+                  "left": "Il pleut",
+                  "right": "It's raining"
+                },
+                {
+                  "left": "Il neige",
+                  "right": "It's snowing"
+                }
+              ],
+              "hint": "Common ways to describe the weather."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: When did Sophie arrive?",
+            "instructions": "In which month did Sophie arrive in Paris?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "When did Sophie first arrive in Paris?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "January",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "March",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "May",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "September",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The story mentions she arrived in March, during spring: 'She had arrived in March, when the weather was still cool but getting warmer.'",
+              "hint": "It was during spring, when cherry blossoms were blooming."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: It's raining",
+            "instructions": "Complete the weather sentence.",
+            "content": {
+              "text": "Il _____ beaucoup en avril.",
+              "blanks": [
+                {
+                  "correctAnswer": "pleut",
+                  "acceptableAnswers": [
+                    "pleut"
+                  ],
+                  "options": [
+                    "pleut",
+                    "neige",
+                    "fait",
+                    "est"
+                  ]
+                }
+              ],
+              "translation": "It rains a lot in April.",
+              "hint": "The verb for 'to rain' in French."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: I started my job",
+            "instructions": "Complete the past tense sentence.",
+            "content": {
+              "text": "J'_____ commencé mon travail.",
+              "blanks": [
+                {
+                  "correctAnswer": "ai",
+                  "acceptableAnswers": [
+                    "ai"
+                  ],
+                  "options": [
+                    "ai",
+                    "suis",
+                    "a",
+                    "est"
+                  ]
+                }
+              ],
+              "translation": "I started my job.",
+              "hint": "Use 'avoir' conjugated for 'je' + past participle."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: In summer, it's hot",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "En",
+                "été",
+                "il",
+                "fait",
+                "chaud"
+              ],
+              "correctOrder": [
+                "En",
+                "été",
+                "il",
+                "fait",
+                "chaud"
+              ],
+              "translation": "In summer, it's hot",
+              "explanation": "'En + season' means 'in + season'. 'Il fait chaud' means 'it's hot'.",
+              "hint": "Start with the preposition and season."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Family visit",
+            "instructions": "When did Sophie's family visit?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "In which month did Sophie's family come to visit?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "June",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "July",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "August",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "September",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The story says: 'Her family visited in August.'",
+              "hint": "It was during summer."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: In winter",
+            "instructions": "Complete the seasonal expression.",
+            "content": {
+              "text": "_____ hiver, il fait froid.",
+              "blanks": [
+                {
+                  "correctAnswer": "En",
+                  "acceptableAnswers": [
+                    "En",
+                    "en"
+                  ],
+                  "options": [
+                    "En",
+                    "Au",
+                    "Dans",
+                    "À"
+                  ]
+                }
+              ],
+              "translation": "In winter, it's cold.",
+              "hint": "This preposition is used with most seasons."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Sophie's Year in Paris",
+            "instructions": "Complete the summary of Sophie's year.",
+            "content": {
+              "text": "Sophie arrived in Paris in {blank1} during {blank2} season. In spring, the weather is {blank3} and cherry blossoms bloom. In {blank4}, it rains a lot. Summer ({blank5}) is hot, and Sophie's family visited in {blank6}. Autumn ({blank7}) brings cool weather and beautiful {blank8} leaves. In November, the weather is often bad - it's {blank9}. Winter ({blank10}) is cold and sometimes it {blank11}. Throughout the year, Sophie accomplished many things: she started her {blank12}, found an {blank13}, met {blank14}, made new friends, and learned to speak {blank15} well. At the end of her first year, Sophie decides to {blank16} in Paris for two more years.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": [
+                    "March",
+                    "mars"
+                  ]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": [
+                    "spring",
+                    "printemps"
+                  ]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": [
+                    "cool",
+                    "frais",
+                    "fresh"
+                  ]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": [
+                    "April",
+                    "avril"
+                  ]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "l'été",
+                    "été",
+                    "summer"
+                  ]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": [
+                    "August",
+                    "août"
+                  ]
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": [
+                    "l'automne",
+                    "automne",
+                    "autumn",
+                    "fall"
+                  ]
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": [
+                    "colored",
+                    "gold",
+                    "red"
+                  ]
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": [
+                    "rainy",
+                    "gray",
+                    "grey"
+                  ]
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": [
+                    "l'hiver",
+                    "hiver",
+                    "winter"
+                  ]
+                },
+                {
+                  "id": "blank11",
+                  "correctAnswer": [
+                    "snows",
+                    "neige"
+                  ]
+                },
+                {
+                  "id": "blank12",
+                  "correctAnswer": [
+                    "job",
+                    "work",
+                    "travail"
+                  ]
+                },
+                {
+                  "id": "blank13",
+                  "correctAnswer": "apartment"
+                },
+                {
+                  "id": "blank14",
+                  "correctAnswer": "Thomas"
+                },
+                {
+                  "id": "blank15",
+                  "correctAnswer": "French"
+                },
+                {
+                  "id": "blank16",
+                  "correctAnswer": [
+                    "stay",
+                    "remain",
+                    "rester"
+                  ]
+                }
+              ],
+              "hint": "Follow Sophie's journey through all four seasons."
+            },
+            "estimatedDurationSeconds": 240,
+            "pointsValue": 30,
+            "difficultyRating": 2.0
+          }
+        },
+        {
+          "orderIndex": 10,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "matching",
+            "title": "Match More Weather Expressions",
+            "instructions": "Match additional weather vocabulary.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Il fait frais",
+                  "right": "It's cool"
+                },
+                {
+                  "left": "Il fait bon",
+                  "right": "The weather is nice/pleasant"
+                },
+                {
+                  "left": "Il fait mauvais",
+                  "right": "The weather is bad"
+                },
+                {
+                  "left": "Il fait du vent",
+                  "right": "It's windy"
+                },
+                {
+                  "left": "Il fait très chaud",
+                  "right": "It's very hot"
+                }
+              ],
+              "hint": "More nuanced weather descriptions."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrator",
+          "voice": "Vindemiatrix",
+          "description": "Story narrator with warm, engaging voice"
+        }
+      ],
+      "audioStyle": "This is a narrative story with a warm, calm tone. The narrator reads with natural pacing, creating an immersive storytelling experience."
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Je Reste à Paris!",
+      "content": "Madame Laurent: Sophie! Bonjour ma chérie! Entrez, entrez! Vous voulez un thé?\n\nSophie: Bonjour Madame Laurent! Oui, avec plaisir! Il fait si froid dehors!\n\nMadame Laurent: Oui, moins deux degrés aujourd'hui! C'est l'hiver! Asseyez-vous, je prépare le thé.\n\nSophie: Merci. Madame Laurent, j'ai une grande nouvelle à vous annoncer!\n\nMadame Laurent: Oh? Racontez-moi!\n\nSophie: J'ai décidé de rester à Paris! Mon entreprise a prolongé mon contrat pour deux ans!\n\nMadame Laurent: Oh, quelle merveilleuse nouvelle! Je suis tellement heureuse! Vous savez, quand vous êtes arrivée il y a un an, j'ai pensé: \"Cette jeune fille va réussir ici.\"\n\nSophie: C'est gentil! Au début, c'était difficile. Tout était nouveau. Le français, la culture, la ville...\n\nMadame Laurent: Mais regardez maintenant! Vous parlez français couramment! Vous avez des amis français! Vous connaissez Paris comme votre poche!\n\nSophie: C'est grâce à des gens comme vous, Madame Laurent. Vous m'avez beaucoup aidée.\n\nMadame Laurent: Oh, c'est normal! Alors, racontez-moi, qu'est-ce que vous avez préféré cette année?\n\nSophie: Hmm... difficile à dire! J'ai adoré l'automne. Les couleurs, les feuilles qui tombent, les soirées fraîches... C'était magique.\n\nMadame Laurent: Et l'hiver? Vous aimez la neige?\n\nSophie: Oui! Quand il neige, Paris est encore plus belle! Mais je préfère quand il fait beau et ensoleillé.\n\nMadame Laurent: Et la chaleur de l'été? Ce n'était pas trop difficile?\n\nSophie: Si, un peu! En juillet et en août, il faisait très chaud! Mais les Parisiens savent comment profiter de l'été. Les terrasses, les pique-niques...\n\nMadame Laurent: C'est vrai! Et le printemps? C'est ma saison préférée!\n\nSophie: Le printemps est magnifique! Quand les fleurs commencent à fleurir, quand les jours deviennent plus longs... J'adore!\n\nMadame Laurent: Vous avez vécu toutes les saisons à Paris maintenant. Vous êtes une vraie Parisienne!\n\nSophie: Merci! C'est le plus beau compliment! Vous savez, j'ai appris tellement de choses cette année. Pas seulement le français. J'ai appris à être indépendante, courageuse, ouverte.\n\nMadame Laurent: Et vous avez rencontré de belles personnes, n'est-ce pas?\n\nSophie: Oh oui! Thomas et sa famille, vous, Monsieur Petit à l'épicerie, mes collègues de travail... Tout le monde a été si gentil!\n\nMadame Laurent: Et maintenant, vous allez rester deux ans de plus! Qu'est-ce que vous voulez faire pendant ces deux années?\n\nSophie: Je veux continuer à améliorer mon français. Je veux voyager plus en France - visiter d'autres régions. Et peut-être... apprendre à cuisiner français!\n\nMadame Laurent: Oh! Si vous voulez, je peux vous apprendre! Ma grand-mère m'a enseigné toutes ses recettes!\n\nSophie: Vraiment? Ce serait merveilleux!\n\nMadame Laurent: Bien sûr! On peut commencer dimanche prochain, si vous voulez. Je vais vous montrer comment faire un vrai bœuf bourguignon!\n\nSophie: J'adorerais ça! Merci, Madame Laurent!\n\nMadame Laurent: C'est avec grand plaisir, ma chère Sophie. Vous savez, vous êtes comme une petite-fille pour moi maintenant.\n\nSophie: Oh, Madame Laurent... Vous êtes trop gentille! Vous me manquerez quand je rentrerai en Amérique... mais ce n'est pas pour bientôt!\n\nMadame Laurent: Non, pas pour deux ans au moins! Allez, santé! À votre nouvelle aventure parisienne!\n\nSophie: Santé! À Paris, à la France, et aux nouvelles saisons qui arrivent!\n\nMadame Laurent: Parfait! Vous voyez, vous parlez déjà comme une Française!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Madame Laurent",
+          "voice": "Gacrux",
+          "description": "Sophie's kind landlady, maternal and warm"
+        },
+        {
+          "name": "Sophie",
+          "voice": "Puck",
+          "description": "An American woman reflecting on her year and announcing her decision to stay"
+        }
+      ],
+      "audioStyle": "A warm, emotional conversation between two people who have become like family. Madame Laurent is proud and happy. Sophie is grateful and nostalgic. The mood is celebratory and affectionate.",
+      "estimatedMinutes": 30,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Big news",
+            "instructions": "What is Sophie's big news?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What announcement does Sophie make to Madame Laurent?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "She's moving back to America",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "She's staying in Paris for 2 more years",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "She's getting married",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "She's changing jobs",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie says: 'J'ai décidé de rester à Paris! Mon entreprise a prolongé mon contrat pour deux ans!' - I decided to stay in Paris! My company extended my contract for two years!",
+              "hint": "It's about her future in Paris."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Temperature",
+            "instructions": "What is the temperature outside?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What is the temperature when Sophie visits Madame Laurent?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "0 degrees",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "-2 degrees",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "5 degrees",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "10 degrees",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Madame Laurent says: 'Oui, moins deux degrés aujourd'hui!' - Yes, minus two degrees today!",
+              "hint": "It's below freezing."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Temperature Expressions",
+            "instructions": "Match the French temperature expressions with English.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "degrés",
+                  "right": "degrees"
+                },
+                {
+                  "left": "moins deux",
+                  "right": "minus two"
+                },
+                {
+                  "left": "zéro degré",
+                  "right": "zero degrees"
+                },
+                {
+                  "left": "il fait chaud",
+                  "right": "it's hot"
+                },
+                {
+                  "left": "il fait froid",
+                  "right": "it's cold"
+                }
+              ],
+              "hint": "Ways to talk about temperature."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: Favorite season",
+            "instructions": "Complete Madame Laurent's statement.",
+            "content": {
+              "text": "Le printemps est ma saison _____ !",
+              "blanks": [
+                {
+                  "correctAnswer": "préférée",
+                  "acceptableAnswers": [
+                    "préférée",
+                    "preferee"
+                  ],
+                  "options": [
+                    "préférée",
+                    "favorite",
+                    "aimée",
+                    "adorée"
+                  ]
+                }
+              ],
+              "translation": "Spring is my favorite season!",
+              "hint": "'Saison' is feminine, so the adjective must agree."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: When it snows",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Quand",
+                "il",
+                "neige",
+                "Paris",
+                "est",
+                "belle"
+              ],
+              "correctOrder": [
+                "Quand",
+                "il",
+                "neige",
+                "Paris",
+                "est",
+                "belle"
+              ],
+              "translation": "When it snows, Paris is beautiful",
+              "explanation": "'Quand' means 'when'. 'Il neige' means 'it snows/is snowing'.",
+              "hint": "Start with the time word 'Quand'."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: I learned",
+            "instructions": "Complete the past tense sentence.",
+            "content": {
+              "text": "J'_____ appris tellement de choses.",
+              "blanks": [
+                {
+                  "correctAnswer": "ai",
+                  "acceptableAnswers": [
+                    "ai"
+                  ],
+                  "options": [
+                    "ai",
+                    "suis",
+                    "a",
+                    "est"
+                  ]
+                }
+              ],
+              "translation": "I learned so many things.",
+              "hint": "Use 'avoir' for the passé composé of 'apprendre'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Cooking lessons",
+            "instructions": "What will Madame Laurent teach Sophie?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What does Madame Laurent offer to teach Sophie?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "French grammar",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "How to cook French food",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "How to paint",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "How to garden",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Madame Laurent offers: 'Si vous voulez, je peux vous apprendre! Ma grand-mère m'a enseigné toutes ses recettes!' and specifically mentions teaching her to make bœuf bourguignon.",
+              "hint": "Madame Laurent learned recipes from her grandmother."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: You have lived",
+            "instructions": "Complete the past tense sentence.",
+            "content": {
+              "text": "Vous _____ vécu toutes les saisons à Paris.",
+              "blanks": [
+                {
+                  "correctAnswer": "avez",
+                  "acceptableAnswers": [
+                    "avez"
+                  ],
+                  "options": [
+                    "avez",
+                    "êtes",
+                    "aviez",
+                    "avait"
+                  ]
+                }
+              ],
+              "translation": "You have lived through all the seasons in Paris.",
+              "hint": "Use 'avoir' conjugated for 'vous' + past participle."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Sophie's Decision to Stay",
+            "instructions": "Complete the summary of Sophie's conversation with Madame Laurent.",
+            "content": {
+              "text": "On a cold winter day when it's {blank1} degrees outside, Sophie visits Madame Laurent for tea. She announces she's decided to {blank2} in Paris for {blank3} more years. Sophie reflects on her year: she loved {blank4} with its beautiful colored leaves. She liked the snow in {blank5}, though she prefers {blank6} weather. Summer was very {blank7} in July and August. {blank8} is Madame Laurent's favorite season. Sophie says she's learned to be {blank9}, courageous, and open. She has met wonderful people like Thomas, Madame Laurent, and Monsieur {blank10}. Sophie wants to improve her {blank11}, travel more in France, and learn to {blank12} French food. Madame Laurent offers to teach her, starting with {blank13} bourguignon. Madame Laurent says Sophie is like a {blank14} to her now. They toast to Sophie's new {blank15} in Paris!",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": [
+                    "-2",
+                    "minus two",
+                    "moins deux"
+                  ]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": [
+                    "stay",
+                    "remain",
+                    "rester"
+                  ]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": [
+                    "two",
+                    "2",
+                    "deux"
+                  ]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": [
+                    "autumn",
+                    "fall",
+                    "automne"
+                  ]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "winter",
+                    "l'hiver",
+                    "hiver"
+                  ]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": [
+                    "nice",
+                    "beautiful",
+                    "sunny",
+                    "beau"
+                  ]
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": [
+                    "hot",
+                    "chaud"
+                  ]
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": [
+                    "Spring",
+                    "Printemps"
+                  ]
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": [
+                    "independent",
+                    "indépendante"
+                  ]
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": "Petit"
+                },
+                {
+                  "id": "blank11",
+                  "correctAnswer": "French"
+                },
+                {
+                  "id": "blank12",
+                  "correctAnswer": "cook"
+                },
+                {
+                  "id": "blank13",
+                  "correctAnswer": [
+                    "bœuf",
+                    "boeuf",
+                    "beef"
+                  ]
+                },
+                {
+                  "id": "blank14",
+                  "correctAnswer": [
+                    "granddaughter",
+                    "petite-fille"
+                  ]
+                },
+                {
+                  "id": "blank15",
+                  "correctAnswer": [
+                    "adventure",
+                    "aventure"
+                  ]
+                }
+              ],
+              "hint": "Review their conversation about Sophie's year and future plans."
+            },
+            "estimatedDurationSeconds": 240,
+            "pointsValue": 30,
+            "difficultyRating": 1.9
+          }
+        },
+        {
+          "orderIndex": 10,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Expression: Comme votre poche",
+            "instructions": "What does this expression mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "When Madame Laurent says Sophie knows Paris 'comme votre poche', what does she mean?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Like the back of your hand / very well",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Like your pocket / small",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Not very well",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Like a tourist",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Connaître comme sa poche' is an idiom meaning to know something extremely well, like the back of your hand or like your own pocket.",
+              "hint": "It's a positive expression about knowing something very well."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.5
+          }
+        }
+      ]
+    }
+  ]
+}

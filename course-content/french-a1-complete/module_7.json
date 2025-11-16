@@ -1,0 +1,908 @@
+{
+  "moduleNumber": 7,
+  "title": "Sophie's Weekend Adventures",
+  "theme": "Hobbies & Free Time",
+  "description": "Discover Paris with Sophie on weekends! Learn to talk about hobbies, leisure activities, cultural outings, and how to express preferences.",
+  "objectives": [
+    "Talk about hobbies and interests",
+    "Use verbs: faire, jouer, lire, regarder",
+    "Express preferences (aimer, préférer, adorer, détester)",
+    "Discuss cultural activities (museum, cinema, sports)",
+    "Describe weekend activities"
+  ],
+  "estimatedMinutes": 170,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "DIALOGUE",
+      "title": "Au Musée du Louvre",
+      "content": "Sophie: Thomas! Regarde cette file d'attente! Il y a beaucoup de monde aujourd'hui!\n\nThomas: Oui, c'est toujours comme ça le weekend au Louvre. Mais ça vaut la peine! Tu es déjà venue ici?\n\nSophie: Non, c'est ma première visite! Je suis tellement excitée! J'adore l'art.\n\nThomas: Parfait! Alors, qu'est-ce que tu veux voir en premier? La Joconde? La Vénus de Milo?\n\nSophie: Les deux! Mais commençons par la Joconde. Tout le monde parle de ce tableau!\n\n[À l'intérieur du musée]\n\nSophie: Wow! C'est immense ici! Et magnifique!\n\nThomas: Oui, le Louvre est le plus grand musée du monde. On ne peut pas tout voir en une journée.\n\nSophie: Tu viens souvent aux musées?\n\nThomas: Assez souvent, oui. J'aime beaucoup l'art. Et toi, quels sont tes loisirs?\n\nSophie: J'adore la photographie! Je fais beaucoup de photos de Paris. Les rues, les monuments, les gens...\n\nThomas: C'est super! Tu as un bon appareil photo?\n\nSophie: Oui, j'ai acheté un nouveau appareil quand je suis arrivée à Paris. Je prends des photos presque tous les jours.\n\nThomas: Tu devrais me montrer tes photos un jour! Moi, mon hobby principal, c'est la lecture. Je lis beaucoup.\n\nSophie: Oui, tu me l'as dit! Tu lis des romans policiers, c'est ça?\n\nThomas: Exactement. J'adore les histoires de mystère et de suspense. Et je fais aussi du sport.\n\nSophie: Quel sport?\n\nThomas: Je joue au football le samedi avec des amis, et je fais de la natation une fois par semaine.\n\nSophie: La natation! C'est bien! Moi, je fais du jogging le weekend. J'aime courir le long de la Seine.\n\nThomas: C'est une bonne idée! Peut-être qu'on peut courir ensemble un jour?\n\nSophie: Avec plaisir! Oh regarde! Voilà la Joconde!\n\nThomas: Ah oui! Tu vois, elle est plus petite qu'on imagine, non?\n\nSophie: C'est vrai! Mais elle est vraiment belle. Attends, je prends une photo!\n\nThomas: Ha ha! Comme tous les touristes!\n\nSophie: Je sais, je sais! Mais c'est irrésistible!\n\n[Plus tard, au café du musée]\n\nThomas: Alors, tu as aimé le musée?\n\nSophie: J'ai adoré! C'était incroyable. Merci de m'avoir accompagnée!\n\nThomas: De rien! On peut faire d'autres sorties culturelles si tu veux. Il y a le musée d'Orsay, le Centre Pompidou...\n\nSophie: Oh oui! J'aimerais beaucoup! Et peut-être qu'on peut aussi aller au cinéma un jour? J'aimerais voir un film français.\n\nThomas: Bonne idée! Il y a un bon cinéma près de chez moi. On peut y aller la semaine prochaine?\n\nSophie: Parfait! J'ai hâte!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Sophie",
+          "voice": "Puck",
+          "description": "An enthusiastic American woman visiting the Louvre for the first time"
+        },
+        {
+          "name": "Thomas",
+          "voice": "Achird",
+          "description": "Sophie's colleague showing her around Paris culture"
+        }
+      ],
+      "audioStyle": "An excited museum visit. Sophie is amazed and enthusiastic about art and culture. Thomas is a knowledgeable guide, friendly and encouraging.",
+      "estimatedMinutes": 30,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: First visit",
+            "instructions": "Is this Sophie's first time at the Louvre?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Has Sophie visited the Louvre before?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Yes, many times",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "No, it's her first visit",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Yes, once before",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "The dialogue doesn't say",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie says: 'Non, c'est ma première visite!' - No, it's my first visit!",
+              "hint": "Listen for 'première visite'."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Sophie's hobby",
+            "instructions": "What is Sophie's main hobby?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What hobby does Sophie love?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Reading",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Photography",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Swimming",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Playing football",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie says: 'J'adore la photographie! Je fais beaucoup de photos de Paris' - I love photography! I take lots of photos of Paris.",
+              "hint": "She does this almost every day in Paris."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Hobby Verbs",
+            "instructions": "Match the French hobby verbs with their English meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "faire de la photographie",
+                  "right": "to do photography"
+                },
+                {
+                  "left": "lire",
+                  "right": "to read"
+                },
+                {
+                  "left": "jouer au football",
+                  "right": "to play football"
+                },
+                {
+                  "left": "faire de la natation",
+                  "right": "to swim/do swimming"
+                },
+                {
+                  "left": "courir",
+                  "right": "to run"
+                }
+              ],
+              "hint": "These are activities people do in their free time."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Cultural Places",
+            "instructions": "Match the French cultural venues with their English names.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "musée",
+                  "right": "museum"
+                },
+                {
+                  "left": "cinéma",
+                  "right": "cinema"
+                },
+                {
+                  "left": "théâtre",
+                  "right": "theater"
+                },
+                {
+                  "left": "galerie d'art",
+                  "right": "art gallery"
+                },
+                {
+                  "left": "concert",
+                  "right": "concert"
+                }
+              ],
+              "hint": "These are places for cultural activities."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: I love...",
+            "instructions": "Complete the sentence expressing strong liking.",
+            "content": {
+              "text": "J'_____ la photographie!",
+              "blanks": [
+                {
+                  "correctAnswer": "adore",
+                  "acceptableAnswers": [
+                    "adore"
+                  ],
+                  "options": [
+                    "adore",
+                    "aime",
+                    "déteste",
+                    "préfère"
+                  ]
+                }
+              ],
+              "translation": "I love photography!",
+              "hint": "This verb expresses very strong liking."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: I play football",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Je",
+                "joue",
+                "au",
+                "football",
+                "le",
+                "samedi"
+              ],
+              "correctOrder": [
+                "Je",
+                "joue",
+                "au",
+                "football",
+                "le",
+                "samedi"
+              ],
+              "translation": "I play football on Saturday",
+              "explanation": "'Jouer à' is used for sports and games. 'Au' is the contraction of 'à + le'.",
+              "hint": "Use 'jouer au' for sports."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: I do swimming",
+            "instructions": "Complete the sentence about swimming.",
+            "content": {
+              "text": "Je fais _____ natation une fois par semaine.",
+              "blanks": [
+                {
+                  "correctAnswer": "de la",
+                  "acceptableAnswers": [
+                    "de la"
+                  ],
+                  "options": [
+                    "de la",
+                    "du",
+                    "de l'",
+                    "des"
+                  ]
+                }
+              ],
+              "translation": "I swim/do swimming once a week.",
+              "hint": "'Natation' is feminine. Use 'faire de la' for activities."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: What does Thomas read?",
+            "instructions": "What type of books does Thomas like?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What kind of books does Thomas enjoy reading?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Romance novels",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Detective/mystery novels",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Science fiction",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "History books",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Thomas says: 'Je lis des romans policiers. J'adore les histoires de mystère et de suspense' - I read detective novels. I love mystery and suspense stories.",
+              "hint": "He likes mystery and suspense."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "At the Louvre",
+            "instructions": "Complete the summary of Sophie and Thomas's museum visit.",
+            "content": {
+              "text": "Sophie and Thomas visit the {blank1} museum. It's Sophie's {blank2} time there and she's very excited because she loves {blank3}. They want to see famous artworks like the {blank4} and the Venus de Milo. Sophie's hobby is {blank5} - she takes pictures of Paris almost every day. Thomas's main hobby is {blank6}. He loves detective novels. Thomas also plays {blank7} on Saturdays and does {blank8} once a week. Sophie goes {blank9} along the Seine on weekends. After visiting, they plan to go to the {blank10} together to watch a French film.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "Louvre"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": [
+                    "first",
+                    "première"
+                  ]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": [
+                    "art",
+                    "l'art"
+                  ]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": [
+                    "Mona Lisa",
+                    "Joconde",
+                    "La Joconde"
+                  ]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "photography",
+                    "photographie"
+                  ]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": [
+                    "reading",
+                    "lire",
+                    "lecture"
+                  ]
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "football"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": [
+                    "swimming",
+                    "natation"
+                  ]
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": [
+                    "jogging",
+                    "running",
+                    "courir"
+                  ]
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": [
+                    "cinema",
+                    "cinéma"
+                  ]
+                }
+              ],
+              "hint": "Review the dialogue for details about hobbies and plans."
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 25,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 10,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Expression: Ça vaut la peine",
+            "instructions": "What does this expression mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "When Thomas says 'ça vaut la peine', what does he mean?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "It's worth it",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "It's painful",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "It's expensive",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "It's difficult",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Ça vaut la peine' means 'it's worth it' or 'it's worthwhile'. Thomas is saying the wait is worth it to see the Louvre.",
+              "hint": "He's saying the long line is acceptable because the museum is so good."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.4
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 2,
+      "type": "STORY",
+      "title": "Un Dimanche au Marché aux Puces",
+      "content": "Sunday morning, Sophie woke up late - around 10 AM as usual. She had plans today: Thomas had suggested visiting the famous Marché aux Puces de Saint-Ouen, the Paris flea market.\n\n\"J'aime beaucoup les marchés aux puces,\" Sophie thought as she got ready. I really like flea markets. She loved looking for old books, vintage cameras for her photography collection, and unique Parisian souvenirs.\n\nShe met Thomas at the metro station at 11 AM.\n\n\"Prête pour l'aventure?\" Thomas asked with a smile. Ready for the adventure?\n\n\"Absolument! J'adore chercher des trésors!\" Sophie replied enthusiastically. Absolutely! I love looking for treasures!\n\nThe flea market was enormous and crowded. Hundreds of stands sold everything imaginable - old furniture, vintage clothing, antique books, records, cameras, jewelry, and art.\n\n\"Qu'est-ce que tu cherches?\" Thomas asked. What are you looking for?\n\n\"Je ne sais pas exactement. J'aime juste regarder! Mais peut-être un vieil appareil photo, ou des livres.\" I don't know exactly. I just like to look! But maybe an old camera, or books.\n\nThey wandered through the market. Sophie stopped at a stand selling vintage cameras.\n\n\"Regardez celle-ci!\" she said to the vendor, pointing at a beautiful old Leica. Look at this one!\n\n\"Ah oui, c'est une beauté! Cinquante euros,\" the vendor replied.\n\nSophie hesitated. It was beautiful but expensive. \"Je vais réfléchir,\" she said politely. I'll think about it.\n\nAt another stand, Thomas found old vinyl records. \"J'adore la musique vintage,\" he explained. I love vintage music. He bought three jazz records for fifteen euros.\n\nSophie discovered a stand with French children's books - perfect for practicing her French! She picked out three colorful books: one about Paris, one with fairy tales, and one about French cooking.\n\n\"Combien pour les trois livres?\" she asked the seller. How much for the three books?\n\n\"Dix euros pour les trois, mademoiselle.\"\n\n\"D'accord, je les prends!\" Sophie agreed happily.\n\nThey continued exploring. The market was fascinating - like a treasure hunt. Sophie took many photos: interesting objects, colorful stands, people bargaining, old posters.\n\n\"Tu aimes vraiment la photographie, toi!\" Thomas laughed. You really love photography!\n\n\"Oui! C'est ma passion! Regarde cette lumière, ces couleurs... c'est parfait!\" Yes! It's my passion! Look at this light, these colors... it's perfect!\n\nAround 2 PM, they were hungry and tired. They stopped at a small café near the market for lunch.\n\n\"Alors, tu as aimé le marché?\" Thomas asked.\n\n\"J'ai adoré! C'était super! On peut revenir un autre dimanche?\"\n\n\"Bien sûr! Il y a aussi d'autres marchés à Paris. Le marché de la rue Mouffetard, le marché biologique...\"\n\nSophie smiled. Every weekend, she discovered something new about Paris. Her hobbies - photography, reading, exploring - were perfect for this city. She felt lucky to live here.\n\n\"Paris est vraiment ma ville,\" she thought, sipping her coffee. Paris is really my city.",
+      "generateAudio": true,
+      "estimatedMinutes": 20,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Where did they go?",
+            "instructions": "Where did Sophie and Thomas visit?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Where did Sophie and Thomas spend their Sunday?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "A museum",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "A flea market",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "A park",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "A shopping mall",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The story says they visited 'le Marché aux Puces de Saint-Ouen' - the Saint-Ouen flea market.",
+              "hint": "It's a famous Paris market selling vintage items."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: What did Sophie buy?",
+            "instructions": "What did Sophie purchase at the market?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What did Sophie buy at the flea market?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "A vintage camera",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Jazz records",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Three French children's books",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Vintage clothing",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie bought three French children's books: one about Paris, one with fairy tales, and one about French cooking.",
+              "hint": "She bought these to practice her French."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Preference Verbs",
+            "instructions": "Match the French preference verbs with their intensity levels.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "adorer",
+                  "right": "to love/adore (strongest)"
+                },
+                {
+                  "left": "aimer beaucoup",
+                  "right": "to like a lot"
+                },
+                {
+                  "left": "aimer",
+                  "right": "to like"
+                },
+                {
+                  "left": "ne pas aimer",
+                  "right": "to not like"
+                },
+                {
+                  "left": "détester",
+                  "right": "to hate (strongest negative)"
+                }
+              ],
+              "hint": "These verbs express different levels of liking or disliking."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: I like looking for",
+            "instructions": "Complete the sentence.",
+            "content": {
+              "text": "J'adore _____ des trésors!",
+              "blanks": [
+                {
+                  "correctAnswer": "chercher",
+                  "acceptableAnswers": [
+                    "chercher"
+                  ],
+                  "options": [
+                    "chercher",
+                    "cherche",
+                    "regarder",
+                    "trouve"
+                  ]
+                }
+              ],
+              "translation": "I love looking for treasures!",
+              "hint": "Use the infinitive form after 'adorer'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: I'm going to think about it",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Je",
+                "vais",
+                "réfléchir"
+              ],
+              "correctOrder": [
+                "Je",
+                "vais",
+                "réfléchir"
+              ],
+              "translation": "I'm going to think about it",
+              "explanation": "'Je vais + infinitive' expresses near future. 'Réfléchir' means 'to think/reflect'.",
+              "hint": "Use the near future construction."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: How much for...?",
+            "instructions": "Complete the question about price.",
+            "content": {
+              "text": "_____ pour les trois livres ?",
+              "blanks": [
+                {
+                  "correctAnswer": "Combien",
+                  "acceptableAnswers": [
+                    "Combien",
+                    "combien"
+                  ],
+                  "options": [
+                    "Combien",
+                    "Comment",
+                    "Pourquoi",
+                    "Quand"
+                  ]
+                }
+              ],
+              "translation": "How much for the three books?",
+              "hint": "This word asks about quantity or price."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: What did Thomas buy?",
+            "instructions": "What did Thomas purchase?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What did Thomas buy at the flea market?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Books",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "A camera",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Three jazz records",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Furniture",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The story says Thomas bought 'trois disques de jazz' - three jazz records for 15 euros.",
+              "hint": "He loves vintage music."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: I'll take them!",
+            "instructions": "Complete Sophie's decision to buy.",
+            "content": {
+              "text": "D'accord, je _____ prends!",
+              "blanks": [
+                {
+                  "correctAnswer": "les",
+                  "acceptableAnswers": [
+                    "les"
+                  ],
+                  "options": [
+                    "les",
+                    "le",
+                    "la",
+                    "l'"
+                  ]
+                }
+              ],
+              "translation": "Okay, I'll take them!",
+              "hint": "The pronoun replaces 'les trois livres' (plural)."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Sunday at the Flea Market",
+            "instructions": "Complete the summary of their flea market adventure.",
+            "content": {
+              "text": "On Sunday, Sophie and Thomas visit the famous {blank1} market in Paris. Sophie loves flea markets because she enjoys looking for {blank2}. The market sells everything: furniture, clothing, books, cameras, and art. Sophie looks at a vintage {blank3} camera but decides it's too expensive. Thomas buys three {blank4} records because he loves vintage music. Sophie finds three {blank5} books to practice her French and buys them for {blank6} euros. She takes many {blank7} of the colorful market. They eat {blank8} at a café around 2 PM. Sophie wants to come back another {blank9}. Through her hobbies of photography, reading, and exploring, Sophie feels that Paris is really her {blank10}.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": [
+                    "flea",
+                    "puces"
+                  ]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": [
+                    "treasures",
+                    "trésors"
+                  ]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "Leica"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "jazz"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "French",
+                    "children's"
+                  ]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": [
+                    "10",
+                    "dix",
+                    "ten"
+                  ]
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": [
+                    "photos",
+                    "pictures"
+                  ]
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": [
+                    "lunch",
+                    "déjeuner"
+                  ]
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": [
+                    "Sunday",
+                    "dimanche"
+                  ]
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": [
+                    "city",
+                    "ville"
+                  ]
+                }
+              ],
+              "hint": "Follow their adventure through the market step by step."
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 25,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 10,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Expression: C'est ma passion",
+            "instructions": "What does this expression convey?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "When Sophie says 'C'est ma passion!' about photography, what does she mean?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "It's my passion / I'm passionate about it",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "It's my job",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "It's my problem",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "It's my hobby sometimes",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'C'est ma passion' means 'it's my passion' - expressing very strong interest and love for something.",
+              "hint": "It expresses the strongest level of interest in a hobby."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrator",
+          "voice": "Vindemiatrix",
+          "description": "Story narrator with warm, engaging voice"
+        }
+      ],
+      "audioStyle": "This is a narrative story with a warm, calm tone. The narrator reads with natural pacing, creating an immersive storytelling experience."
+    }
+  ]
+}
