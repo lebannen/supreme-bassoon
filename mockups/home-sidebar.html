@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabee - Daily Tasks</title>
+    <link rel="stylesheet" href="styles-modular.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- ========== SIDEBAR NAVIGATION ========== -->
+        <aside class="sidebar">
+            <a href="#" class="logo">Vocabee</a>
+
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+
+            <div class="nav-content">
+                <nav class="nav-section">
+                    <div class="nav-section-title">Main</div>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="#" class="active">
+                                <span class="nav-icon">🏠</span>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">
+                                <span class="nav-icon">📚</span>
+                                <span>Library</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">
+                                <span class="nav-icon">🎓</span>
+                                <span>Courses</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <nav class="nav-section">
+                    <div class="nav-section-title">Study</div>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="#">
+                                <span class="nav-icon">📖</span>
+                                <span>Vocabulary</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">
+                                <span class="nav-icon">📝</span>
+                                <span>Grammar</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="user-section">
+                <div class="user-card">
+                    <div class="user-avatar">S</div>
+                    <div class="user-info">
+                        <div class="user-name">Sarah</div>
+                        <div class="user-level">Level A1</div>
+                    </div>
+                    <span class="user-streak">🔥</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ========== MAIN CONTENT ========== -->
+        <main class="main-content">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Good morning, Sarah!</h1>
+                <p>Ready for your daily practice? You're on a 7-day streak 🔥</p>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="stats-bar">
+                <div class="card card-padding card-hoverable">
+                    <div class="stat-label">Study Streak</div>
+                    <div class="stat-value">
+                        <span class="stat-icon">🔥</span>
+                        <span>7 days</span>
+                    </div>
+                </div>
+                <div class="card card-padding card-hoverable">
+                    <div class="stat-label">Words Learned</div>
+                    <div class="stat-value">
+                        <span class="stat-icon">📚</span>
+                        <span>142</span>
+                    </div>
+                </div>
+                <div class="card card-padding card-hoverable">
+                    <div class="stat-label">This Week</div>
+                    <div class="stat-value">
+                        <span class="stat-icon">⏱️</span>
+                        <span>3h 24m</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Today's Tasks -->
+            <section class="tasks-section">
+                <div class="section-header">
+                    <h2>Today's Tasks</h2>
+                    <span class="badge badge-info">2 of 4 completed</span>
+                </div>
+                <div class="task-list">
+                    <!-- Completed Task -->
+                    <div class="card card-padding card-hoverable completed">
+                        <div class="task-icon">✓</div>
+                        <div class="task-info">
+                            <div class="task-title">Vocabulary Review</div>
+                            <div class="task-meta">12 words • 3 minutes</div>
+                        </div>
+                        <button class="btn btn-primary">✓ Done</button>
+                    </div>
+
+                    <!-- Completed Task -->
+                    <div class="card card-padding card-hoverable completed">
+                        <div class="task-icon">✓</div>
+                        <div class="task-info">
+                            <div class="task-title">Daily Exercises</div>
+                            <div class="task-meta">3 exercises • 5 minutes</div>
+                        </div>
+                        <button class="btn btn-primary">✓ Done</button>
+                    </div>
+
+                    <!-- Active Task -->
+                    <div class="card card-padding card-hoverable">
+                        <div class="task-icon">🎧</div>
+                        <div class="task-info">
+                            <div class="task-title">Quick Listen: At the Café</div>
+                            <div class="task-meta">Dialogue • 3 minutes</div>
+                        </div>
+                        <button class="btn btn-primary">Start</button>
+                    </div>
+
+                    <!-- Active Task -->
+                    <div class="card card-padding card-hoverable">
+                        <div class="task-icon">📝</div>
+                        <div class="task-info">
+                            <div class="task-title">Grammar Tip: Present Tense</div>
+                            <div class="task-meta">Quick reference • 2 minutes</div>
+                        </div>
+                        <button class="btn btn-primary">Start</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recommended for You -->
+            <section class="recommendations-section">
+                <div class="section-header">
+                    <h2>Recommended for You</h2>
+                </div>
+                <div class="content-grid">
+                    <!-- Dialogue Card -->
+                    <div class="card card-padding card-hoverable">
+                        <div class="content-image dialogue">🍽️</div>
+                        <div class="content-body">
+                            <div class="content-header">
+                                <span class="badge">Dialogue</span>
+                                <span class="badge level">A1</span>
+                            </div>
+                            <div class="content-title">Ordering at a Restaurant</div>
+                            <div class="content-meta">
+                                <span class="meta-item">
+                                    <span>🎧</span>
+                                    <span>4 min</span>
+                                </span>
+                                <span class="meta-item">Food & Dining</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Story Card -->
+                    <div class="card card-padding card-hoverable">
+                        <div class="content-image story">📚</div>
+                        <div class="content-body">
+                            <div class="content-header">
+                                <span class="badge">Story</span>
+                                <span class="badge level">A1</span>
+                            </div>
+                            <div class="content-title">Sophie Arrives in Paris</div>
+                            <div class="content-meta">
+                                <span class="meta-item">
+                                    <span>🎧</span>
+                                    <span>5 min</span>
+                                </span>
+                                <span class="meta-item">Travel</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dialogue Card -->
+                    <div class="card card-padding card-hoverable">
+                        <div class="content-image dialogue">🏨</div>
+                        <div class="content-body">
+                            <div class="content-header">
+                                <span class="badge">Dialogue</span>
+                                <span class="badge level">A1</span>
+                            </div>
+                            <div class="content-title">At the Hotel</div>
+                            <div class="content-meta">
+                                <span class="meta-item">
+                                    <span>🎧</span>
+                                    <span>3 min</span>
+                                </span>
+                                <span class="meta-item">Travel</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('.theme-icon');
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            themeIcon.textContent = '☀️';
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+
+            // Update icon and save preference
+            if (document.body.classList.contains('dark-theme')) {
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>

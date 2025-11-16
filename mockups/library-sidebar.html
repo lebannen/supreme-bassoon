@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabee - Library</title>
+    <link rel="stylesheet" href="styles-modular.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- ========== SIDEBAR NAVIGATION ========== -->
+        <aside class="sidebar">
+            <a href="#" class="logo">Vocabee</a>
+
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+
+            <div class="nav-content">
+                <nav class="nav-section">
+                    <div class="nav-section-title">Main</div>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="#">
+                                <span class="nav-icon">🏠</span>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="active">
+                                <span class="nav-icon">📚</span>
+                                <span>Library</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">
+                                <span class="nav-icon">🎓</span>
+                                <span>Courses</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <nav class="nav-section">
+                    <div class="nav-section-title">Study</div>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="#">
+                                <span class="nav-icon">📖</span>
+                                <span>Vocabulary</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">
+                                <span class="nav-icon">📝</span>
+                                <span>Grammar</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="user-section">
+                <div class="user-card">
+                    <div class="user-avatar">S</div>
+                    <div class="user-info">
+                        <div class="user-name">Sarah</div>
+                        <div class="user-level">Level A1</div>
+                    </div>
+                    <span class="user-streak">🔥</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ========== MAIN CONTENT ========== -->
+        <main class="main-content">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Library</h1>
+                <p>Explore dialogues, stories, and grammar topics at your own pace</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active">Dialogues</button>
+                <button class="tab">Stories</button>
+                <button class="tab">Grammar</button>
+            </div>
+
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-input" placeholder="Search dialogues...">
+                </div>
+                <select class="filter-dropdown">
+                    <option>All Levels</option>
+                    <option>A1</option>
+                    <option>A2</option>
+                    <option>B1</option>
+                    <option>B2</option>
+                </select>
+                <select class="filter-dropdown">
+                    <option>All Topics</option>
+                    <option>Food & Dining</option>
+                    <option>Travel</option>
+                    <option>Shopping</option>
+                    <option>Social</option>
+                </select>
+                <select class="filter-dropdown">
+                    <option>Sort: Recent</option>
+                    <option>Sort: Popular</option>
+                    <option>Sort: Level</option>
+                </select>
+                <span class="results-count">24 dialogues</span>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Card 1 - Completed -->
+                <div class="card card-padding card-hoverable">
+                    <div class="content-image dialogue">
+                        🍽️
+                        <span class="completed-badge">✓ Completed</span>
+                        <span class="audio-indicator">🎧 3 min</span>
+                    </div>
+                    <div class="content-body">
+                        <div class="content-header">
+                            <span class="badge">Dialogue</span>
+                            <span class="badge level">A1</span>
+                        </div>
+                        <div class="content-title">At the Café</div>
+                        <div class="content-description">
+                            Thomas and Sophie order drinks at a café in Paris
+                        </div>
+                        <div class="content-meta">
+                            <span class="meta-item">Food & Dining</span>
+                            <span class="meta-separator">•</span>
+                            <span class="meta-item">2 speakers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card card-padding card-hoverable">
+                    <div class="content-image dialogue">
+                        🏨
+                        <span class="audio-indicator">🎧 4 min</span>
+                    </div>
+                    <div class="content-body">
+                        <div class="content-header">
+                            <span class="badge">Dialogue</span>
+                            <span class="badge level">A1</span>
+                        </div>
+                        <div class="content-title">Ordering at a Restaurant</div>
+                        <div class="content-description">
+                            Learn how to order food and ask for the bill in French
+                        </div>
+                        <div class="content-meta">
+                            <span class="meta-item">Food & Dining</span>
+                            <span class="meta-separator">•</span>
+                            <span class="meta-item">3 speakers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card card-padding card-hoverable">
+                    <div class="content-image dialogue">
+                        🛒
+                        <span class="audio-indicator">🎧 3 min</span>
+                    </div>
+                    <div class="content-body">
+                        <div class="content-header">
+                            <span class="badge">Dialogue</span>
+                            <span class="badge level">A1</span>
+                        </div>
+                        <div class="content-title">At the Market</div>
+                        <div class="content-description">
+                            Shopping for fresh produce at a French market
+                        </div>
+                        <div class="content-meta">
+                            <span class="meta-item">Shopping</span>
+                            <span class="meta-separator">•</span>
+                            <span class="meta-item">2 speakers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card card-padding card-hoverable">
+                    <div class="content-image dialogue">
+                        🚇
+                        <span class="audio-indicator">🎧 5 min</span>
+                    </div>
+                    <div class="content-body">
+                        <div class="content-header">
+                            <span class="badge">Dialogue</span>
+                            <span class="badge level">A2</span>
+                        </div>
+                        <div class="content-title">Taking the Metro</div>
+                        <div class="content-description">
+                            Navigate the Paris metro and ask for directions
+                        </div>
+                        <div class="content-meta">
+                            <span class="meta-item">Travel</span>
+                            <span class="meta-separator">•</span>
+                            <span class="meta-item">2 speakers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="card card-padding card-hoverable">
+                    <div class="content-image dialogue">
+                        👋
+                        <span class="audio-indicator">🎧 2 min</span>
+                    </div>
+                    <div class="content-body">
+                        <div class="content-header">
+                            <span class="badge">Dialogue</span>
+                            <span class="badge level">A1</span>
+                        </div>
+                        <div class="content-title">Meeting Someone New</div>
+                        <div class="content-description">
+                            Introduction and basic greetings in a social setting
+                        </div>
+                        <div class="content-meta">
+                            <span class="meta-item">Social</span>
+                            <span class="meta-separator">•</span>
+                            <span class="meta-item">2 speakers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="card card-padding card-hoverable">
+                    <div class="content-image dialogue">
+                        ☕
+                        <span class="audio-indicator">🎧 4 min</span>
+                    </div>
+                    <div class="content-body">
+                        <div class="content-header">
+                            <span class="badge">Dialogue</span>
+                            <span class="badge level">A1</span>
+                        </div>
+                        <div class="content-title">Coffee Break Chat</div>
+                        <div class="content-description">
+                            Casual conversation between colleagues during a break
+                        </div>
+                        <div class="content-meta">
+                            <span class="meta-item">Social</span>
+                            <span class="meta-separator">•</span>
+                            <span class="meta-item">2 speakers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('.theme-icon');
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            themeIcon.textContent = '☀️';
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+
+            // Update icon and save preference
+            if (document.body.classList.contains('dark-theme')) {
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>
