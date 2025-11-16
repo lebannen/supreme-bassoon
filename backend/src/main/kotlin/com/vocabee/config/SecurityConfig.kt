@@ -31,10 +31,13 @@ class SecurityConfig(
                     .requestMatchers("/api/auth/**", "/login/**", "/oauth2/**", "/error").permitAll()
                     .requestMatchers("/api/v1/**").permitAll()
                     .requestMatchers("/api/files/**").permitAll()  // File uploads
+                    .requestMatchers("/api/admin/**").authenticated()  // TODO: Add role-based access control (check for ADMIN role)
                     .requestMatchers("/api/reading/texts", "/api/reading/texts/*", "/api/reading/texts/import", "/api/reading/texts/*/audio").permitAll()  // Public text browsing, import, and audio updates
                     .requestMatchers("/api/reading/**").authenticated()  // Progress tracking requires auth
                     .requestMatchers("/api/exercises/*/attempt", "/api/exercises/*/progress").authenticated()  // Attempts and progress require auth (must be before general exercises)
                     .requestMatchers("/api/exercises/**").permitAll()  // Public exercise browsing
+                    .requestMatchers("/api/episodes/*/progress", "/api/episodes/*/complete-content").authenticated()  // Episode progress requires auth
+                    .requestMatchers("/api/courses/**", "/api/modules/**", "/api/episodes/**").permitAll()  // Public course browsing
                     .anyRequest().authenticated()
             }
             .oauth2Login { oauth2 ->

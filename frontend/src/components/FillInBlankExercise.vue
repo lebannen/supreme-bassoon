@@ -5,15 +5,34 @@
         <span v-for="(part, index) in sentenceParts" :key="index">
           <span v-if="part.type === 'text'" class="sentence-text">{{ part.content }}</span>
           <span v-else-if="part.type === 'blank'" class="blank-wrapper">
+            <!-- Multi-blank support -->
             <Select
-              v-if="!showResult"
+              v-if="!showResult && isMultiBlank && part.blankIndex !== undefined"
+              v-model="selectedAnswers[part.blankIndex]"
+              :options="getBlankOptions(part.blankIndex)"
+              placeholder="Choose..."
+              class="blank-select"
+              :class="{ 'has-value': selectedAnswers[part.blankIndex] }"
+            />
+            <!-- Single blank support (backward compatibility) -->
+            <Select
+              v-else-if="!showResult && !isMultiBlank"
               v-model="selectedAnswer"
-              :options="options"
+              :options="getBlankOptions(0)"
               placeholder="Choose..."
               class="blank-select"
               :class="{ 'has-value': selectedAnswer }"
             />
-            <span v-else class="blank-result" :class="resultClass">
+            <!-- Multi-blank result display -->
+            <span
+              v-else-if="showResult && isMultiBlank && part.blankIndex !== undefined"
+              class="blank-result"
+              :class="blankResults[part.blankIndex]"
+            >
+              {{ userAnswers[part.blankIndex] || '___' }}
+            </span>
+            <!-- Single blank result display -->
+            <span v-else-if="showResult" class="blank-result" :class="resultClass">
               {{ userAnswer || '___' }}
             </span>
           </span>
@@ -69,12 +88,24 @@ import Button from 'primevue/button'
 import Select from 'primevue/select'
 import Message from 'primevue/message'
 
+interface BlankConfig {
+  correctAnswer: string
+  acceptableAnswers?: string[]
+  options?: string[]
+}
+
 interface Props {
   content: {
-    sentence: string
-    blankIndex?: number
-    correctAnswer: string
-    options: string[]
+    // Old format (single blank)
+    sentence?: string
+    correctAnswer?: string
+    options?: string[]
+
+    // New format (multiple blanks)
+    text?: string
+    blanks?: BlankConfig[]
+
+    // Common fields
     translation?: string
     grammarExplanation?: string
     hint?: string
@@ -83,11 +114,22 @@ interface Props {
 
 const props = defineProps<Props>()
 const emit = defineEmits<{
-  submit: [response: { answer: string }]
+  submit: [response: { answer?: string; answers?: string[] }]
 }>()
 
+// Support both old and new formats
+const isMultiBlank = computed(() => !!props.content.text && !!props.content.blanks)
+const sentenceText = computed(() => props.content.text || props.content.sentence || '')
+
+// For single blank (backward compatibility)
 const selectedAnswer = ref<string | null>(null)
-const userAnswer = ref<string | null>(null) // Preserve the user's answer for display
+const userAnswer = ref<string | null>(null)
+
+// For multiple blanks
+const selectedAnswers = ref<(string | null)[]>([])
+const userAnswers = ref<(string | null)[]>([])
+const blankResults = ref<('correct' | 'incorrect' | null)[]>([])
+
 const showHint = ref(false)
 const showResult = ref(false)
 const feedback = ref<string | null>(null)
@@ -95,8 +137,8 @@ const isCorrect = ref(false)
 
 // Parse the sentence and split it into parts (text and blank)
 const sentenceParts = computed(() => {
-  const sentence = props.content.sentence
-  const parts: Array<{ type: 'text' | 'blank'; content: string }> = []
+  const sentence = sentenceText.value
+  const parts: Array<{ type: 'text' | 'blank'; content: string; blankIndex?: number }> = []
 
   // Split by blank marker (e.g., "Je ____ français." or "Je ___ français.")
   const blankPattern = /_{2,}/
@@ -107,20 +149,35 @@ const sentenceParts = computed(() => {
     parts.push({ type: 'text', content: sentence })
   } else {
     // Add parts with blank in between
+    let blankIndex = 0
     segments.forEach((segment, index) => {
       if (segment) {
         parts.push({ type: 'text', content: segment })
       }
       if (index < segments.length - 1) {
-        parts.push({ type: 'blank', content: '' })
+        parts.push({ type: 'blank', content: '', blankIndex: blankIndex++ })
       }
     })
+
+    // Initialize arrays for multi-blank
+    if (isMultiBlank.value) {
+      selectedAnswers.value = new Array(blankIndex).fill(null)
+      userAnswers.value = new Array(blankIndex).fill(null)
+      blankResults.value = new Array(blankIndex).fill(null)
+    }
   }
 
   return parts
 })
 
-const options = computed(() => props.content.options || [])
+// Get options for a specific blank
+const getBlankOptions = (blankIndex: number) => {
+  if (isMultiBlank.value && props.content.blanks && props.content.blanks[blankIndex]) {
+    return props.content.blanks[blankIndex].options || []
+  }
+  return props.content.options || []
+}
+
 const translation = computed(() => props.content.translation)
 const hint = computed(() => props.content.hint || props.content.grammarExplanation || '')
 
@@ -129,22 +186,46 @@ const resultClass = computed(() => {
   return isCorrect.value ? 'correct' : 'incorrect'
 })
 
+const allAnswersFilled = computed(() => {
+  if (isMultiBlank.value) {
+    return selectedAnswers.value.every(answer => answer !== null && answer !== '')
+  }
+  return selectedAnswer.value !== null && selectedAnswer.value !== ''
+})
+
 function toggleHint() {
   showHint.value = !showHint.value
 }
 
 function submitAnswer() {
-  if (!selectedAnswer.value) return
+  if (isMultiBlank.value) {
+    // Multi-blank submission
+    if (!allAnswersFilled.value) return
 
-  // Preserve the user's answer before submission
-  userAnswer.value = selectedAnswer.value
-  emit('submit', { answer: selectedAnswer.value })
+    userAnswers.value = [...selectedAnswers.value]
+    emit('submit', { answers: selectedAnswers.value.map(a => a || '') })
+  } else {
+    // Single blank submission (backward compatibility)
+    if (!selectedAnswer.value) return
+
+    userAnswer.value = selectedAnswer.value
+    emit('submit', { answer: selectedAnswer.value })
+  }
 }
 
-function setResult(result: { isCorrect: boolean; feedback: string; userResponse?: any }) {
-  // Use the userResponse passed from parent if available, otherwise fall back to preserved state
-  if (result.userResponse && result.userResponse.answer) {
-    userAnswer.value = result.userResponse.answer
+function setResult(result: { isCorrect: boolean; feedback: string; userResponse?: any; blankResults?: boolean[] }) {
+  if (isMultiBlank.value && result.blankResults) {
+    // Multi-blank result
+    blankResults.value = result.blankResults.map(r => r ? 'correct' : 'incorrect')
+
+    if (result.userResponse && result.userResponse.answers) {
+      userAnswers.value = result.userResponse.answers
+    }
+  } else {
+    // Single blank result (backward compatibility)
+    if (result.userResponse && result.userResponse.answer) {
+      userAnswer.value = result.userResponse.answer
+    }
   }
 
   showResult.value = true
@@ -155,6 +236,9 @@ function setResult(result: { isCorrect: boolean; feedback: string; userResponse?
 function reset() {
   selectedAnswer.value = null
   userAnswer.value = null
+  selectedAnswers.value = new Array(selectedAnswers.value.length).fill(null)
+  userAnswers.value = new Array(userAnswers.value.length).fill(null)
+  blankResults.value = new Array(blankResults.value.length).fill(null)
   showHint.value = false
   showResult.value = false
   feedback.value = null

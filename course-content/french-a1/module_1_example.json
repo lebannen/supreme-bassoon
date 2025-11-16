@@ -1,0 +1,562 @@
+{
+  "moduleNumber": 1,
+  "title": "Getting Started",
+  "theme": "Greetings & Introductions",
+  "description": "Learn how to greet people and introduce yourself in French. Master essential phrases for everyday interactions.",
+  "objectives": [
+    "Greet people at different times of day",
+    "Introduce yourself (name, nationality)",
+    "Ask basic questions (How are you? Where are you from?)",
+    "Say goodbye politely"
+  ],
+  "estimatedMinutes": 180,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "STORY",
+      "title": "Marie Arrives in Paris",
+      "content": "Marie stepped off the plane at Charles de Gaulle airport. The excitement of finally being in Paris made her heart race. As she walked through the terminal, she practiced the French phrases she had learned.\n\n\"Bonjour!\" said the immigration officer with a warm smile.\n\n\"Bonjour, monsieur,\" Marie responded, trying to sound confident.\n\n\"Vous êtes américaine?\" he asked, noticing her passport.\n\n\"Oui, je suis américaine. Je m'appelle Marie,\" she said proudly.\n\nThe officer stamped her passport. \"Bienvenue en France! Welcome to France!\"\n\n\"Merci beaucoup!\" Marie said, feeling a rush of accomplishment. Her French was working!\n\nAs she collected her luggage, an elderly French woman accidentally bumped into her.\n\n\"Oh, pardon! Excusez-moi, mademoiselle,\" the woman apologized.\n\n\"Ce n'est pas grave,\" Marie replied, remembering the phrase for \"it's okay.\"\n\nThe woman smiled approvingly. \"Vous parlez très bien français!\"\n\nMarie blushed. She didn't speak French \"very well\" yet, but it was a good start.",
+      "generateAudio": false,
+      "estimatedMinutes": 15,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: Where did Marie arrive?",
+            "instructions": "Based on the story, select the correct answer.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Where did Marie arrive in Paris?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Charles de Gaulle airport",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Orly airport",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Gare du Nord train station",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "A hotel in Paris",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The story begins with: 'Marie stepped off the plane at Charles de Gaulle airport.'",
+              "hint": "Read the first sentence of the story carefully."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulary: What does 'Bonjour' mean?",
+            "instructions": "Choose the correct English translation.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What does 'Bonjour' mean in English?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Hello / Good day",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Goodbye",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Thank you",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Excuse me",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Bonjour' is the standard French greeting meaning 'Hello' or 'Good day'. It's used throughout the day until evening.",
+              "hint": "This is the most common French greeting."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete the Greeting",
+            "instructions": "Fill in the blank with the correct French word.",
+            "content": {
+              "sentence": "Bonjour, je _____ Marie.",
+              "correctAnswer": "m'appelle",
+              "options": ["m'appelle", "suis", "parle", "vais"],
+              "translation": "Hello, my name is Marie.",
+              "hint": "Use the phrase for 'my name is' in French."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "What does 'Merci beaucoup' mean?",
+            "instructions": "Choose the correct translation.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What does 'Merci beaucoup' mean?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Thank you very much",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "You're welcome",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Goodbye",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "I'm sorry",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Merci beaucoup' means 'thank you very much'. 'Merci' is 'thank you' and 'beaucoup' means 'very much' or 'a lot'.",
+              "hint": "Look for the words Marie says when she's grateful."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Greetings",
+            "instructions": "Match the French phrases with their English translations.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Bonjour",
+                  "right": "Hello / Good day"
+                },
+                {
+                  "left": "Merci",
+                  "right": "Thank you"
+                },
+                {
+                  "left": "Excusez-moi",
+                  "right": "Excuse me"
+                },
+                {
+                  "left": "Pardon",
+                  "right": "Sorry / Pardon"
+                },
+                {
+                  "left": "Bienvenue",
+                  "right": "Welcome"
+                }
+              ],
+              "hint": "Think about what you would say in similar situations."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: Nationality",
+            "instructions": "Fill in the blank with the correct word for 'American' (feminine).",
+            "content": {
+              "sentence": "Oui, je suis _____.",
+              "correctAnswer": "américaine",
+              "options": ["américaine", "français", "anglaise", "canadienne"],
+              "translation": "Yes, I am American.",
+              "hint": "Marie is American and female. What's the feminine form?"
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: I am American",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": ["Je", "suis", "américaine"],
+              "correctOrder": ["Je", "suis", "américaine"],
+              "translation": "I am American (feminine)",
+              "explanation": "In French, you use 'Je suis + nationality'. Remember that adjectives of nationality are not capitalized in French.",
+              "hint": "Start with the subject pronoun 'Je'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Fill in the Story",
+            "instructions": "Complete the paragraph with the missing words.",
+            "content": {
+              "text": "Marie says {blank1} to greet the officer. She tells him {blank2} to say she is American. When the officer welcomes her, she says {blank3}. Later, when the woman apologizes, Marie responds with {blank4} to say it's not a problem.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "Bonjour"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": ["je suis américaine", "américaine"]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": ["merci", "merci beaucoup"]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": ["ce n'est pas grave", "pas grave"]
+                }
+              ],
+              "hint": "Look back at the dialogue to find these common French phrases."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.7
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "At the Hotel Reception",
+      "content": "Receptionist: Bonjour! Bienvenue à l'Hôtel Paris.\n\nMarie: Bonjour, madame. J'ai une réservation.\n\nReceptionist: Très bien! Comment vous appelez-vous?\n\nMarie: Je m'appelle Marie Johnson.\n\nReceptionist: Ah oui, Mademoiselle Johnson. Une chambre pour trois nuits, n'est-ce pas?\n\nMarie: Oui, c'est correct.\n\nReceptionist: Parfait! Voici votre clé. Chambre numéro douze.\n\nMarie: Merci beaucoup!\n\nReceptionist: De rien! Le petit déjeuner est de sept heures à dix heures.\n\nMarie: D'accord, merci. Bonne journée!\n\nReceptionist: Bonne journée, mademoiselle!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Receptionist",
+          "voice": "Leda",
+          "description": "A friendly hotel receptionist"
+        },
+        {
+          "name": "Marie",
+          "voice": "Puck",
+          "description": "An American traveler in Paris"
+        }
+      ],
+      "audioStyle": "This is a friendly, welcoming conversation at a hotel reception desk. The receptionist is warm and professional, while Marie is polite and a bit excited to practice her French.",
+      "estimatedMinutes": 20,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comprehension: How many nights?",
+            "instructions": "Based on the dialogue, answer the question.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "How many nights is Marie staying at the hotel?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "One night",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Two nights",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Three nights",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Four nights",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The receptionist says 'Une chambre pour trois nuits' which means 'A room for three nights'.",
+              "hint": "Listen for the number in French: 'trois nuits'."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "What is Marie's room number?",
+            "instructions": "Select the correct room number.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What room number did Marie receive?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "10",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "11",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "12",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "13",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The receptionist says 'Chambre numéro douze' - room number twelve.",
+              "hint": "'Douze' means 'twelve' in French."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: Introduce Yourself",
+            "instructions": "Put the words in the correct order to form the sentence 'My name is Marie'.",
+            "content": {
+              "words": ["Je", "m'appelle", "Marie"],
+              "correctOrder": ["Je", "m'appelle", "Marie"],
+              "translation": "My name is Marie",
+              "explanation": "In French, you introduce yourself with 'Je m'appelle [name]'. This is the most common and polite way to say your name.",
+              "hint": "Start with the subject pronoun 'Je' (I)."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: I have a reservation",
+            "instructions": "Fill in the blank with the correct verb.",
+            "content": {
+              "sentence": "J'_____ une réservation.",
+              "correctAnswer": "ai",
+              "options": ["ai", "suis", "es", "a"],
+              "translation": "I have a reservation.",
+              "hint": "Which form of 'avoir' (to have) goes with 'je'?"
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Match Hotel Vocabulary",
+            "instructions": "Match the French words with their English meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "chambre",
+                  "right": "room"
+                },
+                {
+                  "left": "clé",
+                  "right": "key"
+                },
+                {
+                  "left": "petit déjeuner",
+                  "right": "breakfast"
+                },
+                {
+                  "left": "réservation",
+                  "right": "reservation"
+                },
+                {
+                  "left": "nuit",
+                  "right": "night"
+                }
+              ],
+              "hint": "Think about words you'd use when checking into a hotel."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "What does 'De rien' mean?",
+            "instructions": "Choose the correct translation.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What does 'De rien' mean in this context?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "You're welcome",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Thank you",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Goodbye",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Good morning",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'De rien' literally means 'of nothing' and is used to say 'you're welcome' in response to 'merci'.",
+              "hint": "It's a polite response after someone says 'thank you'."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complete: Asking someone's name",
+            "instructions": "Fill in the question asking someone's name.",
+            "content": {
+              "text": "Comment vous _____-vous ?",
+              "blanks": [
+                {
+                  "correctAnswer": "appelez",
+                  "acceptableAnswers": ["appelez"],
+                  "options": ["appelez", "appelle", "parlez", "êtes"]
+                }
+              ],
+              "translation": "What is your name? (formal)",
+              "hint": "This is the formal way to ask someone's name."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrange: Have a good day",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": ["Bonne", "journée"],
+              "correctOrder": ["Bonne", "journée"],
+              "translation": "Have a good day",
+              "explanation": "'Bonne journée' is a common way to wish someone a good day when parting.",
+              "hint": "The adjective comes before the noun."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        }
+      ]
+    }
+  ]
+}

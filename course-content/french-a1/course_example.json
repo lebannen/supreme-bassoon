@@ -1,0 +1,17 @@
+{
+  "slug": "french-a1",
+  "name": "French A1 - Complete Beginner",
+  "languageCode": "fr",
+  "cefrLevel": "A1",
+  "description": "Complete beginner course for learning French. Master essential greetings, basic conversations, and everyday vocabulary through engaging stories and interactive exercises.",
+  "objectives": [
+    "Introduce yourself and others in French",
+    "Ask and answer simple questions about personal details",
+    "Describe people, places, and things using basic vocabulary",
+    "Order food and drinks in a restaurant",
+    "Ask for and give directions",
+    "Talk about daily routines and hobbies",
+    "Make simple purchases in shops"
+  ],
+  "estimatedHours": 40
+}

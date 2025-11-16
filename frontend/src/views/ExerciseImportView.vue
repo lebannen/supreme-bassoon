@@ -7,14 +7,73 @@
         </template>
         <template #content>
           <div class="import-form">
+            <!-- File Upload Section -->
             <div class="field">
-              <label for="jsonContent">Module JSON Content</label>
+              <label>Drag & Drop JSON Files</label>
+              <div class="file-upload-container">
+                <input
+                  ref="fileInput"
+                  type="file"
+                  multiple
+                  accept=".json"
+                  @change="handleFileSelect"
+                  style="display: none"
+                />
+                <div
+                  class="drop-zone"
+                  :class="{ 'drag-over': isDragging, 'has-files': selectedFiles.length > 0 }"
+                  @drop.prevent="handleDrop"
+                  @dragover.prevent="isDragging = true"
+                  @dragleave.prevent="isDragging = false"
+                  @click="triggerFileSelect"
+                >
+                  <i class="pi pi-cloud-upload" style="font-size: 3rem; color: var(--primary-color)"></i>
+                  <p class="drop-zone-text">
+                    <strong>Click to browse</strong> or drag and drop JSON files here
+                  </p>
+                  <p class="drop-zone-hint">
+                    You can select multiple module files at once
+                  </p>
+                </div>
+              </div>
+
+              <!-- Selected Files List -->
+              <div v-if="selectedFiles.length > 0" class="selected-files">
+                <h4>Selected Files ({{ selectedFiles.length }})</h4>
+                <div class="file-list">
+                  <div
+                    v-for="(file, index) in selectedFiles"
+                    :key="index"
+                    class="file-item"
+                  >
+                    <i class="pi pi-file"></i>
+                    <span class="file-name">{{ file.name }}</span>
+                    <span class="file-size">{{ formatFileSize(file.size) }}</span>
+                    <Button
+                      icon="pi pi-times"
+                      text
+                      rounded
+                      severity="danger"
+                      size="small"
+                      @click="removeFile(index)"
+                      :disabled="isImporting"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <Divider>OR</Divider>
+
+            <!-- Paste JSON Section -->
+            <div class="field">
+              <label for="jsonContent">Paste JSON Content</label>
               <Textarea
                 id="jsonContent"
                 v-model="jsonContent"
-                rows="15"
+                rows="10"
                 placeholder="Paste JSON from module_X_exercises.json file here..."
-                :disabled="isImporting"
+                :disabled="isImporting || selectedFiles.length > 0"
               />
             </div>
 
@@ -45,7 +104,8 @@
               icon="pi pi-upload"
               @click="importExercises"
               :loading="isImporting"
-              :disabled="!jsonContent.trim()"
+              :disabled="!canImport"
+              size="large"
             />
 
             <Message v-if="errorMessage" severity="error" :closable="false">
@@ -119,7 +179,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import Card from 'primevue/card'
 import Textarea from 'primevue/textarea'
 import Checkbox from 'primevue/checkbox'
@@ -132,6 +192,9 @@ import Tag from 'primevue/tag'
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
 
+const fileInput = ref<HTMLInputElement | null>(null)
+const selectedFiles = ref<File[]>([])
+const isDragging = ref(false)
 const jsonContent = ref('')
 const generateAudio = ref(true)
 const overwriteExisting = ref(false)
@@ -156,6 +219,52 @@ interface ImportedExercise {
   status: 'IMPORTED' | 'SKIPPED' | 'FAILED'
 }
 
+const canImport = computed(() => {
+  return selectedFiles.value.length > 0 || jsonContent.value.trim().length > 0
+})
+
+function triggerFileSelect() {
+  if (!isImporting.value) {
+    fileInput.value?.click()
+  }
+}
+
+function handleFileSelect(event: Event) {
+  const target = event.target as HTMLInputElement
+  if (target.files) {
+    addFiles(Array.from(target.files))
+  }
+}
+
+function handleDrop(event: DragEvent) {
+  isDragging.value = false
+  if (event.dataTransfer?.files) {
+    addFiles(Array.from(event.dataTransfer.files))
+  }
+}
+
+function addFiles(files: File[]) {
+  const jsonFiles = files.filter(file => file.name.endsWith('.json'))
+  selectedFiles.value.push(...jsonFiles)
+
+  // Clear paste area if files are selected
+  if (selectedFiles.value.length > 0) {
+    jsonContent.value = ''
+  }
+}
+
+function removeFile(index: number) {
+  selectedFiles.value.splice(index, 1)
+}
+
+function formatFileSize(bytes: number): string {
+  if (bytes < 1024) return bytes + ' B'
+  const kb = bytes / 1024
+  if (kb < 1024) return kb.toFixed(1) + ' KB'
+  const mb = kb / 1024
+  return mb.toFixed(1) + ' MB'
+}
+
 function getAuthHeaders(): HeadersInit {
   const token = localStorage.getItem('auth_token')
   const headers: HeadersInit = {
@@ -167,44 +276,82 @@ function getAuthHeaders(): HeadersInit {
   return headers
 }
 
-async function importExercises() {
-  if (!jsonContent.value.trim()) {
-    return
+async function importSingleModule(moduleData: any): Promise<ImportResult> {
+  const response = await fetch(
+    `${API_BASE}/api/admin/exercises/import?generateAudio=${generateAudio.value}&overwriteExisting=${overwriteExisting.value}`,
+    {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      body: JSON.stringify(moduleData)
+    }
+  )
+
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}: ${response.statusText}`)
   }
 
+  return await response.json()
+}
+
+async function importExercises() {
   isImporting.value = true
   errorMessage.value = ''
   importResult.value = null
 
   try {
-    // Parse JSON to validate
-    let moduleData
-    try {
-      moduleData = JSON.parse(jsonContent.value)
-    } catch (e) {
-      errorMessage.value = 'Invalid JSON format'
+    let results: ImportResult[]
+
+    // Import from files if selected
+    if (selectedFiles.value.length > 0) {
+      results = []
+
+      for (const file of selectedFiles.value) {
+        try {
+          const text = await file.text()
+          const moduleData = JSON.parse(text)
+          const result = await importSingleModule(moduleData)
+          results.push(result)
+        } catch (e: any) {
+          console.error(`Failed to import ${file.name}:`, e)
+          errorMessage.value = `${errorMessage.value}\nFailed to import ${file.name}: ${e.message}`
+        }
+      }
+    }
+    // Import from pasted JSON
+    else if (jsonContent.value.trim()) {
+      let moduleData
+      try {
+        moduleData = JSON.parse(jsonContent.value)
+      } catch (e) {
+        errorMessage.value = 'Invalid JSON format'
+        return
+      }
+
+      const result = await importSingleModule(moduleData)
+      results = [result]
+    } else {
       return
     }
 
-    const response = await fetch(
-      `${API_BASE}/api/admin/exercises/import?generateAudio=${generateAudio.value}&overwriteExisting=${overwriteExisting.value}`,
-      {
-        method: 'POST',
-        headers: getAuthHeaders(),
-        body: JSON.stringify(moduleData)
+    // Combine results
+    if (results.length > 0) {
+      importResult.value = {
+        imported: results.reduce((sum, r) => sum + r.imported, 0),
+        skipped: results.reduce((sum, r) => sum + r.skipped, 0),
+        audioGenerated: results.reduce((sum, r) => sum + r.audioGenerated, 0),
+        audioFailed: results.reduce((sum, r) => sum + r.audioFailed, 0),
+        errors: results.flatMap(r => r.errors),
+        exercises: results.flatMap(r => r.exercises)
       }
-    )
 
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}: ${response.statusText}`)
-    }
-
-    const result = await response.json()
-    importResult.value = result
-
-    if (result.errors.length === 0 && result.imported > 0) {
-      // Success - clear the form
-      jsonContent.value = ''
+      // Clear form on success
+      if (importResult.value.errors.length === 0 && importResult.value.imported > 0) {
+        jsonContent.value = ''
+        selectedFiles.value = []
+        if (fileInput.value) {
+          fileInput.value.value = ''
+        }
+      }
     }
   } catch (error: any) {
     console.error('Import failed:', error)
@@ -260,6 +407,101 @@ function truncateUrl(url: string): string {
 .field label {
   font-weight: 600;
   color: var(--text-color);
+}
+
+/* File Upload Styles */
+.file-upload-container {
+  margin-top: 0.5rem;
+}
+
+.drop-zone {
+  border: 2px dashed var(--surface-border);
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--surface-50);
+}
+
+.drop-zone:hover {
+  border-color: var(--primary-color);
+  background: var(--primary-50);
+}
+
+.drop-zone.drag-over {
+  border-color: var(--primary-color);
+  background: var(--primary-100);
+  transform: scale(1.02);
+}
+
+.drop-zone.has-files {
+  border-color: var(--green-500);
+  background: var(--green-50);
+}
+
+.drop-zone-text {
+  margin: 1rem 0 0.5rem 0;
+  font-size: 1.125rem;
+  color: var(--text-color);
+}
+
+.drop-zone-text strong {
+  color: var(--primary-color);
+}
+
+.drop-zone-hint {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-color-secondary);
+}
+
+.selected-files {
+  margin-top: 1.5rem;
+}
+
+.selected-files h4 {
+  margin: 0 0 1rem 0;
+  color: var(--text-color);
+}
+
+.file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.file-item:hover {
+  border-color: var(--primary-color);
+  background: var(--primary-50);
+}
+
+.file-item i.pi-file {
+  color: var(--primary-color);
+  font-size: 1.25rem;
+}
+
+.file-name {
+  flex: 1;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.file-size {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary);
+  font-family: monospace;
 }
 
 .options-section {

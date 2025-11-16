@@ -62,14 +62,79 @@ data class UserProgressDto(
     val isCompleted: Boolean
 )
 
+// Renamed to avoid conflict with new course-based ModuleProgressDto
+data class LegacyModuleProgressDto(
+    val moduleNumber: Int,
+    val languageCode: String,
+    val totalExercises: Int,
+    val completedExercises: Int,
+    val masteredExercises: Int,
+    val averageScore: Double?,
+    val totalTimeSpentSeconds: Int,
+    val completionPercentage: Double,
+    val exercises: List<ExerciseProgressDto>
+)
+
+data class ExerciseProgressDto(
+    val exercise: ExerciseSummaryDto,
+    val bestScore: Double?,
+    val attemptsCount: Int,
+    val lastAttemptAt: LocalDateTime?,
+    val status: ExerciseStatus
+)
+
+enum class ExerciseStatus {
+    NOT_STARTED,
+    IN_PROGRESS,
+    MASTERED
+}
+
+data class UserStatsDto(
+    val totalExercisesAvailable: Int,
+    val totalExercisesCompleted: Int,
+    val totalExercisesMastered: Int,
+    val overallAverageScore: Double?,
+    val totalTimeSpentSeconds: Int,
+    val totalAttempts: Int,
+    val currentStreak: Int,
+    val longestStreak: Int,
+    val recentActivity: List<RecentActivityDto>,
+    val progressByLanguage: Map<String, LanguageProgressDto>
+)
+
+data class RecentActivityDto(
+    val exerciseId: Long,
+    val exerciseTitle: String,
+    val exerciseType: String,
+    val score: Double,
+    val isCorrect: Boolean,
+    val completedAt: LocalDateTime
+)
+
+data class LanguageProgressDto(
+    val languageCode: String,
+    val totalExercises: Int,
+    val completedExercises: Int,
+    val masteredExercises: Int,
+    val averageScore: Double?,
+    val moduleProgress: Map<Int, ModuleProgressSummary>
+)
+
+data class ModuleProgressSummary(
+    val moduleNumber: Int,
+    val totalExercises: Int,
+    val masteredExercises: Int,
+    val completionPercentage: Double
+)
+
 // Extension functions
 fun Exercise.toSummaryDto() = ExerciseSummaryDto(
     id = id!!,
     type = exerciseType.typeKey,
     title = title,
     languageCode = languageCode,
-    moduleNumber = moduleNumber,
-    topic = topic,
+    moduleNumber = null, // No longer stored directly on Exercise
+    topic = null, // No longer stored directly on Exercise
     difficultyRating = difficultyRating,
     estimatedDurationSeconds = estimatedDurationSeconds,
     pointsValue = pointsValue
@@ -79,8 +144,8 @@ fun Exercise.toDto() = ExerciseDto(
     id = id!!,
     type = exerciseType.typeKey,
     languageCode = languageCode,
-    moduleNumber = moduleNumber,
-    topic = topic,
+    moduleNumber = null, // No longer stored directly on Exercise
+    topic = null, // No longer stored directly on Exercise
     cefrLevel = cefrLevel,
     title = title,
     instructions = instructions,

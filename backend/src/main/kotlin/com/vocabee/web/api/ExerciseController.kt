@@ -19,12 +19,10 @@ class ExerciseController(
     @GetMapping
     fun getExercises(
         @RequestParam languageCode: String,
-        @RequestParam(required = false) module: Int?,
-        @RequestParam(required = false) topic: String?,
         @RequestParam(required = false) type: String?
     ): ResponseEntity<List<ExerciseSummaryDto>> {
-        logger.info("Getting exercises: lang=$languageCode, module=$module, topic=$topic, type=$type")
-        val exercises = exerciseService.getExercises(languageCode, module, topic, type)
+        logger.info("Getting exercises: lang=$languageCode, type=$type")
+        val exercises = exerciseService.getExercises(languageCode, type)
         return ResponseEntity.ok(exercises)
     }
 
@@ -71,6 +69,34 @@ class ExerciseController(
 
         val progress = exerciseService.getUserProgress(userId, id)
         return ResponseEntity.ok(progress)
+    }
+
+    @GetMapping("/module-progress")
+    fun getModuleProgress(
+        @RequestHeader("Authorization") authorization: String,
+        @RequestParam languageCode: String,
+        @RequestParam moduleNumber: Int
+    ): ResponseEntity<LegacyModuleProgressDto> {
+        val userId = getUserIdFromToken(authorization)
+            ?: return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build()
+
+        logger.info("Getting module progress for user $userId, language $languageCode, module $moduleNumber")
+
+        val progress = exerciseService.getModuleProgress(userId, languageCode, moduleNumber)
+        return ResponseEntity.ok(progress)
+    }
+
+    @GetMapping("/stats")
+    fun getUserStats(
+        @RequestHeader("Authorization") authorization: String
+    ): ResponseEntity<UserStatsDto> {
+        val userId = getUserIdFromToken(authorization)
+            ?: return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build()
+
+        logger.info("Getting user stats for user $userId")
+
+        val stats = exerciseService.getUserStats(userId)
+        return ResponseEntity.ok(stats)
     }
 
     private fun getUserIdFromToken(authorization: String): Long? {

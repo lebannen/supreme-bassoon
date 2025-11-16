@@ -388,6 +388,88 @@ CREATE TABLE user_vocabulary_sets (
 
 ---
 
+## M2.5 - Structured Course System ✅ **COMPLETE**
+
+**Start Date:** January 2025
+**Completion Date:** January 2025
+**Target:** Implement comprehensive course content management system
+
+### M2.5 Goals ✅
+1. ✅ Create course/module/episode data model
+2. ✅ Implement JSON-based content import system
+3. ✅ Support multiple episode types (STORY, DIALOGUE, ARTICLE, AUDIO_LESSON)
+4. ✅ Integrate exercises into course episodes
+5. ✅ Add multi-speaker audio generation
+6. ✅ Build admin interface for course management
+
+### M2.5 Final Status - All Features Complete
+
+**Database Schema** ✅
+- ✅ Courses table with slug, name, language, CEFR level
+- ✅ Modules table with course relationship, module number
+- ✅ Episodes table with type, content, audio support
+- ✅ EpisodeContentItems for grammar rules and exercises
+- ✅ Migrations V19-V23 for complete schema
+
+**Backend Services** ✅
+- ✅ CourseService for course/module/episode CRUD
+- ✅ CourseImportService for JSON import with validation
+- ✅ AudioGenerationService with Gemini TTS (single & multi-speaker)
+- ✅ GrammarRuleRepository and integration
+- ✅ Complete API endpoints for public and admin operations
+
+**Frontend** ✅
+- ✅ Course browsing interface
+- ✅ Module listing with episode navigation
+- ✅ Episode viewer with audio playback
+- ✅ Exercise integration within episodes
+- ✅ CourseAdminView with import/delete functionality
+- ✅ Multi-speaker audio playback support
+
+**Content** ✅
+- ✅ French A1 course structure (10 modules planned)
+- ✅ Module 1: Greetings & Introductions (complete)
+- ✅ Module 2: At the Hotel (complete with all 6 exercise types)
+- ✅ Multi-speaker dialogues with generated audio
+- ✅ 35+ exercises integrated into course episodes
+
+**Audio Generation** ✅
+- ✅ Single-speaker TTS for stories and articles
+- ✅ Multi-speaker TTS for dialogues (up to 2 speakers)
+- ✅ Voice selection system (30+ Gemini voices)
+- ✅ Style prompt support for natural conversations
+- ✅ Automatic audio file storage and retrieval
+
+### M2.5 Achievements
+
+**Total Deliverables:**
+- Complete course management system
+- 5 database migrations (V19-V23)
+- JSON import/export functionality
+- Multi-speaker audio generation
+- Admin interface with module management
+- 2 complete French A1 modules
+- Voice selection guide documentation
+- Comprehensive API for course content
+
+**Technical Features:**
+- JSONB storage for flexible content structures
+- Cascade deletion for data integrity
+- Multi-speaker voice configuration
+- Audio file generation with Gemini TTS
+- Admin authentication and authorization
+- Module reusability and versioning
+
+**Content Created:**
+- Course: French A1 - Complete Beginner
+- Module 1: 2 episodes (STORY, DIALOGUE)
+- Module 2: 3 episodes (all DIALOGUE types)
+- 6 multi-speaker audio files generated
+- Voice selection guide with 30+ voices categorized
+- Sample JSON structures for all content types
+
+---
+
 ## M3 and Beyond - Future Enhancements
 
 ### Exercise Types (Polish one at a time)
@@ -681,16 +763,17 @@ The M1 MVP is complete and functional. The application now provides a complete e
 
 ---
 
-**Document Status:** ✅ M1 Complete | 🚧 M2 In Progress (Phase 1 - Multiple Choice 95%)
+**Document Status:** ✅ M1 Complete | ✅ M2 Complete | ✅ M2.5 Complete (Structured Courses)
 **Progress:**
 - M1 MVP: ✅ Complete
-- M2 Phase 0 (Infrastructure): ✅ Complete
-- M2 Phase 1 (Multiple Choice): 🚧 95% Complete
+- M2 Exercise System: ✅ Complete (All 6 types)
+- M2.5 Structured Course System: ✅ Complete
 
 **Next Milestones:**
-1. Complete M2 Phase 1 UI polish
-2. Begin M2 Phase 2 (Matching) or Phase 4 (Collections)
-3. Implement remaining exercise types
+1. Create additional course content (Module 3+)
+2. Implement AI-assisted content generation
+3. Mobile optimization and PWA support
+4. Advanced analytics and learning insights
 
 **Author:** Claude Code
 **Created:** November 2024

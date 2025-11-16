@@ -44,10 +44,9 @@ class ExerciseImportService(
 
                 // Check if exercise already exists
                 if (!overwriteExisting) {
-                    val existing = exerciseRepository.findByTitleAndLanguageCodeAndModuleNumber(
+                    val existing = exerciseRepository.findByTitleAndLanguageCode(
                         exerciseData.title,
-                        moduleData.languageCode,
-                        moduleData.module
+                        moduleData.languageCode
                     )
                     if (existing != null) {
                         logger.info("Skipping existing exercise: ${exerciseData.title}")
@@ -103,8 +102,6 @@ class ExerciseImportService(
                 val exercise = Exercise(
                     exerciseType = exerciseType,
                     languageCode = moduleData.languageCode,
-                    moduleNumber = moduleData.module,
-                    topic = extractTopic(exerciseData.title),
                     cefrLevel = moduleData.cefrLevel,
                     title = exerciseData.title,
                     instructions = exerciseData.instructions,

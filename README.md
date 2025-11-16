@@ -7,6 +7,9 @@ A comprehensive language learning application powered by Wiktionary data, featur
 - ✨ Spaced repetition study system
 - 🎯 Personal vocabulary management
 - 📊 OAuth2 authentication and user profiles
+- 🎓 Structured course system with modules and episodes
+- 🎮 6 interactive exercise types with validation
+- 🔊 Multi-speaker audio generation with Gemini TTS
 
 ## Features
 
@@ -36,6 +39,22 @@ A comprehensive language learning application powered by Wiktionary data, featur
 - Multiple study modes (standard, detailed)
 - Smart scheduling based on performance
 - Progress tracking and statistics
+
+**Structured Courses (M2):**
+- JSON-based course content management
+- Module and episode organization
+- Support for STORY, DIALOGUE, ARTICLE, and AUDIO_LESSON episode types
+- Multi-speaker dialogue audio with Gemini TTS
+- Grammar rules and exercise integration
+- Admin interface for course/module management
+
+**Interactive Exercises (M2):**
+- 6 exercise types: Multiple Choice, Fill-in-Blank, Sentence Scramble, Matching, Listening, Cloze Reading
+- Real-time validation with detailed feedback
+- Support for multi-blank fill-in exercises
+- Audio generation for listening exercises
+- Attempt tracking and progress monitoring
+- 35+ sample exercises (French A1 level)
 
 ## Tech Stack
 
@@ -169,6 +188,21 @@ The parsed Wiktionary data includes:
 **Study Sessions:**
 - `POST /api/study/sessions` - Start new study session
 - `POST /api/study/sessions/{id}/response` - Submit answer
+
+**Courses & Episodes:**
+- `GET /api/courses` - List available courses
+- `GET /api/courses/{slug}` - Get course details
+- `GET /api/courses/{courseSlug}/modules` - List modules for a course
+- `GET /api/modules/{moduleId}/episodes` - List episodes in a module
+- `GET /api/episodes/{episodeId}` - Get episode details
+- `POST /api/admin/courses/import` - Import course metadata (admin)
+- `POST /api/admin/courses/{slug}/modules/import` - Import module with audio generation (admin)
+
+**Exercises:**
+- `GET /api/exercises` - Browse exercises (with filters)
+- `GET /api/exercises/{id}` - Get exercise details
+- `POST /api/exercises/{id}/attempt` - Submit exercise attempt
+- `GET /api/exercises/{id}/progress` - Get user progress on exercise
 
 **Authentication:**
 - `POST /api/auth/register` - Register new user

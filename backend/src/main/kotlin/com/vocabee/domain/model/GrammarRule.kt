@@ -7,15 +7,11 @@ import org.hibernate.type.SqlTypes
 import java.time.LocalDateTime
 
 @Entity
-@Table(name = "exercises")
-data class Exercise(
+@Table(name = "grammar_rules")
+data class GrammarRule(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "exercise_type_id", nullable = false)
-    val exerciseType: ExerciseType,
 
     @Column(nullable = false, length = 10)
     val languageCode: String,
@@ -27,18 +23,17 @@ data class Exercise(
     val title: String,
 
     @Column(nullable = false, columnDefinition = "TEXT")
-    val instructions: String,
+    val explanation: String,
 
     @JdbcTypeCode(SqlTypes.JSON)
-    @Column(nullable = false, columnDefinition = "JSONB")
-    val content: JsonNode,
+    @Column(columnDefinition = "JSONB")
+    val examples: JsonNode? = null,
 
-    val estimatedDurationSeconds: Int = 60,
-    val pointsValue: Int = 10,
-    val difficultyRating: Double = 1.0,
+    @Column(length = 100)
+    val category: String? = null,
 
-    val isPublished: Boolean = false,
+    val difficultyLevel: Int = 1,
+
     val createdAt: LocalDateTime = LocalDateTime.now(),
-    val updatedAt: LocalDateTime = LocalDateTime.now(),
-    val createdBy: String = "system"
+    val updatedAt: LocalDateTime = LocalDateTime.now()
 )

@@ -20,4 +20,17 @@ interface UserExerciseAttemptRepository : JpaRepository<UserExerciseAttempt, Lon
         WHERE a.userId = :userId AND a.isCorrect = true
     """)
     fun countCompletedExercisesByUser(@Param("userId") userId: Long): Long
+
+    @Query("""
+        SELECT a
+        FROM UserExerciseAttempt a
+        WHERE a.userId = :userId
+        AND a.exerciseId IN :exerciseIds
+        AND a.completedAt IS NOT NULL
+        ORDER BY a.score DESC
+    """)
+    fun findBestAttemptsByUserAndExercises(
+        @Param("userId") userId: Long,
+        @Param("exerciseIds") exerciseIds: List<Long>
+    ): List<UserExerciseAttempt>
 }

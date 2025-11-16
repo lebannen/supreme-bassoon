@@ -13,32 +13,30 @@ interface ExerciseRepository : JpaRepository<Exercise, Long> {
         isPublished: Boolean = true
     ): List<Exercise>
 
-    fun findByLanguageCodeAndModuleNumber(
-        languageCode: String,
-        moduleNumber: Int
-    ): List<Exercise>
-
     fun findByExerciseType_TypeKey(typeKey: String): List<Exercise>
 
-    fun findByTitleAndLanguageCodeAndModuleNumber(
+    fun findByTitleAndLanguageCode(
         title: String,
-        languageCode: String,
-        moduleNumber: Int
+        languageCode: String
     ): Exercise?
 
     @Query("""
         SELECT e FROM Exercise e
         WHERE e.languageCode = :languageCode
-        AND (:moduleNumber IS NULL OR e.moduleNumber = :moduleNumber)
-        AND (:topic IS NULL OR e.topic = :topic)
         AND (:typeKey IS NULL OR e.exerciseType.typeKey = :typeKey)
         AND e.isPublished = true
-        ORDER BY e.moduleNumber, e.topic, e.id
+        AND (e.exerciseType.typeKey != 'listening' OR CAST(FUNCTION('jsonb_extract_path_text', e.content, 'audioUrl') AS string) IS NOT NULL)
+        ORDER BY e.id
     """)
     fun findByFilters(
         @Param("languageCode") languageCode: String,
-        @Param("moduleNumber") moduleNumber: Int?,
-        @Param("topic") topic: String?,
         @Param("typeKey") typeKey: String?
     ): List<Exercise>
+
+    @Query("""
+        SELECT e FROM Exercise e
+        WHERE e.isPublished = true
+        AND (e.exerciseType.typeKey != 'listening' OR CAST(FUNCTION('jsonb_extract_path_text', e.content, 'audioUrl') AS string) IS NOT NULL)
+    """)
+    fun findAllPublishedAndValid(): List<Exercise>
 }

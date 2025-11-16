@@ -120,6 +120,12 @@ const router = createRouter({
       meta: { requiresAuth: true }
     },
     {
+      path: '/stats',
+      name: 'stats',
+      component: () => import('../views/StatsView.vue'),
+      meta: { requiresAuth: true }
+    },
+    {
       path: '/admin/audio-test',
       name: 'audio-test',
       component: () => import('../views/AudioTestView.vue'),
@@ -129,6 +135,34 @@ const router = createRouter({
       path: '/admin/exercise-import',
       name: 'exercise-import',
       component: () => import('../views/ExerciseImportView.vue'),
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/admin/courses',
+      name: 'course-admin',
+      component: () => import('../views/CourseAdminView.vue'),
+      meta: { requiresAuth: true }  // TODO: Add role-based access control later
+    },
+    // Course Structure Routes
+    {
+      path: '/courses',
+      name: 'courses',
+      component: () => import('../views/CoursesView.vue')
+    },
+    {
+      path: '/courses/:slug',
+      name: 'course-detail',
+      component: () => import('../views/CourseDetailView.vue')
+    },
+    {
+      path: '/course-modules/:id',
+      name: 'module-detail',
+      component: () => import('../views/ModuleDetailView.vue')
+    },
+    {
+      path: '/episodes/:id',
+      name: 'episode',
+      component: () => import('../views/EpisodeView.vue'),
       meta: { requiresAuth: true }
     },
   ],

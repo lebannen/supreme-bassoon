@@ -70,6 +70,19 @@ class ExerciseValidationService {
 
     // Fill in the Blank validation
     private fun validateFillInBlank(content: JsonNode, userResponses: JsonNode): ValidationResult {
+        // Check if this is multi-blank or single-blank format
+        val userAnswersArray = userResponses.get("answers")
+
+        return if (userAnswersArray != null && userAnswersArray.isArray) {
+            // Multi-blank format
+            validateMultiBlankFillIn(content, userAnswersArray)
+        } else {
+            // Single-blank format (backward compatibility)
+            validateSingleBlankFillIn(content, userResponses)
+        }
+    }
+
+    private fun validateSingleBlankFillIn(content: JsonNode, userResponses: JsonNode): ValidationResult {
         // Extract user's answer
         val userAnswer = userResponses.get("answer")?.asText()?.trim()
             ?: return ValidationResult(
@@ -116,6 +129,100 @@ class ExerciseValidationService {
             feedback = feedback,
             correctAnswers = objectMapper.createObjectNode().apply {
                 put("correctAnswer", correctAnswer)
+            }
+        )
+    }
+
+    private fun validateMultiBlankFillIn(content: JsonNode, userAnswersArray: JsonNode): ValidationResult {
+        // Extract blanks configuration
+        val blanks = content.get("blanks")
+            ?: throw IllegalStateException("No blanks defined in multi-blank exercise content")
+
+        if (!blanks.isArray) {
+            throw IllegalStateException("Blanks must be an array")
+        }
+
+        // Convert user answers to list
+        val userAnswers = mutableListOf<String>()
+        userAnswersArray.forEach { userAnswers.add(it.asText().trim()) }
+
+        // Validate each blank
+        var correctCount = 0
+        val blankResults = mutableListOf<Boolean>()
+        val incorrectBlanks = mutableListOf<String>()
+
+        blanks.forEachIndexed { index, blank ->
+            val correctAnswer = blank.get("correctAnswer")?.asText()
+                ?: throw IllegalStateException("No correct answer for blank $index")
+
+            // Get acceptable answers (if any)
+            val acceptableAnswersNode = blank.get("acceptableAnswers")
+            val acceptableAnswers = if (acceptableAnswersNode != null && acceptableAnswersNode.isArray) {
+                val answers = mutableListOf<String>()
+                acceptableAnswersNode.forEach { answers.add(it.asText()) }
+                answers
+            } else {
+                listOf(correctAnswer)
+            }
+
+            // Check user's answer for this blank
+            val userAnswer = if (index < userAnswers.size) userAnswers[index] else ""
+            val isCorrect = acceptableAnswers.any { it.equals(userAnswer, ignoreCase = true) }
+
+            blankResults.add(isCorrect)
+            if (isCorrect) {
+                correctCount++
+            } else {
+                incorrectBlanks.add("Blank ${index + 1}: '$userAnswer' (should be '$correctAnswer')")
+            }
+        }
+
+        val totalBlanks = blanks.size()
+        val isAllCorrect = correctCount == totalBlanks
+
+        // Calculate partial score
+        val score = if (totalBlanks == 0) 0.0 else (correctCount.toDouble() / totalBlanks) * 100.0
+
+        // Get additional content for feedback
+        val grammarExplanation = content.get("grammarExplanation")?.asText() ?: ""
+        val translation = content.get("translation")?.asText()
+
+        // Build feedback message
+        val feedback = if (isAllCorrect) {
+            buildString {
+                append("Perfect! All blanks are correct. ")
+                if (grammarExplanation.isNotEmpty()) {
+                    append(grammarExplanation)
+                    append(" ")
+                }
+                if (translation != null) {
+                    append("Translation: $translation")
+                }
+            }
+        } else {
+            buildString {
+                append("You got $correctCount out of $totalBlanks correct. ")
+                if (incorrectBlanks.isNotEmpty()) {
+                    append("Incorrect: ${incorrectBlanks.joinToString(", ")}.")
+                }
+            }
+        }
+
+        return ValidationResult(
+            isCorrect = isAllCorrect,
+            score = score,
+            feedback = feedback,
+            correctAnswers = objectMapper.createObjectNode().apply {
+                val correctAnswersArray = objectMapper.createArrayNode()
+                blanks.forEach { blank ->
+                    correctAnswersArray.add(blank.get("correctAnswer")?.asText() ?: "")
+                }
+                set<JsonNode>("correctAnswers", correctAnswersArray)
+
+                // Add blankResults for frontend to show which blanks were correct
+                val blankResultsArray = objectMapper.createArrayNode()
+                blankResults.forEach { blankResultsArray.add(it) }
+                set<JsonNode>("blankResults", blankResultsArray)
             }
         )
     }

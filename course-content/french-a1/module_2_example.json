@@ -1,0 +1,405 @@
+{
+  "moduleNumber": 2,
+  "title": "À l'hôtel",
+  "theme": "Hotel and Accommodation",
+  "description": "Learn how to check in at a hotel, ask for information, and handle basic accommodation situations in French.",
+  "objectives": [
+    "Make a hotel reservation",
+    "Check in and check out of a hotel",
+    "Ask about hotel facilities and services",
+    "Handle common hotel situations"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "DIALOGUE",
+      "title": "Arrivée à l'hôtel",
+      "content": "Marie: Bonjour ! J'ai une réservation au nom de Dubois.\nRéceptionniste: Bonjour madame ! Un instant, s'il vous plaît... Oui, je vois. Une chambre double pour deux nuits, c'est bien ça ?\nMarie: Oui, c'est exact.\nRéceptionniste: Parfait ! Puis-je voir votre carte d'identité, s'il vous plaît ?\nMarie: Bien sûr, la voici.\nRéceptionniste: Merci. Votre chambre est au troisième étage, chambre numéro 305. Le petit-déjeuner est servi de 7 heures à 10 heures au restaurant.\nMarie: Très bien. Est-ce qu'il y a le WiFi dans la chambre ?\nRéceptionniste: Oui, bien sûr ! Le mot de passe est écrit sur cette carte. Voici votre clé.\nMarie: Merci beaucoup ! À quelle heure dois-je libérer la chambre ?\nRéceptionniste: Avant midi, s'il vous plaît. Bon séjour !",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Marie",
+          "voice": "Puck",
+          "description": "A friendly female traveler"
+        },
+        {
+          "name": "Réceptionniste",
+          "voice": "Algieba",
+          "description": "A professional hotel receptionist"
+        }
+      ],
+      "audioStyle": "This is a polite, professional conversation at a hotel reception desk. Marie is a bit tired from traveling but friendly. The receptionist is warm and welcoming.",
+      "estimatedMinutes": 15,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Arrivée à l'hôtel",
+            "instructions": "Répondez aux questions sur le dialogue.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Combien de nuits Marie va-t-elle rester à l'hôtel ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Une nuit",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Deux nuits",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Trois nuits",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Une semaine",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Marie dit 'Une chambre double pour deux nuits'.",
+              "hint": "Écoutez attentivement quand Marie confirme sa réservation."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Vocabulaire de l'hôtel",
+            "instructions": "Associez les mots français avec leur traduction anglaise.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "réservation",
+                  "right": "reservation"
+                },
+                {
+                  "left": "clé",
+                  "right": "key"
+                },
+                {
+                  "left": "chambre",
+                  "right": "room"
+                },
+                {
+                  "left": "petit-déjeuner",
+                  "right": "breakfast"
+                },
+                {
+                  "left": "étage",
+                  "right": "floor"
+                }
+              ],
+              "hint": "Think about what you need when checking into a hotel."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Vocabulaire de l'hôtel",
+            "instructions": "Complétez les phrases avec les mots du dialogue.",
+            "content": {
+              "text": "J'ai une ___ au nom de Dubois. Voici votre ___. Le petit-déjeuner est ___ de 7 heures à 10 heures.",
+              "blanks": [
+                {
+                  "correctAnswer": "réservation",
+                  "acceptableAnswers": ["réservation"],
+                  "options": ["réservation", "clé", "chambre", "carte"]
+                },
+                {
+                  "correctAnswer": "clé",
+                  "acceptableAnswers": ["clé", "cle"],
+                  "options": ["clé", "carte", "réservation", "passeport"]
+                },
+                {
+                  "correctAnswer": "servi",
+                  "acceptableAnswers": ["servi"],
+                  "options": ["servi", "ouvert", "préparé", "prêt"]
+                }
+              ],
+              "translation": "I have a reservation in the name of Dubois. Here is your key. Breakfast is served from 7 to 10.",
+              "hint": "Think about the hotel check-in process."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Demander des renseignements",
+      "content": "Marc: Excusez-moi, est-ce qu'il y a une piscine dans l'hôtel ?\nRéceptionniste: Oui, monsieur. La piscine est au sous-sol. Elle est ouverte de 8 heures à 22 heures.\nMarc: Parfait ! Et pour le parking ?\nRéceptionniste: Le parking est gratuit pour nos clients. Il se trouve derrière l'hôtel.\nMarc: Très bien. Savez-vous où je peux trouver un restaurant près d'ici ?\nRéceptionniste: Il y a plusieurs restaurants dans la rue principale, à cinq minutes à pied. Je peux vous donner un plan du quartier si vous voulez.\nMarc: Oui, s'il vous plaît. C'est très gentil.\nRéceptionniste: Voilà ! Je vous souhaite une excellente soirée !\nMarc: Merci, vous aussi !",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Marc",
+          "voice": "Enceladus",
+          "description": "A curious male traveler"
+        },
+        {
+          "name": "Réceptionniste",
+          "voice": "Leda",
+          "description": "A helpful hotel staff member"
+        }
+      ],
+      "audioStyle": "Marc is enthusiastic about exploring the hotel facilities. The receptionist is patient and helpful, eager to assist.",
+      "estimatedMinutes": 15,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Les renseignements",
+            "instructions": "Choisissez la bonne réponse.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Où se trouve la piscine ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Au premier étage",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Au sous-sol",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Sur le toit",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Dans le jardin",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Le réceptionniste dit 'La piscine est au sous-sol'.",
+              "hint": "Écoutez où se trouve la piscine."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Comprendre les directions",
+            "instructions": "Écoutez l'audio et répondez à la question.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Le parking est gratuit pour nos clients. Il se trouve derrière l'hôtel.",
+              "question": "Où se trouve le parking ?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Devant l'hôtel"
+                },
+                {
+                  "id": "b",
+                  "text": "Derrière l'hôtel"
+                },
+                {
+                  "id": "c",
+                  "text": "Dans la rue principale"
+                },
+                {
+                  "id": "d",
+                  "text": "Au sous-sol"
+                }
+              ],
+              "correctAnswer": "b",
+              "explanation": "Le réceptionniste dit 'Il se trouve derrière l'hôtel'.",
+              "hint": "Écoutez bien où se trouve le parking par rapport à l'hôtel."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.5,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Lecture: À la réception",
+            "instructions": "Complétez le texte avec les mots appropriés.",
+            "content": {
+              "text": "Marc arrive à l'hôtel et parle avec le {blank1}. Il demande s'il y a une {blank2} dans l'hôtel. Le réceptionniste répond que oui, elle est au {blank3}. Marc demande aussi pour le {blank4}, et le réceptionniste dit qu'il est {blank5} et se trouve derrière l'hôtel. Finalement, Marc veut savoir où trouver un {blank6} près d'ici.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "réceptionniste"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "piscine"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "sous-sol"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "parking"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "gratuit"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": ["restaurant", "restaurants"]
+                }
+              ],
+              "hint": "Pensez au dialogue entre Marc et le réceptionniste."
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 20,
+            "difficultyRating": 1.8
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 3,
+      "type": "DIALOGUE",
+      "title": "Un problème dans la chambre",
+      "content": "Sophie: Allô, c'est la réception ?\nRéceptionniste: Oui, bonjour madame. Comment puis-je vous aider ?\nSophie: Il y a un petit problème dans ma chambre. La climatisation ne fonctionne pas.\nRéceptionniste: Oh, je suis désolée. Vous êtes dans quelle chambre ?\nSophie: Chambre 412.\nRéceptionniste: D'accord. Je vais envoyer quelqu'un tout de suite pour réparer ça. Ça vous convient ?\nSophie: Oui, très bien. Merci beaucoup.\nRéceptionniste: C'est normal. Désolée pour le désagrément. Est-ce qu'il y a autre chose ?\nSophie: Non, c'est tout. Au revoir.\nRéceptionniste: Au revoir madame, bonne journée !",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Sophie",
+          "voice": "Kore",
+          "description": "A polite female guest reporting an issue"
+        },
+        {
+          "name": "Réceptionniste",
+          "voice": "Algieba",
+          "description": "An apologetic and helpful receptionist"
+        }
+      ],
+      "audioStyle": "Sophie is calm but slightly concerned about the air conditioning. The receptionist is very apologetic and eager to resolve the issue quickly.",
+      "estimatedMinutes": 15,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Quel est le problème ?",
+            "instructions": "Identifiez le problème dans la chambre.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel est le problème de Sophie ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Le WiFi ne marche pas",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "La climatisation ne fonctionne pas",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Il n'y a pas d'eau chaude",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "La télévision est cassée",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie dit 'La climatisation ne fonctionne pas'.",
+              "hint": "Quel appareil ne marche pas dans la chambre ?"
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Expressions utiles",
+            "instructions": "Complétez avec les bonnes expressions.",
+            "content": {
+              "text": "Il y a un petit ___ dans ma chambre. Je suis ___ pour le désagrément. Je vais ___ quelqu'un tout de suite.",
+              "blanks": [
+                {
+                  "correctAnswer": "problème",
+                  "acceptableAnswers": ["problème", "probleme"],
+                  "options": ["problème", "question", "souci", "difficulté"]
+                },
+                {
+                  "correctAnswer": "désolé",
+                  "acceptableAnswers": ["désolé", "desole", "désolée", "desolee"],
+                  "options": ["désolé", "content", "heureux", "triste"]
+                },
+                {
+                  "correctAnswer": "envoyer",
+                  "acceptableAnswers": ["envoyer"],
+                  "options": ["envoyer", "voir", "chercher", "appeler"]
+                }
+              ],
+              "translation": "There is a small problem in my room. I am sorry for the inconvenience. I will send someone right away.",
+              "hint": "Think about how to report a problem politely in a hotel."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -10,15 +10,24 @@ import org.springframework.web.reactive.function.client.WebClient
 import java.io.ByteArrayInputStream
 import java.util.*
 
+data class SpeakerVoiceConfig(
+    val name: String,
+    val voice: String
+)
+
 interface AudioGenerationService {
     /**
      * Generate audio from text and return the public URL
+     * @param speakers List of speakers for multi-speaker dialogues (max 2)
+     * @param stylePrompt Optional prompt to guide the style/emotion of the speech
      */
     fun generateAudio(
         transcript: String,
         languageCode: String,
         moduleNumber: Int,
-        voice: String = "Leda"
+        voice: String = "Leda",
+        speakers: List<SpeakerVoiceConfig> = emptyList(),
+        stylePrompt: String? = null
     ): String
 
     /**
@@ -45,18 +54,25 @@ class GeminiAudioGenerationService(
         transcript: String,
         languageCode: String,
         moduleNumber: Int,
-        voice: String
+        voice: String,
+        speakers: List<SpeakerVoiceConfig>,
+        stylePrompt: String?
     ): String {
         // Check if API key is configured
         if (apiKey.isBlank()) {
             throw RuntimeException("Gemini API key not configured. Please set GEMINI_API_KEY environment variable.")
         }
 
-        logger.info("Generating audio for transcript: '$transcript'")
+        val useMultiSpeaker = speakers.isNotEmpty() && speakers.size <= 2
+        logger.info("Generating audio for transcript: '$transcript' (multi-speaker: $useMultiSpeaker)")
 
         try {
             // Call Gemini TTS API
-            val (pcmData, sampleRate, bitsPerSample) = callGeminiTTS(transcript, voice)
+            val (pcmData, sampleRate, bitsPerSample) = if (useMultiSpeaker) {
+                callGeminiTTSMultiSpeaker(transcript, speakers, stylePrompt)
+            } else {
+                callGeminiTTS(transcript, voice)
+            }
 
             // Convert PCM to WAV
             val wavData = convertPcmToWav(pcmData, sampleRate, bitsPerSample)
@@ -113,6 +129,13 @@ class GeminiAudioGenerationService(
                 .header("Content-Type", "application/json")
                 .bodyValue(requestBody)
                 .retrieve()
+                .onStatus({ status -> status.is4xxClientError || status.is5xxServerError }) { clientResponse ->
+                    clientResponse.bodyToMono(String::class.java)
+                        .map { errorBody ->
+                            logger.error("Gemini API error response: $errorBody")
+                            RuntimeException("Gemini API error: $errorBody")
+                        }
+                }
                 .bodyToMono(String::class.java)
                 .block() ?: throw RuntimeException("Empty response from Gemini API")
 
@@ -132,6 +155,87 @@ class GeminiAudioGenerationService(
         } catch (e: Exception) {
             logger.error("Gemini API call failed", e)
             throw RuntimeException("Failed to call Gemini TTS API: ${e.message}", e)
+        }
+    }
+
+    private fun callGeminiTTSMultiSpeaker(
+        text: String,
+        speakers: List<SpeakerVoiceConfig>,
+        stylePrompt: String?
+    ): Triple<ByteArray, Int, Int> {
+        // Build multi-speaker voice configuration
+        val speakerConfigs = speakers.take(2).map { speaker ->
+            mapOf(
+                "speaker" to speaker.name,
+                "voiceConfig" to mapOf(
+                    "prebuiltVoiceConfig" to mapOf(
+                        "voiceName" to speaker.voice
+                    )
+                )
+            )
+        }
+
+        // Combine style prompt with the dialogue text
+        val fullText = if (stylePrompt != null) {
+            "$stylePrompt\n\n$text"
+        } else {
+            text
+        }
+
+        val requestBody = mapOf(
+            "contents" to listOf(
+                mapOf(
+                    "role" to "user",
+                    "parts" to listOf(
+                        mapOf("text" to fullText)
+                    )
+                )
+            ),
+            "generationConfig" to mapOf(
+                "responseModalities" to listOf("AUDIO"),
+                "speechConfig" to mapOf(
+                    "multiSpeakerVoiceConfig" to mapOf(
+                        "speakerVoiceConfigs" to speakerConfigs
+                    )
+                )
+            )
+        )
+
+        try {
+            logger.info("Calling Gemini TTS with ${speakers.size} speakers: ${speakers.map { it.name to it.voice }}")
+
+            // Make API call
+            val response = webClient.post()
+                .uri("/v1beta/models/$model:streamGenerateContent?alt=sse&key=$apiKey")
+                .header("Content-Type", "application/json")
+                .bodyValue(requestBody)
+                .retrieve()
+                .onStatus({ status -> status.is4xxClientError || status.is5xxServerError }) { clientResponse ->
+                    clientResponse.bodyToMono(String::class.java)
+                        .map { errorBody ->
+                            logger.error("Gemini API error response: $errorBody")
+                            RuntimeException("Gemini API error: $errorBody")
+                        }
+                }
+                .bodyToMono(String::class.java)
+                .block() ?: throw RuntimeException("Empty response from Gemini API")
+
+            // Parse SSE response
+            val (audioData, mimeType) = parseSSEResponse(response)
+
+            // Parse audio parameters from MIME type
+            logger.debug("Received MIME type from Gemini: $mimeType")
+            val params = parseAudioMimeType(mimeType)
+            logger.debug("Parsed audio parameters: $params")
+
+            val sampleRate = params["rate"] ?: throw RuntimeException("Missing 'rate' in MIME type: $mimeType")
+            val bitsPerSample = params["bits_per_sample"] ?: throw RuntimeException("Missing 'bits_per_sample' in MIME type: $mimeType")
+
+            return Triple(audioData, sampleRate, bitsPerSample)
+
+        } catch (e: Exception) {
+            logger.error("Gemini multi-speaker API call failed", e)
+            throw RuntimeException("Failed to call Gemini multi-speaker TTS API: ${e.message}", e)
         }
     }
 

@@ -29,65 +29,135 @@
         {{ error }}
       </Message>
 
-      <div v-else-if="exercises.length === 0" class="empty-state">
+      <div v-else-if="exerciseProgress.length === 0" class="empty-state">
         <i class="pi pi-inbox" style="font-size: 3rem; color: var(--text-color-secondary)"></i>
         <p>No exercises found for this module.</p>
         <p class="hint">Try importing exercises from the admin panel.</p>
       </div>
 
       <div v-else class="exercises-container">
-        <div class="module-stats">
-          <div class="stat">
-            <span class="stat-label">Total Exercises:</span>
-            <span class="stat-value">{{ exercises.length }}</span>
-          </div>
-          <div class="stat">
-            <span class="stat-label">Exercise Types:</span>
-            <span class="stat-value">{{ uniqueTypes.length }}</span>
-          </div>
-          <div class="stat">
-            <span class="stat-label">Estimated Time:</span>
-            <span class="stat-value">{{ totalDurationMinutes }} min</span>
-          </div>
-        </div>
+        <Card class="progress-summary-card" v-if="moduleStats">
+          <template #title>
+            <div class="summary-title">
+              <i class="pi pi-chart-line"></i>
+              <span>Your Progress</span>
+            </div>
+          </template>
+          <template #content>
+            <div class="progress-stats-grid">
+              <div class="progress-stat">
+                <div class="stat-icon-wrapper completion">
+                  <i class="pi pi-check-circle"></i>
+                </div>
+                <div class="stat-details">
+                  <span class="stat-value-large">{{ Math.round(moduleStats.completionPercentage) }}%</span>
+                  <span class="stat-label">Completion</span>
+                  <span class="stat-sublabel">{{ moduleStats.masteredExercises }} of {{ moduleStats.totalExercises }} mastered</span>
+                </div>
+              </div>
+
+              <div class="progress-stat">
+                <div class="stat-icon-wrapper score">
+                  <i class="pi pi-star"></i>
+                </div>
+                <div class="stat-details">
+                  <span class="stat-value-large">
+                    {{ moduleStats.averageScore !== null ? Math.round(moduleStats.averageScore) + '%' : 'N/A' }}
+                  </span>
+                  <span class="stat-label">Average Score</span>
+                  <span class="stat-sublabel">Across {{ moduleStats.completedExercises }} attempts</span>
+                </div>
+              </div>
+
+              <div class="progress-stat">
+                <div class="stat-icon-wrapper time">
+                  <i class="pi pi-clock"></i>
+                </div>
+                <div class="stat-details">
+                  <span class="stat-value-large">{{ formatTimeSpent(moduleStats.totalTimeSpentSeconds) }}</span>
+                  <span class="stat-label">Time Spent</span>
+                  <span class="stat-sublabel">{{ totalDurationMinutes }} min estimated</span>
+                </div>
+              </div>
+
+              <div class="progress-stat">
+                <div class="stat-icon-wrapper exercises">
+                  <i class="pi pi-book"></i>
+                </div>
+                <div class="stat-details">
+                  <span class="stat-value-large">{{ moduleStats.totalExercises }}</span>
+                  <span class="stat-label">Total Exercises</span>
+                  <span class="stat-sublabel">{{ uniqueTypes.length }} different types</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="progress-bar-section">
+              <div class="progress-bar-labels">
+                <span>Progress</span>
+                <span class="progress-percentage">{{ moduleStats.masteredExercises }}/{{ moduleStats.totalExercises }}</span>
+              </div>
+              <div class="progress-bar-track">
+                <div
+                  class="progress-bar-fill"
+                  :style="{ width: moduleStats.completionPercentage + '%' }"
+                ></div>
+              </div>
+            </div>
+          </template>
+        </Card>
 
         <div class="exercises-grid">
           <Card
-            v-for="exercise in exercises"
-            :key="exercise.id"
+            v-for="progress in exerciseProgress"
+            :key="progress.exercise.id"
             class="exercise-card"
-            @click="goToExercise(exercise.id)"
+            :class="{ 'mastered': progress.status === 'MASTERED' }"
+            @click="goToExercise(progress.exercise.id)"
           >
             <template #header>
               <div class="exercise-card-header">
-                <Tag :value="exercise.type" :severity="getTypeSeverity(exercise.type)" />
-                <span class="exercise-points">{{ exercise.pointsValue }} pts</span>
+                <Tag :value="progress.exercise.type" :severity="getTypeSeverity(progress.exercise.type)" />
+                <div class="header-right">
+                  <span class="exercise-points">{{ progress.exercise.pointsValue }} pts</span>
+                  <i v-if="progress.status === 'MASTERED'" class="pi pi-check-circle status-icon mastered" title="Mastered"></i>
+                  <i v-else-if="progress.status === 'IN_PROGRESS'" class="pi pi-clock status-icon in-progress" title="In Progress"></i>
+                </div>
               </div>
             </template>
             <template #title>
-              {{ exercise.title }}
+              <div class="exercise-title-wrapper">
+                {{ progress.exercise.title }}
+                <span v-if="progress.bestScore !== null" class="best-score">
+                  {{ Math.round(progress.bestScore) }}%
+                </span>
+              </div>
             </template>
             <template #content>
               <div class="exercise-meta">
                 <div class="meta-item">
                   <i class="pi pi-clock"></i>
-                  <span>{{ formatDuration(exercise.estimatedDurationSeconds) }}</span>
+                  <span>{{ formatDuration(progress.exercise.estimatedDurationSeconds) }}</span>
                 </div>
                 <div class="meta-item">
                   <i class="pi pi-chart-bar"></i>
-                  <span>Difficulty: {{ exercise.difficultyRating.toFixed(1) }}</span>
+                  <span>Difficulty: {{ progress.exercise.difficultyRating.toFixed(1) }}</span>
                 </div>
-                <div v-if="exercise.topic" class="meta-item">
+                <div v-if="progress.exercise.topic" class="meta-item">
                   <i class="pi pi-tag"></i>
-                  <span>{{ exercise.topic }}</span>
+                  <span>{{ progress.exercise.topic }}</span>
+                </div>
+                <div v-if="progress.attemptsCount > 0" class="meta-item">
+                  <i class="pi pi-replay"></i>
+                  <span>{{ progress.attemptsCount }} attempt{{ progress.attemptsCount > 1 ? 's' : '' }}</span>
                 </div>
               </div>
             </template>
             <template #footer>
               <Button
-                label="Start Exercise"
-                icon="pi pi-play"
-                @click.stop="goToExercise(exercise.id)"
+                :label="progress.status === 'NOT_STARTED' ? 'Start Exercise' : 'Continue'"
+                :icon="progress.status === 'NOT_STARTED' ? 'pi pi-play' : 'pi pi-refresh'"
+                @click.stop="goToExercise(progress.exercise.id)"
                 size="small"
               />
             </template>
@@ -123,9 +193,30 @@ interface Exercise {
   pointsValue: number
 }
 
+interface ExerciseProgress {
+  exercise: Exercise
+  bestScore: number | null
+  attemptsCount: number
+  lastAttemptAt: string | null
+  status: 'NOT_STARTED' | 'IN_PROGRESS' | 'MASTERED'
+}
+
+interface ModuleProgress {
+  moduleNumber: number
+  languageCode: string
+  totalExercises: number
+  completedExercises: number
+  masteredExercises: number
+  averageScore: number | null
+  totalTimeSpentSeconds: number
+  completionPercentage: number
+  exercises: ExerciseProgress[]
+}
+
 const selectedLanguage = ref('fr')
 const selectedModule = ref(1)
-const exercises = ref<Exercise[]>([])
+const exerciseProgress = ref<ExerciseProgress[]>([])
+const moduleStats = ref<ModuleProgress | null>(null)
 const loading = ref(false)
 const error = ref('')
 
@@ -149,11 +240,11 @@ const moduleTitle = computed(() => {
 })
 
 const uniqueTypes = computed(() => {
-  return [...new Set(exercises.value.map(e => e.type))]
+  return [...new Set(exerciseProgress.value.map(ep => ep.exercise.type))]
 })
 
 const totalDurationMinutes = computed(() => {
-  const totalSeconds = exercises.value.reduce((sum, e) => sum + e.estimatedDurationSeconds, 0)
+  const totalSeconds = exerciseProgress.value.reduce((sum, ep) => sum + ep.exercise.estimatedDurationSeconds, 0)
   return Math.ceil(totalSeconds / 60)
 })
 
@@ -172,7 +263,7 @@ async function loadExercises() {
 
   try {
     const response = await fetch(
-      `${API_BASE}/api/exercises?languageCode=${selectedLanguage.value}&module=${selectedModule.value}`,
+      `${API_BASE}/api/exercises/module-progress?languageCode=${selectedLanguage.value}&moduleNumber=${selectedModule.value}`,
       {
         headers: getAuthHeaders()
       }
@@ -182,10 +273,12 @@ async function loadExercises() {
       throw new Error(`HTTP ${response.status}: ${response.statusText}`)
     }
 
-    exercises.value = await response.json()
+    const progress: ModuleProgress = await response.json()
+    moduleStats.value = progress
+    exerciseProgress.value = progress.exercises
   } catch (e: any) {
-    console.error('Failed to load exercises:', e)
-    error.value = e.message || 'Failed to load exercises'
+    console.error('Failed to load module progress:', e)
+    error.value = e.message || 'Failed to load module progress'
   } finally {
     loading.value = false
   }
@@ -214,6 +307,22 @@ function formatDuration(seconds: number): string {
   const minutes = Math.floor(seconds / 60)
   const remainingSeconds = seconds % 60
   return remainingSeconds > 0 ? `${minutes}m ${remainingSeconds}s` : `${minutes}m`
+}
+
+function formatTimeSpent(seconds: number): string {
+  if (seconds === 0) {
+    return '0m'
+  }
+  if (seconds < 60) {
+    return `${seconds}s`
+  }
+  const minutes = Math.floor(seconds / 60)
+  if (minutes < 60) {
+    return `${minutes}m`
+  }
+  const hours = Math.floor(minutes / 60)
+  const remainingMinutes = minutes % 60
+  return remainingMinutes > 0 ? `${hours}h ${remainingMinutes}m` : `${hours}h`
 }
 
 onMounted(() => {
@@ -273,6 +382,113 @@ onMounted(() => {
   font-size: 0.875rem;
 }
 
+.progress-summary-card {
+  margin-bottom: 1.5rem;
+}
+
+.summary-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-color);
+  font-size: 1.25rem;
+}
+
+.progress-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.progress-stat {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.stat-icon-wrapper {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.stat-icon-wrapper.completion {
+  background: var(--green-50);
+  color: var(--green-600);
+}
+
+.stat-icon-wrapper.score {
+  background: var(--yellow-50);
+  color: var(--yellow-600);
+}
+
+.stat-icon-wrapper.time {
+  background: var(--blue-50);
+  color: var(--blue-600);
+}
+
+.stat-icon-wrapper.exercises {
+  background: var(--purple-50);
+  color: var(--purple-600);
+}
+
+.stat-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-value-large {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 1;
+}
+
+.stat-sublabel {
+  font-size: 0.75rem;
+  color: var(--text-color-secondary);
+}
+
+.progress-bar-section {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--surface-border);
+}
+
+.progress-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.progress-percentage {
+  color: var(--primary-color);
+}
+
+.progress-bar-track {
+  height: 0.75rem;
+  background: var(--surface-100);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-600));
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
 .module-stats {
   display: flex;
   gap: 2rem;
@@ -327,9 +543,49 @@ onMounted(() => {
   border-bottom: 1px solid var(--surface-border);
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .exercise-points {
   font-weight: 600;
   color: var(--primary-color);
+}
+
+.status-icon {
+  font-size: 1.25rem;
+}
+
+.status-icon.mastered {
+  color: var(--green-500);
+}
+
+.status-icon.in-progress {
+  color: var(--orange-500);
+}
+
+.exercise-card.mastered {
+  border: 2px solid var(--green-200);
+  background: linear-gradient(135deg, var(--surface-card) 0%, var(--green-50) 100%);
+}
+
+.exercise-title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.best-score {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--green-600);
+  background: var(--green-50);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
 }
 
 .exercise-meta {
@@ -360,6 +616,11 @@ onMounted(() => {
   .header-actions {
     width: 100%;
     flex-direction: column;
+  }
+
+  .progress-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .module-stats {

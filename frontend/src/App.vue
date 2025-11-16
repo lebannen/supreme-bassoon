@@ -28,6 +28,11 @@ const items = computed(() => {
       icon: 'pi pi-graduation-cap',
       items: [
         {
+          label: 'Courses',
+          icon: 'pi pi-book',
+          command: () => router.push('/courses')
+        },
+        {
           label: 'Study (Flashcards)',
           icon: 'pi pi-clone',
           command: () => router.push('/study')
@@ -99,6 +104,16 @@ const items = computed(() => {
 
   // Admin menu
   const adminItems = [
+    {
+      label: 'Manage Courses',
+      icon: 'pi pi-graduation-cap',
+      command: () => router.push('/admin/courses'),
+      visible: authStore.isAuthenticated
+    },
+    {
+      separator: true,
+      visible: authStore.isAuthenticated
+    },
     {
       label: 'Import Words',
       icon: 'pi pi-upload',
