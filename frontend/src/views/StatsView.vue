@@ -1,63 +1,18 @@
 <script setup lang="ts">
-import {computed, onMounted, ref} from 'vue'
+import {computed, onMounted} from 'vue'
 import {useRouter} from 'vue-router'
+import {storeToRefs} from 'pinia'
 import Card from 'primevue/card'
 import Message from 'primevue/message'
 import Tag from 'primevue/tag'
 import ProgressBar from 'primevue/progressbar'
+import {useExerciseStore} from '@/stores/exercise'
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
 const router = useRouter()
+const exerciseStore = useExerciseStore()
 
-interface RecentActivity {
-  exerciseId: number
-  exerciseTitle: string
-  exerciseType: string
-  score: number
-  isCorrect: boolean
-  completedAt: string
-}
-
-interface ModuleProgressSummary {
-  moduleNumber: number
-  totalExercises: number
-  masteredExercises: number
-  completionPercentage: number
-}
-
-interface LanguageProgress {
-  languageCode: string
-  totalExercises: number
-  completedExercises: number
-  masteredExercises: number
-  averageScore: number | null
-  moduleProgress: Record<number, ModuleProgressSummary>
-}
-
-interface UserStats {
-  totalExercisesAvailable: number
-  totalExercisesCompleted: number
-  totalExercisesMastered: number
-  overallAverageScore: number | null
-  totalTimeSpentSeconds: number
-  totalAttempts: number
-  currentStreak: number
-  longestStreak: number
-  recentActivity: RecentActivity[]
-  progressByLanguage: Record<string, LanguageProgress>
-}
-
-const stats = ref<UserStats | null>(null)
-const loading = ref(true)
-const error = ref<string | null>(null)
-
-function getAuthHeaders() {
-  const token = localStorage.getItem('auth_token')
-  return {
-    Authorization: `Bearer ${token}`,
-    'Content-Type': 'application/json',
-  }
-}
+// Destructure store state with refs
+const {stats, loading, error} = storeToRefs(exerciseStore)
 
 function formatTime(seconds: number): string {
   const hours = Math.floor(seconds / 3600)
@@ -99,38 +54,12 @@ const completionPercentage = computed(() => {
   return (stats.value.totalExercisesMastered / stats.value.totalExercisesAvailable) * 100
 })
 
-async function loadStats() {
-  try {
-    loading.value = true
-    error.value = null
-
-    const response = await fetch(`${API_BASE}/api/exercises/stats`, {
-      headers: getAuthHeaders(),
-    })
-
-    if (!response.ok) {
-      if (response.status === 401) {
-        router.push('/login')
-        return
-      }
-      throw new Error('Failed to load statistics')
-    }
-
-    stats.value = await response.json()
-  } catch (err) {
-    error.value = err instanceof Error ? err.message : 'Failed to load statistics'
-    console.error('Error loading stats:', err)
-  } finally {
-    loading.value = false
-  }
-}
-
 function navigateToExercise(exerciseId: number) {
   router.push(`/exercises/${exerciseId}`)
 }
 
 onMounted(() => {
-  loadStats()
+  exerciseStore.loadStats()
 })
 </script>
 

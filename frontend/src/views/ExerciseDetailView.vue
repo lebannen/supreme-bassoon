@@ -91,8 +91,7 @@
 <script setup lang="ts">
 import {onMounted, ref} from 'vue'
 import {useRoute, useRouter} from 'vue-router'
-import {useExerciseApi} from '@/composables/useExerciseApi'
-import type {Exercise} from '@/types/exercise'
+import {storeToRefs} from 'pinia'
 import MultipleChoiceExercise from '@/components/MultipleChoiceExercise.vue'
 import FillInBlankExercise from '@/components/FillInBlankExercise.vue'
 import SentenceScrambleExercise from '@/components/SentenceScrambleExercise.vue'
@@ -104,12 +103,13 @@ import Button from 'primevue/button'
 import Tag from 'primevue/tag'
 import ProgressSpinner from 'primevue/progressspinner'
 import Message from 'primevue/message'
+import {useExerciseStore} from '@/stores/exercise'
 
 const router = useRouter()
 const route = useRoute()
-const { getExercise, submitAttempt, loading } = useExerciseApi()
+const exerciseStore = useExerciseStore()
+const {currentExercise: exercise, loading} = storeToRefs(exerciseStore)
 
-const exercise = ref<Exercise | null>(null)
 const exerciseComponent = ref<InstanceType<
     | typeof MultipleChoiceExercise
     | typeof FillInBlankExercise
@@ -123,7 +123,7 @@ const lastUserResponse = ref<any>(null)
 
 async function fetchExercise() {
   const id = Number(route.params.id)
-  exercise.value = await getExercise(id)
+  await exerciseStore.loadExercise(id)
   startTime.value = Date.now()
 }
 
@@ -135,7 +135,7 @@ async function handleSubmit(response: any) {
 
   const durationSeconds = Math.floor((Date.now() - startTime.value) / 1000)
 
-  const result = await submitAttempt(exercise.value.id, {
+  const result = await exerciseStore.submitAttempt(exercise.value.id, {
     userResponses: response,
     durationSeconds,
     hintsUsed: 0,

@@ -150,17 +150,109 @@ import Tag from 'primevue/tag'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 import {useConfirm} from 'primevue/useconfirm'
-import {type ImportProgress, useImportApi} from '../composables/useImportApi'
 
-const {
-  isUploading,
-  uploadError,
-  uploadFile,
-  connectToProgressStream,
-  getAllImports,
-  clearDatabase,
-} = useImportApi()
+// Import progress type
+interface ImportProgress {
+  importId: string
+  languageName: string
+  status: string
+  totalEntries: number
+  processedEntries: number
+  successfulEntries: number
+  failedEntries: number
+  progressPercentage: number
+  message: string
+  error?: string
+  startedAt: string
+}
+
 const confirm = useConfirm()
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
+
+// State
+const isUploading = ref(false)
+const uploadError = ref<string | null>(null)
+
+// Upload file function
+async function uploadFile(file: File) {
+  isUploading.value = true
+  uploadError.value = null
+
+  try {
+    const formData = new FormData()
+    formData.append('file', file)
+
+    const response = await fetch(`${API_BASE}/api/import/upload`, {
+      method: 'POST',
+      body: formData,
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json()
+      throw new Error(errorData.message || 'Upload failed')
+    }
+
+    const data = await response.json()
+    return data
+  } catch (err) {
+    uploadError.value = err instanceof Error ? err.message : 'Upload failed'
+    return null
+  } finally {
+    isUploading.value = false
+  }
+}
+
+// Connect to progress stream
+function connectToProgressStream(
+    importId: string,
+    onProgress: (progress: ImportProgress) => void,
+    onComplete: () => void,
+    onError: (error: Error) => void
+) {
+  const eventSource = new EventSource(`${API_BASE}/api/import/${importId}/progress`)
+
+  eventSource.addEventListener('progress', (event: MessageEvent) => {
+    const progress = JSON.parse(event.data) as ImportProgress
+    onProgress(progress)
+
+    if (progress.status === 'COMPLETED' || progress.status === 'FAILED') {
+      eventSource.close()
+      onComplete()
+    }
+  })
+
+  eventSource.addEventListener('error', () => {
+    onError(new Error('Connection to progress stream failed'))
+    eventSource.close()
+  })
+
+  return () => eventSource.close()
+}
+
+// Get all imports
+async function getAllImports(): Promise<ImportProgress[]> {
+  try {
+    const response = await fetch(`${API_BASE}/api/import/history`)
+    if (!response.ok) throw new Error('Failed to load import history')
+    return await response.json()
+  } catch {
+    return []
+  }
+}
+
+// Clear database
+async function clearDatabase() {
+  try {
+    const response = await fetch(`${API_BASE}/api/import/clear`, {
+      method: 'DELETE',
+    })
+    if (!response.ok) throw new Error('Failed to clear database')
+    return await response.json()
+  } catch (err) {
+    uploadError.value = err instanceof Error ? err.message : 'Failed to clear database'
+    return null
+  }
+}
 
 const selectedFile = ref<File | null>(null)
 const currentImport = ref<ImportProgress | null>(null)

@@ -109,7 +109,7 @@ import ProgressSpinner from 'primevue/progressspinner'
 import Message from 'primevue/message'
 import Toast from 'primevue/toast'
 import {useToast} from 'primevue/usetoast'
-import type {Word} from '../composables/useVocabularyApi'
+import type {Word} from '@/types/dictionary'
 import {useVocabularyStore} from '@/stores/vocabulary'
 import {useAuthStore} from '@/stores/auth'
 

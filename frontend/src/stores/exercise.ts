@@ -3,12 +3,14 @@ import {computed, ref} from 'vue'
 import {exerciseAPI} from '@/api'
 import type {ExerciseFilters} from '@/api/exercise'
 import type {AttemptResult, Exercise, ExerciseSummary, SubmitAttemptRequest, UserProgress,} from '@/types/exercise'
+import type {UserStats} from '@/types/stats'
 
 export const useExerciseStore = defineStore('exercise', () => {
     const exercises = ref<ExerciseSummary[]>([])
     const currentExercise = ref<Exercise | null>(null)
     const currentProgress = ref<UserProgress | null>(null)
     const lastAttemptResult = ref<AttemptResult | null>(null)
+    const stats = ref<UserStats | null>(null)
 
     const loading = ref(false)
     const error = ref<string | null>(null)
@@ -100,12 +102,30 @@ export const useExerciseStore = defineStore('exercise', () => {
         lastAttemptResult.value = null
     }
 
+    // Load user statistics
+    async function loadStats() {
+        loading.value = true
+        error.value = null
+
+        try {
+            stats.value = await exerciseAPI.getStats()
+            return stats.value
+        } catch (err) {
+            error.value = err instanceof Error ? err.message : 'Failed to load statistics'
+            stats.value = null
+            return null
+        } finally {
+            loading.value = false
+        }
+    }
+
     return {
         // State
         exercises,
         currentExercise,
         currentProgress,
         lastAttemptResult,
+        stats,
         loading,
         error,
 
@@ -119,6 +139,7 @@ export const useExerciseStore = defineStore('exercise', () => {
         loadExercise,
         loadProgress,
         submitAttempt,
+        loadStats,
         clearCurrentExercise,
         clearLastAttempt,
     }

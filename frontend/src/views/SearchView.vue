@@ -133,17 +133,11 @@ import Message from 'primevue/message'
 import Toast from 'primevue/toast'
 import {useToast} from 'primevue/usetoast'
 import WordCard from '../components/WordCard.vue'
-import {
-  type Language,
-  type SearchResult,
-  useVocabularyApi,
-  type Word,
-  type WordSummary,
-} from '../composables/useVocabularyApi'
+import {dictionaryAPI} from '@/api'
+import type {Language, SearchResult, Word, WordSummary} from '@/types/dictionary'
 import {useVocabularyStore} from '@/stores/vocabulary'
 import {useAuthStore} from '@/stores/auth'
 
-const {getLanguages, searchWords, getWord} = useVocabularyApi()
 const vocabularyStore = useVocabularyStore()
 const authStore = useAuthStore()
 const toast = useToast()
@@ -165,9 +159,9 @@ const wordError = ref<string | null>(null)
 async function loadLanguages() {
   isLoadingLanguages.value = true
   try {
-    languages.value = await getLanguages()
+    languages.value = await dictionaryAPI.getLanguages()
     if (languages.value.length > 0) {
-      selectedLanguage.value = languages.value[0].code
+      selectedLanguage.value = languages.value[0]?.code || ''
     }
   } catch {
     searchError.value = 'Failed to load languages'
@@ -184,7 +178,7 @@ async function performSearch() {
   searchError.value = null
   hasSearched.value = true
   try {
-    const results = await searchWords(selectedLanguage.value, searchQuery.value.trim())
+    const results = await dictionaryAPI.searchWords(selectedLanguage.value, searchQuery.value.trim())
     searchResults.value = results
   } catch {
     searchError.value = 'Search failed. Please try again.'
@@ -206,7 +200,7 @@ async function loadWord(lemma: string) {
   selectedWord.value = null
 
   try {
-    const word = await getWord(selectedLanguage.value, lemma)
+    const word = await dictionaryAPI.getWord(selectedLanguage.value, lemma)
     if (word) {
       selectedWord.value = word
     } else {

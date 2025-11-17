@@ -172,7 +172,7 @@ import Button from 'primevue/button'
 import Card from 'primevue/card'
 import Tag from 'primevue/tag'
 import Message from 'primevue/message'
-import type {ReadingText} from '@/composables/useReadingTexts'
+import type {ReadingText} from '@/types/reading'
 
 const router = useRouter()
 

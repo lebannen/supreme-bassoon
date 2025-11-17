@@ -109,11 +109,11 @@
 
                 <div v-if="uploadResults[text.id]" class="upload-result">
                   <Message
-                      :severity="uploadResults[text.id].success ? 'success' : 'error'"
+                      :severity="uploadResults[text.id]?.success ? 'success' : 'error'"
                       :closable="true"
                       @close="uploadResults[text.id] = null"
                   >
-                    {{ uploadResults[text.id].message }}
+                    {{ uploadResults[text.id]?.message }}
                   </Message>
                 </div>
               </div>
@@ -133,6 +133,7 @@
 
 <script setup lang="ts">
 import {computed, onMounted, ref} from 'vue'
+import {storeToRefs} from 'pinia'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 import Select from 'primevue/select'
@@ -141,11 +142,13 @@ import Message from 'primevue/message'
 import ProgressSpinner from 'primevue/progressspinner'
 import ProgressBar from 'primevue/progressbar'
 import FileUpload, {type FileUploadSelectEvent, type FileUploadUploaderEvent,} from 'primevue/fileupload'
-import {type ReadingText, useReadingTexts} from '@/composables/useReadingTexts'
+import {useReadingStore} from '@/stores/reading'
+import type {ReadingText} from '@/types/reading'
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
 
-const { texts, loading, error, fetchTexts } = useReadingTexts()
+const readingStore = useReadingStore()
+const {texts, loading, error} = storeToRefs(readingStore)
 
 const selectedLanguage = ref<string | null>(null)
 const selectedLevel = ref<string | null>(null)
@@ -275,11 +278,8 @@ async function handleAudioUpload(event: FileUploadUploaderEvent, text: ReadingTe
       throw new Error('Failed to update text with audio URL')
     }
 
-    // Update local data
-    const textIndex = texts.value.findIndex((t) => t.id === text.id)
-    if (textIndex !== -1) {
-      texts.value[textIndex].audioUrl = audioUrl
-    }
+    // Refresh data from server to get updated audio URL
+    await readingStore.loadTexts({})
 
     uploadResults.value[text.id] = {
       success: true,
@@ -304,7 +304,7 @@ async function handleAudioUpload(event: FileUploadUploaderEvent, text: ReadingTe
 }
 
 onMounted(async () => {
-  await fetchTexts()
+  await readingStore.loadTexts({})
 })
 </script>
 

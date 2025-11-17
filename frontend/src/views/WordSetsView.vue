@@ -152,7 +152,7 @@
                 label="View Details"
                 icon="pi pi-eye"
                 text
-                @click="viewWordSetDetails(wordSet.id)"
+                @click="viewWordSetDetails()"
               />
               <Button
                 v-if="authStore.isAuthenticated"
@@ -185,9 +185,10 @@ import {useConfirm} from 'primevue/useconfirm'
 import ProgressSpinner from 'primevue/progressspinner'
 import Dialog from 'primevue/dialog'
 import FileUpload from 'primevue/fileupload'
-import {useWordSetApi} from '@/composables/useWordSetApi'
+import {storeToRefs} from 'pinia'
 import {useAuthStore} from '@/stores/auth'
 import {useVocabularyStore} from '@/stores/vocabulary'
+import {useWordSetStore} from '@/stores/wordSet'
 import type {WordSet} from '@/types/wordSet'
 
 const router = useRouter()
@@ -195,7 +196,8 @@ const toast = useToast()
 const confirm = useConfirm()
 const authStore = useAuthStore()
 const vocabularyStore = useVocabularyStore()
-const { getWordSetsByLanguage, importWordSet, loadWordSetsFromJson } = useWordSetApi()
+const wordSetStore = useWordSetStore()
+const {wordSets, loading, error} = storeToRefs(wordSetStore)
 
 const languages = [
   { code: 'fr', name: 'French' },
@@ -206,9 +208,6 @@ const languages = [
 ]
 
 const selectedLanguage = ref<string>('')
-const wordSets = ref<WordSet[]>([])
-const loading = ref(false)
-const error = ref<string | null>(null)
 const importingSetId = ref<number | null>(null)
 
 // Upload dialog state
@@ -219,20 +218,10 @@ const isUploading = ref(false)
 
 async function loadWordSets() {
   if (!selectedLanguage.value) {
-    wordSets.value = []
     return
   }
 
-  loading.value = true
-  error.value = null
-
-  try {
-    wordSets.value = await getWordSetsByLanguage(selectedLanguage.value)
-  } catch (err) {
-    error.value = err instanceof Error ? err.message : 'Failed to load word sets'
-  } finally {
-    loading.value = false
-  }
+  await wordSetStore.loadWordSetsByLanguage(selectedLanguage.value)
 }
 
 function viewWordSetDetails() {
@@ -266,7 +255,7 @@ async function importWordSetToVocabulary(id: number) {
   importingSetId.value = id
 
   try {
-    const result = await importWordSet(id, {
+    const result = await wordSetStore.importWordSet(id, {
       wordSetId: id,
       addNotes: true,
     })
@@ -315,7 +304,7 @@ async function uploadWordSets() {
   uploadError.value = null
 
   try {
-    const result = await loadWordSetsFromJson(uploadFile.value)
+    const result = await wordSetStore.loadWordSetsFromJson(uploadFile.value)
 
     if (result) {
       toast.add({

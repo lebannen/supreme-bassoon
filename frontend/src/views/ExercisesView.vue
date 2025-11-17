@@ -80,21 +80,36 @@
 </template>
 
 <script setup lang="ts">
-import {onMounted, ref, watch} from 'vue'
+import {computed, onMounted, ref} from 'vue'
 import {useRouter} from 'vue-router'
-import {useExerciseApi} from '@/composables/useExerciseApi'
+import {storeToRefs} from 'pinia'
 import Card from 'primevue/card'
 import Select from 'primevue/select'
 import Tag from 'primevue/tag'
 import ProgressSpinner from 'primevue/progressspinner'
+import {useExerciseStore} from '@/stores/exercise'
+import type {ExerciseSummary} from '@/types/exercise'
 
 const router = useRouter()
-const { getExercises, loading } = useExerciseApi()
+const exerciseStore = useExerciseStore()
+const {loading} = storeToRefs(exerciseStore)
 
-const exercises = ref([])
-const allExercises = ref([])
-const selectedModule = ref(null)
+const allExercises = ref<ExerciseSummary[]>([])
+const selectedModule = ref<number | null>(null)
 const selectedType = ref<string | null>(null)
+
+// Computed filtered exercises based on selection
+const exercises = computed(() => {
+  if (selectedType.value === null) {
+    return []
+  }
+
+  return allExercises.value.filter(ex => {
+    const matchesType = ex.type === selectedType.value
+    const matchesModule = selectedModule.value === null || ex.moduleNumber === selectedModule.value
+    return matchesType && matchesModule
+  })
+})
 
 const modules = [
   { label: 'All Modules', value: null },
@@ -135,25 +150,13 @@ const exerciseTypes = [
 ]
 
 async function fetchAllExercises() {
-  allExercises.value = await getExercises('fr', {})
-}
-
-async function fetchExercises() {
-  if (selectedType.value === null) {
-    exercises.value = []
-    return
-  }
-
-  exercises.value = await getExercises('fr', {
-    module: selectedModule.value,
-    type: selectedType.value,
-  })
+  await exerciseStore.loadExercises('fr', {})
+  allExercises.value = exerciseStore.exercises
 }
 
 function selectType(typeValue: string | null) {
   selectedType.value = typeValue
   selectedModule.value = null
-  fetchExercises()
 }
 
 function getExerciseCount(typeValue: string | null): number {
@@ -171,8 +174,6 @@ function formatExerciseType(type: string): string {
 function goToExercise(id: number) {
   router.push(`/exercises/${id}`)
 }
-
-watch(selectedModule, fetchExercises)
 
 onMounted(async () => {
   await fetchAllExercises()

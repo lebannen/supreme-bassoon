@@ -126,6 +126,7 @@
 <script setup lang="ts">
 import {computed, onMounted, ref} from 'vue'
 import {useRoute, useRouter} from 'vue-router'
+import {storeToRefs} from 'pinia'
 import BookComponent from '../components/BookComponent.vue'
 import WordCard from '../components/WordCard.vue'
 import Select from 'primevue/select'
@@ -133,14 +134,15 @@ import Button from 'primevue/button'
 import Tag from 'primevue/tag'
 import Message from 'primevue/message'
 import ProgressSpinner from 'primevue/progressspinner'
-import {type Language, useVocabularyApi, type Word} from '../composables/useVocabularyApi'
-import {useReadingTexts} from '../composables/useReadingTexts'
+import {dictionaryAPI} from '@/api'
+import {useReadingStore} from '@/stores/reading'
+import type {Language, Word} from '@/types/dictionary'
 
 const router = useRouter()
 const route = useRoute()
 
-const { getLanguages, getWord } = useVocabularyApi()
-const { currentText, progress, loading, error, fetchTextById, updateProgress } = useReadingTexts()
+const readingStore = useReadingStore()
+const {currentText, currentProgress: progress, loading, error} = storeToRefs(readingStore)
 
 // Props from route
 const id = computed(() => {
@@ -171,9 +173,9 @@ const bookLanguage = computed(() => {
 async function loadLanguages() {
   isLoadingLanguages.value = true
   try {
-    languages.value = await getLanguages()
+    languages.value = await dictionaryAPI.getLanguages()
     if (languages.value.length > 0) {
-      selectedLanguage.value = languages.value[0].code
+      selectedLanguage.value = languages.value[0]?.code || ''
     }
   } catch (err) {
     console.error('Failed to load languages', err)
@@ -186,7 +188,7 @@ async function loadText() {
   if (!id.value) return
 
   try {
-    await fetchTextById(id.value)
+    await readingStore.loadTextById(id.value)
   } catch (err) {
     console.error('Failed to load text:', err)
   }
@@ -204,7 +206,7 @@ async function onWordClick(lemma: string) {
   selectedWord.value = null
 
   try {
-    const word = await getWord(bookLanguage.value, lemma)
+    const word = await dictionaryAPI.getWord(bookLanguage.value, lemma)
     if (word) {
       selectedWord.value = word
     } else {
@@ -221,7 +223,7 @@ async function onPageChange(currentPage: number, totalPages: number) {
   if (!id.value || !currentText.value) return
 
   try {
-    await updateProgress(id.value, currentPage, totalPages)
+    await readingStore.updateProgress(id.value, currentPage, totalPages)
   } catch (err) {
     console.error('Failed to update progress:', err)
     // Don't show error to user, just log it

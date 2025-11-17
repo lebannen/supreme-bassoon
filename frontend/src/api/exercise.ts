@@ -1,5 +1,6 @@
 import {BaseAPI} from './base'
 import type {AttemptResult, Exercise, ExerciseSummary, SubmitAttemptRequest, UserProgress,} from '@/types/exercise'
+import type {UserStats} from '@/types/stats'
 
 export interface ExerciseFilters {
     module?: number
@@ -56,5 +57,12 @@ export class ExerciseAPI extends BaseAPI {
             }
             throw error
         }
+    }
+
+    /**
+     * Get user's exercise statistics
+     */
+    async getStats(): Promise<UserStats> {
+        return this.get<UserStats>('/api/exercises/stats')
     }
 }

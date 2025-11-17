@@ -52,7 +52,7 @@ import {defineEmits, defineProps} from 'vue'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 import Tag from 'primevue/tag'
-import type {ReadingText} from '@/composables/useReadingTexts'
+import type {ReadingText} from '@/types/reading'
 
 interface Props {
   text: ReadingText

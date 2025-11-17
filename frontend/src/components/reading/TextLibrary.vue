@@ -68,14 +68,17 @@
 <script setup lang="ts">
 import {onMounted, ref} from 'vue'
 import {useRouter} from 'vue-router'
+import {storeToRefs} from 'pinia'
 import Dropdown from 'primevue/dropdown'
 import ProgressSpinner from 'primevue/progressspinner'
 import Message from 'primevue/message'
 import TextCard from './TextCard.vue'
-import {type TextFilters, useReadingTexts} from '@/composables/useReadingTexts'
+import {useReadingStore} from '@/stores/reading'
+import type {TextFilters} from '@/types/reading'
 
 const router = useRouter()
-const { texts, loading, error, fetchTexts } = useReadingTexts()
+const readingStore = useReadingStore()
+const {texts, loading, error} = storeToRefs(readingStore)
 
 const filters = ref<TextFilters>({
   languageCode: undefined,
@@ -114,7 +117,7 @@ const topics = [
 ]
 
 async function applyFilters() {
-  await fetchTexts(filters.value)
+  await readingStore.loadTexts(filters.value)
 }
 
 function handleSelectText(id: number) {
@@ -122,7 +125,7 @@ function handleSelectText(id: number) {
 }
 
 onMounted(async () => {
-  await fetchTexts()
+  await readingStore.loadTexts({})
 })
 </script>
 
