@@ -21,10 +21,10 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
+import {useRouter} from 'vue-router'
 import Button from 'primevue/button'
 import TextLibrary from '@/components/reading/TextLibrary.vue'
-import { useAuthStore } from '@/stores/auth'
+import {useAuthStore} from '@/stores/auth'
 
 const router = useRouter()
 const authStore = useAuthStore()

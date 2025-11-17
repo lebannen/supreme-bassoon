@@ -37,8 +37,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="course-detail-view">
-    <div class="detail-container">
+  <div class="page-container-with-padding">
+    <div class="view-container">
       <!-- Loading State -->
       <div v-if="loading" class="loading-state">
         <i class="pi pi-spin pi-spinner loading-spinner"></i>
@@ -107,7 +107,7 @@ onMounted(() => {
             <Card
               v-for="module in course.modules"
               :key="module.id"
-              class="module-card"
+              class="list-item-interactive"
               @click="goToModule(module.id)"
             >
               <template #title>
@@ -149,29 +149,8 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.course-detail-view {
-  min-height: 100vh;
-  background: var(--bg-primary);
-  padding: 2rem 1rem;
-}
-
-.module-card {
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.module-card:hover {
-  transform: translateX(4px);
-  box-shadow: var(--shadow-md);
-}
-
+/* Custom loading spinner size */
 .loading-spinner {
   font-size: 3rem;
-}
-
-@media (max-width: 768px) {
-  .course-detail-view {
-    padding: 1rem;
-  }
 }
 </style>

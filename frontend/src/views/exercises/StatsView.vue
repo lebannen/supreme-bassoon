@@ -64,7 +64,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="p-2xl stats-page-container">
+  <div class="page-container-with-padding">
     <div class="view-container content-area-lg">
       <!-- Header -->
       <div class="page-header">
@@ -94,67 +94,67 @@ onMounted(() => {
           </template>
           <template #content>
             <div class="stats-grid mb-2xl">
-              <div class="overview-stat mastered">
-                <div class="stat-icon-wrapper">
+              <div class="stat">
+                <div class="stat-icon stat-icon-yellow">
                   <i class="pi pi-trophy"></i>
                 </div>
                 <div class="flex flex-col gap-xs">
                   <span class="text-3xl font-bold text-primary">{{
                       stats.totalExercisesMastered
                     }}</span>
-                  <span class="text-sm font-semibold text-primary stat-label">Mastered</span>
+                  <span class="text-sm font-semibold text-primary text-uppercase">Mastered</span>
                   <span class="text-xs text-secondary"
                   >out of {{ stats.totalExercisesAvailable }} exercises</span
                   >
                 </div>
               </div>
 
-              <div class="overview-stat score">
-                <div class="stat-icon-wrapper">
+              <div class="stat">
+                <div class="stat-icon stat-icon-purple">
                   <i class="pi pi-star"></i>
                 </div>
                 <div class="flex flex-col gap-xs">
                   <span class="text-3xl font-bold text-primary">
                     {{ stats.overallAverageScore ? Math.round(stats.overallAverageScore) : 0 }}%
                   </span>
-                  <span class="text-sm font-semibold text-primary stat-label">Average Score</span>
+                  <span class="text-sm font-semibold text-primary text-uppercase">Average Score</span>
                   <span class="text-xs text-secondary"
                   >across {{ stats.totalAttempts }} attempts</span
                   >
                 </div>
               </div>
 
-              <div class="overview-stat time">
-                <div class="stat-icon-wrapper">
+              <div class="stat">
+                <div class="stat-icon stat-icon-blue">
                   <i class="pi pi-clock"></i>
                 </div>
                 <div class="flex flex-col gap-xs">
                   <span class="text-3xl font-bold text-primary">{{
                       formatTime(stats.totalTimeSpentSeconds)
                     }}</span>
-                  <span class="text-sm font-semibold text-primary stat-label">Time Spent</span>
+                  <span class="text-sm font-semibold text-primary text-uppercase">Time Spent</span>
                   <span class="text-xs text-secondary">studying exercises</span>
                 </div>
               </div>
 
-              <div class="overview-stat completed">
-                <div class="stat-icon-wrapper">
+              <div class="stat">
+                <div class="stat-icon stat-icon-green">
                   <i class="pi pi-check-circle"></i>
                 </div>
                 <div class="flex flex-col gap-xs">
                   <span class="text-3xl font-bold text-primary">{{
                       stats.totalExercisesCompleted
                     }}</span>
-                  <span class="text-sm font-semibold text-primary stat-label">Completed</span>
+                  <span class="text-sm font-semibold text-primary text-uppercase">Completed</span>
                   <span class="text-xs text-secondary">unique exercises</span>
                 </div>
               </div>
             </div>
 
-            <div class="progress-section">
+            <div class="divider-top">
               <div class="flex justify-between items-center mb-sm font-semibold text-primary">
                 <span>Overall Progress</span>
-                <span class="text-xl progress-percentage"
+                <span class="text-xl text-primary"
                 >{{ Math.round(completionPercentage) }}%</span
                 >
               </div>
@@ -172,21 +172,21 @@ onMounted(() => {
             </div>
           </template>
           <template #content>
-            <div class="streaks-grid">
-              <div class="streak-stat current">
-                <i class="pi pi-calendar text-3xl streak-icon-warning"></i>
+            <div class="stats-grid">
+              <div class="flex items-center gap-lg p-lg gradient-warning" style="border-radius: var(--radius-lg)">
+                <i class="pi pi-calendar text-3xl icon-warning"></i>
                 <div class="flex flex-col gap-xs">
-                  <span class="text-4xl font-bold text-primary streak-number">{{
+                  <span class="text-4xl font-bold text-primary line-height-tight">{{
                       stats.currentStreak
                     }}</span>
                   <span class="text-base font-semibold text-primary">Current Streak</span>
                   <span class="text-sm text-secondary">days in a row</span>
                 </div>
               </div>
-              <div class="streak-stat longest">
-                <i class="pi pi-crown text-3xl streak-icon-purple"></i>
+              <div class="flex items-center gap-lg p-lg gradient-purple" style="border-radius: var(--radius-lg)">
+                <i class="pi pi-crown text-3xl" style="color: #8b5cf6"></i>
                 <div class="flex flex-col gap-xs">
-                  <span class="text-4xl font-bold text-primary streak-number">{{
+                  <span class="text-4xl font-bold text-primary line-height-tight">{{
                       stats.longestStreak
                     }}</span>
                   <span class="text-base font-semibold text-primary">Longest Streak</span>
@@ -214,7 +214,7 @@ onMounted(() => {
               <div
                 v-for="activity in stats.recentActivity"
                 :key="`${activity.exerciseId}-${activity.completedAt}`"
-                class="activity-item"
+                class="list-item-interactive"
                 @click="navigateToExercise(activity.exerciseId)"
               >
                 <div class="flex justify-between items-center mb-xs">
@@ -250,19 +250,19 @@ onMounted(() => {
           <template #content>
             <div class="language-stats">
               <div class="flex flex-col gap-xs">
-                <span class="text-sm text-secondary stat-label">Total Exercises</span>
+                <span class="text-sm text-secondary text-uppercase">Total Exercises</span>
                 <span class="text-2xl font-bold text-primary">{{ lang.totalExercises }}</span>
               </div>
               <div class="flex flex-col gap-xs">
-                <span class="text-sm text-secondary stat-label">Completed</span>
+                <span class="text-sm text-secondary text-uppercase">Completed</span>
                 <span class="text-2xl font-bold text-primary">{{ lang.completedExercises }}</span>
               </div>
               <div class="flex flex-col gap-xs">
-                <span class="text-sm text-secondary stat-label">Mastered</span>
+                <span class="text-sm text-secondary text-uppercase">Mastered</span>
                 <span class="text-2xl font-bold text-primary">{{ lang.masteredExercises }}</span>
               </div>
               <div class="flex flex-col gap-xs">
-                <span class="text-sm text-secondary stat-label">Average Score</span>
+                <span class="text-sm text-secondary text-uppercase">Average Score</span>
                 <span class="text-2xl font-bold text-primary">{{
                     lang.averageScore ? Math.round(lang.averageScore) + '%' : 'N/A'
                   }}</span>
@@ -270,8 +270,8 @@ onMounted(() => {
             </div>
 
             <div v-if="Object.keys(lang.moduleProgress).length > 0" class="modules-section">
-              <h4 class="mb-md text-primary font-semibold modules-heading">Modules</h4>
-              <div class="modules-grid">
+              <h4 class="mb-md text-primary font-semibold">Modules</h4>
+              <div class="content-grid">
                 <div
                   v-for="module in Object.values(lang.moduleProgress)"
                   :key="module.moduleNumber"
@@ -300,145 +300,18 @@ onMounted(() => {
 </template>
 
 <style scoped>
-/* Page container */
-.stats-page-container {
-  min-height: 100vh;
-  background: var(--bg-primary);
-}
-
-.icon-primary {
-  color: var(--primary);
-}
-
-.stat-label {
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.progress-percentage {
-  color: var(--primary);
-}
-
-.streak-icon-warning {
-  color: var(--warning);
-}
-
-.streak-icon-purple {
-  color: #8b5cf6;
-}
-
-.streak-number {
-  line-height: 1;
-}
-
-.modules-heading {
-  margin-top: 0;
-}
-
-.module-percentage {
-  color: var(--primary);
-}
-
-/* Overview stat icons with colored backgrounds */
-.stat-icon-wrapper {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.75rem;
-  flex-shrink: 0;
-}
-
-.overview-stat.mastered .stat-icon-wrapper {
-  background: #fef3c7;
-  color: #d97706;
-}
-
-.overview-stat.score .stat-icon-wrapper {
-  background: #f3e8ff;
-  color: #8b5cf6;
-}
-
-.overview-stat.time .stat-icon-wrapper {
-  background: #dbeafe;
-  color: #3b82f6;
-}
-
-.overview-stat.completed .stat-icon-wrapper {
-  background: #d1fae5;
-  color: #10b981;
-}
-
-.overview-stat {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.25rem;
-  border-radius: var(--radius-lg);
-  background: var(--bg-tertiary);
-}
-
-/* Progress section */
-.progress-section {
-  padding-top: var(--spacing-lg);
-  border-top: 1px solid var(--border-medium);
-}
-
+/* Custom progress bar heights */
 .overall-progress-bar {
   height: 1.5rem;
   border-radius: var(--radius-md);
 }
 
-/* Streaks */
-.streaks-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-lg);
+.module-progress {
+  height: 0.5rem;
+  margin-bottom: var(--spacing-xs);
 }
 
-.streak-stat {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-lg);
-  padding: var(--spacing-lg);
-  border-radius: var(--radius-lg);
-}
-
-.streak-stat.current {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-}
-
-.streak-stat.longest {
-  background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
-}
-
-/* Activity items */
-.activity-item {
-  padding: 1rem;
-  border: 1px solid var(--border-medium);
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: all 0.2s;
-  background: var(--bg-secondary);
-}
-
-.activity-item:hover {
-  border-color: var(--primary);
-  background: var(--primary-light);
-  transform: translateX(4px);
-}
-
-.activity-score.correct {
-  color: var(--success);
-}
-
-.activity-score:not(.correct) {
-  color: var(--error);
-}
-
-/* Language progress */
+/* Language progress grid */
 .language-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -449,12 +322,6 @@ onMounted(() => {
 }
 
 /* Module cards */
-.modules-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
 .module-card {
   padding: 1rem;
   border: 1px solid var(--border-medium);
@@ -462,23 +329,10 @@ onMounted(() => {
   background: var(--bg-tertiary);
 }
 
-.module-progress {
-  height: 0.5rem;
-  margin-bottom: var(--spacing-xs);
-}
-
 /* Responsive */
 @media (max-width: 768px) {
-  .streaks-grid {
-    grid-template-columns: 1fr;
-  }
-
   .language-stats {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .modules-grid {
-    grid-template-columns: 1fr;
   }
 }
 </style>

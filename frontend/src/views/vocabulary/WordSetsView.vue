@@ -1,14 +1,14 @@
 <template>
-  <div class="word-sets-container">
+  <div class="page-container-with-padding">
     <Toast />
 
-    <div class="word-sets-content">
-      <div class="header">
-        <h1 class="title">
-          <i class="pi pi-bookmark"></i>
+    <div class="view-container content-area-xl">
+      <div class="page-header">
+        <h1 class="flex items-center gap-md">
+          <i class="pi pi-bookmark text-3xl icon-primary"></i>
           Word Sets
         </h1>
-        <p class="subtitle">Pre-made collections of words to quickly build your vocabulary</p>
+        <p>Pre-made collections of words to quickly build your vocabulary</p>
       </div>
 
       <div class="controls-section">
@@ -103,7 +103,7 @@
         </Card>
       </div>
 
-      <div v-else class="word-sets-grid">
+      <div v-else class="content-grid">
         <Card v-for="wordSet in wordSets" :key="wordSet.id" class="word-set-card">
           <template #header>
             <div class="card-header">
@@ -336,42 +336,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.word-sets-container {
-  min-height: 100vh;
-  background: var(--surface-ground);
-  padding: var(--spacing-2xl) var(--spacing-md);
-}
-
-.word-sets-content {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.header {
-  margin-bottom: var(--spacing-2xl);
-}
-
-.title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin: 0 0 var(--spacing-xs) 0;
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-md);
-}
-
-.title i {
-  color: var(--primary);
-  font-size: 2rem;
-}
-
-.subtitle {
-  color: var(--text-secondary);
-  font-size: 1.125rem;
-  margin: 0;
-}
-
+/* Controls section */
 .controls-section {
   display: flex;
   justify-content: space-between;
@@ -392,11 +357,7 @@ onMounted(() => {
   max-width: 300px;
 }
 
-.admin-section {
-  display: flex;
-  align-items: center;
-}
-
+/* Upload dialog */
 .upload-dialog {
   width: 500px;
   max-width: 90vw;
@@ -426,54 +387,7 @@ onMounted(() => {
   font-style: italic;
 }
 
-.w-full {
-  width: 100%;
-}
-
-.error-message {
-  margin-bottom: var(--spacing-xl);
-}
-
-.loading-state {
-  display: flex;
-  justify-content: center;
-  padding: var(--spacing-4xl) var(--spacing-2xl);
-}
-
-.empty-state {
-  margin-top: var(--spacing-2xl);
-}
-
-.empty-content {
-  text-align: center;
-  padding: var(--spacing-3xl) var(--spacing-2xl);
-}
-
-.empty-icon {
-  font-size: 4rem;
-  color: var(--text-secondary);
-  margin-bottom: var(--spacing-md);
-}
-
-.empty-content h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: var(--spacing-xs);
-}
-
-.empty-content p {
-  color: var(--text-secondary);
-  font-size: 1rem;
-}
-
-.word-sets-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: var(--spacing-xl);
-  margin-top: var(--spacing-md);
-}
-
+/* Card customization */
 .word-set-card {
   height: 100%;
   display: flex;
@@ -491,10 +405,6 @@ onMounted(() => {
   gap: var(--spacing-xs);
   align-items: center;
   flex-wrap: wrap;
-}
-
-.level-tag {
-  font-weight: 600;
 }
 
 .word-set-name {
@@ -520,14 +430,14 @@ onMounted(() => {
   margin-top: var(--spacing-md);
 }
 
-.stat {
+.word-set-stats .stat {
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
   color: var(--text-secondary);
 }
 
-.stat i {
+.word-set-stats .stat i {
   color: var(--primary);
 }
 
@@ -537,19 +447,8 @@ onMounted(() => {
   justify-content: space-between;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
-  .word-sets-container {
-    padding: var(--spacing-md);
-  }
-
-  .title {
-    font-size: 2rem;
-  }
-
-  .word-sets-grid {
-    grid-template-columns: 1fr;
-  }
-
   .card-actions {
     flex-direction: column;
   }

@@ -2,7 +2,7 @@
 import {onMounted, ref, watch} from 'vue'
 import {useRouter} from 'vue-router'
 import {useStudyStore} from '@/stores/study'
-import FlashCard from '@/components/FlashCard.vue'
+import FlashCard from '@/components/vocabulary/FlashCard.vue'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 import Dialog from 'primevue/dialog'

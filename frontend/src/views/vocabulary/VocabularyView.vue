@@ -50,13 +50,13 @@ const goToSearch = () => {
 </script>
 
 <template>
-  <div class="vocabulary-container">
+  <div class="page-container-with-padding">
     <ConfirmDialog />
 
-    <div class="vocabulary-content">
+    <div class="view-container content-area-lg">
       <div class="flex justify-between items-center mb-2xl flex-wrap gap-md">
-        <h1 class="page-title">
-          <i class="pi pi-book"></i>
+        <h1 class="flex items-center gap-md text-primary" style="font-size: 2.5rem; font-weight: 700; margin: 0;">
+          <i class="pi pi-book text-3xl icon-primary"></i>
           My Vocabulary
         </h1>
         <div class="flex items-center gap-md">
@@ -160,32 +160,7 @@ const goToSearch = () => {
 </template>
 
 <style scoped>
-.vocabulary-container {
-  min-height: 100vh;
-  background: var(--bg-primary);
-  padding: 2rem 1rem;
-}
-
-.vocabulary-content {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.page-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.page-title i {
-  color: var(--primary);
-  font-size: 2rem;
-}
-
+/* Custom word count badge */
 .word-count {
   font-weight: 600;
   padding: 0.5rem 1rem;
@@ -193,14 +168,7 @@ const goToSearch = () => {
   border-radius: var(--radius-sm);
 }
 
-.error-message {
-  margin-bottom: 1.5rem;
-}
-
-.vocabulary-card {
-  margin-top: 1rem;
-}
-
+/* Table customization */
 .pos-tag {
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -208,15 +176,5 @@ const goToSearch = () => {
 
 .notes-text {
   font-style: italic;
-}
-
-@media (max-width: 768px) {
-  .vocabulary-container {
-    padding: 1rem;
-  }
-
-  .page-title {
-    font-size: 2rem;
-  }
 }
 </style>

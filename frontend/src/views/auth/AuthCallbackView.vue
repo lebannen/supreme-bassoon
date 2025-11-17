@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { useAuthStore } from '@/stores/auth'
+import {onMounted} from 'vue'
+import {useRoute, useRouter} from 'vue-router'
+import {useAuthStore} from '@/stores/auth'
 
 const route = useRoute()
 const router = useRouter()
