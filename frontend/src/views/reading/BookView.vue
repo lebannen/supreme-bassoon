@@ -1,7 +1,7 @@
 <template>
-  <div class="book-view-container">
+  <div class="page-container">
     <!-- Reading Mode (when ID is provided) -->
-    <div v-if="id" class="reading-mode">
+    <div v-if="id" class="view-container">
       <div v-if="loading" class="loading-state">
         <ProgressSpinner />
         <p>Loading text...</p>
@@ -127,8 +127,8 @@
 import {computed, onMounted, ref} from 'vue'
 import {useRoute, useRouter} from 'vue-router'
 import {storeToRefs} from 'pinia'
-import BookComponent from '../components/BookComponent.vue'
-import WordCard from '../components/WordCard.vue'
+import BookComponent from '@/components/reading/BookComponent.vue'
+import WordCard from '@/components/vocabulary/WordCard.vue'
 import Select from 'primevue/select'
 import Button from 'primevue/button'
 import Tag from 'primevue/tag'
@@ -276,16 +276,6 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.book-view-container {
-  min-height: 100vh;
-  background: var(--surface-ground);
-}
-
-.reading-mode {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
 .text-reader {
   display: flex;
   flex-direction: column;
@@ -293,7 +283,7 @@ onMounted(async () => {
 
 .header-actions {
   display: flex;
-  gap: 0.75rem;
+  gap: var(--spacing-md);
   align-items: center;
 }
 

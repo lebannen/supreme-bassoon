@@ -1,14 +1,15 @@
 <template>
-  <div class="import-container">
-    <h1>Import Language Data</h1>
-    <p class="description">
-      Upload JSONL.gz files containing language vocabulary data. Language will be automatically
-      detected from the file.
-    </p>
+  <div class="page-container-with-padding">
+    <div class="view-container content-area-lg">
+      <h1 class="text-primary font-bold mb-xs">Import Language Data</h1>
+      <p class="text-secondary mb-2xl">
+        Upload JSONL.gz files containing language vocabulary data. Language will be automatically
+        detected from the file.
+      </p>
 
-    <div class="upload-section">
-      <div class="field">
-        <label>Select File</label>
+      <div class="bg-secondary p-xl rounded-md border border-medium mb-xl">
+        <div class="mb-xl">
+          <label class="block mb-xs font-semibold text-primary">Select File</label>
         <FileUpload
           mode="basic"
           name="file"
@@ -19,12 +20,12 @@
           :maxFileSize="1000000000"
           chooseLabel="Choose File"
         />
-        <small v-if="selectedFile" class="file-info">
+          <small v-if="selectedFile" class="block mt-xs text-secondary">
           Selected: {{ selectedFile.name }} ({{ formatFileSize(selectedFile.size) }})
         </small>
       </div>
 
-      <div class="button-group">
+        <div class="flex gap-sm flex-wrap">
         <Button
           label="Start Import"
           icon="pi pi-upload"
@@ -43,15 +44,15 @@
       </div>
     </div>
 
-    <Message v-if="uploadError" severity="error" :closable="false">
+      <Message v-if="uploadError" severity="error" :closable="false" class="mb-xl">
       {{ uploadError }}
     </Message>
 
-    <Message v-if="clearSuccess" severity="success" :closable="true" @close="clearSuccess = null">
+      <Message v-if="clearSuccess" severity="success" :closable="true" @close="clearSuccess = null" class="mb-xl">
       {{ clearSuccess }}
     </Message>
 
-    <div v-if="currentImport" class="progress-section">
+      <div v-if="currentImport" class="mb-xl">
       <Card>
         <template #title>
           <div class="flex align-items-center justify-content-between">
@@ -63,33 +64,33 @@
           </div>
         </template>
         <template #content>
-          <div class="progress-info">
+          <div class="flex flex-col gap-xl">
             <div class="stats-grid">
               <div class="stat">
-                <label>Total Entries</label>
+                <label class="block text-secondary mb-xs">Total Entries</label>
                 <span>{{ currentImport.totalEntries.toLocaleString() }}</span>
               </div>
               <div class="stat">
-                <label>Processed</label>
+                <label class="block text-secondary mb-xs">Processed</label>
                 <span>{{ currentImport.processedEntries.toLocaleString() }}</span>
               </div>
               <div class="stat">
-                <label>Successful</label>
+                <label class="block text-secondary mb-xs">Successful</label>
                 <span class="text-green-600">{{
                     currentImport.successfulEntries.toLocaleString()
                   }}</span>
               </div>
               <div class="stat">
-                <label>Failed</label>
+                <label class="block text-secondary mb-xs">Failed</label>
                 <span class="text-red-600">{{ currentImport.failedEntries.toLocaleString() }}</span>
               </div>
             </div>
 
-            <div class="progress-bar-container">
+            <div class="mt-md">
               <ProgressBar :value="currentImport.progressPercentage" :showValue="true"/>
             </div>
 
-            <div class="message">
+            <div class="flex items-center gap-xs text-secondary">
               <i class="pi pi-info-circle"></i>
               <span>{{ currentImport.message }}</span>
             </div>
@@ -104,8 +105,8 @@
       </Card>
     </div>
 
-    <div v-if="importHistory.length > 0" class="history-section">
-      <h2>Import History</h2>
+      <div v-if="importHistory.length > 0" class="mt-3xl">
+        <h2 class="mb-md text-primary font-semibold">Import History</h2>
       <DataTable :value="importHistory" :paginator="true" :rows="10">
         <Column field="languageName" header="Language"></Column>
         <Column field="status" header="Status">
@@ -135,6 +136,7 @@
           </template>
         </Column>
       </DataTable>
+      </div>
     </div>
   </div>
 </template>
@@ -360,68 +362,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.import-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: var(--spacing-2xl) var(--spacing-xl);
-}
-
-h1 {
-  color: var(--text-primary);
-  font-weight: 700;
-  margin-bottom: var(--spacing-xs);
-}
-
-.description {
-  color: var(--text-secondary);
-  margin-bottom: var(--spacing-2xl);
-}
-
-.upload-section {
-  background: var(--bg-secondary);
-  padding: var(--spacing-xl);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-medium);
-  margin-bottom: var(--spacing-xl);
-}
-
-.field {
-  margin-bottom: var(--spacing-xl);
-}
-
-.field:last-child {
-  margin-bottom: 0;
-}
-
-.field label {
-  display: block;
-  margin-bottom: var(--spacing-xs);
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.file-info {
-  display: block;
-  margin-top: var(--spacing-xs);
-  color: var(--text-secondary);
-}
-
-.button-group {
-  display: flex;
-  gap: var(--spacing-sm);
-  flex-wrap: wrap;
-}
-
-.progress-section {
-  margin-bottom: var(--spacing-xl);
-}
-
-.progress-info {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xl);
-}
-
+/* Stats grid */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -436,56 +377,13 @@ h1 {
   border-radius: var(--radius-md);
 }
 
-.stat label {
-  display: block;
-  color: var(--text-secondary);
-  margin-bottom: var(--spacing-xs);
-}
-
 .stat span {
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--text-primary);
 }
 
-.progress-bar-container {
-  margin-top: var(--spacing-md);
-}
-
-.message {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-  color: var(--text-secondary);
-}
-
-.history-section {
-  margin-top: var(--spacing-3xl);
-}
-
-.history-section h2 {
-  margin-bottom: var(--spacing-md);
-  color: var(--text-primary);
-  font-weight: 600;
-}
-
 @media (max-width: 768px) {
-  .import-container {
-    padding: var(--spacing-xl) var(--spacing-md);
-  }
-
-  .upload-section {
-    padding: var(--spacing-lg);
-  }
-
-  .button-group {
-    flex-direction: column;
-  }
-
-  .button-group button {
-    width: 100%;
-  }
-
   .stats-grid {
     grid-template-columns: 1fr 1fr;
   }

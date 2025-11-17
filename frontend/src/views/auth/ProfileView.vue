@@ -96,48 +96,48 @@ const handleSave = async () => {
 </script>
 
 <template>
-  <div class="profile-container">
-    <div class="profile-content">
+  <div class="page-container-with-padding">
+    <div class="view-container content-area-lg">
       <h1 class="flex items-center gap-md text-4xl font-bold text-primary mb-xl">
         <i class="pi pi-user text-3xl icon-primary"></i>
         My Profile
       </h1>
 
-      <Message v-if="saveSuccess" severity="success" :closable="false" class="success-message">
+      <Message v-if="saveSuccess" severity="success" :closable="false" class="mb-xl">
         Profile updated successfully!
       </Message>
 
-      <Message v-if="authStore.error" severity="error" :closable="false" class="error-message">
+      <Message v-if="authStore.error" severity="error" :closable="false" class="mb-xl">
         {{ authStore.error }}
       </Message>
 
-      <Card class="profile-card">
+      <Card class="mb-xl">
         <template #content>
-          <div class="profile-info">
+          <div class="flex flex-col">
             <!-- Email (Read-only) -->
-            <div class="info-section">
-              <div class="section-header">
+            <div class="py-xs">
+              <div class="flex items-center gap-md mb-lg">
                 <i class="pi pi-envelope text-xl icon-primary"></i>
                 <h3 class="text-xl font-semibold text-primary">Email Address</h3>
               </div>
-              <div class="info-field">
-                <label>Email</label>
+              <div class="mb-lg">
+                <label class="block font-medium mb-xs text-primary">Email</label>
                 <InputText :model-value="authStore.user?.email" disabled class="w-full"/>
-                <small class="text-sm text-secondary helper-text">Email cannot be changed</small>
+                <small class="block mt-xs text-sm text-secondary">Email cannot be changed</small>
               </div>
             </div>
 
             <Divider />
 
             <!-- Personal Information -->
-            <div class="info-section">
-              <div class="section-header">
+            <div class="py-xs">
+              <div class="flex items-center gap-md mb-lg">
                 <i class="pi pi-id-card text-xl icon-primary"></i>
                 <h3 class="text-xl font-semibold text-primary">Personal Information</h3>
               </div>
 
-              <div class="info-field">
-                <label for="displayName">Display Name</label>
+              <div class="mb-lg">
+                <label for="displayName" class="block font-medium mb-xs text-primary">Display Name</label>
                 <InputText
                   id="displayName"
                   v-model="displayName"
@@ -151,14 +151,14 @@ const handleSave = async () => {
             <Divider />
 
             <!-- Language Settings -->
-            <div class="info-section">
-              <div class="section-header">
+            <div class="py-xs">
+              <div class="flex items-center gap-md mb-lg">
                 <i class="pi pi-language text-xl icon-primary"></i>
                 <h3 class="text-xl font-semibold text-primary">Language Preferences</h3>
               </div>
 
-              <div class="info-field">
-                <label for="nativeLanguage">Native Language</label>
+              <div class="mb-lg">
+                <label for="nativeLanguage" class="block font-medium mb-xs text-primary">Native Language</label>
                 <Dropdown
                   id="nativeLanguage"
                   v-model="nativeLanguage"
@@ -171,8 +171,8 @@ const handleSave = async () => {
                 />
               </div>
 
-              <div class="info-field">
-                <label for="learningLanguages">Learning Languages</label>
+              <div class="mb-lg">
+                <label for="learningLanguages" class="block font-medium mb-xs text-primary">Learning Languages</label>
                 <MultiSelect
                   id="learningLanguages"
                   v-model="learningLanguages"
@@ -184,14 +184,14 @@ const handleSave = async () => {
                   class="w-full"
                   display="chip"
                 />
-                <small class="text-sm text-secondary helper-text"
+                <small class="block mt-xs text-sm text-secondary"
                 >Select the languages you want to learn</small
                 >
               </div>
             </div>
 
             <!-- Action Buttons -->
-            <div class="actions">
+            <div class="mt-2xl pt-xl flex gap-md justify-end divider-top">
               <template v-if="!isEditing">
                 <Button label="Edit Profile" icon="pi pi-pencil" @click="handleEdit"/>
               </template>
@@ -254,114 +254,20 @@ const handleSave = async () => {
 </template>
 
 <style scoped>
-.profile-container {
-  min-height: 100vh;
-  background: var(--bg-primary);
-  padding: 2rem 1rem;
-}
-
-.profile-content {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.success-message,
-.error-message {
-  margin-bottom: 1.5rem;
-}
-
-.profile-card {
-  margin-bottom: 1.5rem;
-}
-
-.profile-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.info-section {
-  padding: 0.5rem 0;
-}
-
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.25rem;
-}
-
-.info-field {
-  margin-bottom: 1.25rem;
-}
-
-.info-field:last-child {
-  margin-bottom: 0;
-}
-
-.info-field label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  color: var(--text-primary);
-}
-
-.w-full {
-  width: 100%;
-}
-
-.actions {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border-light);
-  display: flex;
-  gap: 1rem;
-  justify-content: flex-end;
-}
-
-.info-card {
-  background: var(--bg-secondary);
-}
-
 .info-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem;
+  padding: var(--spacing-md);
   background: var(--bg-tertiary);
   border-radius: var(--radius-md);
 }
 
-.icon-primary {
-  color: var(--primary);
-}
-
-.helper-text {
-  display: block;
-  margin-top: 0.25rem;
-}
-
 @media (max-width: 768px) {
-  .profile-container {
-    padding: 1rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  .actions {
-    flex-direction: column;
-  }
-
-  .actions button {
-    width: 100%;
-  }
-
   .info-item {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: var(--spacing-sm);
   }
 }
 </style>

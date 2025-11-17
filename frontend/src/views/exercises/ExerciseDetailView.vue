@@ -1,10 +1,12 @@
 <template>
-  <div class="exercise-detail-container">
-    <div v-if="loading" class="loading">
-      <ProgressSpinner />
-    </div>
+  <div class="page-container-with-padding">
+    <div class="view-container content-area-lg">
+      <div v-if="loading" class="loading-state">
+        <ProgressSpinner/>
+        <p>Loading exercise...</p>
+      </div>
 
-    <div v-else-if="exercise" class="exercise-content">
+      <div v-else-if="exercise">
       <div class="exercise-header">
         <Button icon="pi pi-arrow-left" text @click="goBack" label="Back to Exercises"/>
         <h1>{{ exercise.title }}</h1>
@@ -80,10 +82,11 @@
           </div>
         </template>
       </Card>
-    </div>
+      </div>
 
-    <div v-else class="error">
-      <Message severity="error"> Exercise not found or failed to load.</Message>
+      <div v-else class="empty-state">
+        <Message severity="error"> Exercise not found or failed to load.</Message>
+      </div>
     </div>
   </div>
 </template>
@@ -92,12 +95,12 @@
 import {onMounted, ref} from 'vue'
 import {useRoute, useRouter} from 'vue-router'
 import {storeToRefs} from 'pinia'
-import MultipleChoiceExercise from '@/components/MultipleChoiceExercise.vue'
-import FillInBlankExercise from '@/components/FillInBlankExercise.vue'
-import SentenceScrambleExercise from '@/components/SentenceScrambleExercise.vue'
-import MatchingExercise from '@/components/MatchingExercise.vue'
-import ListeningExercise from '@/components/ListeningExercise.vue'
-import ClozeReadingExercise from '@/components/ClozeReadingExercise.vue'
+import MultipleChoiceExercise from '@/components/exercises/MultipleChoiceExercise.vue'
+import FillInBlankExercise from '@/components/exercises/FillInBlankExercise.vue'
+import SentenceScrambleExercise from '@/components/exercises/SentenceScrambleExercise.vue'
+import MatchingExercise from '@/components/exercises/MatchingExercise.vue'
+import ListeningExercise from '@/components/exercises/ListeningExercise.vue'
+import ClozeReadingExercise from '@/components/exercises/ClozeReadingExercise.vue'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 import Tag from 'primevue/tag'
@@ -158,19 +161,7 @@ onMounted(fetchExercise)
 </script>
 
 <style scoped>
-.exercise-detail-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.loading,
-.error {
-  display: flex;
-  justify-content: center;
-  padding: 4rem;
-}
-
+/* Exercise header */
 .exercise-header {
   margin-bottom: 2rem;
 }
@@ -192,26 +183,8 @@ onMounted(fetchExercise)
   flex-wrap: wrap;
 }
 
+/* Placeholder for unimplemented exercise types */
 .placeholder {
   padding: 1rem 0;
-}
-
-.exercise-data {
-  margin-top: 2rem;
-  padding: 1rem;
-  background: var(--bg-primary);
-  border-radius: var(--radius-md);
-}
-
-.exercise-data h3 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-.exercise-data pre {
-  background: var(--bg-secondary);
-  padding: 1rem;
-  border-radius: var(--radius-sm);
-  overflow-x: auto;
 }
 </style>

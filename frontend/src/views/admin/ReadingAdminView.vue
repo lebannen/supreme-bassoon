@@ -1,14 +1,16 @@
 <template>
-  <div class="reading-admin-container">
+  <div class="page-container">
     <div class="view-header">
-      <div class="view-container">
-        <h1>Reading Texts Administration</h1>
-        <p class="description">Manage reading texts and their audio files</p>
+      <div class="view-header-content">
+        <div class="view-header-text">
+          <h1>Reading Texts Administration</h1>
+          <p>Manage reading texts and their audio files</p>
+        </div>
       </div>
     </div>
 
-    <div class="view-container p-xl">
-      <div class="filters">
+    <div class="view-container content-area-xl p-xl">
+      <div class="flex gap-md mb-xl">
         <Select
             v-model="selectedLanguage"
             :options="languages"
@@ -37,7 +39,7 @@
         <Message severity="error" :closable="false">{{ error }}</Message>
       </div>
 
-      <div v-else class="texts-grid">
+      <div v-else class="content-grid">
         <Card v-for="text in filteredTexts" :key="text.id" class="text-card">
           <template #header>
             <div class="card-header">
@@ -309,30 +311,6 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.reading-admin-container {
-  min-height: 100vh;
-  background: var(--surface-ground);
-}
-
-.view-header h1 {
-  margin: 0 0 0.5rem 0;
-  color: var(--text-color);
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-.description {
-  margin: 0;
-  color: var(--text-color-secondary);
-  font-size: 1.125rem;
-}
-
-.texts-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-  gap: 2rem;
-}
-
 .text-card {
   height: 100%;
 }
@@ -341,13 +319,13 @@ onMounted(async () => {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 1rem;
-  padding: 1rem;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
   background: var(--surface-ground);
 }
 
 .text-info h3 {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 var(--spacing-xs) 0;
   font-size: 1.125rem;
   font-weight: 600;
   color: var(--text-color);
@@ -356,7 +334,7 @@ onMounted(async () => {
 .card-content {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--spacing-md);
 }
 
 .card-content .description {
@@ -366,12 +344,12 @@ onMounted(async () => {
 }
 
 .current-audio {
-  padding: 0.75rem;
+  padding: var(--spacing-md);
   background: var(--surface-ground);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--spacing-sm);
 }
 
 .current-audio label {
@@ -382,7 +360,7 @@ onMounted(async () => {
 .audio-upload {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--spacing-md);
 }
 
 .upload-label {
@@ -391,12 +369,6 @@ onMounted(async () => {
 }
 
 .upload-result {
-  margin-top: 0.5rem;
-}
-
-@media (max-width: 768px) {
-  .texts-grid {
-    grid-template-columns: 1fr;
-  }
+  margin-top: var(--spacing-xs);
 }
 </style>

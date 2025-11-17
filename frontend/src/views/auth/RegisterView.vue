@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-center auth-container">
+  <div class="flex items-center justify-center page-container">
     <Card class="auth-card">
       <template #header>
         <div class="text-center p-xl">
@@ -195,36 +195,10 @@ const handleGoogleLogin = () => {
 </script>
 
 <style scoped>
-.auth-container {
-  min-height: 100vh;
-  background: var(--bg-tertiary);
-}
-
 .auth-card {
   width: 100%;
   max-width: 28rem;
   box-shadow: var(--shadow-lg);
-}
-
-.full-width {
-  width: 100%;
-}
-
-.text-primary {
-  color: var(--text-primary);
-}
-
-.text-error {
-  color: var(--error);
-}
-
-.link-primary {
-  color: var(--primary);
-  text-decoration: none;
-}
-
-.link-primary:hover {
-  text-decoration: underline;
 }
 
 .requirements-list {

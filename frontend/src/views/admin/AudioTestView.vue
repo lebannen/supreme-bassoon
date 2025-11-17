@@ -1,13 +1,13 @@
 <template>
-  <div class="audio-test-view">
-    <div class="container">
+  <div class="page-container-with-padding">
+    <div class="view-container content-area-md">
       <Card>
         <template #title>
           <h2>Audio Generation Test</h2>
         </template>
         <template #content>
-          <div class="test-form">
-            <div class="field">
+          <div class="flex flex-col gap-lg">
+            <div class="flex flex-col gap-sm">
               <label for="text">Text to Convert</label>
               <Textarea
                 id="text"
@@ -18,7 +18,7 @@
               />
             </div>
 
-            <div class="field">
+            <div class="flex flex-col gap-sm">
               <label for="language">Language</label>
               <Select
                 id="language"
@@ -30,7 +30,7 @@
               />
             </div>
 
-            <div class="field">
+            <div class="flex flex-col gap-sm">
               <label for="voice">Voice</label>
               <Select
                 id="voice"
@@ -158,43 +158,6 @@ async function generateAudio() {
 </script>
 
 <style scoped>
-.audio-test-view {
-  padding: var(--spacing-2xl);
-  background: var(--bg-primary);
-  min-height: 100vh;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.test-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-lg);
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-}
-
-.field label {
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.audio-player-section {
-  margin-top: var(--spacing-md);
-}
-
-.audio-player-section h3 {
-  margin-bottom: var(--spacing-sm);
-  color: var(--text-primary);
-}
-
 .audio-url {
   font-size: 0.9rem;
   color: var(--text-secondary);

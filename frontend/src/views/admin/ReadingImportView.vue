@@ -1,14 +1,13 @@
 <template>
-  <div class="reading-import-container">
-    <div class="view-header">
-      <h1>Import Reading Texts</h1>
-      <p class="description">
+  <div class="page-container-with-padding">
+    <div class="view-container content-area-lg">
+      <h1 class="text-primary font-bold mb-xs">Import Reading Texts</h1>
+      <p class="text-secondary mb-2xl">
         Upload JSON files containing reading texts. Each file should contain one text with title,
         content, and metadata.
       </p>
-    </div>
 
-    <div class="upload-section">
+      <div class="bg-secondary p-xl rounded-md border border-medium">
       <FileUpload
         name="files[]"
         :multiple="true"
@@ -161,13 +160,14 @@
         </template>
       </Card>
     </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import {ref} from 'vue'
 import {useRouter} from 'vue-router'
-import FileUpload, {FileUploadUploaderEvent} from 'primevue/fileupload'
+import FileUpload, {type FileUploadUploaderEvent} from 'primevue/fileupload'
 import Button from 'primevue/button'
 import Card from 'primevue/card'
 import Tag from 'primevue/tag'
@@ -297,55 +297,27 @@ function getStatusSeverity(status: string): 'success' | 'danger' | 'info' | 'war
 </script>
 
 <style scoped>
-.reading-import-container {
-  min-height: 100vh;
-  background: var(--surface-ground);
-}
-
-.view-header {
-  text-align: center;
-}
-
-.view-header h1 {
-  margin: 0 0 0.5rem 0;
-  color: var(--text-color);
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-.description {
-  margin: 0;
-  color: var(--text-color-secondary);
-  font-size: 1.125rem;
-}
-
-.upload-section {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 2rem;
-}
-
 .files-list,
 .uploaded-section {
-  padding: 1.5rem;
+  padding: var(--spacing-xl);
 }
 
 .files-list h3,
 .uploaded-section h3 {
-  margin: 0 0 1rem 0;
+  margin: 0 0 var(--spacing-md) 0;
   color: var(--text-color);
 }
 
 .file-items {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--spacing-md);
 }
 
 .uploaded-items {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1rem;
+  gap: var(--spacing-md);
 }
 
 .uploaded-card {
@@ -355,13 +327,13 @@ function getStatusSeverity(status: string): 'success' | 'danger' | 'info' | 'war
 .uploaded-title {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--spacing-sm);
   font-size: 1rem;
 }
 
 .uploaded-meta {
   display: flex;
-  gap: 0.5rem;
+  gap: var(--spacing-sm);
   align-items: center;
   flex-wrap: wrap;
 }
@@ -371,53 +343,29 @@ function getStatusSeverity(status: string): 'success' | 'danger' | 'info' | 'war
   margin-left: auto;
 }
 
-.empty-state {
-  border: 2px dashed var(--surface-border);
-  background: var(--surface-section);
-}
-
-.summary-section {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 2rem;
-}
-
 .errors-list {
-  margin-top: 1.5rem;
-  padding: 1rem;
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-md);
   background: var(--red-50);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
 }
 
 .errors-list h4 {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 var(--spacing-xs) 0;
   color: var(--red-700);
 }
 
 .errors-list ul {
   margin: 0;
-  padding-left: 1.5rem;
+  padding-left: var(--spacing-xl);
   color: var(--red-600);
 }
 
 .errors-list li {
-  margin: 0.25rem 0;
-}
-
-.mt-library-button {
-  margin-top: 1.5rem;
+  margin: var(--spacing-xs) 0;
 }
 
 @media (max-width: 768px) {
-  .view-header h1 {
-    font-size: 1.5rem;
-  }
-
-  .upload-section,
-  .summary-section {
-    padding: 0 1rem;
-  }
-
   .uploaded-items {
     grid-template-columns: 1fr;
   }

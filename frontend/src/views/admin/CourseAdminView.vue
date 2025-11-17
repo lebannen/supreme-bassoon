@@ -383,8 +383,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="course-admin-view">
-    <div class="admin-container">
+  <div class="page-container-with-padding">
+    <div class="view-container content-area-lg flex flex-col gap-xl">
       <div class="page-header">
         <h1 class="flex items-center gap-md">
           <i class="pi pi-cog icon-primary"></i>
@@ -394,7 +394,7 @@ onMounted(() => {
       </div>
 
       <!-- Global Messages -->
-      <Message v-if="error" severity="error" :closable="true" @close="error = null">
+      <Message v-if="error" severity="error" :closable="true" @close="error = null" class="mb-lg">
         {{ error }}
       </Message>
 
@@ -403,6 +403,7 @@ onMounted(() => {
           severity="success"
           :closable="true"
           @close="successMessage = null"
+          class="mb-lg"
       >
         {{ successMessage }}
       </Message>
@@ -706,29 +707,11 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.course-admin-view {
-  min-height: 100vh;
-  background: var(--bg-primary);
-  padding: var(--spacing-2xl) var(--spacing-md);
-}
-
-.admin-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-2xl);
-}
-
 .course-selection label {
   display: block;
   font-weight: 600;
   margin-bottom: var(--spacing-sm);
   color: var(--text-primary);
-}
-
-.course-table {
-  margin-bottom: var(--spacing-md);
 }
 
 .selected-course {
@@ -755,13 +738,6 @@ onMounted(() => {
   cursor: pointer;
 }
 
-.no-selection {
-  color: var(--text-secondary);
-  font-style: italic;
-  text-align: center;
-  padding: var(--spacing-2xl);
-}
-
 .modules-section {
   padding: var(--spacing-lg);
   background: var(--bg-tertiary);
@@ -774,23 +750,6 @@ onMounted(() => {
   color: var(--text-primary);
   font-size: 1.125rem;
   font-weight: 600;
-}
-
-.no-modules {
-  text-align: center;
-  padding: var(--spacing-2xl);
-}
-
-.no-modules i {
-  font-size: 2.5rem;
-  color: var(--text-secondary);
-  opacity: 0.5;
-  margin-bottom: var(--spacing-sm);
-}
-
-.no-modules p {
-  color: var(--text-secondary);
-  margin: 0;
 }
 
 .modules-table {

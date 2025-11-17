@@ -1,15 +1,15 @@
 <template>
-  <div class="exercise-import-view">
-    <div class="container">
+  <div class="page-container-with-padding">
+    <div class="view-container content-area-lg">
       <Card>
         <template #title>
           <h2>Exercise Import</h2>
         </template>
         <template #content>
-          <div class="import-form">
+          <div class="flex flex-col gap-lg">
             <!-- File Upload Section -->
-            <div class="field">
-              <label>Drag & Drop JSON Files</label>
+            <div class="flex flex-col gap-sm">
+              <label class="font-semibold text-primary">Drag & Drop JSON Files</label>
               <div class="file-upload-container">
                 <input
                   ref="fileInput"
@@ -36,8 +36,8 @@
               </div>
 
               <!-- Selected Files List -->
-              <div v-if="selectedFiles.length > 0" class="selected-files">
-                <h4>Selected Files ({{ selectedFiles.length }})</h4>
+              <div v-if="selectedFiles.length > 0" class="mt-lg">
+                <h4 class="mb-md text-primary m-0">Selected Files ({{ selectedFiles.length }})</h4>
                 <div class="file-list">
                   <div v-for="(file, index) in selectedFiles" :key="index" class="file-item">
                     <i class="pi pi-file"></i>
@@ -60,8 +60,8 @@
             <Divider>OR</Divider>
 
             <!-- Paste JSON Section -->
-            <div class="field">
-              <label for="jsonContent">Paste JSON Content</label>
+            <div class="flex flex-col gap-sm">
+              <label for="jsonContent" class="font-semibold text-primary">Paste JSON Content</label>
               <Textarea
                 id="jsonContent"
                 v-model="jsonContent"
@@ -71,25 +71,25 @@
               />
             </div>
 
-            <div class="options-section">
-              <div class="field-checkbox">
+            <div class="flex flex-col gap-md">
+              <div class="flex items-center gap-sm">
                 <Checkbox
                   id="generateAudio"
                   v-model="generateAudio"
                   :binary="true"
                   :disabled="isImporting"
                 />
-                <label for="generateAudio">Generate Audio for Listening Exercises</label>
+                <label for="generateAudio" class="cursor-pointer">Generate Audio for Listening Exercises</label>
               </div>
 
-              <div class="field-checkbox">
+              <div class="flex items-center gap-sm">
                 <Checkbox
                   id="overwriteExisting"
                   v-model="overwriteExisting"
                   :binary="true"
                   :disabled="isImporting"
                 />
-                <label for="overwriteExisting">Overwrite Existing Exercises</label>
+                <label for="overwriteExisting" class="cursor-pointer">Overwrite Existing Exercises</label>
               </div>
             </div>
 
@@ -106,9 +106,9 @@
               {{ errorMessage }}
             </Message>
 
-            <div v-if="importResult" class="results-section">
+            <div v-if="importResult" class="mt-md">
               <Divider />
-              <h3>Import Results</h3>
+              <h3 class="mb-md text-primary">Import Results</h3>
 
               <div class="stats-grid">
                 <div class="stat-card">
@@ -129,20 +129,21 @@
                 </div>
               </div>
 
-              <div v-if="importResult.errors.length > 0" class="errors-section">
-                <h4>Errors</h4>
+              <div v-if="importResult.errors.length > 0" class="mt-md">
+                <h4 class="mt-lg mb-sm text-primary">Errors</h4>
                 <Message
                   v-for="(error, index) in importResult.errors"
                   :key="index"
                   severity="warn"
                   :closable="false"
+                  class="mb-sm"
                 >
                   {{ error }}
                 </Message>
               </div>
 
-              <div v-if="importResult.exercises.length > 0" class="exercises-section">
-                <h4>Exercises</h4>
+              <div v-if="importResult.exercises.length > 0" class="mt-md">
+                <h4 class="mt-lg mb-sm text-primary">Exercises</h4>
                 <DataTable :value="importResult.exercises" striped-rows>
                   <Column field="status" header="Status">
                     <template #body="{ data }">
@@ -374,34 +375,7 @@ function truncateUrl(url: string): string {
 </script>
 
 <style scoped>
-.exercise-import-view {
-  padding: var(--spacing-2xl);
-  background: var(--bg-primary);
-  min-height: 100vh;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.import-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-lg);
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-}
-
-.field label {
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
+/* File upload */
 .file-upload-container {
   margin-top: var(--spacing-sm);
 }
@@ -415,6 +389,7 @@ function truncateUrl(url: string): string {
   color: var(--primary);
 }
 
+/* Drop zone */
 .drop-zone {
   border: 2px dashed var(--border-medium);
   border-radius: var(--radius-lg);
@@ -456,15 +431,7 @@ function truncateUrl(url: string): string {
   color: var(--text-secondary);
 }
 
-.selected-files {
-  margin-top: var(--spacing-lg);
-}
-
-.selected-files h4 {
-  margin: 0 0 var(--spacing-md) 0;
-  color: var(--text-primary);
-}
-
+/* File list */
 .file-list {
   display: flex;
   flex-direction: column;
@@ -503,36 +470,11 @@ function truncateUrl(url: string): string {
   font-family: monospace;
 }
 
-.options-section {
-  display: flex;
-  flex-direction: column;
+/* Stats grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: var(--spacing-md);
-}
-
-.field-checkbox {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-}
-
-.field-checkbox label {
-  cursor: pointer;
-  user-select: none;
-}
-
-.results-section {
-  margin-top: var(--spacing-md);
-}
-
-.results-section h3 {
-  margin-bottom: var(--spacing-md);
-  color: var(--text-primary);
-}
-
-.results-section h4 {
-  margin-top: var(--spacing-lg);
-  margin-bottom: var(--spacing-sm);
-  color: var(--text-primary);
 }
 
 .stat-card {
@@ -565,18 +507,7 @@ function truncateUrl(url: string): string {
   color: var(--error);
 }
 
-.errors-section {
-  margin-top: var(--spacing-md);
-}
-
-.errors-section .p-message {
-  margin-bottom: var(--spacing-sm);
-}
-
-.exercises-section {
-  margin-top: var(--spacing-md);
-}
-
+/* Table cells */
 .audio-url-cell {
   font-family: monospace;
   color: var(--text-secondary);

@@ -105,8 +105,8 @@ function formatDueInfo() {
 </script>
 
 <template>
-  <div class="page-container">
-    <div class="content-area">
+  <div class="page-container-with-padding">
+    <div class="view-container content-area-lg flex flex-col gap-lg">
       <div class="page-header">
         <h1 class="flex items-center gap-md">
           <i class="pi pi-graduation-cap text-3xl icon-primary"></i>
@@ -114,14 +114,14 @@ function formatDueInfo() {
         </h1>
       </div>
 
-      <Message v-if="studyStore.error" severity="error" :closable="false" class="mb-md">
+      <Message v-if="studyStore.error" severity="error" :closable="false" class="mb-lg">
         {{ studyStore.error }}
       </Message>
 
       <!-- Active Session Card -->
       <Card v-if="studyStore.isSessionActive" class="active-session-card">
         <template #title>
-          <div class="flex items-center gap-sm card-title-primary">
+          <div class="flex items-center gap-sm text-primary">
             <i class="pi pi-play-circle"></i>
             Active Session in Progress
           </div>
@@ -130,14 +130,14 @@ function formatDueInfo() {
           <div class="flex flex-col gap-lg">
             <div class="flex gap-xl">
               <div class="flex flex-col gap-xs">
-                <span class="text-sm text-secondary stat-label">Progress</span>
+                <span class="text-sm text-secondary text-uppercase">Progress</span>
                 <span class="text-2xl font-bold text-primary">
                   {{ studyStore.activeSession?.wordsCompleted }} /
                   {{ studyStore.activeSession?.totalWords }}
                 </span>
               </div>
               <div class="flex flex-col gap-xs">
-                <span class="text-sm text-secondary stat-label">Accuracy</span>
+                <span class="text-sm text-secondary text-uppercase">Accuracy</span>
                 <span class="text-2xl font-bold text-primary"
                 >{{ Math.round(studyStore.activeSession?.stats.accuracy || 0) }}%</span
                 >
@@ -211,11 +211,11 @@ function formatDueInfo() {
                       <i class="pi text-xl icon-primary" :class="option.icon"></i>
                       <label
                           :for="option.value"
-                          class="text-lg font-semibold text-primary source-label"
+                          class="text-lg font-semibold text-primary cursor-pointer"
                       >{{ option.label }}</label
                       >
                     </div>
-                    <p class="text-secondary leading-normal source-description">
+                    <p class="text-secondary leading-normal m-0">
                       {{ option.description }}
                     </p>
                   </div>
@@ -253,7 +253,7 @@ function formatDueInfo() {
             <div class="flex flex-col gap-md">
               <div class="flex items-center gap-sm">
                 <Checkbox v-model="includeNewWords" :binary="true" input-id="includeNew"/>
-                <label for="includeNew" class="font-medium text-primary checkbox-label">
+                <label for="includeNew" class="font-medium text-primary cursor-pointer">
                   Include new words (not yet studied)
                 </label>
               </div>
@@ -293,7 +293,7 @@ function formatDueInfo() {
       >
         <template #content>
           <div class="empty-state">
-            <i class="pi pi-check-circle empty-icon icon-success"></i>
+            <i class="pi pi-check-circle text-6xl icon-success"></i>
             <h3>All Caught Up!</h3>
             <p>You have no words due for review right now. Keep up the great work!</p>
             <Button
@@ -310,47 +310,21 @@ function formatDueInfo() {
 </template>
 
 <style scoped>
-.page-container {
-  min-height: 100vh;
-  background: var(--bg-primary);
-  padding: var(--spacing-xl) var(--spacing-md);
-}
-
-.content-area {
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-lg);
-}
-
-.mt-xl {
-  margin-top: var(--spacing-xl);
-}
-
-.w-full {
-  width: 100%;
-}
-
-.icon-primary {
-  color: var(--primary);
-}
-
-.icon-success {
-  color: var(--success);
-}
-
-.stat-label {
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
+/* Progress bar */
 .session-progress-bar {
   height: 1rem;
 }
 
-.card-title-primary {
-  color: var(--primary);
+/* Active Session Card */
+.active-session-card {
+  border: 2px solid var(--primary);
+  background: var(--primary-light);
+}
+
+/* Due Words Card */
+.due-card {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
 }
 
 .due-count {
@@ -365,30 +339,6 @@ function formatDueInfo() {
 
 .due-info {
   color: rgba(255, 255, 255, 0.8);
-}
-
-.source-label {
-  cursor: pointer;
-}
-
-.source-description {
-  margin: 0;
-}
-
-.checkbox-label {
-  cursor: pointer;
-}
-
-/* Active Session Card */
-.active-session-card {
-  border: 2px solid var(--primary);
-  background: var(--primary-light);
-}
-
-/* Due Words Card */
-.due-card {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  color: white;
 }
 
 .due-icon-wrapper {
@@ -411,18 +361,14 @@ function formatDueInfo() {
   display: flex;
   align-items: flex-start;
   gap: var(--spacing-md);
-  padding: 1.25rem;
+  padding: var(--spacing-xl);
   border: 2px solid var(--border-medium);
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all 0.2s;
 }
 
-.source-option:hover {
-  border-color: var(--primary);
-  background: var(--primary-light);
-}
-
+.source-option:hover,
 .source-option.selected {
   border-color: var(--primary);
   background: var(--primary-light);
@@ -430,14 +376,6 @@ function formatDueInfo() {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .page-container {
-    padding: var(--spacing-md);
-  }
-
-  .page-header h1 {
-    font-size: 2rem;
-  }
-
   .source-option {
     padding: var(--spacing-md);
   }

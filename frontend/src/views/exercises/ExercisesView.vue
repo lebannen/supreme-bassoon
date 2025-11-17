@@ -1,9 +1,10 @@
 <template>
-  <div class="view-container p-2xl">
-    <div class="page-header text-center">
-      <h1>Exercises</h1>
-      <p>Choose an exercise type to get started</p>
-    </div>
+  <div class="page-container-with-padding">
+    <div class="view-container content-area-xl">
+      <div class="page-header text-center">
+        <h1>Exercises</h1>
+        <p>Choose an exercise type to get started</p>
+      </div>
 
     <!-- Exercise Type Grid -->
     <div class="type-grid">
@@ -55,7 +56,7 @@
         <Card
           v-for="exercise in exercises"
           :key="exercise.id"
-          class="exercise-card"
+          class="card-interactive"
           @click="goToExercise(exercise.id)"
         >
           <template #title>{{ exercise.title }}</template>
@@ -75,6 +76,7 @@
           </template>
         </Card>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -265,17 +267,6 @@ onMounted(async () => {
 
 .module-select {
   min-width: 250px;
-}
-
-.exercise-card {
-  cursor: pointer;
-  transition: transform 0.2s,
-  box-shadow 0.2s;
-}
-
-.exercise-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
 }
 
 /* Responsive */

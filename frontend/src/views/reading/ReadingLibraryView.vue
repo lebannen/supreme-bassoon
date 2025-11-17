@@ -1,5 +1,5 @@
 <template>
-  <div class="reading-library-view">
+  <div class="page-container">
     <div class="view-header">
       <div class="view-header-content">
         <div class="view-header-text">
@@ -16,23 +16,27 @@
       </div>
     </div>
 
-    <TextLibrary />
+    <div class="view-container content-area-lg">
+      <Card>
+        <template #content>
+          <div class="empty-state">
+            <i class="pi pi-book text-6xl text-secondary"></i>
+            <h2>Reading Library</h2>
+            <p class="text-secondary">The reading library feature is currently being developed.</p>
+            <p class="text-secondary">Check back soon for curated reading materials!</p>
+          </div>
+        </template>
+      </Card>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import {useRouter} from 'vue-router'
 import Button from 'primevue/button'
-import TextLibrary from '@/components/reading/TextLibrary.vue'
+import Card from 'primevue/card'
 import {useAuthStore} from '@/stores/auth'
 
 const router = useRouter()
 const authStore = useAuthStore()
 </script>
-
-<style scoped>
-.reading-library-view {
-  min-height: 100vh;
-  background: var(--surface-ground);
-}
-</style>

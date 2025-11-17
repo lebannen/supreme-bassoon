@@ -116,7 +116,7 @@
 <script setup lang="ts">
 import {computed, ref} from 'vue'
 import PageComponent from './PageComponent.vue'
-import AudioPlayer from './AudioPlayer.vue'
+import AudioPlayer from '@/components/audio/AudioPlayer.vue'
 
 interface Props {
   pages?: string[]

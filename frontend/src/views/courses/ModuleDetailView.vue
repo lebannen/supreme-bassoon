@@ -55,8 +55,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="module-detail-view">
-    <div class="detail-container">
+  <div class="page-container-with-padding">
+    <div class="view-container">
       <!-- Loading State -->
       <div v-if="loading" class="loading-state">
         <i class="pi pi-spin pi-spinner loading-spinner"></i>
@@ -123,7 +123,7 @@ onMounted(() => {
             <Card
               v-for="episode in module.episodes"
               :key="episode.id"
-              class="episode-card"
+              class="card-interactive"
               @click="goToEpisode(episode.id)"
             >
               <template #header>
@@ -167,25 +167,12 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.module-detail-view {
-  min-height: 100vh;
-  background: var(--bg-primary);
-  padding: 2rem 1rem;
-}
-
-.loading-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  min-height: 400px;
-}
-
+/* Custom loading spinner */
 .loading-spinner {
   font-size: 3rem;
 }
 
+/* Episode card header */
 .episode-card-header {
   display: flex;
   justify-content: space-between;
@@ -194,7 +181,7 @@ onMounted(() => {
   background: var(--bg-tertiary);
 }
 
-/* Objectives Grid (similar to checklist but in grid layout) */
+/* Objectives Grid */
 .objectives-grid {
   list-style: none;
   padding: 0;
@@ -216,24 +203,8 @@ onMounted(() => {
   flex-shrink: 0;
 }
 
-.episode-card {
-  cursor: pointer;
-  transition: all 0.3s ease;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.episode-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
+/* Responsive */
 @media (max-width: 768px) {
-  .module-detail-view {
-    padding: 1rem;
-  }
-
   .objectives-grid {
     grid-template-columns: 1fr;
   }

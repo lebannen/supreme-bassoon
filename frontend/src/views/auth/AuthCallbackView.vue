@@ -33,14 +33,10 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="loading-state auth-callback-container">
-    <i class="pi pi-spin pi-spinner text-2xl text-secondary"></i>
-    <p class="text-base text-secondary">Completing authentication...</p>
+  <div class="page-container">
+    <div class="loading-state">
+      <i class="pi pi-spin pi-spinner text-2xl text-secondary"></i>
+      <p class="text-base text-secondary">Completing authentication...</p>
+    </div>
   </div>
 </template>
-
-<style scoped>
-.auth-callback-container {
-  min-height: 100vh;
-}
-</style>

@@ -100,12 +100,12 @@ function formatDuration(duration: string): string {
 </script>
 
 <template>
-  <div class="page-container">
-    <div class="content-area">
+  <div class="page-container-with-padding">
+    <div class="view-container content-area-lg flex flex-col gap-lg">
       <!-- Session Header -->
       <div v-if="studyStore.isSessionActive" class="session-header">
         <div class="flex flex-col gap-sm">
-          <h2 class="text-2xl font-bold text-primary session-title">Study Session</h2>
+          <h2 class="text-2xl font-bold text-primary m-0">Study Session</h2>
           <div class="flex items-center gap-lg">
             <span class="font-semibold text-secondary">
               {{ studyStore.activeSession?.wordsCompleted }} /
@@ -300,40 +300,12 @@ function formatDuration(duration: string): string {
 </template>
 
 <style scoped>
-.page-container {
-  min-height: 100vh;
-  background: var(--bg-primary);
-  padding: var(--spacing-xl) var(--spacing-md);
-}
-
-.content-area {
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-lg);
-}
-
-.mt-xl {
-  margin-top: var(--spacing-xl);
-}
-
-.icon-primary {
-  color: var(--primary);
-}
-
-.icon-success {
-  color: var(--success);
-}
-
-.session-title {
-  margin: 0;
-}
-
+/* Progress bar */
 .session-progress-bar {
   height: 0.75rem;
 }
 
+/* Summary headings */
 .complete-heading {
   margin: 0.5rem 0;
 }
@@ -346,6 +318,7 @@ function formatDuration(duration: string): string {
   margin: 0;
 }
 
+/* Detail colors */
 .detail-success {
   color: var(--success);
 }
@@ -354,6 +327,7 @@ function formatDuration(duration: string): string {
   color: var(--error);
 }
 
+/* Done button */
 .done-button {
   min-width: 200px;
 }
