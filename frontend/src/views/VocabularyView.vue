@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useVocabularyStore } from '@/stores/vocabulary'
-import { useRouter } from 'vue-router'
+import {onMounted, ref} from 'vue'
+import {useVocabularyStore} from '@/stores/vocabulary'
+import {useRouter} from 'vue-router'
 import Card from 'primevue/card'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
@@ -9,7 +9,7 @@ import Button from 'primevue/button'
 import Message from 'primevue/message'
 import Tag from 'primevue/tag'
 import ConfirmDialog from 'primevue/confirmdialog'
-import { useConfirm } from 'primevue/useconfirm'
+import {useConfirm} from 'primevue/useconfirm'
 
 const vocabularyStore = useVocabularyStore()
 const router = useRouter()
@@ -60,16 +60,19 @@ const goToSearch = () => {
           My Vocabulary
         </h1>
         <div class="flex items-center gap-md">
-          <span class="word-count text-lg text-secondary">{{ vocabularyStore.wordCount }} words</span>
-          <Button
-            label="Add Words"
-            icon="pi pi-plus"
-            @click="goToSearch"
-          />
+          <span class="word-count text-lg text-secondary"
+          >{{ vocabularyStore.wordCount }} words</span
+          >
+          <Button label="Add Words" icon="pi pi-plus" @click="goToSearch"/>
         </div>
       </div>
 
-      <Message v-if="vocabularyStore.error" severity="error" :closable="false" class="error-message">
+      <Message
+          v-if="vocabularyStore.error"
+          severity="error"
+          :closable="false"
+          class="error-message"
+      >
         {{ vocabularyStore.error }}
       </Message>
 
@@ -78,12 +81,11 @@ const goToSearch = () => {
           <div class="empty-state">
             <i class="pi pi-book empty-icon"></i>
             <h3>Your vocabulary is empty</h3>
-            <p>Start building your vocabulary by searching for words and adding them to your collection.</p>
-            <Button
-              label="Search for Words"
-              icon="pi pi-search"
-              @click="goToSearch"
-            />
+            <p>
+              Start building your vocabulary by searching for words and adding them to your
+              collection.
+            </p>
+            <Button label="Search for Words" icon="pi pi-search" @click="goToSearch"/>
           </div>
         </template>
       </Card>

@@ -42,7 +42,11 @@
     --gradient-dialogue: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --gradient-story: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     --gradient-grammar: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    --gradient-avatar: linear-gradient(135deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
+    --gradient-avatar: linear-gradient(
+            135deg,
+            var(--primary-gradient-start) 0%,
+            var(--primary-gradient-end) 100%
+    );
 
     /* ========== SHADOWS ========== */
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
@@ -204,5 +208,6 @@ body.dark-theme {
 
 /* ========== SMOOTH THEME TRANSITION ========== */
 body {
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease,
+    color 0.2s ease;
 }

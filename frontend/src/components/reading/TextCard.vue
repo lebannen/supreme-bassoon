@@ -41,23 +41,18 @@
 
     <template #footer>
       <div class="card-footer">
-        <Button
-          label="Read"
-          icon="pi pi-book"
-          @click="$emit('select', text.id)"
-          outlined
-        />
+        <Button label="Read" icon="pi pi-book" @click="$emit('select', text.id)" outlined/>
       </div>
     </template>
   </Card>
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue'
+import {defineEmits, defineProps} from 'vue'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 import Tag from 'primevue/tag'
-import type { ReadingText } from '@/composables/useReadingTexts'
+import type {ReadingText} from '@/composables/useReadingTexts'
 
 interface Props {
   text: ReadingText
@@ -81,7 +76,7 @@ function getLanguageName(code: string): string {
     ko: 'Korean',
     ar: 'Arabic',
     hi: 'Hindi',
-    pl: 'Polish'
+    pl: 'Polish',
   }
   return languages[code] || code.toUpperCase()
 }
@@ -89,15 +84,13 @@ function getLanguageName(code: string): string {
 function formatTopic(topic: string): string {
   return topic
     .split('_')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ')
 }
 
 function getPreview(content: string): string {
   const firstParagraph = content.split('\n\n')[0]
-  return firstParagraph.length > 150
-    ? firstParagraph.substring(0, 150) + '...'
-    : firstParagraph
+  return firstParagraph.length > 150 ? firstParagraph.substring(0, 150) + '...' : firstParagraph
 }
 </script>
 

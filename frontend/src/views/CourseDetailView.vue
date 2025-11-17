@@ -1,65 +1,25 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import {onMounted} from 'vue'
+import {useRoute, useRouter} from 'vue-router'
+import {storeToRefs} from 'pinia'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
 import Tag from 'primevue/tag'
 import Divider from 'primevue/divider'
+import {useCourseStore} from '@/stores/course'
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
 const route = useRoute()
 const router = useRouter()
+const courseStore = useCourseStore()
 
-interface ModuleSummary {
-  id: number
-  moduleNumber: number
-  title: string
-  theme: string | null
-  estimatedMinutes: number
-  totalEpisodes: number
-}
+// Destructure store state with refs
+const {currentCourse: course, loading, error} = storeToRefs(courseStore)
 
-interface Course {
-  id: number
-  slug: string
-  name: string
-  languageCode: string
-  cefrLevel: string
-  description: string | null
-  objectives: string[]
-  estimatedHours: number
-  modules: ModuleSummary[]
-}
-
-const course = ref<Course | null>(null)
-const loading = ref(true)
-const error = ref<string | null>(null)
-
-async function loadCourse() {
+function loadCourse() {
   const slug = route.params.slug as string
-  if (!slug) {
-    error.value = 'No course slug provided'
-    loading.value = false
-    return
-  }
-
-  try {
-    loading.value = true
-    error.value = null
-
-    const response = await fetch(`${API_BASE}/api/courses/${slug}`)
-
-    if (!response.ok) {
-      throw new Error('Failed to load course')
-    }
-
-    course.value = await response.json()
-  } catch (err) {
-    console.error('Error loading course:', err)
-    error.value = err instanceof Error ? err.message : 'Failed to load course'
-  } finally {
-    loading.value = false
+  if (slug) {
+    courseStore.loadCourseBySlug(slug)
   }
 }
 

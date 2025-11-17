@@ -1,12 +1,12 @@
-import type { WordSet, WordSetDetail, ImportWordSetRequest, ImportWordSetResponse } from '@/types/wordSet'
+import type {ImportWordSetRequest, ImportWordSetResponse, WordSet, WordSetDetail,} from '@/types/wordSet'
 
-const API_BASE = 'http://localhost:8080/api'
+const API_BASE = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'}/api`
 
 export function useWordSetApi() {
   function getAuthHeaders(): HeadersInit {
     const token = localStorage.getItem('auth_token')
     const headers: HeadersInit = {
-      'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
     }
     if (token) {
       headers['Authorization'] = `Bearer ${token}`
@@ -17,7 +17,7 @@ export function useWordSetApi() {
   async function getAllWordSets(): Promise<WordSet[]> {
     try {
       const response = await fetch(`${API_BASE}/word-sets`, {
-        headers: getAuthHeaders()
+          headers: getAuthHeaders(),
       })
 
       if (!response.ok) {
@@ -34,7 +34,7 @@ export function useWordSetApi() {
   async function getWordSetsByLanguage(languageCode: string): Promise<WordSet[]> {
     try {
       const response = await fetch(`${API_BASE}/word-sets/language/${languageCode}`, {
-        headers: getAuthHeaders()
+          headers: getAuthHeaders(),
       })
 
       if (!response.ok) {
@@ -51,7 +51,7 @@ export function useWordSetApi() {
   async function getWordSetById(id: number): Promise<WordSetDetail | null> {
     try {
       const response = await fetch(`${API_BASE}/word-sets/${id}`, {
-        headers: getAuthHeaders()
+          headers: getAuthHeaders(),
       })
 
       if (!response.ok) {
@@ -73,7 +73,7 @@ export function useWordSetApi() {
       const response = await fetch(`${API_BASE}/word-sets/${id}/import`, {
         method: 'POST',
         headers: getAuthHeaders(),
-        body: request ? JSON.stringify(request) : undefined
+          body: request ? JSON.stringify(request) : undefined,
       })
 
       if (!response.ok) {
@@ -98,11 +98,11 @@ export function useWordSetApi() {
         method: 'POST',
         headers: {
           ...getAuthHeaders(),
-          'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          jsonContent: jsonData
-        })
+            jsonContent: jsonData,
+        }),
       })
 
       if (!response.ok) {
@@ -122,6 +122,6 @@ export function useWordSetApi() {
     getWordSetsByLanguage,
     getWordSetById,
     importWordSet,
-    loadWordSetsFromJson
+      loadWordSetsFromJson,
   }
 }

@@ -28,7 +28,9 @@
             <div class="meta">
               <Tag v-if="currentText.level" :value="currentText.level" severity="info" />
               <span class="language-badge">{{ getLanguageName(currentText.languageCode) }}</span>
-              <span v-if="currentText.topic" class="topic-badge">{{ formatTopic(currentText.topic) }}</span>
+              <span v-if="currentText.topic" class="topic-badge">{{
+                  formatTopic(currentText.topic)
+                }}</span>
             </div>
           </div>
           <div class="header-actions">
@@ -55,9 +57,15 @@
 
       <div class="view-controls">
         <div class="demo-controls">
-          <button @click="demoMode = 'pages'" :class="{ active: demoMode === 'pages' }">Pages Prop</button>
-          <button @click="demoMode = 'content'" :class="{ active: demoMode === 'content' }">Content Prop</button>
-          <button @click="demoMode = 'slots'" :class="{ active: demoMode === 'slots' }">Slots</button>
+          <button @click="demoMode = 'pages'" :class="{ active: demoMode === 'pages' }">
+            Pages Prop
+          </button>
+          <button @click="demoMode = 'content'" :class="{ active: demoMode === 'content' }">
+            Content Prop
+          </button>
+          <button @click="demoMode = 'slots'" :class="{ active: demoMode === 'slots' }">
+            Slots
+          </button>
         </div>
         <div class="language-selector-wrapper">
           <label for="language-select">Book Language</label>
@@ -75,7 +83,12 @@
       </div>
 
       <BookComponent v-if="demoMode === 'pages'" :pages="bookPages" @word-click="onWordClick" />
-      <BookComponent v-if="demoMode === 'content'" :content="longText" :pageSize="300" @word-click="onWordClick" />
+      <BookComponent
+          v-if="demoMode === 'content'"
+          :content="longText"
+          :pageSize="300"
+          @word-click="onWordClick"
+      />
       <BookComponent v-if="demoMode === 'slots'">
         <template #left-page="{ page }">
           <div class="custom-page-content">
@@ -111,8 +124,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import {computed, onMounted, ref} from 'vue'
+import {useRoute, useRouter} from 'vue-router'
 import BookComponent from '../components/BookComponent.vue'
 import WordCard from '../components/WordCard.vue'
 import Select from 'primevue/select'
@@ -120,8 +133,8 @@ import Button from 'primevue/button'
 import Tag from 'primevue/tag'
 import Message from 'primevue/message'
 import ProgressSpinner from 'primevue/progressspinner'
-import { useVocabularyApi, type Language, type Word } from '../composables/useVocabularyApi'
-import { useReadingTexts } from '../composables/useReadingTexts'
+import {type Language, useVocabularyApi, type Word} from '../composables/useVocabularyApi'
+import {useReadingTexts} from '../composables/useReadingTexts'
 
 const router = useRouter()
 const route = useRoute()
@@ -197,7 +210,7 @@ async function onWordClick(lemma: string) {
     } else {
       wordError.value = 'Word details not found'
     }
-  } catch (err) {
+  } catch {
     wordError.value = 'Failed to load word details'
   } finally {
     isLoadingWord.value = false
@@ -228,7 +241,7 @@ function getLanguageName(code: string): string {
     ko: 'Korean',
     ar: 'Arabic',
     hi: 'Hindi',
-    pl: 'Polish'
+    pl: 'Polish',
   }
   return languageNames[code] || code.toUpperCase()
 }
@@ -236,7 +249,7 @@ function getLanguageName(code: string): string {
 function formatTopic(topic: string): string {
   return topic
     .split('_')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ')
 }
 

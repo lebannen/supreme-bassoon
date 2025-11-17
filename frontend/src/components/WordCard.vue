@@ -1,6 +1,13 @@
 <template>
   <Toast />
-  <Dialog :visible="visible" @update:visible="$emit('update:visible', $event)" :header="word?.lemma" :modal="true" :style="{ width: '50vw' }" :breakpoints="{ '960px': '75vw', '640px': '90vw' }">
+  <Dialog
+      :visible="visible"
+      @update:visible="$emit('update:visible', $event)"
+      :header="word?.lemma"
+      :modal="true"
+      :style="{ width: '50vw' }"
+      :breakpoints="{ '960px': '75vw', '640px': '90vw' }"
+  >
     <div v-if="word && !loading" class="word-details">
       <div class="word-header">
         <div class="word-title">
@@ -33,7 +40,11 @@
           <a class="base-form-lemma" @click="$emit('word-click', word.baseForm.lemma)">
             {{ word.baseForm.lemma }}
           </a>
-          <Tag v-if="word.baseForm.partOfSpeech" :value="word.baseForm.partOfSpeech" severity="info" />
+          <Tag
+              v-if="word.baseForm.partOfSpeech"
+              :value="word.baseForm.partOfSpeech"
+              severity="info"
+          />
         </div>
         <div v-if="word.grammaticalFeatures" class="grammatical-features">
           <Tag
@@ -56,7 +67,9 @@
             <div v-for="example in def.examples" :key="example.id" class="example">
               <i class="pi pi-angle-right"></i>
               <span class="example-text">{{ example.sentenceText }}</span>
-              <span v-if="example.translation" class="example-translation">{{ example.translation }}</span>
+              <span v-if="example.translation" class="example-translation">{{
+                  example.translation
+                }}</span>
             </div>
           </div>
         </div>
@@ -89,30 +102,30 @@
 </template>
 
 <script setup lang="ts">
-import Dialog from 'primevue/dialog';
-import Tag from 'primevue/tag';
-import Button from 'primevue/button';
-import ProgressSpinner from 'primevue/progressspinner';
-import Message from 'primevue/message';
-import Toast from 'primevue/toast';
-import { useToast } from 'primevue/usetoast';
-import type { Word } from '../composables/useVocabularyApi';
-import { useVocabularyStore } from '@/stores/vocabulary';
-import { useAuthStore } from '@/stores/auth';
+import Dialog from 'primevue/dialog'
+import Tag from 'primevue/tag'
+import Button from 'primevue/button'
+import ProgressSpinner from 'primevue/progressspinner'
+import Message from 'primevue/message'
+import Toast from 'primevue/toast'
+import {useToast} from 'primevue/usetoast'
+import type {Word} from '../composables/useVocabularyApi'
+import {useVocabularyStore} from '@/stores/vocabulary'
+import {useAuthStore} from '@/stores/auth'
 
 interface Props {
-  word: Word | null;
-  visible: boolean;
-  loading: boolean;
-  error: string | null;
+  word: Word | null
+  visible: boolean
+  loading: boolean
+  error: string | null
 }
 
-defineProps<Props>();
-defineEmits(['update:visible', 'word-click']);
+defineProps<Props>()
+defineEmits(['update:visible', 'word-click'])
 
-const vocabularyStore = useVocabularyStore();
-const authStore = useAuthStore();
-const toast = useToast();
+const vocabularyStore = useVocabularyStore()
+const authStore = useAuthStore()
+const toast = useToast()
 
 async function addToVocabulary(word: Word) {
   if (!authStore.isAuthenticated) {
@@ -121,13 +134,13 @@ async function addToVocabulary(word: Word) {
       summary: 'Authentication Required',
       detail: 'Please log in to add words to your vocabulary',
       life: 3000,
-    });
-    return;
+    })
+    return
   }
 
   const result = await vocabularyStore.addWord({
     wordId: word.id,
-  });
+  })
 
   if (result) {
     toast.add({
@@ -135,19 +148,19 @@ async function addToVocabulary(word: Word) {
       summary: 'Word Added',
       detail: `"${word.lemma}" has been added to your vocabulary`,
       life: 3000,
-    });
+    })
   } else if (vocabularyStore.error) {
     toast.add({
       severity: 'error',
       summary: 'Error',
       detail: vocabularyStore.error,
       life: 3000,
-    });
+    })
   }
 }
 
 function isInVocabulary(wordId: number): boolean {
-  return vocabularyStore.isWordInVocabulary(wordId);
+  return vocabularyStore.isWordInVocabulary(wordId)
 }
 </script>
 

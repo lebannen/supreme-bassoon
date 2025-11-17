@@ -17,8 +17,9 @@
               :disabled="showResult"
               :class="{
                 'blank-input': true,
-                'correct': showResult && isBlankCorrect(segment.blankId),
-                'incorrect': showResult && !isBlankCorrect(segment.blankId) && userAnswers[segment.blankId]
+                correct: showResult && isBlankCorrect(segment.blankId),
+                incorrect:
+                  showResult && !isBlankCorrect(segment.blankId) && userAnswers[segment.blankId],
               }"
               :placeholder="`${segment.blankId}`"
               @keyup.enter="handleEnterKey"
@@ -33,9 +34,7 @@
 
     <div v-if="showHint && !showResult" class="hint-section">
       <Message severity="info">
-        <div class="hint-content">
-          <strong>Hint:</strong> {{ hint }}
-        </div>
+        <div class="hint-content"><strong>Hint:</strong> {{ hint }}</div>
       </Message>
     </div>
 
@@ -77,19 +76,14 @@
           icon="pi pi-arrow-right"
           @click="handleNext"
         />
-        <Button
-          v-else
-          label="Try Again"
-          icon="pi pi-refresh"
-          @click="resetExercise"
-        />
+        <Button v-else label="Try Again" icon="pi pi-refresh" @click="resetExercise"/>
       </template>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import {computed, onMounted, ref} from 'vue'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
 import InputText from 'primevue/inputtext'
@@ -134,11 +128,11 @@ const hint = computed(() => props.content.hint || '')
 const textSegments = ref<TextSegment[]>([])
 
 const hasAnyAnswers = computed(() => {
-  return Object.values(userAnswers.value).some(answer => answer && answer.trim().length > 0)
+  return Object.values(userAnswers.value).some((answer) => answer && answer.trim().length > 0)
 })
 
 const allBlanksAnswered = computed(() => {
-  return props.content.blanks.every(blank => {
+  return props.content.blanks.every((blank) => {
     const answer = userAnswers.value[blank.id]
     return answer && answer.trim().length > 0
   })
@@ -153,7 +147,7 @@ function initializeExercise() {
   parseTextIntoSegments()
 
   // Initialize user answers
-  props.content.blanks.forEach(blank => {
+  props.content.blanks.forEach((blank) => {
     userAnswers.value[blank.id] = ''
   })
 }
@@ -170,7 +164,7 @@ function parseTextIntoSegments() {
     if (match.index > lastIndex) {
       segments.push({
         type: 'text',
-        content: props.content.text.substring(lastIndex, match.index)
+        content: props.content.text.substring(lastIndex, match.index),
       })
     }
 
@@ -178,7 +172,7 @@ function parseTextIntoSegments() {
     const blankId = match[1] || match[2]
     segments.push({
       type: 'blank',
-      blankId: `blank${blankId}`
+      blankId: `blank${blankId}`,
     })
 
     lastIndex = regex.lastIndex
@@ -188,7 +182,7 @@ function parseTextIntoSegments() {
   if (lastIndex < props.content.text.length) {
     segments.push({
       type: 'text',
-      content: props.content.text.substring(lastIndex)
+      content: props.content.text.substring(lastIndex),
     })
   }
 
@@ -214,7 +208,7 @@ function toggleHint() {
 }
 
 function clearAllAnswers() {
-  props.content.blanks.forEach(blank => {
+  props.content.blanks.forEach((blank) => {
     userAnswers.value[blank.id] = ''
   })
 }
@@ -265,7 +259,12 @@ function resetExercise() {
   correctAnswersMap.value = {}
 }
 
-function setResult(result: { isCorrect: boolean; feedback: string; userResponse?: any; correctAnswers?: any }) {
+function setResult(result: {
+  isCorrect: boolean
+  feedback: string
+  userResponse?: any
+  correctAnswers?: any
+}) {
   showResult.value = true
   isCorrect.value = result.isCorrect
   feedback.value = result.feedback
@@ -285,7 +284,7 @@ function setResult(result: { isCorrect: boolean; feedback: string; userResponse?
 }
 
 defineExpose({
-  setResult
+  setResult,
 })
 </script>
 

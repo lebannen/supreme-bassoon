@@ -31,9 +31,7 @@
                   <p class="drop-zone-text">
                     <strong>Click to browse</strong> or drag and drop JSON files here
                   </p>
-                  <p class="drop-zone-hint">
-                    You can select multiple module files at once
-                  </p>
+                  <p class="drop-zone-hint">You can select multiple module files at once</p>
                 </div>
               </div>
 
@@ -41,11 +39,7 @@
               <div v-if="selectedFiles.length > 0" class="selected-files">
                 <h4>Selected Files ({{ selectedFiles.length }})</h4>
                 <div class="file-list">
-                  <div
-                    v-for="(file, index) in selectedFiles"
-                    :key="index"
-                    class="file-item"
-                  >
+                  <div v-for="(file, index) in selectedFiles" :key="index" class="file-item">
                     <i class="pi pi-file"></i>
                     <span class="file-name">{{ file.name }}</span>
                     <span class="file-size">{{ formatFileSize(file.size) }}</span>
@@ -152,10 +146,7 @@
                 <DataTable :value="importResult.exercises" striped-rows>
                   <Column field="status" header="Status">
                     <template #body="{ data }">
-                      <Tag
-                        :value="data.status"
-                        :severity="getStatusSeverity(data.status)"
-                      />
+                      <Tag :value="data.status" :severity="getStatusSeverity(data.status)"/>
                     </template>
                   </Column>
                   <Column field="title" header="Title" />
@@ -179,7 +170,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import {computed, ref} from 'vue'
 import Card from 'primevue/card'
 import Textarea from 'primevue/textarea'
 import Checkbox from 'primevue/checkbox'
@@ -244,7 +235,7 @@ function handleDrop(event: DragEvent) {
 }
 
 function addFiles(files: File[]) {
-  const jsonFiles = files.filter(file => file.name.endsWith('.json'))
+  const jsonFiles = files.filter((file) => file.name.endsWith('.json'))
   selectedFiles.value.push(...jsonFiles)
 
   // Clear paste area if files are selected
@@ -268,7 +259,7 @@ function formatFileSize(bytes: number): string {
 function getAuthHeaders(): HeadersInit {
   const token = localStorage.getItem('auth_token')
   const headers: HeadersInit = {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   }
   if (token) {
     headers['Authorization'] = `Bearer ${token}`
@@ -282,7 +273,7 @@ async function importSingleModule(moduleData: any): Promise<ImportResult> {
     {
       method: 'POST',
       headers: getAuthHeaders(),
-      body: JSON.stringify(moduleData)
+      body: JSON.stringify(moduleData),
     }
   )
 
@@ -322,7 +313,7 @@ async function importExercises() {
       let moduleData
       try {
         moduleData = JSON.parse(jsonContent.value)
-      } catch (e) {
+      } catch {
         errorMessage.value = 'Invalid JSON format'
         return
       }
@@ -340,8 +331,8 @@ async function importExercises() {
         skipped: results.reduce((sum, r) => sum + r.skipped, 0),
         audioGenerated: results.reduce((sum, r) => sum + r.audioGenerated, 0),
         audioFailed: results.reduce((sum, r) => sum + r.audioFailed, 0),
-        errors: results.flatMap(r => r.errors),
-        exercises: results.flatMap(r => r.exercises)
+        errors: results.flatMap((r) => r.errors),
+        exercises: results.flatMap((r) => r.exercises),
       }
 
       // Clear form on success

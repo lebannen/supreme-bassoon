@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import {ref} from 'vue'
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
 
@@ -49,7 +49,7 @@ export function useReadingTexts() {
   function getAuthHeaders(): HeadersInit {
     const token = localStorage.getItem('auth_token')
     const headers: HeadersInit = {
-      'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
     }
     if (token) {
       headers['Authorization'] = `Bearer ${token}`
@@ -109,12 +109,9 @@ export function useReadingTexts() {
 
   async function fetchProgress(textId: number): Promise<ReadingProgress | null> {
     try {
-      const response = await fetch(
-        `${API_BASE}/api/reading/texts/${textId}/progress`,
-        {
-          headers: getAuthHeaders()
-        }
-      )
+        const response = await fetch(`${API_BASE}/api/reading/texts/${textId}/progress`, {
+            headers: getAuthHeaders(),
+        })
 
       if (response.status === 404) {
         // User hasn't started this text yet
@@ -129,7 +126,7 @@ export function useReadingTexts() {
       const data = await response.json()
       progress.value = data
       return data
-    } catch (err) {
+    } catch {
       // Silently fail for progress fetching
       return null
     }
@@ -141,14 +138,11 @@ export function useReadingTexts() {
     totalPages: number
   ): Promise<ReadingProgress> {
     try {
-      const response = await fetch(
-        `${API_BASE}/api/reading/texts/${textId}/progress`,
-        {
-          method: 'POST',
-          headers: getAuthHeaders(),
-          body: JSON.stringify({ currentPage, totalPages })
-        }
-      )
+        const response = await fetch(`${API_BASE}/api/reading/texts/${textId}/progress`, {
+            method: 'POST',
+            headers: getAuthHeaders(),
+            body: JSON.stringify({currentPage, totalPages}),
+        })
 
       if (!response.ok) {
         throw new Error('Failed to update progress')
@@ -165,13 +159,10 @@ export function useReadingTexts() {
 
   async function markCompleted(textId: number): Promise<ReadingProgress> {
     try {
-      const response = await fetch(
-        `${API_BASE}/api/reading/texts/${textId}/complete`,
-        {
-          method: 'POST',
-          headers: getAuthHeaders()
-        }
-      )
+        const response = await fetch(`${API_BASE}/api/reading/texts/${textId}/complete`, {
+            method: 'POST',
+            headers: getAuthHeaders(),
+        })
 
       if (!response.ok) {
         throw new Error('Failed to mark as completed')
@@ -196,6 +187,6 @@ export function useReadingTexts() {
     fetchTextById,
     fetchProgress,
     updateProgress,
-    markCompleted
+      markCompleted,
   }
 }

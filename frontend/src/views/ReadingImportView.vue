@@ -3,7 +3,8 @@
     <div class="view-header">
       <h1>Import Reading Texts</h1>
       <p class="description">
-        Upload JSON files containing reading texts. Each file should contain one text with title, content, and metadata.
+        Upload JSON files containing reading texts. Each file should contain one text with title,
+        content, and metadata.
       </p>
     </div>
 
@@ -20,12 +21,7 @@
       >
         <template #header="{ chooseCallback, uploadCallback, clearCallback, files }">
           <div class="upload-header">
-            <Button
-              @click="chooseCallback()"
-              icon="pi pi-plus"
-              label="Choose Files"
-              outlined
-            />
+            <Button @click="chooseCallback()" icon="pi pi-plus" label="Choose Files" outlined/>
             <Button
               @click="uploadCallback()"
               icon="pi pi-upload"
@@ -44,7 +40,9 @@
           </div>
         </template>
 
-        <template #content="{ files, uploadedFiles, removeUploadedFileCallback, removeFileCallback }">
+        <template
+            #content="{ files, removeFileCallback }"
+        >
           <div v-if="files.length > 0" class="files-list">
             <h3>Files to Upload ({{ files.length }})</h3>
             <div class="file-items">
@@ -57,7 +55,11 @@
                   </div>
                 </div>
                 <div class="file-actions">
-                  <Tag v-if="fileStatus[file.name]" :value="fileStatus[file.name].status" :severity="getStatusSeverity(fileStatus[file.name].status)" />
+                  <Tag
+                      v-if="fileStatus[file.name]"
+                      :value="fileStatus[file.name].status"
+                      :severity="getStatusSeverity(fileStatus[file.name].status)"
+                  />
                   <Button
                     icon="pi pi-times"
                     @click="removeFileCallback(index)"
@@ -163,14 +165,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import FileUpload, { FileUploadUploaderEvent } from 'primevue/fileupload'
+import {ref} from 'vue'
+import {useRouter} from 'vue-router'
+import FileUpload, {FileUploadUploaderEvent} from 'primevue/fileupload'
 import Button from 'primevue/button'
 import Card from 'primevue/card'
 import Tag from 'primevue/tag'
 import Message from 'primevue/message'
-import type { ReadingText } from '@/composables/useReadingTexts'
+import type {ReadingText} from '@/composables/useReadingTexts'
 
 const router = useRouter()
 
@@ -178,7 +180,12 @@ const isUploading = ref(false)
 const uploadedTexts = ref<ReadingText[]>([])
 const fileStatus = ref<Record<string, { status: string; message?: string }>>({})
 const globalError = ref<string | null>(null)
-const uploadSummary = ref<{ successful: number; failed: number; total: number; errors: Array<{ file: string; message: string }> } | null>(null)
+const uploadSummary = ref<{
+  successful: number
+  failed: number
+  total: number
+  errors: Array<{ file: string; message: string }>
+} | null>(null)
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
 
@@ -199,7 +206,7 @@ async function handleUpload(event: FileUploadUploaderEvent) {
     successful: 0,
     failed: 0,
     total: files.length,
-    errors: [] as Array<{ file: string; message: string }>
+    errors: [] as Array<{ file: string; message: string }>,
   }
 
   for (const file of files) {
@@ -219,16 +226,16 @@ async function handleUpload(event: FileUploadUploaderEvent) {
         topic: jsonData.topic || null,
         description: jsonData.description || null,
         author: jsonData.author || 'import',
-        source: jsonData.source || 'manual-upload'
+        source: jsonData.source || 'manual-upload',
       }
 
       // Upload to API
       const response = await fetch(`${API_BASE}/api/reading/texts/import`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(requestData)
+        body: JSON.stringify(requestData),
       })
 
       if (!response.ok) {
@@ -265,22 +272,26 @@ function formatFileSize(bytes: number): string {
   const k = 1024
   const sizes = ['B', 'KB', 'MB', 'GB']
   const i = Math.floor(Math.log(bytes) / Math.log(k))
-  return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i]
+  return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i]
 }
 
 function formatTopic(topic: string): string {
   return topic
     .split('_')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ')
 }
 
 function getStatusSeverity(status: string): 'success' | 'danger' | 'info' | 'warn' {
   switch (status) {
-    case 'success': return 'success'
-    case 'error': return 'danger'
-    case 'uploading': return 'info'
-    default: return 'info'
+    case 'success':
+      return 'success'
+    case 'error':
+      return 'danger'
+    case 'uploading':
+      return 'info'
+    default:
+      return 'info'
   }
 }
 </script>

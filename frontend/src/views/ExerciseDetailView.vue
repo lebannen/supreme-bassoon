@@ -6,17 +6,16 @@
 
     <div v-else-if="exercise" class="exercise-content">
       <div class="exercise-header">
-        <Button
-          icon="pi pi-arrow-left"
-          text
-          @click="goBack"
-          label="Back to Exercises"
-        />
+        <Button icon="pi pi-arrow-left" text @click="goBack" label="Back to Exercises"/>
         <h1>{{ exercise.title }}</h1>
         <p class="instructions">{{ exercise.instructions }}</p>
         <div class="meta">
           <Tag :value="exercise.type" severity="info" />
-          <Tag :value="`Module ${exercise.moduleNumber}`" severity="secondary" v-if="exercise.moduleNumber" />
+          <Tag
+              :value="`Module ${exercise.moduleNumber}`"
+              severity="secondary"
+              v-if="exercise.moduleNumber"
+          />
           <Tag :value="exercise.cefrLevel" severity="success" />
         </div>
       </div>
@@ -84,18 +83,16 @@
     </div>
 
     <div v-else class="error">
-      <Message severity="error">
-        Exercise not found or failed to load.
-      </Message>
+      <Message severity="error"> Exercise not found or failed to load.</Message>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
-import { useExerciseApi } from '@/composables/useExerciseApi'
-import type { Exercise } from '@/types/exercise'
+import {onMounted, ref} from 'vue'
+import {useRoute, useRouter} from 'vue-router'
+import {useExerciseApi} from '@/composables/useExerciseApi'
+import type {Exercise} from '@/types/exercise'
 import MultipleChoiceExercise from '@/components/MultipleChoiceExercise.vue'
 import FillInBlankExercise from '@/components/FillInBlankExercise.vue'
 import SentenceScrambleExercise from '@/components/SentenceScrambleExercise.vue'
@@ -113,7 +110,14 @@ const route = useRoute()
 const { getExercise, submitAttempt, loading } = useExerciseApi()
 
 const exercise = ref<Exercise | null>(null)
-const exerciseComponent = ref<InstanceType<typeof MultipleChoiceExercise | typeof FillInBlankExercise | typeof SentenceScrambleExercise | typeof MatchingExercise | typeof ListeningExercise | typeof ClozeReadingExercise> | null>(null)
+const exerciseComponent = ref<InstanceType<
+    | typeof MultipleChoiceExercise
+    | typeof FillInBlankExercise
+    | typeof SentenceScrambleExercise
+    | typeof MatchingExercise
+    | typeof ListeningExercise
+    | typeof ClozeReadingExercise
+> | null>(null)
 const startTime = ref<number>(Date.now())
 const lastUserResponse = ref<any>(null)
 
@@ -134,14 +138,14 @@ async function handleSubmit(response: any) {
   const result = await submitAttempt(exercise.value.id, {
     userResponses: response,
     durationSeconds,
-    hintsUsed: 0
+    hintsUsed: 0,
   })
 
   if (result && exerciseComponent.value) {
     exerciseComponent.value.setResult({
       isCorrect: result.isCorrect,
       feedback: result.feedback,
-      userResponse: lastUserResponse.value
+      userResponse: lastUserResponse.value,
     })
   }
 }

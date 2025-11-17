@@ -1,0 +1,60 @@
+import {BaseAPI} from './base'
+import type {AttemptResult, Exercise, ExerciseSummary, SubmitAttemptRequest, UserProgress,} from '@/types/exercise'
+
+export interface ExerciseFilters {
+    module?: number
+    topic?: string
+    type?: string
+}
+
+/**
+ * API client for exercises and exercise attempts
+ */
+export class ExerciseAPI extends BaseAPI {
+    /**
+     * Get exercises with optional filters
+     */
+    async getExercises(
+        languageCode: string,
+        filters?: ExerciseFilters
+    ): Promise<ExerciseSummary[]> {
+        const params = new URLSearchParams({languageCode})
+        if (filters?.module) params.append('module', filters.module.toString())
+        if (filters?.topic) params.append('topic', filters.topic)
+        if (filters?.type) params.append('type', filters.type)
+
+        return this.get<ExerciseSummary[]>(`/api/exercises?${params}`)
+    }
+
+    /**
+     * Get a specific exercise by ID
+     */
+    async getExercise(id: number): Promise<Exercise> {
+        return this.get<Exercise>(`/api/exercises/${id}`)
+    }
+
+    /**
+     * Submit an exercise attempt
+     */
+    async submitAttempt(
+        exerciseId: number,
+        request: SubmitAttemptRequest
+    ): Promise<AttemptResult> {
+        return this.post<AttemptResult>(`/api/exercises/${exerciseId}/attempt`, request)
+    }
+
+    /**
+     * Get user's progress for a specific exercise
+     */
+    async getProgress(exerciseId: number): Promise<UserProgress | null> {
+        try {
+            return await this.get<UserProgress>(`/api/exercises/${exerciseId}/progress`)
+        } catch (error) {
+            // Return null if no progress found (404)
+            if (error instanceof Error && error.message.includes('404')) {
+                return null
+            }
+            throw error
+        }
+    }
+}

@@ -2,7 +2,7 @@
 import {RouterView} from 'vue-router'
 import ConfirmDialog from 'primevue/confirmdialog'
 import TheSidebar from './components/layout/TheSidebar.vue'
-import { useAuthStore } from './stores/auth'
+import {useAuthStore} from './stores/auth'
 
 // Initialize auth store on app mount
 const authStore = useAuthStore()

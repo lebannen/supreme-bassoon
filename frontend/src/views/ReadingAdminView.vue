@@ -3,9 +3,7 @@
     <div class="view-header">
       <div class="view-container">
         <h1>Reading Texts Administration</h1>
-        <p class="description">
-          Manage reading texts and their audio files
-        </p>
+        <p class="description">Manage reading texts and their audio files</p>
       </div>
     </div>
 
@@ -27,12 +25,7 @@
             placeholder="Filter by level"
             class="filter-select"
         />
-        <Button
-            label="Clear Filters"
-            icon="pi pi-times"
-            outlined
-            @click="clearFilters"
-        />
+        <Button label="Clear Filters" icon="pi pi-times" outlined @click="clearFilters"/>
       </div>
 
       <div v-if="loading" class="loading-state">
@@ -62,11 +55,7 @@
                     class="pi pi-volume-up audio-icon has-audio"
                     v-tooltip="'Has audio'"
                 />
-                <i
-                    v-else
-                    class="pi pi-volume-off audio-icon no-audio"
-                    v-tooltip="'No audio'"
-                />
+                <i v-else class="pi pi-volume-off audio-icon no-audio" v-tooltip="'No audio'"/>
               </div>
             </div>
           </template>
@@ -143,7 +132,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import {computed, onMounted, ref} from 'vue'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 import Select from 'primevue/select'
@@ -151,8 +140,8 @@ import Tag from 'primevue/tag'
 import Message from 'primevue/message'
 import ProgressSpinner from 'primevue/progressspinner'
 import ProgressBar from 'primevue/progressbar'
-import FileUpload, { type FileUploadSelectEvent, type FileUploadUploaderEvent } from 'primevue/fileupload'
-import { useReadingTexts, type ReadingText } from '@/composables/useReadingTexts'
+import FileUpload, {type FileUploadSelectEvent, type FileUploadUploaderEvent,} from 'primevue/fileupload'
+import {type ReadingText, useReadingTexts} from '@/composables/useReadingTexts'
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
 
@@ -169,7 +158,7 @@ const languages = [
   { label: 'French', value: 'fr' },
   { label: 'German', value: 'de' },
   { label: 'Spanish', value: 'es' },
-  { label: 'Italian', value: 'it' }
+  {label: 'Italian', value: 'it'},
 ]
 
 const levels = [
@@ -179,18 +168,18 @@ const levels = [
   { label: 'B1', value: 'B1' },
   { label: 'B2', value: 'B2' },
   { label: 'C1', value: 'C1' },
-  { label: 'C2', value: 'C2' }
+  {label: 'C2', value: 'C2'},
 ]
 
 const filteredTexts = computed(() => {
   let result = texts.value
 
   if (selectedLanguage.value) {
-    result = result.filter(t => t.languageCode === selectedLanguage.value)
+    result = result.filter((t) => t.languageCode === selectedLanguage.value)
   }
 
   if (selectedLevel.value) {
-    result = result.filter(t => t.level?.toUpperCase() === selectedLevel.value)
+    result = result.filter((t) => t.level?.toUpperCase() === selectedLevel.value)
   }
 
   return result
@@ -209,7 +198,7 @@ function getLanguageName(code: string): string {
     ko: 'Korean',
     ar: 'Arabic',
     hi: 'Hindi',
-    pl: 'Polish'
+    pl: 'Polish',
   }
   return languageNames[code] || code.toUpperCase()
 }
@@ -217,7 +206,7 @@ function getLanguageName(code: string): string {
 function formatTopic(topic: string): string {
   return topic
     .split('_')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ')
 }
 
@@ -247,7 +236,7 @@ async function handleAudioUpload(event: FileUploadUploaderEvent, text: ReadingTe
   if (!file) {
     uploadResults.value[text.id] = {
       success: false,
-      message: 'No file selected'
+      message: 'No file selected',
     }
     return
   }
@@ -262,7 +251,7 @@ async function handleAudioUpload(event: FileUploadUploaderEvent, text: ReadingTe
 
     const uploadResponse = await fetch(`${API_BASE}/api/files/upload/audio`, {
       method: 'POST',
-      body: formData
+      body: formData,
     })
 
     if (!uploadResponse.ok) {
@@ -277,9 +266,9 @@ async function handleAudioUpload(event: FileUploadUploaderEvent, text: ReadingTe
     const updateResponse = await fetch(`${API_BASE}/api/reading/texts/${text.id}/audio`, {
       method: 'PATCH',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ audioUrl })
+      body: JSON.stringify({audioUrl}),
     })
 
     if (!updateResponse.ok) {
@@ -287,14 +276,14 @@ async function handleAudioUpload(event: FileUploadUploaderEvent, text: ReadingTe
     }
 
     // Update local data
-    const textIndex = texts.value.findIndex(t => t.id === text.id)
+    const textIndex = texts.value.findIndex((t) => t.id === text.id)
     if (textIndex !== -1) {
       texts.value[textIndex].audioUrl = audioUrl
     }
 
     uploadResults.value[text.id] = {
       success: true,
-      message: 'Audio uploaded successfully!'
+      message: 'Audio uploaded successfully!',
     }
 
     // Clear selected file
@@ -307,7 +296,7 @@ async function handleAudioUpload(event: FileUploadUploaderEvent, text: ReadingTe
   } catch (err) {
     uploadResults.value[text.id] = {
       success: false,
-      message: err instanceof Error ? err.message : 'Failed to upload audio'
+      message: err instanceof Error ? err.message : 'Failed to upload audio',
     }
   } finally {
     uploadingTexts.value[text.id] = false

@@ -1,28 +1,17 @@
 <script setup lang="ts">
-import {ref, onMounted, computed} from 'vue'
-import { useRouter } from 'vue-router'
+import {computed, onMounted, ref} from 'vue'
+import {useRouter} from 'vue-router'
+import {storeToRefs} from 'pinia'
 import Message from 'primevue/message'
 import FilterBar from '@/components/ui/FilterBar.vue'
 import CourseCard from '@/components/ui/CourseCard.vue'
+import {useCourseStore} from '@/stores/course'
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
 const router = useRouter()
+const courseStore = useCourseStore()
 
-interface Course {
-  id: number
-  slug: string
-  name: string
-  languageCode: string
-  cefrLevel: string
-  description: string
-  estimatedHours: number
-  totalModules: number
-  totalEpisodes: number
-}
-
-const courses = ref<Course[]>([])
-const loading = ref(true)
-const error = ref<string | null>(null)
+// Destructure store state with refs
+const {courses, loading, error} = storeToRefs(courseStore)
 
 // Filter state
 const searchQuery = ref('')
@@ -37,23 +26,23 @@ const levelOptions = [
   {label: 'B1 - Intermediate', value: 'B1'},
   {label: 'B2 - Upper Intermediate', value: 'B2'},
   {label: 'C1 - Advanced', value: 'C1'},
-  {label: 'C2 - Proficient', value: 'C2'}
+  {label: 'C2 - Proficient', value: 'C2'},
 ]
 
 const languageOptions = computed(() => {
-  const uniqueLanguages = [...new Set(courses.value.map(c => c.languageCode))]
+  const uniqueLanguages = [...new Set(courses.value.map((c) => c.languageCode))]
   return [
     {label: 'All Languages', value: 'all'},
-    ...uniqueLanguages.map(lang => ({
+    ...uniqueLanguages.map((lang) => ({
       label: lang.toUpperCase(),
-      value: lang
-    }))
+      value: lang,
+    })),
   ]
 })
 
 // Filtered courses
 const filteredCourses = computed(() => {
-  return courses.value.filter(course => {
+  return courses.value.filter((course) => {
     // Search filter
     const matchesSearch =
         !searchQuery.value ||
@@ -70,26 +59,6 @@ const filteredCourses = computed(() => {
     return matchesSearch && matchesLevel && matchesLanguage
   })
 })
-
-async function loadCourses() {
-  try {
-    loading.value = true
-    error.value = null
-
-    const response = await fetch(`${API_BASE}/api/courses`)
-
-    if (!response.ok) {
-      throw new Error('Failed to load courses')
-    }
-
-    courses.value = await response.json()
-  } catch (err) {
-    console.error('Error loading courses:', err)
-    error.value = err instanceof Error ? err.message : 'Failed to load courses'
-  } finally {
-    loading.value = false
-  }
-}
 
 function goToCourse(slug: string) {
   router.push(`/courses/${slug}`)
@@ -108,7 +77,7 @@ function handleFilterUpdate(filterIndex: number, value: string) {
 }
 
 onMounted(() => {
-  loadCourses()
+  courseStore.loadCourses()
 })
 </script>
 
@@ -138,7 +107,7 @@ onMounted(() => {
           searchPlaceholder="Search courses..."
           :filters="[
           { label: 'Level', options: levelOptions, modelValue: selectedLevel },
-          { label: 'Language', options: languageOptions, modelValue: selectedLanguage }
+          { label: 'Language', options: languageOptions, modelValue: selectedLanguage },
         ]"
           :resultsCount="filteredCourses.length"
           @update:search="handleSearchUpdate"

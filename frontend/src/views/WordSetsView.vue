@@ -46,7 +46,8 @@
       >
         <div class="upload-form">
           <Message severity="info" :closable="false">
-            Upload a JSON file with word sets. The file should include "language" and optionally "level" fields.
+            Upload a JSON file with word sets. The file should include "language" and optionally
+            "level" fields.
           </Message>
 
           <div class="field">
@@ -67,11 +68,7 @@
         </div>
 
         <template #footer>
-          <Button
-            label="Cancel"
-            text
-            @click="showUploadDialog = false"
-          />
+          <Button label="Cancel" text @click="showUploadDialog = false"/>
           <Button
             label="Load Word Sets"
             icon="pi pi-upload"
@@ -97,7 +94,8 @@
               <i class="pi pi-inbox empty-icon"></i>
               <h3>No word sets found</h3>
               <p v-if="selectedLanguage">
-                No word sets available for {{ languages.find(l => l.code === selectedLanguage)?.name }}
+                No word sets available for
+                {{ languages.find((l) => l.code === selectedLanguage)?.name }}
               </p>
               <p v-else>Select a language to view available word sets</p>
             </div>
@@ -110,8 +108,18 @@
           <template #header>
             <div class="card-header">
               <div class="card-header-content">
-                <Tag v-if="wordSet.level" :value="wordSet.level" severity="info" class="level-tag" />
-                <Tag v-if="wordSet.isImported" value="Imported" severity="success" icon="pi pi-check" />
+                <Tag
+                    v-if="wordSet.level"
+                    :value="wordSet.level"
+                    severity="info"
+                    class="level-tag"
+                />
+                <Tag
+                    v-if="wordSet.isImported"
+                    value="Imported"
+                    severity="success"
+                    icon="pi pi-check"
+                />
               </div>
             </div>
           </template>
@@ -131,7 +139,10 @@
               </div>
               <div v-if="authStore.isAuthenticated && wordSet.userVocabularyCount > 0" class="stat">
                 <i class="pi pi-check-circle"></i>
-                <span>{{ wordSet.userVocabularyCount }}/{{ wordSet.wordCount }} in your vocabulary</span>
+                <span
+                >{{ wordSet.userVocabularyCount }}/{{ wordSet.wordCount }} in your
+                  vocabulary</span
+                >
               </div>
             </div>
           </template>
@@ -151,12 +162,7 @@
                 :loading="importingSetId === wordSet.id"
                 :disabled="importingSetId !== null && importingSetId !== wordSet.id"
               />
-              <Button
-                v-else
-                label="Login to Import"
-                icon="pi pi-sign-in"
-                @click="goToLogin"
-              />
+              <Button v-else label="Login to Import" icon="pi pi-sign-in" @click="goToLogin"/>
             </div>
           </template>
         </Card>
@@ -166,23 +172,23 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import {onMounted, ref} from 'vue'
+import {useRouter} from 'vue-router'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 import Select from 'primevue/select'
 import Tag from 'primevue/tag'
 import Message from 'primevue/message'
 import Toast from 'primevue/toast'
-import { useToast } from 'primevue/usetoast'
-import { useConfirm } from 'primevue/useconfirm'
+import {useToast} from 'primevue/usetoast'
+import {useConfirm} from 'primevue/useconfirm'
 import ProgressSpinner from 'primevue/progressspinner'
 import Dialog from 'primevue/dialog'
 import FileUpload from 'primevue/fileupload'
-import { useWordSetApi } from '@/composables/useWordSetApi'
-import { useAuthStore } from '@/stores/auth'
-import { useVocabularyStore } from '@/stores/vocabulary'
-import type { WordSet } from '@/types/wordSet'
+import {useWordSetApi} from '@/composables/useWordSetApi'
+import {useAuthStore} from '@/stores/auth'
+import {useVocabularyStore} from '@/stores/vocabulary'
+import type {WordSet} from '@/types/wordSet'
 
 const router = useRouter()
 const toast = useToast()
@@ -229,13 +235,13 @@ async function loadWordSets() {
   }
 }
 
-function viewWordSetDetails(id: number) {
+function viewWordSetDetails() {
   // TODO: Implement word set detail view
   toast.add({
     severity: 'info',
     summary: 'Coming Soon',
     detail: 'Word set detail view is coming soon!',
-    life: 3000
+    life: 3000,
   })
 }
 
@@ -252,7 +258,7 @@ function confirmImportWordSet(wordSet: WordSet) {
     rejectLabel: 'Cancel',
     accept: async () => {
       await importWordSetToVocabulary(wordSet.id)
-    }
+    },
   })
 }
 
@@ -262,7 +268,7 @@ async function importWordSetToVocabulary(id: number) {
   try {
     const result = await importWordSet(id, {
       wordSetId: id,
-      addNotes: true
+      addNotes: true,
     })
 
     if (result) {
@@ -270,14 +276,11 @@ async function importWordSetToVocabulary(id: number) {
         severity: 'success',
         summary: 'Word Set Imported',
         detail: result.message,
-        life: 5000
+        life: 5000,
       })
 
       // Refresh vocabulary and word sets
-      await Promise.all([
-        vocabularyStore.fetchVocabulary(),
-        loadWordSets()
-      ])
+      await Promise.all([vocabularyStore.fetchVocabulary(), loadWordSets()])
     } else {
       throw new Error('Failed to import word set')
     }
@@ -286,7 +289,7 @@ async function importWordSetToVocabulary(id: number) {
       severity: 'error',
       summary: 'Import Failed',
       detail: err instanceof Error ? err.message : 'Failed to import word set',
-      life: 3000
+      life: 3000,
     })
   } finally {
     importingSetId.value = null
@@ -319,7 +322,7 @@ async function uploadWordSets() {
         severity: 'success',
         summary: 'Word Sets Loaded',
         detail: `${result.count} word sets created successfully`,
-        life: 5000
+        life: 5000,
       })
 
       // Close dialog and reset form

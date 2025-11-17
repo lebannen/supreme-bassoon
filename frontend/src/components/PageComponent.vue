@@ -4,7 +4,8 @@
     <div class="page-text">
       <slot>
         <template v-for="(word, index) in words" :key="index">
-          <span class="word" @click="onWordClick(word)">{{ word }}</span>{{ ' ' }}
+          <span class="word" @click="onWordClick(word)">{{ word }}</span
+          >{{ ' ' }}
         </template>
       </slot>
     </div>
@@ -12,26 +13,26 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import {computed} from 'vue'
 
 interface Props {
-  pageNumber?: number;
-  content?: string;
+  pageNumber?: number
+  content?: string
 }
 
-const props = defineProps<Props>();
-const emit = defineEmits(['word-click']);
+const props = defineProps<Props>()
+const emit = defineEmits(['word-click'])
 
 const words = computed(() => {
-  if (!props.content) return [];
-  return props.content.split(/\s+/).filter(w => w.length > 0);
-});
+  if (!props.content) return []
+  return props.content.split(/\s+/).filter((w) => w.length > 0)
+})
 
 function onWordClick(word: string) {
   // Clean punctuation from start and end of the word
-  const cleanedWord = word.replace(/^[.,;:"?!(){}\[\]]+|[.,;"?!(){}\[\]]+$/g, '').toLowerCase();
+  const cleanedWord = word.replace(/^[.,;:"?!(){}[\]]+|[.,;"?!(){}[\]]+$/g, '').toLowerCase()
   if (cleanedWord) {
-    emit('word-click', cleanedWord);
+    emit('word-click', cleanedWord)
   }
 }
 </script>

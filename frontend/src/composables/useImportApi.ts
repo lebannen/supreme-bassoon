@@ -1,4 +1,4 @@
-import { ref, type Ref } from 'vue'
+import {ref} from 'vue'
 
 export interface ImportProgress {
   importId: string
@@ -22,7 +22,7 @@ export interface ImportStartResponse {
 }
 
 export function useImportApi() {
-  const API_BASE = 'http://localhost:8080/api'
+    const API_BASE = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'}/api`
   const isUploading = ref(false)
   const uploadError = ref<string | null>(null)
 
@@ -54,7 +54,7 @@ export function useImportApi() {
       const response = await fetch(`${API_BASE}/import/upload`, {
         method: 'POST',
         headers: getAuthHeaders(),
-        body: formData
+          body: formData,
       })
 
       if (!response.ok) {
@@ -107,7 +107,7 @@ export function useImportApi() {
       onError(new Error('Import not found'))
     })
 
-    eventSource.onerror = (error) => {
+      eventSource.onerror = (_error) => {
       // Only report error if we didn't intentionally close the connection
       if (!isClosed) {
         isClosed = true
@@ -126,7 +126,7 @@ export function useImportApi() {
   async function getImportStatus(importId: string): Promise<ImportProgress | null> {
     try {
       const response = await fetch(`${API_BASE}/import/progress/${importId}/status`, {
-        headers: getAuthHeaders()
+          headers: getAuthHeaders(),
       })
 
       if (!response.ok) {
@@ -143,7 +143,7 @@ export function useImportApi() {
   async function getAllImports(): Promise<ImportProgress[]> {
     try {
       const response = await fetch(`${API_BASE}/import/progress`, {
-        headers: getAuthHeaders()
+          headers: getAuthHeaders(),
       })
 
       if (!response.ok) {
@@ -161,7 +161,7 @@ export function useImportApi() {
     try {
       const response = await fetch(`${API_BASE}/import/clear`, {
         method: 'DELETE',
-        headers: getAuthHeaders()
+          headers: getAuthHeaders(),
       })
 
       if (!response.ok) {
@@ -182,6 +182,6 @@ export function useImportApi() {
     connectToProgressStream,
     getImportStatus,
     getAllImports,
-    clearDatabase
+      clearDatabase,
   }
 }

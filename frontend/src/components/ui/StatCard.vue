@@ -21,13 +21,9 @@ export interface StatCardProps {
   hoverable?: boolean
 }
 
-const props = withDefaults(defineProps<StatCardProps>(), {
-  hoverable: true
+withDefaults(defineProps<StatCardProps>(), {
+  hoverable: true,
 })
-</script>
-
-<script lang="ts">
-import {defineProps, withDefaults} from 'vue'
 </script>
 
 <template>

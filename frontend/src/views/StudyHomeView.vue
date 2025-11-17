@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
-import { useRouter } from 'vue-router'
-import { useStudyStore } from '@/stores/study'
+import {computed, onMounted, ref} from 'vue'
+import {useRouter} from 'vue-router'
+import {useStudyStore} from '@/stores/study'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
@@ -9,8 +9,8 @@ import RadioButton from 'primevue/radiobutton'
 import InputNumber from 'primevue/inputnumber'
 import Checkbox from 'primevue/checkbox'
 import ProgressBar from 'primevue/progressbar'
-import { useConfirm } from 'primevue/useconfirm'
-import type { SessionSourceType } from '@/types/study'
+import {useConfirm} from 'primevue/useconfirm'
+import type {SessionSourceType} from '@/types/study'
 
 const router = useRouter()
 const studyStore = useStudyStore()
@@ -29,14 +29,14 @@ const sourceOptions = [
     value: 'DUE_REVIEW' as SessionSourceType,
     label: 'Due for Review',
     description: 'Study words that are due for review based on the spaced repetition schedule',
-    icon: 'pi-clock'
+    icon: 'pi-clock',
   },
   {
     value: 'VOCABULARY' as SessionSourceType,
     label: 'All Vocabulary',
     description: 'Study words from your entire vocabulary collection',
-    icon: 'pi-book'
-  }
+    icon: 'pi-book',
+  },
 ]
 
 const canStartSession = computed(() => {
@@ -54,10 +54,7 @@ const maxSessionSize = computed(() => {
 })
 
 onMounted(async () => {
-  await Promise.all([
-    studyStore.loadActiveSession(),
-    studyStore.loadDueWords()
-  ])
+  await Promise.all([studyStore.loadActiveSession(), studyStore.loadDueWords()])
   loading.value = false
 })
 
@@ -67,7 +64,7 @@ async function handleStartSession() {
   const success = await studyStore.startSession({
     source: selectedSource.value,
     sessionSize: sessionSize.value,
-    includeNewWords: includeNewWords.value
+    includeNewWords: includeNewWords.value,
   })
 
   startingSession.value = false
@@ -83,7 +80,8 @@ function handleResumeSession() {
 
 function handleAbandonSession() {
   confirm.require({
-    message: 'Are you sure you want to abandon the current study session? Your progress will be lost.',
+    message:
+        'Are you sure you want to abandon the current study session? Your progress will be lost.',
     header: 'Abandon Session',
     icon: 'pi pi-exclamation-triangle',
     rejectLabel: 'Cancel',
@@ -91,7 +89,7 @@ function handleAbandonSession() {
     accept: async () => {
       await studyStore.abandonSession()
       await studyStore.loadDueWords()
-    }
+    },
   })
 }
 
@@ -134,21 +132,19 @@ function formatDueInfo() {
               <div class="flex flex-col gap-xs">
                 <span class="text-sm text-secondary stat-label">Progress</span>
                 <span class="text-2xl font-bold text-primary">
-                  {{ studyStore.activeSession?.wordsCompleted }} / {{ studyStore.activeSession?.totalWords }}
+                  {{ studyStore.activeSession?.wordsCompleted }} /
+                  {{ studyStore.activeSession?.totalWords }}
                 </span>
               </div>
               <div class="flex flex-col gap-xs">
                 <span class="text-sm text-secondary stat-label">Accuracy</span>
-                <span class="text-2xl font-bold text-primary">{{
-                    Math.round(studyStore.activeSession?.stats.accuracy || 0)
-                  }}%</span>
+                <span class="text-2xl font-bold text-primary"
+                >{{ Math.round(studyStore.activeSession?.stats.accuracy || 0) }}%</span
+                >
               </div>
             </div>
 
-            <ProgressBar
-              :value="studyStore.progressPercentage"
-              class="session-progress-bar"
-            />
+            <ProgressBar :value="studyStore.progressPercentage" class="session-progress-bar"/>
 
             <div class="flex gap-md">
               <Button
@@ -213,11 +209,15 @@ function formatDueInfo() {
                   <div class="flex-1 flex flex-col gap-sm">
                     <div class="flex items-center gap-sm">
                       <i class="pi text-xl icon-primary" :class="option.icon"></i>
-                      <label :for="option.value" class="text-lg font-semibold text-primary source-label">{{
-                          option.label
-                        }}</label>
+                      <label
+                          :for="option.value"
+                          class="text-lg font-semibold text-primary source-label"
+                      >{{ option.label }}</label
+                      >
                     </div>
-                    <p class="text-secondary leading-normal source-description">{{ option.description }}</p>
+                    <p class="text-secondary leading-normal source-description">
+                      {{ option.description }}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -252,11 +252,7 @@ function formatDueInfo() {
             <!-- Include New Words -->
             <div class="flex flex-col gap-md">
               <div class="flex items-center gap-sm">
-                <Checkbox
-                  v-model="includeNewWords"
-                  :binary="true"
-                  input-id="includeNew"
-                />
+                <Checkbox v-model="includeNewWords" :binary="true" input-id="includeNew"/>
                 <label for="includeNew" class="font-medium text-primary checkbox-label">
                   Include new words (not yet studied)
                 </label>
@@ -282,7 +278,8 @@ function formatDueInfo() {
                 severity="info"
                 :closable="false"
               >
-                No words are due for review right now. Try studying from all vocabulary or check back later!
+                No words are due for review right now. Try studying from all vocabulary or check
+                back later!
               </Message>
             </div>
           </div>
@@ -290,7 +287,10 @@ function formatDueInfo() {
       </Card>
 
       <!-- Empty State -->
-      <Card v-if="!loading && !studyStore.dueWords?.totalDue && !studyStore.isSessionActive" class="mt-xl">
+      <Card
+          v-if="!loading && !studyStore.dueWords?.totalDue && !studyStore.isSessionActive"
+          class="mt-xl"
+      >
         <template #content>
           <div class="empty-state">
             <i class="pi pi-check-circle empty-icon icon-success"></i>

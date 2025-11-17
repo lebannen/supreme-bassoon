@@ -10,10 +10,10 @@
         :key="option.id"
         class="option-card"
         :class="{
-          'selected': selectedOption === option.id,
-          'correct': showResult && option.isCorrect,
-          'incorrect': showResult && selectedOption === option.id && !option.isCorrect,
-          'disabled': showResult
+          selected: selectedOption === option.id,
+          correct: showResult && option.isCorrect,
+          incorrect: showResult && selectedOption === option.id && !option.isCorrect,
+          disabled: showResult,
         }"
         @click="selectOption(option.id)"
       >
@@ -32,9 +32,7 @@
 
     <div v-if="showHint && !showResult" class="hint-section">
       <Message severity="info">
-        <div class="hint-content">
-          <strong>Hint:</strong> {{ hint }}
-        </div>
+        <div class="hint-content"><strong>Hint:</strong> {{ hint }}</div>
       </Message>
     </div>
 
@@ -68,19 +66,14 @@
           icon="pi pi-arrow-right"
           @click="handleNext"
         />
-        <Button
-          v-else
-          label="Try Again"
-          icon="pi pi-refresh"
-          @click="reset"
-        />
+        <Button v-else label="Try Again" icon="pi pi-refresh" @click="reset"/>
       </template>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import {computed, ref} from 'vue'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
 

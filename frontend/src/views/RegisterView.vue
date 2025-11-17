@@ -76,9 +76,7 @@
               toggleMask
               autocomplete="new-password"
             />
-            <small v-if="confirmPasswordError" class="text-error">{{
-              confirmPasswordError
-            }}</small>
+            <small v-if="confirmPasswordError" class="text-error">{{ confirmPasswordError }}</small>
           </div>
 
           <Button
@@ -107,9 +105,7 @@
 
           <div class="text-center text-sm text-secondary">
             Already have an account?
-            <router-link to="/login" class="link-primary font-semibold">
-              Sign in
-            </router-link>
+            <router-link to="/login" class="link-primary font-semibold"> Sign in</router-link>
           </div>
         </form>
       </template>
@@ -118,9 +114,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { useAuthStore } from '@/stores/auth'
+import {ref} from 'vue'
+import {useRouter} from 'vue-router'
+import {useAuthStore} from '@/stores/auth'
 import Card from 'primevue/card'
 import InputText from 'primevue/inputtext'
 import Password from 'primevue/password'
@@ -193,7 +189,8 @@ const handleRegister = async () => {
 
 const handleGoogleLogin = () => {
   // Redirect to backend OAuth2 endpoint
-  window.location.href = 'http://localhost:8080/oauth2/authorization/google'
+  const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
+  window.location.href = `${baseUrl}/oauth2/authorization/google`
 }
 </script>
 

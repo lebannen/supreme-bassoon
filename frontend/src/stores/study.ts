@@ -1,12 +1,12 @@
-import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
-import { apiService } from '@/services/api'
+import {defineStore} from 'pinia'
+import {computed, ref} from 'vue'
+import {studyAPI} from '@/api'
 import type {
-  StudySession,
-  NextCardResponse,
-  SessionSummaryResponse,
-  StartSessionRequest,
-  DueWordsResponse
+    DueWordsResponse,
+    NextCardResponse,
+    SessionSummaryResponse,
+    StartSessionRequest,
+    StudySession,
 } from '@/types/study'
 
 export const useStudyStore = defineStore('study', () => {
@@ -20,7 +20,9 @@ export const useStudyStore = defineStore('study', () => {
   const error = ref<string | null>(null)
   const startTime = ref<number | null>(null)
 
-  const isSessionActive = computed(() => !!activeSession.value && activeSession.value.status === 'ACTIVE')
+    const isSessionActive = computed(
+        () => !!activeSession.value && activeSession.value.status === 'ACTIVE'
+    )
   const progressPercentage = computed(() => {
     if (!activeSession.value) return 0
     return (activeSession.value.wordsCompleted / activeSession.value.totalWords) * 100
@@ -29,7 +31,7 @@ export const useStudyStore = defineStore('study', () => {
   // Load active session on init
   async function loadActiveSession() {
     try {
-      const session = await apiService.getActiveSession()
+        const session = await studyAPI.getActiveSession()
       if (session) {
         activeSession.value = session
       }
@@ -41,7 +43,7 @@ export const useStudyStore = defineStore('study', () => {
   // Load due words count
   async function loadDueWords() {
     try {
-      dueWords.value = await apiService.getDueWords()
+        dueWords.value = await studyAPI.getDueWords()
     } catch (err) {
       console.error('Failed to load due words:', err)
     }
@@ -53,7 +55,7 @@ export const useStudyStore = defineStore('study', () => {
     error.value = null
 
     try {
-      const session = await apiService.startStudySession(request)
+        const session = await studyAPI.startSession(request)
       activeSession.value = session
       sessionSummary.value = null
 
@@ -81,7 +83,7 @@ export const useStudyStore = defineStore('study', () => {
     startTime.value = Date.now()
 
     try {
-      const card = await apiService.getNextCard(activeSession.value.sessionId)
+        const card = await studyAPI.getNextCard(activeSession.value.sessionId)
 
       if (card) {
         currentCard.value = card
@@ -115,14 +117,14 @@ export const useStudyStore = defineStore('study', () => {
     try {
       const responseTimeMs = startTime.value ? Date.now() - startTime.value : undefined
 
-      const result = await apiService.submitAnswer(activeSession.value.sessionId, {
+        const result = await studyAPI.submitAnswer(activeSession.value.sessionId, {
         cardId: currentCard.value.cardId,
         correct,
-        responseTimeMs
+            responseTimeMs,
       })
 
       // Update session stats
-      const updatedSession = await apiService.getSession(activeSession.value.sessionId)
+        const updatedSession = await studyAPI.getSession(activeSession.value.sessionId)
       activeSession.value = updatedSession
 
       if (result.sessionCompleted) {
@@ -153,7 +155,7 @@ export const useStudyStore = defineStore('study', () => {
     error.value = null
 
     try {
-      const summary = await apiService.completeSession(activeSession.value.sessionId)
+        const summary = await studyAPI.completeSession(activeSession.value.sessionId)
 
       sessionSummary.value = summary
       activeSession.value = null
@@ -182,7 +184,7 @@ export const useStudyStore = defineStore('study', () => {
     error.value = null
 
     try {
-      await apiService.abandonSession(activeSession.value.sessionId)
+        await studyAPI.abandonSession(activeSession.value.sessionId)
 
       activeSession.value = null
       currentCard.value = null
@@ -223,6 +225,6 @@ export const useStudyStore = defineStore('study', () => {
     submitAnswer,
     completeSession,
     abandonSession,
-    clearSummary
+      clearSummary,
   }
 })

@@ -24,7 +24,10 @@
         </div>
 
         <!-- Next right page (underneath) -->
-        <div v-if="isFlipping && flipDirection === 'forward'" class="page right-page underneath-page underneath-page-right">
+        <div
+            v-if="isFlipping && flipDirection === 'forward'"
+            class="page right-page underneath-page underneath-page-right"
+        >
           <PageComponent
             :page-number="currentPage * 2 + 2"
             :content="getPageContent(currentPage * 2 + 2)"
@@ -33,7 +36,10 @@
         </div>
 
         <!-- Previous left page (underneath) -->
-        <div v-if="isFlipping && flipDirection === 'backward'" class="page left-page underneath-page underneath-page-left">
+        <div
+            v-if="isFlipping && flipDirection === 'backward'"
+            class="page left-page underneath-page underneath-page-left"
+        >
           <PageComponent
             :page-number="currentPage * 2 - 3"
             :content="getPageContent(currentPage * 2 - 3)"
@@ -42,7 +48,10 @@
         </div>
 
         <!-- Flipping page (forward) -->
-        <div v-if="isFlipping && flipDirection === 'forward'" class="page flipping-page flipping-forward">
+        <div
+            v-if="isFlipping && flipDirection === 'forward'"
+            class="page flipping-page flipping-forward"
+        >
           <PageComponent
             class="front"
             :page-number="currentPage * 2"
@@ -58,7 +67,10 @@
         </div>
 
         <!-- Flipping page (backward) -->
-        <div v-if="isFlipping && flipDirection === 'backward'" class="page flipping-page flipping-backward">
+        <div
+            v-if="isFlipping && flipDirection === 'backward'"
+            class="page flipping-page flipping-backward"
+        >
           <PageComponent
             class="front"
             :page-number="currentPage * 2 - 1"
@@ -78,14 +90,22 @@
     </div>
 
     <div class="book-controls">
-      <button class="control-btn prev-btn" @click="previousPage" :disabled="currentPage === 1 || isFlipping">
+      <button
+          class="control-btn prev-btn"
+          @click="previousPage"
+          :disabled="currentPage === 1 || isFlipping"
+      >
         <i class="pi pi-chevron-left"></i>
         Previous
       </button>
       <span class="page-indicator">
         Page {{ currentPage * 2 - 1 }}-{{ currentPage * 2 }} of {{ totalPages }}
       </span>
-      <button class="control-btn next-btn" @click="nextPage" :disabled="currentPage * 2 >= totalPages || isFlipping">
+      <button
+          class="control-btn next-btn"
+          @click="nextPage"
+          :disabled="currentPage * 2 >= totalPages || isFlipping"
+      >
         Next
         <i class="pi pi-chevron-right"></i>
       </button>
@@ -94,15 +114,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import PageComponent from './PageComponent.vue';
-import AudioPlayer from './AudioPlayer.vue';
+import {computed, ref} from 'vue'
+import PageComponent from './PageComponent.vue'
+import AudioPlayer from './AudioPlayer.vue'
 
 interface Props {
-  pages?: string[];
-  content?: string;
-  pageSize?: number;
-  audioUrl?: string | null;
+  pages?: string[]
+  content?: string
+  pageSize?: number
+  audioUrl?: string | null
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -110,55 +130,55 @@ const props = withDefaults(defineProps<Props>(), {
   content: '',
   pageSize: 300,
   audioUrl: null,
-});
+})
 
-const emit = defineEmits(['word-click', 'page-change']);
+const emit = defineEmits(['word-click', 'page-change'])
 
-const currentPage = ref(1);
-const isFlipping = ref(false);
-const flipDirection = ref<'forward' | 'backward'>('forward');
+const currentPage = ref(1)
+const isFlipping = ref(false)
+const flipDirection = ref<'forward' | 'backward'>('forward')
 
 const bookPages = computed(() => {
   if (props.pages.length > 0) {
-    return props.pages;
+    return props.pages
   }
   if (props.content) {
-    const result = [];
+    const result = []
     for (let i = 0; i < props.content.length; i += props.pageSize) {
-      result.push(props.content.substring(i, i + props.pageSize));
+      result.push(props.content.substring(i, i + props.pageSize))
     }
-    return result;
+    return result
   }
-  return ['Page 1 content', 'Page 2 content'];
-});
+  return ['Page 1 content', 'Page 2 content']
+})
 
-const totalPages = computed(() => bookPages.value.length);
+const totalPages = computed(() => bookPages.value.length)
 
 function getPageContent(pageNum: number): string {
-  if (pageNum < 1 || pageNum > totalPages.value) return '';
-  return bookPages.value[pageNum - 1] || '';
+  if (pageNum < 1 || pageNum > totalPages.value) return ''
+  return bookPages.value[pageNum - 1] || ''
 }
 
 function nextPage() {
-  if (currentPage.value * 2 >= totalPages.value || isFlipping.value) return;
-  flipDirection.value = 'forward';
-  isFlipping.value = true;
+  if (currentPage.value * 2 >= totalPages.value || isFlipping.value) return
+  flipDirection.value = 'forward'
+  isFlipping.value = true
   setTimeout(() => {
-    currentPage.value++;
-    isFlipping.value = false;
-    emit('page-change', currentPage.value * 2 - 1, totalPages.value);
-  }, 600);
+    currentPage.value++
+    isFlipping.value = false
+    emit('page-change', currentPage.value * 2 - 1, totalPages.value)
+  }, 600)
 }
 
 function previousPage() {
-  if (currentPage.value === 1 || isFlipping.value) return;
-  flipDirection.value = 'backward';
-  isFlipping.value = true;
+  if (currentPage.value === 1 || isFlipping.value) return
+  flipDirection.value = 'backward'
+  isFlipping.value = true
   setTimeout(() => {
-    currentPage.value--;
-    isFlipping.value = false;
-    emit('page-change', currentPage.value * 2 - 1, totalPages.value);
-  }, 600);
+    currentPage.value--
+    isFlipping.value = false
+    emit('page-change', currentPage.value * 2 - 1, totalPages.value)
+  }, 600)
 }
 </script>
 
@@ -178,7 +198,12 @@ function previousPage() {
   height: 600px;
   display: flex;
   transform-style: preserve-3d;
-  background: linear-gradient(to bottom, var(--surface-ground) 0%, var(--surface-section) 50%, var(--surface-ground) 100%);
+  background: linear-gradient(
+      to bottom,
+      var(--surface-ground) 0%,
+      var(--surface-section) 50%,
+      var(--surface-ground) 100%
+  );
   padding: 20px;
   border-radius: 12px;
 }
@@ -254,13 +279,21 @@ function previousPage() {
 }
 
 @keyframes flipForward {
-  0% { transform: rotateY(0deg); }
-  100% { transform: rotateY(-180deg); }
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(-180deg);
+  }
 }
 
 @keyframes flipBackward {
-  0% { transform: rotateY(0deg); }
-  100% { transform: rotateY(180deg); }
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
 }
 
 :deep(.page-content.front) {
@@ -325,7 +358,12 @@ function previousPage() {
   top: 5%;
   bottom: 5%;
   width: 3px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.1));
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.2) 50%,
+      rgba(0, 0, 0, 0.1)
+  );
   transform: translateX(-50%);
   z-index: 1;
 }

@@ -28,7 +28,7 @@ export interface TaskCardProps {
 
 const props = withDefaults(defineProps<TaskCardProps>(), {
   completed: false,
-  actionLabel: 'Start'
+  actionLabel: 'Start',
 })
 
 const emit = defineEmits<{
@@ -40,10 +40,6 @@ const handleAction = () => {
     emit('action')
   }
 }
-</script>
-
-<script lang="ts">
-import {defineProps, withDefaults, defineEmits} from 'vue'
 </script>
 
 <template>

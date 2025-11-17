@@ -2,7 +2,8 @@
   <div class="import-container">
     <h1>Import Language Data</h1>
     <p class="description">
-      Upload JSONL.gz files containing language vocabulary data. Language will be automatically detected from the file.
+      Upload JSONL.gz files containing language vocabulary data. Language will be automatically
+      detected from the file.
     </p>
 
     <div class="upload-section">
@@ -55,7 +56,10 @@
         <template #title>
           <div class="flex align-items-center justify-content-between">
             <span>Importing {{ currentImport.languageName }}</span>
-            <Tag :value="currentImport.status" :severity="getStatusSeverity(currentImport.status)" />
+            <Tag
+                :value="currentImport.status"
+                :severity="getStatusSeverity(currentImport.status)"
+            />
           </div>
         </template>
         <template #content>
@@ -71,7 +75,9 @@
               </div>
               <div class="stat">
                 <label>Successful</label>
-                <span class="text-green-600">{{ currentImport.successfulEntries.toLocaleString() }}</span>
+                <span class="text-green-600">{{
+                    currentImport.successfulEntries.toLocaleString()
+                  }}</span>
               </div>
               <div class="stat">
                 <label>Failed</label>
@@ -80,10 +86,7 @@
             </div>
 
             <div class="progress-bar-container">
-              <ProgressBar
-                :value="currentImport.progressPercentage"
-                :showValue="true"
-              />
+              <ProgressBar :value="currentImport.progressPercentage" :showValue="true"/>
             </div>
 
             <div class="message">
@@ -107,7 +110,10 @@
         <Column field="languageName" header="Language"></Column>
         <Column field="status" header="Status">
           <template #body="slotProps">
-            <Tag :value="slotProps.data.status" :severity="getStatusSeverity(slotProps.data.status)" />
+            <Tag
+                :value="slotProps.data.status"
+                :severity="getStatusSeverity(slotProps.data.status)"
+            />
           </template>
         </Column>
         <Column field="totalEntries" header="Total Entries">
@@ -121,9 +127,7 @@
           </template>
         </Column>
         <Column field="progressPercentage" header="Progress">
-          <template #body="slotProps">
-            {{ slotProps.data.progressPercentage }}%
-          </template>
+          <template #body="slotProps"> {{ slotProps.data.progressPercentage }}%</template>
         </Column>
         <Column field="startedAt" header="Started">
           <template #body="slotProps">
@@ -136,7 +140,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import {onMounted, onUnmounted, ref} from 'vue'
 import Button from 'primevue/button'
 import FileUpload from 'primevue/fileupload'
 import ProgressBar from 'primevue/progressbar'
@@ -145,10 +149,17 @@ import Message from 'primevue/message'
 import Tag from 'primevue/tag'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
-import { useConfirm } from 'primevue/useconfirm'
-import { useImportApi, type ImportProgress } from '../composables/useImportApi'
+import {useConfirm} from 'primevue/useconfirm'
+import {type ImportProgress, useImportApi} from '../composables/useImportApi'
 
-const { isUploading, uploadError, uploadFile, connectToProgressStream, getAllImports, clearDatabase } = useImportApi()
+const {
+  isUploading,
+  uploadError,
+  uploadFile,
+  connectToProgressStream,
+  getAllImports,
+  clearDatabase,
+} = useImportApi()
 const confirm = useConfirm()
 
 const selectedFile = ref<File | null>(null)
@@ -175,7 +186,8 @@ function formatFileSize(bytes: number): string {
 
 function confirmClearDatabase() {
   confirm.require({
-    message: 'Are you sure you want to clear all words from the database? This action cannot be undone.',
+    message:
+        'Are you sure you want to clear all words from the database? This action cannot be undone.',
     header: 'Confirm Clear Database',
     icon: 'pi pi-exclamation-triangle',
     acceptClass: 'p-button-danger',
@@ -189,7 +201,7 @@ function confirmClearDatabase() {
         clearSuccess.value = `Successfully cleared ${result.deletedCount.toLocaleString()} words from database`
         await loadImportHistory()
       }
-    }
+    },
   })
 }
 
@@ -221,7 +233,9 @@ async function loadImportHistory() {
   importHistory.value = await getAllImports()
 }
 
-function getStatusSeverity(status: string): 'success' | 'info' | 'warn' | 'danger' | 'secondary' | 'contrast' | undefined {
+function getStatusSeverity(
+    status: string
+): 'success' | 'info' | 'warn' | 'danger' | 'secondary' | 'contrast' | undefined {
   switch (status) {
     case 'COMPLETED':
       return 'success'

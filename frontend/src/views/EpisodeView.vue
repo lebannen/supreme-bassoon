@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import {computed, onMounted, ref} from 'vue'
+import {useRoute, useRouter} from 'vue-router'
+import {storeToRefs} from 'pinia'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
@@ -13,45 +14,15 @@ import SentenceScrambleExercise from '@/components/SentenceScrambleExercise.vue'
 import MatchingExercise from '@/components/MatchingExercise.vue'
 import ClozeReadingExercise from '@/components/ClozeReadingExercise.vue'
 import ListeningExercise from '@/components/ListeningExercise.vue'
+import {useCourseStore} from '@/stores/course'
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
 const route = useRoute()
 const router = useRouter()
+const courseStore = useCourseStore()
 
-interface Exercise {
-  id: number
-  type: string
-  title: string
-  instructions: string
-  content: any
-  estimatedDurationSeconds: number
-  pointsValue: number
-}
-
-interface ContentItem {
-  id: number
-  orderIndex: number
-  contentType: string
-  isRequired: boolean
-  exercise?: Exercise
-}
-
-interface Episode {
-  id: number
-  moduleId: number
-  episodeNumber: number
-  type: string
-  title: string
-  content: string
-  audioUrl: string | null
-  transcript: string | null
-  estimatedMinutes: number
-  contentItems: ContentItem[]
-}
-
-const episode = ref<Episode | null>(null)
-const loading = ref(true)
-const error = ref<string | null>(null)
+// Destructure store state with refs
+const {currentEpisode: episode, loading, error} = storeToRefs(courseStore)
 const hasReadContent = ref(false)
 const completedExercises = ref<number[]>([])
 const currentExerciseIndex = ref(0)
@@ -59,11 +30,16 @@ const exerciseComponentRef = ref<any>(null)
 
 const episodeTypeIcon = computed(() => {
   switch (episode.value?.type) {
-    case 'STORY': return 'pi-book'
-    case 'DIALOGUE': return 'pi-comments'
-    case 'ARTICLE': return 'pi-file'
-    case 'AUDIO_LESSON': return 'pi-volume-up'
-    default: return 'pi-circle'
+    case 'STORY':
+      return 'pi-book'
+    case 'DIALOGUE':
+      return 'pi-comments'
+    case 'ARTICLE':
+      return 'pi-file'
+    case 'AUDIO_LESSON':
+      return 'pi-volume-up'
+    default:
+      return 'pi-circle'
   }
 })
 
@@ -83,49 +59,28 @@ const progress = computed(() => {
 
 const isEpisodeCompleted = computed(() => {
   if (!episode.value) return false
-  return hasReadContent.value && completedExercises.value.length === episode.value.contentItems.length
+  return (
+      hasReadContent.value && completedExercises.value.length === episode.value.contentItems.length
+  )
 })
 
 function getAuthHeaders() {
   const token = localStorage.getItem('auth_token')
   return {
-    'Authorization': `Bearer ${token}`,
-    'Content-Type': 'application/json'
+    Authorization: `Bearer ${token}`,
+    'Content-Type': 'application/json',
   }
 }
 
 async function loadEpisode() {
   const episodeId = route.params.id
-  if (!episodeId) {
-    error.value = 'No episode ID provided'
-    loading.value = false
-    return
-  }
-
-  try {
-    loading.value = true
-    error.value = null
-
-    const response = await fetch(`${API_BASE}/api/episodes/${episodeId}`, {
-      headers: getAuthHeaders()
-    })
-
-    if (!response.ok) {
-      throw new Error('Failed to load episode')
-    }
-
-    episode.value = await response.json()
+  if (episodeId) {
+    await courseStore.loadEpisode(Number(episodeId))
 
     // Load progress if authenticated
     if (localStorage.getItem('auth_token')) {
       await loadProgress()
     }
-
-  } catch (err) {
-    console.error('Error loading episode:', err)
-    error.value = err instanceof Error ? err.message : 'Failed to load episode'
-  } finally {
-    loading.value = false
   }
 }
 
@@ -133,7 +88,7 @@ async function loadProgress() {
   const episodeId = route.params.id
   try {
     const response = await fetch(`${API_BASE}/api/episodes/${episodeId}/progress`, {
-      headers: getAuthHeaders()
+      headers: getAuthHeaders(),
     })
 
     if (response.ok) {
@@ -143,7 +98,7 @@ async function loadProgress() {
 
       // Set currentExerciseIndex to first incomplete exercise
       if (episode.value && episode.value.contentItems.length > 0) {
-        const firstIncompleteIndex = episode.value.contentItems.findIndex(item => {
+        const firstIncompleteIndex = episode.value.contentItems.findIndex((item) => {
           return item.exercise && !completedExercises.value.includes(item.exercise.id)
         })
 
@@ -163,7 +118,7 @@ async function markContentAsRead() {
   try {
     const response = await fetch(`${API_BASE}/api/episodes/${episodeId}/complete-content`, {
       method: 'POST',
-      headers: getAuthHeaders()
+      headers: getAuthHeaders(),
     })
 
     if (response.ok) {
@@ -182,15 +137,15 @@ async function handleExerciseSubmit(response: any) {
   // Format request according to backend SubmitAttemptRequest DTO
   const attemptRequest = {
     userResponses: response,
-    durationSeconds: null,  // TODO: Track time spent on exercise
-    hintsUsed: 0
+    durationSeconds: null, // TODO: Track time spent on exercise
+    hintsUsed: 0,
   }
 
   try {
     const validationResponse = await fetch(`${API_BASE}/api/exercises/${exerciseId}/attempt`, {
       method: 'POST',
       headers: getAuthHeaders(),
-      body: JSON.stringify(attemptRequest)
+      body: JSON.stringify(attemptRequest),
     })
 
     if (!validationResponse.ok) {
@@ -213,7 +168,7 @@ async function handleExerciseSubmit(response: any) {
       try {
         await fetch(`${API_BASE}/api/episodes/${episodeId}/complete-exercise/${exerciseId}`, {
           method: 'POST',
-          headers: getAuthHeaders()
+          headers: getAuthHeaders(),
         })
       } catch (err) {
         console.error('Error saving exercise progress:', err)
@@ -305,8 +260,11 @@ onMounted(() => {
                   <i class="pi pi-check-circle"></i> Content read
                 </span>
                 <span>
-                  <i :class="completedExercises.length > 0 ? 'pi pi-check-circle' : 'pi pi-circle'"></i>
-                  {{ completedExercises.length }} / {{ episode.contentItems.length }} exercises completed
+                  <i
+                      :class="completedExercises.length > 0 ? 'pi pi-check-circle' : 'pi pi-circle'"
+                  ></i>
+                  {{ completedExercises.length }} / {{ episode.contentItems.length }} exercises
+                  completed
                 </span>
               </div>
             </div>
@@ -365,8 +323,8 @@ onMounted(() => {
               :label="`${index + 1}`"
               :class="{
                 'exercise-nav-btn': true,
-                'active': currentExerciseIndex === index,
-                'completed': completedExercises.includes(item.exercise?.id || 0)
+                active: currentExerciseIndex === index,
+                completed: completedExercises.includes(item.exercise?.id || 0),
               }"
               :icon="completedExercises.includes(item.exercise?.id || 0) ? 'pi pi-check' : ''"
               @click="goToExercise(index)"

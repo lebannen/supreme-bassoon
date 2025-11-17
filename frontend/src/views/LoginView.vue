@@ -73,9 +73,7 @@
 
           <div class="text-center text-sm text-secondary">
             Don't have an account?
-            <router-link to="/register" class="link-primary font-semibold">
-              Sign up
-            </router-link>
+            <router-link to="/register" class="link-primary font-semibold"> Sign up</router-link>
           </div>
         </form>
       </template>
@@ -84,9 +82,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
-import { useAuthStore } from '@/stores/auth'
+import {ref} from 'vue'
+import {useRoute, useRouter} from 'vue-router'
+import {useAuthStore} from '@/stores/auth'
 import Card from 'primevue/card'
 import InputText from 'primevue/inputtext'
 import Password from 'primevue/password'
@@ -148,7 +146,8 @@ const handleLogin = async () => {
 
 const handleGoogleLogin = () => {
   // Redirect to backend OAuth2 endpoint
-  window.location.href = 'http://localhost:8080/oauth2/authorization/google'
+  const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
+  window.location.href = `${baseUrl}/oauth2/authorization/google`
 }
 </script>
 

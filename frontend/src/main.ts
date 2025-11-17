@@ -1,7 +1,7 @@
 import './assets/main.css'
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import {createApp} from 'vue'
+import {createPinia} from 'pinia'
 import PrimeVue from 'primevue/config'
 import Aura from '@primevue/themes/aura'
 import ConfirmationService from 'primevue/confirmationservice'
@@ -9,8 +9,7 @@ import ToastService from 'primevue/toastservice'
 
 import App from './App.vue'
 import router from './router'
-import { useAuthStore } from './stores/auth'
-import { setupApiInterceptor } from './utils/apiInterceptor'
+import {useAuthStore} from './stores/auth'
 
 // PrimeIcons
 import 'primeicons/primeicons.css'
@@ -23,15 +22,12 @@ app.use(PrimeVue, {
   theme: {
     preset: Aura,
     options: {
-        darkModeSelector: '.dark-theme'
-    }
-  }
+      darkModeSelector: '.dark-theme',
+    },
+  },
 })
 app.use(ConfirmationService)
 app.use(ToastService)
-
-// Setup API interceptor to handle 401 errors globally
-setupApiInterceptor()
 
 // Initialize auth from localStorage
 const authStore = useAuthStore()

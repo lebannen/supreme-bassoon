@@ -1,7 +1,7 @@
-import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
-import { apiService } from '@/services/api'
-import type { User, LoginRequest, RegisterRequest } from '@/types/auth'
+import {defineStore} from 'pinia'
+import {computed, ref} from 'vue'
+import {authAPI} from '@/api'
+import type {LoginRequest, RegisterRequest, User} from '@/types/auth'
 
 export const useAuthStore = defineStore('auth', () => {
   const user = ref<User | null>(null)
@@ -34,7 +34,7 @@ export const useAuthStore = defineStore('auth', () => {
     error.value = null
 
     try {
-      const response = await apiService.login(credentials)
+        const response = await authAPI.login(credentials)
 
       token.value = response.token
       user.value = response.user
@@ -57,7 +57,7 @@ export const useAuthStore = defineStore('auth', () => {
     error.value = null
 
     try {
-      const response = await apiService.register(data)
+        const response = await authAPI.register(data)
 
       token.value = response.token
       user.value = response.user
@@ -82,7 +82,7 @@ export const useAuthStore = defineStore('auth', () => {
     error.value = null
 
     try {
-      const userData = await apiService.getCurrentUser()
+        const userData = await authAPI.getCurrentUser()
       user.value = userData
       localStorage.setItem('auth_user', JSON.stringify(userData))
       return true
@@ -113,7 +113,7 @@ export const useAuthStore = defineStore('auth', () => {
     error.value = null
 
     try {
-      const updatedUser = await apiService.updateProfile(data)
+        const updatedUser = await authAPI.updateProfile(data)
       user.value = updatedUser
       localStorage.setItem('auth_user', JSON.stringify(updatedUser))
       return true

@@ -19,7 +19,7 @@ export interface Exercise {
   cefrLevel: string
   title: string
   instructions: string
-  content: any  // Will vary by exercise type
+    content: any // Will vary by exercise type
   estimatedDurationSeconds: number
   pointsValue: number
   difficultyRating: number

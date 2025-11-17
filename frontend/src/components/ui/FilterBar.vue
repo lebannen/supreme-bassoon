@@ -34,10 +34,10 @@ export interface FilterBarProps {
   showCount?: boolean
 }
 
-const props = withDefaults(defineProps<FilterBarProps>(), {
+withDefaults(defineProps<FilterBarProps>(), {
   searchPlaceholder: 'Search...',
   filters: () => [],
-  showCount: true
+  showCount: true,
 })
 
 const emit = defineEmits<{
@@ -56,20 +56,12 @@ const handleFilterChange = (index: number, value: string) => {
 }
 </script>
 
-<script lang="ts">
-import {defineProps, withDefaults, defineEmits} from 'vue'
-</script>
-
 <template>
   <div class="filter-bar card card-padding">
     <!-- Search Box -->
     <div class="search-box">
       <span class="search-icon">🔍</span>
-      <InputText
-          v-model="searchQuery"
-          :placeholder="searchPlaceholder"
-          class="search-input"
-      />
+      <InputText v-model="searchQuery" :placeholder="searchPlaceholder" class="search-input"/>
     </div>
 
     <!-- Filter Dropdowns -->

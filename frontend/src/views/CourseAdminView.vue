@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import {onMounted, ref} from 'vue'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
-import FileUpload, { type FileUploadSelectEvent } from 'primevue/fileupload'
+import FileUpload, {type FileUploadSelectEvent} from 'primevue/fileupload'
 import Message from 'primevue/message'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
@@ -88,12 +88,12 @@ function getAuthHeaders() {
   if (!token) {
     console.error('No auth token found in localStorage')
     return {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     }
   }
   return {
-    'Authorization': `Bearer ${token}`,
-    'Content-Type': 'application/json'
+    Authorization: `Bearer ${token}`,
+    'Content-Type': 'application/json',
   }
 }
 
@@ -110,7 +110,7 @@ async function loadCourses() {
     }
 
     const response = await fetch(`${API_BASE}/api/admin/courses`, {
-      headers: getAuthHeaders()
+      headers: getAuthHeaders(),
     })
 
     if (!response.ok) {
@@ -155,7 +155,7 @@ async function importCourse() {
     const response = await fetch(`${API_BASE}/api/admin/courses/import`, {
       method: 'POST',
       headers: getAuthHeaders(),
-      body: JSON.stringify(courseData)
+      body: JSON.stringify(courseData),
     })
 
     if (!response.ok) {
@@ -244,8 +244,11 @@ function streamImportProgress(importId: string): EventSource | null {
     console.error('SSE error:', err)
 
     // Only show error if we're still importing (not if stream just ended normally)
-    if (importingModule.value && (!importProgress.value ||
-        (importProgress.value.status !== 'COMPLETED' && importProgress.value.status !== 'FAILED'))) {
+    if (
+        importingModule.value &&
+        (!importProgress.value ||
+            (importProgress.value.status !== 'COMPLETED' && importProgress.value.status !== 'FAILED'))
+    ) {
       error.value = 'Lost connection to import progress stream'
       importingModule.value = false
     }
@@ -283,7 +286,7 @@ async function importModule() {
       {
         method: 'POST',
         headers: getAuthHeaders(),
-        body: JSON.stringify(moduleData)
+        body: JSON.stringify(moduleData),
       }
     )
 
@@ -328,7 +331,7 @@ async function loadModulesForCourse(courseId: number) {
     loadingModules.value.add(courseId)
 
     const response = await fetch(`${API_BASE}/api/admin/courses/${courseId}/modules`, {
-      headers: getAuthHeaders()
+      headers: getAuthHeaders(),
     })
 
     if (!response.ok) {
@@ -346,14 +349,18 @@ async function loadModulesForCourse(courseId: number) {
 }
 
 async function deleteModule(moduleId: number, moduleNumber: number, courseId: number) {
-  if (!confirm(`Are you sure you want to delete Module ${moduleNumber}? This will also delete all its episodes and exercises.`)) {
+  if (
+      !confirm(
+          `Are you sure you want to delete Module ${moduleNumber}? This will also delete all its episodes and exercises.`
+      )
+  ) {
     return
   }
 
   try {
     const response = await fetch(`${API_BASE}/api/admin/courses/modules/${moduleId}`, {
       method: 'DELETE',
-      headers: getAuthHeaders()
+      headers: getAuthHeaders(),
     })
 
     if (!response.ok) {
@@ -391,7 +398,12 @@ onMounted(() => {
         {{ error }}
       </Message>
 
-      <Message v-if="successMessage" severity="success" :closable="true" @close="successMessage = null">
+      <Message
+          v-if="successMessage"
+          severity="success"
+          :closable="true"
+          @close="successMessage = null"
+      >
         {{ successMessage }}
       </Message>
 
@@ -484,7 +496,9 @@ onMounted(() => {
           <!-- Module File Upload -->
           <div v-if="selectedCourse">
             <p class="selected-course">
-              <strong>Selected Course:</strong> {{ selectedCourse.name }} ({{ selectedCourse.slug }})
+              <strong>Selected Course:</strong> {{ selectedCourse.name }} ({{
+                selectedCourse.slug
+              }})
             </p>
 
             <FileUpload
@@ -502,7 +516,9 @@ onMounted(() => {
 
             <div class="audio-option">
               <Checkbox v-model="generateAudio" :binary="true" input-id="generateAudio" />
-              <label for="generateAudio">Generate audio for dialogues and listening exercises</label>
+              <label for="generateAudio"
+              >Generate audio for dialogues and listening exercises</label
+              >
             </div>
 
             <Button
@@ -541,29 +557,40 @@ onMounted(() => {
                 <div class="stats-grid">
                   <div class="flex-col items-center gap-sm p-lg">
                     <Tag value="Modules" severity="info" />
-                    <span class="font-semibold">{{ importProgress.processedModules }} / {{
-                        importProgress.totalModules
-                      }}</span>
+                    <span class="font-semibold"
+                    >{{ importProgress.processedModules }} /
+                      {{ importProgress.totalModules }}</span
+                    >
                   </div>
                   <div class="flex-col items-center gap-sm p-lg">
                     <Tag value="Episodes" severity="info" />
-                    <span class="font-semibold">{{ importProgress.processedEpisodes }} / {{
-                        importProgress.totalEpisodes
-                      }}</span>
+                    <span class="font-semibold"
+                    >{{ importProgress.processedEpisodes }} /
+                      {{ importProgress.totalEpisodes }}</span
+                    >
                   </div>
                   <div class="flex-col items-center gap-sm p-lg">
                     <Tag value="Exercises" severity="info" />
-                    <span class="font-semibold">{{
-                        importProgress.processedExercises
-                      }} / {{ importProgress.totalExercises }}</span>
+                    <span class="font-semibold"
+                    >{{ importProgress.processedExercises }} /
+                      {{ importProgress.totalExercises }}</span
+                    >
                   </div>
-                  <div v-if="importProgress.audioFilesGenerated > 0" class="flex-col items-center gap-sm p-lg">
+                  <div
+                      v-if="importProgress.audioFilesGenerated > 0"
+                      class="flex-col items-center gap-sm p-lg"
+                  >
                     <Tag value="Audio" severity="success" />
-                    <span class="font-semibold">{{ importProgress.audioFilesGenerated }} files</span>
+                    <span class="font-semibold"
+                    >{{ importProgress.audioFilesGenerated }} files</span
+                    >
                   </div>
                 </div>
 
-                <div v-if="importProgress.errors && importProgress.errors.length > 0" class="progress-errors">
+                <div
+                    v-if="importProgress.errors && importProgress.errors.length > 0"
+                    class="progress-errors"
+                >
                   <Message severity="warn" :closable="false">
                     {{ importProgress.errors.length }} warning(s) occurred during import
                   </Message>
@@ -628,7 +655,10 @@ onMounted(() => {
                   <ProgressBar mode="indeterminate" />
                   <p>Loading modules...</p>
                 </div>
-                <div v-else-if="courseModules.get(slotProps.data.id)?.length === 0" class="no-modules">
+                <div
+                    v-else-if="courseModules.get(slotProps.data.id)?.length === 0"
+                    class="no-modules"
+                >
                   <i class="pi pi-inbox"></i>
                   <p>No modules yet for this course</p>
                 </div>
@@ -641,7 +671,10 @@ onMounted(() => {
                   <Column field="title" header="Title" />
                   <Column field="episodeCount" header="Episodes" class="col-episodes">
                     <template #body="moduleSlotProps">
-                      <Tag :value="`${moduleSlotProps.data.episodeCount} episodes`" severity="info" />
+                      <Tag
+                          :value="`${moduleSlotProps.data.episodeCount} episodes`"
+                          severity="info"
+                      />
                     </template>
                   </Column>
                   <Column header="Actions" class="col-actions">
@@ -652,7 +685,13 @@ onMounted(() => {
                         severity="danger"
                         size="small"
                         text
-                        @click="deleteModule(moduleSlotProps.data.id, moduleSlotProps.data.moduleNumber, slotProps.data.id)"
+                        @click="
+                          deleteModule(
+                            moduleSlotProps.data.id,
+                            moduleSlotProps.data.moduleNumber,
+                            slotProps.data.id
+                          )
+                        "
                       />
                     </template>
                   </Column>

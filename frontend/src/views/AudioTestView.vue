@@ -74,7 +74,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import {ref} from 'vue'
 import Card from 'primevue/card'
 import Textarea from 'primevue/textarea'
 import Select from 'primevue/select'
@@ -95,19 +95,19 @@ const audioUrl = ref('')
 const languages = [
   { label: 'French', value: 'fr' },
   { label: 'English', value: 'en' },
-  { label: 'German', value: 'de' }
+  {label: 'German', value: 'de'},
 ]
 
 const voices = [
   { label: 'Leda (French Female)', value: 'Leda' },
   { label: 'Puck (English Neutral)', value: 'Puck' },
-  { label: 'Kore (German Female)', value: 'Kore' }
+  {label: 'Kore (German Female)', value: 'Kore'},
 ]
 
 function getAuthHeaders(): HeadersInit {
   const token = localStorage.getItem('auth_token')
   const headers: HeadersInit = {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   }
   if (token) {
     headers['Authorization'] = `Bearer ${token}`
@@ -132,8 +132,8 @@ async function generateAudio() {
       body: JSON.stringify({
         text: text.value,
         languageCode: languageCode.value,
-        voice: voice.value
-      })
+        voice: voice.value,
+      }),
     })
 
     if (!response.ok) {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
-import { useAuthStore } from '@/stores/auth'
+import {computed, onMounted, ref} from 'vue'
+import {useAuthStore} from '@/stores/auth'
 import Card from 'primevue/card'
 import InputText from 'primevue/inputtext'
 import Dropdown from 'primevue/dropdown'
@@ -45,11 +45,11 @@ const languageOptions = [
 ]
 
 const availableLearningLanguages = computed(() => {
-  return languageOptions.filter(lang => lang.value !== nativeLanguage.value)
+  return languageOptions.filter((lang) => lang.value !== nativeLanguage.value)
 })
 
 const getLanguageLabel = (code: string) => {
-  const lang = languageOptions.find(l => l.value === code)
+  const lang = languageOptions.find((l) => l.value === code)
   return lang ? lang.label : code
 }
 
@@ -122,11 +122,7 @@ const handleSave = async () => {
               </div>
               <div class="info-field">
                 <label>Email</label>
-                <InputText
-                  :model-value="authStore.user?.email"
-                  disabled
-                  class="w-full"
-                />
+                <InputText :model-value="authStore.user?.email" disabled class="w-full"/>
                 <small class="text-sm text-secondary helper-text">Email cannot be changed</small>
               </div>
             </div>
@@ -188,18 +184,16 @@ const handleSave = async () => {
                   class="w-full"
                   display="chip"
                 />
-                <small class="text-sm text-secondary helper-text">Select the languages you want to learn</small>
+                <small class="text-sm text-secondary helper-text"
+                >Select the languages you want to learn</small
+                >
               </div>
             </div>
 
             <!-- Action Buttons -->
             <div class="actions">
               <template v-if="!isEditing">
-                <Button
-                  label="Edit Profile"
-                  icon="pi pi-pencil"
-                  @click="handleEdit"
-                />
+                <Button label="Edit Profile" icon="pi pi-pencil" @click="handleEdit"/>
               </template>
               <template v-else>
                 <Button

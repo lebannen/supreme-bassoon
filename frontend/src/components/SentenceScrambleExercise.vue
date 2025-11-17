@@ -9,7 +9,7 @@
           v-for="(word, index) in userOrderedWords"
           :key="`answer-${index}`"
           class="word-chip answer-chip"
-          :class="{ 'correct': showResult && isCorrect, 'incorrect': showResult && !isCorrect }"
+          :class="{ correct: showResult && isCorrect, incorrect: showResult && !isCorrect }"
           @click="removeWord(index)"
         >
           {{ word }}
@@ -37,9 +37,7 @@
 
     <div v-if="showHint && !showResult" class="hint-section">
       <Message severity="info">
-        <div class="hint-content">
-          <strong>Hint:</strong> {{ hint }}
-        </div>
+        <div class="hint-content"><strong>Hint:</strong> {{ hint }}</div>
       </Message>
     </div>
 
@@ -81,19 +79,14 @@
           icon="pi pi-arrow-right"
           @click="handleNext"
         />
-        <Button
-          v-else
-          label="Try Again"
-          icon="pi pi-refresh"
-          @click="reset"
-        />
+        <Button v-else label="Try Again" icon="pi pi-refresh" @click="reset"/>
       </template>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import {computed, ref} from 'vue'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
 
@@ -133,8 +126,8 @@ function initializeWords() {
 
   // Fisher-Yates shuffle algorithm
   for (let i = scrambled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [scrambled[i], scrambled[j]] = [scrambled[j], scrambled[i]]
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[scrambled[i], scrambled[j]] = [scrambled[j], scrambled[i]]
   }
 
   availableWords.value = scrambled

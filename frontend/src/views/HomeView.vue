@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
+import {useRouter} from 'vue-router'
 import {computed, onMounted} from 'vue'
 import Button from 'primevue/button'
 import Card from 'primevue/card'
-import { useAuthStore } from '@/stores/auth'
+import {useAuthStore} from '@/stores/auth'
 import {useDashboardStore} from '@/stores/dashboard'
 import StatCard from '@/components/ui/StatCard.vue'
 import TaskCard from '@/components/ui/TaskCard.vue'
@@ -30,23 +30,23 @@ const features = [
   {
     icon: 'pi pi-book',
     title: 'Structured Courses',
-    description: 'Learn French with step-by-step courses designed for all levels'
+    description: 'Learn French with step-by-step courses designed for all levels',
   },
   {
     icon: 'pi pi-headphones',
     title: 'Authentic Dialogues',
-    description: 'Practice listening with native speaker dialogues and real-life scenarios'
+    description: 'Practice listening with native speaker dialogues and real-life scenarios',
   },
   {
     icon: 'pi pi-bookmark',
     title: 'Vocabulary Tracking',
-    description: 'Save and review words with spaced repetition for effective learning'
+    description: 'Save and review words with spaced repetition for effective learning',
   },
   {
     icon: 'pi pi-pencil',
     title: 'Interactive Exercises',
-    description: 'Reinforce your learning with multiple choice, fill-in-blank, and more'
-  }
+    description: 'Reinforce your learning with multiple choice, fill-in-blank, and more',
+  },
 ]
 
 // Load dashboard data when component mounts (for authenticated users)
@@ -77,13 +77,24 @@ const handleContentClick = (contentId: number) => {
       <!-- Page Header -->
       <div class="page-header">
         <h1>{{ timeBasedGreeting }}, {{ greetingName }}!</h1>
-        <p>Ready for your daily practice? You're on a {{ dashboardStore.userStats.streak }}-day streak 🔥</p>
+        <p>
+          Ready for your daily practice? You're on a {{ dashboardStore.userStats.streak }}-day
+          streak 🔥
+        </p>
       </div>
 
       <!-- Stats Bar -->
       <div class="stats-grid">
-        <StatCard icon="🔥" label="Study Streak" :value="`${dashboardStore.userStats.streak} days`"/>
-        <StatCard icon="📚" label="Words Learned" :value="dashboardStore.userStats.wordsLearned.toString()"/>
+        <StatCard
+            icon="🔥"
+            label="Study Streak"
+            :value="`${dashboardStore.userStats.streak} days`"
+        />
+        <StatCard
+            icon="📚"
+            label="Words Learned"
+            :value="dashboardStore.userStats.wordsLearned.toString()"
+        />
         <StatCard icon="⏱️" label="This Week" :value="dashboardStore.userStats.timeThisWeek"/>
       </div>
 
@@ -92,7 +103,8 @@ const handleContentClick = (contentId: number) => {
         <div class="section-header">
           <h2>Today's Tasks</h2>
           <span class="badge badge-info">
-            {{ dashboardStore.completedTasksCount }} of {{ dashboardStore.totalTasksCount }} completed
+            {{ dashboardStore.completedTasksCount }} of
+            {{ dashboardStore.totalTasksCount }} completed
           </span>
         </div>
         <div class="task-list">
@@ -298,7 +310,8 @@ const handleContentClick = (contentId: number) => {
 
 .feature-card {
   text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s,
+  box-shadow 0.2s;
 }
 
 .feature-card:hover {

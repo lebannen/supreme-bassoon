@@ -11,10 +11,11 @@
             :key="`left-${index}`"
             class="match-item left-item"
             :class="{
-              'selected': selectedLeft === index,
-              'matched': userMatches[pair.left] !== undefined,
-              'correct': showResult && isMatchCorrect(pair.left),
-              'incorrect': showResult && !isMatchCorrect(pair.left) && userMatches[pair.left] !== undefined
+              selected: selectedLeft === index,
+              matched: userMatches[pair.left] !== undefined,
+              correct: showResult && isMatchCorrect(pair.left),
+              incorrect:
+                showResult && !isMatchCorrect(pair.left) && userMatches[pair.left] !== undefined,
             }"
             @click="!showResult && selectLeft(index)"
           >
@@ -33,10 +34,10 @@
             :key="`right-${index}`"
             class="match-item right-item"
             :class="{
-              'matched': isRightMatched(option),
-              'available': !isRightMatched(option) && selectedLeft !== null,
-              'correct': showResult && isRightCorrect(option),
-              'incorrect': showResult && isRightIncorrect(option)
+              matched: isRightMatched(option),
+              available: !isRightMatched(option) && selectedLeft !== null,
+              correct: showResult && isRightCorrect(option),
+              incorrect: showResult && isRightIncorrect(option),
             }"
             @click="!showResult && selectRight(option)"
           >
@@ -54,9 +55,7 @@
 
     <div v-if="showHint && !showResult" class="hint-section">
       <Message severity="info">
-        <div class="hint-content">
-          <strong>Hint:</strong> {{ hint }}
-        </div>
+        <div class="hint-content"><strong>Hint:</strong> {{ hint }}</div>
       </Message>
     </div>
 
@@ -98,19 +97,14 @@
           icon="pi pi-arrow-right"
           @click="handleNext"
         />
-        <Button
-          v-else
-          label="Try Again"
-          icon="pi pi-refresh"
-          @click="resetExercise"
-        />
+        <Button v-else label="Try Again" icon="pi pi-refresh" @click="resetExercise"/>
       </template>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import {computed, onMounted, ref} from 'vue'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
 
@@ -150,15 +144,15 @@ function initializeExercise() {
   leftItems.value = [...props.content.pairs]
 
   // Shuffle right items using Fisher-Yates algorithm
-  const rights = props.content.pairs.map(p => p.right)
+  const rights = props.content.pairs.map((p) => p.right)
   for (let i = rights.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [rights[i], rights[j]] = [rights[j], rights[i]]
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[rights[i], rights[j]] = [rights[j], rights[i]]
   }
   rightOptions.value = rights
 
   // Store correct matches for validation
-  props.content.pairs.forEach(pair => {
+  props.content.pairs.forEach((pair) => {
     correctMatches.value[pair.left] = pair.right
   })
 }
@@ -172,7 +166,7 @@ function selectRight(rightValue: string) {
 
   // Remove existing match for this right value (if any)
   const existingLeft = Object.keys(userMatches.value).find(
-    key => userMatches.value[key] === rightValue
+      (key) => userMatches.value[key] === rightValue
   )
   if (existingLeft) {
     delete userMatches.value[existingLeft]
@@ -197,7 +191,7 @@ function isMatchCorrect(leftValue: string): boolean {
 function isRightCorrect(rightValue: string): boolean {
   // Find if this right value is correctly matched
   const leftValue = Object.keys(userMatches.value).find(
-    key => userMatches.value[key] === rightValue
+      (key) => userMatches.value[key] === rightValue
   )
   if (!leftValue) return false
   return correctMatches.value[leftValue] === rightValue
@@ -206,7 +200,7 @@ function isRightCorrect(rightValue: string): boolean {
 function isRightIncorrect(rightValue: string): boolean {
   // Find if this right value is incorrectly matched
   const leftValue = Object.keys(userMatches.value).find(
-    key => userMatches.value[key] === rightValue
+      (key) => userMatches.value[key] === rightValue
   )
   if (!leftValue) return false
   return correctMatches.value[leftValue] !== rightValue
@@ -277,7 +271,7 @@ function setResult(result: { isCorrect: boolean; feedback: string; userResponse?
 }
 
 defineExpose({
-  setResult
+  setResult,
 })
 </script>
 
@@ -365,7 +359,8 @@ defineExpose({
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     border-color: var(--green-400);
   }
   50% {

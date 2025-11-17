@@ -60,24 +60,19 @@
     </div>
 
     <div v-else class="texts-grid">
-      <TextCard
-        v-for="text in texts"
-        :key="text.id"
-        :text="text"
-        @select="handleSelectText"
-      />
+      <TextCard v-for="text in texts" :key="text.id" :text="text" @select="handleSelectText"/>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import {onMounted, ref} from 'vue'
+import {useRouter} from 'vue-router'
 import Dropdown from 'primevue/dropdown'
 import ProgressSpinner from 'primevue/progressspinner'
 import Message from 'primevue/message'
 import TextCard from './TextCard.vue'
-import { useReadingTexts, type TextFilters } from '@/composables/useReadingTexts'
+import {type TextFilters, useReadingTexts} from '@/composables/useReadingTexts'
 
 const router = useRouter()
 const { texts, loading, error, fetchTexts } = useReadingTexts()
@@ -85,7 +80,7 @@ const { texts, loading, error, fetchTexts } = useReadingTexts()
 const filters = ref<TextFilters>({
   languageCode: undefined,
   level: undefined,
-  topic: undefined
+  topic: undefined,
 })
 
 const languages = [
@@ -100,7 +95,7 @@ const languages = [
   { code: 'ko', name: 'Korean' },
   { code: 'ar', name: 'Arabic' },
   { code: 'hi', name: 'Hindi' },
-  { code: 'pl', name: 'Polish' }
+  {code: 'pl', name: 'Polish'},
 ]
 
 const levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
@@ -115,7 +110,7 @@ const topics = [
   { value: 'work', label: 'Work' },
   { value: 'hobbies', label: 'Hobbies' },
   { value: 'health', label: 'Health' },
-  { value: 'education', label: 'Education' }
+  {value: 'education', label: 'Education'},
 ]
 
 async function applyFilters() {

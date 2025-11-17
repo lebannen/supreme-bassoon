@@ -43,9 +43,7 @@
 
     <div v-if="showHint && !showResult" class="hint-section">
       <Message severity="info">
-        <div class="hint-content">
-          <strong>Hint:</strong> {{ hint }}
-        </div>
+        <div class="hint-content"><strong>Hint:</strong> {{ hint }}</div>
       </Message>
     </div>
 
@@ -79,19 +77,14 @@
           icon="pi pi-arrow-right"
           @click="handleNext"
         />
-        <Button
-          v-else
-          label="Try Again"
-          icon="pi pi-refresh"
-          @click="reset"
-        />
+        <Button v-else label="Try Again" icon="pi pi-refresh" @click="reset"/>
       </template>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import {computed, ref} from 'vue'
 import Button from 'primevue/button'
 import Select from 'primevue/select'
 import Message from 'primevue/message'
@@ -199,7 +192,7 @@ const resultClass = computed(() => {
 
 const allAnswersFilled = computed(() => {
   if (isMultiBlank.value) {
-    return selectedAnswers.value.every(answer => answer !== null && answer !== '')
+    return selectedAnswers.value.every((answer) => answer !== null && answer !== '')
   }
   return selectedAnswer.value !== null && selectedAnswer.value !== ''
 })
@@ -214,7 +207,7 @@ function submitAnswer() {
     if (!allAnswersFilled.value) return
 
     userAnswers.value = [...selectedAnswers.value]
-    emit('submit', { answers: selectedAnswers.value.map(a => a || '') })
+    emit('submit', {answers: selectedAnswers.value.map((a) => a || '')})
   } else {
     // Single blank submission (backward compatibility)
     if (!selectedAnswer.value) return
@@ -250,10 +243,15 @@ function handleNext() {
   emit('next')
 }
 
-function setResult(result: { isCorrect: boolean; feedback: string; userResponse?: any; blankResults?: boolean[] }) {
+function setResult(result: {
+  isCorrect: boolean
+  feedback: string
+  userResponse?: any
+  blankResults?: boolean[]
+}) {
   if (isMultiBlank.value && result.blankResults) {
     // Multi-blank result
-    blankResults.value = result.blankResults.map(r => r ? 'correct' : 'incorrect')
+    blankResults.value = result.blankResults.map((r) => (r ? 'correct' : 'incorrect'))
 
     if (result.userResponse && result.userResponse.answers) {
       userAnswers.value = result.userResponse.answers

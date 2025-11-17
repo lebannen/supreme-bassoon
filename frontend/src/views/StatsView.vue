@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
-import { useRouter } from 'vue-router'
+import {computed, onMounted, ref} from 'vue'
+import {useRouter} from 'vue-router'
 import Card from 'primevue/card'
-import Button from 'primevue/button'
 import Message from 'primevue/message'
 import Tag from 'primevue/tag'
-import DataTable from 'primevue/datatable'
-import Column from 'primevue/column'
 import ProgressBar from 'primevue/progressbar'
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
@@ -57,8 +54,8 @@ const error = ref<string | null>(null)
 function getAuthHeaders() {
   const token = localStorage.getItem('auth_token')
   return {
-    'Authorization': `Bearer ${token}`,
-    'Content-Type': 'application/json'
+    Authorization: `Bearer ${token}`,
+    'Content-Type': 'application/json',
   }
 }
 
@@ -97,32 +94,6 @@ const languageProgressList = computed(() => {
   return Object.values(stats.value.progressByLanguage)
 })
 
-const moduleProgressFlat = computed(() => {
-  const modules: Array<{
-    languageCode: string
-    moduleNumber: number
-    totalExercises: number
-    masteredExercises: number
-    completionPercentage: number
-  }> = []
-
-  languageProgressList.value.forEach(lang => {
-    Object.values(lang.moduleProgress).forEach(module => {
-      modules.push({
-        languageCode: lang.languageCode,
-        ...module
-      })
-    })
-  })
-
-  return modules.sort((a, b) => {
-    if (a.languageCode !== b.languageCode) {
-      return a.languageCode.localeCompare(b.languageCode)
-    }
-    return a.moduleNumber - b.moduleNumber
-  })
-})
-
 const completionPercentage = computed(() => {
   if (!stats.value || stats.value.totalExercisesAvailable === 0) return 0
   return (stats.value.totalExercisesMastered / stats.value.totalExercisesAvailable) * 100
@@ -134,7 +105,7 @@ async function loadStats() {
     error.value = null
 
     const response = await fetch(`${API_BASE}/api/exercises/stats`, {
-      headers: getAuthHeaders()
+      headers: getAuthHeaders(),
     })
 
     if (!response.ok) {
@@ -199,9 +170,13 @@ onMounted(() => {
                   <i class="pi pi-trophy"></i>
                 </div>
                 <div class="flex flex-col gap-xs">
-                  <span class="text-3xl font-bold text-primary">{{ stats.totalExercisesMastered }}</span>
+                  <span class="text-3xl font-bold text-primary">{{
+                      stats.totalExercisesMastered
+                    }}</span>
                   <span class="text-sm font-semibold text-primary stat-label">Mastered</span>
-                  <span class="text-xs text-secondary">out of {{ stats.totalExercisesAvailable }} exercises</span>
+                  <span class="text-xs text-secondary"
+                  >out of {{ stats.totalExercisesAvailable }} exercises</span
+                  >
                 </div>
               </div>
 
@@ -214,7 +189,9 @@ onMounted(() => {
                     {{ stats.overallAverageScore ? Math.round(stats.overallAverageScore) : 0 }}%
                   </span>
                   <span class="text-sm font-semibold text-primary stat-label">Average Score</span>
-                  <span class="text-xs text-secondary">across {{ stats.totalAttempts }} attempts</span>
+                  <span class="text-xs text-secondary"
+                  >across {{ stats.totalAttempts }} attempts</span
+                  >
                 </div>
               </div>
 
@@ -223,7 +200,9 @@ onMounted(() => {
                   <i class="pi pi-clock"></i>
                 </div>
                 <div class="flex flex-col gap-xs">
-                  <span class="text-3xl font-bold text-primary">{{ formatTime(stats.totalTimeSpentSeconds) }}</span>
+                  <span class="text-3xl font-bold text-primary">{{
+                      formatTime(stats.totalTimeSpentSeconds)
+                    }}</span>
                   <span class="text-sm font-semibold text-primary stat-label">Time Spent</span>
                   <span class="text-xs text-secondary">studying exercises</span>
                 </div>
@@ -234,7 +213,9 @@ onMounted(() => {
                   <i class="pi pi-check-circle"></i>
                 </div>
                 <div class="flex flex-col gap-xs">
-                  <span class="text-3xl font-bold text-primary">{{ stats.totalExercisesCompleted }}</span>
+                  <span class="text-3xl font-bold text-primary">{{
+                      stats.totalExercisesCompleted
+                    }}</span>
                   <span class="text-sm font-semibold text-primary stat-label">Completed</span>
                   <span class="text-xs text-secondary">unique exercises</span>
                 </div>
@@ -244,7 +225,9 @@ onMounted(() => {
             <div class="progress-section">
               <div class="flex justify-between items-center mb-sm font-semibold text-primary">
                 <span>Overall Progress</span>
-                <span class="text-xl progress-percentage">{{ Math.round(completionPercentage) }}%</span>
+                <span class="text-xl progress-percentage"
+                >{{ Math.round(completionPercentage) }}%</span
+                >
               </div>
               <ProgressBar :value="completionPercentage" class="overall-progress-bar" />
             </div>
@@ -264,7 +247,9 @@ onMounted(() => {
               <div class="streak-stat current">
                 <i class="pi pi-calendar text-3xl streak-icon-warning"></i>
                 <div class="flex flex-col gap-xs">
-                  <span class="text-4xl font-bold text-primary streak-number">{{ stats.currentStreak }}</span>
+                  <span class="text-4xl font-bold text-primary streak-number">{{
+                      stats.currentStreak
+                    }}</span>
                   <span class="text-base font-semibold text-primary">Current Streak</span>
                   <span class="text-sm text-secondary">days in a row</span>
                 </div>
@@ -272,7 +257,9 @@ onMounted(() => {
               <div class="streak-stat longest">
                 <i class="pi pi-crown text-3xl streak-icon-purple"></i>
                 <div class="flex flex-col gap-xs">
-                  <span class="text-4xl font-bold text-primary streak-number">{{ stats.longestStreak }}</span>
+                  <span class="text-4xl font-bold text-primary streak-number">{{
+                      stats.longestStreak
+                    }}</span>
                   <span class="text-base font-semibold text-primary">Longest Streak</span>
                   <span class="text-sm text-secondary">personal record</span>
                 </div>
@@ -307,8 +294,13 @@ onMounted(() => {
                 </div>
                 <div class="font-semibold text-primary mb-xs">{{ activity.exerciseTitle }}</div>
                 <div class="flex justify-between items-center">
-                  <div class="flex items-center gap-xs font-semibold" :class="{ correct: activity.isCorrect }">
-                    <i :class="activity.isCorrect ? 'pi pi-check-circle' : 'pi pi-times-circle'"></i>
+                  <div
+                      class="flex items-center gap-xs font-semibold"
+                      :class="{ correct: activity.isCorrect }"
+                  >
+                    <i
+                        :class="activity.isCorrect ? 'pi pi-check-circle' : 'pi pi-times-circle'"
+                    ></i>
                     <span>{{ Math.round(activity.score) }}%</span>
                   </div>
                   <i class="pi pi-arrow-right text-secondary"></i>
@@ -358,11 +350,15 @@ onMounted(() => {
                 >
                   <div class="flex justify-between items-center mb-sm">
                     <span class="font-semibold text-primary">Module {{ module.moduleNumber }}</span>
-                    <span class="font-bold module-percentage">{{ Math.round(module.completionPercentage) }}%</span>
+                    <span class="font-bold module-percentage"
+                    >{{ Math.round(module.completionPercentage) }}%</span
+                    >
                   </div>
                   <ProgressBar :value="module.completionPercentage" class="module-progress" />
                   <div class="text-sm text-secondary">
-                    <span>{{ module.masteredExercises }} / {{ module.totalExercises }} mastered</span>
+                    <span
+                    >{{ module.masteredExercises }} / {{ module.totalExercises }} mastered</span
+                    >
                   </div>
                 </div>
               </div>

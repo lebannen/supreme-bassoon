@@ -11,7 +11,7 @@
         v-for="type in exerciseTypes"
         :key="type.value"
         class="type-card"
-        :class="{ 'selected': selectedType === type.value }"
+        :class="{ selected: selectedType === type.value }"
         @click="selectType(type.value)"
       >
         <template #content>
@@ -39,9 +39,7 @@
     <!-- Exercises List -->
     <div v-if="selectedType !== null" class="section">
       <div class="section-header">
-        <h2>
-          {{ exerciseTypes.find(t => t.value === selectedType)?.label || 'All' }} Exercises
-        </h2>
+        <h2>{{ exerciseTypes.find((t) => t.value === selectedType)?.label || 'All' }} Exercises</h2>
       </div>
 
       <div v-if="loading" class="loading-state">
@@ -82,9 +80,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue'
-import { useRouter } from 'vue-router'
-import { useExerciseApi } from '@/composables/useExerciseApi'
+import {onMounted, ref, watch} from 'vue'
+import {useRouter} from 'vue-router'
+import {useExerciseApi} from '@/composables/useExerciseApi'
 import Card from 'primevue/card'
 import Select from 'primevue/select'
 import Tag from 'primevue/tag'
@@ -100,40 +98,40 @@ const selectedType = ref<string | null>(null)
 
 const modules = [
   { label: 'All Modules', value: null },
-  ...Array.from({ length: 10 }, (_, i) => ({ label: `Module ${i + 1}`, value: i + 1 }))
+  ...Array.from({length: 10}, (_, i) => ({label: `Module ${i + 1}`, value: i + 1})),
 ]
 
 const exerciseTypes = [
   {
     label: 'Multiple Choice',
     value: 'multiple_choice',
-    icon: 'pi pi-list'
+    icon: 'pi pi-list',
   },
   {
     label: 'Fill in the Blank',
     value: 'fill_in_blank',
-    icon: 'pi pi-pencil'
+    icon: 'pi pi-pencil',
   },
   {
     label: 'Sentence Scramble',
     value: 'sentence_scramble',
-    icon: 'pi pi-sort-alt'
+    icon: 'pi pi-sort-alt',
   },
   {
     label: 'Matching',
     value: 'matching',
-    icon: 'pi pi-link'
+    icon: 'pi pi-link',
   },
   {
     label: 'Listening',
     value: 'listening',
-    icon: 'pi pi-volume-up'
+    icon: 'pi pi-volume-up',
   },
   {
     label: 'Cloze Reading',
     value: 'cloze_reading',
-    icon: 'pi pi-file-edit'
-  }
+    icon: 'pi pi-file-edit',
+  },
 ]
 
 async function fetchAllExercises() {
@@ -148,7 +146,7 @@ async function fetchExercises() {
 
   exercises.value = await getExercises('fr', {
     module: selectedModule.value,
-    type: selectedType.value
+    type: selectedType.value,
   })
 }
 
@@ -162,11 +160,11 @@ function getExerciseCount(typeValue: string | null): number {
   if (typeValue === null) {
     return allExercises.value.length
   }
-  return allExercises.value.filter(ex => ex.type === typeValue).length
+  return allExercises.value.filter((ex) => ex.type === typeValue).length
 }
 
 function formatExerciseType(type: string): string {
-  const typeObj = exerciseTypes.find(t => t.value === type)
+  const typeObj = exerciseTypes.find((t) => t.value === type)
   return typeObj?.label || type
 }
 
@@ -204,7 +202,11 @@ onMounted(async () => {
 
 .type-card.selected {
   border-color: var(--primary);
-  background: linear-gradient(135deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
+  background: linear-gradient(
+      135deg,
+      var(--primary-gradient-start) 0%,
+      var(--primary-gradient-end) 100%
+  );
   box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
 }
 
@@ -266,7 +268,8 @@ onMounted(async () => {
 
 .exercise-card {
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s,
+  box-shadow 0.2s;
 }
 
 .exercise-card:hover {

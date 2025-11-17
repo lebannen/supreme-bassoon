@@ -3,10 +3,14 @@
     <!-- Progress Header -->
     <div class="flashcard-header">
       <div class="progress-info">
-        <span class="card-position">Card {{ displayedProgress.position }} of {{ displayedProgress.total }}</span>
+        <span class="card-position"
+        >Card {{ displayedProgress.position }} of {{ displayedProgress.total }}</span
+        >
         <div class="streak-info">
           <i class="pi pi-bolt"></i>
-          <span>{{ displayedProgress.currentStreak }}/{{ displayedProgress.needsStreak }} streak</span>
+          <span
+          >{{ displayedProgress.currentStreak }}/{{ displayedProgress.needsStreak }} streak</span
+          >
         </div>
       </div>
       <div class="srs-info">
@@ -23,7 +27,11 @@
           <div class="card-content">
             <div class="word-display">
               <h1 class="word-lemma">{{ displayedWord.lemma }}</h1>
-              <Tag v-if="displayedWord.partOfSpeech" :value="displayedWord.partOfSpeech" severity="info" />
+              <Tag
+                  v-if="displayedWord.partOfSpeech"
+                  :value="displayedWord.partOfSpeech"
+                  severity="info"
+              />
             </div>
             <div class="flip-hint">
               <i class="pi pi-refresh"></i>
@@ -37,7 +45,11 @@
           <div class="card-content">
             <div class="word-header">
               <h2 class="word-lemma">{{ displayedWord.lemma }}</h2>
-              <Tag v-if="displayedWord.partOfSpeech" :value="displayedWord.partOfSpeech" severity="info" />
+              <Tag
+                  v-if="displayedWord.partOfSpeech"
+                  :value="displayedWord.partOfSpeech"
+                  severity="info"
+              />
             </div>
 
             <div class="definitions-section">
@@ -77,10 +89,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import {computed, ref} from 'vue'
 import Tag from 'primevue/tag'
 import Button from 'primevue/button'
-import type { WordDetailDto, CardProgressDto, SrsInfoDto } from '@/types/study'
+import type {CardProgressDto, SrsInfoDto, WordDetailDto} from '@/types/study'
 
 interface Props {
   word: WordDetailDto
@@ -95,11 +107,10 @@ interface Emits {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  loading: false
+  loading: false,
 })
 
 const emit = defineEmits<Emits>()
-
 
 const isFlipped = ref(false)
 const displayedWord = ref(props.word)
@@ -109,7 +120,7 @@ const displayedSrsInfo = ref(props.srsInfo)
 // Remove duplicate definitions based on definitionNumber
 const uniqueDefinitions = computed(() => {
   const seen = new Set<number>()
-  return displayedWord.value.definitions.filter(def => {
+  return displayedWord.value.definitions.filter((def) => {
     if (seen.has(def.definitionNumber)) {
       return false
     }
@@ -150,7 +161,7 @@ defineExpose({
     }, 295)
     // Start flip animation immediately
     isFlipped.value = false
-  }
+  },
 })
 </script>
 
@@ -228,7 +239,8 @@ defineExpose({
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -1px rgba(0, 0, 0, 0.06);
   overflow: hidden;
 }
 

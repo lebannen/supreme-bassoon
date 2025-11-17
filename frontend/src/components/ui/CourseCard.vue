@@ -42,7 +42,7 @@ export interface CourseCardProps {
 }
 
 const props = withDefaults(defineProps<CourseCardProps>(), {
-  icon: '📚'
+  icon: '📚',
 })
 
 const emit = defineEmits<{
@@ -61,7 +61,7 @@ const languageEmoji = computed(() => {
     zh: '🇨🇳',
     ko: '🇰🇷',
     ru: '🇷🇺',
-    ar: '🇸🇦'
+    ar: '🇸🇦',
   }
   return emojiMap[props.languageCode.toLowerCase()] || '🌐'
 })

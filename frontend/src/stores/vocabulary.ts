@@ -1,7 +1,7 @@
-import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
-import { apiService } from '@/services/api'
-import type { VocabularyWord, AddWordToVocabularyRequest } from '@/types/vocabulary'
+import {defineStore} from 'pinia'
+import {computed, ref} from 'vue'
+import {vocabularyAPI} from '@/api'
+import type {AddWordToVocabularyRequest, VocabularyWord} from '@/types/vocabulary'
 
 export const useVocabularyStore = defineStore('vocabulary', () => {
   const words = ref<VocabularyWord[]>([])
@@ -11,7 +11,7 @@ export const useVocabularyStore = defineStore('vocabulary', () => {
   const wordCount = computed(() => words.value.length)
 
   const isWordInVocabulary = computed(() => (wordId: number) => {
-    return words.value.some(w => w.word.id === wordId)
+      return words.value.some((w) => w.word.id === wordId)
   })
 
   async function fetchVocabulary() {
@@ -19,7 +19,7 @@ export const useVocabularyStore = defineStore('vocabulary', () => {
     error.value = null
 
     try {
-      const vocabularyWords = await apiService.getUserVocabulary()
+        const vocabularyWords = await vocabularyAPI.getUserVocabulary()
       words.value = vocabularyWords
       return true
     } catch (err) {
@@ -35,10 +35,10 @@ export const useVocabularyStore = defineStore('vocabulary', () => {
     error.value = null
 
     try {
-      const vocabularyWord = await apiService.addWordToVocabulary(request)
+        const vocabularyWord = await vocabularyAPI.addWord(request)
 
       // Check if word already exists (update scenario)
-      const existingIndex = words.value.findIndex(w => w.word.id === request.wordId)
+        const existingIndex = words.value.findIndex((w) => w.word.id === request.wordId)
       if (existingIndex !== -1) {
         // Update existing word
         words.value[existingIndex] = vocabularyWord
@@ -61,10 +61,10 @@ export const useVocabularyStore = defineStore('vocabulary', () => {
     error.value = null
 
     try {
-      await apiService.removeWordFromVocabulary(wordId)
+        await vocabularyAPI.removeWord(wordId)
 
       // Remove from local state
-      words.value = words.value.filter(w => w.word.id !== wordId)
+        words.value = words.value.filter((w) => w.word.id !== wordId)
 
       return true
     } catch (err) {
@@ -77,7 +77,7 @@ export const useVocabularyStore = defineStore('vocabulary', () => {
 
   async function checkIfWordInVocabulary(wordId: number) {
     try {
-      const result = await apiService.checkIfWordInVocabulary(wordId)
+        const result = await vocabularyAPI.checkIfWordInVocabulary(wordId)
       return result.inVocabulary
     } catch (err) {
       error.value = err instanceof Error ? err.message : 'Failed to check word status'

@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue'
-import { useRouter } from 'vue-router'
-import { useStudyStore } from '@/stores/study'
+import {onMounted, ref, watch} from 'vue'
+import {useRouter} from 'vue-router'
+import {useStudyStore} from '@/stores/study'
 import FlashCard from '@/components/FlashCard.vue'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 import Dialog from 'primevue/dialog'
 import ProgressBar from 'primevue/progressbar'
 import Message from 'primevue/message'
-import { useConfirm } from 'primevue/useconfirm'
+import {useConfirm} from 'primevue/useconfirm'
 
 const router = useRouter()
 const studyStore = useStudyStore()
@@ -35,18 +35,24 @@ onMounted(async () => {
 })
 
 // Watch for session completion
-watch(() => studyStore.sessionSummary, (summary) => {
-  if (summary) {
-    showSummaryDialog.value = true
-  }
-})
+watch(
+    () => studyStore.sessionSummary,
+    (summary) => {
+      if (summary) {
+        showSummaryDialog.value = true
+      }
+    }
+)
 
 // Watch for new cards and reset flip state
-watch(() => studyStore.currentCard, () => {
-  if (flashCardRef.value) {
-    flashCardRef.value.resetFlip()
-  }
-})
+watch(
+    () => studyStore.currentCard,
+    () => {
+      if (flashCardRef.value) {
+        flashCardRef.value.resetFlip()
+      }
+    }
+)
 
 function handleFlip() {
   // Card was flipped - no action needed, just for tracking
@@ -58,14 +64,15 @@ async function handleAnswer(correct: boolean) {
 
 function handleExitSession() {
   confirm.require({
-    message: 'Are you sure you want to exit this study session? You can resume it later from where you left off.',
+    message:
+        'Are you sure you want to exit this study session? You can resume it later from where you left off.',
     header: 'Exit Session',
     icon: 'pi pi-sign-out',
     rejectLabel: 'Cancel',
     acceptLabel: 'Exit',
     accept: () => {
       router.push('/study')
-    }
+    },
   })
 }
 
@@ -90,11 +97,6 @@ function formatDuration(duration: string): string {
 
   return parts.join(' ')
 }
-
-function formatInterval(interval: string): string {
-  // Interval is like "20 hours", "3 days", etc.
-  return interval
-}
 </script>
 
 <template>
@@ -106,13 +108,19 @@ function formatInterval(interval: string): string {
           <h2 class="text-2xl font-bold text-primary session-title">Study Session</h2>
           <div class="flex items-center gap-lg">
             <span class="font-semibold text-secondary">
-              {{ studyStore.activeSession?.wordsCompleted }} / {{ studyStore.activeSession?.totalWords }} words
+              {{ studyStore.activeSession?.wordsCompleted }} /
+              {{ studyStore.activeSession?.totalWords }} words
             </span>
-            <span class="accuracy-badge" :class="{
-              'high-accuracy': (studyStore.activeSession?.stats.accuracy || 0) >= 80,
-              'medium-accuracy': (studyStore.activeSession?.stats.accuracy || 0) >= 60 && (studyStore.activeSession?.stats.accuracy || 0) < 80,
-              'low-accuracy': (studyStore.activeSession?.stats.accuracy || 0) < 60
-            }">
+            <span
+                class="accuracy-badge"
+                :class="{
+                'high-accuracy': (studyStore.activeSession?.stats.accuracy || 0) >= 80,
+                'medium-accuracy':
+                  (studyStore.activeSession?.stats.accuracy || 0) >= 60 &&
+                  (studyStore.activeSession?.stats.accuracy || 0) < 80,
+                'low-accuracy': (studyStore.activeSession?.stats.accuracy || 0) < 60,
+              }"
+            >
               {{ Math.round(studyStore.activeSession?.stats.accuracy || 0) }}% accuracy
             </span>
           </div>
@@ -194,7 +202,9 @@ function formatInterval(interval: string): string {
               <i class="pi pi-book"></i>
             </div>
             <div class="text-center flex flex-col gap-xs">
-              <span class="text-2xl font-bold text-primary">{{ studyStore.sessionSummary.stats.totalWords }}</span>
+              <span class="text-2xl font-bold text-primary">{{
+                  studyStore.sessionSummary.stats.totalWords
+                }}</span>
               <span class="text-sm text-secondary">Words Studied</span>
             </div>
           </div>
@@ -204,9 +214,9 @@ function formatInterval(interval: string): string {
               <i class="pi pi-chart-line"></i>
             </div>
             <div class="text-center flex flex-col gap-xs">
-              <span class="text-2xl font-bold text-primary">{{
-                  Math.round(studyStore.sessionSummary.stats.accuracy)
-                }}%</span>
+              <span class="text-2xl font-bold text-primary"
+              >{{ Math.round(studyStore.sessionSummary.stats.accuracy) }}%</span
+              >
               <span class="text-sm text-secondary">Accuracy</span>
             </div>
           </div>
@@ -252,7 +262,10 @@ function formatInterval(interval: string): string {
               {{ studyStore.sessionSummary.srsUpdates.wordsAdvanced }}
             </span>
           </div>
-          <div v-if="studyStore.sessionSummary.srsUpdates.wordsReset > 0" class="flex justify-between items-center">
+          <div
+              v-if="studyStore.sessionSummary.srsUpdates.wordsReset > 0"
+              class="flex justify-between items-center"
+          >
             <span class="flex items-center gap-sm text-secondary">
               <i class="pi pi-refresh text-sm"></i>
               Words Reset

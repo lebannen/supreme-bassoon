@@ -1,5 +1,5 @@
-import { ref } from 'vue'
-import type { Exercise, ExerciseSummary, SubmitAttemptRequest, AttemptResult, UserProgress } from '@/types/exercise'
+import {ref} from 'vue'
+import type {AttemptResult, Exercise, ExerciseSummary, SubmitAttemptRequest, UserProgress,} from '@/types/exercise'
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
 
@@ -10,7 +10,7 @@ export function useExerciseApi() {
   function getAuthHeaders(): HeadersInit {
     const token = localStorage.getItem('auth_token')
     const headers: HeadersInit = {
-      'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
     }
     if (token) {
       headers['Authorization'] = `Bearer ${token}`
@@ -73,7 +73,7 @@ export function useExerciseApi() {
       const response = await fetch(`${API_BASE}/api/exercises/${exerciseId}/attempt`, {
         method: 'POST',
         headers: getAuthHeaders(),
-        body: JSON.stringify(request)
+          body: JSON.stringify(request),
       })
 
       if (!response.ok) {
@@ -92,7 +92,7 @@ export function useExerciseApi() {
   async function getProgress(exerciseId: number): Promise<UserProgress | null> {
     try {
       const response = await fetch(`${API_BASE}/api/exercises/${exerciseId}/progress`, {
-        headers: getAuthHeaders()
+          headers: getAuthHeaders(),
       })
 
       if (!response.ok) throw new Error('Failed to fetch progress')
@@ -109,6 +109,6 @@ export function useExerciseApi() {
     getExercises,
     getExercise,
     submitAttempt,
-    getProgress
+      getProgress,
   }
 }

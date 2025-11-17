@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import {useRouter, useRoute} from 'vue-router'
+  import {useRoute, useRouter} from 'vue-router'
   import {useAuthStore} from '@/stores/auth'
   import ThemeToggle from './ThemeToggle.vue'
 
@@ -41,11 +41,7 @@
         <div class="nav-section-title">Main</div>
         <ul class="nav-items">
           <li class="nav-item">
-            <a
-                href="#"
-                :class="{ active: isActive('/') }"
-                @click.prevent="navigateTo('/')"
-            >
+            <a href="#" :class="{ active: isActive('/') }" @click.prevent="navigateTo('/')">
               <span class="nav-icon">🏠</span>
               <span>Home</span>
             </a>
@@ -177,9 +173,7 @@
     <!-- Login/Register buttons for non-authenticated users -->
     <div class="auth-section" v-else>
       <button class="btn btn-secondary btn-full" @click="navigateTo('/login')">Login</button>
-      <button class="btn btn-primary btn-full" @click="navigateTo('/register')">
-        Register
-      </button>
+      <button class="btn btn-primary btn-full" @click="navigateTo('/register')">Register</button>
     </div>
   </aside>
 </template>

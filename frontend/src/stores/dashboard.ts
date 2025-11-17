@@ -1,5 +1,5 @@
 import {defineStore} from 'pinia'
-import {ref, computed} from 'vue'
+import {computed, ref} from 'vue'
 
 export interface UserStats {
     streak: number
@@ -32,7 +32,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
     const userStats = ref<UserStats>({
         streak: 7,
         wordsLearned: 142,
-        timeThisWeek: '3h 24m'
+        timeThisWeek: '3h 24m',
     })
 
     const dailyTasks = ref<DailyTask[]>([
@@ -42,7 +42,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
             title: 'Vocabulary Review',
             meta: '12 words • 3 minutes',
             completed: true,
-            type: 'vocabulary'
+            type: 'vocabulary',
         },
         {
             id: 2,
@@ -50,7 +50,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
             title: 'Daily Exercises',
             meta: '3 exercises • 5 minutes',
             completed: true,
-            type: 'exercise'
+            type: 'exercise',
         },
         {
             id: 3,
@@ -58,7 +58,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
             title: 'Quick Listen: At the Café',
             meta: 'Dialogue • 3 minutes',
             completed: false,
-            type: 'listening'
+            type: 'listening',
         },
         {
             id: 4,
@@ -66,8 +66,8 @@ export const useDashboardStore = defineStore('dashboard', () => {
             title: 'Grammar Tip: Present Tense',
             meta: 'Quick reference • 2 minutes',
             completed: false,
-            type: 'grammar'
-        }
+            type: 'grammar',
+        },
     ])
 
     const recommendedContent = ref<RecommendedContent[]>([
@@ -78,7 +78,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
             title: 'Ordering at a Restaurant',
             level: 'A1',
             duration: '4 min',
-            topic: 'Food & Dining'
+            topic: 'Food & Dining',
         },
         {
             id: 2,
@@ -87,7 +87,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
             title: 'Sophie Arrives in Paris',
             level: 'A1',
             duration: '5 min',
-            topic: 'Travel'
+            topic: 'Travel',
         },
         {
             id: 3,
@@ -96,8 +96,8 @@ export const useDashboardStore = defineStore('dashboard', () => {
             title: 'At the Hotel',
             level: 'A1',
             duration: '3 min',
-            topic: 'Travel'
-        }
+            topic: 'Travel',
+        },
     ])
 
     const loading = ref(false)
@@ -122,7 +122,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
             // userStats.value = data
 
             // Mock delay to simulate API call
-            await new Promise(resolve => setTimeout(resolve, 500))
+            await new Promise((resolve) => setTimeout(resolve, 500))
 
             // Currently using mock data defined above
             console.log('TODO: Fetch user stats from backend')
@@ -151,7 +151,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
             // dailyTasks.value = data
 
             // Mock delay to simulate API call
-            await new Promise(resolve => setTimeout(resolve, 500))
+            await new Promise((resolve) => setTimeout(resolve, 500))
 
             // Currently using mock data defined above
             console.log('TODO: Fetch daily tasks from backend')
@@ -180,7 +180,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
             // recommendedContent.value = data
 
             // Mock delay to simulate API call
-            await new Promise(resolve => setTimeout(resolve, 500))
+            await new Promise((resolve) => setTimeout(resolve, 500))
 
             // Currently using mock data defined above
             console.log('TODO: Fetch recommended content from backend')
@@ -203,7 +203,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
             // await fetch(`/api/user/tasks/${taskId}/complete`, { method: 'POST' })
 
             // Update local state optimistically
-            const task = dailyTasks.value.find(t => t.id === taskId)
+            const task = dailyTasks.value.find((t) => t.id === taskId)
             if (task) {
                 task.completed = true
             }
@@ -220,16 +220,12 @@ export const useDashboardStore = defineStore('dashboard', () => {
      * Call this when the home view is loaded
      */
     async function loadDashboardData() {
-        await Promise.all([
-            fetchUserStats(),
-            fetchDailyTasks(),
-            fetchRecommendedContent()
-        ])
+        await Promise.all([fetchUserStats(), fetchDailyTasks(), fetchRecommendedContent()])
     }
 
     // Computed
     const completedTasksCount = computed(() => {
-        return dailyTasks.value.filter(task => task.completed).length
+        return dailyTasks.value.filter((task) => task.completed).length
     })
 
     const totalTasksCount = computed(() => {
@@ -253,6 +249,6 @@ export const useDashboardStore = defineStore('dashboard', () => {
         fetchDailyTasks,
         fetchRecommendedContent,
         completeTask,
-        loadDashboardData
+        loadDashboardData,
     }
 })

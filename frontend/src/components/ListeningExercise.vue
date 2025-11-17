@@ -2,13 +2,7 @@
   <div class="listening-exercise">
     <div class="audio-section">
       <div class="audio-player-container">
-        <audio
-          ref="audioPlayer"
-          :src="audioUrl"
-          controls
-          preload="auto"
-          class="audio-player"
-        >
+        <audio ref="audioPlayer" :src="audioUrl" controls preload="auto" class="audio-player">
           Your browser does not support the audio element.
         </audio>
       </div>
@@ -29,10 +23,10 @@
         :key="option.id"
         class="option-card"
         :class="{
-          'selected': selectedOption === option.id,
-          'correct': showResult && option.id === correctAnswer,
-          'incorrect': showResult && selectedOption === option.id && option.id !== correctAnswer,
-          'disabled': showResult
+          selected: selectedOption === option.id,
+          correct: showResult && option.id === correctAnswer,
+          incorrect: showResult && selectedOption === option.id && option.id !== correctAnswer,
+          disabled: showResult,
         }"
         @click="selectOption(option.id)"
       >
@@ -62,9 +56,7 @@
 
     <div v-if="showHint && !showResult" class="hint-section">
       <Message severity="info">
-        <div class="hint-content">
-          <strong>Hint:</strong> {{ hint }}
-        </div>
+        <div class="hint-content"><strong>Hint:</strong> {{ hint }}</div>
       </Message>
     </div>
 
@@ -98,19 +90,14 @@
           icon="pi pi-arrow-right"
           @click="handleNext"
         />
-        <Button
-          v-else
-          label="Try Again"
-          icon="pi pi-refresh"
-          @click="resetExercise"
-        />
+        <Button v-else label="Try Again" icon="pi pi-refresh" @click="resetExercise"/>
       </template>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import {computed, ref} from 'vue'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
 import InputText from 'primevue/inputtext'
@@ -221,7 +208,12 @@ function resetExercise() {
   }
 }
 
-function setResult(result: { isCorrect: boolean; feedback: string; userResponse?: any; correctAnswers?: any }) {
+function setResult(result: {
+  isCorrect: boolean
+  feedback: string
+  userResponse?: any
+  correctAnswers?: any
+}) {
   showResult.value = true
   isCorrect.value = result.isCorrect
   feedback.value = result.feedback
@@ -245,7 +237,7 @@ function setResult(result: { isCorrect: boolean; feedback: string; userResponse?
 }
 
 defineExpose({
-  setResult
+  setResult,
 })
 </script>
 

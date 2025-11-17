@@ -42,7 +42,7 @@ export interface ContentCardProps {
 }
 
 const props = withDefaults(defineProps<ContentCardProps>(), {
-  completed: false
+  completed: false,
 })
 
 const emit = defineEmits<{

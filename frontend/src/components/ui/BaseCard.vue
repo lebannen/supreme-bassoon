@@ -23,17 +23,17 @@ export interface BaseCardProps {
 const props = withDefaults(defineProps<BaseCardProps>(), {
   padding: 'default',
   hoverable: false,
-  hoverableLift: false
+  hoverableLift: false,
 })
 
 const cardClasses = computed(() => {
   return {
-    'card': true,
+    card: true,
     'card-padding': props.padding === 'default',
     'card-padding-lg': props.padding === 'lg',
     'card-padding-xl': props.padding === 'xl',
     'card-hoverable': props.hoverable,
-    'card-hoverable-lift': props.hoverableLift
+    'card-hoverable-lift': props.hoverableLift,
   }
 })
 </script>

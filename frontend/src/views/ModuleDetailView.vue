@@ -1,75 +1,39 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import {onMounted} from 'vue'
+import {useRoute, useRouter} from 'vue-router'
+import {storeToRefs} from 'pinia'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
 import Tag from 'primevue/tag'
+import {useCourseStore} from '@/stores/course'
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
 const route = useRoute()
 const router = useRouter()
+const courseStore = useCourseStore()
 
-interface EpisodeSummary {
-  id: number
-  episodeNumber: number
-  type: string
-  title: string
-  estimatedMinutes: number
-  hasAudio: boolean
-  totalExercises: number
-}
-
-interface Module {
-  id: number
-  courseId: number
-  moduleNumber: number
-  title: string
-  theme: string | null
-  description: string | null
-  objectives: string[]
-  estimatedMinutes: number
-  episodes: EpisodeSummary[]
-}
-
-const module = ref<Module | null>(null)
-const loading = ref(true)
-const error = ref<string | null>(null)
+// Destructure store state with refs
+const {currentModule: module, loading, error} = storeToRefs(courseStore)
 
 const episodeTypeIcon = (type: string) => {
   switch (type) {
-    case 'STORY': return 'pi-book'
-    case 'DIALOGUE': return 'pi-comments'
-    case 'ARTICLE': return 'pi-file'
-    case 'AUDIO_LESSON': return 'pi-volume-up'
-    default: return 'pi-circle'
+    case 'STORY':
+      return 'pi-book'
+    case 'DIALOGUE':
+      return 'pi-comments'
+    case 'ARTICLE':
+      return 'pi-file'
+    case 'AUDIO_LESSON':
+      return 'pi-volume-up'
+    default:
+      return 'pi-circle'
   }
 }
 
-async function loadModule() {
+function loadModule() {
   const moduleId = route.params.id
-  if (!moduleId) {
-    error.value = 'No module ID provided'
-    loading.value = false
-    return
-  }
-
-  try {
-    loading.value = true
-    error.value = null
-
-    const response = await fetch(`${API_BASE}/api/modules/${moduleId}`)
-
-    if (!response.ok) {
-      throw new Error('Failed to load module')
-    }
-
-    module.value = await response.json()
-  } catch (err) {
-    console.error('Error loading module:', err)
-    error.value = err instanceof Error ? err.message : 'Failed to load module'
-  } finally {
-    loading.value = false
+  if (moduleId) {
+    courseStore.loadModule(Number(moduleId))
   }
 }
 
@@ -167,7 +131,12 @@ onMounted(() => {
                   <div class="number-badge-sm">{{ episode.episodeNumber }}</div>
                   <div class="flex gap-sm flex-wrap">
                     <Tag :value="episode.type" :icon="episodeTypeIcon(episode.type)" />
-                    <Tag v-if="episode.hasAudio" value="Audio" severity="success" icon="pi pi-volume-up" />
+                    <Tag
+                        v-if="episode.hasAudio"
+                        value="Audio"
+                        severity="success"
+                        icon="pi pi-volume-up"
+                    />
                   </div>
                 </div>
               </template>
@@ -187,11 +156,7 @@ onMounted(() => {
                 </div>
               </template>
               <template #footer>
-                <Button
-                  label="Start Episode"
-                  icon="pi pi-play"
-                  @click="goToEpisode(episode.id)"
-                />
+                <Button label="Start Episode" icon="pi pi-play" @click="goToEpisode(episode.id)"/>
               </template>
             </Card>
           </div>

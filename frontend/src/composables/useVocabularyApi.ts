@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import {ref} from 'vue'
 
 export interface Language {
   code: string
@@ -69,7 +69,7 @@ export interface Word {
 }
 
 export function useVocabularyApi() {
-  const API_BASE = 'http://localhost:8080/api/v1'
+    const API_BASE = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'}/api/v1`
   const isLoading = ref(false)
   const error = ref<string | null>(null)
 
@@ -79,7 +79,7 @@ export function useVocabularyApi() {
 
     try {
       const response = await fetch(`${API_BASE}/languages`, {
-        credentials: 'include'
+          credentials: 'include',
       })
 
       if (!response.ok) {
@@ -95,10 +95,7 @@ export function useVocabularyApi() {
     }
   }
 
-  async function searchWords(
-    languageCode: string,
-    query: string
-  ): Promise<SearchResult | null> {
+    async function searchWords(languageCode: string, query: string): Promise<SearchResult | null> {
     if (!query.trim()) {
       return { words: [], total: 0 }
     }
@@ -112,7 +109,7 @@ export function useVocabularyApi() {
       url.searchParams.append('q', query)
 
       const response = await fetch(url.toString(), {
-        credentials: 'include'
+          credentials: 'include',
       })
 
       if (!response.ok) {
@@ -128,16 +125,13 @@ export function useVocabularyApi() {
     }
   }
 
-  async function getWord(
-    languageCode: string,
-    lemma: string
-  ): Promise<Word | null> {
+    async function getWord(languageCode: string, lemma: string): Promise<Word | null> {
     isLoading.value = true
     error.value = null
 
     try {
       const response = await fetch(`${API_BASE}/words/${languageCode}/${lemma}`, {
-        credentials: 'include'
+          credentials: 'include',
       })
 
       if (!response.ok) {
@@ -162,6 +156,6 @@ export function useVocabularyApi() {
     error,
     getLanguages,
     searchWords,
-    getWord
+      getWord,
   }
 }

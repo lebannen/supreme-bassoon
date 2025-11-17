@@ -13,9 +13,9 @@ import Button from 'primevue/button'
           <h2 class="text-2xl font-semibold text-primary mb-md">What is Vocabee?</h2>
           <p class="leading-loose text-secondary card-text">
             Vocabee is a modern vocabulary exploration tool that makes it easy to search and
-            discover words across multiple languages. Built on top of Wiktionary data, it
-            provides a fast, intuitive interface for language learners, translators, and
-            anyone interested in linguistics.
+            discover words across multiple languages. Built on top of Wiktionary data, it provides a
+            fast, intuitive interface for language learners, translators, and anyone interested in
+            linguistics.
           </p>
         </template>
       </Card>
@@ -27,36 +27,36 @@ import Button from 'primevue/button'
             <li>
               <i class="pi pi-check-circle"></i>
               <span class="text-secondary leading-relaxed">
-                <strong class="text-primary">Multi-language support:</strong> Search across 12+ languages including
-                French, Spanish, German, Italian, Portuguese, Russian, and more
+                <strong class="text-primary">Multi-language support:</strong> Search across 12+
+                languages including French, Spanish, German, Italian, Portuguese, Russian, and more
               </span>
             </li>
             <li>
               <i class="pi pi-check-circle"></i>
               <span class="text-secondary leading-relaxed">
-                <strong class="text-primary">Comprehensive data:</strong> Access detailed definitions, examples,
-                etymology, pronunciation guides, and inflected forms
+                <strong class="text-primary">Comprehensive data:</strong> Access detailed
+                definitions, examples, etymology, pronunciation guides, and inflected forms
               </span>
             </li>
             <li>
               <i class="pi pi-check-circle"></i>
               <span class="text-secondary leading-relaxed">
-                <strong class="text-primary">Smart ranking:</strong> Advanced two-stage search algorithm prioritizes
-                exact matches and common words
+                <strong class="text-primary">Smart ranking:</strong> Advanced two-stage search
+                algorithm prioritizes exact matches and common words
               </span>
             </li>
             <li>
               <i class="pi pi-check-circle"></i>
               <span class="text-secondary leading-relaxed">
-                <strong class="text-primary">Frequency data:</strong> Word frequency rankings help you focus on the
-                most commonly used vocabulary
+                <strong class="text-primary">Frequency data:</strong> Word frequency rankings help
+                you focus on the most commonly used vocabulary
               </span>
             </li>
             <li>
               <i class="pi pi-check-circle"></i>
               <span class="text-secondary leading-relaxed">
-                <strong class="text-primary">Fast & responsive:</strong> Built with modern web technologies for
-                instant results
+                <strong class="text-primary">Fast & responsive:</strong> Built with modern web
+                technologies for instant results
               </span>
             </li>
           </ul>
@@ -100,16 +100,23 @@ import Button from 'primevue/button'
           <h2 class="text-2xl font-semibold text-primary mb-md">Data Source</h2>
           <p class="leading-loose text-secondary mb-md">
             All vocabulary data is sourced from
-            <a href="https://www.wiktionary.org/" target="_blank" rel="noopener" class="link">Wiktionary</a>,
-            the free multilingual dictionary. Wiktionary content is available under the
-            <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" class="link">
-              Creative Commons Attribution-ShareAlike License</a>.
+            <a href="https://www.wiktionary.org/" target="_blank" rel="noopener" class="link"
+            >Wiktionary</a
+            >, the free multilingual dictionary. Wiktionary content is available under the
+            <a
+                href="https://creativecommons.org/licenses/by-sa/3.0/"
+                target="_blank"
+                rel="noopener"
+                class="link"
+            >
+              Creative Commons Attribution-ShareAlike License</a
+            >.
           </p>
           <div class="info-note">
             <i class="pi pi-info-circle"></i>
             <p class="text-secondary leading-relaxed info-note-text">
-              Data is processed and indexed from English Wiktionary XML dumps, with ongoing
-              updates to maintain accuracy and coverage.
+              Data is processed and indexed from English Wiktionary XML dumps, with ongoing updates
+              to maintain accuracy and coverage.
             </p>
           </div>
         </template>
