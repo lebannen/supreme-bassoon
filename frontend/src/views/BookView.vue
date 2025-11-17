@@ -7,7 +7,7 @@
         <p>Loading text...</p>
       </div>
 
-      <div v-else-if="error" class="error-state">
+      <div v-else-if="error" class="loading-state">
         <Message severity="error" :closable="false">
           {{ error }}
         </Message>
@@ -27,8 +27,8 @@
             <h1>{{ currentText.title }}</h1>
             <div class="meta">
               <Tag v-if="currentText.level" :value="currentText.level" severity="info" />
-              <span class="language">{{ getLanguageName(currentText.languageCode) }}</span>
-              <span v-if="currentText.topic" class="topic">{{ formatTopic(currentText.topic) }}</span>
+              <span class="language-badge">{{ getLanguageName(currentText.languageCode) }}</span>
+              <span v-if="currentText.topic" class="topic-badge">{{ formatTopic(currentText.topic) }}</span>
             </div>
           </div>
           <div class="header-actions">
@@ -78,14 +78,14 @@
       <BookComponent v-if="demoMode === 'content'" :content="longText" :pageSize="300" @word-click="onWordClick" />
       <BookComponent v-if="demoMode === 'slots'">
         <template #left-page="{ page }">
-          <div style="padding: 20px; text-align: center;">
+          <div class="custom-page-content">
             <h2>Page Personnalisée (Gauche)</h2>
             <p>Ceci est la page {{ page }}.</p>
             <p>Vous pouvez mettre n'importe quel contenu de composant Vue ici.</p>
           </div>
         </template>
         <template #right-page="{ page }">
-          <div style="padding: 20px; text-align: center;">
+          <div class="custom-page-content">
             <h2>Page Personnalisée (Droite)</h2>
             <p>Ceci est la page {{ page }}.</p>
             <p>N'est-ce pas cool ?</p>
@@ -266,20 +266,9 @@ onMounted(async () => {
   background: var(--surface-ground);
 }
 
-/* Reading Mode Styles */
 .reading-mode {
   max-width: 1400px;
   margin: 0 auto;
-}
-
-.loading-state,
-.error-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 2rem;
-  gap: 1rem;
 }
 
 .text-reader {
@@ -287,71 +276,10 @@ onMounted(async () => {
   flex-direction: column;
 }
 
-.text-header {
-  background: var(--surface-card);
-  border-bottom: 1px solid var(--surface-border);
-  padding: 1.5rem 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.text-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.text-info h1 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: var(--text-color);
-}
-
-.meta {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.language {
-  padding: 0.25rem 0.75rem;
-  background: var(--primary-color);
-  color: white;
-  border-radius: 1rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-.topic {
-  color: var(--text-color-secondary);
-  font-size: 0.875rem;
-}
-
 .header-actions {
   display: flex;
   gap: 0.75rem;
   align-items: center;
-}
-
-.completed-badge {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: var(--green-100);
-  color: var(--green-700);
-  border-radius: 1rem;
-  font-weight: 500;
-  font-size: 0.875rem;
-}
-
-.completed-badge i {
-  font-size: 1.25rem;
 }
 
 /* Demo Mode Styles */
@@ -436,15 +364,12 @@ code {
   color: var(--text-color);
 }
 
+.custom-page-content {
+  padding: 20px;
+  text-align: center;
+}
+
 @media (max-width: 768px) {
-  .text-header {
-    padding: 1rem;
-  }
-
-  .text-info h1 {
-    font-size: 1.25rem;
-  }
-
   .demo-mode {
     padding: 1rem;
   }

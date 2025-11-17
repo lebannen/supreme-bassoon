@@ -1,21 +1,23 @@
 <template>
-  <div class="flex items-center justify-center min-h-screen bg-surface-50 dark:bg-surface-950">
-    <Card class="w-full max-w-md shadow-lg">
+  <div class="flex items-center justify-center auth-container">
+    <Card class="auth-card">
       <template #header>
-        <div class="text-center pt-6">
-          <h1 class="text-3xl font-bold text-primary mb-2">Vocabee</h1>
-          <p class="text-surface-600 dark:text-surface-400">Create your account</p>
+        <div class="text-center p-xl">
+          <h1 class="text-3xl font-bold mb-xs text-primary">Vocabee</h1>
+          <p class="text-secondary">Create your account</p>
         </div>
       </template>
 
       <template #content>
-        <form @submit.prevent="handleRegister" class="flex flex-col gap-6">
+        <form @submit.prevent="handleRegister" class="content-area">
           <Message v-if="authStore.error" severity="error" :closable="false">
             {{ authStore.error }}
           </Message>
 
-          <div class="flex flex-col gap-2">
-            <label for="displayName" class="font-semibold">Display Name (Optional)</label>
+          <div class="flex flex-col gap-xs">
+            <label for="displayName" class="font-semibold text-primary">
+              Display Name (Optional)
+            </label>
             <InputText
               id="displayName"
               v-model="displayName"
@@ -25,8 +27,8 @@
             />
           </div>
 
-          <div class="flex flex-col gap-2">
-            <label for="email" class="font-semibold">Email</label>
+          <div class="flex flex-col gap-xs">
+            <label for="email" class="font-semibold text-primary">Email</label>
             <InputText
               id="email"
               v-model="email"
@@ -36,11 +38,11 @@
               required
               autocomplete="email"
             />
-            <small v-if="emailError" class="text-red-500">{{ emailError }}</small>
+            <small v-if="emailError" class="text-error">{{ emailError }}</small>
           </div>
 
-          <div class="flex flex-col gap-2">
-            <label for="password" class="font-semibold">Password</label>
+          <div class="flex flex-col gap-xs">
+            <label for="password" class="font-semibold text-primary">Password</label>
             <Password
               id="password"
               v-model="password"
@@ -52,16 +54,18 @@
             >
               <template #footer>
                 <Divider />
-                <ul class="pl-2 ml-2 my-0" style="line-height: 1.5">
-                  <li>At least 6 characters</li>
+                <ul class="requirements-list">
+                  <li class="text-sm">At least 6 characters</li>
                 </ul>
               </template>
             </Password>
-            <small v-if="passwordError" class="text-red-500">{{ passwordError }}</small>
+            <small v-if="passwordError" class="text-error">{{ passwordError }}</small>
           </div>
 
-          <div class="flex flex-col gap-2">
-            <label for="confirmPassword" class="font-semibold">Confirm Password</label>
+          <div class="flex flex-col gap-xs">
+            <label for="confirmPassword" class="font-semibold text-primary">
+              Confirm Password
+            </label>
             <Password
               id="confirmPassword"
               v-model="confirmPassword"
@@ -72,7 +76,7 @@
               toggleMask
               autocomplete="new-password"
             />
-            <small v-if="confirmPasswordError" class="text-red-500">{{
+            <small v-if="confirmPasswordError" class="text-error">{{
               confirmPasswordError
             }}</small>
           </div>
@@ -81,13 +85,13 @@
             type="submit"
             label="Sign Up"
             :loading="authStore.loading"
-            class="w-full"
+            class="full-width"
             severity="primary"
           />
 
-          <div class="flex items-center gap-4">
+          <div class="flex items-center gap-md">
             <Divider class="flex-1" />
-            <span class="text-surface-500 text-sm">OR</span>
+            <span class="text-secondary text-sm">OR</span>
             <Divider class="flex-1" />
           </div>
 
@@ -96,14 +100,14 @@
             label="Sign up with Google"
             icon="pi pi-google"
             @click="handleGoogleLogin"
-            class="w-full"
+            class="full-width"
             severity="secondary"
             outlined
           />
 
-          <div class="text-center text-sm text-surface-600 dark:text-surface-400">
+          <div class="text-center text-sm text-secondary">
             Already have an account?
-            <router-link to="/login" class="text-primary hover:underline font-semibold">
+            <router-link to="/login" class="link-primary font-semibold">
               Sign in
             </router-link>
           </div>
@@ -194,94 +198,42 @@ const handleGoogleLogin = () => {
 </script>
 
 <style scoped>
-.flex {
-  display: flex;
-}
-
-.flex-col {
-  flex-direction: column;
-}
-
-.items-center {
-  align-items: center;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.min-h-screen {
+.auth-container {
   min-height: 100vh;
+  background: var(--bg-tertiary);
 }
 
-.w-full {
+.auth-card {
+  width: 100%;
+  max-width: 28rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.full-width {
   width: 100%;
 }
 
-.max-w-md {
-  max-width: 28rem;
+.text-primary {
+  color: var(--text-primary);
 }
 
-.gap-2 {
-  gap: 0.5rem;
+.text-error {
+  color: var(--error);
 }
 
-.gap-4 {
-  gap: 1rem;
+.link-primary {
+  color: var(--primary);
+  text-decoration: none;
 }
 
-.gap-6 {
-  gap: 1.5rem;
+.link-primary:hover {
+  text-decoration: underline;
 }
 
-.shadow-lg {
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.font-bold {
-  font-weight: 700;
-}
-
-.font-semibold {
-  font-weight: 600;
-}
-
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-
-.pt-6 {
-  padding-top: 1.5rem;
-}
-
-.flex-1 {
-  flex: 1 1 0%;
-}
-
-.pl-2 {
-  padding-left: 0.5rem;
-}
-
-.ml-2 {
-  margin-left: 0.5rem;
-}
-
-.my-0 {
-  margin-top: 0;
-  margin-bottom: 0;
+.requirements-list {
+  padding-left: var(--spacing-xs);
+  margin-left: var(--spacing-xs);
+  margin: 0;
+  line-height: 1.5;
 }
 </style>

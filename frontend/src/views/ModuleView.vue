@@ -1,9 +1,9 @@
 <template>
-  <div class="module-view">
-    <div class="container">
-      <div class="header">
-        <h1>{{ moduleTitle }}</h1>
-        <div class="header-actions">
+  <div class="module-view-container">
+    <div class="view-container">
+      <div class="flex justify-between items-center mb-xl flex-wrap gap-md">
+        <h1 class="module-title">{{ moduleTitle }}</h1>
+        <div class="flex gap-md">
           <Select
             v-model="selectedLanguage"
             :options="languages"
@@ -21,7 +21,7 @@
         </div>
       </div>
 
-      <div v-if="loading" class="loading">
+      <div v-if="loading" class="loading-state">
         <ProgressSpinner />
       </div>
 
@@ -30,84 +30,83 @@
       </Message>
 
       <div v-else-if="exerciseProgress.length === 0" class="empty-state">
-        <i class="pi pi-inbox" style="font-size: 3rem; color: var(--text-color-secondary)"></i>
-        <p>No exercises found for this module.</p>
-        <p class="hint">Try importing exercises from the admin panel.</p>
+        <i class="pi pi-inbox empty-icon"></i>
+        <p class="empty-message">No exercises found for this module.</p>
+        <p class="empty-hint">Try importing exercises from the admin panel.</p>
       </div>
 
-      <div v-else class="exercises-container">
-        <Card class="progress-summary-card" v-if="moduleStats">
+      <div v-else class="content-area-lg">
+        <Card v-if="moduleStats">
           <template #title>
-            <div class="summary-title">
+            <div class="card-title-icon text-xl">
               <i class="pi pi-chart-line"></i>
               <span>Your Progress</span>
             </div>
           </template>
           <template #content>
-            <div class="progress-stats-grid">
-              <div class="progress-stat">
-                <div class="stat-icon-wrapper completion">
+            <div class="stats-grid mb-xl">
+              <div class="flex gap-md items-start">
+                <div class="stat-icon completion">
                   <i class="pi pi-check-circle"></i>
                 </div>
-                <div class="stat-details">
+                <div class="flex flex-col gap-xs">
                   <span class="stat-value-large">{{ Math.round(moduleStats.completionPercentage) }}%</span>
                   <span class="stat-label">Completion</span>
-                  <span class="stat-sublabel">{{ moduleStats.masteredExercises }} of {{ moduleStats.totalExercises }} mastered</span>
+                  <span class="text-xs text-secondary">{{
+                      moduleStats.masteredExercises
+                    }} of {{ moduleStats.totalExercises }} mastered</span>
                 </div>
               </div>
 
-              <div class="progress-stat">
-                <div class="stat-icon-wrapper score">
+              <div class="flex gap-md items-start">
+                <div class="stat-icon score">
                   <i class="pi pi-star"></i>
                 </div>
-                <div class="stat-details">
+                <div class="flex flex-col gap-xs">
                   <span class="stat-value-large">
                     {{ moduleStats.averageScore !== null ? Math.round(moduleStats.averageScore) + '%' : 'N/A' }}
                   </span>
                   <span class="stat-label">Average Score</span>
-                  <span class="stat-sublabel">Across {{ moduleStats.completedExercises }} attempts</span>
+                  <span class="text-xs text-secondary">Across {{ moduleStats.completedExercises }} attempts</span>
                 </div>
               </div>
 
-              <div class="progress-stat">
-                <div class="stat-icon-wrapper time">
+              <div class="flex gap-md items-start">
+                <div class="stat-icon time">
                   <i class="pi pi-clock"></i>
                 </div>
-                <div class="stat-details">
+                <div class="flex flex-col gap-xs">
                   <span class="stat-value-large">{{ formatTimeSpent(moduleStats.totalTimeSpentSeconds) }}</span>
                   <span class="stat-label">Time Spent</span>
-                  <span class="stat-sublabel">{{ totalDurationMinutes }} min estimated</span>
+                  <span class="text-xs text-secondary">{{ totalDurationMinutes }} min estimated</span>
                 </div>
               </div>
 
-              <div class="progress-stat">
-                <div class="stat-icon-wrapper exercises">
+              <div class="flex gap-md items-start">
+                <div class="stat-icon exercises">
                   <i class="pi pi-book"></i>
                 </div>
-                <div class="stat-details">
+                <div class="flex flex-col gap-xs">
                   <span class="stat-value-large">{{ moduleStats.totalExercises }}</span>
                   <span class="stat-label">Total Exercises</span>
-                  <span class="stat-sublabel">{{ uniqueTypes.length }} different types</span>
+                  <span class="text-xs text-secondary">{{ uniqueTypes.length }} different types</span>
                 </div>
               </div>
             </div>
 
-            <div class="progress-bar-section">
-              <div class="progress-bar-labels">
+            <div class="progress-section">
+              <div class="flex justify-between items-center mb-sm text-sm font-semibold">
                 <span>Progress</span>
-                <span class="progress-percentage">{{ moduleStats.masteredExercises }}/{{ moduleStats.totalExercises }}</span>
+                <span class="progress-count">{{ moduleStats.masteredExercises }}/{{ moduleStats.totalExercises }}</span>
               </div>
-              <div class="progress-bar-track">
-                <div
-                  class="progress-bar-fill"
-                  :style="{ width: moduleStats.completionPercentage + '%' }"
-                ></div>
+              <div class="progress-track">
+                <div class="progress-fill" :style="{ width: moduleStats.completionPercentage + '%' }"></div>
               </div>
             </div>
           </template>
         </Card>
 
-        <div class="exercises-grid">
+        <div class="content-grid">
           <Card
             v-for="progress in exerciseProgress"
             :key="progress.exercise.id"
@@ -116,19 +115,21 @@
             @click="goToExercise(progress.exercise.id)"
           >
             <template #header>
-              <div class="exercise-card-header">
+              <div class="exercise-header">
                 <Tag :value="progress.exercise.type" :severity="getTypeSeverity(progress.exercise.type)" />
-                <div class="header-right">
-                  <span class="exercise-points">{{ progress.exercise.pointsValue }} pts</span>
-                  <i v-if="progress.status === 'MASTERED'" class="pi pi-check-circle status-icon mastered" title="Mastered"></i>
-                  <i v-else-if="progress.status === 'IN_PROGRESS'" class="pi pi-clock status-icon in-progress" title="In Progress"></i>
+                <div class="flex items-center gap-sm">
+                  <span class="points-value">{{ progress.exercise.pointsValue }} pts</span>
+                  <i v-if="progress.status === 'MASTERED'" class="pi pi-check-circle text-xl status-icon-mastered"
+                     title="Mastered"></i>
+                  <i v-else-if="progress.status === 'IN_PROGRESS'" class="pi pi-clock text-xl status-icon-in-progress"
+                     title="In Progress"></i>
                 </div>
               </div>
             </template>
             <template #title>
-              <div class="exercise-title-wrapper">
+              <div class="flex justify-between items-center gap-sm">
                 {{ progress.exercise.title }}
-                <span v-if="progress.bestScore !== null" class="best-score">
+                <span v-if="progress.bestScore !== null" class="score-badge">
                   {{ Math.round(progress.bestScore) }}%
                 </span>
               </div>
@@ -331,86 +332,81 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.module-view {
-  padding: 2rem;
+.module-view-container {
+  padding: var(--spacing-2xl);
   min-height: 100vh;
   background: var(--surface-ground);
 }
 
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.header h1 {
+.module-title {
   margin: 0;
+  font-size: 1.875rem;
+  font-weight: 700;
   color: var(--text-color);
 }
 
-.header-actions {
+.loading-state {
   display: flex;
-  gap: 1rem;
-}
-
-.loading {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   min-height: 400px;
 }
 
 .empty-state {
-  text-align: center;
-  padding: 4rem 2rem;
-  color: var(--text-color-secondary);
-}
-
-.empty-state p {
-  margin: 1rem 0;
-}
-
-.empty-state .hint {
-  font-size: 0.875rem;
-}
-
-.progress-summary-card {
-  margin-bottom: 1.5rem;
-}
-
-.summary-title {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  padding: var(--spacing-4xl);
+  min-height: 400px;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  color: var(--text-color-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.empty-message {
+  font-size: 1rem;
+  margin: var(--spacing-md) 0;
+  color: var(--text-color);
+}
+
+.empty-hint {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary);
+  margin: 0;
+}
+
+.progress-count {
   color: var(--primary-color);
-  font-size: 1.25rem;
 }
 
-.progress-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+.points-value {
+  font-weight: 600;
+  color: var(--primary-color);
 }
 
-.progress-stat {
+.status-icon-mastered {
+  color: var(--green-500);
+}
+
+.status-icon-in-progress {
+  color: var(--orange-500);
+}
+
+.exercise-meta {
   display: flex;
-  gap: 1rem;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
 }
 
-.stat-icon-wrapper {
+.stat-icon {
   width: 3rem;
   height: 3rem;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -418,30 +414,24 @@ onMounted(() => {
   flex-shrink: 0;
 }
 
-.stat-icon-wrapper.completion {
+.stat-icon.completion {
   background: var(--green-50);
   color: var(--green-600);
 }
 
-.stat-icon-wrapper.score {
+.stat-icon.score {
   background: var(--yellow-50);
   color: var(--yellow-600);
 }
 
-.stat-icon-wrapper.time {
+.stat-icon.time {
   background: var(--blue-50);
   color: var(--blue-600);
 }
 
-.stat-icon-wrapper.exercises {
+.stat-icon.exercises {
   background: var(--purple-50);
   color: var(--purple-600);
-}
-
-.stat-details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
 }
 
 .stat-value-large {
@@ -451,119 +441,48 @@ onMounted(() => {
   line-height: 1;
 }
 
-.stat-sublabel {
-  font-size: 0.75rem;
+.stat-label {
   color: var(--text-color-secondary);
 }
 
-.progress-bar-section {
-  margin-top: 1rem;
-  padding-top: 1rem;
+.progress-section {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
   border-top: 1px solid var(--surface-border);
 }
 
-.progress-bar-labels {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
-.progress-percentage {
-  color: var(--primary-color);
-}
-
-.progress-bar-track {
+.progress-track {
   height: 0.75rem;
   background: var(--surface-100);
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   overflow: hidden;
 }
 
-.progress-bar-fill {
+.progress-fill {
   height: 100%;
   background: linear-gradient(90deg, var(--primary-color), var(--primary-600));
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   transition: width 0.5s ease;
-}
-
-.module-stats {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: var(--surface-card);
-  border-radius: 6px;
-  border: 1px solid var(--surface-border);
-  flex-wrap: wrap;
-}
-
-.stat {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.stat-label {
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
-}
-
-.stat-value {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--primary-color);
-}
-
-.exercises-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.5rem;
 }
 
 .exercise-card {
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.2s;
   height: 100%;
 }
 
 .exercise-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
 }
 
-.exercise-card-header {
+.exercise-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: var(--spacing-md);
   background: var(--surface-50);
   border-bottom: 1px solid var(--surface-border);
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.exercise-points {
-  font-weight: 600;
-  color: var(--primary-color);
-}
-
-.status-icon {
-  font-size: 1.25rem;
-}
-
-.status-icon.mastered {
-  color: var(--green-500);
-}
-
-.status-icon.in-progress {
-  color: var(--orange-500);
 }
 
 .exercise-card.mastered {
@@ -571,35 +490,19 @@ onMounted(() => {
   background: linear-gradient(135deg, var(--surface-card) 0%, var(--green-50) 100%);
 }
 
-.exercise-title-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.best-score {
-  font-size: 0.875rem;
+.score-badge {
   font-weight: 700;
   color: var(--green-600);
   background: var(--green-50);
   padding: 0.25rem 0.5rem;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   white-space: nowrap;
-}
-
-.exercise-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
 }
 
 .meta-item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
+  gap: var(--spacing-sm);
   color: var(--text-color-secondary);
 }
 
@@ -608,27 +511,11 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .header-actions {
-    width: 100%;
-    flex-direction: column;
-  }
-
-  .progress-stats-grid {
+  .stats-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
   }
 
-  .module-stats {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .exercises-grid {
+  .content-grid {
     grid-template-columns: 1fr;
   }
 }

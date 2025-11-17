@@ -378,12 +378,12 @@ onMounted(() => {
 <template>
   <div class="course-admin-view">
     <div class="admin-container">
-      <div class="header">
-        <h1>
-          <i class="pi pi-cog"></i>
+      <div class="page-header">
+        <h1 class="flex items-center gap-md">
+          <i class="pi pi-cog icon-primary"></i>
           Course Administration
         </h1>
-        <p class="subtitle">Import and manage course content</p>
+        <p>Import and manage course content</p>
       </div>
 
       <!-- Global Messages -->
@@ -396,15 +396,15 @@ onMounted(() => {
       </Message>
 
       <!-- Import Course -->
-      <Card class="import-card">
+      <Card>
         <template #title>
-          <div class="card-title">
+          <div class="card-title-icon">
             <i class="pi pi-upload"></i>
             <span>1. Import New Course</span>
           </div>
         </template>
         <template #content>
-          <p class="card-description">
+          <p class="text-secondary mb-lg">
             Upload a course.json file to create a new course. This defines the course metadata,
             name, language, and objectives.
           </p>
@@ -417,7 +417,7 @@ onMounted(() => {
             @select="handleCourseFileSelect"
           />
 
-          <div v-if="courseFile" class="file-info">
+          <div v-if="courseFile" class="file-info flex items-center gap-sm">
             <i class="pi pi-file"></i>
             <span>{{ courseFile.name }}</span>
           </div>
@@ -445,15 +445,15 @@ onMounted(() => {
       </Card>
 
       <!-- Import Module -->
-      <Card class="import-card">
+      <Card>
         <template #title>
-          <div class="card-title">
+          <div class="card-title-icon">
             <i class="pi pi-folder-open"></i>
             <span>2. Import Module for Course</span>
           </div>
         </template>
         <template #content>
-          <p class="card-description">
+          <p class="text-secondary mb-lg">
             Upload a module_X.json file to add episodes and exercises to an existing course.
           </p>
 
@@ -495,7 +495,7 @@ onMounted(() => {
               @select="handleModuleFileSelect"
             />
 
-            <div v-if="moduleFile" class="file-info">
+            <div v-if="moduleFile" class="file-info flex items-center gap-sm">
               <i class="pi pi-file"></i>
               <span>{{ moduleFile.name }}</span>
             </div>
@@ -511,16 +511,16 @@ onMounted(() => {
               :loading="importingModule"
               :disabled="!moduleFile || importingModule"
               @click="importModule"
-              class="import-button"
+              class="import-button-full"
             />
 
             <!-- Import Progress -->
-            <div v-if="importProgress" class="import-progress">
+            <div v-if="importProgress" class="import-progress-section">
               <Divider />
-              <h4>Import Progress</h4>
+              <h4 class="import-progress-title">Import Progress</h4>
 
-              <div class="progress-details">
-                <div class="progress-bar-container">
+              <div class="flex-col gap-md">
+                <div class="progress-bar-container flex items-center gap-md">
                   <ProgressBar :value="importProgress.progressPercentage" />
                   <span class="progress-percentage">{{ importProgress.progressPercentage }}%</span>
                 </div>
@@ -538,22 +538,28 @@ onMounted(() => {
                   <strong>Episode:</strong> {{ importProgress.currentEpisode }}
                 </div>
 
-                <div class="progress-stats">
-                  <div class="progress-stat">
+                <div class="stats-grid">
+                  <div class="flex-col items-center gap-sm p-lg">
                     <Tag value="Modules" severity="info" />
-                    <span>{{ importProgress.processedModules }} / {{ importProgress.totalModules }}</span>
+                    <span class="font-semibold">{{ importProgress.processedModules }} / {{
+                        importProgress.totalModules
+                      }}</span>
                   </div>
-                  <div class="progress-stat">
+                  <div class="flex-col items-center gap-sm p-lg">
                     <Tag value="Episodes" severity="info" />
-                    <span>{{ importProgress.processedEpisodes }} / {{ importProgress.totalEpisodes }}</span>
+                    <span class="font-semibold">{{ importProgress.processedEpisodes }} / {{
+                        importProgress.totalEpisodes
+                      }}</span>
                   </div>
-                  <div class="progress-stat">
+                  <div class="flex-col items-center gap-sm p-lg">
                     <Tag value="Exercises" severity="info" />
-                    <span>{{ importProgress.processedExercises }} / {{ importProgress.totalExercises }}</span>
+                    <span class="font-semibold">{{
+                        importProgress.processedExercises
+                      }} / {{ importProgress.totalExercises }}</span>
                   </div>
-                  <div v-if="importProgress.audioFilesGenerated > 0" class="progress-stat">
+                  <div v-if="importProgress.audioFilesGenerated > 0" class="flex-col items-center gap-sm p-lg">
                     <Tag value="Audio" severity="success" />
-                    <span>{{ importProgress.audioFilesGenerated }} files</span>
+                    <span class="font-semibold">{{ importProgress.audioFilesGenerated }} files</span>
                   </div>
                 </div>
 
@@ -570,9 +576,9 @@ onMounted(() => {
       </Card>
 
       <!-- Existing Courses -->
-      <Card class="courses-card">
+      <Card>
         <template #title>
-          <div class="card-title">
+          <div class="card-title-icon">
             <i class="pi pi-list"></i>
             <span>Existing Courses & Modules</span>
           </div>
@@ -596,18 +602,18 @@ onMounted(() => {
                 <p>No courses yet. Import a course to get started!</p>
               </div>
             </template>
-            <Column expander style="width: 3rem" />
-            <Column field="id" header="ID" style="width: 5rem" />
+            <Column expander class="col-expander"/>
+            <Column field="id" header="ID" class="col-id"/>
             <Column field="slug" header="Slug" />
             <Column field="name" header="Name" />
-            <Column field="languageCode" header="Language" style="width: 8rem" />
-            <Column field="cefrLevel" header="Level" style="width: 6rem">
+            <Column field="languageCode" header="Language" class="col-language"/>
+            <Column field="cefrLevel" header="Level" class="col-level">
               <template #body="slotProps">
                 <Tag :value="slotProps.data.cefrLevel" />
               </template>
             </Column>
-            <Column field="estimatedHours" header="Hours" style="width: 6rem" />
-            <Column field="isPublished" header="Published" style="width: 8rem">
+            <Column field="estimatedHours" header="Hours" class="col-hours"/>
+            <Column field="isPublished" header="Published" class="col-published">
               <template #body="slotProps">
                 <Tag
                   :value="slotProps.data.isPublished ? 'Yes' : 'No'"
@@ -618,7 +624,7 @@ onMounted(() => {
             <template #expansion="slotProps">
               <div class="modules-section">
                 <h4>Modules for {{ slotProps.data.name }}</h4>
-                <div v-if="loadingModules.has(slotProps.data.id)" class="loading-modules">
+                <div v-if="loadingModules.has(slotProps.data.id)" class="loading-state">
                   <ProgressBar mode="indeterminate" />
                   <p>Loading modules...</p>
                 </div>
@@ -631,14 +637,14 @@ onMounted(() => {
                   :value="courseModules.get(slotProps.data.id)"
                   class="modules-table"
                 >
-                  <Column field="moduleNumber" header="Module #" style="width: 8rem" />
+                  <Column field="moduleNumber" header="Module #" class="col-module-number"/>
                   <Column field="title" header="Title" />
-                  <Column field="episodeCount" header="Episodes" style="width: 8rem">
+                  <Column field="episodeCount" header="Episodes" class="col-episodes">
                     <template #body="moduleSlotProps">
                       <Tag :value="`${moduleSlotProps.data.episodeCount} episodes`" severity="info" />
                     </template>
                   </Column>
-                  <Column header="Actions" style="width: 10rem">
+                  <Column header="Actions" class="col-actions">
                     <template #body="moduleSlotProps">
                       <Button
                         icon="pi pi-trash"
@@ -663,8 +669,8 @@ onMounted(() => {
 <style scoped>
 .course-admin-view {
   min-height: 100vh;
-  background: var(--surface-ground);
-  padding: 2rem 1rem;
+  background: var(--bg-primary);
+  padding: var(--spacing-2xl) var(--spacing-md);
 }
 
 .admin-container {
@@ -672,252 +678,86 @@ onMounted(() => {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-}
-
-.header {
-  margin-bottom: 1rem;
-}
-
-.header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--text-color);
-  margin: 0 0 0.5rem 0;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.header h1 i {
-  color: var(--primary-color);
-}
-
-.subtitle {
-  font-size: 1.125rem;
-  color: var(--text-color-secondary);
-  margin: 0;
-}
-
-.card-title {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: var(--text-color);
-}
-
-.card-title i {
-  color: var(--primary-color);
-}
-
-.card-description {
-  color: var(--text-color-secondary);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.file-info {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem;
-  background: var(--surface-100);
-  border-radius: 6px;
-  margin-top: 1rem;
-}
-
-.file-info i {
-  color: var(--primary-color);
-}
-
-.import-button {
-  margin-top: 1.5rem;
-  width: 100%;
-}
-
-.import-result {
-  margin-top: 1rem;
-}
-
-.import-result h4 {
-  margin: 1rem 0 0.5rem 0;
-  color: var(--text-color);
-}
-
-.result-detail {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 0.75rem;
-}
-
-.import-stats {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 1rem;
-}
-
-.stat-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: var(--text-color);
-}
-
-.stat-item i {
-  color: var(--primary-color);
-  font-size: 1.125rem;
-}
-
-.stat-item.warning {
-  color: var(--orange-500);
-}
-
-.stat-item.warning i {
-  color: var(--orange-500);
-}
-
-.course-selection {
-  margin-bottom: 1.5rem;
+  gap: var(--spacing-2xl);
 }
 
 .course-selection label {
   display: block;
   font-weight: 600;
-  margin-bottom: 0.75rem;
-  color: var(--text-color);
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
 }
 
 .course-table {
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-md);
 }
 
 .selected-course {
-  padding: 0.75rem;
-  background: var(--primary-50);
-  border-left: 3px solid var(--primary-color);
-  margin-bottom: 1.5rem;
-  border-radius: 4px;
+  padding: var(--spacing-sm);
+  background: var(--primary-light);
+  border-left: 3px solid var(--primary);
+  margin-bottom: var(--spacing-lg);
+  border-radius: var(--radius-sm);
 }
 
 .audio-option {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
-  padding: 0.75rem;
-  background: var(--surface-50);
-  border-radius: 6px;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-sm);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
 }
 
 .audio-option label {
   font-weight: 500;
-  color: var(--text-color);
+  color: var(--text-primary);
   cursor: pointer;
 }
 
 .no-selection {
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
   font-style: italic;
   text-align: center;
-  padding: 2rem;
-}
-
-.loading-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding: 2rem;
-}
-
-.empty-state {
-  text-align: center;
-  padding: 3rem 2rem;
-}
-
-.empty-state i {
-  font-size: 4rem;
-  color: var(--text-color-secondary);
-  opacity: 0.5;
-  margin-bottom: 1rem;
-}
-
-.empty-state p {
-  color: var(--text-color-secondary);
-  margin: 0;
+  padding: var(--spacing-2xl);
 }
 
 .modules-section {
-  padding: 1.5rem;
-  background: var(--surface-50);
-  border-radius: 8px;
-  margin: 0.5rem 0;
+  padding: var(--spacing-lg);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  margin: var(--spacing-sm) 0;
 }
 
 .modules-section h4 {
-  margin: 0 0 1rem 0;
-  color: var(--text-color);
+  margin: 0 0 var(--spacing-md) 0;
+  color: var(--text-primary);
   font-size: 1.125rem;
   font-weight: 600;
 }
 
-.loading-modules {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding: 2rem;
-}
-
-.loading-modules p {
-  color: var(--text-color-secondary);
-  margin: 0;
-}
-
 .no-modules {
   text-align: center;
-  padding: 2rem;
+  padding: var(--spacing-2xl);
 }
 
 .no-modules i {
   font-size: 2.5rem;
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
   opacity: 0.5;
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--spacing-sm);
 }
 
 .no-modules p {
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
   margin: 0;
 }
 
 .modules-table {
-  background: var(--surface-card);
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.import-progress {
-  margin-top: 1rem;
-}
-
-.import-progress h4 {
-  margin: 1rem 0 0.5rem 0;
-  color: var(--text-color);
-}
-
-.progress-details {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.progress-bar-container {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
 }
 
 .progress-bar-container :deep(.p-progressbar) {
@@ -927,7 +767,7 @@ onMounted(() => {
 
 .progress-percentage {
   font-weight: 600;
-  color: var(--text-color);
+  color: var(--text-primary);
   min-width: 3rem;
   text-align: right;
 }
@@ -935,68 +775,85 @@ onMounted(() => {
 .progress-message {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem;
-  background: var(--surface-100);
-  border-radius: 6px;
-  color: var(--text-color);
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background: var(--bg-hover);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
 }
 
 .progress-message i {
-  color: var(--primary-color);
+  color: var(--primary);
 }
 
 .current-item {
-  padding: 0.5rem;
-  color: var(--text-color-secondary);
+  padding: var(--spacing-sm);
+  color: var(--text-secondary);
   font-size: 0.9rem;
 }
 
 .current-item strong {
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
-.progress-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  margin-top: 0.5rem;
+.icon-primary {
+  color: var(--primary);
 }
 
-.progress-stat {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 0.75rem;
-  background: var(--surface-50);
-  border-radius: 6px;
-  align-items: center;
+.import-button-full {
+  margin-top: var(--spacing-lg);
+  width: 100%;
 }
 
-.progress-stat span {
-  font-weight: 600;
-  color: var(--text-color);
+.import-progress-section {
+  margin-top: var(--spacing-md);
 }
 
-.progress-errors {
-  margin-top: 0.5rem;
+.import-progress-title {
+  margin: var(--spacing-md) 0 var(--spacing-sm) 0;
+  color: var(--text-primary);
+}
+
+/* Column widths */
+.col-expander {
+  width: 3rem;
+}
+
+.col-id {
+  width: 5rem;
+}
+
+.col-language {
+  width: 8rem;
+}
+
+.col-level {
+  width: 6rem;
+}
+
+.col-hours {
+  width: 6rem;
+}
+
+.col-published {
+  width: 8rem;
+}
+
+.col-module-number {
+  width: 8rem;
+}
+
+.col-episodes {
+  width: 8rem;
+}
+
+.col-actions {
+  width: 10rem;
 }
 
 @media (max-width: 768px) {
   .course-admin-view {
-    padding: 1rem;
-  }
-
-  .header h1 {
-    font-size: 2rem;
-  }
-
-  .import-stats {
-    font-size: 0.9rem;
-  }
-
-  .progress-stats {
-    grid-template-columns: 1fr;
+    padding: var(--spacing-md);
   }
 }
 </style>

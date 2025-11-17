@@ -1,6 +1,6 @@
 <template>
   <div class="reading-import-container">
-    <div class="header">
+    <div class="view-header">
       <h1>Import Reading Texts</h1>
       <p class="description">
         Upload JSON files containing reading texts. Each file should contain one text with title, content, and metadata.
@@ -85,7 +85,7 @@
                   <div class="uploaded-meta">
                     <Tag :value="text.languageCode.toUpperCase()" severity="info" />
                     <Tag v-if="text.level" :value="text.level" />
-                    <span v-if="text.topic" class="topic">{{ formatTopic(text.topic) }}</span>
+                    <span v-if="text.topic" class="topic-badge">{{ formatTopic(text.topic) }}</span>
                     <span class="word-count">{{ text.wordCount }} words</span>
                   </div>
                 </template>
@@ -94,7 +94,7 @@
           </div>
 
           <div v-if="files.length === 0 && uploadedTexts.length === 0" class="empty-state">
-            <i class="pi pi-cloud-upload" style="font-size: 3rem; color: var(--text-color-secondary)"></i>
+            <i class="pi pi-cloud-upload empty-icon"></i>
             <h3>Drag & Drop JSON Files Here</h3>
             <p>or click "Choose Files" to select multiple files</p>
             <small>Accepted format: .json files (max 10MB each)</small>
@@ -103,7 +103,7 @@
 
         <template #empty>
           <div class="empty-state">
-            <i class="pi pi-cloud-upload" style="font-size: 3rem; color: var(--text-color-secondary)"></i>
+            <i class="pi pi-cloud-upload empty-icon"></i>
             <h3>Drag & Drop JSON Files Here</h3>
             <p>or click "Choose Files" to select multiple files</p>
             <small>Accepted format: .json files (max 10MB each)</small>
@@ -153,7 +153,7 @@
             </ul>
           </div>
 
-          <div class="summary-actions">
+          <div class="flex justify-center mt-library-button">
             <Button label="View Library" icon="pi pi-book" @click="router.push('/reading')" />
           </div>
         </template>
@@ -291,14 +291,11 @@ function getStatusSeverity(status: string): 'success' | 'danger' | 'info' | 'war
   background: var(--surface-ground);
 }
 
-.header {
-  background: var(--surface-card);
-  border-bottom: 1px solid var(--surface-border);
-  padding: 2rem;
+.view-header {
   text-align: center;
 }
 
-.header h1 {
+.view-header h1 {
   margin: 0 0 0.5rem 0;
   color: var(--text-color);
   font-size: 2rem;
@@ -317,14 +314,6 @@ function getStatusSeverity(status: string): 'success' | 'danger' | 'info' | 'war
   padding: 0 2rem;
 }
 
-.upload-header {
-  display: flex;
-  gap: 0.5rem;
-  padding: 1rem;
-  background: var(--surface-section);
-  border-radius: 8px 8px 0 0;
-}
-
 .files-list,
 .uploaded-section {
   padding: 1.5rem;
@@ -339,50 +328,6 @@ function getStatusSeverity(status: string): 'success' | 'danger' | 'info' | 'war
 .file-items {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-}
-
-.file-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background: var(--surface-card);
-  border: 1px solid var(--surface-border);
-  border-radius: 8px;
-}
-
-.file-info {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex: 1;
-}
-
-.file-info i {
-  font-size: 1.5rem;
-  color: var(--primary-color);
-}
-
-.file-details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.file-name {
-  font-weight: 500;
-  color: var(--text-color);
-}
-
-.file-size {
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
-}
-
-.file-actions {
-  display: flex;
-  align-items: center;
   gap: 0.75rem;
 }
 
@@ -408,11 +353,6 @@ function getStatusSeverity(status: string): 'success' | 'danger' | 'info' | 'war
   gap: 0.5rem;
   align-items: center;
   flex-wrap: wrap;
-  font-size: 0.875rem;
-}
-
-.topic {
-  color: var(--text-color-secondary);
 }
 
 .word-count {
@@ -421,80 +361,14 @@ function getStatusSeverity(status: string): 'success' | 'danger' | 'info' | 'war
 }
 
 .empty-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 2rem;
-  gap: 1rem;
   border: 2px dashed var(--surface-border);
-  border-radius: 8px;
   background: var(--surface-section);
-}
-
-.empty-state h3 {
-  margin: 0;
-  color: var(--text-color);
-}
-
-.empty-state p {
-  margin: 0;
-  color: var(--text-color-secondary);
-}
-
-.empty-state small {
-  color: var(--text-color-secondary);
 }
 
 .summary-section {
   max-width: 800px;
   margin: 2rem auto;
   padding: 0 2rem;
-}
-
-.summary-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.stat {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  background: var(--surface-section);
-  border-radius: 8px;
-}
-
-.stat i {
-  font-size: 2rem;
-}
-
-.stat.success i {
-  color: var(--green-600);
-}
-
-.stat.failed i {
-  color: var(--red-600);
-}
-
-.stat.total i {
-  color: var(--primary-color);
-}
-
-.stat-value {
-  display: block;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-color);
-}
-
-.stat-label {
-  display: block;
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
 }
 
 .errors-list {
@@ -519,28 +393,18 @@ function getStatusSeverity(status: string): 'success' | 'danger' | 'info' | 'war
   margin: 0.25rem 0;
 }
 
-.summary-actions {
-  display: flex;
-  justify-content: center;
+.mt-library-button {
   margin-top: 1.5rem;
 }
 
 @media (max-width: 768px) {
-  .header {
-    padding: 1.5rem 1rem;
-  }
-
-  .header h1 {
+  .view-header h1 {
     font-size: 1.5rem;
   }
 
   .upload-section,
   .summary-section {
     padding: 0 1rem;
-  }
-
-  .upload-header {
-    flex-direction: column;
   }
 
   .uploaded-items {

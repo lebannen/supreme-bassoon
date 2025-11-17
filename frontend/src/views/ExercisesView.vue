@@ -1,6 +1,6 @@
 <template>
-  <div class="exercises-container">
-    <div class="header">
+  <div class="view-container p-2xl">
+    <div class="page-header text-center">
       <h1>Exercises</h1>
       <p>Choose an exercise type to get started</p>
     </div>
@@ -25,7 +25,7 @@
     </div>
 
     <!-- Module Filter (secondary) -->
-    <div v-if="selectedType !== null" class="secondary-filters">
+    <div v-if="selectedType !== null" class="flex justify-center mb-2xl">
       <Select
         v-model="selectedModule"
         :options="modules"
@@ -37,21 +37,23 @@
     </div>
 
     <!-- Exercises List -->
-    <div v-if="selectedType !== null" class="exercises-section">
-      <h2 class="section-title">
-        {{ exerciseTypes.find(t => t.value === selectedType)?.label || 'All' }} Exercises
-      </h2>
+    <div v-if="selectedType !== null" class="section">
+      <div class="section-header">
+        <h2>
+          {{ exerciseTypes.find(t => t.value === selectedType)?.label || 'All' }} Exercises
+        </h2>
+      </div>
 
-      <div v-if="loading" class="loading">
+      <div v-if="loading" class="loading-state">
         <ProgressSpinner />
       </div>
 
-      <div v-else-if="exercises.length === 0" class="no-exercises">
-        <i class="pi pi-inbox" style="font-size: 3rem; color: var(--text-color-secondary)"></i>
+      <div v-else-if="exercises.length === 0" class="empty-state">
+        <i class="pi pi-inbox empty-icon text-secondary"></i>
         <p>No exercises available for this type yet.</p>
       </div>
 
-      <div v-else class="exercises-grid">
+      <div v-else class="content-grid">
         <Card
           v-for="exercise in exercises"
           :key="exercise.id"
@@ -61,10 +63,16 @@
           <template #title>{{ exercise.title }}</template>
           <template #subtitle>{{ formatExerciseType(exercise.type) }}</template>
           <template #content>
-            <div class="meta">
+            <div class="meta-badges">
               <Tag :value="exercise.moduleNumber ? `Module ${exercise.moduleNumber}` : 'General'" />
-              <span><i class="pi pi-clock"></i> {{ exercise.estimatedDurationSeconds }}s</span>
-              <span><i class="pi pi-star"></i> {{ exercise.pointsValue }} pts</span>
+              <span class="flex items-center gap-xs text-sm text-secondary">
+                <i class="pi pi-clock text-xs"></i>
+                {{ exercise.estimatedDurationSeconds }}s
+              </span>
+              <span class="flex items-center gap-xs text-sm text-secondary">
+                <i class="pi pi-star text-xs"></i>
+                {{ exercise.pointsValue }} pts
+              </span>
             </div>
           </template>
         </Card>
@@ -174,34 +182,12 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.exercises-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.header {
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
-.header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--primary-color);
-}
-
-.header p {
-  color: var(--text-color-secondary);
-  font-size: 1.125rem;
-}
-
 /* Exercise Type Grid */
 .type-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 3rem;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-3xl);
 }
 
 .type-card {
@@ -213,21 +199,21 @@ onMounted(async () => {
 .type-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  border-color: var(--primary-color);
+  border-color: var(--primary);
 }
 
 .type-card.selected {
-  border-color: var(--primary-color);
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-dark) 100%);
-  box-shadow: 0 6px 20px rgba(var(--primary-color-rgb), 0.4);
+  border-color: var(--primary);
+  background: linear-gradient(135deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
 }
 
 .type-card.selected .type-card-content {
-  color: white;
+  color: var(--text-inverse);
 }
 
 .type-card.selected .type-icon {
-  color: white;
+  color: var(--text-inverse);
   background: rgba(255, 255, 255, 0.2);
 }
 
@@ -236,16 +222,16 @@ onMounted(async () => {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 1rem;
-  gap: 0.75rem;
+  padding: var(--spacing-md);
+  gap: var(--spacing-sm);
 }
 
 .type-icon {
   font-size: 2.5rem;
-  color: var(--primary-color);
-  background: var(--primary-color-light);
-  padding: 1rem;
-  border-radius: 50%;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-full);
   width: 80px;
   height: 80px;
   display: flex;
@@ -258,16 +244,15 @@ onMounted(async () => {
   font-size: 1.125rem;
   font-weight: 600;
   margin: 0;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 .type-card.selected .type-name {
-  color: white;
+  color: var(--text-inverse);
 }
 
 .type-count {
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
   margin: 0;
 }
 
@@ -275,51 +260,8 @@ onMounted(async () => {
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* Secondary Filters */
-.secondary-filters {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
 .module-select {
   min-width: 250px;
-}
-
-/* Exercises Section */
-.exercises-section {
-  margin-top: 2rem;
-}
-
-.section-title {
-  font-size: 1.75rem;
-  margin-bottom: 1.5rem;
-  color: var(--text-color);
-  padding-bottom: 0.75rem;
-  border-bottom: 2px solid var(--surface-border);
-}
-
-.loading {
-  display: flex;
-  justify-content: center;
-  padding: 4rem;
-}
-
-.no-exercises {
-  text-align: center;
-  padding: 4rem 2rem;
-  color: var(--text-color-secondary);
-}
-
-.no-exercises p {
-  margin-top: 1rem;
-  font-size: 1.125rem;
-}
-
-.exercises-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.5rem;
 }
 
 .exercise-card {
@@ -329,33 +271,14 @@ onMounted(async () => {
 
 .exercise-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.meta {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.meta span {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
-}
-
-.meta i {
-  font-size: 0.75rem;
+  box-shadow: var(--shadow-lg);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .type-grid {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
+    gap: var(--spacing-md);
   }
 
   .type-icon {
@@ -366,10 +289,6 @@ onMounted(async () => {
 
   .type-name {
     font-size: 1rem;
-  }
-
-  .exercises-grid {
-    grid-template-columns: 1fr;
   }
 }
 </style>

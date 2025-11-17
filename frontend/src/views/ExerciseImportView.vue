@@ -17,7 +17,7 @@
                   multiple
                   accept=".json"
                   @change="handleFileSelect"
-                  style="display: none"
+                  class="hidden-file-input"
                 />
                 <div
                   class="drop-zone"
@@ -27,7 +27,7 @@
                   @dragleave.prevent="isDragging = false"
                   @click="triggerFileSelect"
                 >
-                  <i class="pi pi-cloud-upload" style="font-size: 3rem; color: var(--primary-color)"></i>
+                  <i class="pi pi-cloud-upload upload-icon"></i>
                   <p class="drop-zone-text">
                     <strong>Click to browse</strong> or drag and drop JSON files here
                   </p>
@@ -384,7 +384,9 @@ function truncateUrl(url: string): string {
 
 <style scoped>
 .exercise-import-view {
-  padding: 2rem;
+  padding: var(--spacing-2xl);
+  background: var(--bg-primary);
+  min-height: 100vh;
 }
 
 .container {
@@ -395,125 +397,131 @@ function truncateUrl(url: string): string {
 .import-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--spacing-lg);
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--spacing-sm);
 }
 
 .field label {
   font-weight: 600;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
-/* File Upload Styles */
 .file-upload-container {
-  margin-top: 0.5rem;
+  margin-top: var(--spacing-sm);
+}
+
+.hidden-file-input {
+  display: none;
+}
+
+.upload-icon {
+  font-size: 3rem;
+  color: var(--primary);
 }
 
 .drop-zone {
-  border: 2px dashed var(--surface-border);
-  border-radius: 12px;
-  padding: 3rem 2rem;
+  border: 2px dashed var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-4xl) var(--spacing-2xl);
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: var(--surface-50);
+  background: var(--bg-tertiary);
 }
 
 .drop-zone:hover {
-  border-color: var(--primary-color);
-  background: var(--primary-50);
+  border-color: var(--primary);
+  background: var(--primary-light);
 }
 
 .drop-zone.drag-over {
-  border-color: var(--primary-color);
-  background: var(--primary-100);
+  border-color: var(--primary);
+  background: var(--primary-light);
   transform: scale(1.02);
 }
 
 .drop-zone.has-files {
-  border-color: var(--green-500);
-  background: var(--green-50);
+  border-color: var(--success);
+  background: var(--success-light);
 }
 
 .drop-zone-text {
-  margin: 1rem 0 0.5rem 0;
+  margin: var(--spacing-md) 0 var(--spacing-sm) 0;
   font-size: 1.125rem;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 .drop-zone-text strong {
-  color: var(--primary-color);
+  color: var(--primary);
 }
 
 .drop-zone-hint {
   margin: 0;
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
 }
 
 .selected-files {
-  margin-top: 1.5rem;
+  margin-top: var(--spacing-lg);
 }
 
 .selected-files h4 {
-  margin: 0 0 1rem 0;
-  color: var(--text-color);
+  margin: 0 0 var(--spacing-md) 0;
+  color: var(--text-primary);
 }
 
 .file-list {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--spacing-sm);
 }
 
 .file-item {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.75rem 1rem;
-  background: var(--surface-card);
-  border: 1px solid var(--surface-border);
-  border-radius: 8px;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
   transition: all 0.2s;
 }
 
 .file-item:hover {
-  border-color: var(--primary-color);
-  background: var(--primary-50);
+  border-color: var(--primary);
+  background: var(--primary-light);
 }
 
 .file-item i.pi-file {
-  color: var(--primary-color);
+  color: var(--primary);
   font-size: 1.25rem;
 }
 
 .file-name {
   flex: 1;
   font-weight: 500;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 .file-size {
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
   font-family: monospace;
 }
 
 .options-section {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--spacing-md);
 }
 
 .field-checkbox {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--spacing-sm);
 }
 
 .field-checkbox label {
@@ -522,37 +530,31 @@ function truncateUrl(url: string): string {
 }
 
 .results-section {
-  margin-top: 1rem;
+  margin-top: var(--spacing-md);
 }
 
 .results-section h3 {
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
 }
 
 .results-section h4 {
-  margin-top: 1.5rem;
-  margin-bottom: 0.75rem;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
 }
 
 .stat-card {
-  background: var(--surface-card);
-  border: 1px solid var(--surface-border);
-  border-radius: 6px;
-  padding: 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
   text-align: center;
 }
 
 .stat-label {
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
-  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-sm);
 }
 
 .stat-value {
@@ -561,36 +563,35 @@ function truncateUrl(url: string): string {
 }
 
 .stat-value.success {
-  color: var(--green-500);
+  color: var(--success);
 }
 
 .stat-value.info {
-  color: var(--blue-500);
+  color: var(--info);
 }
 
 .stat-value.error {
-  color: var(--red-500);
+  color: var(--error);
 }
 
 .errors-section {
-  margin-top: 1rem;
+  margin-top: var(--spacing-md);
 }
 
 .errors-section .p-message {
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-sm);
 }
 
 .exercises-section {
-  margin-top: 1rem;
+  margin-top: var(--spacing-md);
 }
 
 .audio-url-cell {
   font-family: monospace;
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
 }
 
 .text-muted {
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
 }
 </style>

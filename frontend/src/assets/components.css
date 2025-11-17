@@ -1,0 +1,127 @@
+/* ========== VOCABEE COMPONENTS ========== */
+/* Custom component base styles - use when not using PrimeVue equivalents */
+
+/* ========== CARD SYSTEM ========== */
+
+.card {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+    transition: all 0.2s;
+}
+
+.card-padding {
+    padding: var(--spacing-lg);
+}
+
+.card-padding-lg {
+    padding: var(--spacing-xl);
+}
+
+.card-padding-xl {
+    padding: var(--spacing-4xl);
+}
+
+.card-hoverable:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+    cursor: pointer;
+}
+
+.card-hoverable-lift:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+/* ========== BADGE SYSTEM ========== */
+
+.badge {
+    background-color: var(--primary-light);
+    color: var(--primary);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    display: inline-block;
+}
+
+.badge-level {
+    background-color: var(--warning-light);
+    color: var(--warning);
+}
+
+.badge-success {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+.badge-warning {
+    background: var(--warning-light);
+    color: var(--warning);
+}
+
+.badge-info {
+    background: var(--info-light);
+    color: var(--info);
+}
+
+.badge-pill {
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    background: var(--bg-tertiary);
+    font-weight: 500;
+}
+
+/* ========== BUTTON SYSTEM ========== */
+/* Custom buttons - use when not using PrimeVue Button */
+
+.btn {
+    padding: 8px 20px;
+    border-radius: var(--radius-md);
+    border: none;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--text-inverse);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: var(--bg-tertiary);
+    color: var(--text-secondary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--bg-hover);
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.btn-lg {
+    padding: 14px 32px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.btn-sm {
+    padding: 6px 14px;
+    font-size: 13px;
+}

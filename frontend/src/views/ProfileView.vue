@@ -98,8 +98,8 @@ const handleSave = async () => {
 <template>
   <div class="profile-container">
     <div class="profile-content">
-      <h1 class="profile-title">
-        <i class="pi pi-user"></i>
+      <h1 class="flex items-center gap-md text-4xl font-bold text-primary mb-xl">
+        <i class="pi pi-user text-3xl icon-primary"></i>
         My Profile
       </h1>
 
@@ -117,8 +117,8 @@ const handleSave = async () => {
             <!-- Email (Read-only) -->
             <div class="info-section">
               <div class="section-header">
-                <i class="pi pi-envelope"></i>
-                <h3>Email Address</h3>
+                <i class="pi pi-envelope text-xl icon-primary"></i>
+                <h3 class="text-xl font-semibold text-primary">Email Address</h3>
               </div>
               <div class="info-field">
                 <label>Email</label>
@@ -127,7 +127,7 @@ const handleSave = async () => {
                   disabled
                   class="w-full"
                 />
-                <small class="field-hint">Email cannot be changed</small>
+                <small class="text-sm text-secondary helper-text">Email cannot be changed</small>
               </div>
             </div>
 
@@ -136,8 +136,8 @@ const handleSave = async () => {
             <!-- Personal Information -->
             <div class="info-section">
               <div class="section-header">
-                <i class="pi pi-id-card"></i>
-                <h3>Personal Information</h3>
+                <i class="pi pi-id-card text-xl icon-primary"></i>
+                <h3 class="text-xl font-semibold text-primary">Personal Information</h3>
               </div>
 
               <div class="info-field">
@@ -157,8 +157,8 @@ const handleSave = async () => {
             <!-- Language Settings -->
             <div class="info-section">
               <div class="section-header">
-                <i class="pi pi-language"></i>
-                <h3>Language Preferences</h3>
+                <i class="pi pi-language text-xl icon-primary"></i>
+                <h3 class="text-xl font-semibold text-primary">Language Preferences</h3>
               </div>
 
               <div class="info-field">
@@ -188,7 +188,7 @@ const handleSave = async () => {
                   class="w-full"
                   display="chip"
                 />
-                <small class="field-hint">Select the languages you want to learn</small>
+                <small class="text-sm text-secondary helper-text">Select the languages you want to learn</small>
               </div>
             </div>
 
@@ -224,31 +224,31 @@ const handleSave = async () => {
       <!-- Account Information -->
       <Card class="info-card">
         <template #content>
-          <div class="account-info">
+          <div class="flex flex-col gap-md">
             <div class="info-item">
-              <span class="info-label">
-                <i class="pi pi-shield"></i>
+              <span class="flex items-center gap-sm font-medium text-secondary">
+                <i class="pi pi-shield icon-primary"></i>
                 Account Type
               </span>
-              <span class="info-value">
+              <span class="font-semibold text-primary">
                 {{ authStore.user?.roles.join(', ') }}
               </span>
             </div>
             <div class="info-item">
-              <span class="info-label">
-                <i class="pi pi-book"></i>
+              <span class="flex items-center gap-sm font-medium text-secondary">
+                <i class="pi pi-book icon-primary"></i>
                 Native Language
               </span>
-              <span class="info-value">
+              <span class="font-semibold text-primary">
                 {{ getLanguageLabel(authStore.user?.nativeLanguage || 'en') }}
               </span>
             </div>
             <div class="info-item">
-              <span class="info-label">
-                <i class="pi pi-globe"></i>
+              <span class="flex items-center gap-sm font-medium text-secondary">
+                <i class="pi pi-globe icon-primary"></i>
                 Learning
               </span>
-              <span class="info-value">
+              <span class="font-semibold text-primary">
                 {{ authStore.user?.learningLanguages.map(getLanguageLabel).join(', ') || 'None' }}
               </span>
             </div>
@@ -262,28 +262,13 @@ const handleSave = async () => {
 <style scoped>
 .profile-container {
   min-height: 100vh;
-  background: var(--surface-ground);
+  background: var(--bg-primary);
   padding: 2rem 1rem;
 }
 
 .profile-content {
   max-width: 900px;
   margin: 0 auto;
-}
-
-.profile-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--text-color);
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.profile-title i {
-  color: var(--primary-color);
-  font-size: 2rem;
 }
 
 .success-message,
@@ -312,18 +297,6 @@ const handleSave = async () => {
   margin-bottom: 1.25rem;
 }
 
-.section-header i {
-  color: var(--primary-color);
-  font-size: 1.25rem;
-}
-
-.section-header h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--text-color);
-  margin: 0;
-}
-
 .info-field {
   margin-bottom: 1.25rem;
 }
@@ -336,14 +309,7 @@ const handleSave = async () => {
   display: block;
   font-weight: 500;
   margin-bottom: 0.5rem;
-  color: var(--text-color);
-}
-
-.field-hint {
-  display: block;
-  margin-top: 0.25rem;
-  color: var(--text-color-secondary);
-  font-size: 0.875rem;
+  color: var(--text-primary);
 }
 
 .w-full {
@@ -353,20 +319,14 @@ const handleSave = async () => {
 .actions {
   margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--surface-border);
+  border-top: 1px solid var(--border-light);
   display: flex;
   gap: 1rem;
   justify-content: flex-end;
 }
 
 .info-card {
-  background: var(--surface-card);
-}
-
-.account-info {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  background: var(--bg-secondary);
 }
 
 .info-item {
@@ -374,25 +334,17 @@ const handleSave = async () => {
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem;
-  background: var(--surface-50);
-  border-radius: 6px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
 }
 
-.info-label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 500;
-  color: var(--text-color-secondary);
+.icon-primary {
+  color: var(--primary);
 }
 
-.info-label i {
-  color: var(--primary-color);
-}
-
-.info-value {
-  font-weight: 600;
-  color: var(--text-color);
+.helper-text {
+  display: block;
+  margin-top: 0.25rem;
 }
 
 @media (max-width: 768px) {
@@ -400,7 +352,7 @@ const handleSave = async () => {
     padding: 1rem;
   }
 
-  .profile-title {
+  h1 {
     font-size: 2rem;
   }
 

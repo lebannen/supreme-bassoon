@@ -107,48 +107,50 @@ function formatDueInfo() {
 </script>
 
 <template>
-  <div class="study-home-container">
-    <div class="study-home-content">
-      <div class="header">
-        <h1 class="study-title">
-          <i class="pi pi-graduation-cap"></i>
+  <div class="page-container">
+    <div class="content-area">
+      <div class="page-header">
+        <h1 class="flex items-center gap-md">
+          <i class="pi pi-graduation-cap text-3xl icon-primary"></i>
           Study Mode
         </h1>
       </div>
 
-      <Message v-if="studyStore.error" severity="error" :closable="false" class="error-message">
+      <Message v-if="studyStore.error" severity="error" :closable="false" class="mb-md">
         {{ studyStore.error }}
       </Message>
 
       <!-- Active Session Card -->
       <Card v-if="studyStore.isSessionActive" class="active-session-card">
         <template #title>
-          <div class="active-session-title">
+          <div class="flex items-center gap-sm card-title-primary">
             <i class="pi pi-play-circle"></i>
             Active Session in Progress
           </div>
         </template>
         <template #content>
-          <div class="active-session-content">
-            <div class="session-stats">
-              <div class="stat-item">
-                <span class="stat-label">Progress</span>
-                <span class="stat-value">
+          <div class="flex flex-col gap-lg">
+            <div class="flex gap-xl">
+              <div class="flex flex-col gap-xs">
+                <span class="text-sm text-secondary stat-label">Progress</span>
+                <span class="text-2xl font-bold text-primary">
                   {{ studyStore.activeSession?.wordsCompleted }} / {{ studyStore.activeSession?.totalWords }}
                 </span>
               </div>
-              <div class="stat-item">
-                <span class="stat-label">Accuracy</span>
-                <span class="stat-value">{{ Math.round(studyStore.activeSession?.stats.accuracy || 0) }}%</span>
+              <div class="flex flex-col gap-xs">
+                <span class="text-sm text-secondary stat-label">Accuracy</span>
+                <span class="text-2xl font-bold text-primary">{{
+                    Math.round(studyStore.activeSession?.stats.accuracy || 0)
+                  }}%</span>
               </div>
             </div>
 
             <ProgressBar
               :value="studyStore.progressPercentage"
-              class="session-progress"
+              class="session-progress-bar"
             />
 
-            <div class="session-actions">
+            <div class="flex gap-md">
               <Button
                 label="Resume Session"
                 icon="pi pi-play"
@@ -168,17 +170,17 @@ function formatDueInfo() {
       </Card>
 
       <!-- Due Words Summary -->
-      <div v-if="!loading && studyStore.dueWords" class="due-words-summary">
+      <div v-if="!loading && studyStore.dueWords" class="mb-sm">
         <Card class="due-card">
           <template #content>
-            <div class="due-content">
+            <div class="flex items-center gap-lg">
               <div class="due-icon-wrapper">
                 <i class="pi pi-clock"></i>
               </div>
-              <div class="due-info">
-                <h3>{{ studyStore.dueWords.totalDue }}</h3>
-                <p>Words Due for Review</p>
-                <span v-if="studyStore.dueWords.totalDue > 0" class="due-breakdown">
+              <div>
+                <h3 class="text-4xl font-bold due-count">{{ studyStore.dueWords.totalDue }}</h3>
+                <p class="text-lg due-label">Words Due for Review</p>
+                <span v-if="studyStore.dueWords.totalDue > 0" class="text-sm due-info">
                   {{ formatDueInfo() }}
                 </span>
               </div>
@@ -188,14 +190,14 @@ function formatDueInfo() {
       </div>
 
       <!-- New Session Form -->
-      <Card v-if="!studyStore.isSessionActive && !loading" class="new-session-card">
+      <Card v-if="!studyStore.isSessionActive && !loading">
         <template #title>Start New Study Session</template>
         <template #content>
-          <div class="session-form">
+          <div class="flex flex-col gap-xl">
             <!-- Source Selection -->
-            <div class="form-section">
-              <label class="form-label">Study Source</label>
-              <div class="source-options">
+            <div class="flex flex-col gap-md">
+              <label class="text-lg font-semibold text-primary">Study Source</label>
+              <div class="flex flex-col gap-md">
                 <div
                   v-for="option in sourceOptions"
                   :key="option.value"
@@ -208,20 +210,22 @@ function formatDueInfo() {
                     :value="option.value"
                     :input-id="option.value"
                   />
-                  <div class="option-content">
-                    <div class="option-header">
-                      <i class="pi" :class="option.icon"></i>
-                      <label :for="option.value" class="option-label">{{ option.label }}</label>
+                  <div class="flex-1 flex flex-col gap-sm">
+                    <div class="flex items-center gap-sm">
+                      <i class="pi text-xl icon-primary" :class="option.icon"></i>
+                      <label :for="option.value" class="text-lg font-semibold text-primary source-label">{{
+                          option.label
+                        }}</label>
                     </div>
-                    <p class="option-description">{{ option.description }}</p>
+                    <p class="text-secondary leading-normal source-description">{{ option.description }}</p>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- Session Size -->
-            <div class="form-section">
-              <label class="form-label">
+            <div class="flex flex-col gap-md">
+              <label class="text-lg font-semibold text-primary">
                 Session Size: {{ sessionSize }} words
               </label>
               <InputNumber
@@ -231,7 +235,7 @@ function formatDueInfo() {
                 :step="5"
                 show-buttons
                 button-layout="horizontal"
-                class="session-size-input"
+                class="w-full"
               >
                 <template #incrementbuttonicon>
                   <span class="pi pi-plus"></span>
@@ -240,30 +244,30 @@ function formatDueInfo() {
                   <span class="pi pi-minus"></span>
                 </template>
               </InputNumber>
-              <small class="form-help">
+              <small class="text-sm text-secondary">
                 Choose how many words to study in this session (5-{{ maxSessionSize }})
               </small>
             </div>
 
             <!-- Include New Words -->
-            <div class="form-section">
-              <div class="checkbox-field">
+            <div class="flex flex-col gap-md">
+              <div class="flex items-center gap-sm">
                 <Checkbox
                   v-model="includeNewWords"
                   :binary="true"
                   input-id="includeNew"
                 />
-                <label for="includeNew" class="checkbox-label">
+                <label for="includeNew" class="font-medium text-primary checkbox-label">
                   Include new words (not yet studied)
                 </label>
               </div>
-              <small class="form-help">
+              <small class="text-sm text-secondary">
                 Mix in new vocabulary words along with review words
               </small>
             </div>
 
             <!-- Start Button -->
-            <div class="form-actions">
+            <div class="flex flex-col gap-md">
               <Button
                 label="Start Session"
                 icon="pi pi-play"
@@ -271,13 +275,12 @@ function formatDueInfo() {
                 :loading="startingSession"
                 :disabled="!canStartSession"
                 size="large"
-                class="start-button"
+                class="w-full"
               />
               <Message
                 v-if="!canStartSession && selectedSource === 'DUE_REVIEW'"
                 severity="info"
                 :closable="false"
-                class="no-due-message"
               >
                 No words are due for review right now. Try studying from all vocabulary or check back later!
               </Message>
@@ -287,10 +290,10 @@ function formatDueInfo() {
       </Card>
 
       <!-- Empty State -->
-      <Card v-if="!loading && !studyStore.dueWords?.totalDue && !studyStore.isSessionActive" class="empty-state">
+      <Card v-if="!loading && !studyStore.dueWords?.totalDue && !studyStore.isSessionActive" class="mt-xl">
         <template #content>
-          <div class="empty-content">
-            <i class="pi pi-check-circle empty-icon"></i>
+          <div class="empty-state">
+            <i class="pi pi-check-circle empty-icon icon-success"></i>
             <h3>All Caught Up!</h3>
             <p>You have no words due for review right now. Keep up the great work!</p>
             <Button
@@ -307,115 +310,91 @@ function formatDueInfo() {
 </template>
 
 <style scoped>
-.study-home-container {
+.page-container {
   min-height: 100vh;
-  background: var(--surface-ground);
-  padding: 2rem 1rem;
+  background: var(--bg-primary);
+  padding: var(--spacing-xl) var(--spacing-md);
 }
 
-.study-home-content {
+.content-area {
   max-width: 900px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--spacing-lg);
 }
 
-.header {
-  margin-bottom: 1rem;
+.mt-xl {
+  margin-top: var(--spacing-xl);
 }
 
-.study-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--text-color);
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.w-full {
+  width: 100%;
 }
 
-.study-title i {
-  color: var(--primary-color);
-  font-size: 2rem;
+.icon-primary {
+  color: var(--primary);
 }
 
-.error-message {
-  margin-bottom: 1rem;
-}
-
-/* Active Session Card */
-.active-session-card {
-  border: 2px solid var(--primary-color);
-  background: var(--primary-50);
-}
-
-.active-session-title {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: var(--primary-color);
-}
-
-.active-session-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.session-stats {
-  display: flex;
-  gap: 2rem;
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+.icon-success {
+  color: var(--success);
 }
 
 .stat-label {
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-.stat-value {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-color);
-}
-
-.session-progress {
+.session-progress-bar {
   height: 1rem;
 }
 
-.session-actions {
-  display: flex;
-  gap: 1rem;
+.card-title-primary {
+  color: var(--primary);
 }
 
-/* Due Words Summary */
-.due-words-summary {
-  margin-bottom: 0.5rem;
-}
-
-.due-card {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-600) 100%);
+.due-count {
+  margin: 0 0 0.25rem 0;
   color: white;
 }
 
-.due-content {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
+.due-label {
+  margin: 0 0 0.5rem 0;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.due-info {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.source-label {
+  cursor: pointer;
+}
+
+.source-description {
+  margin: 0;
+}
+
+.checkbox-label {
+  cursor: pointer;
+}
+
+/* Active Session Card */
+.active-session-card {
+  border: 2px solid var(--primary);
+  background: var(--primary-light);
+}
+
+/* Due Words Card */
+.due-card {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
 }
 
 .due-icon-wrapper {
   width: 4rem;
   height: 4rem;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
@@ -427,191 +406,40 @@ function formatDueInfo() {
   color: white;
 }
 
-.due-info h3 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0 0 0.25rem 0;
-  color: white;
-}
-
-.due-info p {
-  font-size: 1.125rem;
-  margin: 0 0 0.5rem 0;
-  color: rgba(255, 255, 255, 0.95);
-}
-
-.due-breakdown {
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-/* New Session Form */
-.session-form {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.form-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.form-label {
-  font-weight: 600;
-  font-size: 1.125rem;
-  color: var(--text-color);
-}
-
-.source-options {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
+/* Source Option */
 .source-option {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
+  gap: var(--spacing-md);
   padding: 1.25rem;
-  border: 2px solid var(--surface-border);
-  border-radius: var(--border-radius);
+  border: 2px solid var(--border-medium);
+  border-radius: var(--radius-md);
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .source-option:hover {
-  border-color: var(--primary-color);
-  background: var(--primary-50);
+  border-color: var(--primary);
+  background: var(--primary-light);
 }
 
 .source-option.selected {
-  border-color: var(--primary-color);
-  background: var(--primary-50);
-}
-
-.option-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.option-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.option-header i {
-  color: var(--primary-color);
-  font-size: 1.25rem;
-}
-
-.option-label {
-  font-weight: 600;
-  font-size: 1.125rem;
-  color: var(--text-color);
-  cursor: pointer;
-}
-
-.option-description {
-  margin: 0;
-  color: var(--text-color-secondary);
-  line-height: 1.5;
-}
-
-.session-size-input {
-  width: 100%;
-}
-
-.form-help {
-  color: var(--text-color-secondary);
-  font-size: 0.875rem;
-}
-
-.checkbox-field {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.checkbox-label {
-  font-weight: 500;
-  color: var(--text-color);
-  cursor: pointer;
-}
-
-.form-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.start-button {
-  width: 100%;
-}
-
-.no-due-message {
-  width: 100%;
-}
-
-/* Empty State */
-.empty-state {
-  margin-top: 2rem;
-}
-
-.empty-content {
-  text-align: center;
-  padding: 3rem 2rem;
-}
-
-.empty-icon {
-  font-size: 4rem;
-  color: var(--green-500);
-  margin-bottom: 1rem;
-}
-
-.empty-content h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-color);
-  margin-bottom: 0.5rem;
-}
-
-.empty-content p {
-  color: var(--text-color-secondary);
-  margin-bottom: 2rem;
-  font-size: 1rem;
+  border-color: var(--primary);
+  background: var(--primary-light);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .study-home-container {
-    padding: 1rem;
+  .page-container {
+    padding: var(--spacing-md);
   }
 
-  .study-title {
+  .page-header h1 {
     font-size: 2rem;
   }
 
-  .session-stats {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .session-actions {
-    flex-direction: column;
-  }
-
-  .due-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
   .source-option {
-    padding: 1rem;
+    padding: var(--spacing-md);
   }
 }
 </style>

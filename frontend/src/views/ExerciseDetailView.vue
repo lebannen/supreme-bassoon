@@ -178,7 +178,7 @@ onMounted(fetchExercise)
 
 .instructions {
   font-size: 1.125rem;
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
   margin-bottom: 1rem;
 }
 
@@ -195,8 +195,8 @@ onMounted(fetchExercise)
 .exercise-data {
   margin-top: 2rem;
   padding: 1rem;
-  background: var(--surface-ground);
-  border-radius: 8px;
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
 }
 
 .exercise-data h3 {
@@ -205,10 +205,9 @@ onMounted(fetchExercise)
 }
 
 .exercise-data pre {
-  background: var(--surface-card);
+  background: var(--bg-secondary);
   padding: 1rem;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   overflow-x: auto;
-  font-size: 0.875rem;
 }
 </style>

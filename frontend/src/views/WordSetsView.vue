@@ -347,7 +347,7 @@ onMounted(() => {
 .word-sets-container {
   min-height: 100vh;
   background: var(--surface-ground);
-  padding: 2rem 1rem;
+  padding: var(--spacing-2xl) var(--spacing-md);
 }
 
 .word-sets-content {
@@ -356,26 +356,26 @@ onMounted(() => {
 }
 
 .header {
-  margin-bottom: 2rem;
+  margin-bottom: var(--spacing-2xl);
 }
 
 .title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--text-color);
-  margin: 0 0 0.5rem 0;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-xs) 0;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--spacing-md);
 }
 
 .title i {
-  color: var(--primary-color);
+  color: var(--primary);
   font-size: 2rem;
 }
 
 .subtitle {
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
   font-size: 1.125rem;
   margin: 0;
 }
@@ -384,16 +384,16 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 2rem;
-  gap: 1rem;
+  margin-bottom: var(--spacing-2xl);
+  gap: var(--spacing-md);
   flex-wrap: wrap;
 }
 
 .language-filter label {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-xs);
   font-weight: 600;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 .language-select {
@@ -413,24 +413,24 @@ onMounted(() => {
 .upload-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--spacing-xl);
 }
 
 .upload-form .field {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--spacing-xs);
 }
 
 .upload-form .field label {
   font-weight: 600;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 .file-name {
   display: block;
-  margin-top: 0.5rem;
-  color: var(--text-color-secondary);
+  margin-top: var(--spacing-xs);
+  color: var(--text-secondary);
   font-style: italic;
 }
 
@@ -439,47 +439,47 @@ onMounted(() => {
 }
 
 .error-message {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-xl);
 }
 
 .loading-state {
   display: flex;
   justify-content: center;
-  padding: 4rem 2rem;
+  padding: var(--spacing-4xl) var(--spacing-2xl);
 }
 
 .empty-state {
-  margin-top: 2rem;
+  margin-top: var(--spacing-2xl);
 }
 
 .empty-content {
   text-align: center;
-  padding: 3rem 2rem;
+  padding: var(--spacing-3xl) var(--spacing-2xl);
 }
 
 .empty-icon {
   font-size: 4rem;
-  color: var(--text-color-secondary);
-  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
 }
 
 .empty-content h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--text-color);
-  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
 }
 
 .empty-content p {
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
   font-size: 1rem;
 }
 
 .word-sets-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-md);
 }
 
 .word-set-card {
@@ -489,14 +489,14 @@ onMounted(() => {
 }
 
 .card-header {
-  padding: 1rem;
-  background: var(--surface-50);
-  border-bottom: 1px solid var(--surface-border);
+  padding: var(--spacing-md);
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-medium);
 }
 
 .card-header-content {
   display: flex;
-  gap: 0.5rem;
+  gap: var(--spacing-xs);
   align-items: center;
   flex-wrap: wrap;
 }
@@ -508,49 +508,46 @@ onMounted(() => {
 .word-set-name {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 .theme {
-  color: var(--text-color-secondary);
-  font-size: 0.875rem;
+  color: var(--text-secondary);
   font-style: italic;
 }
 
 .description {
-  color: var(--text-color-secondary);
-  font-size: 0.875rem;
-  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
 }
 
 .word-set-stats {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-md);
 }
 
 .stat {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  color: var(--text-color-secondary);
-  font-size: 0.875rem;
+  gap: var(--spacing-xs);
+  color: var(--text-secondary);
 }
 
 .stat i {
-  color: var(--primary-color);
+  color: var(--primary);
 }
 
 .card-actions {
   display: flex;
-  gap: 0.5rem;
+  gap: var(--spacing-xs);
   justify-content: space-between;
 }
 
 @media (max-width: 768px) {
   .word-sets-container {
-    padding: 1rem;
+    padding: var(--spacing-md);
   }
 
   .title {

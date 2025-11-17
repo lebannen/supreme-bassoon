@@ -78,10 +78,10 @@ onMounted(() => {
 
 <template>
   <div class="course-detail-view">
-    <div class="course-container">
+    <div class="detail-container">
       <!-- Loading State -->
       <div v-if="loading" class="loading-state">
-        <i class="pi pi-spin pi-spinner" style="font-size: 3rem"></i>
+        <i class="pi pi-spin pi-spinner loading-spinner"></i>
         <p>Loading course...</p>
       </div>
 
@@ -91,26 +91,26 @@ onMounted(() => {
       </Message>
 
       <!-- Course Content -->
-      <div v-else-if="course" class="course-content">
+      <div v-else-if="course" class="content-area-lg">
         <!-- Header -->
-        <div class="course-header">
+        <div class="detail-header">
           <Button
             icon="pi pi-arrow-left"
             text
             rounded
             @click="goBack"
-            class="back-button"
+            class="detail-header-back-btn"
           />
-          <div class="header-info">
-            <div class="course-meta">
+          <div class="detail-header-content">
+            <div class="meta-badges">
               <Tag :value="course.languageCode.toUpperCase()" severity="info" />
               <Tag :value="course.cefrLevel" />
             </div>
             <h1>{{ course.name }}</h1>
-            <p v-if="course.description" class="course-description">
+            <p v-if="course.description" class="detail-description">
               {{ course.description }}
             </p>
-            <div class="course-stats">
+            <div class="icon-label-group">
               <span><i class="pi pi-book"></i> {{ course.modules.length }} modules</span>
               <span><i class="pi pi-clock"></i> ~{{ course.estimatedHours }}h total</span>
             </div>
@@ -118,15 +118,15 @@ onMounted(() => {
         </div>
 
         <!-- Learning Objectives -->
-        <Card v-if="course.objectives && course.objectives.length > 0" class="objectives-card">
+        <Card v-if="course.objectives && course.objectives.length > 0">
           <template #title>
-            <div class="card-title">
+            <div class="card-title-icon">
               <i class="pi pi-list-check"></i>
               <span>What You'll Learn</span>
             </div>
           </template>
           <template #content>
-            <ul class="objectives-list">
+            <ul class="checklist">
               <li v-for="(objective, index) in course.objectives" :key="index">
                 <i class="pi pi-check-circle"></i>
                 <span>{{ objective }}</span>
@@ -138,10 +138,12 @@ onMounted(() => {
         <Divider />
 
         <!-- Modules -->
-        <div class="modules-section">
-          <h2>Course Modules</h2>
+        <div class="section">
+          <div class="section-header">
+            <h2>Course Modules</h2>
+          </div>
 
-          <div class="modules-list">
+          <div class="task-list">
             <Card
               v-for="module in course.modules"
               :key="module.id"
@@ -149,16 +151,16 @@ onMounted(() => {
               @click="goToModule(module.id)"
             >
               <template #title>
-                <div class="module-title">
-                  <div class="module-number">{{ module.moduleNumber }}</div>
-                  <div class="module-info">
-                    <h3>{{ module.title }}</h3>
-                    <p v-if="module.theme" class="module-theme">{{ module.theme }}</p>
+                <div class="flex gap-lg items-center">
+                  <div class="number-badge">{{ module.moduleNumber }}</div>
+                  <div class="flex-1">
+                    <h3 class="text-xl font-semibold mb-xs">{{ module.title }}</h3>
+                    <p v-if="module.theme" class="text-sm text-secondary">{{ module.theme }}</p>
                   </div>
                 </div>
               </template>
               <template #content>
-                <div class="module-stats">
+                <div class="icon-label-group">
                   <span>
                     <i class="pi pi-list"></i>
                     {{ module.totalEpisodes }} episodes
@@ -189,126 +191,8 @@ onMounted(() => {
 <style scoped>
 .course-detail-view {
   min-height: 100vh;
-  background: var(--surface-ground);
+  background: var(--bg-primary);
   padding: 2rem 1rem;
-}
-
-.course-container {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.loading-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem;
-  gap: 1rem;
-}
-
-.course-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-/* Header */
-.course-header {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-.back-button {
-  margin-top: 0.5rem;
-}
-
-.header-info {
-  flex: 1;
-}
-
-.course-meta {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
-}
-
-.course-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0 0 1rem 0;
-  color: var(--text-color);
-}
-
-.course-description {
-  font-size: 1.125rem;
-  color: var(--text-color-secondary);
-  line-height: 1.6;
-  margin: 0 0 1.5rem 0;
-}
-
-.course-stats {
-  display: flex;
-  gap: 2rem;
-  color: var(--text-color-secondary);
-}
-
-.course-stats span {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.course-stats i {
-  color: var(--primary-color);
-}
-
-/* Objectives */
-.card-title {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: var(--text-color);
-}
-
-.card-title i {
-  color: var(--primary-color);
-}
-
-.objectives-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.objectives-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  line-height: 1.6;
-}
-
-.objectives-list i {
-  color: var(--green-500);
-  font-size: 1.25rem;
-  margin-top: 0.125rem;
-  flex-shrink: 0;
-}
-
-/* Modules */
-.modules-section h2 {
-  margin-bottom: 1.5rem;
-  color: var(--text-color);
-}
-
-.modules-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 }
 
 .module-card {
@@ -318,89 +202,16 @@ onMounted(() => {
 
 .module-card:hover {
   transform: translateX(4px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
 }
 
-.module-title {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-}
-
-.module-number {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-600));
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.module-info {
-  flex: 1;
-}
-
-.module-info h3 {
-  margin: 0 0 0.25rem 0;
-  font-size: 1.25rem;
-  color: var(--text-color);
-}
-
-.module-theme {
-  margin: 0;
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
-  font-weight: normal;
-}
-
-.module-stats {
-  display: flex;
-  gap: 2rem;
-  color: var(--text-color-secondary);
-  font-size: 0.875rem;
-}
-
-.module-stats span {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.module-stats i {
-  color: var(--primary-color);
+.loading-spinner {
+  font-size: 3rem;
 }
 
 @media (max-width: 768px) {
   .course-detail-view {
     padding: 1rem;
-  }
-
-  .course-header {
-    flex-direction: column;
-  }
-
-  .course-header h1 {
-    font-size: 2rem;
-  }
-
-  .module-title {
-    gap: 1rem;
-  }
-
-  .module-number {
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.25rem;
-  }
-
-  .module-stats {
-    flex-direction: column;
-    gap: 0.5rem;
   }
 }
 </style>

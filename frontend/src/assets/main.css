@@ -1,5 +1,17 @@
+/* ========== IMPORT ORDER ========== */
+/* 1. Base reset and typography */
 @import './base.css';
 
+/* 2. Design tokens (CSS variables) */
+@import './theme.css';
+
+/* 3. Reusable utility classes */
+@import './utilities.css';
+
+/* 4. Component base styles */
+@import './components.css';
+
+/* ========== APP STRUCTURE ========== */
 #app {
   width: 100%;
   margin: 0;
@@ -8,4 +20,69 @@
 
 * {
   box-sizing: border-box;
+}
+
+/* ========== PRIMEVUE COMPONENT OVERRIDES ========== */
+/* Ensure PrimeVue components respect our theme */
+
+/* InputText */
+.p-inputtext {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-dark);
+}
+
+.p-inputtext:enabled:hover {
+    border-color: var(--border-medium);
+}
+
+.p-inputtext:enabled:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 1px var(--primary);
+}
+
+/* Select/Dropdown */
+.p-select {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-dark);
+}
+
+.p-select:hover {
+    border-color: var(--border-medium);
+}
+
+.p-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 1px var(--primary);
+}
+
+.p-select-overlay {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-dark);
+}
+
+.p-select-option {
+    color: var(--text-primary);
+}
+
+.p-select-option:hover {
+    background: var(--bg-hover);
+}
+
+.p-select-option.p-focus {
+    background: var(--bg-hover);
+}
+
+.p-select-option.p-select-option-selected {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+/* Message */
+.p-message {
+    background: var(--bg-secondary);
+    border-color: var(--border-light);
+    color: var(--text-primary);
 }

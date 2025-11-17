@@ -92,10 +92,10 @@ onMounted(() => {
 
 <template>
   <div class="module-detail-view">
-    <div class="module-container">
+    <div class="detail-container">
       <!-- Loading State -->
       <div v-if="loading" class="loading-state">
-        <i class="pi pi-spin pi-spinner" style="font-size: 3rem"></i>
+        <i class="pi pi-spin pi-spinner loading-spinner"></i>
         <p>Loading module...</p>
       </div>
 
@@ -105,26 +105,26 @@ onMounted(() => {
       </Message>
 
       <!-- Module Content -->
-      <div v-else-if="module" class="module-content">
+      <div v-else-if="module" class="content-area-lg">
         <!-- Header -->
-        <div class="module-header">
+        <div class="detail-header">
           <Button
             icon="pi pi-arrow-left"
             text
             rounded
             @click="goBack"
-            class="back-button"
+            class="detail-header-back-btn"
           />
-          <div class="header-info">
-            <div class="module-meta">
-              <span class="module-number-badge">Module {{ module.moduleNumber }}</span>
+          <div class="detail-header-content">
+            <div class="meta-badges">
+              <span class="badge badge-info">Module {{ module.moduleNumber }}</span>
               <Tag v-if="module.theme" :value="module.theme" />
             </div>
             <h1>{{ module.title }}</h1>
-            <p v-if="module.description" class="module-description">
+            <p v-if="module.description" class="detail-description">
               {{ module.description }}
             </p>
-            <div class="module-stats">
+            <div class="icon-label-group">
               <span><i class="pi pi-list"></i> {{ module.episodes.length }} episodes</span>
               <span><i class="pi pi-clock"></i> ~{{ module.estimatedMinutes }} min</span>
             </div>
@@ -132,15 +132,15 @@ onMounted(() => {
         </div>
 
         <!-- Learning Objectives -->
-        <Card v-if="module.objectives && module.objectives.length > 0" class="objectives-card">
+        <Card v-if="module.objectives && module.objectives.length > 0">
           <template #title>
-            <div class="card-title">
+            <div class="card-title-icon">
               <i class="pi pi-target"></i>
               <span>Module Objectives</span>
             </div>
           </template>
           <template #content>
-            <ul class="objectives-list">
+            <ul class="objectives-grid">
               <li v-for="(objective, index) in module.objectives" :key="index">
                 <i class="pi pi-check"></i>
                 <span>{{ objective }}</span>
@@ -150,10 +150,12 @@ onMounted(() => {
         </Card>
 
         <!-- Episodes -->
-        <div class="episodes-section">
-          <h2>Episodes</h2>
+        <div class="section">
+          <div class="section-header">
+            <h2>Episodes</h2>
+          </div>
 
-          <div class="episodes-list">
+          <div class="content-grid">
             <Card
               v-for="episode in module.episodes"
               :key="episode.id"
@@ -162,8 +164,8 @@ onMounted(() => {
             >
               <template #header>
                 <div class="episode-card-header">
-                  <div class="episode-number">{{ episode.episodeNumber }}</div>
-                  <div class="episode-badges">
+                  <div class="number-badge-sm">{{ episode.episodeNumber }}</div>
+                  <div class="flex gap-sm flex-wrap">
                     <Tag :value="episode.type" :icon="episodeTypeIcon(episode.type)" />
                     <Tag v-if="episode.hasAudio" value="Audio" severity="success" icon="pi pi-volume-up" />
                   </div>
@@ -173,7 +175,7 @@ onMounted(() => {
                 {{ episode.title }}
               </template>
               <template #content>
-                <div class="episode-stats">
+                <div class="icon-label-group episode-stats">
                   <span>
                     <i class="pi pi-list"></i>
                     {{ episode.totalExercises }} exercises
@@ -202,13 +204,8 @@ onMounted(() => {
 <style scoped>
 .module-detail-view {
   min-height: 100vh;
-  background: var(--surface-ground);
+  background: var(--bg-primary);
   padding: 2rem 1rem;
-}
-
-.module-container {
-  max-width: 1000px;
-  margin: 0 auto;
 }
 
 .loading-state {
@@ -216,91 +213,24 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4rem;
   gap: 1rem;
+  min-height: 400px;
 }
 
-.module-content {
+.loading-spinner {
+  font-size: 3rem;
+}
+
+.episode-card-header {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-/* Header */
-.module-header {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-.back-button {
-  margin-top: 0.5rem;
-}
-
-.header-info {
-  flex: 1;
-}
-
-.module-meta {
-  display: flex;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
+  justify-content: space-between;
   align-items: center;
+  padding: var(--spacing-lg);
+  background: var(--bg-tertiary);
 }
 
-.module-number-badge {
-  background: var(--primary-100);
-  color: var(--primary-700);
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.module-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0 0 1rem 0;
-  color: var(--text-color);
-}
-
-.module-description {
-  font-size: 1.125rem;
-  color: var(--text-color-secondary);
-  line-height: 1.6;
-  margin: 0 0 1.5rem 0;
-}
-
-.module-stats {
-  display: flex;
-  gap: 2rem;
-  color: var(--text-color-secondary);
-}
-
-.module-stats span {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.module-stats i {
-  color: var(--primary-color);
-}
-
-/* Objectives */
-.card-title {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: var(--text-color);
-}
-
-.card-title i {
-  color: var(--primary-color);
-}
-
-.objectives-list {
+/* Objectives Grid (similar to checklist but in grid layout) */
+.objectives-grid {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -309,28 +239,16 @@ onMounted(() => {
   gap: 1rem;
 }
 
-.objectives-list li {
+.objectives-grid li {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
 }
 
-.objectives-list i {
-  color: var(--green-500);
+.objectives-grid i {
+  color: var(--success);
   margin-top: 0.25rem;
   flex-shrink: 0;
-}
-
-/* Episodes */
-.episodes-section h2 {
-  margin-bottom: 1.5rem;
-  color: var(--text-color);
-}
-
-.episodes-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
 }
 
 .episode-card {
@@ -343,52 +261,7 @@ onMounted(() => {
 
 .episode-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.episode-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background: var(--surface-50);
-}
-
-.episode-number {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-600));
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  font-weight: 700;
-}
-
-.episode-badges {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.episode-stats {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  color: var(--text-color-secondary);
-  font-size: 0.875rem;
-}
-
-.episode-stats span {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.episode-stats i {
-  color: var(--primary-color);
+  box-shadow: var(--shadow-lg);
 }
 
 @media (max-width: 768px) {
@@ -396,19 +269,7 @@ onMounted(() => {
     padding: 1rem;
   }
 
-  .module-header {
-    flex-direction: column;
-  }
-
-  .module-header h1 {
-    font-size: 2rem;
-  }
-
-  .episodes-list {
-    grid-template-columns: 1fr;
-  }
-
-  .objectives-list {
+  .objectives-grid {
     grid-template-columns: 1fr;
   }
 }

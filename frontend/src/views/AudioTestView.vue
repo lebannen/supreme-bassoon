@@ -159,7 +159,9 @@ async function generateAudio() {
 
 <style scoped>
 .audio-test-view {
-  padding: 2rem;
+  padding: var(--spacing-2xl);
+  background: var(--bg-primary);
+  min-height: 100vh;
 }
 
 .container {
@@ -170,37 +172,38 @@ async function generateAudio() {
 .test-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--spacing-lg);
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--spacing-sm);
 }
 
 .field label {
   font-weight: 600;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 .audio-player-section {
-  margin-top: 1rem;
+  margin-top: var(--spacing-md);
 }
 
 .audio-player-section h3 {
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
 }
 
 .audio-url {
   font-size: 0.9rem;
-  color: var(--text-color-secondary);
-  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
   word-break: break-all;
 }
 
 .audio-player {
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: var(--spacing-sm);
 }
 </style>

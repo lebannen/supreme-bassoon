@@ -257,30 +257,30 @@ onUnmounted(() => {
 .import-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: var(--spacing-2xl) var(--spacing-xl);
 }
 
 h1 {
-  color: var(--text-color);
+  color: var(--text-primary);
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-xs);
 }
 
 .description {
-  color: var(--text-color-secondary);
-  margin-bottom: 2rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-2xl);
 }
 
 .upload-section {
-  background: var(--surface-card);
-  padding: 1.5rem;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--surface-border);
-  margin-bottom: 1.5rem;
+  background: var(--bg-secondary);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-medium);
+  margin-bottom: var(--spacing-xl);
 }
 
 .field {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-xl);
 }
 
 .field:last-child {
@@ -289,90 +289,87 @@ h1 {
 
 .field label {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-xs);
   font-weight: 600;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 .file-info {
   display: block;
-  margin-top: 0.5rem;
-  color: var(--text-color-secondary);
-  font-size: 0.875rem;
+  margin-top: var(--spacing-xs);
+  color: var(--text-secondary);
 }
 
 .button-group {
   display: flex;
-  gap: 0.75rem;
+  gap: var(--spacing-sm);
   flex-wrap: wrap;
 }
 
 .progress-section {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-xl);
 }
 
 .progress-info {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--spacing-xl);
 }
 
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
+  gap: var(--spacing-md);
 }
 
 .stat {
   text-align: center;
-  padding: 1rem;
-  background: var(--surface-section);
-  border: 1px solid var(--surface-border);
-  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
 }
 
 .stat label {
   display: block;
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
-  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xs);
 }
 
 .stat span {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 .progress-bar-container {
-  margin-top: 1rem;
+  margin-top: var(--spacing-md);
 }
 
 .message {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  color: var(--text-color-secondary);
-  font-size: 0.875rem;
+  gap: var(--spacing-xs);
+  color: var(--text-secondary);
 }
 
 .history-section {
-  margin-top: 3rem;
+  margin-top: var(--spacing-3xl);
 }
 
 .history-section h2 {
-  margin-bottom: 1rem;
-  color: var(--text-color);
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
   font-weight: 600;
 }
 
 @media (max-width: 768px) {
   .import-container {
-    padding: 1.5rem 1rem;
+    padding: var(--spacing-xl) var(--spacing-md);
   }
 
   .upload-section {
-    padding: 1.25rem;
+    padding: var(--spacing-lg);
   }
 
   .button-group {

@@ -1,8 +1,10 @@
 <template>
   <Toast />
   <div class="search-container">
-    <h1>Vocabulary Search</h1>
-    <p class="description">Search for words and explore their definitions</p>
+    <div class="page-header">
+      <h1>Vocabulary Search</h1>
+      <p>Search for words and explore their definitions</p>
+    </div>
 
     <div class="search-section">
       <div class="field">
@@ -46,7 +48,9 @@
     </Message>
 
     <div v-if="searchResults && searchResults.words.length > 0" class="results-section">
-      <h2>Search Results ({{ searchResults.total }})</h2>
+      <div class="section-header">
+        <h2>Search Results ({{ searchResults.total }})</h2>
+      </div>
       <DataTable :value="searchResults.words" :paginator="true" :rows="20" selectionMode="single" @row-select="onWordSelect">
         <Column field="lemma" header="Word" sortable></Column>
         <Column field="partOfSpeech" header="Part of Speech" sortable>
@@ -86,8 +90,9 @@
       </DataTable>
     </div>
 
-    <div v-else-if="hasSearched && searchResults && searchResults.words.length === 0" class="no-results">
-      <i class="pi pi-search" style="font-size: 3rem; color: var(--text-color-secondary);"></i>
+    <div v-else-if="hasSearched && searchResults && searchResults.words.length === 0" class="empty-state">
+      <i class="pi pi-search empty-icon"></i>
+      <h3>No results found</h3>
       <p>No words found for "{{ searchQuery }}"</p>
     </div>
 
@@ -241,30 +246,19 @@ onMounted(() => {
 .search-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
-}
-
-h1 {
-  color: var(--text-color);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.description {
-  color: var(--text-color-secondary);
-  margin-bottom: 2rem;
+  padding: var(--spacing-2xl) var(--spacing-xl);
 }
 
 .search-section {
   background: var(--surface-card);
-  padding: 1.5rem;
+  padding: var(--spacing-xl);
   border-radius: var(--border-radius);
   border: 1px solid var(--surface-border);
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-xl);
 }
 
 .field {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-xl);
 }
 
 .field:last-child {
@@ -273,14 +267,14 @@ h1 {
 
 .field label {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-xs);
   font-weight: 600;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 .search-input-wrapper {
   display: flex;
-  gap: 0.75rem;
+  gap: var(--spacing-sm);
 }
 
 .search-input-wrapper .p-inputtext {
@@ -288,41 +282,20 @@ h1 {
 }
 
 .results-section {
-  margin-top: 1.5rem;
-}
-
-.results-section h2 {
-  margin-bottom: 1rem;
-  color: var(--text-color);
-  font-weight: 600;
-}
-
-.no-results {
-  text-align: center;
-  padding: 4rem 2rem;
-  background: var(--surface-card);
-  border-radius: var(--border-radius);
-  border: 1px solid var(--surface-border);
-  color: var(--text-color-secondary);
-}
-
-.no-results p {
-  margin-top: 1rem;
-  font-size: 1.1rem;
-  color: var(--text-color-secondary);
+  margin-top: var(--spacing-xl);
 }
 
 .text-muted {
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
 }
 
 @media (max-width: 768px) {
   .search-container {
-    padding: 1.5rem 1rem;
+    padding: var(--spacing-xl) var(--spacing-md);
   }
 
   .search-section {
-    padding: 1.25rem;
+    padding: var(--spacing-lg);
   }
 
   .search-input-wrapper {

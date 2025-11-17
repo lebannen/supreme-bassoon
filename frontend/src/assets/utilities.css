@@ -1,0 +1,801 @@
+/* ========== VOCABEE UTILITIES ========== */
+/* Common layout patterns and structural utilities */
+
+/* ========== TYPOGRAPHY ========== */
+
+/* Text sizes */
+.text-xs {
+    font-size: 0.75rem;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.text-base {
+    font-size: 1rem;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+}
+
+.text-xl {
+    font-size: 1.25rem;
+}
+
+.text-2xl {
+    font-size: 1.5rem;
+}
+
+.text-3xl {
+    font-size: 2rem;
+}
+
+.text-4xl {
+    font-size: 2.5rem;
+}
+
+/* Font weights */
+.font-normal {
+    font-weight: 400;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+/* Text colors */
+.text-primary {
+    color: var(--text-primary);
+}
+
+.text-secondary {
+    color: var(--text-secondary);
+}
+
+.text-tertiary {
+    color: var(--text-tertiary);
+}
+
+/* Line height */
+.leading-normal {
+    line-height: 1.5;
+}
+
+.leading-relaxed {
+    line-height: 1.6;
+}
+
+.leading-loose {
+    line-height: 1.8;
+}
+
+/* ========== SPACING ========== */
+
+.gap-xs {
+    gap: var(--spacing-xs);
+}
+
+.gap-sm {
+    gap: var(--spacing-sm);
+}
+
+.gap-md {
+    gap: var(--spacing-md);
+}
+
+.gap-lg {
+    gap: var(--spacing-lg);
+}
+
+.gap-xl {
+    gap: var(--spacing-xl);
+}
+
+.mb-xs {
+    margin-bottom: var(--spacing-xs);
+}
+
+.mb-sm {
+    margin-bottom: var(--spacing-sm);
+}
+
+.mb-md {
+    margin-bottom: var(--spacing-md);
+}
+
+.mb-lg {
+    margin-bottom: var(--spacing-lg);
+}
+
+.mb-xl {
+    margin-bottom: var(--spacing-xl);
+}
+
+.mb-2xl {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.mb-3xl {
+    margin-bottom: var(--spacing-3xl);
+}
+
+/* ========== FLEXBOX UTILITIES ========== */
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+/* ========== GRID SYSTEMS ========== */
+
+/* Content Grid - for courses, content cards, etc. */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* Stats Grid - for stat cards on dashboard */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* Task List - vertical list of tasks/items */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+/* ========== PAGE STRUCTURE ========== */
+
+/* Page Header - main page title and description */
+.page-header {
+    margin-bottom: var(--spacing-3xl);
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.375rem;
+    color: var(--text-primary);
+}
+
+.page-header p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+/* Section Header - section title with optional actions */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-lg);
+}
+
+.section-header h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Detail Page Header - for course/module/episode detail pages */
+.detail-header {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.detail-header-back-btn {
+    margin-top: 0.5rem;
+}
+
+.detail-header-content {
+    flex: 1;
+}
+
+.detail-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    color: var(--text-primary);
+}
+
+.detail-description {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+}
+
+/* ========== COMMON STATES ========== */
+
+/* Loading State */
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    gap: 1rem;
+    color: var(--text-secondary);
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-4xl) var(--spacing-xl);
+}
+
+.empty-state .empty-icon {
+    font-size: 64px;
+    display: block;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.5;
+}
+
+.empty-state h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 var(--spacing-sm) 0;
+}
+
+.empty-state p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 14px;
+}
+
+/* ========== LAYOUT CONTAINERS ========== */
+
+/* View Container - max width wrapper for views */
+.view-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Detail Container - narrower max width for detail pages */
+.detail-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* ========== COMMON PATTERNS ========== */
+
+/* Icon + Label Pattern - for stats, metadata, etc. */
+.icon-label-group {
+    display: flex;
+    gap: 2rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.icon-label-group span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.icon-label-group i {
+    color: var(--primary);
+}
+
+/* Vertical variant */
+.icon-label-group.vertical {
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Compact variant */
+.icon-label-group.compact {
+    gap: 1rem;
+}
+
+/* Card Title with Icon */
+.card-title-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-primary);
+}
+
+.card-title-icon i {
+    color: var(--primary);
+}
+
+/* Checklist - for objectives, features, etc. */
+.checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    line-height: 1.6;
+}
+
+.checklist i {
+    color: var(--success);
+    font-size: 1.25rem;
+    margin-top: 0.125rem;
+    flex-shrink: 0;
+}
+
+/* Meta Badges - horizontal group of badges */
+.meta-badges {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* ========== COMMON LAYOUT PATTERNS ========== */
+
+/* Centered content wrapper */
+.centered-content {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Section with margin */
+.section {
+    margin-bottom: var(--spacing-4xl);
+}
+
+/* Content area with standard gap */
+.content-area {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.content-area-lg {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Text center */
+.text-center {
+    text-align: center;
+}
+
+/* Padding utilities */
+.p-lg {
+    padding: var(--spacing-lg);
+}
+
+.p-xl {
+    padding: var(--spacing-xl);
+}
+
+.p-2xl {
+    padding: var(--spacing-2xl);
+}
+
+.p-4xl {
+    padding: var(--spacing-4xl);
+}
+
+/* ========== STATE INDICATORS ========== */
+
+.completed-indicator {
+    color: var(--success);
+}
+
+.pending-indicator {
+    color: var(--text-secondary);
+}
+
+.active-indicator {
+    color: var(--primary);
+}
+
+/* ========== NUMBER BADGES ========== */
+
+/* Circular number badge */
+.number-badge {
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
+    color: var(--text-inverse);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.number-badge-sm {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+}
+
+.number-badge-lg {
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.5rem;
+}
+
+/* ========== READING-SPECIFIC PATTERNS ========== */
+
+/* View Header - sticky header for reading views */
+.view-header {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-medium);
+    padding: 2rem;
+}
+
+.view-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.view-header-text {
+    flex: 1;
+    text-align: center;
+}
+
+.view-header-text h1 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.view-header-text p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+}
+
+/* Text Header - for text reader pages */
+.text-header {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-medium);
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.text-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.text-info h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Meta badges with flexible gap */
+.meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.meta-compact {
+    gap: 0.5rem;
+}
+
+.meta-sm {
+    gap: 0.75rem;
+}
+
+/* Language badge */
+.language-badge {
+    padding: 0.25rem 0.75rem;
+    background: var(--primary);
+    color: var(--text-inverse);
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Topic badge */
+.topic-badge {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* Completed badge */
+.completed-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--success-light);
+    color: var(--success);
+    border-radius: 1rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.completed-badge i {
+    font-size: 1.25rem;
+}
+
+/* Stats group */
+.stats {
+    display: flex;
+    gap: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.stats span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Audio status indicators */
+.audio-status {
+    display: flex;
+    align-items: center;
+}
+
+.audio-icon {
+    font-size: 1.5rem;
+}
+
+.audio-icon.has-audio {
+    color: var(--success);
+}
+
+.audio-icon.no-audio {
+    color: var(--text-tertiary);
+}
+
+/* Audio link */
+.audio-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.audio-link:hover {
+    text-decoration: underline;
+}
+
+/* Filters bar */
+.filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-select {
+    min-width: 200px;
+}
+
+/* File upload patterns */
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-md);
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.file-info i {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.file-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.file-name {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.file-size {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.file-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Upload patterns */
+.upload-header {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.upload-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.upload-progress small {
+    color: var(--text-secondary);
+}
+
+/* Summary stats */
+.summary-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+}
+
+.stat i {
+    font-size: 2rem;
+}
+
+.stat.success i {
+    color: var(--success);
+}
+
+.stat.failed i {
+    color: var(--error);
+}
+
+.stat.total i {
+    color: var(--primary);
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+/* ========== RESPONSIVE BREAKPOINTS ========== */
+
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 24px;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .view-header {
+        padding: 1.5rem 1rem;
+    }
+
+    .view-header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .view-header-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .view-header-text p {
+        font-size: 1rem;
+    }
+
+    .text-header {
+        padding: 1rem;
+    }
+
+    .text-info h1 {
+        font-size: 1.25rem;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+
+    .filter-select {
+        width: 100%;
+    }
+
+    .upload-header {
+        flex-direction: column;
+    }
+}

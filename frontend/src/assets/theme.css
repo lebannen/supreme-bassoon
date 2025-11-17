@@ -1,0 +1,208 @@
+/* ========== VOCABEE DESIGN SYSTEM ========== */
+/* CSS Variables - colors, spacing, shadows, etc. */
+/* Component styles are in components.css */
+/* Layout utilities are in utilities.css */
+
+:root {
+    /* ========== PRIMARY COLORS ========== */
+    --primary: #6366f1;
+    --primary-light: #eef2ff;
+    --primary-dark: #5558e3;
+    --primary-gradient-start: #6366f1;
+    --primary-gradient-end: #8b5cf6;
+
+    /* ========== BACKGROUND COLORS ========== */
+    --bg-primary: #fafafa;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f5f5f5;
+    --bg-hover: #f0f0f0;
+
+    /* ========== TEXT COLORS ========== */
+    --text-primary: #1a1a1a;
+    --text-secondary: #666;
+    --text-tertiary: #999;
+    --text-inverse: #ffffff;
+
+    /* ========== BORDER COLORS ========== */
+    --border-light: #f0f0f0;
+    --border-medium: #e5e5e5;
+    --border-dark: #e0e0e0;
+
+    /* ========== STATUS COLORS ========== */
+    --success: #10b981;
+    --success-light: #d1fae5;
+    --warning: #d97706;
+    --warning-light: #fef3c7;
+    --info: #3b82f6;
+    --info-light: #dbeafe;
+    --error: #ef4444;
+    --error-light: #fee2e2;
+
+    /* ========== GRADIENTS ========== */
+    --gradient-dialogue: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-story: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-grammar: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --gradient-avatar: linear-gradient(135deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
+
+    /* ========== SHADOWS ========== */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+    /* ========== SPACING ========== */
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 20px;
+    --spacing-xl: 24px;
+    --spacing-2xl: 32px;
+    --spacing-3xl: 40px;
+    --spacing-4xl: 48px;
+
+    /* ========== BORDER RADIUS ========== */
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 50%;
+
+    /* ========== LAYOUT ========== */
+    --sidebar-width: 260px;
+
+    /* ========== PRIMEVUE COMPATIBILITY MAPPING ========== */
+    /* Map our design system to PrimeVue variables */
+    --primary-color: var(--primary);
+    --primary-color-text: var(--text-inverse);
+    --surface-ground: var(--bg-primary);
+    --surface-section: var(--bg-secondary);
+    --surface-card: var(--bg-secondary);
+    --surface-overlay: var(--bg-secondary);
+    --surface-border: var(--border-medium);
+    --surface-hover: var(--bg-hover);
+    --text-color: var(--text-primary);
+    --text-color-secondary: var(--text-secondary);
+
+    /* Additional surface variables */
+    --surface-0: var(--bg-secondary);
+    --surface-50: var(--bg-tertiary);
+    --surface-100: var(--bg-hover);
+
+    /* Additional PrimeVue variables for dropdowns/overlays */
+    --p-content-background: var(--bg-secondary);
+    --p-content-border-color: var(--border-light);
+    --p-overlay-background: var(--bg-secondary);
+    --p-overlay-border-color: var(--border-light);
+    --p-select-background: var(--bg-secondary);
+    --p-select-border-color: var(--border-dark);
+    --p-select-color: var(--text-primary);
+    --p-select-option-color: var(--text-primary);
+    --p-select-option-background: var(--bg-secondary);
+    --p-select-option-focus-background: var(--bg-hover);
+    --p-select-option-selected-background: var(--primary-light);
+    --p-select-option-selected-color: var(--primary);
+
+    /* PrimeVue Card variables */
+    --p-card-background: var(--bg-secondary);
+    --p-card-border-color: var(--border-light);
+    --p-card-color: var(--text-primary);
+    --p-card-title-color: var(--text-primary);
+    --p-card-subtitle-color: var(--text-secondary);
+    --p-card-content-color: var(--text-primary);
+}
+
+/* ========== DARK MODE ========== */
+body.dark-theme {
+    /* Primary colors - slightly adjusted for dark mode */
+    --primary-light: #312e81;
+
+    /* Background colors */
+    --bg-primary: #0f0f0f;
+    --bg-secondary: #1a1a1a;
+    --bg-tertiary: #2a2a2a;
+    --bg-hover: #333333;
+
+    /* Text colors */
+    --text-primary: #f5f5f5;
+    --text-secondary: #b0b0b0;
+    --text-tertiary: #808080;
+
+    /* Border colors */
+    --border-light: #2a2a2a;
+    --border-medium: #333333;
+    --border-dark: #404040;
+
+    /* Status colors - darker backgrounds for dark mode */
+    --success-light: #065f46;
+    --warning-light: #78350f;
+    --info-light: #1e3a8a;
+    --error-light: #7f1d1d;
+
+    /* Shadows - stronger in dark mode */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.5);
+
+    /* PrimeVue compatibility - dark mode */
+    --surface-ground: var(--bg-primary);
+    --surface-section: var(--bg-secondary);
+    --surface-card: var(--bg-secondary);
+    --surface-overlay: var(--bg-secondary);
+    --surface-border: var(--border-medium);
+    --surface-hover: var(--bg-hover);
+    --text-color: var(--text-primary);
+    --text-color-secondary: var(--text-secondary);
+
+    /* Additional surface variables */
+    --surface-0: var(--bg-secondary);
+    --surface-50: var(--bg-tertiary);
+    --surface-100: var(--bg-hover);
+
+    /* Additional PrimeVue variables for dropdowns/overlays */
+    --p-content-background: var(--bg-secondary);
+    --p-content-border-color: var(--border-dark);
+    --p-overlay-background: var(--bg-secondary);
+    --p-overlay-border-color: var(--border-dark);
+    --p-select-background: var(--bg-tertiary);
+    --p-select-border-color: var(--border-dark);
+    --p-select-color: var(--text-primary);
+    --p-select-option-color: var(--text-primary);
+    --p-select-option-background: var(--bg-secondary);
+    --p-select-option-focus-background: var(--bg-hover);
+    --p-select-option-selected-background: var(--primary-light);
+    --p-select-option-selected-color: var(--primary);
+
+    /* PrimeVue Card variables */
+    --p-card-background: var(--bg-secondary);
+    --p-card-border-color: var(--border-dark);
+    --p-card-color: var(--text-primary);
+    --p-card-title-color: var(--text-primary);
+    --p-card-subtitle-color: var(--text-secondary);
+    --p-card-content-color: var(--text-primary);
+}
+
+/* ========== OVERRIDE BASE.CSS VARIABLES ========== */
+/* Override the old color system to use our theme variables */
+:root {
+    --color-background: var(--bg-primary);
+    --color-background-soft: var(--bg-tertiary);
+    --color-background-mute: var(--bg-tertiary);
+    --color-border: var(--border-medium);
+    --color-border-hover: var(--border-dark);
+    --color-heading: var(--text-primary);
+    --color-text: var(--text-primary);
+}
+
+body.dark-theme {
+    --color-background: var(--bg-primary);
+    --color-background-soft: var(--bg-tertiary);
+    --color-background-mute: var(--bg-tertiary);
+    --color-border: var(--border-medium);
+    --color-border-hover: var(--border-dark);
+    --color-heading: var(--text-primary);
+    --color-text: var(--text-primary);
+}
+
+/* ========== SMOOTH THEME TRANSITION ========== */
+body {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}

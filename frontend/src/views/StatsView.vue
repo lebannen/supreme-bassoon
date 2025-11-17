@@ -164,44 +164,44 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="stats-container">
-    <div class="stats-content">
+  <div class="p-2xl stats-page-container">
+    <div class="view-container content-area-lg">
       <!-- Header -->
-      <div class="header">
-        <h1 class="stats-title">
-          <i class="pi pi-chart-bar"></i>
+      <div class="page-header">
+        <h1 class="flex items-center gap-md">
+          <i class="pi pi-chart-bar text-3xl icon-primary"></i>
           Your Statistics
         </h1>
       </div>
 
-      <Message v-if="error" severity="error" :closable="false" class="error-message">
+      <Message v-if="error" severity="error" :closable="false" class="mb-md">
         {{ error }}
       </Message>
 
       <div v-if="loading" class="loading-state">
-        <i class="pi pi-spin pi-spinner" style="font-size: 3rem; color: var(--primary-color)"></i>
-        <p>Loading your statistics...</p>
+        <i class="pi pi-spin pi-spinner text-3xl icon-primary"></i>
+        <p class="text-lg text-secondary">Loading your statistics...</p>
       </div>
 
-      <div v-else-if="stats" class="stats-grid">
+      <div v-else-if="stats" class="flex flex-col gap-lg">
         <!-- Overview Stats -->
-        <Card class="overview-card">
+        <Card>
           <template #title>
-            <div class="card-title">
+            <div class="card-title-icon">
               <i class="pi pi-chart-line"></i>
               <span>Overview</span>
             </div>
           </template>
           <template #content>
-            <div class="overview-stats-grid">
+            <div class="stats-grid mb-2xl">
               <div class="overview-stat mastered">
                 <div class="stat-icon-wrapper">
                   <i class="pi pi-trophy"></i>
                 </div>
-                <div class="stat-details">
-                  <span class="stat-value-large">{{ stats.totalExercisesMastered }}</span>
-                  <span class="stat-label">Mastered</span>
-                  <span class="stat-sublabel">out of {{ stats.totalExercisesAvailable }} exercises</span>
+                <div class="flex flex-col gap-xs">
+                  <span class="text-3xl font-bold text-primary">{{ stats.totalExercisesMastered }}</span>
+                  <span class="text-sm font-semibold text-primary stat-label">Mastered</span>
+                  <span class="text-xs text-secondary">out of {{ stats.totalExercisesAvailable }} exercises</span>
                 </div>
               </div>
 
@@ -209,12 +209,12 @@ onMounted(() => {
                 <div class="stat-icon-wrapper">
                   <i class="pi pi-star"></i>
                 </div>
-                <div class="stat-details">
-                  <span class="stat-value-large">
+                <div class="flex flex-col gap-xs">
+                  <span class="text-3xl font-bold text-primary">
                     {{ stats.overallAverageScore ? Math.round(stats.overallAverageScore) : 0 }}%
                   </span>
-                  <span class="stat-label">Average Score</span>
-                  <span class="stat-sublabel">across {{ stats.totalAttempts }} attempts</span>
+                  <span class="text-sm font-semibold text-primary stat-label">Average Score</span>
+                  <span class="text-xs text-secondary">across {{ stats.totalAttempts }} attempts</span>
                 </div>
               </div>
 
@@ -222,10 +222,10 @@ onMounted(() => {
                 <div class="stat-icon-wrapper">
                   <i class="pi pi-clock"></i>
                 </div>
-                <div class="stat-details">
-                  <span class="stat-value-large">{{ formatTime(stats.totalTimeSpentSeconds) }}</span>
-                  <span class="stat-label">Time Spent</span>
-                  <span class="stat-sublabel">studying exercises</span>
+                <div class="flex flex-col gap-xs">
+                  <span class="text-3xl font-bold text-primary">{{ formatTime(stats.totalTimeSpentSeconds) }}</span>
+                  <span class="text-sm font-semibold text-primary stat-label">Time Spent</span>
+                  <span class="text-xs text-secondary">studying exercises</span>
                 </div>
               </div>
 
@@ -233,18 +233,18 @@ onMounted(() => {
                 <div class="stat-icon-wrapper">
                   <i class="pi pi-check-circle"></i>
                 </div>
-                <div class="stat-details">
-                  <span class="stat-value-large">{{ stats.totalExercisesCompleted }}</span>
-                  <span class="stat-label">Completed</span>
-                  <span class="stat-sublabel">unique exercises</span>
+                <div class="flex flex-col gap-xs">
+                  <span class="text-3xl font-bold text-primary">{{ stats.totalExercisesCompleted }}</span>
+                  <span class="text-sm font-semibold text-primary stat-label">Completed</span>
+                  <span class="text-xs text-secondary">unique exercises</span>
                 </div>
               </div>
             </div>
 
             <div class="progress-section">
-              <div class="progress-header">
+              <div class="flex justify-between items-center mb-sm font-semibold text-primary">
                 <span>Overall Progress</span>
-                <span class="progress-percentage">{{ Math.round(completionPercentage) }}%</span>
+                <span class="text-xl progress-percentage">{{ Math.round(completionPercentage) }}%</span>
               </div>
               <ProgressBar :value="completionPercentage" class="overall-progress-bar" />
             </div>
@@ -252,9 +252,9 @@ onMounted(() => {
         </Card>
 
         <!-- Streaks -->
-        <Card class="streaks-card">
+        <Card>
           <template #title>
-            <div class="card-title">
+            <div class="card-title-icon">
               <i class="pi pi-bolt"></i>
               <span>Streaks</span>
             </div>
@@ -262,19 +262,19 @@ onMounted(() => {
           <template #content>
             <div class="streaks-grid">
               <div class="streak-stat current">
-                <i class="pi pi-calendar"></i>
-                <div class="streak-info">
-                  <span class="streak-value">{{ stats.currentStreak }}</span>
-                  <span class="streak-label">Current Streak</span>
-                  <span class="streak-sublabel">days in a row</span>
+                <i class="pi pi-calendar text-3xl streak-icon-warning"></i>
+                <div class="flex flex-col gap-xs">
+                  <span class="text-4xl font-bold text-primary streak-number">{{ stats.currentStreak }}</span>
+                  <span class="text-base font-semibold text-primary">Current Streak</span>
+                  <span class="text-sm text-secondary">days in a row</span>
                 </div>
               </div>
               <div class="streak-stat longest">
-                <i class="pi pi-crown"></i>
-                <div class="streak-info">
-                  <span class="streak-value">{{ stats.longestStreak }}</span>
-                  <span class="streak-label">Longest Streak</span>
-                  <span class="streak-sublabel">personal record</span>
+                <i class="pi pi-crown text-3xl streak-icon-purple"></i>
+                <div class="flex flex-col gap-xs">
+                  <span class="text-4xl font-bold text-primary streak-number">{{ stats.longestStreak }}</span>
+                  <span class="text-base font-semibold text-primary">Longest Streak</span>
+                  <span class="text-sm text-secondary">personal record</span>
                 </div>
               </div>
             </div>
@@ -282,36 +282,36 @@ onMounted(() => {
         </Card>
 
         <!-- Recent Activity -->
-        <Card class="recent-activity-card">
+        <Card>
           <template #title>
-            <div class="card-title">
+            <div class="card-title-icon">
               <i class="pi pi-history"></i>
               <span>Recent Activity</span>
             </div>
           </template>
           <template #content>
             <div v-if="stats.recentActivity.length === 0" class="empty-state">
-              <i class="pi pi-inbox"></i>
+              <i class="pi pi-inbox empty-icon"></i>
               <p>No activity yet. Start practicing to see your progress here!</p>
             </div>
-            <div v-else class="activity-list">
+            <div v-else class="flex flex-col gap-sm">
               <div
                 v-for="activity in stats.recentActivity"
                 :key="`${activity.exerciseId}-${activity.completedAt}`"
                 class="activity-item"
                 @click="navigateToExercise(activity.exerciseId)"
               >
-                <div class="activity-header">
-                  <Tag :value="activity.exerciseType" class="type-tag" />
-                  <span class="activity-time">{{ formatDate(activity.completedAt) }}</span>
+                <div class="flex justify-between items-center mb-xs">
+                  <Tag :value="activity.exerciseType" class="text-xs"/>
+                  <span class="text-sm text-secondary">{{ formatDate(activity.completedAt) }}</span>
                 </div>
-                <div class="activity-title">{{ activity.exerciseTitle }}</div>
-                <div class="activity-footer">
-                  <div class="activity-score" :class="{ correct: activity.isCorrect }">
+                <div class="font-semibold text-primary mb-xs">{{ activity.exerciseTitle }}</div>
+                <div class="flex justify-between items-center">
+                  <div class="flex items-center gap-xs font-semibold" :class="{ correct: activity.isCorrect }">
                     <i :class="activity.isCorrect ? 'pi pi-check-circle' : 'pi pi-times-circle'"></i>
                     <span>{{ Math.round(activity.score) }}%</span>
                   </div>
-                  <i class="pi pi-arrow-right"></i>
+                  <i class="pi pi-arrow-right text-secondary"></i>
                 </div>
               </div>
             </div>
@@ -319,47 +319,49 @@ onMounted(() => {
         </Card>
 
         <!-- Language Progress -->
-        <Card class="language-progress-card" v-for="lang in languageProgressList" :key="lang.languageCode">
+        <Card v-for="lang in languageProgressList" :key="lang.languageCode">
           <template #title>
-            <div class="card-title">
+            <div class="card-title-icon">
               <i class="pi pi-globe"></i>
               <span>{{ lang.languageCode.toUpperCase() }} Progress</span>
             </div>
           </template>
           <template #content>
             <div class="language-stats">
-              <div class="language-stat">
-                <span class="stat-label">Total Exercises</span>
-                <span class="stat-value">{{ lang.totalExercises }}</span>
+              <div class="flex flex-col gap-xs">
+                <span class="text-sm text-secondary stat-label">Total Exercises</span>
+                <span class="text-2xl font-bold text-primary">{{ lang.totalExercises }}</span>
               </div>
-              <div class="language-stat">
-                <span class="stat-label">Completed</span>
-                <span class="stat-value">{{ lang.completedExercises }}</span>
+              <div class="flex flex-col gap-xs">
+                <span class="text-sm text-secondary stat-label">Completed</span>
+                <span class="text-2xl font-bold text-primary">{{ lang.completedExercises }}</span>
               </div>
-              <div class="language-stat">
-                <span class="stat-label">Mastered</span>
-                <span class="stat-value">{{ lang.masteredExercises }}</span>
+              <div class="flex flex-col gap-xs">
+                <span class="text-sm text-secondary stat-label">Mastered</span>
+                <span class="text-2xl font-bold text-primary">{{ lang.masteredExercises }}</span>
               </div>
-              <div class="language-stat">
-                <span class="stat-label">Average Score</span>
-                <span class="stat-value">{{ lang.averageScore ? Math.round(lang.averageScore) + '%' : 'N/A' }}</span>
+              <div class="flex flex-col gap-xs">
+                <span class="text-sm text-secondary stat-label">Average Score</span>
+                <span class="text-2xl font-bold text-primary">{{
+                    lang.averageScore ? Math.round(lang.averageScore) + '%' : 'N/A'
+                  }}</span>
               </div>
             </div>
 
             <div v-if="Object.keys(lang.moduleProgress).length > 0" class="modules-section">
-              <h4>Modules</h4>
+              <h4 class="mb-md text-primary font-semibold modules-heading">Modules</h4>
               <div class="modules-grid">
                 <div
                   v-for="module in Object.values(lang.moduleProgress)"
                   :key="module.moduleNumber"
                   class="module-card"
                 >
-                  <div class="module-header">
-                    <span class="module-number">Module {{ module.moduleNumber }}</span>
-                    <span class="module-percentage">{{ Math.round(module.completionPercentage) }}%</span>
+                  <div class="flex justify-between items-center mb-sm">
+                    <span class="font-semibold text-primary">Module {{ module.moduleNumber }}</span>
+                    <span class="font-bold module-percentage">{{ Math.round(module.completionPercentage) }}%</span>
                   </div>
                   <ProgressBar :value="module.completionPercentage" class="module-progress" />
-                  <div class="module-stats">
+                  <div class="text-sm text-secondary">
                     <span>{{ module.masteredExercises }} / {{ module.totalExercises }} mastered</span>
                   </div>
                 </div>
@@ -373,95 +375,50 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.stats-container {
+/* Page container */
+.stats-page-container {
   min-height: 100vh;
-  background: var(--surface-ground);
-  padding: 2rem 1rem;
+  background: var(--bg-primary);
 }
 
-.stats-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.icon-primary {
+  color: var(--primary);
 }
 
-.header {
-  margin-bottom: 1rem;
+.stat-label {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.stats-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--text-color);
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.progress-percentage {
+  color: var(--primary);
 }
 
-.stats-title i {
-  color: var(--primary-color);
-  font-size: 2rem;
+.streak-icon-warning {
+  color: var(--warning);
 }
 
-.error-message {
-  margin-bottom: 1rem;
+.streak-icon-purple {
+  color: #8b5cf6;
 }
 
-.loading-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 2rem;
-  gap: 1rem;
+.streak-number {
+  line-height: 1;
 }
 
-.loading-state p {
-  color: var(--text-color-secondary);
-  font-size: 1.125rem;
+.modules-heading {
+  margin-top: 0;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+.module-percentage {
+  color: var(--primary);
 }
 
-.card-title {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: var(--text-color);
-}
-
-.card-title i {
-  color: var(--primary-color);
-}
-
-/* Overview Card */
-.overview-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.overview-stat {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.25rem;
-  border-radius: 12px;
-  background: var(--surface-50);
-}
-
+/* Overview stat icons with colored backgrounds */
 .stat-icon-wrapper {
   width: 3.5rem;
   height: 3.5rem;
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -470,238 +427,103 @@ onMounted(() => {
 }
 
 .overview-stat.mastered .stat-icon-wrapper {
-  background: var(--yellow-50);
-  color: var(--yellow-600);
+  background: #fef3c7;
+  color: #d97706;
 }
 
 .overview-stat.score .stat-icon-wrapper {
-  background: var(--purple-50);
-  color: var(--purple-600);
+  background: #f3e8ff;
+  color: #8b5cf6;
 }
 
 .overview-stat.time .stat-icon-wrapper {
-  background: var(--blue-50);
-  color: var(--blue-600);
+  background: #dbeafe;
+  color: #3b82f6;
 }
 
 .overview-stat.completed .stat-icon-wrapper {
-  background: var(--green-50);
-  color: var(--green-600);
+  background: #d1fae5;
+  color: #10b981;
 }
 
-.stat-details {
+.overview-stat {
   display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.stat-value-large {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--text-color);
-  line-height: 1;
-}
-
-.stat-label {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text-color);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.stat-sublabel {
-  font-size: 0.75rem;
-  color: var(--text-color-secondary);
-}
-
-.progress-section {
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--surface-border);
-}
-
-.progress-header {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.75rem;
-  font-weight: 600;
-  color: var(--text-color);
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  background: var(--bg-tertiary);
 }
 
-.progress-percentage {
-  font-size: 1.25rem;
-  color: var(--primary-color);
+/* Progress section */
+.progress-section {
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-medium);
 }
 
 .overall-progress-bar {
   height: 1.5rem;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
 }
 
-/* Streaks Card */
+/* Streaks */
 .streaks-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  gap: var(--spacing-lg);
 }
 
 .streak-stat {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  padding: 1.5rem;
-  border-radius: 12px;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
 }
 
 .streak-stat.current {
-  background: linear-gradient(135deg, var(--orange-50) 0%, var(--orange-100) 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
 }
 
 .streak-stat.longest {
-  background: linear-gradient(135deg, var(--purple-50) 0%, var(--purple-100) 100%);
+  background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
 }
 
-.streak-stat > i {
-  font-size: 3rem;
-}
-
-.streak-stat.current > i {
-  color: var(--orange-500);
-}
-
-.streak-stat.longest > i {
-  color: var(--purple-500);
-}
-
-.streak-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.streak-value {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--text-color);
-  line-height: 1;
-}
-
-.streak-label {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-color);
-}
-
-.streak-sublabel {
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
-}
-
-/* Recent Activity */
-.activity-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
+/* Activity items */
 .activity-item {
   padding: 1rem;
-  border: 1px solid var(--surface-border);
-  border-radius: 8px;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
   cursor: pointer;
   transition: all 0.2s;
-  background: var(--surface-card);
+  background: var(--bg-secondary);
 }
 
 .activity-item:hover {
-  border-color: var(--primary-color);
-  background: var(--primary-50);
+  border-color: var(--primary);
+  background: var(--primary-light);
   transform: translateX(4px);
 }
 
-.activity-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-.type-tag {
-  font-size: 0.75rem;
-}
-
-.activity-time {
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
-}
-
-.activity-title {
-  font-weight: 600;
-  color: var(--text-color);
-  margin-bottom: 0.5rem;
-}
-
-.activity-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.activity-score {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 600;
-}
-
 .activity-score.correct {
-  color: var(--green-600);
+  color: var(--success);
 }
 
 .activity-score:not(.correct) {
-  color: var(--red-600);
+  color: var(--error);
 }
 
-.activity-footer > i {
-  color: var(--text-color-secondary);
-}
-
-/* Language Progress */
+/* Language progress */
 .language-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--surface-border);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-medium);
 }
 
-.language-stat {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.language-stat .stat-label {
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.language-stat .stat-value {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-color);
-}
-
-.modules-section h4 {
-  margin: 0 0 1rem 0;
-  color: var(--text-color);
-  font-weight: 600;
-}
-
+/* Module cards */
 .modules-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -710,64 +532,18 @@ onMounted(() => {
 
 .module-card {
   padding: 1rem;
-  border: 1px solid var(--surface-border);
-  border-radius: 8px;
-  background: var(--surface-50);
-}
-
-.module-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.75rem;
-}
-
-.module-number {
-  font-weight: 600;
-  color: var(--text-color);
-}
-
-.module-percentage {
-  font-weight: 700;
-  color: var(--primary-color);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
 }
 
 .module-progress {
   height: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.module-stats {
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
-}
-
-.empty-state {
-  text-align: center;
-  padding: 3rem 2rem;
-  color: var(--text-color-secondary);
-}
-
-.empty-state i {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  opacity: 0.5;
+  margin-bottom: var(--spacing-xs);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .stats-container {
-    padding: 1rem;
-  }
-
-  .stats-title {
-    font-size: 2rem;
-  }
-
-  .overview-stats-grid {
-    grid-template-columns: 1fr;
-  }
-
   .streaks-grid {
     grid-template-columns: 1fr;
   }

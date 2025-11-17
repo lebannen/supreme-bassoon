@@ -33,28 +33,14 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="callback-container">
-    <div class="loading">
-      <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
-      <p>Completing authentication...</p>
-    </div>
+  <div class="loading-state auth-callback-container">
+    <i class="pi pi-spin pi-spinner text-2xl text-secondary"></i>
+    <p class="text-base text-secondary">Completing authentication...</p>
   </div>
 </template>
 
 <style scoped>
-.callback-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.auth-callback-container {
   min-height: 100vh;
-}
-
-.loading {
-  text-align: center;
-}
-
-.loading p {
-  margin-top: 1rem;
-  color: var(--text-color-secondary);
 }
 </style>

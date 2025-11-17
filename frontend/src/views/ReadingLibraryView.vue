@@ -1,8 +1,8 @@
 <template>
   <div class="reading-library-view">
-    <div class="header">
-      <div class="header-content">
-        <div class="header-text">
+    <div class="view-header">
+      <div class="view-header-content">
+        <div class="view-header-text">
           <h1>Reading Texts</h1>
           <p>Browse and select texts to practice reading in your target language</p>
         </div>
@@ -34,57 +34,5 @@ const authStore = useAuthStore()
 .reading-library-view {
   min-height: 100vh;
   background: var(--surface-ground);
-}
-
-.header {
-  background: var(--surface-card);
-  border-bottom: 1px solid var(--surface-border);
-  padding: 2rem;
-}
-
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.header-text {
-  flex: 1;
-  text-align: center;
-}
-
-.header-text h1 {
-  margin: 0 0 0.5rem 0;
-  color: var(--text-color);
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-.header-text p {
-  margin: 0;
-  color: var(--text-color-secondary);
-  font-size: 1.125rem;
-}
-
-@media (max-width: 768px) {
-  .header {
-    padding: 1.5rem 1rem;
-  }
-
-  .header-content {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .header-text h1 {
-    font-size: 1.5rem;
-  }
-
-  .header-text p {
-    font-size: 1rem;
-  }
 }
 </style>

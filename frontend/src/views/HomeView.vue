@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { computed } from 'vue'
+import {computed, onMounted} from 'vue'
 import Button from 'primevue/button'
 import Card from 'primevue/card'
-import InlineMessage from 'primevue/inlinemessage'
 import { useAuthStore } from '@/stores/auth'
+import {useDashboardStore} from '@/stores/dashboard'
+import StatCard from '@/components/ui/StatCard.vue'
+import TaskCard from '@/components/ui/TaskCard.vue'
+import ContentCard from '@/components/ui/ContentCard.vue'
 
 const router = useRouter()
 const authStore = useAuthStore()
+const dashboardStore = useDashboardStore()
 
 const greetingName = computed(() => {
   if (!authStore.user) return null
@@ -21,124 +25,173 @@ const timeBasedGreeting = computed(() => {
   return 'Good evening'
 })
 
+// Landing page features for non-authenticated users
 const features = [
   {
-    icon: 'pi pi-search',
-    title: 'Advanced Search',
-    description: 'Search through millions of words with intelligent ranking and instant results'
-  },
-  {
     icon: 'pi pi-book',
-    title: 'Rich Definitions',
-    description: 'Detailed definitions, examples, etymology, and usage notes from Wiktionary'
+    title: 'Structured Courses',
+    description: 'Learn French with step-by-step courses designed for all levels'
   },
   {
-    icon: 'pi pi-language',
-    title: 'Multiple Languages',
-    description: 'Support for 12+ languages including French, Spanish, German, and more'
+    icon: 'pi pi-headphones',
+    title: 'Authentic Dialogues',
+    description: 'Practice listening with native speaker dialogues and real-life scenarios'
   },
   {
-    icon: 'pi pi-chart-line',
-    title: 'Frequency Data',
-    description: 'Word frequency rankings to help you learn the most common words first'
+    icon: 'pi pi-bookmark',
+    title: 'Vocabulary Tracking',
+    description: 'Save and review words with spaced repetition for effective learning'
+  },
+  {
+    icon: 'pi pi-pencil',
+    title: 'Interactive Exercises',
+    description: 'Reinforce your learning with multiple choice, fill-in-blank, and more'
   }
 ]
+
+// Load dashboard data when component mounts (for authenticated users)
+onMounted(() => {
+  if (authStore.isAuthenticated) {
+    dashboardStore.loadDashboardData()
+  }
+})
+
+const handleTaskAction = (taskId: number) => {
+  console.log('Starting task:', taskId)
+  // TODO: Navigate to appropriate view based on task type
+  // You can use the task type to determine where to navigate
+  dashboardStore.completeTask(taskId)
+}
+
+const handleContentClick = (contentId: number) => {
+  console.log('Opening content:', contentId)
+  // TODO: Navigate to specific content page
+  router.push('/courses')
+}
 </script>
 
 <template>
   <div class="home-container">
-    <section class="hero-section">
-      <div class="hero-content">
-        <!-- Personalized greeting for authenticated users -->
-        <div v-if="authStore.isAuthenticated" class="welcome-message">
-          <InlineMessage severity="success" icon="pi pi-user">
-            {{ timeBasedGreeting }}, {{ greetingName }}! Welcome back to Vocabee.
-          </InlineMessage>
+    <!-- ========== AUTHENTICATED USER: DASHBOARD ========== -->
+    <div v-if="authStore.isAuthenticated" class="dashboard">
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1>{{ timeBasedGreeting }}, {{ greetingName }}!</h1>
+        <p>Ready for your daily practice? You're on a {{ dashboardStore.userStats.streak }}-day streak 🔥</p>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="stats-grid">
+        <StatCard icon="🔥" label="Study Streak" :value="`${dashboardStore.userStats.streak} days`"/>
+        <StatCard icon="📚" label="Words Learned" :value="dashboardStore.userStats.wordsLearned.toString()"/>
+        <StatCard icon="⏱️" label="This Week" :value="dashboardStore.userStats.timeThisWeek"/>
+      </div>
+
+      <!-- Today's Tasks -->
+      <section class="tasks-section">
+        <div class="section-header">
+          <h2>Today's Tasks</h2>
+          <span class="badge badge-info">
+            {{ dashboardStore.completedTasksCount }} of {{ dashboardStore.totalTasksCount }} completed
+          </span>
         </div>
-
-        <h1 class="hero-title">
-          <i class="pi pi-book"></i>
-          Vocabee
-        </h1>
-        <p class="hero-subtitle">
-          Your multilingual vocabulary companion powered by Wiktionary
-        </p>
-        <p class="hero-description">
-          Explore millions of words across multiple languages with detailed definitions,
-          examples, and linguistic insights
-        </p>
-
-        <!-- Show login prompt for unauthenticated users -->
-        <div v-if="!authStore.isAuthenticated" class="auth-prompt">
-          <InlineMessage severity="info" icon="pi pi-info-circle">
-            Sign in to unlock personal vocabulary tracking and import features
-          </InlineMessage>
-        </div>
-
-        <div class="hero-actions">
-          <Button
-            label="Start Searching"
-            icon="pi pi-search"
-            size="large"
-            @click="router.push('/search')"
-          />
-
-          <!-- Show different secondary action based on auth state -->
-          <Button
-            v-if="authStore.isAuthenticated"
-            label="My Vocabulary"
-            icon="pi pi-book"
-            size="large"
-            severity="secondary"
-            outlined
-            @click="router.push('/book')"
-          />
-          <Button
-            v-else
-            label="Get Started"
-            icon="pi pi-user-plus"
-            size="large"
-            severity="secondary"
-            outlined
-            @click="router.push('/register')"
+        <div class="task-list">
+          <TaskCard
+              v-for="task in dashboardStore.dailyTasks"
+              :key="task.id"
+              :icon="task.icon"
+              :title="task.title"
+              :meta="task.meta"
+              :completed="task.completed"
+              @action="handleTaskAction(task.id)"
           />
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="features-section">
-      <div class="features-container">
-        <h2 class="features-title">Features</h2>
-        <div class="features-grid">
-          <Card v-for="feature in features" :key="feature.title" class="feature-card">
-            <template #content>
-              <div class="feature-icon">
-                <i :class="feature.icon"></i>
-              </div>
-              <h3 class="feature-title">{{ feature.title }}</h3>
-              <p class="feature-description">{{ feature.description }}</p>
-            </template>
-          </Card>
+      <!-- Recommended for You -->
+      <section class="recommendations-section">
+        <div class="section-header">
+          <h2>Recommended for You</h2>
         </div>
-      </div>
-    </section>
+        <div class="content-grid">
+          <ContentCard
+              v-for="content in dashboardStore.recommendedContent"
+              :key="content.id"
+              :type="content.type"
+              :icon="content.icon"
+              :title="content.title"
+              :level="content.level"
+              :duration="content.duration"
+              :topic="content.topic"
+              @click="handleContentClick(content.id)"
+          />
+        </div>
+      </section>
+    </div>
 
-    <section class="stats-section">
-      <div class="stats-container">
-        <div class="stat-item">
-          <div class="stat-value">4.2M+</div>
-          <div class="stat-label">Word Entries</div>
+    <!-- ========== NON-AUTHENTICATED USER: LANDING PAGE ========== -->
+    <div v-else class="landing">
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            <i class="pi pi-book"></i>
+            Vocabee
+          </h1>
+          <p class="hero-subtitle">Master French with Interactive Courses</p>
+          <p class="hero-description">
+            Learn French through engaging dialogues, stories, and exercises. Track your progress and
+            build your vocabulary with spaced repetition.
+          </p>
+
+          <div class="hero-actions">
+            <Button
+                label="Start Learning"
+                icon="pi pi-play"
+                size="large"
+                @click="router.push('/register')"
+            />
+            <Button
+                label="Browse Courses"
+                icon="pi pi-book"
+                size="large"
+                severity="secondary"
+                outlined
+                @click="router.push('/courses')"
+            />
+          </div>
         </div>
-        <div class="stat-item">
-          <div class="stat-value">12+</div>
-          <div class="stat-label">Languages</div>
+      </section>
+
+      <section class="features-section">
+        <div class="features-container">
+          <h2 class="features-title">Why Choose Vocabee?</h2>
+          <div class="features-grid">
+            <Card v-for="feature in features" :key="feature.title" class="feature-card">
+              <template #content>
+                <div class="feature-icon">
+                  <i :class="feature.icon"></i>
+                </div>
+                <h3 class="feature-title">{{ feature.title }}</h3>
+                <p class="feature-description">{{ feature.description }}</p>
+              </template>
+            </Card>
+          </div>
         </div>
-        <div class="stat-item">
-          <div class="stat-value">Instant</div>
-          <div class="stat-label">Search Results</div>
+      </section>
+
+      <section class="cta-section">
+        <div class="cta-content">
+          <h2>Ready to Start Your Journey?</h2>
+          <p>Join thousands of learners mastering French with Vocabee</p>
+          <Button
+              label="Get Started Free"
+              icon="pi pi-user-plus"
+              size="large"
+              @click="router.push('/register')"
+          />
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
 </template>
 
@@ -147,11 +200,34 @@ const features = [
   min-height: 100%;
 }
 
+/* ========== DASHBOARD (AUTHENTICATED) ========== */
+.dashboard {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.stats-grid {
+  margin-bottom: var(--spacing-3xl);
+}
+
+.tasks-section {
+  margin-bottom: var(--spacing-4xl);
+}
+
+.recommendations-section {
+  margin-bottom: var(--spacing-4xl);
+}
+
+/* ========== LANDING PAGE (NON-AUTHENTICATED) ========== */
+.landing {
+  min-height: 100%;
+}
+
 .hero-section {
-  background: var(--surface-section);
+  background: var(--bg-secondary);
   padding: 5rem 1.5rem;
   text-align: center;
-  border-bottom: 1px solid var(--surface-border);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .hero-content {
@@ -159,28 +235,11 @@ const features = [
   margin: 0 auto;
 }
 
-.welcome-message,
-.auth-prompt {
-  margin-bottom: 1.5rem;
-  display: flex;
-  justify-content: center;
-}
-
-.welcome-message :deep(.p-inline-message) {
-  font-size: 1rem;
-  padding: 0.75rem 1.25rem;
-}
-
-.auth-prompt :deep(.p-inline-message) {
-  font-size: 0.95rem;
-  padding: 0.65rem 1rem;
-}
-
 .hero-title {
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
-  color: var(--text-color);
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -189,19 +248,19 @@ const features = [
 
 .hero-title i {
   font-size: 3rem;
-  color: var(--primary-color);
+  color: var(--primary);
 }
 
 .hero-subtitle {
   font-size: 1.5rem;
-  color: var(--text-color);
+  color: var(--text-primary);
   margin-bottom: 1rem;
   font-weight: 600;
 }
 
 .hero-description {
   font-size: 1.1rem;
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
   margin-bottom: 2.5rem;
   line-height: 1.7;
 }
@@ -215,7 +274,7 @@ const features = [
 
 .features-section {
   padding: 5rem 1.5rem;
-  background: var(--surface-ground);
+  background: var(--bg-primary);
 }
 
 .features-container {
@@ -227,7 +286,7 @@ const features = [
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 3rem;
-  color: var(--text-color);
+  color: var(--text-primary);
   font-weight: 700;
 }
 
@@ -240,18 +299,16 @@ const features = [
 .feature-card {
   text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
-  background: var(--surface-card);
-  border: 1px solid var(--surface-border);
 }
 
 .feature-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
 }
 
 .feature-icon {
   font-size: 3rem;
-  color: var(--primary-color);
+  color: var(--primary);
   margin-bottom: 1rem;
 }
 
@@ -259,38 +316,30 @@ const features = [
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 .feature-description {
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
-.stats-section {
-  background: var(--primary-color);
+.cta-section {
+  background: var(--primary);
   color: white;
   padding: 4rem 1.5rem;
-  border-top: 1px solid var(--surface-border);
-}
-
-.stats-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 3rem;
   text-align: center;
 }
 
-.stat-value {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
 }
 
-.stat-label {
+.cta-content p {
   font-size: 1.1rem;
+  margin-bottom: 2rem;
   opacity: 0.95;
 }
 
@@ -321,11 +370,11 @@ const features = [
     grid-template-columns: 1fr;
   }
 
-  .stats-section {
+  .cta-section {
     padding: 3rem 1rem;
   }
 
-  .stat-value {
+  .cta-content h2 {
     font-size: 2rem;
   }
 }

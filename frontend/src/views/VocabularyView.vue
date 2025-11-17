@@ -54,13 +54,13 @@ const goToSearch = () => {
     <ConfirmDialog />
 
     <div class="vocabulary-content">
-      <div class="header">
-        <h1 class="vocabulary-title">
+      <div class="flex justify-between items-center mb-2xl flex-wrap gap-md">
+        <h1 class="page-title">
           <i class="pi pi-book"></i>
           My Vocabulary
         </h1>
-        <div class="header-actions">
-          <span class="word-count">{{ vocabularyStore.wordCount }} words</span>
+        <div class="flex items-center gap-md">
+          <span class="word-count text-lg text-secondary">{{ vocabularyStore.wordCount }} words</span>
           <Button
             label="Add Words"
             icon="pi pi-plus"
@@ -73,9 +73,9 @@ const goToSearch = () => {
         {{ vocabularyStore.error }}
       </Message>
 
-      <Card v-if="!loading && vocabularyStore.words.length === 0" class="empty-state">
+      <Card v-if="!loading && vocabularyStore.words.length === 0">
         <template #content>
-          <div class="empty-content">
+          <div class="empty-state">
             <i class="pi pi-book empty-icon"></i>
             <h3>Your vocabulary is empty</h3>
             <p>Start building your vocabulary by searching for words and adding them to your collection.</p>
@@ -83,7 +83,6 @@ const goToSearch = () => {
               label="Search for Words"
               icon="pi pi-search"
               @click="goToSearch"
-              class="search-button"
             />
           </div>
         </template>
@@ -103,8 +102,8 @@ const goToSearch = () => {
           >
             <Column field="word.lemma" header="Word" :sortable="true">
               <template #body="slotProps">
-                <div class="word-cell">
-                  <span class="lemma">{{ slotProps.data.word.lemma }}</span>
+                <div class="flex items-center gap-sm">
+                  <span class="lemma text-lg text-primary">{{ slotProps.data.word.lemma }}</span>
                   <Tag
                     v-if="slotProps.data.word.partOfSpeech"
                     :value="slotProps.data.word.partOfSpeech"
@@ -120,7 +119,7 @@ const goToSearch = () => {
                 <span v-if="slotProps.data.word.frequencyRank">
                   #{{ slotProps.data.word.frequencyRank }}
                 </span>
-                <span v-else class="text-muted">N/A</span>
+                <span v-else class="text-secondary">N/A</span>
               </template>
             </Column>
 
@@ -129,7 +128,7 @@ const goToSearch = () => {
                 <span v-if="slotProps.data.notes" class="notes-text">
                   {{ slotProps.data.notes }}
                 </span>
-                <span v-else class="text-muted">No notes</span>
+                <span v-else class="text-secondary">No notes</span>
               </template>
             </Column>
 
@@ -161,7 +160,7 @@ const goToSearch = () => {
 <style scoped>
 .vocabulary-container {
   min-height: 100vh;
-  background: var(--surface-ground);
+  background: var(--bg-primary);
   padding: 2rem 1rem;
 }
 
@@ -170,43 +169,26 @@ const goToSearch = () => {
   margin: 0 auto;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.vocabulary-title {
+.page-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--text-color);
+  color: var(--text-primary);
   margin: 0;
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.vocabulary-title i {
-  color: var(--primary-color);
+.page-title i {
+  color: var(--primary);
   font-size: 2rem;
 }
 
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
 .word-count {
-  font-size: 1.125rem;
   font-weight: 600;
-  color: var(--text-color-secondary);
   padding: 0.5rem 1rem;
-  background: var(--surface-100);
-  border-radius: 6px;
+  background: var(--bg-hover);
+  border-radius: var(--radius-sm);
 }
 
 .error-message {
@@ -217,62 +199,13 @@ const goToSearch = () => {
   margin-top: 1rem;
 }
 
-.empty-state {
-  margin-top: 2rem;
-}
-
-.empty-content {
-  text-align: center;
-  padding: 3rem 2rem;
-}
-
-.empty-icon {
-  font-size: 4rem;
-  color: var(--text-color-secondary);
-  margin-bottom: 1rem;
-}
-
-.empty-content h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-color);
-  margin-bottom: 0.5rem;
-}
-
-.empty-content p {
-  color: var(--text-color-secondary);
-  margin-bottom: 2rem;
-  font-size: 1rem;
-}
-
-.search-button {
-  margin-top: 1rem;
-}
-
-.word-cell {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.lemma {
-  font-weight: 600;
-  font-size: 1.125rem;
-  color: var(--text-color);
-}
-
 .pos-tag {
   font-size: 0.75rem;
   text-transform: uppercase;
 }
 
 .notes-text {
-  color: var(--text-color);
   font-style: italic;
-}
-
-.text-muted {
-  color: var(--text-color-secondary);
 }
 
 @media (max-width: 768px) {
@@ -280,22 +213,8 @@ const goToSearch = () => {
     padding: 1rem;
   }
 
-  .vocabulary-title {
+  .page-title {
     font-size: 2rem;
-  }
-
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .header-actions {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .word-count {
-    font-size: 1rem;
   }
 }
 </style>

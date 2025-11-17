@@ -98,17 +98,17 @@ function formatInterval(interval: string): string {
 </script>
 
 <template>
-  <div class="study-session-container">
-    <div class="study-session-content">
+  <div class="page-container">
+    <div class="content-area">
       <!-- Session Header -->
       <div v-if="studyStore.isSessionActive" class="session-header">
-        <div class="session-info">
-          <h2 class="session-title">Study Session</h2>
-          <div class="session-meta">
-            <span class="words-count">
+        <div class="flex flex-col gap-sm">
+          <h2 class="text-2xl font-bold text-primary session-title">Study Session</h2>
+          <div class="flex items-center gap-lg">
+            <span class="font-semibold text-secondary">
               {{ studyStore.activeSession?.wordsCompleted }} / {{ studyStore.activeSession?.totalWords }} words
             </span>
-            <span class="accuracy" :class="{
+            <span class="accuracy-badge" :class="{
               'high-accuracy': (studyStore.activeSession?.stats.accuracy || 0) >= 80,
               'medium-accuracy': (studyStore.activeSession?.stats.accuracy || 0) >= 60 && (studyStore.activeSession?.stats.accuracy || 0) < 80,
               'low-accuracy': (studyStore.activeSession?.stats.accuracy || 0) < 60
@@ -134,7 +134,7 @@ function formatInterval(interval: string): string {
       />
 
       <!-- Error Message -->
-      <Message v-if="studyStore.error" severity="error" :closable="false" class="error-message">
+      <Message v-if="studyStore.error" severity="error" :closable="false" class="mb-md">
         {{ studyStore.error }}
       </Message>
 
@@ -151,21 +151,21 @@ function formatInterval(interval: string): string {
       />
 
       <!-- Loading State -->
-      <Card v-else-if="studyStore.loading" class="loading-card">
+      <Card v-else-if="studyStore.loading" class="mt-xl">
         <template #content>
-          <div class="loading-content">
-            <i class="pi pi-spin pi-spinner loading-icon"></i>
+          <div class="loading-state">
+            <i class="pi pi-spin pi-spinner text-3xl icon-primary"></i>
             <p>Loading next card...</p>
           </div>
         </template>
       </Card>
 
       <!-- No Cards State -->
-      <Card v-else-if="!studyStore.currentCard && !studyStore.loading" class="no-cards">
+      <Card v-else-if="!studyStore.currentCard && !studyStore.loading" class="mt-xl">
         <template #content>
-          <div class="no-cards-content">
-            <i class="pi pi-check-circle success-icon"></i>
-            <h3>Session Complete!</h3>
+          <div class="loading-state">
+            <i class="pi pi-check-circle text-4xl icon-success"></i>
+            <h3 class="text-2xl font-semibold text-primary complete-heading">Session Complete!</h3>
             <p>Preparing your summary...</p>
           </div>
         </template>
@@ -181,11 +181,11 @@ function formatInterval(interval: string): string {
       :style="{ width: '600px' }"
       :breakpoints="{ '960px': '75vw', '640px': '90vw' }"
     >
-      <div v-if="studyStore.sessionSummary" class="summary-content">
-        <div class="summary-header">
-          <i class="pi pi-check-circle summary-icon"></i>
-          <h2>Great job!</h2>
-          <p>You completed your study session</p>
+      <div v-if="studyStore.sessionSummary" class="flex flex-col gap-xl">
+        <div class="text-center">
+          <i class="pi pi-check-circle text-4xl mb-md icon-success"></i>
+          <h2 class="text-3xl font-bold text-primary summary-heading">Great job!</h2>
+          <p class="text-secondary summary-subheading">You completed your study session</p>
         </div>
 
         <div class="summary-stats">
@@ -193,9 +193,9 @@ function formatInterval(interval: string): string {
             <div class="stat-icon">
               <i class="pi pi-book"></i>
             </div>
-            <div class="stat-info">
-              <span class="stat-value">{{ studyStore.sessionSummary.stats.totalWords }}</span>
-              <span class="stat-label">Words Studied</span>
+            <div class="text-center flex flex-col gap-xs">
+              <span class="text-2xl font-bold text-primary">{{ studyStore.sessionSummary.stats.totalWords }}</span>
+              <span class="text-sm text-secondary">Words Studied</span>
             </div>
           </div>
 
@@ -203,9 +203,11 @@ function formatInterval(interval: string): string {
             <div class="stat-icon accuracy-icon">
               <i class="pi pi-chart-line"></i>
             </div>
-            <div class="stat-info">
-              <span class="stat-value">{{ Math.round(studyStore.sessionSummary.stats.accuracy) }}%</span>
-              <span class="stat-label">Accuracy</span>
+            <div class="text-center flex flex-col gap-xs">
+              <span class="text-2xl font-bold text-primary">{{
+                  Math.round(studyStore.sessionSummary.stats.accuracy)
+                }}%</span>
+              <span class="text-sm text-secondary">Accuracy</span>
             </div>
           </div>
 
@@ -213,68 +215,70 @@ function formatInterval(interval: string): string {
             <div class="stat-icon time-icon">
               <i class="pi pi-clock"></i>
             </div>
-            <div class="stat-info">
-              <span class="stat-value">{{ formatDuration(studyStore.sessionSummary.duration) }}</span>
-              <span class="stat-label">Duration</span>
+            <div class="text-center flex flex-col gap-xs">
+              <span class="text-2xl font-bold text-primary">{{
+                  formatDuration(studyStore.sessionSummary.duration)
+                }}</span>
+              <span class="text-sm text-secondary">Duration</span>
             </div>
           </div>
         </div>
 
         <div class="summary-details">
-          <div class="detail-row">
-            <span class="detail-label">
-              <i class="pi pi-check"></i>
+          <div class="flex justify-between items-center">
+            <span class="flex items-center gap-sm text-secondary">
+              <i class="pi pi-check text-sm"></i>
               Correct Answers
             </span>
-            <span class="detail-value success-text">
+            <span class="font-semibold detail-success">
               {{ studyStore.sessionSummary.stats.correctAttempts }}
             </span>
           </div>
-          <div class="detail-row">
-            <span class="detail-label">
-              <i class="pi pi-times"></i>
+          <div class="flex justify-between items-center">
+            <span class="flex items-center gap-sm text-secondary">
+              <i class="pi pi-times text-sm"></i>
               Incorrect Answers
             </span>
-            <span class="detail-value danger-text">
+            <span class="font-semibold detail-error">
               {{ studyStore.sessionSummary.stats.incorrectAttempts }}
             </span>
           </div>
-          <div class="detail-row">
-            <span class="detail-label">
-              <i class="pi pi-arrow-up"></i>
+          <div class="flex justify-between items-center">
+            <span class="flex items-center gap-sm text-secondary">
+              <i class="pi pi-arrow-up text-sm"></i>
               Words Advanced
             </span>
-            <span class="detail-value">
+            <span class="font-semibold text-primary">
               {{ studyStore.sessionSummary.srsUpdates.wordsAdvanced }}
             </span>
           </div>
-          <div v-if="studyStore.sessionSummary.srsUpdates.wordsReset > 0" class="detail-row">
-            <span class="detail-label">
-              <i class="pi pi-refresh"></i>
+          <div v-if="studyStore.sessionSummary.srsUpdates.wordsReset > 0" class="flex justify-between items-center">
+            <span class="flex items-center gap-sm text-secondary">
+              <i class="pi pi-refresh text-sm"></i>
               Words Reset
             </span>
-            <span class="detail-value">
+            <span class="font-semibold text-primary">
               {{ studyStore.sessionSummary.srsUpdates.wordsReset }}
             </span>
           </div>
-          <div class="detail-row">
-            <span class="detail-label">
-              <i class="pi pi-calendar"></i>
+          <div class="flex justify-between items-center">
+            <span class="flex items-center gap-sm text-secondary">
+              <i class="pi pi-calendar text-sm"></i>
               Next Due
             </span>
-            <span class="detail-value">
+            <span class="font-semibold text-primary">
               {{ studyStore.sessionSummary.srsUpdates.nextDueCount }} words
             </span>
           </div>
         </div>
 
-        <div class="summary-actions">
+        <div class="flex justify-center">
           <Button
             label="Done"
             icon="pi pi-check"
             @click="handleFinishSummary"
             size="large"
-            class="finish-button"
+            class="done-button"
           />
         </div>
       </div>
@@ -283,18 +287,62 @@ function formatInterval(interval: string): string {
 </template>
 
 <style scoped>
-.study-session-container {
+.page-container {
   min-height: 100vh;
-  background: var(--surface-ground);
-  padding: 2rem 1rem;
+  background: var(--bg-primary);
+  padding: var(--spacing-xl) var(--spacing-md);
 }
 
-.study-session-content {
+.content-area {
   max-width: 900px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--spacing-lg);
+}
+
+.mt-xl {
+  margin-top: var(--spacing-xl);
+}
+
+.icon-primary {
+  color: var(--primary);
+}
+
+.icon-success {
+  color: var(--success);
+}
+
+.session-title {
+  margin: 0;
+}
+
+.session-progress-bar {
+  height: 0.75rem;
+}
+
+.complete-heading {
+  margin: 0.5rem 0;
+}
+
+.summary-heading {
+  margin: 0 0 0.5rem 0;
+}
+
+.summary-subheading {
+  margin: 0;
+}
+
+.detail-success {
+  color: var(--success);
+}
+
+.detail-error {
+  color: var(--error);
+}
+
+.done-button {
+  min-width: 200px;
 }
 
 /* Session Header */
@@ -302,154 +350,57 @@ function formatInterval(interval: string): string {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
-  background: var(--surface-card);
-  border: 1px solid var(--surface-border);
-  border-radius: var(--border-radius);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-lg);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
 }
 
-.session-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.session-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-color);
-  margin: 0;
-}
-
-.session-meta {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.words-count {
-  font-weight: 600;
-  color: var(--text-color-secondary);
-}
-
-.accuracy {
+.accuracy-badge {
   font-weight: 600;
   padding: 0.25rem 0.75rem;
   border-radius: 4px;
 }
 
 .high-accuracy {
-  background: var(--green-100);
-  color: var(--green-700);
+  background: var(--success-light);
+  color: var(--success);
 }
 
 .medium-accuracy {
-  background: var(--orange-100);
-  color: var(--orange-700);
+  background: var(--warning-light);
+  color: var(--warning);
 }
 
 .low-accuracy {
-  background: var(--red-100);
-  color: var(--red-700);
-}
-
-.session-progress-bar {
-  height: 0.75rem;
-}
-
-.error-message {
-  margin-bottom: 1rem;
-}
-
-/* Loading & No Cards States */
-.loading-card,
-.no-cards {
-  margin-top: 2rem;
-}
-
-.loading-content,
-.no-cards-content {
-  text-align: center;
-  padding: 3rem 2rem;
-}
-
-.loading-icon {
-  font-size: 3rem;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-}
-
-.success-icon {
-  font-size: 4rem;
-  color: var(--green-500);
-  margin-bottom: 1rem;
-}
-
-.loading-content p,
-.no-cards-content p {
-  color: var(--text-color-secondary);
-  margin: 0;
-}
-
-.no-cards-content h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-color);
-  margin: 0.5rem 0;
+  background: var(--error-light);
+  color: var(--error);
 }
 
 /* Summary Dialog */
-.summary-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.summary-header {
-  text-align: center;
-}
-
-.summary-icon {
-  font-size: 4rem;
-  color: var(--green-500);
-  margin-bottom: 1rem;
-}
-
-.summary-header h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--text-color);
-  margin: 0 0 0.5rem 0;
-}
-
-.summary-header p {
-  color: var(--text-color-secondary);
-  margin: 0;
-}
-
 .summary-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: var(--spacing-md);
 }
 
 .stat-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem;
-  background: var(--surface-section);
-  border-radius: var(--border-radius);
-  gap: 1rem;
+  padding: var(--spacing-lg);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  gap: var(--spacing-md);
 }
 
 .stat-icon {
   width: 3rem;
   height: 3rem;
-  border-radius: 50%;
-  background: var(--primary-100);
-  color: var(--primary-600);
+  border-radius: var(--radius-full);
+  background: var(--primary-light);
+  color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -457,97 +408,34 @@ function formatInterval(interval: string): string {
 }
 
 .accuracy-icon {
-  background: var(--green-100);
-  color: var(--green-600);
+  background: var(--success-light);
+  color: var(--success);
 }
 
 .time-icon {
-  background: var(--orange-100);
-  color: var(--orange-600);
-}
-
-.stat-info {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.stat-value {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--text-color);
-}
-
-.stat-label {
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
+  background: var(--warning-light);
+  color: var(--warning);
 }
 
 .summary-details {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 1.5rem;
-  background: var(--surface-section);
-  border-radius: var(--border-radius);
-}
-
-.detail-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.detail-label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--text-color-secondary);
-}
-
-.detail-label i {
-  font-size: 0.875rem;
-}
-
-.detail-value {
-  font-weight: 600;
-  color: var(--text-color);
-}
-
-.success-text {
-  color: var(--green-600);
-}
-
-.danger-text {
-  color: var(--red-600);
-}
-
-.summary-actions {
-  display: flex;
-  justify-content: center;
-}
-
-.finish-button {
-  min-width: 200px;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .study-session-container {
-    padding: 1rem;
+  .page-container {
+    padding: var(--spacing-md);
   }
 
   .session-header {
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--spacing-md);
     align-items: flex-start;
-  }
-
-  .session-meta {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
   }
 
   .summary-stats {
@@ -555,13 +443,7 @@ function formatInterval(interval: string): string {
   }
 
   .summary-details {
-    padding: 1rem;
-  }
-
-  .detail-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
+    padding: var(--spacing-md);
   }
 }
 </style>
