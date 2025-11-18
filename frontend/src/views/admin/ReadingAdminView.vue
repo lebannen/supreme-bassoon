@@ -328,7 +328,6 @@ onMounted(async () => {
   margin: 0 0 var(--spacing-xs) 0;
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--text-primary);
 }
 
 .card-content {
@@ -339,7 +338,6 @@ onMounted(async () => {
 
 .card-content .description {
   margin: 0;
-  color: var(--text-primary);
   line-height: 1.6;
 }
 
@@ -354,7 +352,6 @@ onMounted(async () => {
 
 .current-audio label {
   font-weight: 600;
-  color: var(--text-secondary);
 }
 
 .audio-upload {
@@ -365,7 +362,6 @@ onMounted(async () => {
 
 .upload-label {
   font-weight: 600;
-  color: var(--text-secondary);
 }
 
 .upload-result {

@@ -386,49 +386,37 @@ function truncateUrl(url: string): string {
 
 .upload-icon {
   font-size: 3rem;
-  color: var(--primary);
 }
 
 /* Drop zone */
 .drop-zone {
-  border: 2px dashed var(--border-medium);
   border-radius: var(--radius-lg);
   padding: var(--spacing-4xl) var(--spacing-2xl);
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: var(--bg-tertiary);
 }
 
 .drop-zone:hover {
-  border-color: var(--primary);
-  background: var(--primary-light);
 }
 
 .drop-zone.drag-over {
-  border-color: var(--primary);
-  background: var(--primary-light);
   transform: scale(1.02);
 }
 
 .drop-zone.has-files {
-  border-color: var(--success);
-  background: var(--success-light);
 }
 
 .drop-zone-text {
   margin: var(--spacing-md) 0 var(--spacing-sm) 0;
   font-size: 1.125rem;
-  color: var(--text-primary);
 }
 
 .drop-zone-text strong {
-  color: var(--primary);
 }
 
 .drop-zone-hint {
   margin: 0;
-  color: var(--text-secondary);
 }
 
 /* File list */
@@ -443,30 +431,23 @@ function truncateUrl(url: string): string {
   align-items: center;
   gap: var(--spacing-md);
   padding: var(--spacing-sm) var(--spacing-md);
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-medium);
   border-radius: var(--radius-md);
   transition: all 0.2s;
 }
 
 .file-item:hover {
-  border-color: var(--primary);
-  background: var(--primary-light);
 }
 
 .file-item i.pi-file {
-  color: var(--primary);
   font-size: 1.25rem;
 }
 
 .file-name {
   flex: 1;
   font-weight: 500;
-  color: var(--text-primary);
 }
 
 .file-size {
-  color: var(--text-secondary);
   font-family: monospace;
 }
 
@@ -478,15 +459,12 @@ function truncateUrl(url: string): string {
 }
 
 .stat-card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-medium);
   border-radius: var(--radius-md);
   padding: var(--spacing-md);
   text-align: center;
 }
 
 .stat-label {
-  color: var(--text-secondary);
   margin-bottom: var(--spacing-sm);
 }
 
@@ -496,24 +474,19 @@ function truncateUrl(url: string): string {
 }
 
 .stat-value.success {
-  color: var(--success);
 }
 
 .stat-value.info {
-  color: var(--info);
 }
 
 .stat-value.error {
-  color: var(--error);
 }
 
 /* Table cells */
 .audio-url-cell {
   font-family: monospace;
-  color: var(--text-secondary);
 }
 
 .text-muted {
-  color: var(--text-secondary);
 }
 </style>

@@ -364,7 +364,6 @@ function formatDueInfo() {
   align-items: flex-start;
   gap: var(--spacing-md);
   padding: var(--spacing-xl);
-  border: 2px solid var(--border-medium);
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all 0.2s;

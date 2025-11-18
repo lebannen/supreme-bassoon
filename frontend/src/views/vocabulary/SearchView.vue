@@ -267,7 +267,6 @@ onMounted(() => {
 .search-section {
   background: var(--surface-card);
   padding: var(--spacing-xl);
-  border-radius: var(--border-radius);
   border: 1px solid var(--surface-border);
   margin-bottom: var(--spacing-xl);
 }
@@ -284,7 +283,6 @@ onMounted(() => {
   display: block;
   margin-bottom: var(--spacing-xs);
   font-weight: 600;
-  color: var(--text-primary);
 }
 
 .search-input-wrapper {
@@ -301,7 +299,6 @@ onMounted(() => {
 }
 
 .text-muted {
-  color: var(--text-secondary);
 }
 
 @media (max-width: 768px) {

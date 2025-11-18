@@ -181,8 +181,6 @@
 <style scoped>
   .sidebar {
     width: var(--sidebar-width);
-    background-color: var(--bg-secondary);
-    border-right: 1px solid var(--border-medium);
     padding: var(--spacing-xl);
     position: fixed;
     height: 100vh;
@@ -195,14 +193,9 @@
   .logo {
     font-size: 24px;
     font-weight: 600;
-    color: var(--primary);
     text-decoration: none;
     margin-bottom: var(--spacing-2xl);
     display: block;
-  }
-
-  .logo:hover {
-    color: var(--primary-dark);
   }
 
   .nav-content {
@@ -217,7 +210,6 @@
   .nav-section-title {
     font-size: 11px;
     font-weight: 600;
-    color: var(--text-tertiary);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: var(--spacing-xs);
@@ -239,22 +231,11 @@
     align-items: center;
     gap: 10px;
     text-decoration: none;
-    color: var(--text-secondary);
     font-weight: 500;
     padding: 8px var(--spacing-sm);
     border-radius: var(--radius-sm);
     transition: all 0.15s;
     font-size: 14px;
-  }
-
-  .nav-item a:hover {
-    color: var(--text-primary);
-    background-color: var(--bg-tertiary);
-  }
-
-  .nav-item a.active {
-    color: var(--primary);
-    background-color: var(--primary-light);
   }
 
   .nav-icon {
@@ -268,14 +249,12 @@
 
   /* User Section */
   .user-section {
-    border-top: 1px solid var(--border-light);
     padding-top: var(--spacing-md);
     margin-top: var(--spacing-md);
   }
 
   .user-card {
     padding: var(--spacing-sm);
-    background: var(--bg-tertiary);
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
@@ -284,16 +263,11 @@
     transition: all 0.2s;
   }
 
-  .user-card:hover {
-    background: var(--bg-hover);
-  }
-
   .user-avatar {
     width: 36px;
     height: 36px;
     border-radius: var(--radius-full);
     background: var(--gradient-avatar);
-    color: var(--text-inverse);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -310,7 +284,6 @@
   .user-name {
     font-size: 14px;
     font-weight: 600;
-    color: var(--text-primary);
     margin-bottom: 2px;
     white-space: nowrap;
     overflow: hidden;
@@ -319,7 +292,6 @@
 
   .user-level {
     font-size: 12px;
-    color: var(--text-tertiary);
   }
 
   .user-streak {
@@ -331,7 +303,6 @@
   .auth-section {
     padding-top: var(--spacing-md);
     margin-top: var(--spacing-md);
-    border-top: 1px solid var(--border-light);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-sm);
@@ -349,23 +320,8 @@
     white-space: nowrap;
   }
 
-  .btn-primary {
-    background-color: var(--primary);
-    color: var(--text-inverse);
-  }
-
   .btn-primary:hover {
-    background-color: var(--primary-dark);
     transform: translateY(-1px);
-  }
-
-  .btn-secondary {
-    background-color: var(--bg-tertiary);
-    color: var(--text-secondary);
-  }
-
-  .btn-secondary:hover {
-    background-color: var(--bg-hover);
   }
 
   .btn-full {

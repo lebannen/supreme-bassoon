@@ -452,8 +452,6 @@
 
 /* View Header - sticky header for reading views */
 .view-header {
-
-    border-bottom: 1px solid var(--border-medium);
     padding: 2rem;
 }
 
@@ -484,7 +482,6 @@
 
 /* Text Header - for text reader pages */
 .text-header {
-    border-bottom: 1px solid var(--border-medium);
     padding: 1.5rem 2rem;
     display: flex;
     align-items: center;
@@ -842,18 +839,14 @@
 
 .divider-top {
     padding-top: var(--spacing-lg);
-    border-top: 1px solid var(--border-medium);
 }
 
 .divider-bottom {
     padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid var(--border-medium);
 }
 
 .divider-both {
     padding: var(--spacing-lg) 0;
-    border-top: 1px solid var(--border-medium);
-    border-bottom: 1px solid var(--border-medium);
 }
 
 /* ========== HOVER EFFECTS ========== */

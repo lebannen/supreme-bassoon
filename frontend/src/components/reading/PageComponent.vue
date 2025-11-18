@@ -58,7 +58,6 @@ function onWordClick(word: string) {
   position: absolute;
   bottom: 2rem;
   font-size: 0.875rem;
-  color: var(--text-secondary);
   font-family: serif;
 }
 
@@ -66,7 +65,6 @@ function onWordClick(word: string) {
   font-family: 'Georgia', serif;
   font-size: 1rem;
   line-height: 1.8;
-  color: var(--text-primary);
   text-align: justify;
   white-space: pre-wrap;
 }

@@ -173,7 +173,6 @@ onMounted(fetchExercise)
 
 .instructions {
   font-size: 1.125rem;
-  color: var(--text-secondary);
   margin-bottom: 1rem;
 }
 

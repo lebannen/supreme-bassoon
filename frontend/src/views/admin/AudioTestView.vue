@@ -160,7 +160,6 @@ async function generateAudio() {
 <style scoped>
 .audio-url {
   font-size: 0.9rem;
-  color: var(--text-secondary);
   margin-bottom: var(--spacing-md);
   word-break: break-all;
 }

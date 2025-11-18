@@ -178,7 +178,6 @@ onMounted(() => {
   justify-content: space-between;
   align-items: center;
   padding: var(--spacing-lg);
-  background: var(--bg-tertiary);
 }
 
 /* Objectives Grid */
@@ -198,7 +197,6 @@ onMounted(() => {
 }
 
 .objectives-grid i {
-  color: var(--success);
   margin-top: 0.25rem;
   flex-shrink: 0;
 }

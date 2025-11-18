@@ -259,7 +259,6 @@ const handleSave = async () => {
   justify-content: space-between;
   align-items: center;
   padding: var(--spacing-md);
-  background: var(--bg-tertiary);
   border-radius: var(--radius-md);
 }
 

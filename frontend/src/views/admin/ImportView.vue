@@ -372,15 +372,12 @@ onUnmounted(() => {
 .stat {
   text-align: center;
   padding: var(--spacing-md);
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-medium);
   border-radius: var(--radius-md);
 }
 
 .stat span {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--text-primary);
 }
 
 @media (max-width: 768px) {

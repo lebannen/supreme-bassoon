@@ -318,14 +318,7 @@ function formatDuration(duration: string): string {
   margin: 0;
 }
 
-/* Detail colors */
-.detail-success {
-  color: var(--success);
-}
-
-.detail-error {
-  color: var(--error);
-}
+/* Detail colors removed - using PrimeVue defaults */
 
 /* Done button */
 .done-button {
@@ -338,8 +331,6 @@ function formatDuration(duration: string): string {
   justify-content: space-between;
   align-items: center;
   padding: var(--spacing-lg);
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-medium);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
 }
@@ -351,18 +342,12 @@ function formatDuration(duration: string): string {
 }
 
 .high-accuracy {
-  background: var(--success-light);
-  color: var(--success);
 }
 
 .medium-accuracy {
-  background: var(--warning-light);
-  color: var(--warning);
 }
 
 .low-accuracy {
-  background: var(--error-light);
-  color: var(--error);
 }
 
 /* Summary Dialog */
@@ -377,7 +362,6 @@ function formatDuration(duration: string): string {
   flex-direction: column;
   align-items: center;
   padding: var(--spacing-lg);
-  background: var(--bg-tertiary);
   border-radius: var(--radius-md);
   gap: var(--spacing-md);
 }
@@ -386,22 +370,10 @@ function formatDuration(duration: string): string {
   width: 3rem;
   height: 3rem;
   border-radius: var(--radius-full);
-  background: var(--primary-light);
-  color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-}
-
-.accuracy-icon {
-  background: var(--success-light);
-  color: var(--success);
-}
-
-.time-icon {
-  background: var(--warning-light);
-  color: var(--warning);
 }
 
 .summary-details {
@@ -409,7 +381,6 @@ function formatDuration(duration: string): string {
   flex-direction: column;
   gap: var(--spacing-md);
   padding: var(--spacing-lg);
-  background: var(--bg-tertiary);
   border-radius: var(--radius-md);
 }
 

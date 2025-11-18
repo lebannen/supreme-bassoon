@@ -236,10 +236,8 @@ const handleContentClick = (contentId: number) => {
 }
 
 .hero-section {
-  background: var(--bg-secondary);
   padding: 5rem 1.5rem;
   text-align: center;
-  border-bottom: 1px solid var(--border-light);
 }
 
 .hero-content {
@@ -251,7 +249,6 @@ const handleContentClick = (contentId: number) => {
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
-  color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -265,14 +262,12 @@ const handleContentClick = (contentId: number) => {
 
 .hero-subtitle {
   font-size: 1.5rem;
-  color: var(--text-primary);
   margin-bottom: 1rem;
   font-weight: 600;
 }
 
 .hero-description {
   font-size: 1.1rem;
-  color: var(--text-secondary);
   margin-bottom: 2.5rem;
   line-height: 1.7;
 }
@@ -286,7 +281,6 @@ const handleContentClick = (contentId: number) => {
 
 .features-section {
   padding: 5rem 1.5rem;
-  background: var(--bg-primary);
 }
 
 .features-container {
@@ -298,7 +292,6 @@ const handleContentClick = (contentId: number) => {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 3rem;
-  color: var(--text-primary);
   font-weight: 700;
 }
 
@@ -329,11 +322,9 @@ const handleContentClick = (contentId: number) => {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
-  color: var(--text-primary);
 }
 
 .feature-description {
-  color: var(--text-secondary);
   line-height: 1.6;
 }
 

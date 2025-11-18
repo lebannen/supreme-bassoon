@@ -711,13 +711,10 @@ onMounted(() => {
   display: block;
   font-weight: 600;
   margin-bottom: var(--spacing-sm);
-  color: var(--text-primary);
 }
 
 .selected-course {
   padding: var(--spacing-sm);
-  background: var(--primary-light);
-  border-left: 3px solid var(--primary);
   margin-bottom: var(--spacing-lg);
   border-radius: var(--radius-sm);
 }
@@ -728,32 +725,27 @@ onMounted(() => {
   gap: var(--spacing-sm);
   margin-top: var(--spacing-lg);
   padding: var(--spacing-sm);
-  background: var(--bg-tertiary);
   border-radius: var(--radius-md);
 }
 
 .audio-option label {
   font-weight: 500;
-  color: var(--text-primary);
   cursor: pointer;
 }
 
 .modules-section {
   padding: var(--spacing-lg);
-  background: var(--bg-tertiary);
   border-radius: var(--radius-md);
   margin: var(--spacing-sm) 0;
 }
 
 .modules-section h4 {
   margin: 0 0 var(--spacing-md) 0;
-  color: var(--text-primary);
   font-size: 1.125rem;
   font-weight: 600;
 }
 
 .modules-table {
-  background: var(--bg-secondary);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
 }
@@ -765,7 +757,6 @@ onMounted(() => {
 
 .progress-percentage {
   font-weight: 600;
-  color: var(--text-primary);
   min-width: 3rem;
   text-align: right;
 }
@@ -775,27 +766,21 @@ onMounted(() => {
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-sm);
-  background: var(--bg-hover);
   border-radius: var(--radius-md);
-  color: var(--text-primary);
 }
 
 .progress-message i {
-  color: var(--primary);
 }
 
 .current-item {
   padding: var(--spacing-sm);
-  color: var(--text-secondary);
   font-size: 0.9rem;
 }
 
 .current-item strong {
-  color: var(--text-primary);
 }
 
 .icon-primary {
-  color: var(--primary);
 }
 
 .import-button-full {
@@ -809,7 +794,6 @@ onMounted(() => {
 
 .import-progress-title {
   margin: var(--spacing-md) 0 var(--spacing-sm) 0;
-  color: var(--text-primary);
 }
 
 /* Column widths */

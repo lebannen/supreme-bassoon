@@ -425,7 +425,6 @@ onMounted(() => {
 <style scoped>
 .episode-view {
   min-height: 100vh;
-  background: var(--bg-primary);
   padding: 2rem 1rem;
 }
 
@@ -464,7 +463,6 @@ onMounted(() => {
 }
 
 .episode-number {
-  color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -473,13 +471,11 @@ onMounted(() => {
   font-size: 2rem;
   font-weight: 700;
   margin: 0 0 0.75rem 0;
-  color: var(--text-primary);
 }
 
 .episode-stats {
   display: flex;
   gap: 1.5rem;
-  color: var(--text-secondary);
 }
 
 .episode-stats span {
@@ -504,7 +500,6 @@ onMounted(() => {
 
 .progress-percentage {
   font-size: 1.25rem;
-  color: var(--primary);
 }
 
 .progress-details {
@@ -520,15 +515,12 @@ onMounted(() => {
 }
 
 .completed-item {
-  color: var(--success);
 }
 
 .completed-item i {
-  color: var(--success);
 }
 
 .pending-item {
-  color: var(--text-secondary);
 }
 
 /* Content */
@@ -541,7 +533,6 @@ onMounted(() => {
 .episode-text {
   line-height: 1.8;
   font-size: 1.125rem;
-  color: var(--text-primary);
 }
 
 .episode-text p {
@@ -560,7 +551,6 @@ onMounted(() => {
 
 .audio-controls i {
   font-size: 1.5rem;
-  color: var(--primary);
 }
 
 .audio-element {
@@ -581,7 +571,6 @@ onMounted(() => {
 
 .exercises-section h2 {
   margin-bottom: 1.5rem;
-  color: var(--text-primary);
 }
 
 .exercise-nav {
@@ -597,13 +586,9 @@ onMounted(() => {
 }
 
 .exercise-nav-btn.active {
-  background: var(--primary);
-  color: var(--text-inverse);
 }
 
 .exercise-nav-btn.completed {
-  background: var(--success);
-  color: var(--text-inverse);
 }
 
 .exercise-header {
@@ -619,8 +604,6 @@ onMounted(() => {
 }
 
 .required-badge {
-  background: var(--warning-light);
-  color: var(--warning);
   padding: 0.25rem 0.75rem;
   border-radius: var(--radius-lg);
   font-size: 0.75rem;
@@ -630,14 +613,11 @@ onMounted(() => {
 
 .exercise-instructions {
   font-size: 1rem;
-  color: var(--text-secondary);
   margin-bottom: 1.5rem;
 }
 
 /* Completion */
 .completion-card {
-  background: linear-gradient(135deg, var(--success-light) 0%, var(--success-light) 100%);
-  border: 2px solid var(--success);
 }
 
 .completion-message {
@@ -647,19 +627,16 @@ onMounted(() => {
 
 .completion-message i {
   font-size: 4rem;
-  color: var(--success);
   margin-bottom: 1rem;
 }
 
 .completion-message h3 {
   font-size: 1.75rem;
   font-weight: 700;
-  color: var(--text-primary);
   margin: 0 0 1rem 0;
 }
 
 .completion-message p {
-  color: var(--text-secondary);
   margin-bottom: 2rem;
 }
 

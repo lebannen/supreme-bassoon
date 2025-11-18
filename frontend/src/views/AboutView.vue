@@ -138,7 +138,6 @@ import Button from 'primevue/button'
 <style scoped>
 .about-view {
   min-height: 100%;
-  background: var(--bg-primary);
   padding: var(--spacing-4xl);
 }
 
@@ -148,7 +147,6 @@ import Button from 'primevue/button'
 }
 
 .link {
-  color: var(--primary);
   text-decoration: none;
   font-weight: 600;
 }
@@ -172,13 +170,10 @@ import Button from 'primevue/button'
 
 .tech-list li {
   padding: 0.4rem 0;
-  color: var(--text-secondary);
   line-height: 1.6;
 }
 
 .info-note {
-  background: var(--bg-tertiary);
-  border-left: 4px solid var(--primary);
   padding: var(--spacing-md);
   border-radius: var(--radius-md);
   display: flex;
@@ -188,7 +183,6 @@ import Button from 'primevue/button'
 }
 
 .info-note i {
-  color: var(--primary);
   margin-top: 0.25rem;
   flex-shrink: 0;
 }
@@ -204,8 +198,6 @@ import Button from 'primevue/button'
 .cta-card {
   text-align: center;
   padding: var(--spacing-4xl);
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-medium);
   border-radius: var(--radius-md);
 }
 

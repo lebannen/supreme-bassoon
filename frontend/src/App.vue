@@ -31,7 +31,6 @@ authStore.initAuth()
   flex: 1;
   padding: var(--spacing-3xl) var(--spacing-3xl) 80px;
   max-width: calc(100vw - var(--sidebar-width));
-  background-color: var(--bg-primary);
   min-height: 100vh;
 }
 

@@ -318,15 +318,12 @@ onMounted(() => {
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-2xl);
   padding-bottom: var(--spacing-lg);
-  border-bottom: 1px solid var(--border-medium);
 }
 
 /* Module cards */
 .module-card {
   padding: 1rem;
-  border: 1px solid var(--border-medium);
   border-radius: var(--radius-md);
-  background: var(--bg-tertiary);
 }
 
 /* Responsive */

@@ -350,7 +350,6 @@ onMounted(() => {
   display: block;
   margin-bottom: var(--spacing-xs);
   font-weight: 600;
-  color: var(--text-primary);
 }
 
 .language-select {
@@ -377,13 +376,11 @@ onMounted(() => {
 
 .upload-form .field label {
   font-weight: 600;
-  color: var(--text-primary);
 }
 
 .file-name {
   display: block;
   margin-top: var(--spacing-xs);
-  color: var(--text-secondary);
   font-style: italic;
 }
 
@@ -396,8 +393,6 @@ onMounted(() => {
 
 .card-header {
   padding: var(--spacing-md);
-  background: var(--bg-tertiary);
-  border-bottom: 1px solid var(--border-medium);
 }
 
 .card-header-content {
@@ -410,16 +405,13 @@ onMounted(() => {
 .word-set-name {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--text-primary);
 }
 
 .theme {
-  color: var(--text-secondary);
   font-style: italic;
 }
 
 .description {
-  color: var(--text-secondary);
   margin-bottom: var(--spacing-md);
 }
 
@@ -434,11 +426,9 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
-  color: var(--text-secondary);
 }
 
 .word-set-stats .stat i {
-  color: var(--primary);
 }
 
 .card-actions {

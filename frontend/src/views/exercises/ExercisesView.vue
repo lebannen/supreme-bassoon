@@ -200,11 +200,9 @@ onMounted(async () => {
 .type-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  border-color: var(--primary);
 }
 
 .type-card.selected {
-  border-color: var(--primary);
   background: linear-gradient(
       135deg,
       var(--primary-gradient-start) 0%,
@@ -214,11 +212,9 @@ onMounted(async () => {
 }
 
 .type-card.selected .type-card-content {
-  color: var(--text-inverse);
 }
 
 .type-card.selected .type-icon {
-  color: var(--text-inverse);
   background: rgba(255, 255, 255, 0.2);
 }
 
@@ -233,8 +229,6 @@ onMounted(async () => {
 
 .type-icon {
   font-size: 2.5rem;
-  color: var(--primary);
-  background: var(--primary-light);
   padding: var(--spacing-md);
   border-radius: var(--radius-full);
   width: 80px;
@@ -249,15 +243,12 @@ onMounted(async () => {
   font-size: 1.125rem;
   font-weight: 600;
   margin: 0;
-  color: var(--text-primary);
 }
 
 .type-card.selected .type-name {
-  color: var(--text-inverse);
 }
 
 .type-count {
-  color: var(--text-secondary);
   margin: 0;
 }
 

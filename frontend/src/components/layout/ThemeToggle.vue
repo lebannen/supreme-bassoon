@@ -44,7 +44,6 @@
     width: 40px;
     height: 40px;
     border-radius: var(--radius-md);
-    background: var(--bg-tertiary);
     border: none;
     cursor: pointer;
     display: flex;
@@ -56,7 +55,6 @@
   }
 
   .theme-toggle:hover {
-    background: var(--bg-hover);
     transform: scale(1.05);
   }
 
