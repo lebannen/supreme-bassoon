@@ -1,20 +1,24 @@
 <template>
   <div class="listening-exercise">
-    <div class="audio-section">
-      <div class="audio-player-container">
-        <audio ref="audioPlayer" :src="audioUrl" controls preload="auto" class="audio-player">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-      <div class="audio-hint">
-        <i class="pi pi-volume-up"></i>
-        <span>Listen to the audio and answer the question below</span>
-      </div>
-    </div>
+    <Card class="audio-section">
+      <template #content>
+        <div class="audio-player-container">
+          <audio ref="audioPlayer" :src="audioUrl" controls preload="auto" class="audio-player">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div class="audio-hint">
+          <i class="pi pi-volume-up"></i>
+          <span>Listen to the audio and answer the question below</span>
+        </div>
+      </template>
+    </Card>
 
-    <div class="question-section">
-      <h2 class="question-text">{{ content.question }}</h2>
-    </div>
+    <Card class="question-section">
+      <template #content>
+        <h2 class="question-text">{{ content.question }}</h2>
+      </template>
+    </Card>
 
     <!-- Multiple Choice Questions -->
     <div v-if="questionType === 'multiple_choice'" class="options-section">
@@ -99,6 +103,7 @@
 <script setup lang="ts">
 import {computed, ref} from 'vue'
 import Button from 'primevue/button'
+import Card from 'primevue/card'
 import Message from 'primevue/message'
 import InputText from 'primevue/inputtext'
 
@@ -252,9 +257,6 @@ defineExpose({
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1.5rem;
-  background: var(--surface-ground);
-  border-radius: 8px;
 }
 
 .audio-player-container {
@@ -272,12 +274,10 @@ defineExpose({
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  color: var(--text-color-secondary);
   font-size: 0.95rem;
 }
 
 .audio-hint i {
-  color: var(--primary-color);
   font-size: 1.2rem;
 }
 
@@ -290,7 +290,6 @@ defineExpose({
 .question-text {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--text-color);
   margin: 0;
 }
 
@@ -319,22 +318,17 @@ defineExpose({
 }
 
 .option-card.selected {
-  background: #3b82f6 !important;
-  color: white !important;
-  border-color: #2563eb !important;
   border-width: 3px;
   transform: scale(1.02);
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 0 4px rgba(var(--primary-color-rgb), 0.3);
 }
 
 .option-card.correct {
-  background: var(--green-50);
   border-color: var(--green-500);
   border-width: 3px;
 }
 
 .option-card.incorrect {
-  background: var(--red-50);
   border-color: var(--red-500);
   border-width: 3px;
 }
@@ -350,15 +344,9 @@ defineExpose({
   width: 32px;
   height: 32px;
   background: var(--primary-color);
-  color: white;
   border-radius: 50%;
   font-weight: 600;
   font-size: 0.875rem;
-}
-
-.option-card.selected .option-label {
-  background: white;
-  color: #3b82f6;
 }
 
 .option-card.correct .option-label {
@@ -375,21 +363,9 @@ defineExpose({
   font-weight: 500;
 }
 
-.option-card.selected .option-text {
-  color: white !important;
-}
-
 .result-icon {
   font-size: 1.5rem;
   margin-left: auto;
-}
-
-.correct-icon {
-  color: var(--green-500);
-}
-
-.incorrect-icon {
-  color: var(--red-500);
 }
 
 .input-section {

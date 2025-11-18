@@ -1,4 +1,8 @@
 <script setup lang="ts">
+
+import {computed, defineEmits, defineProps, withDefaults} from 'vue'
+import Card from 'primevue/card'
+
 export interface CourseCardProps {
   /**
    * Course name
@@ -67,51 +71,52 @@ const languageEmoji = computed(() => {
 })
 </script>
 
-<script lang="ts">
-import {defineProps, withDefaults, defineEmits, computed} from 'vue'
-</script>
-
 <template>
-  <div class="course-card card card-hoverable-lift" @click="emit('click')">
-    <!-- Course Header with gradient -->
-    <div class="course-header">
-      <span class="course-icon">{{ languageEmoji }}</span>
-      <div class="course-badges">
-        <span class="badge">{{ languageCode.toUpperCase() }}</span>
-        <span class="badge badge-level">{{ cefrLevel }}</span>
-      </div>
-    </div>
-
-    <!-- Course Body -->
-    <div class="course-body">
-      <h3 class="course-title">{{ name }}</h3>
-      <p class="course-description">{{ description }}</p>
-
-      <!-- Course Stats -->
-      <div class="course-stats">
-        <div class="stat-item">
-          <span class="stat-icon">📖</span>
-          <span>{{ totalModules }} modules</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-icon">📝</span>
-          <span>{{ totalEpisodes }} episodes</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-icon">⏱️</span>
-          <span>~{{ estimatedHours }}h</span>
+  <Card class="course-card" @click="emit('click')">
+    <template #header>
+      <div class="course-header">
+        <span class="course-icon">{{ languageEmoji }}</span>
+        <div class="course-badges">
+          <span class="badge">{{ languageCode.toUpperCase() }}</span>
+          <span class="badge badge-level">{{ cefrLevel }}</span>
         </div>
       </div>
-    </div>
-  </div>
+    </template>
+
+    <template #content>
+      <div class="course-body">
+        <h3 class="course-title">{{ name }}</h3>
+        <p class="course-description">{{ description }}</p>
+
+        <!-- Course Stats -->
+        <div class="course-stats">
+          <div class="stat-item">
+            <span class="stat-icon">📖</span>
+            <span>{{ totalModules }} modules</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-icon">📝</span>
+            <span>{{ totalEpisodes }} episodes</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-icon">⏱️</span>
+            <span>~{{ estimatedHours }}h</span>
+          </div>
+        </div>
+      </div>
+    </template>
+  </Card>
 </template>
 
 <style scoped>
 .course-card {
   overflow: hidden;
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
+  transition: all 0.2s;
+}
+
+.course-card:hover {
+  transform: translateY(-2px);
 }
 
 .course-header {
@@ -136,8 +141,6 @@ import {defineProps, withDefaults, defineEmits, computed} from 'vue'
 }
 
 .badge {
-  background-color: rgba(255, 255, 255, 0.25);
-  color: white;
   font-size: 10px;
   font-weight: 600;
   padding: 4px 10px;
@@ -145,10 +148,6 @@ import {defineProps, withDefaults, defineEmits, computed} from 'vue'
   text-transform: uppercase;
   letter-spacing: 0.3px;
   backdrop-filter: blur(10px);
-}
-
-.badge-level {
-  background-color: rgba(255, 255, 255, 0.35);
 }
 
 .course-body {
@@ -161,14 +160,12 @@ import {defineProps, withDefaults, defineEmits, computed} from 'vue'
 .course-title {
   font-size: 18px;
   font-weight: 600;
-  color: var(--text-primary);
   margin: 0 0 var(--spacing-sm) 0;
   line-height: 1.4;
 }
 
 .course-description {
   font-size: 14px;
-  color: var(--text-secondary);
   margin: 0 0 var(--spacing-lg) 0;
   line-height: 1.6;
   flex: 1;
@@ -179,7 +176,6 @@ import {defineProps, withDefaults, defineEmits, computed} from 'vue'
   flex-direction: column;
   gap: var(--spacing-xs);
   padding-top: var(--spacing-md);
-  border-top: 1px solid var(--border-light);
 }
 
 .stat-item {
@@ -187,7 +183,6 @@ import {defineProps, withDefaults, defineEmits, computed} from 'vue'
   align-items: center;
   gap: var(--spacing-xs);
   font-size: 13px;
-  color: var(--text-secondary);
 }
 
 .stat-icon {

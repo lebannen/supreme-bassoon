@@ -1,45 +1,47 @@
 <template>
   <div class="fill-in-blank-exercise">
-    <div class="question-section">
-      <div class="sentence-display">
-        <span v-for="(part, index) in sentenceParts" :key="index">
-          <span v-if="part.type === 'text'" class="sentence-text">{{ part.content }}</span>
-          <span v-else-if="part.type === 'blank'" class="blank-wrapper">
-            <!-- Multi-blank support -->
-            <Select
-              v-if="!showResult && isMultiBlank && part.blankIndex !== undefined"
-              v-model="selectedAnswers[part.blankIndex]"
-              :options="getBlankOptions(part.blankIndex)"
-              placeholder="Choose..."
-              class="blank-select"
-              :class="{ 'has-value': selectedAnswers[part.blankIndex] }"
-            />
-            <!-- Single blank support (backward compatibility) -->
-            <Select
-              v-else-if="!showResult && !isMultiBlank"
-              v-model="selectedAnswer"
-              :options="getBlankOptions(0)"
-              placeholder="Choose..."
-              class="blank-select"
-              :class="{ 'has-value': selectedAnswer }"
-            />
-            <!-- Multi-blank result display -->
-            <span
-              v-else-if="showResult && isMultiBlank && part.blankIndex !== undefined"
-              class="blank-result"
-              :class="blankResults[part.blankIndex]"
-            >
-              {{ userAnswers[part.blankIndex] || '___' }}
-            </span>
-            <!-- Single blank result display -->
-            <span v-else-if="showResult" class="blank-result" :class="resultClass">
-              {{ userAnswer || '___' }}
+    <Card class="question-section">
+      <template #content>
+        <div class="sentence-display">
+          <span v-for="(part, index) in sentenceParts" :key="index">
+            <span v-if="part.type === 'text'" class="sentence-text">{{ part.content }}</span>
+            <span v-else-if="part.type === 'blank'" class="blank-wrapper">
+              <!-- Multi-blank support -->
+              <Select
+                  v-if="!showResult && isMultiBlank && part.blankIndex !== undefined"
+                  v-model="selectedAnswers[part.blankIndex]"
+                  :options="getBlankOptions(part.blankIndex)"
+                  placeholder="Choose..."
+                  class="blank-select"
+                  :class="{ 'has-value': selectedAnswers[part.blankIndex] }"
+              />
+              <!-- Single blank support (backward compatibility) -->
+              <Select
+                  v-else-if="!showResult && !isMultiBlank"
+                  v-model="selectedAnswer"
+                  :options="getBlankOptions(0)"
+                  placeholder="Choose..."
+                  class="blank-select"
+                  :class="{ 'has-value': selectedAnswer }"
+              />
+              <!-- Multi-blank result display -->
+              <span
+                  v-else-if="showResult && isMultiBlank && part.blankIndex !== undefined"
+                  class="blank-result"
+                  :class="blankResults[part.blankIndex]"
+              >
+                {{ userAnswers[part.blankIndex] || '___' }}
+              </span>
+              <!-- Single blank result display -->
+              <span v-else-if="showResult" class="blank-result" :class="resultClass">
+                {{ userAnswer || '___' }}
+              </span>
             </span>
           </span>
-        </span>
-      </div>
-      <p v-if="translation" class="translation">{{ translation }}</p>
-    </div>
+        </div>
+        <p v-if="translation" class="translation">{{ translation }}</p>
+      </template>
+    </Card>
 
     <div v-if="showHint && !showResult" class="hint-section">
       <Message severity="info">
@@ -86,6 +88,7 @@
 <script setup lang="ts">
 import {computed, ref} from 'vue'
 import Button from 'primevue/button'
+import Card from 'primevue/card'
 import Select from 'primevue/select'
 import Message from 'primevue/message'
 
@@ -298,17 +301,12 @@ defineExpose({ setResult, reset })
 .question-section {
   text-align: center;
   margin-bottom: 2rem;
-  padding: 2rem;
-  background: var(--surface-card);
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .sentence-display {
   font-size: 1.75rem;
   font-weight: 500;
   line-height: 2.5;
-  color: var(--text-color);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -348,21 +346,16 @@ defineExpose({ setResult, reset })
 }
 
 .blank-result.correct {
-  background: rgba(34, 197, 94, 0.2);
-  color: #16a34a;
-  border: 3px solid #22c55e;
+  border: 3px solid var(--green-500);
 }
 
 .blank-result.incorrect {
-  background: rgba(239, 68, 68, 0.2);
-  color: #dc2626;
-  border: 3px solid #ef4444;
+  border: 3px solid var(--red-500);
 }
 
 .translation {
   margin-top: 1.5rem;
   font-size: 1rem;
-  color: var(--text-color-secondary);
   font-style: italic;
 }
 
@@ -381,19 +374,6 @@ defineExpose({ setResult, reset })
   gap: 1rem;
   justify-content: flex-end;
   align-items: center;
-}
-
-/* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-  .blank-result.correct {
-    background: rgba(34, 197, 94, 0.25);
-    color: #4ade80;
-  }
-
-  .blank-result.incorrect {
-    background: rgba(239, 68, 68, 0.25);
-    color: #f87171;
-  }
 }
 
 /* Mobile responsive */

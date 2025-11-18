@@ -8,10 +8,10 @@
     const savedTheme = localStorage.getItem('theme')
     if (savedTheme === 'dark') {
       isDark.value = true
-      document.body.classList.add('dark-theme')
+      document.documentElement.classList.add('dark-theme')
     } else {
       isDark.value = false
-      document.body.classList.remove('dark-theme')
+      document.documentElement.classList.remove('dark-theme')
     }
   })
 
@@ -19,10 +19,10 @@
     isDark.value = !isDark.value
 
     if (isDark.value) {
-      document.body.classList.add('dark-theme')
+      document.documentElement.classList.add('dark-theme')
       localStorage.setItem('theme', 'dark')
     } else {
-      document.body.classList.remove('dark-theme')
+      document.documentElement.classList.remove('dark-theme')
       localStorage.setItem('theme', 'light')
     }
   }

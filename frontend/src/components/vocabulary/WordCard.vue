@@ -34,27 +34,31 @@
         </div>
       </div>
 
-      <div v-if="word.baseForm" class="base-form-section">
-        <h3>Base Form</h3>
-        <div class="base-form-info">
-          <a class="base-form-lemma" @click="$emit('word-click', word.baseForm.lemma)">
-            {{ word.baseForm.lemma }}
-          </a>
-          <Tag
-              v-if="word.baseForm.partOfSpeech"
-              :value="word.baseForm.partOfSpeech"
-              severity="info"
-          />
-        </div>
-        <div v-if="word.grammaticalFeatures" class="grammatical-features">
-          <Tag
-            v-for="(value, key) in word.grammaticalFeatures"
-            :key="key"
-            :value="`${key}: ${value}`"
-            severity="secondary"
-          />
-        </div>
-      </div>
+      <Card v-if="word.baseForm" class="base-form-section">
+        <template #header>
+          <h3>Base Form</h3>
+        </template>
+        <template #content>
+          <div class="base-form-info">
+            <a class="base-form-lemma" @click="$emit('word-click', word.baseForm.lemma)">
+              {{ word.baseForm.lemma }}
+            </a>
+            <Tag
+                v-if="word.baseForm.partOfSpeech"
+                :value="word.baseForm.partOfSpeech"
+                severity="info"
+            />
+          </div>
+          <div v-if="word.grammaticalFeatures" class="grammatical-features">
+            <Tag
+                v-for="(value, key) in word.grammaticalFeatures"
+                :key="key"
+                :value="`${key}: ${value}`"
+                severity="secondary"
+            />
+          </div>
+        </template>
+      </Card>
 
       <div v-if="word.definitions.length > 0" class="definitions">
         <h3>Definitions</h3>
@@ -103,6 +107,7 @@
 
 <script setup lang="ts">
 import Dialog from 'primevue/dialog'
+import Card from 'primevue/card'
 import Tag from 'primevue/tag'
 import Button from 'primevue/button'
 import ProgressSpinner from 'primevue/progressspinner'
@@ -172,7 +177,6 @@ function isInVocabulary(wordId: number): boolean {
 }
 
 .word-header {
-  border-bottom: 1px solid var(--surface-border);
   padding-bottom: 1rem;
   display: flex;
   justify-content: space-between;
@@ -194,21 +198,19 @@ function isInVocabulary(wordId: number): boolean {
 
 .word-title h2 {
   margin: 0;
-  color: var(--text-color);
 }
 
-.base-form-section {
-  padding: 1rem;
-  background: var(--surface-section);
-  border: 1px solid var(--surface-border);
-  border-radius: var(--border-radius);
+.base-form-section :deep(.p-card-header) {
+  padding: 1rem 1rem 0.5rem 1rem;
+}
+
+.base-form-section :deep(.p-card-content) {
+  padding: 0 1rem 1rem 1rem;
 }
 
 .base-form-section h3 {
   font-size: 1.1rem;
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-  color: var(--text-color-secondary);
+  margin: 0;
   font-weight: 600;
 }
 
@@ -222,7 +224,6 @@ function isInVocabulary(wordId: number): boolean {
 .base-form-lemma {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--primary-color);
   cursor: pointer;
   text-decoration: none;
   transition: opacity 0.2s;
@@ -245,7 +246,6 @@ function isInVocabulary(wordId: number): boolean {
 .inflected-forms h3 {
   font-size: 1.1rem;
   margin-bottom: 0.75rem;
-  color: var(--text-color-secondary);
   font-weight: 600;
 }
 
@@ -259,14 +259,12 @@ function isInVocabulary(wordId: number): boolean {
 
 .definition-text {
   margin-bottom: 0.5rem;
-  color: var(--text-color);
   line-height: 1.6;
 }
 
 .definition-number {
   font-weight: 600;
   margin-right: 0.5rem;
-  color: var(--primary-color);
 }
 
 .examples {
@@ -280,7 +278,6 @@ function isInVocabulary(wordId: number): boolean {
   gap: 0.5rem;
   margin-bottom: 0.5rem;
   font-style: italic;
-  color: var(--text-color-secondary);
   line-height: 1.5;
 }
 
@@ -289,13 +286,11 @@ function isInVocabulary(wordId: number): boolean {
 }
 
 .example-translation {
-  color: var(--text-color);
   font-style: normal;
 }
 
 .etymology p,
 .usage-notes p {
-  color: var(--text-color-secondary);
   line-height: 1.7;
 }
 

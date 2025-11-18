@@ -296,7 +296,7 @@ onMounted(async () => {
 
 .demo-mode h1 {
   text-align: center;
-  color: var(--text-color);
+  color: var(--text-primary);
   font-weight: 700;
   margin-bottom: 2rem;
 }
@@ -351,7 +351,7 @@ onMounted(async () => {
 }
 
 .demo-section h2 {
-  color: var(--text-color);
+  color: var(--text-primary);
   margin-bottom: 1rem;
 }
 
@@ -366,7 +366,7 @@ code {
   font-family: 'Monaco', 'Courier New', monospace;
   font-size: 0.9rem;
   line-height: 1.6;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 .custom-page-content {

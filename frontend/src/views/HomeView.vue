@@ -260,7 +260,7 @@ const handleContentClick = (contentId: number) => {
 
 .hero-title i {
   font-size: 3rem;
-  color: var(--primary);
+  color: var(--p-primary-color);
 }
 
 .hero-subtitle {
@@ -321,7 +321,7 @@ const handleContentClick = (contentId: number) => {
 
 .feature-icon {
   font-size: 3rem;
-  color: var(--primary);
+  color: var(--p-primary-color);
   margin-bottom: 1rem;
 }
 
@@ -338,8 +338,8 @@ const handleContentClick = (contentId: number) => {
 }
 
 .cta-section {
-  background: var(--primary);
-  color: white;
+  background: var(--p-primary-color);
+  color: var(--p-primary-contrast-color);
   padding: 4rem 1.5rem;
   text-align: center;
 }

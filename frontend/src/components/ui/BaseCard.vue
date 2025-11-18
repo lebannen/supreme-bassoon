@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import Card from 'primevue/card'
+import {computed} from 'vue'
+
 export interface BaseCardProps {
   /**
    * Padding variant
@@ -28,7 +31,7 @@ const props = withDefaults(defineProps<BaseCardProps>(), {
 
 const cardClasses = computed(() => {
   return {
-    card: true,
+    'base-card': true,
     'card-padding': props.padding === 'default',
     'card-padding-lg': props.padding === 'lg',
     'card-padding-xl': props.padding === 'xl',
@@ -38,45 +41,40 @@ const cardClasses = computed(() => {
 })
 </script>
 
-<script lang="ts">
-import {computed} from 'vue'
-</script>
-
 <template>
-  <div :class="cardClasses">
-    <slot></slot>
-  </div>
+  <Card :class="cardClasses">
+    <template #content>
+      <slot></slot>
+    </template>
+  </Card>
 </template>
 
 <style scoped>
-.card {
-  background: var(--bg-secondary);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border-light);
+.base-card {
   transition: all 0.2s;
 }
 
-.card-padding {
+.card-padding :deep(.p-card-body),
+.card-padding :deep(.p-card-content) {
   padding: var(--spacing-lg);
 }
 
-.card-padding-lg {
+.card-padding-lg :deep(.p-card-body),
+.card-padding-lg :deep(.p-card-content) {
   padding: var(--spacing-xl);
 }
 
-.card-padding-xl {
+.card-padding-xl :deep(.p-card-body),
+.card-padding-xl :deep(.p-card-content) {
   padding: var(--spacing-4xl);
 }
 
 .card-hoverable:hover {
-  box-shadow: var(--shadow-md);
   transform: translateY(-1px);
   cursor: pointer;
 }
 
 .card-hoverable-lift:hover {
-  box-shadow: var(--shadow-lg);
   transform: translateY(-2px);
   cursor: pointer;
 }

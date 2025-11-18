@@ -1,39 +1,41 @@
 <template>
   <div class="sentence-scramble-exercise">
-    <div class="question-section">
-      <h2 class="instructions-text">Arrange the words in the correct order:</h2>
+    <Card class="question-section">
+      <template #content>
+        <h2 class="instructions-text">Arrange the words in the correct order:</h2>
 
-      <!-- User's answer area -->
-      <div class="answer-area">
-        <div
-          v-for="(word, index) in userOrderedWords"
-          :key="`answer-${index}`"
-          class="word-chip answer-chip"
-          :class="{ correct: showResult && isCorrect, incorrect: showResult && !isCorrect }"
-          @click="removeWord(index)"
-        >
-          {{ word }}
-          <i v-if="!showResult" class="pi pi-times remove-icon"></i>
+        <!-- User's answer area -->
+        <div class="answer-area">
+          <div
+              v-for="(word, index) in userOrderedWords"
+              :key="`answer-${index}`"
+              class="word-chip answer-chip"
+              :class="{ correct: showResult && isCorrect, incorrect: showResult && !isCorrect }"
+              @click="removeWord(index)"
+          >
+            {{ word }}
+            <i v-if="!showResult" class="pi pi-times remove-icon"></i>
+          </div>
+          <div v-if="userOrderedWords.length === 0 && !showResult" class="placeholder-text">
+            Click words below to build your sentence
+          </div>
         </div>
-        <div v-if="userOrderedWords.length === 0 && !showResult" class="placeholder-text">
-          Click words below to build your sentence
-        </div>
-      </div>
 
-      <!-- Available words to choose from -->
-      <div v-if="!showResult" class="available-words">
-        <div
-          v-for="(word, index) in availableWords"
-          :key="`available-${index}`"
-          class="word-chip available-chip"
-          @click="selectWord(index)"
-        >
-          {{ word }}
+        <!-- Available words to choose from -->
+        <div v-if="!showResult" class="available-words">
+          <div
+              v-for="(word, index) in availableWords"
+              :key="`available-${index}`"
+              class="word-chip available-chip"
+              @click="selectWord(index)"
+          >
+            {{ word }}
+          </div>
         </div>
-      </div>
 
-      <p v-if="translation && showResult" class="translation">{{ translation }}</p>
-    </div>
+        <p v-if="translation && showResult" class="translation">{{ translation }}</p>
+      </template>
+    </Card>
 
     <div v-if="showHint && !showResult" class="hint-section">
       <Message severity="info">
@@ -88,6 +90,7 @@
 <script setup lang="ts">
 import {computed, ref} from 'vue'
 import Button from 'primevue/button'
+import Card from 'primevue/card'
 import Message from 'primevue/message'
 
 interface Props {
@@ -229,10 +232,6 @@ defineExpose({ setResult, reset })
 
 .question-section {
   margin-bottom: 2rem;
-  padding: 2rem;
-  background: var(--surface-card);
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .instructions-text {
@@ -240,7 +239,6 @@ defineExpose({ setResult, reset })
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 2rem;
-  color: var(--text-color);
 }
 
 .answer-area {
@@ -259,17 +257,14 @@ defineExpose({ setResult, reset })
 }
 
 .answer-area.correct {
-  border-color: #22c55e;
-  background: rgba(34, 197, 94, 0.1);
+  border-color: var(--green-500);
 }
 
 .answer-area.incorrect {
-  border-color: #ef4444;
-  background: rgba(239, 68, 68, 0.1);
+  border-color: var(--red-500);
 }
 
 .placeholder-text {
-  color: var(--text-color-secondary);
   font-style: italic;
   text-align: center;
   width: 100%;
@@ -298,14 +293,12 @@ defineExpose({ setResult, reset })
 
 .available-chip {
   background: var(--primary-color);
-  color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .available-chip:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  background: var(--primary-color-dark);
 }
 
 .available-chip:active {
@@ -315,7 +308,6 @@ defineExpose({ setResult, reset })
 .answer-chip {
   background: var(--surface-section);
   border: 2px solid var(--surface-border);
-  color: var(--text-color);
 }
 
 .answer-chip:not(.correct):not(.incorrect):hover {
@@ -324,16 +316,12 @@ defineExpose({ setResult, reset })
 }
 
 .answer-chip.correct {
-  background: rgba(34, 197, 94, 0.2);
-  border-color: #22c55e;
-  color: #16a34a;
+  border-color: var(--green-500);
   cursor: default;
 }
 
 .answer-chip.incorrect {
-  background: rgba(239, 68, 68, 0.2);
-  border-color: #ef4444;
-  color: #dc2626;
+  border-color: var(--red-500);
   cursor: default;
 }
 
@@ -346,7 +334,6 @@ defineExpose({ setResult, reset })
   margin-top: 1.5rem;
   text-align: center;
   font-size: 1rem;
-  color: var(--text-color-secondary);
   font-style: italic;
 }
 
@@ -366,19 +353,6 @@ defineExpose({ setResult, reset })
   justify-content: flex-end;
   align-items: center;
   flex-wrap: wrap;
-}
-
-/* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-  .answer-chip.correct {
-    background: rgba(34, 197, 94, 0.25);
-    color: #4ade80;
-  }
-
-  .answer-chip.incorrect {
-    background: rgba(239, 68, 68, 0.25);
-    color: #f87171;
-  }
 }
 
 /* Mobile responsive */

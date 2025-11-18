@@ -305,7 +305,7 @@ function getStatusSeverity(status: string): 'success' | 'danger' | 'info' | 'war
 .files-list h3,
 .uploaded-section h3 {
   margin: 0 0 var(--spacing-md) 0;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 .file-items {
@@ -339,7 +339,7 @@ function getStatusSeverity(status: string): 'success' | 'danger' | 'info' | 'war
 }
 
 .word-count {
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
   margin-left: auto;
 }
 

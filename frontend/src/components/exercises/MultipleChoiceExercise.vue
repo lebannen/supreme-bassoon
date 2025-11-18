@@ -1,8 +1,10 @@
 <template>
   <div class="multiple-choice-exercise">
-    <div class="question-section">
-      <h2 class="question-text">{{ questionText }}</h2>
-    </div>
+    <Card class="question-section">
+      <template #content>
+        <h2 class="question-text">{{ questionText }}</h2>
+      </template>
+    </Card>
 
     <div class="options-section">
       <div
@@ -75,6 +77,7 @@
 <script setup lang="ts">
 import {computed, ref} from 'vue'
 import Button from 'primevue/button'
+import Card from 'primevue/card'
 import Message from 'primevue/message'
 
 interface Option {
@@ -192,16 +195,11 @@ defineExpose({ setResult, reset })
 .question-section {
   text-align: center;
   margin-bottom: 2rem;
-  padding: 2rem;
-  background: var(--surface-card);
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .question-text {
   font-size: 2rem;
   font-weight: 600;
-  color: var(--text-color);
   margin: 0;
 }
 
@@ -235,22 +233,17 @@ defineExpose({ setResult, reset })
 .option-card.selected:not(.disabled) {
   border-color: var(--primary-color);
   border-width: 3px;
-  background: #e3f2fd;
-  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+  box-shadow: 0 4px 12px rgba(var(--primary-color-rgb), 0.4);
 }
 
 .option-card.correct {
-  border-color: #22c55e;
   border-width: 3px;
-  background: rgba(34, 197, 94, 0.15);
-  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+  box-shadow: 0 4px 12px rgba(var(--green-500-rgb), 0.3);
 }
 
 .option-card.incorrect {
-  border-color: #ef4444;
   border-width: 3px;
-  background: rgba(239, 68, 68, 0.15);
-  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+  box-shadow: 0 4px 12px rgba(var(--red-500-rgb), 0.3);
 }
 
 .option-card.disabled {
@@ -269,7 +262,6 @@ defineExpose({ setResult, reset })
   border-radius: 50%;
   font-weight: 700;
   font-size: 1.125rem;
-  color: var(--text-color);
   flex-shrink: 0;
   transition: all 0.2s ease;
 }
@@ -277,21 +269,14 @@ defineExpose({ setResult, reset })
 .option-card.selected:not(.disabled) .option-label {
   background: var(--primary-color);
   border-color: var(--primary-color);
-  color: white;
   transform: scale(1.1);
 }
 
 .option-card.correct .option-label {
-  background: #22c55e;
-  border-color: #22c55e;
-  color: white;
   transform: scale(1.1);
 }
 
 .option-card.incorrect .option-label {
-  background: #ef4444;
-  border-color: #ef4444;
-  color: white;
   transform: scale(1.1);
 }
 
@@ -299,20 +284,11 @@ defineExpose({ setResult, reset })
   flex: 1;
   font-size: 1.125rem;
   font-weight: 500;
-  color: var(--text-color);
 }
 
 .result-icon {
   font-size: 1.5rem;
   flex-shrink: 0;
-}
-
-.correct-icon {
-  color: #22c55e;
-}
-
-.incorrect-icon {
-  color: #ef4444;
 }
 
 .hint-section,
@@ -330,22 +306,5 @@ defineExpose({ setResult, reset })
   gap: 1rem;
   justify-content: flex-end;
   align-items: center;
-}
-
-/* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-  .option-card {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.15);
-  }
-
-  .option-card:hover:not(.disabled) {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: var(--primary-color);
-  }
-
-  .option-card.selected:not(.disabled) {
-    background: rgba(33, 150, 243, 0.25);
-  }
 }
 </style>

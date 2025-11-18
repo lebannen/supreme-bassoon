@@ -171,6 +171,6 @@ onMounted(() => {
 /* Loading spinner with primary color */
 .loading-spinner-primary {
   font-size: 3rem;
-  color: var(--primary);
+  color: var(--p-primary-color);
 }
 </style>

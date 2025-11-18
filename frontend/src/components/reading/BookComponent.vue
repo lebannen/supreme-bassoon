@@ -403,7 +403,7 @@ function previousPage() {
 
 .page-indicator {
   font-size: 1rem;
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
   font-family: serif;
 }
 

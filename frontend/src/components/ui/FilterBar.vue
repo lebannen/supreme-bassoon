@@ -61,7 +61,12 @@ const handleFilterChange = (index: number, value: string) => {
     <!-- Search Box -->
     <div class="search-box">
       <span class="search-icon">🔍</span>
-      <InputText v-model="searchQuery" :placeholder="searchPlaceholder" class="search-input"/>
+      <InputText
+          v-model="searchQuery"
+          :placeholder="searchPlaceholder"
+          class="search-input"
+          unstyled
+      />
     </div>
 
     <!-- Filter Dropdowns -->
@@ -99,13 +104,11 @@ const handleFilterChange = (index: number, value: string) => {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: var(--bg-tertiary);
   padding: 8px 14px;
   border-radius: var(--radius-md);
 }
 
 .search-icon {
-  color: var(--text-tertiary);
   font-size: 16px;
 }
 
@@ -115,12 +118,7 @@ const handleFilterChange = (index: number, value: string) => {
   background: none;
   font-size: 14px;
   outline: none;
-  color: var(--text-primary);
   padding: 0;
-}
-
-.search-input::placeholder {
-  color: var(--text-tertiary);
 }
 
 .filter-dropdown {
@@ -129,7 +127,6 @@ const handleFilterChange = (index: number, value: string) => {
 
 .results-count {
   font-size: 14px;
-  color: var(--text-tertiary);
   white-space: nowrap;
   margin-left: auto;
   padding: 0 var(--spacing-xs);

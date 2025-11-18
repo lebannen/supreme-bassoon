@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import Card from 'primevue/card'
+import {computed} from 'vue'
+
 export interface ContentCardProps {
   /**
    * Content type: 'dialogue', 'story', or 'grammar'
@@ -54,40 +57,46 @@ const gradientClass = computed(() => {
 })
 </script>
 
-<script lang="ts">
-import {defineProps, withDefaults, defineEmits, computed} from 'vue'
-</script>
-
 <template>
-  <div class="content-card card card-hoverable-lift" @click="emit('click')">
-    <div :class="['content-image', gradientClass]">
-      <span class="content-icon">{{ icon }}</span>
-      <span v-if="completed" class="completed-badge">✓ Completed</span>
-      <span v-if="duration" class="audio-indicator">🎧 {{ duration }}</span>
-    </div>
-    <div class="content-body">
-      <div class="content-header">
-        <span class="badge">{{ type.charAt(0).toUpperCase() + type.slice(1) }}</span>
-        <span v-if="level" class="badge badge-level">{{ level }}</span>
+  <Card class="content-card" @click="emit('click')">
+    <template #header>
+      <div :class="['content-image', gradientClass]">
+        <span class="content-icon">{{ icon }}</span>
+        <span v-if="completed" class="completed-badge">✓ Completed</span>
+        <span v-if="duration" class="audio-indicator">🎧 {{ duration }}</span>
       </div>
-      <div class="content-title">{{ title }}</div>
-      <div v-if="description" class="content-description">{{ description }}</div>
-      <div v-if="topic || duration" class="content-meta">
-        <span v-if="duration" class="meta-item">
-          <span>🎧</span>
-          <span>{{ duration }}</span>
-        </span>
-        <span v-if="topic && duration" class="meta-separator">•</span>
-        <span v-if="topic" class="meta-item">{{ topic }}</span>
+    </template>
+
+    <template #content>
+      <div class="content-body">
+        <div class="content-header">
+          <span class="badge">{{ type.charAt(0).toUpperCase() + type.slice(1) }}</span>
+          <span v-if="level" class="badge badge-level">{{ level }}</span>
+        </div>
+        <div class="content-title">{{ title }}</div>
+        <div v-if="description" class="content-description">{{ description }}</div>
+        <div v-if="topic || duration" class="content-meta">
+          <span v-if="duration" class="meta-item">
+            <span>🎧</span>
+            <span>{{ duration }}</span>
+          </span>
+          <span v-if="topic && duration" class="meta-separator">•</span>
+          <span v-if="topic" class="meta-item">{{ topic }}</span>
+        </div>
       </div>
-    </div>
-  </div>
+    </template>
+  </Card>
 </template>
 
 <style scoped>
 .content-card {
   overflow: hidden;
   cursor: pointer;
+  transition: all 0.2s;
+}
+
+.content-card:hover {
+  transform: translateY(-2px);
 }
 
 .content-image {
@@ -96,7 +105,6 @@ import {defineProps, withDefaults, defineEmits, computed} from 'vue'
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
   font-size: 48px;
   position: relative;
 }
@@ -121,8 +129,6 @@ import {defineProps, withDefaults, defineEmits, computed} from 'vue'
   position: absolute;
   top: var(--spacing-sm);
   left: var(--spacing-sm);
-  background: rgba(16, 185, 129, 0.95);
-  color: white;
   padding: 5px var(--spacing-sm);
   border-radius: var(--radius-xl);
   font-size: 11px;
@@ -136,12 +142,10 @@ import {defineProps, withDefaults, defineEmits, computed} from 'vue'
   position: absolute;
   top: var(--spacing-sm);
   right: var(--spacing-sm);
-  background: rgba(255, 255, 255, 0.95);
   padding: 5px var(--spacing-sm);
   border-radius: var(--radius-xl);
   font-size: 11px;
   font-weight: 600;
-  color: var(--text-secondary);
   display: flex;
   align-items: center;
   gap: 4px;
@@ -159,8 +163,6 @@ import {defineProps, withDefaults, defineEmits, computed} from 'vue'
 }
 
 .badge {
-  background-color: var(--primary-light);
-  color: var(--primary);
   font-size: 10px;
   font-weight: 600;
   padding: 3px 8px;
@@ -169,29 +171,21 @@ import {defineProps, withDefaults, defineEmits, computed} from 'vue'
   letter-spacing: 0.3px;
 }
 
-.badge-level {
-  background-color: var(--warning-light);
-  color: var(--warning);
-}
-
 .content-title {
   font-size: 15px;
   font-weight: 600;
-  color: var(--text-primary);
   margin-bottom: 6px;
   line-height: 1.4;
 }
 
 .content-description {
   font-size: 13px;
-  color: var(--text-secondary);
   margin-bottom: 10px;
   line-height: 1.5;
 }
 
 .content-meta {
   font-size: 12px;
-  color: var(--text-tertiary);
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
@@ -202,9 +196,5 @@ import {defineProps, withDefaults, defineEmits, computed} from 'vue'
   display: flex;
   align-items: center;
   gap: 4px;
-}
-
-.meta-separator {
-  color: var(--border-dark);
 }
 </style>

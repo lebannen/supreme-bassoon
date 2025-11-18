@@ -291,7 +291,6 @@ defineExpose({
 .instructions-text {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--text-color);
   margin: 0;
 }
 
@@ -332,23 +331,17 @@ defineExpose({
 }
 
 .match-item.selected {
-  background: #3b82f6 !important;
-  color: white !important;
-  border-color: #2563eb !important;
   border-width: 3px;
   transform: scale(1.02);
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 0 4px rgba(var(--primary-color-rgb), 0.3);
 }
 
 .match-item.matched {
-  background: #e0e7ff !important;
-  border-color: #818cf8 !important;
   border-width: 2px;
   cursor: not-allowed;
 }
 
 .match-item.matched .item-content {
-  color: #4338ca !important;
   font-weight: 600;
 }
 
@@ -369,13 +362,11 @@ defineExpose({
 }
 
 .match-item.correct {
-  background: var(--green-50);
   border-color: var(--green-500);
   border-width: 3px;
 }
 
 .match-item.incorrect {
-  background: var(--red-50);
   border-color: var(--red-500);
   border-width: 3px;
 }
@@ -383,12 +374,7 @@ defineExpose({
 .item-content {
   font-size: 1rem;
   font-weight: 500;
-  color: var(--text-color);
   flex: 1;
-}
-
-.match-item.selected .item-content {
-  color: white !important;
 }
 
 .matched-with {
@@ -396,21 +382,9 @@ defineExpose({
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0.75rem;
-  background: var(--blue-100);
   border-radius: 6px;
   font-size: 0.9rem;
-  color: var(--blue-700);
   margin-left: 0.75rem;
-}
-
-.match-item.correct .matched-with {
-  background: var(--green-100);
-  color: var(--green-700);
-}
-
-.match-item.incorrect .matched-with {
-  background: var(--red-100);
-  color: var(--red-700);
 }
 
 .matched-with i {

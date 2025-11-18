@@ -24,7 +24,6 @@ authStore.initAuth()
 .app-container {
   display: flex;
   min-height: 100vh;
-  background-color: var(--bg-primary);
 }
 
 .main-content {

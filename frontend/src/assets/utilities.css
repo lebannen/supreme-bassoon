@@ -55,15 +55,12 @@
 
 /* Text colors */
 .text-primary {
-    color: var(--text-primary);
 }
 
 .text-secondary {
-    color: var(--text-secondary);
 }
 
 .text-tertiary {
-    color: var(--text-tertiary);
 }
 
 /* Line height */
@@ -197,12 +194,10 @@
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 0.375rem;
-    color: var(--text-primary);
 }
 
 .page-header p {
     font-size: 1rem;
-    color: var(--text-secondary);
 }
 
 /* Section Header - section title with optional actions */
@@ -216,7 +211,6 @@
 .section-header h2 {
     font-size: 1.125rem;
     font-weight: 600;
-    color: var(--text-primary);
 }
 
 /* Detail Page Header - for course/module/episode detail pages */
@@ -239,12 +233,10 @@
     font-size: 2.5rem;
     font-weight: 700;
     margin: 0 0 1rem 0;
-    color: var(--text-primary);
 }
 
 .detail-description {
     font-size: 1.125rem;
-    color: var(--text-secondary);
     line-height: 1.6;
     margin: 0 0 1.5rem 0;
 }
@@ -259,7 +251,6 @@
     justify-content: center;
     padding: 4rem;
     gap: 1rem;
-    color: var(--text-secondary);
 }
 
 /* Empty State */
@@ -278,12 +269,10 @@
 .empty-state h3 {
     font-size: 20px;
     font-weight: 600;
-    color: var(--text-primary);
     margin: 0 0 var(--spacing-sm) 0;
 }
 
 .empty-state p {
-    color: var(--text-secondary);
     margin: 0;
     font-size: 14px;
 }
@@ -308,7 +297,6 @@
 .icon-label-group {
     display: flex;
     gap: 2rem;
-    color: var(--text-secondary);
     font-size: 0.875rem;
 }
 
@@ -319,7 +307,6 @@
 }
 
 .icon-label-group i {
-    color: var(--primary);
 }
 
 /* Vertical variant */
@@ -338,11 +325,9 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: var(--text-primary);
 }
 
 .card-title-icon i {
-    color: var(--primary);
 }
 
 /* Checklist - for objectives, features, etc. */
@@ -363,7 +348,6 @@
 }
 
 .checklist i {
-    color: var(--success);
     font-size: 1.25rem;
     margin-top: 0.125rem;
     flex-shrink: 0;
@@ -429,15 +413,12 @@
 /* ========== STATE INDICATORS ========== */
 
 .completed-indicator {
-    color: var(--success);
 }
 
 .pending-indicator {
-    color: var(--text-secondary);
 }
 
 .active-indicator {
-    color: var(--primary);
 }
 
 /* ========== NUMBER BADGES ========== */
@@ -447,8 +428,6 @@
     width: 3rem;
     height: 3rem;
     border-radius: var(--radius-full);
-    background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
-    color: var(--text-inverse);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -473,7 +452,7 @@
 
 /* View Header - sticky header for reading views */
 .view-header {
-    background: var(--bg-secondary);
+
     border-bottom: 1px solid var(--border-medium);
     padding: 2rem;
 }
@@ -494,20 +473,17 @@
 
 .view-header-text h1 {
     margin: 0 0 0.5rem 0;
-    color: var(--text-primary);
     font-size: 2rem;
     font-weight: 600;
 }
 
 .view-header-text p {
     margin: 0;
-    color: var(--text-secondary);
     font-size: 1.125rem;
 }
 
 /* Text Header - for text reader pages */
 .text-header {
-    background: var(--bg-secondary);
     border-bottom: 1px solid var(--border-medium);
     padding: 1.5rem 2rem;
     display: flex;
@@ -527,7 +503,6 @@
     margin: 0 0 0.5rem 0;
     font-size: 1.75rem;
     font-weight: 600;
-    color: var(--text-primary);
 }
 
 /* Meta badges with flexible gap */
@@ -549,8 +524,6 @@
 /* Language badge */
 .language-badge {
     padding: 0.25rem 0.75rem;
-    background: var(--primary);
-    color: var(--text-inverse);
     border-radius: 1rem;
     font-size: 0.75rem;
     font-weight: 500;
@@ -558,7 +531,6 @@
 
 /* Topic badge */
 .topic-badge {
-    color: var(--text-secondary);
     font-size: 0.875rem;
 }
 
@@ -568,8 +540,6 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background: var(--success-light);
-    color: var(--success);
     border-radius: 1rem;
     font-weight: 500;
     font-size: 0.875rem;
@@ -583,7 +553,6 @@
 .stats {
     display: flex;
     gap: 1.5rem;
-    color: var(--text-secondary);
     font-size: 0.875rem;
 }
 
@@ -604,11 +573,9 @@
 }
 
 .audio-icon.has-audio {
-    color: var(--success);
 }
 
 .audio-icon.no-audio {
-    color: var(--text-tertiary);
 }
 
 /* Audio link */
@@ -616,7 +583,6 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--primary);
     text-decoration: none;
     font-size: 0.875rem;
 }
@@ -643,8 +609,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-medium);
     border-radius: var(--radius-md);
 }
 
@@ -657,7 +621,6 @@
 
 .file-info i {
     font-size: 1.5rem;
-    color: var(--primary);
 }
 
 .file-details {
@@ -668,12 +631,10 @@
 
 .file-name {
     font-weight: 500;
-    color: var(--text-primary);
 }
 
 .file-size {
     font-size: 0.875rem;
-    color: var(--text-secondary);
 }
 
 .file-actions {
@@ -687,7 +648,6 @@
     display: flex;
     gap: 0.5rem;
     padding: 1rem;
-    background: var(--bg-tertiary);
     border-radius: var(--radius-md) var(--radius-md) 0 0;
 }
 
@@ -698,7 +658,6 @@
 }
 
 .upload-progress small {
-    color: var(--text-secondary);
 }
 
 /* Summary stats */
@@ -714,7 +673,6 @@
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    background: var(--bg-tertiary);
     border-radius: var(--radius-md);
 }
 
@@ -723,28 +681,23 @@
 }
 
 .stat.success i {
-    color: var(--success);
 }
 
 .stat.failed i {
-    color: var(--error);
 }
 
 .stat.total i {
-    color: var(--primary);
 }
 
 .stat-value {
     display: block;
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--text-primary);
 }
 
 .stat-label {
     display: block;
     font-size: 0.875rem;
-    color: var(--text-secondary);
 }
 
 /* ========== PAGE CONTAINERS ========== */
@@ -752,39 +705,31 @@
 /* Full-height page container - most common pattern */
 .page-container {
     min-height: 100vh;
-    background: var(--surface-ground);
 }
 
 .page-container-with-padding {
     min-height: 100vh;
-    background: var(--surface-ground);
     padding: var(--spacing-2xl);
 }
 
 /* ========== ICON UTILITIES ========== */
 
 .icon-primary {
-    color: var(--primary);
 }
 
 .icon-success {
-    color: var(--success);
 }
 
 .icon-warning {
-    color: var(--warning);
 }
 
 .icon-error {
-    color: var(--error);
 }
 
 .icon-info {
-    color: var(--info);
 }
 
 .icon-secondary {
-    color: var(--text-secondary);
 }
 
 /* ========== STAT ICON WRAPPER ========== */
@@ -814,43 +759,27 @@
 
 /* Colored stat icon variants */
 .stat-icon-warning {
-    background: var(--warning-light);
-    color: var(--warning);
 }
 
 .stat-icon-success {
-    background: var(--success-light);
-    color: var(--success);
 }
 
 .stat-icon-info {
-    background: var(--info-light);
-    color: var(--info);
 }
 
 .stat-icon-error {
-    background: var(--error-light);
-    color: var(--error);
 }
 
 .stat-icon-purple {
-    background: #f3e8ff;
-    color: #8b5cf6;
 }
 
 .stat-icon-blue {
-    background: #dbeafe;
-    color: #3b82f6;
 }
 
 .stat-icon-yellow {
-    background: #fef3c7;
-    color: #d97706;
 }
 
 .stat-icon-green {
-    background: #d1fae5;
-    color: #10b981;
 }
 
 /* ========== INTERACTIVE ELEMENTS ========== */
@@ -861,42 +790,33 @@
 }
 
 .card-interactive:hover {
-    border-color: var(--primary);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
 
 .list-item-interactive {
     padding: 1rem;
-    border: 1px solid var(--border-medium);
     border-radius: var(--radius-md);
     cursor: pointer;
     transition: all 0.2s;
-    background: var(--bg-secondary);
 }
 
 .list-item-interactive:hover {
-    border-color: var(--primary);
-    background: var(--primary-light);
     transform: translateX(4px);
 }
 
 /* ========== GRADIENT BACKGROUNDS ========== */
 
 .gradient-warning {
-    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
 }
 
 .gradient-purple {
-    background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
 }
 
 .gradient-blue {
-    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
 }
 
 .gradient-green {
-    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
 }
 
 /* ========== TEXT UTILITIES ========== */

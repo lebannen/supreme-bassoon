@@ -1,36 +1,38 @@
 <template>
   <div class="cloze-reading-exercise">
-    <div class="passage-section">
-      <div class="passage-content">
-        <component
-          v-for="(segment, index) in textSegments"
-          :key="index"
-          :is="segment.type === 'text' ? 'span' : 'span'"
-          :class="segment.type === 'blank' ? 'blank-wrapper' : ''"
-        >
-          <template v-if="segment.type === 'text'">
-            {{ segment.content }}
-          </template>
-          <template v-else-if="segment.type === 'blank'">
-            <InputText
-              v-model="userAnswers[segment.blankId]"
-              :disabled="showResult"
-              :class="{
-                'blank-input': true,
-                correct: showResult && isBlankCorrect(segment.blankId),
-                incorrect:
-                  showResult && !isBlankCorrect(segment.blankId) && userAnswers[segment.blankId],
-              }"
-              :placeholder="`${segment.blankId}`"
-              @keyup.enter="handleEnterKey"
-            />
-            <span v-if="showResult && !isBlankCorrect(segment.blankId)" class="correct-answer-hint">
-              ({{ getCorrectAnswer(segment.blankId) }})
-            </span>
-          </template>
-        </component>
-      </div>
-    </div>
+    <Card class="passage-section">
+      <template #content>
+        <div class="passage-content">
+          <component
+              v-for="(segment, index) in textSegments"
+              :key="index"
+              :is="segment.type === 'text' ? 'span' : 'span'"
+              :class="segment.type === 'blank' ? 'blank-wrapper' : ''"
+          >
+            <template v-if="segment.type === 'text'">
+              {{ segment.content }}
+            </template>
+            <template v-else-if="segment.type === 'blank'">
+              <InputText
+                  v-model="userAnswers[segment.blankId]"
+                  :disabled="showResult"
+                  :class="{
+                  'blank-input': true,
+                  correct: showResult && isBlankCorrect(segment.blankId),
+                  incorrect:
+                    showResult && !isBlankCorrect(segment.blankId) && userAnswers[segment.blankId],
+                }"
+                  :placeholder="`${segment.blankId}`"
+                  @keyup.enter="handleEnterKey"
+              />
+              <span v-if="showResult && !isBlankCorrect(segment.blankId)" class="correct-answer-hint">
+                ({{ getCorrectAnswer(segment.blankId) }})
+              </span>
+            </template>
+          </component>
+        </div>
+      </template>
+    </Card>
 
     <div v-if="showHint && !showResult" class="hint-section">
       <Message severity="info">
@@ -85,6 +87,7 @@
 <script setup lang="ts">
 import {computed, onMounted, ref} from 'vue'
 import Button from 'primevue/button'
+import Card from 'primevue/card'
 import Message from 'primevue/message'
 import InputText from 'primevue/inputtext'
 
@@ -297,15 +300,11 @@ defineExpose({
 
 .passage-section {
   padding: 2rem;
-  background: var(--surface-ground);
-  border-radius: 8px;
-  border: 2px solid var(--surface-border);
 }
 
 .passage-content {
   font-size: 1.125rem;
   line-height: 2;
-  color: var(--text-color);
   font-family: Georgia, 'Times New Roman', serif;
 }
 
@@ -331,19 +330,15 @@ defineExpose({
 .blank-input:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.2);
 }
 
 .blank-input.correct {
   border-color: var(--green-500);
-  background: var(--green-50);
-  color: var(--green-700);
 }
 
 .blank-input.incorrect {
   border-color: var(--red-500);
-  background: var(--red-50);
-  color: var(--red-700);
 }
 
 .blank-input:disabled {
@@ -354,7 +349,6 @@ defineExpose({
 .correct-answer-hint {
   display: inline-block;
   margin-left: 0.5rem;
-  color: var(--green-600);
   font-weight: 500;
   font-size: 0.95rem;
 }

@@ -326,7 +326,7 @@ onMounted(() => {
   margin: 0;
   font-size: 1.875rem;
   font-weight: 700;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 .loading-state {
@@ -347,19 +347,19 @@ onMounted(() => {
 
 .empty-icon {
   font-size: 4rem;
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
   margin-bottom: var(--spacing-md);
 }
 
 .empty-message {
   font-size: 1rem;
   margin: var(--spacing-md) 0;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 .empty-hint {
   font-size: 0.875rem;
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
   margin: 0;
 }
 
@@ -421,12 +421,12 @@ onMounted(() => {
 .stat-value-large {
   font-size: 1.75rem;
   font-weight: 700;
-  color: var(--text-color);
+  color: var(--text-primary);
   line-height: 1;
 }
 
 .stat-label {
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
 }
 
 .progress-section {
@@ -487,7 +487,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-  color: var(--text-color-secondary);
+  color: var(--text-secondary);
 }
 
 .meta-item i {

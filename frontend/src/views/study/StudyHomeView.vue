@@ -317,28 +317,30 @@ function formatDueInfo() {
 
 /* Active Session Card */
 .active-session-card {
-  border: 2px solid var(--primary);
-  background: var(--primary-light);
+  border: 2px solid var(--p-primary-color);
+  background: var(--p-primary-50);
 }
 
 /* Due Words Card */
 .due-card {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--p-primary-color) 0%, var(--p-primary-600) 100%);
+  color: var(--p-primary-contrast-color);
 }
 
 .due-count {
   margin: 0 0 0.25rem 0;
-  color: white;
+  color: var(--p-primary-contrast-color);
 }
 
 .due-label {
   margin: 0 0 0.5rem 0;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--p-primary-contrast-color);
+  opacity: 0.95;
 }
 
 .due-info {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--p-primary-contrast-color);
+  opacity: 0.8;
 }
 
 .due-icon-wrapper {
@@ -353,7 +355,7 @@ function formatDueInfo() {
 
 .due-icon-wrapper i {
   font-size: 2rem;
-  color: white;
+  color: var(--p-primary-contrast-color);
 }
 
 /* Source Option */
@@ -370,8 +372,8 @@ function formatDueInfo() {
 
 .source-option:hover,
 .source-option.selected {
-  border-color: var(--primary);
-  background: var(--primary-light);
+  border-color: var(--p-primary-color);
+  background: var(--p-primary-50);
 }
 
 /* Responsive */

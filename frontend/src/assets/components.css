@@ -4,10 +4,8 @@
 /* ========== CARD SYSTEM ========== */
 
 .card {
-    background: var(--bg-secondary);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-light);
     transition: all 0.2s;
 }
 
@@ -38,8 +36,6 @@
 /* ========== BADGE SYSTEM ========== */
 
 .badge {
-    background-color: var(--primary-light);
-    color: var(--primary);
     font-size: 10px;
     font-weight: 600;
     padding: 3px 8px;
@@ -50,31 +46,21 @@
 }
 
 .badge-level {
-    background-color: var(--warning-light);
-    color: var(--warning);
 }
 
 .badge-success {
-    background: var(--success-light);
-    color: var(--success);
 }
 
 .badge-warning {
-    background: var(--warning-light);
-    color: var(--warning);
 }
 
 .badge-info {
-    background: var(--info-light);
-    color: var(--info);
 }
 
 .badge-pill {
     border-radius: 20px;
     padding: 4px 12px;
     font-size: 13px;
-    color: var(--text-secondary);
-    background: var(--bg-tertiary);
     font-weight: 500;
 }
 
@@ -93,22 +79,16 @@
 }
 
 .btn-primary {
-    background-color: var(--primary);
-    color: var(--text-inverse);
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-dark);
     transform: translateY(-1px);
 }
 
 .btn-secondary {
-    background-color: var(--bg-tertiary);
-    color: var(--text-secondary);
 }
 
 .btn-secondary:hover {
-    background-color: var(--bg-hover);
 }
 
 .btn-full {
