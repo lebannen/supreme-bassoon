@@ -1,9 +1,9 @@
 <script setup lang="ts">
   import {onMounted, ref} from 'vue'
+  import Button from 'primevue/button'
 
   const isDark = ref(false)
 
-  // Check for saved theme preference or default to light mode
   onMounted(() => {
     const savedTheme = localStorage.getItem('theme')
     if (savedTheme === 'dark') {
@@ -17,7 +17,6 @@
 
   const toggleTheme = () => {
     isDark.value = !isDark.value
-
     if (isDark.value) {
       document.documentElement.classList.add('dark-theme')
       localStorage.setItem('theme', 'dark')
@@ -29,36 +28,14 @@
 </script>
 
 <template>
-  <button
-      class="theme-toggle"
+  <Button
+      :icon="isDark ? 'pi pi-sun' : 'pi pi-moon'"
       @click="toggleTheme"
       :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
       :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-  >
-    <span class="theme-icon">{{ isDark ? '☀️' : '🌙' }}</span>
-  </button>
+      severity="secondary"
+      text
+      rounded
+      class="w-full"
+  />
 </template>
-
-<style scoped>
-  .theme-toggle {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-md);
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    transition: all 0.2s;
-    margin-bottom: var(--spacing-md);
-  }
-
-  .theme-toggle:hover {
-    transform: scale(1.05);
-  }
-
-  .theme-icon {
-    line-height: 1;
-  }
-</style>

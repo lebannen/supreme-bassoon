@@ -2,6 +2,7 @@
   import {useRoute, useRouter} from 'vue-router'
   import {useAuthStore} from '@/stores/auth'
   import ThemeToggle from './ThemeToggle.vue'
+  import Button from 'primevue/button'
 
   const router = useRouter()
   const route = useRoute()
@@ -22,58 +23,49 @@
   }
 
   const isActive = (path: string) => {
-    return route.path === path
+    if (path === '/') {
+      return route.path === '/'
+    }
+    return route.path.startsWith(path)
   }
 
-  // Placeholder streak value - you can connect this to a store/API later
-  const userStreak = 7
+  const mainNav = [
+    {icon: 'pi pi-home', label: 'Home', path: '/'},
+    {icon: 'pi pi-sitemap', label: 'Courses', path: '/courses'},
+    {icon: 'pi pi-book', label: 'Reading', path: '/reading'},
+    {icon: 'pi pi-pencil', label: 'Exercises', path: '/exercises', auth: true},
+  ]
+
+  const studyNav = [
+    {icon: 'pi pi-palette', label: 'Playground', path: '/playground'},
+    {icon: 'pi pi-list', label: 'Vocabulary', path: '/vocabulary', auth: true},
+    {icon: 'pi pi-bolt', label: 'Flashcards', path: '/study', auth: true},
+    {icon: 'pi pi-clone', label: 'Word Sets', path: '/word-sets'},
+    {icon: 'pi pi-search', label: 'Dictionary', path: '/search'},
+  ]
+
+  const adminNav = [
+    {icon: 'pi pi-cog', label: 'Manage Courses', path: '/admin/courses', auth: true},
+    {icon: 'pi pi-upload', label: 'Import Content', path: '/reading/import', auth: true},
+  ]
 </script>
 
 <template>
-  <aside class="sidebar">
-    <router-link to="/" class="logo">Vocabee</router-link>
+  <aside class="sidebar bg-surface-section border-r border-surface">
+    <router-link to="/" class="logo text-primary">Vocabee</router-link>
 
-    <ThemeToggle/>
+    <ThemeToggle class="mb-2xl"/>
 
-    <div class="nav-content">
+    <div class="flex-1 overflow-y-auto">
       <!-- Main Navigation -->
       <nav class="nav-section">
-        <div class="nav-section-title">Main</div>
+        <div class="nav-section-title text-secondary">Main</div>
         <ul class="nav-items">
-          <li class="nav-item">
-            <a href="#" :class="{ active: isActive('/') }" @click.prevent="navigateTo('/')">
-              <span class="nav-icon">🏠</span>
-              <span>Home</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-                href="#"
-                :class="{ active: isActive('/courses') }"
-                @click.prevent="navigateTo('/courses')"
-            >
-              <span class="nav-icon">📚</span>
-              <span>Courses</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-                href="#"
-                :class="{ active: isActive('/reading') }"
-                @click.prevent="navigateTo('/reading')"
-            >
-              <span class="nav-icon">📖</span>
-              <span>Reading</span>
-            </a>
-          </li>
-          <li class="nav-item" v-if="authStore.isAuthenticated">
-            <a
-                href="#"
-                :class="{ active: isActive('/exercises') }"
-                @click.prevent="navigateTo('/exercises')"
-            >
-              <span class="nav-icon">✏️</span>
-              <span>Exercises</span>
+          <li v-for="item in mainNav.filter(i => !i.auth || authStore.isAuthenticated)" :key="item.path">
+            <a :href="item.path" @click.prevent="navigateTo(item.path)"
+               class="nav-link" :class="{ 'active-link': isActive(item.path) }">
+              <i :class="item.icon"></i>
+              <span>{{ item.label }}</span>
             </a>
           </li>
         </ul>
@@ -81,73 +73,27 @@
 
       <!-- Study Navigation -->
       <nav class="nav-section">
-        <div class="nav-section-title">Study</div>
+        <div class="nav-section-title text-secondary">Study</div>
         <ul class="nav-items">
-          <li class="nav-item" v-if="authStore.isAuthenticated">
-            <a
-                href="#"
-                :class="{ active: isActive('/vocabulary') }"
-                @click.prevent="navigateTo('/vocabulary')"
-            >
-              <span class="nav-icon">📝</span>
-              <span>Vocabulary</span>
-            </a>
-          </li>
-          <li class="nav-item" v-if="authStore.isAuthenticated">
-            <a
-                href="#"
-                :class="{ active: isActive('/study') }"
-                @click.prevent="navigateTo('/study')"
-            >
-              <span class="nav-icon">🎯</span>
-              <span>Flashcards</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-                href="#"
-                :class="{ active: isActive('/word-sets') }"
-                @click.prevent="navigateTo('/word-sets')"
-            >
-              <span class="nav-icon">📋</span>
-              <span>Word Sets</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-                href="#"
-                :class="{ active: isActive('/search') }"
-                @click.prevent="navigateTo('/search')"
-            >
-              <span class="nav-icon">🔍</span>
-              <span>Dictionary</span>
+          <li v-for="item in studyNav.filter(i => !i.auth || authStore.isAuthenticated)" :key="item.path">
+            <a :href="item.path" @click.prevent="navigateTo(item.path)"
+               class="nav-link" :class="{ 'active-link': isActive(item.path) }">
+              <i :class="item.icon"></i>
+              <span>{{ item.label }}</span>
             </a>
           </li>
         </ul>
       </nav>
 
-      <!-- Admin Navigation (only if authenticated) -->
+      <!-- Admin Navigation -->
       <nav class="nav-section" v-if="authStore.isAuthenticated">
-        <div class="nav-section-title">Admin</div>
+        <div class="nav-section-title text-secondary">Admin</div>
         <ul class="nav-items">
-          <li class="nav-item">
-            <a
-                href="#"
-                :class="{ active: isActive('/admin/courses') }"
-                @click.prevent="navigateTo('/admin/courses')"
-            >
-              <span class="nav-icon">⚙️</span>
-              <span>Manage Courses</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-                href="#"
-                :class="{ active: isActive('/reading/import') }"
-                @click.prevent="navigateTo('/reading/import')"
-            >
-              <span class="nav-icon">📥</span>
-              <span>Import Content</span>
+          <li v-for="item in adminNav" :key="item.path">
+            <a :href="item.path" @click.prevent="navigateTo(item.path)"
+               class="nav-link" :class="{ 'active-link': isActive(item.path) }">
+              <i :class="item.icon"></i>
+              <span>{{ item.label }}</span>
             </a>
           </li>
         </ul>
@@ -155,25 +101,24 @@
     </div>
 
     <!-- User Section -->
-    <div class="user-section" v-if="authStore.isAuthenticated">
-      <div class="user-card" @click="navigateTo('/profile')">
-        <div class="user-avatar">
+    <div v-if="authStore.isAuthenticated" class="mt-auto pt-md border-t border-surface">
+      <div @click="navigateTo('/profile')"
+           class="p-sm rounded-md flex items-center gap-sm cursor-pointer hover:bg-surface-hover">
+        <div class="user-avatar text-white">
           {{ getUserInitials(authStore.user?.displayName || null) }}
         </div>
-        <div class="user-info">
-          <div class="user-name">
-            {{ authStore.user?.displayName || authStore.user?.email?.split('@')[0] }}
-          </div>
-          <div class="user-level">Level A1</div>
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-primary truncate">{{ authStore.user?.displayName || 'User' }}</div>
+          <div class="text-sm text-secondary">View Profile</div>
         </div>
-        <span class="user-streak" :title="`${userStreak} day streak`">🔥</span>
+        <i class="pi pi-chevron-right text-secondary"></i>
       </div>
     </div>
 
-    <!-- Login/Register buttons for non-authenticated users -->
-    <div class="auth-section" v-else>
-      <button class="btn btn-secondary btn-full" @click="navigateTo('/login')">Login</button>
-      <button class="btn btn-primary btn-full" @click="navigateTo('/register')">Register</button>
+    <!-- Login/Register buttons -->
+    <div v-else class="mt-auto pt-md border-t border-surface flex flex-col gap-sm">
+      <Button label="Login" @click="navigateTo('/login')" severity="secondary" outlined class="w-full"/>
+      <Button label="Register" @click="navigateTo('/register')" class="w-full"/>
     </div>
   </aside>
 </template>
@@ -184,23 +129,16 @@
     padding: var(--spacing-xl);
     position: fixed;
     height: 100vh;
-    overflow-y: auto;
-    z-index: 100;
     display: flex;
     flex-direction: column;
+    z-index: 1000;
   }
 
   .logo {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 1.75rem;
+    font-weight: 700;
     text-decoration: none;
     margin-bottom: var(--spacing-2xl);
-    display: block;
-  }
-
-  .nav-content {
-    flex: 1;
-    overflow-y: auto;
   }
 
   .nav-section {
@@ -208,123 +146,67 @@
   }
 
   .nav-section-title {
-    font-size: 11px;
+    font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: var(--spacing-xs);
-    padding: 0 var(--spacing-sm);
+    padding: 0 var(--spacing-sm) var(--spacing-xs);
   }
 
   .nav-items {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
   }
 
-  .nav-item {
-    margin-bottom: 2px;
-  }
-
-  .nav-item a {
+  .nav-link {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--spacing-md);
     text-decoration: none;
     font-weight: 500;
-    padding: 8px var(--spacing-sm);
-    border-radius: var(--radius-sm);
-    transition: all 0.15s;
-    font-size: 14px;
-  }
-
-  .nav-icon {
-    width: 18px;
-    height: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-  }
-
-  /* User Section */
-  .user-section {
-    padding-top: var(--spacing-md);
-    margin-top: var(--spacing-md);
-  }
-
-  .user-card {
-    padding: var(--spacing-sm);
+    padding: 10px var(--spacing-sm);
     border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
     transition: all 0.2s;
+    font-size: 0.9rem;
+    color: var(--text-color-secondary);
+  }
+
+  .nav-link:hover {
+    background-color: var(--surface-hover);
+    color: var(--text-color);
+  }
+
+  .nav-link.active-link {
+    background-color: var(--p-primary-50);
+    color: var(--p-primary-600);
+    font-weight: 600;
+  }
+
+  .dark-theme .nav-link.active-link {
+    background-color: var(--p-primary-900);
+    color: var(--p-primary-50);
+  }
+
+  .nav-link i {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
   }
 
   .user-avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: var(--radius-full);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     background: var(--gradient-avatar);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 0.9rem;
     flex-shrink: 0;
-  }
-
-  .user-info {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .user-name {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 2px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .user-level {
-    font-size: 12px;
-  }
-
-  .user-streak {
-    font-size: 16px;
-    flex-shrink: 0;
-  }
-
-  /* Auth Section */
-  .auth-section {
-    padding-top: var(--spacing-md);
-    margin-top: var(--spacing-md);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
-
-  /* Button Styles */
-  .btn {
-    padding: 8px 20px;
-    border-radius: var(--radius-md);
-    border: none;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-1px);
-  }
-
-  .btn-full {
-    width: 100%;
   }
 </style>

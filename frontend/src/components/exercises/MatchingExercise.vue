@@ -1,108 +1,3 @@
-<template>
-  <div class="matching-exercise">
-    <div class="question-section">
-      <h2 class="instructions-text">Match the pairs:</h2>
-
-      <div class="matching-container">
-        <!-- Left column (items to match) -->
-        <div class="left-column">
-          <div
-            v-for="(pair, index) in leftItems"
-            :key="`left-${index}`"
-            class="match-item left-item"
-            :class="{
-              selected: selectedLeft === index,
-              matched: userMatches[pair.left] !== undefined,
-              correct: showResult && isMatchCorrect(pair.left),
-              incorrect:
-                showResult && !isMatchCorrect(pair.left) && userMatches[pair.left] !== undefined,
-            }"
-            @click="!showResult && selectLeft(index)"
-          >
-            <div class="item-content">{{ pair.left }}</div>
-            <div v-if="userMatches[pair.left]" class="matched-with">
-              <i class="pi pi-link"></i>
-              <span class="matched-text">{{ userMatches[pair.left] }}</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right column (items to select) -->
-        <div class="right-column">
-          <div
-            v-for="(option, index) in rightOptions"
-            :key="`right-${index}`"
-            class="match-item right-item"
-            :class="{
-              matched: isRightMatched(option),
-              available: !isRightMatched(option) && selectedLeft !== null,
-              correct: showResult && isRightCorrect(option),
-              incorrect: showResult && isRightIncorrect(option),
-            }"
-            @click="!showResult && selectRight(option)"
-          >
-            <div class="item-content">{{ option }}</div>
-          </div>
-        </div>
-      </div>
-
-      <div v-if="selectedLeft !== null && !showResult" class="selection-hint">
-        <Message severity="info">
-          <i class="pi pi-hand-pointer"></i> Click an item on the right to create a match
-        </Message>
-      </div>
-    </div>
-
-    <div v-if="showHint && !showResult" class="hint-section">
-      <Message severity="info">
-        <div class="hint-content"><strong>Hint:</strong> {{ hint }}</div>
-      </Message>
-    </div>
-
-    <div v-if="showResult && feedback" class="feedback-section">
-      <Message :severity="isCorrect ? 'success' : 'warn'">
-        <div class="feedback-content">
-          {{ feedback }}
-        </div>
-      </Message>
-    </div>
-
-    <div class="actions-section">
-      <Button
-        v-if="!showResult && hint"
-        label="Show Hint"
-        icon="pi pi-lightbulb"
-        text
-        @click="toggleHint"
-      />
-      <Button
-        v-if="!showResult"
-        label="Clear All"
-        icon="pi pi-refresh"
-        text
-        :disabled="Object.keys(userMatches).length === 0"
-        @click="clearAllMatches"
-      />
-      <Button
-        v-if="!showResult"
-        label="Submit Answer"
-        icon="pi pi-check"
-        :disabled="Object.keys(userMatches).length !== leftItems.length"
-        @click="submitAnswer"
-      />
-      <template v-else>
-        <Button
-          v-if="isCorrect"
-          :label="`Next (${autoAdvanceSeconds}s)`"
-          icon="pi pi-arrow-right"
-          @click="handleNext"
-        />
-        <Button v-else label="Try Again" icon="pi pi-refresh" @click="resetExercise"/>
-      </template>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import {computed, onMounted, ref} from 'vue'
 import Button from 'primevue/button'
@@ -133,8 +28,8 @@ const feedback = ref('')
 const showHint = ref(false)
 const hint = computed(() => props.content.hint || '')
 const correctMatches = ref<Record<string, string>>({})
-const autoAdvanceTimer = ref<number | null>(null)
-const autoAdvanceSeconds = ref(3)
+const autoAdvanceTimer = ref<any>(null)
+const autoAdvanceSeconds = ref(5)
 
 onMounted(() => {
   initializeExercise()
@@ -142,68 +37,49 @@ onMounted(() => {
 
 function initializeExercise() {
   leftItems.value = [...props.content.pairs]
-
-  // Shuffle right items using Fisher-Yates algorithm
-  const rights = props.content.pairs.map((p) => p.right)
-  for (let i = rights.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[rights[i], rights[j]] = [rights[j], rights[i]]
-  }
-  rightOptions.value = rights
-
-  // Store correct matches for validation
-  props.content.pairs.forEach((pair) => {
+  rightOptions.value = [...props.content.pairs.map(p => p.right)].sort(() => Math.random() - 0.5)
+  props.content.pairs.forEach(pair => {
     correctMatches.value[pair.left] = pair.right
   })
 }
 
 function selectLeft(index: number) {
+  if (showResult.value) return
   selectedLeft.value = index
 }
 
 function selectRight(rightValue: string) {
-  if (selectedLeft.value === null) return
+  if (selectedLeft.value === null || showResult.value) return
 
-  // Remove existing match for this right value (if any)
-  const existingLeft = Object.keys(userMatches.value).find(
-      (key) => userMatches.value[key] === rightValue
-  )
+  const existingLeft = Object.keys(userMatches.value).find(key => userMatches.value[key] === rightValue)
   if (existingLeft) {
     delete userMatches.value[existingLeft]
   }
 
-  // Create new match
   const leftValue = leftItems.value[selectedLeft.value].left
   userMatches.value[leftValue] = rightValue
-
-  // Clear selection
   selectedLeft.value = null
 }
 
-function isRightMatched(option: string): boolean {
-  return Object.values(userMatches.value).includes(option)
-}
+const isRightMatched = (option: string) => Object.values(userMatches.value).includes(option)
+const isMatchCorrect = (leftValue: string) => userMatches.value[leftValue] === correctMatches.value[leftValue]
 
-function isMatchCorrect(leftValue: string): boolean {
-  return userMatches.value[leftValue] === correctMatches.value[leftValue]
-}
+function getRightItemState(option: string) {
+  if (!showResult.value) {
+    return {
+      'p-highlight': isRightMatched(option),
+      'p-disabled': isRightMatched(option),
+      'available-target': selectedLeft.value !== null && !isRightMatched(option)
+    }
+  }
+  const isMatched = isRightMatched(option)
+  if (!isMatched) return {'p-disabled': true}
 
-function isRightCorrect(rightValue: string): boolean {
-  // Find if this right value is correctly matched
-  const leftValue = Object.keys(userMatches.value).find(
-      (key) => userMatches.value[key] === rightValue
-  )
-  if (!leftValue) return false
-  return correctMatches.value[leftValue] === rightValue
-}
-
-function isRightIncorrect(rightValue: string): boolean {
-  // Find if this right value is incorrectly matched
-  const leftValue = Object.keys(userMatches.value).find(
-      (key) => userMatches.value[key] === rightValue
-  )
-  if (!leftValue) return false
-  return correctMatches.value[leftValue] !== rightValue
+  const leftVal = Object.keys(userMatches.value).find(k => userMatches.value[k] === option)
+  return {
+    'correct-match': leftVal && correctMatches.value[leftVal] === option,
+    'incorrect-match': leftVal && correctMatches.value[leftVal] !== option,
+  }
 }
 
 function clearAllMatches() {
@@ -211,12 +87,8 @@ function clearAllMatches() {
   selectedLeft.value = null
 }
 
-function toggleHint() {
-  showHint.value = !showHint.value
-}
-
 function submitAnswer() {
-  emit('submit', { matches: userMatches.value })
+  emit('submit', {matches: userMatches.value})
 }
 
 function resetExercise() {
@@ -231,17 +103,13 @@ function resetExercise() {
 }
 
 function startAutoAdvance() {
-  autoAdvanceSeconds.value = 3
-
-  const countdown = setInterval(() => {
+  autoAdvanceSeconds.value = 5
+  autoAdvanceTimer.value = setInterval(() => {
     autoAdvanceSeconds.value--
     if (autoAdvanceSeconds.value <= 0) {
-      clearInterval(countdown)
       handleNext()
     }
   }, 1000)
-
-  autoAdvanceTimer.value = countdown
 }
 
 function stopAutoAdvance() {
@@ -263,17 +131,74 @@ function setResult(result: { isCorrect: boolean; feedback: string; userResponse?
   showResult.value = true
   isCorrect.value = result.isCorrect
   feedback.value = result.feedback
-
-  // Start auto-advance countdown for correct answers
   if (result.isCorrect) {
     startAutoAdvance()
   }
 }
 
-defineExpose({
-  setResult,
-})
+defineExpose({setResult})
 </script>
+
+<template>
+  <div class="matching-exercise">
+    <h2 class="text-xl font-bold mb-lg">Match the pairs:</h2>
+
+    <div class="matching-container">
+      <!-- Left Column -->
+      <div class="column">
+        <div
+            v-for="(pair, index) in leftItems"
+            :key="`left-${index}`"
+            class="match-item"
+            :class="{
+            'selected': selectedLeft === index,
+            'p-highlight': userMatches[pair.left],
+            'correct-match': showResult && isMatchCorrect(pair.left),
+            'incorrect-match': showResult && !isMatchCorrect(pair.left) && userMatches[pair.left],
+          }"
+            @click="selectLeft(index)"
+        >
+          {{ pair.left }}
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="column">
+        <div
+            v-for="(option, index) in rightOptions"
+            :key="`right-${index}`"
+            class="match-item"
+            :class="getRightItemState(option)"
+            @click="selectRight(option)"
+        >
+          {{ option }}
+        </div>
+      </div>
+    </div>
+
+    <Message v-if="selectedLeft !== null && !showResult" severity="info">
+      Select the matching item on the right.
+    </Message>
+
+    <Message v-if="showHint" severity="secondary">{{ hint }}</Message>
+    <Message v-if="showResult && feedback" :severity="isCorrect ? 'success' : 'warn'">
+      {{ feedback }}
+    </Message>
+
+    <div class="actions-section">
+      <Button v-if="!showResult && hint" label="Hint" icon="pi pi-lightbulb" text @click="showHint = !showHint"/>
+      <Button v-if="!showResult" label="Clear" icon="pi pi-refresh" text @click="clearAllMatches"
+              :disabled="Object.keys(userMatches).length === 0"/>
+      <div class="flex-grow"></div>
+      <Button v-if="!showResult" label="Submit" icon="pi pi-check"
+              :disabled="Object.keys(userMatches).length !== leftItems.length" @click="submitAnswer"/>
+      <template v-else>
+        <Button v-if="isCorrect" :label="`Next (${autoAdvanceSeconds}s)`" icon="pi pi-arrow-right" @click="handleNext"/>
+        <Button v-else label="Try Again" icon="pi pi-refresh" @click="resetExercise"/>
+      </template>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .matching-exercise {
@@ -282,159 +207,98 @@ defineExpose({
   gap: 1.5rem;
 }
 
-.question-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.instructions-text {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin: 0;
-}
-
 .matching-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  padding: 1rem;
-  background: var(--surface-ground);
-  border-radius: 8px;
+  gap: 1rem;
 }
 
-.left-column,
-.right-column {
+.column {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
 .match-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 1rem;
-  background: var(--surface-card);
-  border: 2px solid var(--surface-border);
-  border-radius: 8px;
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all 0.2s ease;
-  min-height: 60px;
+  transition: all 0.2s;
+  background-color: var(--surface-card);
+  font-weight: 500;
 }
 
-.match-item:hover:not(.matched):not(.selected) {
-  background: var(--surface-hover);
-  border-color: var(--primary-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.match-item:hover {
+  background-color: var(--surface-hover);
 }
 
 .match-item.selected {
-  border-width: 3px;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-color);
   transform: scale(1.02);
-  box-shadow: 0 0 0 4px rgba(var(--primary-color-rgb), 0.3);
 }
 
-.match-item.matched {
-  border-width: 2px;
+.match-item.p-highlight {
+  background-color: var(--highlight-bg);
+  color: var(--highlight-text-color);
+}
+
+.match-item.p-disabled {
+  opacity: 0.7;
   cursor: not-allowed;
 }
 
-.match-item.matched .item-content {
-  font-weight: 600;
-}
-
-.match-item.available {
-  border-color: var(--green-400);
-  border-width: 3px;
-  animation: pulse 1.5s ease-in-out infinite;
+.match-item.available-target {
+  animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
-  0%,
-  100% {
-    border-color: var(--green-400);
+  0%, 100% {
+    border-color: var(--p-green-500);
+    box-shadow: 0 0 0 2px transparent;
   }
   50% {
-    border-color: var(--green-600);
+    border-color: var(--p-green-600);
+    box-shadow: 0 0 0 2px var(--p-green-300);
   }
 }
 
-.match-item.correct {
-  border-color: var(--green-500);
-  border-width: 3px;
+.dark-theme .available-target {
+  @keyframes pulse {
+    0%, 100% {
+      border-color: var(--p-green-400);
+      box-shadow: 0 0 0 2px transparent;
+    }
+    50% {
+      border-color: var(--p-green-300);
+      box-shadow: 0 0 0 2px var(--p-green-600);
+    }
+  }
 }
 
-.match-item.incorrect {
-  border-color: var(--red-500);
-  border-width: 3px;
+.match-item.correct-match {
+  border-color: var(--p-green-500);
+  background-color: var(--p-green-50);
 }
 
-.item-content {
-  font-size: 1rem;
-  font-weight: 500;
-  flex: 1;
+.dark-theme .match-item.correct-match {
+  background-color: var(--p-green-900);
 }
 
-.matched-with {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  margin-left: 0.75rem;
+.match-item.incorrect-match {
+  border-color: var(--p-red-500);
+  background-color: var(--p-red-50);
 }
 
-.matched-with i {
-  font-size: 0.875rem;
-}
-
-.matched-text {
-  font-weight: 500;
-}
-
-.selection-hint {
-  margin-top: -0.5rem;
-}
-
-.hint-section,
-.feedback-section {
-  margin-top: -0.5rem;
-}
-
-.hint-content,
-.feedback-content {
-  font-size: 1rem;
-  line-height: 1.6;
+.dark-theme .match-item.incorrect-match {
+  background-color: var(--p-red-900);
 }
 
 .actions-section {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   justify-content: flex-end;
   flex-wrap: wrap;
-}
-
-@media (max-width: 768px) {
-  .matching-container {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .actions-section {
-    justify-content: stretch;
-  }
-
-  .actions-section button {
-    flex: 1;
-  }
-
-  .matched-with {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
-  }
 }
 </style>

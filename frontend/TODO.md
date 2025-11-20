@@ -1,146 +1,96 @@
-# Backend Integration TODOs
+# Frontend Refactoring TODO
 
-This file tracks all the places where we need to connect to the backend API.
+This list tracks the progress of refactoring the frontend components and views to use the new design system.
 
-## Dashboard Store (`src/stores/dashboard.ts`)
+## Views
 
-### User Statistics
+### General
 
-- **File**: `src/stores/dashboard.ts`
-- **Function**: `fetchUserStats()`
-- **Endpoint**: `GET /api/user/stats`
-- **Response Shape**:
-  ```typescript
-  {
-    streak: number,
-    wordsLearned: number,
-    timeThisWeek: string  // e.g., "3h 24m"
-  }
-  ```
-- **Status**: ❌ Not implemented
-- **Priority**: High
-- **Notes**: Currently using mock data. Replace the mock delay with actual API call.
+- [x] `src/views/HomeView.vue`
+- [x] `src/views/AboutView.vue`
+- [x] `src/views/PlaygroundView.vue`
 
-### Daily Tasks
+### Auth
 
-- **File**: `src/stores/dashboard.ts`
-- **Function**: `fetchDailyTasks()`
-- **Endpoint**: `GET /api/user/daily-tasks`
-- **Response Shape**:
-  ```typescript
-  Array<{
-    id: number,
-    icon: string,
-    title: string,
-    meta: string,
-    completed: boolean,
-    type?: 'vocabulary' | 'exercise' | 'listening' | 'grammar'
-  }>
-  ```
-- **Status**: ❌ Not implemented
-- **Priority**: High
-- **Notes**: Tasks should be personalized based on user progress and learning goals.
+- [x] `src/views/auth/LoginView.vue`
+- [x] `src/views/auth/ProfileView.vue`
+- [x] `src/views/auth/RegisterView.vue`
+- [x] `src/views/auth/AuthCallbackView.vue`
 
-### Recommended Content
+### Admin
 
-- **File**: `src/stores/dashboard.ts`
-- **Function**: `fetchRecommendedContent()`
-- **Endpoint**: `GET /api/user/recommended-content`
-- **Response Shape**:
-  ```typescript
-  Array<{
-    id: number,
-    type: 'dialogue' | 'story' | 'grammar',
-    icon: string,
-    title: string,
-    level?: string,
-    duration?: string,
-    topic?: string,
-    completed?: boolean
-  }>
-  ```
-- **Status**: ❌ Not implemented
-- **Priority**: Medium
-- **Notes**: Recommendations should be based on user's level, interests, and learning history.
+- [x] `src/views/admin/ImportView.vue`
+- [x] `src/views/admin/AudioTestView.vue`
+- [x] `src/views/admin/CourseAdminView.vue`
+- [x] `src/views/admin/ReadingAdminView.vue`
+- [x] `src/views/admin/ReadingImportView.vue`
+- [x] `src/views/admin/ExerciseImportView.vue`
 
-### Complete Task
+### Study
 
-- **File**: `src/stores/dashboard.ts`
-- **Function**: `completeTask(taskId: number)`
-- **Endpoint**: `POST /api/user/tasks/:taskId/complete`
-- **Request Body**: None (task ID in URL)
-- **Response**: Success/error status
-- **Status**: ❌ Not implemented
-- **Priority**: High
-- **Notes**: Currently updates local state only. Should sync with backend and update user progress.
+- [x] `src/views/study/StudyHomeView.vue`
+- [x] `src/views/study/StudySessionView.vue`
 
-## Home View (`src/views/HomeView.vue`)
+### Courses
 
-### Task Navigation
+- [x] `src/views/courses/CoursesView.vue`
+- [x] `src/views/courses/EpisodeView.vue`
+- [x] `src/views/courses/CourseDetailView.vue`
+- [x] `src/views/courses/ModuleDetailView.vue`
 
-- **File**: `src/views/HomeView.vue`
-- **Function**: `handleTaskAction(taskId: number)`
-- **TODO**: Navigate to appropriate view based on task type
-    - `vocabulary` → `/vocabulary`
-    - `exercise` → `/exercises`
-    - `listening` → `/reading` or content player
-    - `grammar` → grammar reference page
-- **Status**: ❌ Not implemented
-- **Priority**: Medium
-- **Notes**: Need to determine the exact routes for each task type.
+### Reading
 
-### Content Navigation
+- [x] `src/views/reading/BookView.vue`
+- [x] `src/views/reading/ReadingLibraryView.vue`
 
-- **File**: `src/views/HomeView.vue`
-- **Function**: `handleContentClick(contentId: number)`
-- **TODO**: Navigate to specific content page based on content ID
-- **Status**: ❌ Partially implemented (goes to /courses)
-- **Priority**: Medium
-- **Notes**: Should navigate to the actual content detail page (dialogue/story/grammar).
+### Exercises
 
-## API Integration Checklist
+- [x] `src/views/exercises/StatsView.vue`
+- [x] `src/views/exercises/ModuleView.vue`
+- [x] `src/views/exercises/ExercisesView.vue`
+- [x] `src/views/exercises/ExerciseDetailView.vue`
 
-When implementing each endpoint:
+### Vocabulary
 
-1. **Create API Service**
-    - [ ] Add endpoint to `src/services/api.ts` or create `src/composables/useDashboardApi.ts`
-    - [ ] Handle authentication (Bearer token)
-    - [ ] Handle errors gracefully
+- [x] `src/views/vocabulary/SearchView.vue`
+- [x] `src/views/vocabulary/WordSetsView.vue`
+- [x] `src/views/vocabulary/VocabularyView.vue`
 
-2. **Update Store**
-    - [ ] Replace mock data with API call
-    - [ ] Add proper error handling
-    - [ ] Add loading states
-    - [ ] Handle edge cases (no data, empty arrays, etc.)
+## Components
 
-3. **Test**
-    - [ ] Test with real backend data
-    - [ ] Test error states
-    - [ ] Test loading states
-    - [ ] Test authentication required scenarios
+### UI
 
-## Future Enhancements
+- [x] `src/components/ui/BaseCard.vue`
+- [x] `src/components/ui/StatCard.vue`
+- [x] `src/components/ui/TaskCard.vue`
+- [x] `src/components/ui/FilterBar.vue`
+- [x] `src/components/ui/CourseCard.vue`
+- [x] `src/components/ui/ContentCard.vue`
 
-### Dashboard Features to Add
+### Audio
 
-- [ ] Weekly/monthly progress charts
-- [ ] Achievement badges
-- [ ] Learning streak history
-- [ ] Personalized learning goals
-- [ ] Recent activity feed
-- [ ] Upcoming lessons/tasks preview
+- [x] `src/components/audio/AudioPlayer.vue`
 
-### Data Refresh
+### Layout
 
-- [ ] Implement real-time updates (WebSocket or polling)
-- [ ] Add pull-to-refresh
-- [ ] Cache dashboard data with expiry
-- [ ] Optimistic UI updates for better UX
+- [x] `src/components/layout/TheSidebar.vue`
+- [x] `src/components/layout/ThemeToggle.vue`
 
-## Notes
+### Reading
 
-- All endpoints should require authentication
-- Use consistent error handling across all API calls
-- Consider adding retry logic for failed requests
-- Add analytics tracking for user interactions
-- Implement proper TypeScript types for all API responses
+- [x] `src/components/reading/BookComponent.vue`
+- [x] `src/components/reading/PageComponent.vue`
+
+### Exercises
+
+- [x] `src/components/exercises/MatchingExercise.vue`
+- [x] `src/components/exercises/ListeningExercise.vue`
+- [x] `src/components/exercises/FillInBlankExercise.vue`
+- [x] `src/components/exercises/ClozeReadingExercise.vue`
+- [x] `src/components/exercises/MultipleChoiceExercise.vue`
+- [x] `src/components/exercises/SentenceScrambleExercise.vue`
+
+### Vocabulary
+
+- [x] `src/components/vocabulary/WordCard.vue`
+- [x] `src/components/vocabulary/FlashCard.vue`

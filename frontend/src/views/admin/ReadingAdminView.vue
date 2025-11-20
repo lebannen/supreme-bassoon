@@ -1,138 +1,3 @@
-<template>
-  <div class="page-container">
-    <div class="view-header">
-      <div class="view-header-content">
-        <div class="view-header-text">
-          <h1>Reading Texts Administration</h1>
-          <p>Manage reading texts and their audio files</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="view-container content-area-xl p-xl">
-      <div class="flex gap-md mb-xl">
-        <Select
-            v-model="selectedLanguage"
-            :options="languages"
-            optionLabel="label"
-            optionValue="value"
-            placeholder="Filter by language"
-            class="filter-select"
-        />
-        <Select
-            v-model="selectedLevel"
-            :options="levels"
-            optionLabel="label"
-            optionValue="value"
-            placeholder="Filter by level"
-            class="filter-select"
-        />
-        <Button label="Clear Filters" icon="pi pi-times" outlined @click="clearFilters"/>
-      </div>
-
-      <div v-if="loading" class="loading-state">
-        <ProgressSpinner/>
-        <p>Loading texts...</p>
-      </div>
-
-      <div v-else-if="error" class="loading-state">
-        <Message severity="error" :closable="false">{{ error }}</Message>
-      </div>
-
-      <div v-else class="content-grid">
-        <Card v-for="text in filteredTexts" :key="text.id" class="text-card">
-          <template #header>
-            <div class="card-header">
-              <div class="text-info">
-                <h3>{{ text.title }}</h3>
-                <div class="meta-sm">
-                  <Tag :value="text.level || 'N/A'" severity="info"/>
-                  <span class="language-badge">{{ getLanguageName(text.languageCode) }}</span>
-                  <span v-if="text.topic" class="topic-badge">{{ formatTopic(text.topic) }}</span>
-                </div>
-              </div>
-              <div class="audio-status">
-                <i
-                    v-if="text.audioUrl"
-                    class="pi pi-volume-up audio-icon has-audio"
-                    v-tooltip="'Has audio'"
-                />
-                <i v-else class="pi pi-volume-off audio-icon no-audio" v-tooltip="'No audio'"/>
-              </div>
-            </div>
-          </template>
-
-          <template #content>
-            <div class="card-content">
-              <p v-if="text.description" class="description">{{ text.description }}</p>
-
-              <div class="stats">
-                <span><i class="pi pi-book"></i> {{ text.wordCount || 0 }} words</span>
-                <span v-if="text.estimatedMinutes">
-                  <i class="pi pi-clock"></i> {{ text.estimatedMinutes }} min
-                </span>
-              </div>
-
-              <div v-if="text.audioUrl" class="current-audio">
-                <label>Current Audio:</label>
-                <a :href="text.audioUrl" target="_blank" class="audio-link">
-                  <i class="pi pi-external-link"></i> {{ getAudioFilename(text.audioUrl) }}
-                </a>
-              </div>
-
-              <div class="audio-upload">
-                <label class="upload-label">
-                  {{ text.audioUrl ? 'Replace Audio:' : 'Upload Audio:' }}
-                </label>
-                <FileUpload
-                    :name="`audio-${text.id}`"
-                    accept="audio/*"
-                    :maxFileSize="50000000"
-                    :customUpload="true"
-                    @select="(event) => onAudioSelect(event, text.id)"
-                    @uploader="(event) => handleAudioUpload(event, text)"
-                    :auto="false"
-                    chooseLabel="Choose Audio"
-                    uploadLabel="Upload"
-                    cancelLabel="Cancel"
-                    :showUploadButton="selectedFiles[text.id] !== undefined"
-                    :showCancelButton="selectedFiles[text.id] !== undefined"
-                >
-                  <template #empty>
-                    <p>Drag and drop audio file here or click to choose.</p>
-                    <small>Supported formats: WAV, MP3, M4A, OGG (max 50MB)</small>
-                  </template>
-                </FileUpload>
-
-                <div v-if="uploadingTexts[text.id]" class="upload-progress">
-                  <ProgressBar mode="indeterminate"/>
-                  <small>Uploading audio...</small>
-                </div>
-
-                <div v-if="uploadResults[text.id]" class="upload-result">
-                  <Message
-                      :severity="uploadResults[text.id]?.success ? 'success' : 'error'"
-                      :closable="true"
-                      @close="uploadResults[text.id] = null"
-                  >
-                    {{ uploadResults[text.id]?.message }}
-                  </Message>
-                </div>
-              </div>
-            </div>
-          </template>
-        </Card>
-      </div>
-
-      <div v-if="!loading && filteredTexts.length === 0" class="empty-state">
-        <i class="pi pi-inbox empty-icon"></i>
-        <h3>No texts found</h3>
-        <p>No texts found matching the filters.</p>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import {computed, onMounted, ref} from 'vue'
 import {storeToRefs} from 'pinia'
@@ -142,8 +7,7 @@ import Select from 'primevue/select'
 import Tag from 'primevue/tag'
 import Message from 'primevue/message'
 import ProgressSpinner from 'primevue/progressspinner'
-import ProgressBar from 'primevue/progressbar'
-import FileUpload, {type FileUploadSelectEvent, type FileUploadUploaderEvent,} from 'primevue/fileupload'
+import FileUpload, {type FileUploadSelectEvent} from 'primevue/fileupload'
 import {useReadingStore} from '@/stores/reading'
 import type {ReadingText} from '@/types/reading'
 
@@ -154,217 +18,129 @@ const {texts, loading, error} = storeToRefs(readingStore)
 
 const selectedLanguage = ref<string | null>(null)
 const selectedLevel = ref<string | null>(null)
-const selectedFiles = ref<Record<number, File>>({})
 const uploadingTexts = ref<Record<number, boolean>>({})
 const uploadResults = ref<Record<number, { success: boolean; message: string } | null>>({})
 
 const languages = [
-  { label: 'All Languages', value: null },
-  { label: 'French', value: 'fr' },
-  { label: 'German', value: 'de' },
-  { label: 'Spanish', value: 'es' },
-  {label: 'Italian', value: 'it'},
+  {label: 'All Languages', value: null}, {label: 'French', value: 'fr'}, {label: 'German', value: 'de'},
+  {label: 'Spanish', value: 'es'}, {label: 'Italian', value: 'it'},
 ]
-
 const levels = [
-  { label: 'All Levels', value: null },
-  { label: 'A1', value: 'A1' },
-  { label: 'A2', value: 'A2' },
-  { label: 'B1', value: 'B1' },
-  { label: 'B2', value: 'B2' },
-  { label: 'C1', value: 'C1' },
-  {label: 'C2', value: 'C2'},
+  {label: 'All Levels', value: null}, {label: 'A1', value: 'A1'}, {label: 'A2', value: 'A2'},
+  {label: 'B1', value: 'B1'}, {label: 'B2', value: 'B2'}, {label: 'C1', value: 'C1'}, {label: 'C2', value: 'C2'},
 ]
 
 const filteredTexts = computed(() => {
   let result = texts.value
-
-  if (selectedLanguage.value) {
-    result = result.filter((t) => t.languageCode === selectedLanguage.value)
-  }
-
-  if (selectedLevel.value) {
-    result = result.filter((t) => t.level?.toUpperCase() === selectedLevel.value)
-  }
-
+  if (selectedLanguage.value) result = result.filter(t => t.languageCode === selectedLanguage.value)
+  if (selectedLevel.value) result = result.filter(t => t.level?.toUpperCase() === selectedLevel.value)
   return result
 })
 
-function getLanguageName(code: string): string {
-  const languageNames: Record<string, string> = {
-    fr: 'French',
-    de: 'German',
-    es: 'Spanish',
-    it: 'Italian',
-    pt: 'Portuguese',
-    ru: 'Russian',
-    ja: 'Japanese',
-    zh: 'Chinese',
-    ko: 'Korean',
-    ar: 'Arabic',
-    hi: 'Hindi',
-    pl: 'Polish',
-  }
-  return languageNames[code] || code.toUpperCase()
-}
+const getLanguageName = (code: string) => languages.find(l => l.value === code)?.label || code.toUpperCase()
+const formatTopic = (topic: string) => topic.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+const getAudioFilename = (url: string) => url.substring(url.lastIndexOf('/') + 1)
 
-function formatTopic(topic: string): string {
-  return topic
-    .split('_')
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ')
-}
-
-function getAudioFilename(url: string): string {
-  try {
-    const urlObj = new URL(url)
-    const path = urlObj.pathname
-    return path.substring(path.lastIndexOf('/') + 1)
-  } catch {
-    return url
-  }
-}
-
-function clearFilters() {
-  selectedLanguage.value = null
-  selectedLevel.value = null
-}
-
-function onAudioSelect(event: FileUploadSelectEvent, textId: number) {
-  if (event.files && event.files.length > 0) {
-    selectedFiles.value[textId] = event.files[0]
-  }
-}
-
-async function handleAudioUpload(event: FileUploadUploaderEvent, text: ReadingText) {
-  const file = selectedFiles.value[text.id]
-  if (!file) {
-    uploadResults.value[text.id] = {
-      success: false,
-      message: 'No file selected',
-    }
-    return
-  }
-
+const handleAudioUpload = async (event: FileUploadSelectEvent, text: ReadingText) => {
+  const file = event.files[0]
+  if (!file) return
   uploadingTexts.value[text.id] = true
   uploadResults.value[text.id] = null
-
   try {
-    // Step 1: Upload audio file to storage
     const formData = new FormData()
     formData.append('file', file)
-
-    const uploadResponse = await fetch(`${API_BASE}/api/files/upload/audio`, {
-      method: 'POST',
-      body: formData,
-    })
-
-    if (!uploadResponse.ok) {
-      const errorData = await uploadResponse.json()
-      throw new Error(errorData.message || 'Failed to upload audio file')
-    }
-
-    const uploadData = await uploadResponse.json()
-    const audioUrl = uploadData.url
-
-    // Step 2: Update text with audio URL
+    const uploadResponse = await fetch(`${API_BASE}/api/files/upload/audio`, {method: 'POST', body: formData})
+    if (!uploadResponse.ok) throw new Error((await uploadResponse.json()).message || 'Failed to upload audio')
+    const audioUrl = (await uploadResponse.json()).url
     const updateResponse = await fetch(`${API_BASE}/api/reading/texts/${text.id}/audio`, {
       method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({audioUrl}),
     })
-
-    if (!updateResponse.ok) {
-      throw new Error('Failed to update text with audio URL')
-    }
-
-    // Refresh data from server to get updated audio URL
+    if (!updateResponse.ok) throw new Error('Failed to update text with audio URL')
     await readingStore.loadTexts({})
-
-    uploadResults.value[text.id] = {
-      success: true,
-      message: 'Audio uploaded successfully!',
-    }
-
-    // Clear selected file
-    delete selectedFiles.value[text.id]
-
-    // Clear result after 5 seconds
-    setTimeout(() => {
-      uploadResults.value[text.id] = null
-    }, 5000)
+    uploadResults.value[text.id] = {success: true, message: 'Audio uploaded successfully!'}
   } catch (err) {
     uploadResults.value[text.id] = {
       success: false,
-      message: err instanceof Error ? err.message : 'Failed to upload audio',
+      message: err instanceof Error ? err.message : 'Failed to upload audio'
     }
   } finally {
     uploadingTexts.value[text.id] = false
   }
 }
 
-onMounted(async () => {
-  await readingStore.loadTexts({})
-})
+onMounted(() => readingStore.loadTexts({}))
 </script>
 
-<style scoped>
-.text-card {
-  height: 100%;
-}
+<template>
+  <div class="view-container content-area-lg">
+    <div class="page-header">
+      <h1>Reading Texts Administration</h1>
+      <p class="text-secondary">Manage reading texts and their audio files.</p>
+    </div>
 
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: var(--spacing-md);
-  padding: var(--spacing-md);
-  background: var(--surface-ground);
-}
+    <div class="filters">
+      <Select v-model="selectedLanguage" :options="languages" optionLabel="label" optionValue="value"
+              placeholder="Filter by language" class="filter-select"/>
+      <Select v-model="selectedLevel" :options="levels" optionLabel="label" optionValue="value"
+              placeholder="Filter by level" class="filter-select"/>
+      <Button label="Clear Filters" icon="pi pi-times" severity="secondary"
+              @click="selectedLanguage = null; selectedLevel = null"/>
+    </div>
 
-.text-info h3 {
-  margin: 0 0 var(--spacing-xs) 0;
-  font-size: 1.125rem;
-  font-weight: 600;
-}
+    <div v-if="loading" class="loading-state">
+      <ProgressSpinner/>
+    </div>
+    <Message v-else-if="error" severity="error">{{ error }}</Message>
 
-.card-content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-
-.card-content .description {
-  margin: 0;
-  line-height: 1.6;
-}
-
-.current-audio {
-  padding: var(--spacing-md);
-  background: var(--surface-ground);
-  border-radius: var(--radius-md);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-}
-
-.current-audio label {
-  font-weight: 600;
-}
-
-.audio-upload {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-
-.upload-label {
-  font-weight: 600;
-}
-
-.upload-result {
-  margin-top: var(--spacing-xs);
-}
-</style>
+    <div v-else-if="filteredTexts.length > 0" class="content-grid">
+      <Card v-for="text in filteredTexts" :key="text.id">
+        <template #header>
+          <div class="p-md flex justify-between items-start gap-md bg-surface-section">
+            <div class="flex-1">
+              <h3 class="text-lg font-bold mb-sm">{{ text.title }}</h3>
+              <div class="meta-badges">
+                <Tag :value="text.level || 'N/A'"/>
+                <Tag :value="getLanguageName(text.languageCode)" severity="secondary"/>
+                <Tag v-if="text.topic" :value="formatTopic(text.topic)" severity="contrast"/>
+              </div>
+            </div>
+            <div class="stat-icon-sm" :class="text.audioUrl ? 'stat-icon-success' : 'stat-icon-warning'">
+              <i :class="text.audioUrl ? 'pi pi-volume-up' : 'pi pi-volume-off'"></i>
+            </div>
+          </div>
+        </template>
+        <template #content>
+          <div class="content-area">
+            <p v-if="text.description" class="text-secondary m-0">{{ text.description }}</p>
+            <div class="icon-label-group compact">
+              <span class="icon-label"><i class="pi pi-book"></i>{{ text.wordCount || 0 }} words</span>
+              <span v-if="text.estimatedMinutes" class="icon-label"><i class="pi pi-clock"></i>{{
+                  text.estimatedMinutes
+                }} min</span>
+            </div>
+            <div v-if="text.audioUrl" class="p-md bg-surface-ground rounded-md">
+              <label class="font-semibold mb-sm block">Current Audio</label>
+              <a :href="text.audioUrl" target="_blank" class="audio-link text-primary hover:underline">
+                <i class="pi pi-external-link"></i> {{ getAudioFilename(text.audioUrl) }}
+              </a>
+            </div>
+            <div class="content-area">
+              <label class="font-semibold">{{ text.audioUrl ? 'Replace Audio' : 'Upload Audio' }}</label>
+              <FileUpload mode="basic" :name="`audio-${text.id}`" accept="audio/*" :maxFileSize="50000000"
+                          :customUpload="true" @select="handleAudioUpload($event, text)" :auto="true"
+                          chooseLabel="Choose Audio File"/>
+              <Message v-if="uploadResults[text.id]" :severity="uploadResults[text.id]?.success ? 'success' : 'error'"
+                       @close="uploadResults[text.id] = null">
+                {{ uploadResults[text.id]?.message }}
+              </Message>
+            </div>
+          </div>
+        </template>
+      </Card>
+    </div>
+    <div v-else class="empty-state"><i class="pi pi-inbox empty-icon"></i>
+      <h3>No texts found</h3></div>
+  </div>
+</template>

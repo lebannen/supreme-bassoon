@@ -1,0 +1,352 @@
+/* ========== AURA THEME EXTENSION ========== */
+/* 
+  This file bridges the gap between PrimeVue's Aura theme and Vocabee's custom CSS.
+  It maps PrimeVue's CSS variables to our custom utility classes.
+*/
+
+:root {
+    /* ========== BASE COLORS ========== */
+    --surface-ground: var(--p-surface-ground); /* App background */
+    --surface-section: var(--p-surface-section); /* Card backgrounds, etc. */
+    --surface-card: var(--p-surface-card);
+    --surface-overlay: var(--p-surface-overlay);
+    --surface-border: var(--p-surface-border);
+    --surface-hover: var(--p-surface-hover);
+
+    /* ========== TEXT COLORS ========== */
+    --text-color: var(--p-text-color);
+    --text-color-secondary: var(--p-text-muted-color);
+    --text-color-disabled: var(--p-text-disabled-color);
+
+    /* ========== PRIMARY PALETTE ========== */
+    --primary-color: var(--p-primary-500);
+    --primary-color-text: var(--p-primary-contrast);
+    --primary-hover: var(--p-primary-600);
+
+    /* ========== HIGHLIGHTS ========== */
+    --highlight-bg: var(--p-highlight-background);
+    --highlight-text-color: var(--p-highlight-color);
+
+    /* ========== SHADOWS ========== */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* ========== UTILITY CLASS MAPPINGS ========== */
+
+/* Text Colors */
+.text-primary {
+    color: var(--primary-color);
+}
+
+.text-secondary {
+    color: var(--text-color-secondary);
+}
+
+.text-tertiary {
+    color: var(--text-color-disabled);
+}
+
+.text-success {
+    color: var(--p-green-500);
+}
+
+.text-warning {
+    color: var(--p-yellow-500);
+}
+
+.text-error {
+    color: var(--p-red-500);
+}
+
+.text-info {
+    color: var(--p-blue-500);
+}
+
+/* Background Colors */
+.bg-primary {
+    background-color: var(--primary-color);
+}
+
+.bg-surface {
+    background-color: var(--surface-section);
+}
+
+.bg-surface-ground {
+    background-color: var(--surface-ground);
+}
+
+.bg-surface-card {
+    background-color: var(--surface-card);
+}
+
+.bg-success {
+    background-color: var(--p-green-500);
+}
+
+.bg-warning {
+    background-color: var(--p-yellow-500);
+}
+
+.bg-error {
+    background-color: var(--p-red-500);
+}
+
+.bg-info {
+    background-color: var(--p-blue-500);
+}
+
+/* Border Colors */
+.border-primary {
+    border-color: var(--primary-color);
+}
+
+.border-surface {
+    border-color: var(--surface-border);
+}
+
+/* Icon Colors */
+.icon-primary {
+    color: var(--primary-color);
+}
+
+.icon-secondary {
+    color: var(--text-color-secondary);
+}
+
+.icon-success {
+    color: var(--p-green-500);
+}
+
+.icon-warning {
+    color: var(--p-yellow-500);
+}
+
+.icon-error {
+    color: var(--p-red-500);
+}
+
+.icon-info {
+    color: var(--p-blue-500);
+}
+
+/* Gradient Backgrounds */
+.gradient-warning {
+    background: linear-gradient(135deg, var(--p-yellow-400) 0%, var(--p-orange-500) 100%);
+    color: var(--p-yellow-950);
+}
+
+.gradient-purple {
+    background: linear-gradient(135deg, var(--p-purple-400) 0%, var(--p-indigo-500) 100%);
+    color: var(--p-purple-50);
+}
+
+.dark-theme .gradient-warning {
+    background: linear-gradient(135deg, var(--p-yellow-700) 0%, var(--p-orange-800) 100%);
+    color: var(--p-yellow-50);
+}
+
+.dark-theme .gradient-purple {
+    background: linear-gradient(135deg, var(--p-purple-600) 0%, var(--p-indigo-700) 100%);
+    color: var(--p-purple-50);
+}
+
+
+/* ========== COMPONENT STYLES ========== */
+
+body {
+    background-color: var(--surface-ground);
+    color: var(--text-color);
+}
+
+.card {
+    background-color: var(--surface-card);
+    border: 1px solid var(--surface-border);
+}
+
+.list-item-interactive:hover {
+    background-color: var(--surface-hover);
+}
+
+/* Badges */
+.badge-level {
+    background-color: var(--p-blue-100);
+    color: var(--p-blue-700);
+}
+
+.badge-success {
+    background-color: var(--p-green-100);
+    color: var(--p-green-700);
+}
+
+.badge-warning {
+    background-color: var(--p-yellow-100);
+    color: var(--p-yellow-700);
+}
+
+.badge-info {
+    background-color: var(--p-cyan-100);
+    color: var(--p-cyan-700);
+}
+
+/* Dark Theme Overrides for Badges */
+.dark-theme .badge-level {
+    background-color: var(--p-blue-900);
+    color: var(--p-blue-100);
+}
+
+.dark-theme .badge-success {
+    background-color: var(--p-green-900);
+    color: var(--p-green-100);
+}
+
+.dark-theme .badge-warning {
+    background-color: var(--p-yellow-900);
+    color: var(--p-yellow-100);
+}
+
+.dark-theme .badge-info {
+    background-color: var(--p-cyan-900);
+    color: var(--p-cyan-100);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--primary-color-text);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: var(--surface-section);
+    color: var(--text-color);
+    border: 1px solid var(--surface-border);
+}
+
+.btn-secondary:hover {
+    background-color: var(--surface-hover);
+}
+
+/* Stat Icons */
+.stat-icon-warning {
+    background-color: var(--p-yellow-100);
+    color: var(--p-yellow-600);
+}
+
+.stat-icon-success {
+    background-color: var(--p-green-100);
+    color: var(--p-green-600);
+}
+
+.stat-icon-info {
+    background-color: var(--p-cyan-100);
+    color: var(--p-cyan-600);
+}
+
+.stat-icon-error {
+    background-color: var(--p-red-100);
+    color: var(--p-red-600);
+}
+
+.stat-icon-purple {
+    background-color: var(--p-purple-100);
+    color: var(--p-purple-600);
+}
+
+.stat-icon-blue {
+    background-color: var(--p-blue-100);
+    color: var(--p-blue-600);
+}
+
+.stat-icon-yellow {
+    background-color: var(--p-yellow-100);
+    color: var(--p-yellow-600);
+}
+
+.stat-icon-green {
+    background-color: var(--p-green-100);
+    color: var(--p-green-600);
+}
+
+/* Dark Theme Overrides for Stat Icons */
+.dark-theme .stat-icon-warning {
+    background-color: var(--p-yellow-900);
+    color: var(--p-yellow-400);
+}
+
+.dark-theme .stat-icon-success {
+    background-color: var(--p-green-900);
+    color: var(--p-green-400);
+}
+
+.dark-theme .stat-icon-info {
+    background-color: var(--p-cyan-900);
+    color: var(--p-cyan-400);
+}
+
+.dark-theme .stat-icon-error {
+    background-color: var(--p-red-900);
+    color: var(--p-red-400);
+}
+
+.dark-theme .stat-icon-purple {
+    background-color: var(--p-purple-900);
+    color: var(--p-purple-400);
+}
+
+.dark-theme .stat-icon-blue {
+    background-color: var(--p-blue-900);
+    color: var(--p-blue-400);
+}
+
+.dark-theme .stat-icon-yellow {
+    background-color: var(--p-yellow-900);
+    color: var(--p-yellow-400);
+}
+
+.dark-theme .stat-icon-green {
+    background-color: var(--p-green-900);
+    color: var(--p-green-400);
+}
+
+/* Page Header */
+.page-header p {
+    color: var(--text-color-secondary);
+}
+
+/* Section Header */
+.section-header h2 {
+    color: var(--text-color);
+}
+
+/* Empty State */
+.empty-state .empty-icon {
+    color: var(--text-color-disabled);
+}
+
+.empty-state h3 {
+    color: var(--text-color);
+}
+
+.empty-state p {
+    color: var(--text-color-secondary);
+}
+
+/* Recent Activity */
+.correct {
+    color: var(--p-green-500);
+}
+
+.dark-theme .correct {
+    color: var(--p-green-400);
+}
+
+/* Module Card */
+.module-card {
+    background-color: var(--surface-section);
+    border: 1px solid var(--surface-border);
+}

@@ -1,111 +1,9 @@
-<template>
-  <div class="listening-exercise">
-    <Card class="audio-section">
-      <template #content>
-        <div class="audio-player-container">
-          <audio ref="audioPlayer" :src="audioUrl" controls preload="auto" class="audio-player">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-        <div class="audio-hint">
-          <i class="pi pi-volume-up"></i>
-          <span>Listen to the audio and answer the question below</span>
-        </div>
-      </template>
-    </Card>
-
-    <Card class="question-section">
-      <template #content>
-        <h2 class="question-text">{{ content.question }}</h2>
-      </template>
-    </Card>
-
-    <!-- Multiple Choice Questions -->
-    <div v-if="questionType === 'multiple_choice'" class="options-section">
-      <div
-        v-for="option in content.options"
-        :key="option.id"
-        class="option-card"
-        :class="{
-          selected: selectedOption === option.id,
-          correct: showResult && option.id === correctAnswer,
-          incorrect: showResult && selectedOption === option.id && option.id !== correctAnswer,
-          disabled: showResult,
-        }"
-        @click="selectOption(option.id)"
-      >
-        <div class="option-label">{{ option.id.toUpperCase() }}</div>
-        <div class="option-text">{{ option.text }}</div>
-        <i
-          v-if="showResult && option.id === correctAnswer"
-          class="pi pi-check-circle result-icon correct-icon"
-        />
-        <i
-          v-if="showResult && selectedOption === option.id && option.id !== correctAnswer"
-          class="pi pi-times-circle result-icon incorrect-icon"
-        />
-      </div>
-    </div>
-
-    <!-- Text Input Questions -->
-    <div v-if="questionType === 'text_input'" class="input-section">
-      <InputText
-        v-model="userAnswer"
-        placeholder="Type your answer here..."
-        :disabled="showResult"
-        class="answer-input"
-        @keyup.enter="!showResult && submitAnswer()"
-      />
-    </div>
-
-    <div v-if="showHint && !showResult" class="hint-section">
-      <Message severity="info">
-        <div class="hint-content"><strong>Hint:</strong> {{ hint }}</div>
-      </Message>
-    </div>
-
-    <div v-if="showResult && feedback" class="feedback-section">
-      <Message :severity="isCorrect ? 'success' : 'warn'">
-        <div class="feedback-content">
-          {{ feedback }}
-        </div>
-      </Message>
-    </div>
-
-    <div class="actions-section">
-      <Button
-        v-if="!showResult && hint"
-        label="Show Hint"
-        icon="pi pi-lightbulb"
-        text
-        @click="toggleHint"
-      />
-      <Button
-        v-if="!showResult"
-        label="Submit Answer"
-        icon="pi pi-check"
-        :disabled="!canSubmit"
-        @click="submitAnswer"
-      />
-      <template v-else>
-        <Button
-          v-if="isCorrect"
-          :label="`Next (${autoAdvanceSeconds}s)`"
-          icon="pi pi-arrow-right"
-          @click="handleNext"
-        />
-        <Button v-else label="Try Again" icon="pi pi-refresh" @click="resetExercise"/>
-      </template>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import {computed, ref} from 'vue'
 import Button from 'primevue/button'
-import Card from 'primevue/card'
 import Message from 'primevue/message'
 import InputText from 'primevue/inputtext'
+import AudioPlayer from '@/components/audio/AudioPlayer.vue'
 
 interface ListeningOption {
   id: string
@@ -130,7 +28,6 @@ const emit = defineEmits<{
   next: []
 }>()
 
-const audioPlayer = ref<HTMLAudioElement | null>(null)
 const selectedOption = ref<string | null>(null)
 const userAnswer = ref('')
 const showResult = ref(false)
@@ -138,19 +35,14 @@ const isCorrect = ref(false)
 const feedback = ref('')
 const showHint = ref(false)
 const correctAnswer = ref<string>('')
-const autoAdvanceTimer = ref<number | null>(null)
-const autoAdvanceSeconds = ref(3)
+const autoAdvanceTimer = ref<any>(null)
+const autoAdvanceSeconds = ref(5)
 
 const questionType = computed(() => props.content.questionType || 'multiple_choice')
-const audioUrl = computed(() => props.content.audioUrl)
-const hint = computed(() => props.content.hint || '')
-
 const canSubmit = computed(() => {
-  if (questionType.value === 'multiple_choice') {
-    return selectedOption.value !== null
-  } else {
-    return userAnswer.value.trim().length > 0
-  }
+  return questionType.value === 'multiple_choice'
+      ? selectedOption.value !== null
+      : userAnswer.value.trim().length > 0
 })
 
 function selectOption(optionId: string) {
@@ -158,30 +50,19 @@ function selectOption(optionId: string) {
   selectedOption.value = optionId
 }
 
-function toggleHint() {
-  showHint.value = !showHint.value
-}
-
 function submitAnswer() {
-  if (questionType.value === 'multiple_choice') {
-    emit('submit', { selectedOption: selectedOption.value || '' })
-  } else {
-    emit('submit', { answer: userAnswer.value })
-  }
+  const response = questionType.value === 'multiple_choice'
+      ? {selectedOption: selectedOption.value || ''}
+      : {answer: userAnswer.value}
+  emit('submit', response)
 }
 
 function startAutoAdvance() {
-  autoAdvanceSeconds.value = 3
-
-  const countdown = setInterval(() => {
+  autoAdvanceSeconds.value = 5
+  autoAdvanceTimer.value = setInterval(() => {
     autoAdvanceSeconds.value--
-    if (autoAdvanceSeconds.value <= 0) {
-      clearInterval(countdown)
-      handleNext()
-    }
+    if (autoAdvanceSeconds.value <= 0) handleNext()
   }, 1000)
-
-  autoAdvanceTimer.value = countdown
 }
 
 function stopAutoAdvance() {
@@ -205,46 +86,81 @@ function resetExercise() {
   feedback.value = ''
   showHint.value = false
   correctAnswer.value = ''
-
-  // Reset audio player
-  if (audioPlayer.value) {
-    audioPlayer.value.currentTime = 0
-    audioPlayer.value.pause()
-  }
 }
 
-function setResult(result: {
-  isCorrect: boolean
-  feedback: string
-  userResponse?: any
-  correctAnswers?: any
-}) {
+function setResult(result: { isCorrect: boolean; feedback: string; userResponse?: any; correctAnswers?: any }) {
   showResult.value = true
   isCorrect.value = result.isCorrect
   feedback.value = result.feedback
-
   if (result.correctAnswers?.correctAnswer) {
     correctAnswer.value = result.correctAnswers.correctAnswer
   }
-
   if (result.userResponse) {
-    if (result.userResponse.selectedOption) {
-      selectedOption.value = result.userResponse.selectedOption
-    } else if (result.userResponse.answer) {
-      userAnswer.value = result.userResponse.answer
-    }
+    selectedOption.value = result.userResponse.selectedOption || null
+    userAnswer.value = result.userResponse.answer || ''
   }
-
-  // Start auto-advance countdown for correct answers
   if (result.isCorrect) {
     startAutoAdvance()
   }
 }
 
-defineExpose({
-  setResult,
-})
+defineExpose({setResult})
 </script>
+
+<template>
+  <div class="listening-exercise">
+    <AudioPlayer :audio-url="content.audioUrl"/>
+
+    <div class="p-lg bg-surface-card rounded-lg">
+      <h2 class="text-lg font-bold">{{ content.question }}</h2>
+    </div>
+
+    <!-- Multiple Choice -->
+    <div v-if="questionType === 'multiple_choice'" class="options-grid">
+      <div
+          v-for="option in content.options"
+          :key="option.id"
+          class="option-card"
+          :class="{
+          'selected': selectedOption === option.id,
+          'correct': showResult && option.id === correctAnswer,
+          'incorrect': showResult && selectedOption === option.id && option.id !== correctAnswer,
+          'disabled': showResult,
+        }"
+          @click="selectOption(option.id)"
+      >
+        <div class="option-label" :class="{'bg-primary': selectedOption !== option.id}">{{
+            option.id.toUpperCase()
+          }}
+        </div>
+        <span class="font-medium">{{ option.text }}</span>
+        <i v-if="showResult && option.id === correctAnswer" class="pi pi-check-circle text-success ml-auto text-xl"></i>
+        <i v-if="showResult && selectedOption === option.id && option.id !== correctAnswer"
+           class="pi pi-times-circle text-error ml-auto text-xl"></i>
+      </div>
+    </div>
+
+    <!-- Text Input -->
+    <div v-if="questionType === 'text_input'">
+      <InputText v-model="userAnswer" placeholder="Type your answer..." :disabled="showResult" class="w-full p-lg"
+                 @keyup.enter="!showResult && submitAnswer()"/>
+    </div>
+
+    <Message v-if="showHint" severity="secondary">{{ content.hint }}</Message>
+    <Message v-if="showResult && feedback" :severity="isCorrect ? 'success' : 'warn'">{{ feedback }}</Message>
+
+    <div class="actions-section">
+      <Button v-if="!showResult && content.hint" label="Hint" icon="pi pi-lightbulb" text
+              @click="showHint = !showHint"/>
+      <div class="flex-grow"></div>
+      <Button v-if="!showResult" label="Submit" icon="pi pi-check" :disabled="!canSubmit" @click="submitAnswer"/>
+      <template v-else>
+        <Button v-if="isCorrect" :label="`Next (${autoAdvanceSeconds}s)`" icon="pi pi-arrow-right" @click="handleNext"/>
+        <Button v-else label="Try Again" icon="pi pi-refresh" @click="resetExercise"/>
+      </template>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .listening-exercise {
@@ -253,48 +169,9 @@ defineExpose({
   gap: 1.5rem;
 }
 
-.audio-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.audio-player-container {
-  display: flex;
-  justify-content: center;
-}
-
-.audio-player {
-  width: 100%;
-  max-width: 500px;
-}
-
-.audio-hint {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-size: 0.95rem;
-}
-
-.audio-hint i {
-  font-size: 1.2rem;
-}
-
-.question-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.question-text {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.options-section {
+.options-grid {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 1rem;
 }
 
@@ -303,112 +180,63 @@ defineExpose({
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background: var(--surface-card);
   border: 2px solid var(--surface-border);
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s;
+  background-color: var(--surface-card);
 }
 
 .option-card:hover:not(.disabled) {
-  background: var(--surface-hover);
   border-color: var(--primary-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: var(--surface-hover);
 }
 
 .option-card.selected {
-  border-width: 3px;
-  transform: scale(1.02);
-  box-shadow: 0 0 0 4px rgba(var(--primary-color-rgb), 0.3);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-color);
 }
 
 .option-card.correct {
-  border-color: var(--green-500);
-  border-width: 3px;
+  border-color: var(--p-green-500);
 }
 
 .option-card.incorrect {
-  border-color: var(--red-500);
-  border-width: 3px;
+  border-color: var(--p-red-500);
 }
 
 .option-card.disabled {
   cursor: not-allowed;
+  opacity: 0.8;
 }
 
 .option-label {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  background: var(--primary-color);
-  border-radius: 50%;
-  font-weight: 600;
-  font-size: 0.875rem;
+  font-weight: bold;
+  color: var(--p-primary-contrast);
+  flex-shrink: 0;
+}
+
+.option-card.selected .option-label {
+  background-color: var(--primary-color);
 }
 
 .option-card.correct .option-label {
-  background: var(--green-500);
+  background-color: var(--p-green-500);
 }
 
 .option-card.incorrect .option-label {
-  background: var(--red-500);
-}
-
-.option-text {
-  flex: 1;
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-.result-icon {
-  font-size: 1.5rem;
-  margin-left: auto;
-}
-
-.input-section {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.answer-input {
-  width: 100%;
-  font-size: 1rem;
-  padding: 0.75rem;
-}
-
-.hint-section,
-.feedback-section {
-  margin-top: -0.5rem;
-}
-
-.hint-content,
-.feedback-content {
-  font-size: 1rem;
-  line-height: 1.6;
+  background-color: var(--p-red-500);
 }
 
 .actions-section {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   justify-content: flex-end;
-  flex-wrap: wrap;
-}
-
-@media (max-width: 768px) {
-  .audio-player {
-    width: 100%;
-  }
-
-  .actions-section {
-    justify-content: stretch;
-  }
-
-  .actions-section button {
-    flex: 1;
-  }
 }
 </style>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Card from 'primevue/card'
+import Tag from 'primevue/tag'
 import {computed} from 'vue'
 
 export interface ContentCardProps {
@@ -7,11 +8,6 @@ export interface ContentCardProps {
    * Content type: 'dialogue', 'story', or 'grammar'
    */
   type: 'dialogue' | 'story' | 'grammar'
-
-  /**
-   * Icon/emoji to display
-   */
-  icon: string
 
   /**
    * Content title
@@ -29,14 +25,9 @@ export interface ContentCardProps {
   description?: string
 
   /**
-   * Duration (e.g., "4 min")
+   * Icon class for the content type
    */
-  duration?: string
-
-  /**
-   * Topic/category
-   */
-  topic?: string
+  icon?: string
 
   /**
    * Whether content is completed
@@ -52,38 +43,47 @@ const emit = defineEmits<{
   click: []
 }>()
 
-const gradientClass = computed(() => {
-  return `content-image-${props.type}`
+const gradientStyle = computed(() => {
+  const gradients = {
+    dialogue: 'var(--gradient-dialogue)',
+    story: 'var(--gradient-story)',
+    grammar: 'var(--gradient-grammar)',
+  }
+  return {background: gradients[props.type]}
 })
 </script>
 
 <template>
-  <Card class="content-card" @click="emit('click')">
+  <Card class="card-interactive content-card" @click="emit('click')">
     <template #header>
-      <div :class="['content-image', gradientClass]">
-        <span class="content-icon">{{ icon }}</span>
-        <span v-if="completed" class="completed-badge">✓ Completed</span>
-        <span v-if="duration" class="audio-indicator">🎧 {{ duration }}</span>
+      <div
+          class="h-160 flex items-center justify-center relative"
+          :style="gradientStyle"
+      >
+        <i v-if="icon" class="text-4xl" :class="icon"></i>
+        <Tag
+            v-if="completed"
+            value="Completed"
+            icon="pi pi-check"
+            severity="success"
+            class="absolute top-sm left-sm"
+        />
       </div>
     </template>
 
-    <template #content>
-      <div class="content-body">
-        <div class="content-header">
-          <span class="badge">{{ type.charAt(0).toUpperCase() + type.slice(1) }}</span>
-          <span v-if="level" class="badge badge-level">{{ level }}</span>
-        </div>
-        <div class="content-title">{{ title }}</div>
-        <div v-if="description" class="content-description">{{ description }}</div>
-        <div v-if="topic || duration" class="content-meta">
-          <span v-if="duration" class="meta-item">
-            <span>🎧</span>
-            <span>{{ duration }}</span>
-          </span>
-          <span v-if="topic && duration" class="meta-separator">•</span>
-          <span v-if="topic" class="meta-item">{{ topic }}</span>
-        </div>
+    <template #subtitle>
+      <div class="meta-badges">
+        <Tag :value="type" severity="contrast"/>
+        <Tag v-if="level" :value="level"/>
       </div>
+    </template>
+
+    <template #title>
+      <h3 class="text-lg font-bold">{{ title }}</h3>
+    </template>
+
+    <template #content>
+      <p v-if="description" class="text-sm text-secondary m-0">{{ description }}</p>
     </template>
   </Card>
 </template>
@@ -91,110 +91,17 @@ const gradientClass = computed(() => {
 <style scoped>
 .content-card {
   overflow: hidden;
-  cursor: pointer;
-  transition: all 0.2s;
 }
 
-.content-card:hover {
-  transform: translateY(-2px);
-}
-
-.content-image {
-  width: 100%;
+.h-160 {
   height: 160px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 48px;
-  position: relative;
 }
 
-.content-image-dialogue {
-  background: var(--gradient-dialogue);
-}
-
-.content-image-story {
-  background: var(--gradient-story);
-}
-
-.content-image-grammar {
-  background: var(--gradient-grammar);
-}
-
-.content-icon {
-  font-size: 48px;
-}
-
-.completed-badge {
-  position: absolute;
+.top-sm {
   top: var(--spacing-sm);
+}
+
+.left-sm {
   left: var(--spacing-sm);
-  padding: 5px var(--spacing-sm);
-  border-radius: var(--radius-xl);
-  font-size: 11px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.audio-indicator {
-  position: absolute;
-  top: var(--spacing-sm);
-  right: var(--spacing-sm);
-  padding: 5px var(--spacing-sm);
-  border-radius: var(--radius-xl);
-  font-size: 11px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.content-body {
-  padding: var(--spacing-md);
-}
-
-.content-header {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 10px;
-}
-
-.badge {
-  font-size: 10px;
-  font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-}
-
-.content-title {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 6px;
-  line-height: 1.4;
-}
-
-.content-description {
-  font-size: 13px;
-  margin-bottom: 10px;
-  line-height: 1.5;
-}
-
-.content-meta {
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-  flex-wrap: wrap;
-}
-
-.meta-item {
-  display: flex;
-  align-items: center;
-  gap: 4px;
 }
 </style>

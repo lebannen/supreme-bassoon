@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import Card from 'primevue/card'
-import {computed} from 'vue'
+import Button from 'primevue/button'
 
 export interface TaskCardProps {
   /**
-   * Icon to display (emoji or text)
+   * Icon class to display (e.g., 'pi pi-book')
    */
   icon: string
 
@@ -43,109 +43,31 @@ const handleAction = () => {
     emit('action')
   }
 }
-
-const cardClasses = computed(() => {
-  return {
-    'task-card': true,
-    'completed': props.completed,
-  }
-})
 </script>
 
 <template>
-  <Card :class="cardClasses">
+  <Card class="p-lg">
     <template #content>
-      <div class="task-content">
-        <div :class="['task-icon', { completed: completed }]">{{ completed ? '✓' : icon }}</div>
-        <div class="task-info">
-          <div class="task-title">{{ title }}</div>
-          <div class="task-meta">{{ meta }}</div>
-        </div>
-        <button
-            :class="['btn', completed ? 'task-action-completed' : 'btn-primary']"
-            @click="handleAction"
-            :disabled="completed"
+      <div class="flex items-center gap-md">
+        <div
+            class="number-badge-sm"
+            :class="completed ? 'bg-success' : 'bg-surface'"
         >
-          {{ completed ? '✓ Done' : actionLabel }}
-        </button>
+          <i v-if="!completed" :class="icon"></i>
+        </div>
+
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-primary mb-xs">{{ title }}</div>
+          <div class="text-sm text-secondary">{{ meta }}</div>
+        </div>
+
+        <Button
+            :label="completed ? 'Done' : actionLabel"
+            :disabled="completed"
+            :severity="completed ? 'success' : 'primary'"
+            @click="handleAction"
+        />
       </div>
     </template>
   </Card>
 </template>
-
-<style scoped>
-.task-card {
-  transition: all 0.2s;
-}
-
-.task-card :deep(.p-card-body),
-.task-card :deep(.p-card-content) {
-  padding: var(--spacing-lg);
-}
-
-.task-card:hover:not(.completed) {
-  transform: translateY(-1px);
-}
-
-.task-content {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-md);
-}
-
-.task-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  flex-shrink: 0;
-  transition: all 0.2s;
-}
-
-.task-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.task-title {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.task-meta {
-  font-size: 13px;
-}
-
-/* Button styles */
-.btn {
-  padding: 8px 20px;
-  border-radius: var(--radius-md);
-  border: none;
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-
-.btn-primary:hover {
-  transform: translateY(-1px);
-}
-
-.task-action-completed {
-  cursor: default;
-  padding: 8px var(--spacing-sm);
-}
-
-.task-action-completed:hover {
-  transform: none;
-}
-
-button:disabled {
-  opacity: 1;
-}
-</style>

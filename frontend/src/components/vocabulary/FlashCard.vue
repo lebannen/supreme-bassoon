@@ -1,99 +1,3 @@
-<template>
-  <div class="flashcard-container">
-    <!-- Progress Header -->
-    <Card class="flashcard-header">
-      <template #content>
-        <div class="progress-info">
-          <span class="card-position"
-          >Card {{ displayedProgress.position }} of {{ displayedProgress.total }}</span
-          >
-          <div class="streak-info">
-            <i class="pi pi-bolt"></i>
-            <span
-            >{{ displayedProgress.currentStreak }}/{{ displayedProgress.needsStreak }} streak</span
-            >
-          </div>
-        </div>
-        <div class="srs-info">
-          <Tag :value="`Review #${displayedSrsInfo.reviewCount + 1}`" severity="info"/>
-          <Tag :value="displayedSrsInfo.currentInterval" severity="secondary"/>
-        </div>
-      </template>
-    </Card>
-
-    <!-- Card Flip Container -->
-    <div class="card-wrapper" @click="handleCardClick">
-      <div class="flip-card" :class="{ flipped: isFlipped }">
-        <!-- Front Face -->
-        <Card class="card-face card-front">
-          <template #content>
-            <div class="card-content">
-              <div class="word-display">
-                <h1 class="word-lemma">{{ displayedWord.lemma }}</h1>
-                <Tag
-                    v-if="displayedWord.partOfSpeech"
-                    :value="displayedWord.partOfSpeech"
-                    severity="info"
-                />
-              </div>
-              <div class="flip-hint">
-                <i class="pi pi-refresh"></i>
-                <span>Click to reveal definitions</span>
-              </div>
-            </div>
-          </template>
-        </Card>
-
-        <!-- Back Face -->
-        <Card class="card-face card-back">
-          <template #content>
-            <div class="card-content">
-              <div class="word-header">
-                <h2 class="word-lemma">{{ displayedWord.lemma }}</h2>
-                <Tag
-                    v-if="displayedWord.partOfSpeech"
-                    :value="displayedWord.partOfSpeech"
-                    severity="info"
-                />
-              </div>
-
-              <div class="definitions-section">
-                <div v-for="def in uniqueDefinitions" :key="def.id" class="definition">
-                  <div class="definition-text">
-                    <span class="definition-number">{{ def.definitionNumber }}.</span>
-                    {{ def.definitionText }}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </template>
-        </Card>
-      </div>
-    </div>
-
-    <!-- Action Buttons (only shown when flipped) -->
-    <div v-if="isFlipped" class="flashcard-actions">
-      <Button
-        label="I need practice"
-        icon="pi pi-times"
-        severity="danger"
-        @click="handleAnswer(false)"
-        :loading="loading"
-        outlined
-        size="large"
-      />
-      <Button
-        label="I know it"
-        icon="pi pi-check"
-        severity="success"
-        @click="handleAnswer(true)"
-        :loading="loading"
-        size="large"
-      />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import {computed, ref} from 'vue'
 import Card from 'primevue/card'
@@ -108,69 +12,97 @@ interface Props {
   loading?: boolean
 }
 
-interface Emits {
-  (e: 'flip'): void
-  (e: 'answer', correct: boolean): void
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  loading: false,
-})
-
-const emit = defineEmits<Emits>()
+const props = withDefaults(defineProps<Props>(), {loading: false})
+const emit = defineEmits<{ (e: 'answer', correct: boolean): void }>()
 
 const isFlipped = ref(false)
-const displayedWord = ref(props.word)
-const displayedProgress = ref(props.progress)
-const displayedSrsInfo = ref(props.srsInfo)
 
-// Remove duplicate definitions based on definitionNumber
 const uniqueDefinitions = computed(() => {
   const seen = new Set<number>()
-  return displayedWord.value.definitions.filter((def) => {
-    if (seen.has(def.definitionNumber)) {
-      return false
-    }
+  return props.word.definitions.filter(def => {
+    if (seen.has(def.definitionNumber)) return false
     seen.add(def.definitionNumber)
     return true
   })
 })
 
-// Update displayed content with a delay during flip animation
-function updateDisplayedContent() {
-  displayedWord.value = props.word
-  displayedProgress.value = props.progress
-  displayedSrsInfo.value = props.srsInfo
-}
-
-// Initialize displayed content
-updateDisplayedContent()
-
 function handleCardClick() {
   if (!isFlipped.value) {
     isFlipped.value = true
-    emit('flip')
   }
 }
 
-function handleAnswer(correct: boolean) {
-  emit('answer', correct)
-  // Reset flip state will happen when new card loads
-}
-
-// Expose reset method for parent to call when new card loads
 defineExpose({
   resetFlip: () => {
-    // With linear easing, 300ms = exactly 90 degrees (halfway through 600ms)
-    // Update slightly earlier to account for rendering lag
-    setTimeout(() => {
-      updateDisplayedContent()
-    }, 295)
-    // Start flip animation immediately
     isFlipped.value = false
   },
 })
 </script>
+
+<template>
+  <div class="flashcard-container">
+    <Card class="flashcard-header">
+      <template #content>
+        <div class="flex justify-between items-center w-full">
+          <div class="flex items-center gap-lg">
+            <span class="font-bold">Card {{ progress.position }} of {{ progress.total }}</span>
+            <span class="flex items-center gap-sm text-secondary">
+              <i class="pi pi-bolt"></i>
+              <span>{{ progress.currentStreak }}/{{ progress.needsStreak }} streak</span>
+            </span>
+          </div>
+          <div class="flex gap-sm">
+            <Tag :value="`Review #${srsInfo.reviewCount + 1}`" severity="contrast"/>
+            <Tag :value="srsInfo.currentInterval" severity="secondary"/>
+          </div>
+        </div>
+      </template>
+    </Card>
+
+    <div class="card-wrapper" @click="handleCardClick">
+      <div class="flip-card" :class="{ flipped: isFlipped }">
+        <!-- Front -->
+        <Card class="card-face card-front">
+          <template #content>
+            <div class="flex flex-col items-center justify-center text-center gap-2xl h-full">
+              <div class="flex flex-col items-center gap-md">
+                <h1 class="text-4xl font-bold m-0">{{ word.lemma }}</h1>
+                <Tag v-if="word.partOfSpeech" :value="word.partOfSpeech"/>
+              </div>
+              <div class="flex items-center gap-sm text-secondary">
+                <i class="pi pi-refresh"></i>
+                <span>Click to reveal</span>
+              </div>
+            </div>
+          </template>
+        </Card>
+        <!-- Back -->
+        <Card class="card-face card-back">
+          <template #content>
+            <div class="flex flex-col gap-lg h-full">
+              <div class="flex items-center gap-md pb-md border-b border-surface">
+                <h2 class="text-2xl font-bold m-0">{{ word.lemma }}</h2>
+                <Tag v-if="word.partOfSpeech" :value="word.partOfSpeech"/>
+              </div>
+              <div class="flex-1 overflow-y-auto pr-sm">
+                <div v-for="def in uniqueDefinitions" :key="def.id" class="mb-lg">
+                  <p class="m-0"><span class="font-bold">{{ def.definitionNumber }}.</span> {{ def.definitionText }}</p>
+                </div>
+              </div>
+            </div>
+          </template>
+        </Card>
+      </div>
+    </div>
+
+    <div v-if="isFlipped" class="flashcard-actions">
+      <Button label="I need practice" icon="pi pi-times" severity="danger" @click="emit('answer', false)"
+              :loading="loading" outlined size="large"/>
+      <Button label="I know it" icon="pi pi-check" severity="success" @click="emit('answer', true)" :loading="loading"
+              size="large"/>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .flashcard-container {
@@ -178,247 +110,47 @@ defineExpose({
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
 }
-
 .flashcard-header :deep(.p-card-content) {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
 }
-
-.progress-info {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.card-position {
-  font-weight: 600;
-}
-
-.streak-info {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.srs-info {
-  display: flex;
-  gap: 0.5rem;
-}
-
-/* Card Flip Animation */
 .card-wrapper {
-  perspective: 1800px;
-  min-height: 400px;
+  perspective: 2000px;
+  min-height: 350px;
   cursor: pointer;
 }
-
 .flip-card {
   width: 100%;
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.6s linear;
+  transition: transform 0.6s;
 }
-
 .flip-card.flipped {
   transform: rotateY(180deg);
   cursor: default;
 }
-
 .card-face {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  overflow: hidden;
+  min-height: 350px;
 }
-
-.card-front {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 400px;
-}
-
 .card-back {
   transform: rotateY(180deg);
-  min-height: 400px;
 }
 
-.card-front :deep(.p-card-content),
-.card-back :deep(.p-card-content) {
-  padding: 3rem;
-  width: 100%;
+.card-face :deep(.p-card-content) {
+  padding: 2rem;
   height: 100%;
-  display: flex;
-  flex-direction: column;
 }
-
-/* Front Face Styles */
-.card-front :deep(.p-card-content) {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.card-front .card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  width: 100%;
-}
-
-.word-display {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.card-front .word-lemma {
-  font-size: 3rem;
-  font-weight: 700;
-  margin: 0;
-}
-
-.flip-hint {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.95rem;
-  margin-top: 1rem;
-}
-
-.flip-hint i {
-  animation: rotate 2s linear infinite;
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Back Face Styles */
-.card-back :deep(.p-card-content) {
-  overflow-y: auto;
-}
-
-.card-back .card-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.word-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding-bottom: 1rem;
-}
-
-.card-back .word-lemma {
-  font-size: 2rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.definitions-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.definition {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.definition-text {
-  line-height: 1.6;
-  font-size: 1.1rem;
-}
-
-.definition-number {
-  font-weight: 600;
-  margin-right: 0.5rem;
-}
-
-.examples {
-  margin-left: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.example {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  font-style: italic;
-  line-height: 1.5;
-}
-
-.example i {
-  margin-top: 0.25rem;
-  font-size: 0.875rem;
-}
-
-.example-text {
-  flex: 1;
-}
-
-/* Action Buttons */
 .flashcard-actions {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  justify-content: center;
-}
-
-.flashcard-actions button {
-  flex: 1;
-  max-width: 250px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .flashcard-header :deep(.p-card-content) {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-
-  .card-front :deep(.p-card-content),
-  .card-back :deep(.p-card-content) {
-    padding: 2rem;
-  }
-
-  .card-front .word-lemma {
-    font-size: 2.5rem;
-  }
-
-  .card-back .word-lemma {
-    font-size: 1.5rem;
-  }
-
-  .flashcard-actions {
-    flex-direction: column;
-  }
-
-  .flashcard-actions button {
-    max-width: 100%;
-  }
 }
 </style>

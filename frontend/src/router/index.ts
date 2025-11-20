@@ -62,6 +62,11 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue'),
     },
     {
+        path: '/playground',
+        name: 'playground',
+        component: () => import('../views/PlaygroundView.vue'),
+    },
+      {
       path: '/book',
       name: 'book',
       component: () => import('../views/reading/BookView.vue'),

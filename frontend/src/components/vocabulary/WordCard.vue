@@ -1,113 +1,5 @@
-<template>
-  <Toast />
-  <Dialog
-      :visible="visible"
-      @update:visible="$emit('update:visible', $event)"
-      :header="word?.lemma"
-      :modal="true"
-      :style="{ width: '50vw' }"
-      :breakpoints="{ '960px': '75vw', '640px': '90vw' }"
-  >
-    <div v-if="word && !loading" class="word-details">
-      <div class="word-header">
-        <div class="word-title">
-          <h2>{{ word.lemma }}</h2>
-          <Tag v-if="word.partOfSpeech" :value="word.partOfSpeech" severity="info" />
-          <Tag v-if="word.isInflectedForm" value="inflected form" severity="secondary" />
-        </div>
-        <div v-if="authStore.isAuthenticated" class="vocabulary-action">
-          <Button
-            v-if="!isInVocabulary(word.id)"
-            icon="pi pi-bookmark"
-            label="Add to Vocabulary"
-            @click="addToVocabulary(word)"
-            outlined
-          />
-          <Button
-            v-else
-            icon="pi pi-check"
-            label="In Vocabulary"
-            severity="success"
-            text
-            disabled
-          />
-        </div>
-      </div>
-
-      <Card v-if="word.baseForm" class="base-form-section">
-        <template #header>
-          <h3>Base Form</h3>
-        </template>
-        <template #content>
-          <div class="base-form-info">
-            <a class="base-form-lemma" @click="$emit('word-click', word.baseForm.lemma)">
-              {{ word.baseForm.lemma }}
-            </a>
-            <Tag
-                v-if="word.baseForm.partOfSpeech"
-                :value="word.baseForm.partOfSpeech"
-                severity="info"
-            />
-          </div>
-          <div v-if="word.grammaticalFeatures" class="grammatical-features">
-            <Tag
-                v-for="(value, key) in word.grammaticalFeatures"
-                :key="key"
-                :value="`${key}: ${value}`"
-                severity="secondary"
-            />
-          </div>
-        </template>
-      </Card>
-
-      <div v-if="word.definitions.length > 0" class="definitions">
-        <h3>Definitions</h3>
-        <div v-for="def in word.definitions" :key="def.id" class="definition">
-          <div class="definition-text">
-            <span class="definition-number">{{ def.definitionNumber }}.</span>
-            {{ def.definitionText }}
-          </div>
-          <div v-if="def.examples.length > 0" class="examples">
-            <div v-for="example in def.examples" :key="example.id" class="example">
-              <i class="pi pi-angle-right"></i>
-              <span class="example-text">{{ example.sentenceText }}</span>
-              <span v-if="example.translation" class="example-translation">{{
-                  example.translation
-                }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div v-if="word.etymology" class="etymology">
-        <h3>Etymology</h3>
-        <p>{{ word.etymology }}</p>
-      </div>
-
-      <div v-if="word.usageNotes" class="usage-notes">
-        <h3>Usage Notes</h3>
-        <p>{{ word.usageNotes }}</p>
-      </div>
-
-      <div v-if="word.inflectedForms.length > 0" class="inflected-forms">
-        <h3>Inflected Forms</h3>
-        <div class="forms-grid">
-          <Tag v-for="form in word.inflectedForms" :key="form.id" :value="form.form" />
-        </div>
-      </div>
-    </div>
-    <div v-else-if="loading" class="loading-word">
-      <ProgressSpinner />
-    </div>
-    <div v-else-if="error" class="word-error">
-      <Message severity="error" :closable="false">{{ error }}</Message>
-    </div>
-  </Dialog>
-</template>
-
 <script setup lang="ts">
 import Dialog from 'primevue/dialog'
-import Card from 'primevue/card'
 import Tag from 'primevue/tag'
 import Button from 'primevue/button'
 import ProgressSpinner from 'primevue/progressspinner'
@@ -134,40 +26,102 @@ const toast = useToast()
 
 async function addToVocabulary(word: Word) {
   if (!authStore.isAuthenticated) {
-    toast.add({
-      severity: 'warn',
-      summary: 'Authentication Required',
-      detail: 'Please log in to add words to your vocabulary',
-      life: 3000,
-    })
+    toast.add({severity: 'warn', summary: 'Authentication Required', detail: 'Please log in to add words.', life: 3000})
     return
   }
-
-  const result = await vocabularyStore.addWord({
-    wordId: word.id,
-  })
-
+  const result = await vocabularyStore.addWord({wordId: word.id})
   if (result) {
     toast.add({
       severity: 'success',
       summary: 'Word Added',
-      detail: `"${word.lemma}" has been added to your vocabulary`,
-      life: 3000,
+      detail: `"${word.lemma}" added to your vocabulary.`,
+      life: 3000
     })
   } else if (vocabularyStore.error) {
-    toast.add({
-      severity: 'error',
-      summary: 'Error',
-      detail: vocabularyStore.error,
-      life: 3000,
-    })
+    toast.add({severity: 'error', summary: 'Error', detail: vocabularyStore.error, life: 3000})
   }
 }
 
-function isInVocabulary(wordId: number): boolean {
-  return vocabularyStore.isWordInVocabulary(wordId)
-}
+const isInVocabulary = (wordId: number) => vocabularyStore.isWordInVocabulary(wordId)
 </script>
+
+<template>
+  <Toast/>
+  <Dialog :visible="visible" @update:visible="$emit('update:visible', $event)" :header="word?.lemma" modal
+          :style="{ width: '50vw' }" :breakpoints="{ '960px': '75vw', '640px': '90vw' }">
+    <div v-if="word && !loading" class="word-details">
+      <div class="flex justify-between items-center gap-md pb-lg border-b border-surface">
+        <div class="flex items-center gap-md flex-1">
+          <h2 class="text-2xl font-bold m-0">{{ word.lemma }}</h2>
+          <Tag v-if="word.partOfSpeech" :value="word.partOfSpeech"/>
+          <Tag v-if="word.isInflectedForm" value="inflected" severity="secondary"/>
+        </div>
+        <div v-if="authStore.isAuthenticated">
+          <Button v-if="!isInVocabulary(word.id)" icon="pi pi-plus" label="Add" @click="addToVocabulary(word)"
+                  outlined/>
+          <Button v-else icon="pi pi-check" label="Added" severity="success" text disabled/>
+        </div>
+      </div>
+
+      <div v-if="word.baseForm" class="p-lg bg-surface-section rounded-lg">
+        <h3 class="text-lg font-semibold mb-md">Base Form</h3>
+        <div class="flex items-center gap-md mb-md">
+          <a class="text-xl font-bold text-primary hover:underline cursor-pointer"
+             @click="$emit('word-click', word.baseForm.lemma)">
+            {{ word.baseForm.lemma }}
+          </a>
+          <Tag v-if="word.baseForm.partOfSpeech" :value="word.baseForm.partOfSpeech"/>
+        </div>
+        <div v-if="word.grammaticalFeatures" class="flex flex-wrap gap-sm">
+          <Tag v-for="(value, key) in word.grammaticalFeatures" :key="key" :value="`${key}: ${value}`"
+               severity="contrast"/>
+        </div>
+      </div>
+
+      <div v-if="word.definitions.length > 0" class="content-section">
+        <h3 class="section-title">Definitions</h3>
+        <div v-for="def in word.definitions" :key="def.id" class="mb-lg">
+          <div class="mb-sm">
+            <span class="font-bold mr-sm">{{ def.definitionNumber }}.</span>
+            <span>{{ def.definitionText }}</span>
+          </div>
+          <div v-if="def.examples.length > 0" class="examples-section">
+            <div v-for="example in def.examples" :key="example.id" class="example">
+              <i class="pi pi-chevron-right text-secondary text-sm"></i>
+              <div class="flex-1">
+                <p class="italic m-0">{{ example.sentenceText }}</p>
+                <p v-if="example.translation" class="text-secondary m-0">{{ example.translation }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="word.etymology" class="content-section">
+        <h3 class="section-title">Etymology</h3>
+        <p class="leading-relaxed">{{ word.etymology }}</p>
+      </div>
+
+      <div v-if="word.usageNotes" class="content-section">
+        <h3 class="section-title">Usage Notes</h3>
+        <p class="leading-relaxed">{{ word.usageNotes }}</p>
+      </div>
+
+      <div v-if="word.inflectedForms.length > 0" class="content-section">
+        <h3 class="section-title">Inflected Forms</h3>
+        <div class="flex flex-wrap gap-sm">
+          <Tag v-for="form in word.inflectedForms" :key="form.id" :value="form.form" severity="secondary"/>
+        </div>
+      </div>
+    </div>
+    <div v-else-if="loading" class="flex justify-center p-4xl">
+      <ProgressSpinner/>
+    </div>
+    <div v-else-if="error">
+      <Message severity="error" :closable="false">{{ error }}</Message>
+    </div>
+  </Dialog>
+</template>
 
 <style scoped>
 .word-details {
@@ -176,137 +130,25 @@ function isInVocabulary(wordId: number): boolean {
   gap: 1.5rem;
 }
 
-.word-header {
-  padding-bottom: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
+.content-section {
+  padding-top: 1rem;
+  border-top: 1px solid var(--surface-border);
 }
 
-.word-title {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex: 1;
-}
-
-.vocabulary-action {
-  display: flex;
-  align-items: center;
-}
-
-.word-title h2 {
-  margin: 0;
-}
-
-.base-form-section :deep(.p-card-header) {
-  padding: 1rem 1rem 0.5rem 1rem;
-}
-
-.base-form-section :deep(.p-card-content) {
-  padding: 0 1rem 1rem 1rem;
-}
-
-.base-form-section h3 {
+.section-title {
   font-size: 1.1rem;
-  margin: 0;
   font-weight: 600;
+  margin-bottom: 1rem;
 }
 
-.base-form-info {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
-.base-form-lemma {
-  font-size: 1.25rem;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-
-.base-form-lemma:hover {
-  opacity: 0.7;
-  text-decoration: underline;
-}
-
-.grammatical-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.definitions h3,
-.etymology h3,
-.usage-notes h3,
-.inflected-forms h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.75rem;
-  font-weight: 600;
-}
-
-.definition {
-  margin-bottom: 1.5rem;
-}
-
-.definition:last-child {
-  margin-bottom: 0;
-}
-
-.definition-text {
-  margin-bottom: 0.5rem;
-  line-height: 1.6;
-}
-
-.definition-number {
-  font-weight: 600;
-  margin-right: 0.5rem;
-}
-
-.examples {
+.examples-section {
   margin-left: 2rem;
-  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
-
 .example {
   display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-style: italic;
-  line-height: 1.5;
-}
-
-.example-text {
-  flex: 1;
-}
-
-.example-translation {
-  font-style: normal;
-}
-
-.etymology p,
-.usage-notes p {
-  line-height: 1.7;
-}
-
-.forms-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.loading-word {
-  display: flex;
-  justify-content: center;
-  padding: 3rem;
-}
-
-.word-error {
-  padding: 1rem;
+  gap: 0.75rem;
 }
 </style>

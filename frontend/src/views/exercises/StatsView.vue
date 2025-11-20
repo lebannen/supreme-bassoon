@@ -174,23 +174,23 @@ onMounted(() => {
           <template #content>
             <div class="stats-grid">
               <div class="flex items-center gap-lg p-lg gradient-warning" style="border-radius: var(--radius-lg)">
-                <i class="pi pi-calendar text-3xl icon-warning"></i>
+                <i class="pi pi-calendar text-3xl"></i>
                 <div class="flex flex-col gap-xs">
-                  <span class="text-4xl font-bold text-primary line-height-tight">{{
+                  <span class="text-4xl font-bold line-height-tight">{{
                       stats.currentStreak
                     }}</span>
-                  <span class="text-base font-semibold text-primary">Current Streak</span>
-                  <span class="text-sm text-secondary">days in a row</span>
+                  <span class="text-base font-semibold">Current Streak</span>
+                  <span class="text-sm">days in a row</span>
                 </div>
               </div>
               <div class="flex items-center gap-lg p-lg gradient-purple" style="border-radius: var(--radius-lg)">
-                <i class="pi pi-crown text-3xl" style="color: #8b5cf6"></i>
+                <i class="pi pi-crown text-3xl"></i>
                 <div class="flex flex-col gap-xs">
-                  <span class="text-4xl font-bold text-primary line-height-tight">{{
+                  <span class="text-4xl font-bold line-height-tight">{{
                       stats.longestStreak
                     }}</span>
-                  <span class="text-base font-semibold text-primary">Longest Streak</span>
-                  <span class="text-sm text-secondary">personal record</span>
+                  <span class="text-base font-semibold">Longest Streak</span>
+                  <span class="text-sm">personal record</span>
                 </div>
               </div>
             </div>
@@ -225,7 +225,7 @@ onMounted(() => {
                 <div class="flex justify-between items-center">
                   <div
                       class="flex items-center gap-xs font-semibold"
-                      :class="{ correct: activity.isCorrect }"
+                      :class="activity.isCorrect ? 'text-success' : 'text-error'"
                   >
                     <i
                         :class="activity.isCorrect ? 'pi pi-check-circle' : 'pi pi-times-circle'"

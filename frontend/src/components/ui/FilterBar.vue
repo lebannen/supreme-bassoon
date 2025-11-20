@@ -2,6 +2,8 @@
 import {ref, watch} from 'vue'
 import InputText from 'primevue/inputtext'
 import Select from 'primevue/select'
+import IconField from 'primevue/iconfield'
+import InputIcon from 'primevue/inputicon'
 
 export interface FilterOption {
   label: string
@@ -57,17 +59,16 @@ const handleFilterChange = (index: number, value: string) => {
 </script>
 
 <template>
-  <div class="filter-bar card card-padding">
+  <div class="filters">
     <!-- Search Box -->
-    <div class="search-box">
-      <span class="search-icon">🔍</span>
+    <IconField iconPosition="left" class="flex-1">
+      <InputIcon class="pi pi-search"/>
       <InputText
           v-model="searchQuery"
           :placeholder="searchPlaceholder"
-          class="search-input"
-          unstyled
+          class="w-full"
       />
-    </div>
+    </IconField>
 
     <!-- Filter Dropdowns -->
     <Select
@@ -78,77 +79,13 @@ const handleFilterChange = (index: number, value: string) => {
         optionLabel="label"
         optionValue="value"
         :placeholder="filter.label"
-        class="filter-dropdown"
+        class="filter-select"
         @update:modelValue="(value) => handleFilterChange(index, value)"
     />
 
     <!-- Results Count -->
-    <span v-if="showCount && resultsCount !== undefined" class="results-count">
+    <span v-if="showCount && resultsCount !== undefined" class="text-sm text-secondary ml-auto">
       {{ resultsCount }} {{ resultsCount === 1 ? 'result' : 'results' }}
     </span>
   </div>
 </template>
-
-<style scoped>
-.filter-bar {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  flex-wrap: wrap;
-  margin-bottom: var(--spacing-3xl);
-}
-
-.search-box {
-  flex: 1;
-  min-width: 200px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 14px;
-  border-radius: var(--radius-md);
-}
-
-.search-icon {
-  font-size: 16px;
-}
-
-.search-input {
-  flex: 1;
-  border: none;
-  background: none;
-  font-size: 14px;
-  outline: none;
-  padding: 0;
-}
-
-.filter-dropdown {
-  min-width: 140px;
-}
-
-.results-count {
-  font-size: 14px;
-  white-space: nowrap;
-  margin-left: auto;
-  padding: 0 var(--spacing-xs);
-}
-
-@media (max-width: 768px) {
-  .filter-bar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .search-box {
-    width: 100%;
-  }
-
-  .filter-dropdown {
-    width: 100%;
-  }
-
-  .results-count {
-    margin-left: 0;
-    text-align: center;
-  }
-}
-</style>

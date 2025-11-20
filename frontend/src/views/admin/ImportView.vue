@@ -1,150 +1,7 @@
-<template>
-  <div class="page-container-with-padding">
-    <div class="view-container content-area-lg">
-      <h1 class="text-primary font-bold mb-xs">Import Language Data</h1>
-      <p class="text-secondary mb-2xl">
-        Upload JSONL.gz files containing language vocabulary data. Language will be automatically
-        detected from the file.
-      </p>
-
-      <div class="bg-secondary p-xl rounded-md border border-medium mb-xl">
-        <div class="mb-xl">
-          <label class="block mb-xs font-semibold text-primary">Select File</label>
-        <FileUpload
-          mode="basic"
-          name="file"
-          :auto="false"
-          :customUpload="true"
-          @select="onFileSelect"
-          accept=".jsonl.gz,.gz"
-          :maxFileSize="1000000000"
-          chooseLabel="Choose File"
-        />
-          <small v-if="selectedFile" class="block mt-xs text-secondary">
-          Selected: {{ selectedFile.name }} ({{ formatFileSize(selectedFile.size) }})
-        </small>
-      </div>
-
-        <div class="flex gap-sm flex-wrap">
-        <Button
-          label="Start Import"
-          icon="pi pi-upload"
-          @click="startImport"
-          :disabled="!selectedFile || isUploading"
-          :loading="isUploading"
-        />
-        <Button
-          label="Clear Database"
-          icon="pi pi-trash"
-          severity="danger"
-          @click="confirmClearDatabase"
-          :disabled="isUploading || isClearing"
-          :loading="isClearing"
-        />
-      </div>
-    </div>
-
-      <Message v-if="uploadError" severity="error" :closable="false" class="mb-xl">
-      {{ uploadError }}
-    </Message>
-
-      <Message v-if="clearSuccess" severity="success" :closable="true" @close="clearSuccess = null" class="mb-xl">
-      {{ clearSuccess }}
-    </Message>
-
-      <div v-if="currentImport" class="mb-xl">
-      <Card>
-        <template #title>
-          <div class="flex align-items-center justify-content-between">
-            <span>Importing {{ currentImport.languageName }}</span>
-            <Tag
-                :value="currentImport.status"
-                :severity="getStatusSeverity(currentImport.status)"
-            />
-          </div>
-        </template>
-        <template #content>
-          <div class="flex flex-col gap-xl">
-            <div class="stats-grid">
-              <div class="stat">
-                <label class="block text-secondary mb-xs">Total Entries</label>
-                <span>{{ currentImport.totalEntries.toLocaleString() }}</span>
-              </div>
-              <div class="stat">
-                <label class="block text-secondary mb-xs">Processed</label>
-                <span>{{ currentImport.processedEntries.toLocaleString() }}</span>
-              </div>
-              <div class="stat">
-                <label class="block text-secondary mb-xs">Successful</label>
-                <span class="text-green-600">{{
-                    currentImport.successfulEntries.toLocaleString()
-                  }}</span>
-              </div>
-              <div class="stat">
-                <label class="block text-secondary mb-xs">Failed</label>
-                <span class="text-red-600">{{ currentImport.failedEntries.toLocaleString() }}</span>
-              </div>
-            </div>
-
-            <div class="mt-md">
-              <ProgressBar :value="currentImport.progressPercentage" :showValue="true"/>
-            </div>
-
-            <div class="flex items-center gap-xs text-secondary">
-              <i class="pi pi-info-circle"></i>
-              <span>{{ currentImport.message }}</span>
-            </div>
-
-            <div v-if="currentImport.error" class="error-message">
-              <Message severity="error" :closable="false">
-                {{ currentImport.error }}
-              </Message>
-            </div>
-          </div>
-        </template>
-      </Card>
-    </div>
-
-      <div v-if="importHistory.length > 0" class="mt-3xl">
-        <h2 class="mb-md text-primary font-semibold">Import History</h2>
-      <DataTable :value="importHistory" :paginator="true" :rows="10">
-        <Column field="languageName" header="Language"></Column>
-        <Column field="status" header="Status">
-          <template #body="slotProps">
-            <Tag
-                :value="slotProps.data.status"
-                :severity="getStatusSeverity(slotProps.data.status)"
-            />
-          </template>
-        </Column>
-        <Column field="totalEntries" header="Total Entries">
-          <template #body="slotProps">
-            {{ slotProps.data.totalEntries.toLocaleString() }}
-          </template>
-        </Column>
-        <Column field="successfulEntries" header="Successful">
-          <template #body="slotProps">
-            {{ slotProps.data.successfulEntries.toLocaleString() }}
-          </template>
-        </Column>
-        <Column field="progressPercentage" header="Progress">
-          <template #body="slotProps"> {{ slotProps.data.progressPercentage }}%</template>
-        </Column>
-        <Column field="startedAt" header="Started">
-          <template #body="slotProps">
-            {{ formatDate(slotProps.data.startedAt) }}
-          </template>
-        </Column>
-      </DataTable>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import {onMounted, onUnmounted, ref} from 'vue'
 import Button from 'primevue/button'
-import FileUpload from 'primevue/fileupload'
+import FileUpload, {type FileUploadSelectEvent} from 'primevue/fileupload'
 import ProgressBar from 'primevue/progressbar'
 import Card from 'primevue/card'
 import Message from 'primevue/message'
@@ -153,11 +10,10 @@ import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 import {useConfirm} from 'primevue/useconfirm'
 
-// Import progress type
 interface ImportProgress {
   importId: string
   languageName: string
-  status: string
+  status: 'QUEUED' | 'PROCESSING' | 'COMPLETED' | 'FAILED' | 'CANCELLED'
   totalEntries: number
   processedEntries: number
   successfulEntries: number
@@ -171,218 +27,208 @@ interface ImportProgress {
 const confirm = useConfirm()
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
 
-// State
+const selectedFile = ref<File | null>(null)
+const currentImport = ref<ImportProgress | null>(null)
+const importHistory = ref<ImportProgress[]>([])
 const isUploading = ref(false)
 const uploadError = ref<string | null>(null)
+const isClearing = ref(false)
+const clearSuccess = ref<string | null>(null)
+let cleanupProgress: (() => void) | null = null
 
-// Upload file function
-async function uploadFile(file: File) {
+const onFileSelect = (event: FileUploadSelectEvent) => {
+  selectedFile.value = event.files[0]
+}
+
+const formatFileSize = (bytes: number) => {
+  if (bytes === 0) return '0 Bytes'
+  const k = 1024
+  const sizes = ['Bytes', 'KB', 'MB', 'GB']
+  const i = Math.floor(Math.log(bytes) / Math.log(k))
+  return `${parseFloat((bytes / Math.pow(k, i)).toFixed(2))} ${sizes[i]}`
+}
+
+const startImport = async () => {
+  if (!selectedFile.value) return
   isUploading.value = true
   uploadError.value = null
-
   try {
     const formData = new FormData()
-    formData.append('file', file)
-
-    const response = await fetch(`${API_BASE}/api/import/upload`, {
-      method: 'POST',
-      body: formData,
-    })
-
-    if (!response.ok) {
-      const errorData = await response.json()
-      throw new Error(errorData.message || 'Upload failed')
-    }
-
+    formData.append('file', selectedFile.value)
+    const response = await fetch(`${API_BASE}/api/import/upload`, {method: 'POST', body: formData})
+    if (!response.ok) throw new Error((await response.json()).message || 'Upload failed')
     const data = await response.json()
-    return data
+    connectToProgressStream(data.importId)
   } catch (err) {
     uploadError.value = err instanceof Error ? err.message : 'Upload failed'
-    return null
   } finally {
     isUploading.value = false
   }
 }
 
-// Connect to progress stream
-function connectToProgressStream(
-    importId: string,
-    onProgress: (progress: ImportProgress) => void,
-    onComplete: () => void,
-    onError: (error: Error) => void
-) {
+const connectToProgressStream = (importId: string) => {
   const eventSource = new EventSource(`${API_BASE}/api/import/${importId}/progress`)
-
-  eventSource.addEventListener('progress', (event: MessageEvent) => {
+  eventSource.onmessage = (event) => {
     const progress = JSON.parse(event.data) as ImportProgress
-    onProgress(progress)
-
-    if (progress.status === 'COMPLETED' || progress.status === 'FAILED') {
+    currentImport.value = progress
+    if (['COMPLETED', 'FAILED', 'CANCELLED'].includes(progress.status)) {
       eventSource.close()
-      onComplete()
+      loadImportHistory()
     }
-  })
-
-  eventSource.addEventListener('error', () => {
-    onError(new Error('Connection to progress stream failed'))
+  }
+  eventSource.onerror = () => {
+    uploadError.value = 'Connection to progress stream failed.'
     eventSource.close()
-  })
-
-  return () => eventSource.close()
+  }
+  cleanupProgress = () => eventSource.close()
 }
 
-// Get all imports
-async function getAllImports(): Promise<ImportProgress[]> {
+const loadImportHistory = async () => {
   try {
     const response = await fetch(`${API_BASE}/api/import/history`)
     if (!response.ok) throw new Error('Failed to load import history')
-    return await response.json()
-  } catch {
-    return []
-  }
-}
-
-// Clear database
-async function clearDatabase() {
-  try {
-    const response = await fetch(`${API_BASE}/api/import/clear`, {
-      method: 'DELETE',
-    })
-    if (!response.ok) throw new Error('Failed to clear database')
-    return await response.json()
+    importHistory.value = await response.json()
   } catch (err) {
-    uploadError.value = err instanceof Error ? err.message : 'Failed to clear database'
-    return null
+    uploadError.value = err instanceof Error ? err.message : 'Failed to load history'
   }
 }
 
-const selectedFile = ref<File | null>(null)
-const currentImport = ref<ImportProgress | null>(null)
-const importHistory = ref<ImportProgress[]>([])
-const isClearing = ref(false)
-const clearSuccess = ref<string | null>(null)
-let cleanupProgress: (() => void) | null = null
-
-function onFileSelect(event: any) {
-  const files = event.files
-  if (files && files.length > 0) {
-    selectedFile.value = files[0]
-  }
-}
-
-function formatFileSize(bytes: number): string {
-  if (bytes === 0) return '0 Bytes'
-  const k = 1024
-  const sizes = ['Bytes', 'KB', 'MB', 'GB']
-  const i = Math.floor(Math.log(bytes) / Math.log(k))
-  return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i]
-}
-
-function confirmClearDatabase() {
+const confirmClearDatabase = () => {
   confirm.require({
-    message:
-        'Are you sure you want to clear all words from the database? This action cannot be undone.',
+    message: 'Are you sure you want to clear all words from the database? This action cannot be undone.',
     header: 'Confirm Clear Database',
     icon: 'pi pi-exclamation-triangle',
     acceptClass: 'p-button-danger',
     accept: async () => {
       isClearing.value = true
       clearSuccess.value = null
-      const result = await clearDatabase()
-      isClearing.value = false
-
-      if (result) {
-        clearSuccess.value = `Successfully cleared ${result.deletedCount.toLocaleString()} words from database`
-        await loadImportHistory()
+      try {
+        const response = await fetch(`${API_BASE}/api/import/clear`, {method: 'DELETE'})
+        if (!response.ok) throw new Error('Failed to clear database')
+        const result = await response.json()
+        clearSuccess.value = `Successfully cleared ${result.deletedCount.toLocaleString()} words.`
+        loadImportHistory()
+      } catch (err) {
+        uploadError.value = err instanceof Error ? err.message : 'Failed to clear database'
+      } finally {
+        isClearing.value = false
       }
     },
   })
 }
 
-async function startImport() {
-  if (!selectedFile.value) return
-
-  // Language will be auto-detected from file metadata
-  const response = await uploadFile(selectedFile.value)
-
-  if (response) {
-    // Connect to progress stream
-    cleanupProgress = connectToProgressStream(
-      response.importId,
-      (progress) => {
-        currentImport.value = progress
-      },
-      async () => {
-        // Import completed, refresh history
-        await loadImportHistory()
-      },
-      (error) => {
-        uploadError.value = error.message
-      }
-    )
-  }
+const getStatusSeverity = (status: ImportProgress['status']) => {
+  const map = {COMPLETED: 'success', PROCESSING: 'info', QUEUED: 'secondary', FAILED: 'danger', CANCELLED: 'warn'}
+  return map[status]
 }
 
-async function loadImportHistory() {
-  importHistory.value = await getAllImports()
-}
+const formatDate = (dateString: string) => new Date(dateString).toLocaleString()
 
-function getStatusSeverity(
-    status: string
-): 'success' | 'info' | 'warn' | 'danger' | 'secondary' | 'contrast' | undefined {
-  switch (status) {
-    case 'COMPLETED':
-      return 'success'
-    case 'PROCESSING':
-      return 'info'
-    case 'QUEUED':
-      return 'secondary'
-    case 'FAILED':
-      return 'danger'
-    case 'CANCELLED':
-      return 'warn'
-    default:
-      return undefined
-  }
-}
-
-function formatDate(dateString: string): string {
-  return new Date(dateString).toLocaleString()
-}
-
-onMounted(() => {
-  loadImportHistory()
-})
-
-onUnmounted(() => {
-  if (cleanupProgress) {
-    cleanupProgress()
-  }
-})
+onMounted(loadImportHistory)
+onUnmounted(() => cleanupProgress?.())
 </script>
 
-<style scoped>
-/* Stats grid */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: var(--spacing-md);
-}
+<template>
+  <div class="view-container content-area-lg">
+    <div class="page-header">
+      <h1>Import Language Data</h1>
+      <p class="text-secondary">Upload JSONL.gz files containing language vocabulary data.</p>
+    </div>
 
-.stat {
-  text-align: center;
-  padding: var(--spacing-md);
-  border-radius: var(--radius-md);
-}
+    <Card>
+      <template #content>
+        <div class="content-area">
+          <div>
+            <label class="font-semibold mb-sm block">Select File</label>
+            <FileUpload mode="basic" name="file" :auto="false" :customUpload="true" @select="onFileSelect"
+                        accept=".jsonl.gz" :maxFileSize="1000000000" chooseLabel="Choose File"/>
+            <small v-if="selectedFile" class="text-secondary mt-sm block">
+              Selected: {{ selectedFile.name }} ({{ formatFileSize(selectedFile.size) }})
+            </small>
+          </div>
+          <div class="flex gap-sm flex-wrap">
+            <Button label="Start Import" icon="pi pi-upload" @click="startImport"
+                    :disabled="!selectedFile || isUploading" :loading="isUploading"/>
+            <Button label="Clear Database" icon="pi pi-trash" severity="danger" @click="confirmClearDatabase"
+                    :disabled="isUploading || isClearing" :loading="isClearing" outlined/>
+          </div>
+        </div>
+      </template>
+    </Card>
 
-.stat span {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
+    <Message v-if="uploadError" severity="error">{{ uploadError }}</Message>
+    <Message v-if="clearSuccess" severity="success" @close="clearSuccess = null">{{ clearSuccess }}</Message>
 
-@media (max-width: 768px) {
-  .stats-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-</style>
+    <Card v-if="currentImport">
+      <template #title>
+        <div class="flex items-center justify-between">
+          <span>Importing {{ currentImport.languageName }}</span>
+          <Tag :value="currentImport.status" :severity="getStatusSeverity(currentImport.status)"/>
+        </div>
+      </template>
+      <template #content>
+        <div class="content-area-lg">
+          <div class="summary-stats">
+            <div class="stat total">
+              <i class="pi pi-database"></i>
+              <div>
+                <span class="stat-value">{{ currentImport.totalEntries.toLocaleString() }}</span>
+                <span class="stat-label">Total</span>
+              </div>
+            </div>
+            <div class="stat">
+              <i class="pi pi-spin pi-spinner"></i>
+              <div>
+                <span class="stat-value">{{ currentImport.processedEntries.toLocaleString() }}</span>
+                <span class="stat-label">Processed</span>
+              </div>
+            </div>
+            <div class="stat success">
+              <i class="pi pi-check-circle"></i>
+              <div>
+                <span class="stat-value">{{ currentImport.successfulEntries.toLocaleString() }}</span>
+                <span class="stat-label">Successful</span>
+              </div>
+            </div>
+            <div class="stat failed">
+              <i class="pi pi-times-circle"></i>
+              <div>
+                <span class="stat-value">{{ currentImport.failedEntries.toLocaleString() }}</span>
+                <span class="stat-label">Failed</span>
+              </div>
+            </div>
+          </div>
+          <ProgressBar :value="currentImport.progressPercentage" :showValue="true"/>
+          <p class="text-secondary text-center">{{ currentImport.message }}</p>
+          <Message v-if="currentImport.error" severity="error">{{ currentImport.error }}</Message>
+        </div>
+      </template>
+    </Card>
+
+    <Card v-if="importHistory.length > 0">
+      <template #title>Import History</template>
+      <template #content>
+        <DataTable :value="importHistory" :paginator="true" :rows="10" stripedRows>
+          <Column field="languageName" header="Language"></Column>
+          <Column field="status" header="Status">
+            <template #body="{ data }">
+              <Tag :value="data.status" :severity="getStatusSeverity(data.status)"/>
+            </template>
+          </Column>
+          <Column field="totalEntries" header="Total Entries">
+            <template #body="{ data }">{{ data.totalEntries.toLocaleString() }}</template>
+          </Column>
+          <Column field="successfulEntries" header="Successful">
+            <template #body="{ data }">{{ data.successfulEntries.toLocaleString() }}</template>
+          </Column>
+          <Column field="progressPercentage" header="Progress">
+            <template #body="{ data }">{{ data.progressPercentage }}%</template>
+          </Column>
+          <Column field="startedAt" header="Started">
+            <template #body="{ data }">{{ formatDate(data.startedAt) }}</template>
+          </Column>
+        </DataTable>
+      </template>
+    </Card>
+  </div>
+</template>

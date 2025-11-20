@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import Card from 'primevue/card'
-import {computed} from 'vue'
 
 export interface StatCardProps {
   /**
-   * Icon to display (emoji or text)
+   * Icon to display (e.g., 'pi pi-star')
    */
   icon: string
 
@@ -16,70 +15,31 @@ export interface StatCardProps {
   /**
    * Value to display (e.g., "7 days", "142")
    */
-  value: string
+  value: string | number
 
   /**
-   * Whether the card should have hover effect
+   * Color variant for the icon
    */
-  hoverable?: boolean
+  variant?: 'primary' | 'success' | 'warning' | 'error' | 'info' | 'purple' | 'blue' | 'yellow' | 'green'
 }
 
-const props = withDefaults(defineProps<StatCardProps>(), {
-  hoverable: true,
-})
-
-const cardClasses = computed(() => {
-  return {
-    'stat-card': true,
-    'card-hoverable': props.hoverable,
-  }
+withDefaults(defineProps<StatCardProps>(), {
+  variant: 'primary',
 })
 </script>
 
 <template>
-  <Card :class="cardClasses">
+  <Card>
     <template #content>
-      <div class="stat-label">{{ label }}</div>
-      <div class="stat-value">
-        <span class="stat-icon">{{ icon }}</span>
-        <span>{{ value }}</span>
+      <div class="flex items-center gap-lg">
+        <div class="stat-icon" :class="`stat-icon-${variant}`">
+          <i :class="icon"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-secondary text-uppercase">{{ label }}</span>
+          <span class="text-3xl font-bold text-primary">{{ value }}</span>
+        </div>
       </div>
     </template>
   </Card>
 </template>
-
-<style scoped>
-.stat-card {
-  transition: all 0.2s;
-}
-
-.stat-card :deep(.p-card-body),
-.stat-card :deep(.p-card-content) {
-  padding: var(--spacing-lg);
-}
-
-.card-hoverable:hover {
-  transform: translateY(-1px);
-  cursor: pointer;
-}
-
-.stat-label {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: var(--spacing-xs);
-  font-weight: 600;
-}
-
-.stat-value {
-  font-size: 32px;
-  font-weight: 700;
-  display: flex;
-  align-items: baseline;
-  gap: var(--spacing-xs);
-}
-
-.stat-icon {
-  font-size: 20px;
-}
-</style>

@@ -1,86 +1,3 @@
-<template>
-  <div class="flex items-center justify-center page-container">
-    <Card class="auth-card">
-      <template #header>
-        <div class="text-center p-xl">
-          <h1 class="text-3xl font-bold mb-xs text-primary">Vocabee</h1>
-          <p class="text-secondary">Sign in to your account</p>
-        </div>
-      </template>
-
-      <template #content>
-        <form @submit.prevent="handleLogin" class="content-area">
-          <Message v-if="route.query.expired === 'true'" severity="warn" :closable="true">
-            Your session has expired. Please log in again.
-          </Message>
-
-          <Message v-if="authStore.error" severity="error" :closable="false">
-            {{ authStore.error }}
-          </Message>
-
-          <div class="flex flex-col gap-xs">
-            <label for="email" class="font-semibold text-primary">Email</label>
-            <InputText
-              id="email"
-              v-model="email"
-              type="email"
-              placeholder="Enter your email"
-              :invalid="!!emailError"
-              required
-              autocomplete="email"
-            />
-            <small v-if="emailError" class="text-error">{{ emailError }}</small>
-          </div>
-
-          <div class="flex flex-col gap-xs">
-            <label for="password" class="font-semibold text-primary">Password</label>
-            <Password
-              id="password"
-              v-model="password"
-              placeholder="Enter your password"
-              :feedback="false"
-              :invalid="!!passwordError"
-              required
-              toggleMask
-              autocomplete="current-password"
-            />
-            <small v-if="passwordError" class="text-error">{{ passwordError }}</small>
-          </div>
-
-          <Button
-            type="submit"
-            label="Sign In"
-            :loading="authStore.loading"
-            class="full-width"
-            severity="primary"
-          />
-
-          <div class="flex items-center gap-md">
-            <Divider class="flex-1" />
-            <span class="text-secondary text-sm">OR</span>
-            <Divider class="flex-1" />
-          </div>
-
-          <Button
-            type="button"
-            label="Sign in with Google"
-            icon="pi pi-google"
-            @click="handleGoogleLogin"
-            class="full-width"
-            severity="secondary"
-            outlined
-          />
-
-          <div class="text-center text-sm text-secondary">
-            Don't have an account?
-            <router-link to="/register" class="link-primary font-semibold"> Sign up</router-link>
-          </div>
-        </form>
-      </template>
-    </Card>
-  </div>
-</template>
-
 <script setup lang="ts">
 import {ref} from 'vue'
 import {useRoute, useRouter} from 'vue-router'
@@ -94,67 +11,70 @@ import Divider from 'primevue/divider'
 
 const router = useRouter()
 const authStore = useAuthStore()
-
-// Get redirect URL from query params
 const route = useRoute()
 const redirectPath = (route.query.redirect as string) || '/'
 
 const email = ref('')
 const password = ref('')
-const emailError = ref('')
-const passwordError = ref('')
-
-const validateForm = () => {
-  emailError.value = ''
-  passwordError.value = ''
-
-  if (!email.value) {
-    emailError.value = 'Email is required'
-    return false
-  }
-
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-    emailError.value = 'Please enter a valid email'
-    return false
-  }
-
-  if (!password.value) {
-    passwordError.value = 'Password is required'
-    return false
-  }
-
-  if (password.value.length < 6) {
-    passwordError.value = 'Password must be at least 6 characters'
-    return false
-  }
-
-  return true
-}
 
 const handleLogin = async () => {
-  if (!validateForm()) return
-
-  const success = await authStore.login({
-    email: email.value,
-    password: password.value,
-  })
-
+  const success = await authStore.login({email: email.value, password: password.value})
   if (success) {
     router.push(redirectPath)
   }
 }
 
 const handleGoogleLogin = () => {
-  // Redirect to backend OAuth2 endpoint
   const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
   window.location.href = `${baseUrl}/oauth2/authorization/google`
 }
 </script>
 
-<style scoped>
-.auth-card {
-  width: 100%;
-  max-width: 28rem;
-  box-shadow: var(--shadow-lg);
-}
-</style>
+<template>
+  <div class="flex items-center justify-center page-container-with-padding">
+    <Card class="w-full max-w-md shadow-lg">
+      <template #header>
+        <div class="text-center p-xl">
+          <h1 class="text-3xl font-bold text-primary mb-xs">Vocabee</h1>
+          <p class="text-secondary">Sign in to your account</p>
+        </div>
+      </template>
+      <template #content>
+        <form @submit.prevent="handleLogin" class="content-area">
+          <Message v-if="route.query.expired === 'true'" severity="warn">
+            Your session has expired. Please log in again.
+          </Message>
+          <Message v-if="authStore.error" severity="error">{{ authStore.error }}</Message>
+
+          <div class="flex flex-col gap-sm">
+            <label for="email" class="font-semibold">Email</label>
+            <InputText id="email" v-model="email" type="email" placeholder="Enter your email" required
+                       autocomplete="email"/>
+          </div>
+
+          <div class="flex flex-col gap-sm">
+            <label for="password" class="font-semibold">Password</label>
+            <Password id="password" v-model="password" placeholder="Enter your password" :feedback="false" required
+                      toggleMask autocomplete="current-password"/>
+          </div>
+
+          <Button type="submit" label="Sign In" :loading="authStore.loading" class="w-full"/>
+
+          <div class="flex items-center gap-md">
+            <Divider class="flex-1"/>
+            <span class="text-secondary text-sm">OR</span>
+            <Divider class="flex-1"/>
+          </div>
+
+          <Button type="button" label="Sign in with Google" icon="pi pi-google" @click="handleGoogleLogin"
+                  class="w-full" severity="secondary" outlined/>
+
+          <div class="text-center text-sm text-secondary">
+            Don't have an account?
+            <router-link to="/register" class="font-semibold text-primary hover:underline">Sign up</router-link>
+          </div>
+        </form>
+      </template>
+    </Card>
+  </div>
+</template>

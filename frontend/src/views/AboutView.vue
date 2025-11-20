@@ -5,13 +5,13 @@ import Button from 'primevue/button'
 
 <template>
   <div class="about-view">
-    <div class="about-container">
-      <h1 class="text-4xl font-bold text-center text-primary mb-3xl">About Vocabee</h1>
+    <div class="detail-container content-area-lg">
+      <h1 class="text-4xl font-bold text-center text-primary">About Vocabee</h1>
 
-      <Card class="mb-lg">
+      <Card>
+        <template #title>What is Vocabee?</template>
         <template #content>
-          <h2 class="text-2xl font-semibold text-primary mb-md">What is Vocabee?</h2>
-          <p class="leading-loose text-secondary card-text">
+          <p class="m-0 leading-loose text-secondary">
             Vocabee is a modern vocabulary exploration tool that makes it easy to search and
             discover words across multiple languages. Built on top of Wiktionary data, it provides a
             fast, intuitive interface for language learners, translators, and anyone interested in
@@ -20,116 +20,93 @@ import Button from 'primevue/button'
         </template>
       </Card>
 
-      <Card class="mb-lg">
+      <Card>
+        <template #title>Key Features</template>
         <template #content>
-          <h2 class="text-2xl font-semibold text-primary mb-md">Key Features</h2>
           <ul class="checklist">
             <li>
-              <i class="pi pi-check-circle"></i>
-              <span class="text-secondary leading-relaxed">
-                <strong class="text-primary">Multi-language support:</strong> Search across 12+
-                languages including French, Spanish, German, Italian, Portuguese, Russian, and more
+              <i class="pi pi-check-circle text-primary"></i>
+              <span class="text-secondary">
+                <strong>Multi-language support:</strong> Search across 12+ languages.
               </span>
             </li>
             <li>
-              <i class="pi pi-check-circle"></i>
-              <span class="text-secondary leading-relaxed">
-                <strong class="text-primary">Comprehensive data:</strong> Access detailed
-                definitions, examples, etymology, pronunciation guides, and inflected forms
+              <i class="pi pi-check-circle text-primary"></i>
+              <span class="text-secondary">
+                <strong>Comprehensive data:</strong> Access definitions, examples, etymology, and more.
               </span>
             </li>
             <li>
-              <i class="pi pi-check-circle"></i>
-              <span class="text-secondary leading-relaxed">
-                <strong class="text-primary">Smart ranking:</strong> Advanced two-stage search
-                algorithm prioritizes exact matches and common words
+              <i class="pi pi-check-circle text-primary"></i>
+              <span class="text-secondary">
+                <strong>Smart ranking:</strong> Prioritizes exact matches and common words.
               </span>
             </li>
             <li>
-              <i class="pi pi-check-circle"></i>
-              <span class="text-secondary leading-relaxed">
-                <strong class="text-primary">Frequency data:</strong> Word frequency rankings help
-                you focus on the most commonly used vocabulary
+              <i class="pi pi-check-circle text-primary"></i>
+              <span class="text-secondary">
+                <strong>Frequency data:</strong> Focus on the most commonly used vocabulary.
               </span>
             </li>
             <li>
-              <i class="pi pi-check-circle"></i>
-              <span class="text-secondary leading-relaxed">
-                <strong class="text-primary">Fast & responsive:</strong> Built with modern web
-                technologies for instant results
+              <i class="pi pi-check-circle text-primary"></i>
+              <span class="text-secondary">
+                <strong>Fast & responsive:</strong> Built with modern web technologies.
               </span>
             </li>
           </ul>
         </template>
       </Card>
 
-      <Card class="mb-lg">
+      <Card>
+        <template #title>Technology Stack</template>
         <template #content>
-          <h2 class="text-2xl font-semibold text-primary mb-md">Technology Stack</h2>
-          <div class="tech-grid">
+          <div class="grid md:grid-cols-3 gap-xl">
             <div>
               <h3 class="text-lg font-semibold text-primary mb-sm">Frontend</h3>
-              <ul class="tech-list">
-                <li>Vue 3 + TypeScript</li>
-                <li>PrimeVue UI Components</li>
-                <li>Vite Build Tool</li>
+              <ul class="list-none p-0 m-0">
+                <li class="py-1">Vue 3 + TypeScript</li>
+                <li class="py-1">PrimeVue UI Components</li>
+                <li class="py-1">Vite Build Tool</li>
               </ul>
             </div>
             <div>
               <h3 class="text-lg font-semibold text-primary mb-sm">Backend</h3>
-              <ul class="tech-list">
-                <li>Kotlin + Spring Boot</li>
-                <li>PostgreSQL Database</li>
-                <li>RESTful API</li>
+              <ul class="list-none p-0 m-0">
+                <li class="py-1">Kotlin + Spring Boot</li>
+                <li class="py-1">PostgreSQL Database</li>
+                <li class="py-1">RESTful API</li>
               </ul>
             </div>
             <div>
               <h3 class="text-lg font-semibold text-primary mb-sm">Data</h3>
-              <ul class="tech-list">
-                <li>Wiktionary XML Dump</li>
-                <li>Custom Python Parser</li>
-                <li>4.2M+ Entries</li>
+              <ul class="list-none p-0 m-0">
+                <li class="py-1">Wiktionary XML Dump</li>
+                <li class="py-1">Custom Python Parser</li>
+                <li class="py-1">4.2M+ Entries</li>
               </ul>
             </div>
           </div>
         </template>
       </Card>
 
-      <Card class="mb-lg">
+      <Card>
+        <template #title>Data Source</template>
         <template #content>
-          <h2 class="text-2xl font-semibold text-primary mb-md">Data Source</h2>
-          <p class="leading-loose text-secondary mb-md">
+          <p class="m-0 leading-loose text-secondary">
             All vocabulary data is sourced from
-            <a href="https://www.wiktionary.org/" target="_blank" rel="noopener" class="link"
-            >Wiktionary</a
-            >, the free multilingual dictionary. Wiktionary content is available under the
-            <a
-                href="https://creativecommons.org/licenses/by-sa/3.0/"
-                target="_blank"
-                rel="noopener"
-                class="link"
-            >
-              Creative Commons Attribution-ShareAlike License</a
-            >.
+            <a href="https://www.wiktionary.org/" target="_blank" rel="noopener"
+               class="text-primary font-semibold hover:underline">Wiktionary</a>,
+            the free multilingual dictionary, available under the
+            <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener"
+               class="text-primary font-semibold hover:underline">Creative Commons Attribution-ShareAlike License</a>.
           </p>
-          <div class="info-note">
-            <i class="pi pi-info-circle"></i>
-            <p class="text-secondary leading-relaxed info-note-text">
-              Data is processed and indexed from English Wiktionary XML dumps, with ongoing updates
-              to maintain accuracy and coverage.
-            </p>
-          </div>
         </template>
       </Card>
 
-      <div class="cta-card">
+      <div class="text-center p-4xl bg-surface-section rounded-lg">
         <h2 class="text-3xl font-semibold text-primary mb-lg">Ready to explore?</h2>
-        <Button
-          label="Start Searching Words"
-          icon="pi pi-search"
-          size="large"
-          @click="$router.push('/search')"
-        />
+        <Button label="Start Searching Words" icon="pi pi-search" size="large" @click="$router.push('/search')"/>
       </div>
     </div>
   </div>
@@ -137,73 +114,6 @@ import Button from 'primevue/button'
 
 <style scoped>
 .about-view {
-  min-height: 100%;
-  padding: var(--spacing-4xl);
-}
-
-.about-container {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.link {
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.link:hover {
-  text-decoration: underline;
-}
-
-.tech-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--spacing-xl);
-  margin-top: var(--spacing-md);
-}
-
-.tech-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.tech-list li {
-  padding: 0.4rem 0;
-  line-height: 1.6;
-}
-
-.info-note {
-  padding: var(--spacing-md);
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: flex-start;
-  gap: var(--spacing-sm);
-  margin-top: var(--spacing-md);
-}
-
-.info-note i {
-  margin-top: 0.25rem;
-  flex-shrink: 0;
-}
-
-.info-note-text {
-  margin: 0;
-}
-
-.card-text {
-  margin-bottom: 0;
-}
-
-.cta-card {
-  text-align: center;
-  padding: var(--spacing-4xl);
-  border-radius: var(--radius-md);
-}
-
-@media (max-width: 768px) {
-  .tech-grid {
-    grid-template-columns: 1fr;
-  }
+  padding: var(--spacing-4xl) 0;
 }
 </style>
