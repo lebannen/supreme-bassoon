@@ -8,20 +8,22 @@ import org.springframework.transaction.annotation.Transactional
 import java.time.Instant
 
 @Service
-@Transactional
 class UserService(
     private val userRepository: UserRepository,
     private val passwordEncoder: PasswordEncoder
 ) {
 
+    @Transactional(readOnly = true)
     fun findByEmail(email: String): User? {
         return userRepository.findByEmail(email).orElse(null)
     }
 
+    @Transactional(readOnly = true)
     fun findById(id: Long): User? {
         return userRepository.findById(id).orElse(null)
     }
 
+    @Transactional
     fun createUser(
         email: String,
         displayName: String?,
@@ -37,7 +39,7 @@ class UserService(
             passwordHash = passwordHash,
             oauthProvider = oauthProvider,
             oauthId = oauthId,
-            emailVerified = oauthProvider != null  // Auto-verify OAuth users
+            emailVerified = oauthProvider != null
         )
 
         user.addRole("USER")
@@ -45,18 +47,16 @@ class UserService(
         return userRepository.save(user)
     }
 
+    @Transactional
     fun findOrCreateOAuthUser(
         email: String,
         displayName: String?,
         provider: String,
         oauthId: String
     ): User {
-        // Try to find by OAuth provider and ID first
         return userRepository.findByOauthProviderAndOauthId(provider, oauthId)
             .orElseGet {
-                // If not found, check if user exists by email
                 userRepository.findByEmail(email).orElseGet {
-                    // Create new user
                     createUser(
                         email = email,
                         displayName = displayName,
@@ -67,13 +67,12 @@ class UserService(
             }
     }
 
+    @Transactional
     fun updateLastLogin(userId: Long) {
-        userRepository.findById(userId).ifPresent { user ->
-            user.lastLogin = Instant.now()
-            userRepository.save(user)
-        }
+        userRepository.updateLastLogin(userId, Instant.now())
     }
 
+    @Transactional(readOnly = true)
     fun existsByEmail(email: String): Boolean {
         return userRepository.existsByEmail(email)
     }
@@ -84,6 +83,7 @@ class UserService(
         } ?: false
     }
 
+    @Transactional
     fun updateProfile(
         userId: Long,
         displayName: String?,

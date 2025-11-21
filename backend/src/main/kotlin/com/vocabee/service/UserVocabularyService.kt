@@ -17,23 +17,17 @@ class UserVocabularyService(
 ) {
 
     @Transactional
-    fun addWordToVocabulary(userId: Long, wordId: Long, notes: String?): VocabularyWordDto? {
-        // Check if user exists
-        val user = userRepository.findById(userId).orElse(null) ?: return null
-
-        // Check if word exists
-        val word = wordRepository.findById(wordId).orElse(null) ?: return null
-
-        // Check if already exists
+    fun addWordToVocabulary(userId: Long, wordId: Long, notes: String?): VocabularyWordDto {
         val existing = userVocabularyRepository.findByUserIdAndWordId(userId, wordId)
         if (existing != null) {
-            // Update notes if word already in vocabulary
             existing.notes = notes
             val updated = userVocabularyRepository.save(existing)
             return toVocabularyWordDto(updated)
         }
 
-        // Create new vocabulary entry
+        val user = userRepository.getReferenceById(userId)
+        val word = wordRepository.getReferenceById(wordId)
+
         val vocabularyEntry = UserVocabulary(
             user = user,
             word = word,
@@ -44,19 +38,15 @@ class UserVocabularyService(
         return toVocabularyWordDto(saved)
     }
 
+    @Transactional(readOnly = true)
     fun getUserVocabulary(userId: Long): List<VocabularyWordDto> {
-        val vocabularyEntries = userVocabularyRepository.findByUserIdOrderByAddedAtDesc(userId)
+        val vocabularyEntries = userVocabularyRepository.findByUserIdWithWordOrderByAddedAtDesc(userId)
         return vocabularyEntries.map { toVocabularyWordDto(it) }
     }
 
     @Transactional
     fun removeWordFromVocabulary(userId: Long, wordId: Long): Boolean {
-        return try {
-            userVocabularyRepository.deleteByUserIdAndWordId(userId, wordId)
-            true
-        } catch (e: Exception) {
-            false
-        }
+        return userVocabularyRepository.deleteByUserIdAndWordId(userId, wordId) > 0
     }
 
     fun isWordInVocabulary(userId: Long, wordId: Long): Boolean {

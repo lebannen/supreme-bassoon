@@ -39,4 +39,24 @@ interface ExerciseRepository : JpaRepository<Exercise, Long> {
         AND (e.exerciseType.typeKey != 'listening' OR CAST(FUNCTION('jsonb_extract_path_text', e.content, 'audioUrl') AS string) IS NOT NULL)
     """)
     fun findAllPublishedAndValid(): List<Exercise>
+
+    @Query(
+        """
+        SELECT COUNT(e) FROM Exercise e
+        WHERE e.isPublished = true
+        AND (e.exerciseType.typeKey != 'listening' OR CAST(FUNCTION('jsonb_extract_path_text', e.content, 'audioUrl') AS string) IS NOT NULL)
+    """
+    )
+    fun countPublishedAndValid(): Long
+
+    @Query(
+        """
+        SELECT e.languageCode, COUNT(e)
+        FROM Exercise e
+        WHERE e.isPublished = true
+        AND (e.exerciseType.typeKey != 'listening' OR CAST(FUNCTION('jsonb_extract_path_text', e.content, 'audioUrl') AS string) IS NOT NULL)
+        GROUP BY e.languageCode
+    """
+    )
+    fun countPublishedAndValidByLanguage(): List<Array<Any>>
 }

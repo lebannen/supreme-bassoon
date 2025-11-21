@@ -10,16 +10,18 @@ import java.time.Instant
 @Repository
 interface UserVocabularyRepository : JpaRepository<UserVocabulary, Long> {
     fun findByUserId(userId: Long): List<UserVocabulary>
+
+    @Query("SELECT uv FROM UserVocabulary uv JOIN FETCH uv.word WHERE uv.user.id = :userId ORDER BY uv.addedAt DESC")
+    fun findByUserIdWithWordOrderByAddedAtDesc(@Param("userId") userId: Long): List<UserVocabulary>
+
     fun findByUserIdOrderByAddedAtDesc(userId: Long): List<UserVocabulary>
     fun findByUserIdAndWordId(userId: Long, wordId: Long): UserVocabulary?
     fun existsByUserIdAndWordId(userId: Long, wordId: Long): Boolean
-    fun deleteByUserIdAndWordId(userId: Long, wordId: Long)
+    fun deleteByUserIdAndWordId(userId: Long, wordId: Long): Long
 
-    // Find multiple words for a user
     @Query("SELECT uv FROM UserVocabulary uv WHERE uv.user.id = :userId AND uv.word.id IN :wordIds")
     fun findByUserIdAndWordIdIn(@Param("userId") userId: Long, @Param("wordIds") wordIds: List<Long>): List<UserVocabulary>
 
-    // Find words that are due for review (pass cutoffTime = now + 24 hours for due today)
     @Query("""
         SELECT uv FROM UserVocabulary uv
         WHERE uv.user.id = :userId
@@ -28,7 +30,6 @@ interface UserVocabularyRepository : JpaRepository<UserVocabulary, Long> {
     """)
     fun findDueWords(@Param("userId") userId: Long, @Param("cutoffTime") cutoffTime: Instant): List<UserVocabulary>
 
-    // Count words that are due for review (pass cutoffTime = now + 24 hours for due today)
     @Query("""
         SELECT COUNT(uv) FROM UserVocabulary uv
         WHERE uv.user.id = :userId
@@ -36,7 +37,6 @@ interface UserVocabularyRepository : JpaRepository<UserVocabulary, Long> {
     """)
     fun countDueWords(@Param("userId") userId: Long, @Param("cutoffTime") cutoffTime: Instant): Int
 
-    // Count overdue words (due before current time)
     @Query("""
         SELECT COUNT(uv) FROM UserVocabulary uv
         WHERE uv.user.id = :userId
@@ -45,7 +45,6 @@ interface UserVocabularyRepository : JpaRepository<UserVocabulary, Long> {
     """)
     fun countOverdueWords(@Param("userId") userId: Long, @Param("currentTime") currentTime: Instant): Int
 
-    // Find words due within a time window
     @Query("""
         SELECT uv FROM UserVocabulary uv
         WHERE uv.user.id = :userId

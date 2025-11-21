@@ -1,12 +1,11 @@
 package com.vocabee.service
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.node.ObjectNode
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
+import org.junit.jupiter.api.Test
 
 class ExerciseValidationServiceTest {
 
@@ -421,12 +420,12 @@ class ExerciseValidationServiceTest {
         }
 
         @Test
-        @DisplayName("Should throw exception when words are missing from content")
-        fun shouldThrowExceptionWhenWordsMissing() {
+        @DisplayName("Should throw exception when correct answer is missing")
+        fun shouldThrowExceptionWhenCorrectAnswerIsMissing() {
             // Given
             val content = objectMapper.readTree("""
                 {
-                    "sentence": "Je parle français"
+                    "words": ["Je", "parle", "français"]
                 }
             """)
 

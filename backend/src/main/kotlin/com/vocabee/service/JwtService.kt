@@ -3,7 +3,6 @@ package com.vocabee.service
 import com.vocabee.domain.model.User
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.Jwts
-import io.jsonwebtoken.SignatureAlgorithm
 import io.jsonwebtoken.security.Keys
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
@@ -20,28 +19,31 @@ class JwtService(
 ) {
     private val secretKey: SecretKey = Keys.hmacShaKeyFor(secret.toByteArray())
 
+    companion object {
+        private const val CLAIM_USER_ID = "userId"
+        private const val CLAIM_EMAIL = "email"
+        private const val CLAIM_ROLES = "roles"
+    }
+
     fun generateToken(user: User): String {
         val claims = mapOf(
-            "userId" to user.id,
-            "email" to user.email,
-            "roles" to user.roles.map { it.role }
+            CLAIM_USER_ID to user.id,
+            CLAIM_EMAIL to user.email,
+            CLAIM_ROLES to user.roles.map { it.role }
         )
 
         return Jwts.builder()
-            .setClaims(claims)
-            .setSubject(user.email)
-            .setIssuedAt(Date())
-            .setExpiration(Date(System.currentTimeMillis() + expiration))
-            .signWith(secretKey, SignatureAlgorithm.HS256)
+            .claims(claims)
+            .subject(user.email)
+            .issuedAt(Date())
+            .expiration(Date(System.currentTimeMillis() + expiration))
+            .signWith(secretKey)
             .compact()
     }
 
     fun validateToken(token: String): Boolean {
         return try {
-            Jwts.parser()
-                .verifyWith(secretKey)
-                .build()
-                .parseSignedClaims(token)
+            getClaims(token)
             true
         } catch (e: Exception) {
             false
@@ -50,8 +52,7 @@ class JwtService(
 
     fun getUserEmailFromToken(token: String): String? {
         return try {
-            val claims = getClaims(token)
-            claims.subject
+            getClaims(token).subject
         } catch (e: Exception) {
             null
         }
@@ -59,8 +60,7 @@ class JwtService(
 
     fun getUserIdFromToken(token: String): Long? {
         return try {
-            val claims = getClaims(token)
-            (claims["userId"] as? Number)?.toLong()
+            getClaims(token).get(CLAIM_USER_ID, Number::class.java)?.toLong()
         } catch (e: Exception) {
             null
         }

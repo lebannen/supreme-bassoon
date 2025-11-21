@@ -13,6 +13,8 @@ interface WordRepository : JpaRepository<Word, Long> {
 
     fun findByLanguageCodeAndNormalized(languageCode: String, normalized: String): List<Word>
 
+    fun findByLanguageCodeAndNormalizedIn(languageCode: String, normalized: List<String>): List<Word>
+
     fun findByLanguageCode(languageCode: String): List<Word>
 
     @Query("""
