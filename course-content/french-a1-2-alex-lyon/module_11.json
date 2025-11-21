@@ -16,7 +16,21 @@
       "episodeNumber": 1,
       "type": "STORY",
       "title": "Se Réveiller",
-      "content": "Le réveil sonne. Bip, bip, bip! Il est sept heures du matin.\n\nAlex ouvre les yeux. Il est dans son lit à Lyon. La lumière du soleil entre par la fenêtre.\n\n\"Mmm... déjà le matin?\"\n\nAlex se réveille lentement. Il regarde son téléphone : 7h00.\n\n\"Bon, je me réveille,\" pense Alex. \"C'est l'heure.\"\n\nIl reste encore deux minutes dans le lit. Mais le réveil sonne encore. Bip, bip, bip!\n\n\"D'accord, d'accord...\"\n\nAlex se lève. Il sort du lit. Il met les pieds par terre.\n\n\"Voilà, je me lève. Je suis debout maintenant.\"\n\nAlex s'étire. Il lève les bras en l'air. \"Ahh...\"\n\nIl marche vers la fenêtre. Il ouvre les rideaux complètement.\n\n\"Quelle belle journée!\"\n\nLa ville de Lyon se réveille aussi. Alex voit des gens dans la rue. Des voitures passent. Un bus s'arrête au coin.\n\nAlex bâille. \"J'ai bien dormi. Huit heures de sommeil, parfait.\"\n\nIl regarde encore son téléphone. Maintenant il est 7h05.\n\n\"Bon, je commence ma routine. Tous les jours, c'est pareil : je me réveille à sept heures, je me lève, et je commence la journée.\"\n\nAlex sourit. Il aime sa nouvelle vie à Lyon. Il aime sa routine matinale.\n\n\"Allez, au travail!\" dit-il à lui-même.",
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrateur",
+            "text": "Le réveil sonne. Bip, bip, bip! Il est sept heures du matin.\n\nAlex ouvre les yeux. Il est dans son lit à Lyon. La lumière du soleil entre par la fenêtre.\n\n\"Mmm... déjà le matin?\"\n\nAlex se réveille lentement. Il regarde son téléphone : 7h00.\n\n\"Bon, je me réveille,\" pense Alex. \"C'est l'heure.\"\n\nIl reste encore deux minutes dans le lit. Mais le réveil sonne encore. Bip, bip, bip!\n\n\"D'accord, d'accord...\"\n\nAlex se lève. Il sort du lit. Il met les pieds par terre.\n\n\"Voilà, je me lève. Je suis debout maintenant.\"\n\nAlex s'étire. Il lève les bras en l'air. \"Ahh...\"\n\nIl marche vers la fenêtre. Il ouvre les rideaux complètement.\n\n\"Quelle belle journée!\"\n\nLa ville de Lyon se réveille aussi. Alex voit des gens dans la rue. Des voitures passent. Un bus s'arrête au coin.\n\nAlex bâille. \"J'ai bien dormi. Huit heures de sommeil, parfait.\"\n\nIl regarde encore son téléphone. Maintenant il est 7h05.\n\n\"Bon, je commence ma routine. Tous les jours, c'est pareil : je me réveille à sept heures, je me lève, et je commence la journée.\"\n\nAlex sourit. Il aime sa nouvelle vie à Lyon. Il aime sa routine matinale.\n\n\"Allez, au travail!\" dit-il à lui-même."
+          }
+        ],
+        "speakers": {
+          "Narrateur": {
+            "voice": "Charon",
+            "description": "Calm, clear narrator voice"
+          }
+        },
+        "audioStyle": "Narrative storytelling. Clear, moderate-paced French suitable for A1.2 learners. Warm, engaging tone describing Alex's morning routine."
+      },
       "generateAudio": true,
       "estimatedMinutes": 15,
       "contentItems": [
@@ -387,21 +401,27 @@
             "difficultyRating": 1.6
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Narrateur",
-          "voice": "Charon",
-          "description": "Calm, clear narrator voice"
-        }
-      ],
-      "audioStyle": "Narrative storytelling. Clear, moderate-paced French suitable for A1.2 learners. Warm, engaging tone describing Alex's morning routine."
+      ]
     },
     {
       "episodeNumber": 2,
       "type": "STORY",
       "title": "La Salle de Bain",
-      "content": "Alex entre dans la salle de bain. Il allume la lumière.\n\n\"Bon, maintenant je me lave.\"\n\nAlex va vers le lavabo. Il ouvre le robinet. L'eau coule. Il se lave les mains d'abord.\n\n\"L'eau est un peu froide... voilà, maintenant elle est chaude. Parfait.\"\n\nIl se lave le visage avec de l'eau froide. \"Ça réveille!\"\n\nAlex prend le savon. Il se lave bien le visage. Puis il prend une serviette et il se sèche.\n\n\"Maintenant, la douche.\"\n\nAlex entre dans la douche. Il ouvre l'eau. Il attend que l'eau soit chaude.\n\n\"Ah, c'est bon!\"\n\nAlex se douche. Il utilise le shampooing pour les cheveux. Il prend le gel douche pour le corps. Il se lave partout.\n\n\"J'aime bien me doucher le matin. Ça me réveille vraiment!\"\n\nAprès dix minutes, Alex sort de la douche. Il prend la grande serviette bleue. Il se sèche les cheveux, le corps, les bras, les jambes.\n\n\"Voilà, je suis propre maintenant.\"\n\nAlex regarde dans le miroir. Il a les cheveux mouillés.\n\n\"Je me brosse les dents maintenant.\"\n\nIl prend sa brosse à dents et le dentifrice. Il met du dentifrice sur la brosse. Il se brosse les dents pendant deux minutes.\n\n\"Une, deux, trois... C'est important de bien se brosser les dents!\"\n\nIl se rince la bouche avec de l'eau.\n\n\"Parfait. Maintenant, je me rase.\"\n\nAlex prend son rasoir électrique. Il se rase la barbe. Bzzz, bzzz.\n\n\"Voilà, c'est fini!\"\n\nAlex se regarde dans le miroir encore une fois.\n\n\"Très bien. Je me sens propre et frais. Maintenant, je m'habille!\"",
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrateur",
+            "text": "Alex entre dans la salle de bain. Il allume la lumière.\n\n\"Bon, maintenant je me lave.\"\n\nAlex va vers le lavabo. Il ouvre le robinet. L'eau coule. Il se lave les mains d'abord.\n\n\"L'eau est un peu froide... voilà, maintenant elle est chaude. Parfait.\"\n\nIl se lave le visage avec de l'eau froide. \"Ça réveille!\"\n\nAlex prend le savon. Il se lave bien le visage. Puis il prend une serviette et il se sèche.\n\n\"Maintenant, la douche.\"\n\nAlex entre dans la douche. Il ouvre l'eau. Il attend que l'eau soit chaude.\n\n\"Ah, c'est bon!\"\n\nAlex se douche. Il utilise le shampooing pour les cheveux. Il prend le gel douche pour le corps. Il se lave partout.\n\n\"J'aime bien me doucher le matin. Ça me réveille vraiment!\"\n\nAprès dix minutes, Alex sort de la douche. Il prend la grande serviette bleue. Il se sèche les cheveux, le corps, les bras, les jambes.\n\n\"Voilà, je suis propre maintenant.\"\n\nAlex regarde dans le miroir. Il a les cheveux mouillés.\n\n\"Je me brosse les dents maintenant.\"\n\nIl prend sa brosse à dents et le dentifrice. Il met du dentifrice sur la brosse. Il se brosse les dents pendant deux minutes.\n\n\"Une, deux, trois... C'est important de bien se brosser les dents!\"\n\nIl se rince la bouche avec de l'eau.\n\n\"Parfait. Maintenant, je me rase.\"\n\nAlex prend son rasoir électrique. Il se rase la barbe. Bzzz, bzzz.\n\n\"Voilà, c'est fini!\"\n\nAlex se regarde dans le miroir encore une fois.\n\n\"Très bien. Je me sens propre et frais. Maintenant, je m'habille!\""
+          }
+        ],
+        "speakers": {
+          "Narrateur": {
+            "voice": "Charon",
+            "description": "Calm, clear narrator voice"
+          }
+        },
+        "audioStyle": "Narrative storytelling. Clear, moderate-paced French describing bathroom routine. Natural, conversational tone with Alex's thoughts."
+      },
       "generateAudio": true,
       "estimatedMinutes": 15,
       "contentItems": [
@@ -757,21 +777,27 @@
             "difficultyRating": 1.7
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Narrateur",
-          "voice": "Charon",
-          "description": "Calm, clear narrator voice"
-        }
-      ],
-      "audioStyle": "Narrative storytelling. Clear, moderate-paced French describing bathroom routine. Natural, conversational tone with Alex's thoughts."
+      ]
     },
     {
       "episodeNumber": 3,
       "type": "STORY",
       "title": "S'Habiller",
-      "content": "Alex sort de la salle de bain. Il va dans sa chambre.\n\n\"Bon, maintenant je m'habille. Qu'est-ce que je porte aujourd'hui?\"\n\nAlex ouvre son armoire. Il regarde ses vêtements.\n\n\"Voyons... un pantalon. Lequel?\"\n\nIl a plusieurs pantalons : un pantalon noir, un pantalon gris, un jean bleu.\n\n\"Aujourd'hui, je mets le pantalon gris. Il est confortable et professionnel.\"\n\nAlex prend le pantalon gris. Il s'habille. Il met le pantalon.\n\n\"Maintenant, une chemise.\"\n\nAlex regarde ses chemises. Il a une chemise blanche, une chemise bleue claire, une chemise rayée.\n\n\"La chemise blanche, c'est classique. Parfait pour le bureau.\"\n\nIl met la chemise blanche. Il boutonne la chemise, un bouton après l'autre.\n\n\"Et maintenant, les chaussettes.\"\n\nAlex ouvre le tiroir. Il cherche deux chaussettes noires identiques.\n\n\"Où est l'autre chaussette? Ah, la voilà!\"\n\nIl s'assoit sur le lit. Il met les chaussettes, d'abord la gauche, puis la droite.\n\n\"Ensuite, les chaussures.\"\n\nAlex a des chaussures noires élégantes. Ce sont ses chaussures de travail. Il met les chaussures et il fait les lacets.\n\n\"Bien. Qu'est-ce qu'il manque?\"\n\nAlex se regarde dans le miroir.\n\n\"Ah oui, la ceinture!\"\n\nIl prend une ceinture noire en cuir. Il met la ceinture autour de la taille.\n\n\"Et finalement, je vais mettre une veste. Il fait un peu frais ce matin.\"\n\nAlex prend sa veste grise. Il met la veste. Elle va parfaitement avec le pantalon.\n\n\"Voilà! Je suis habillé. Je suis prêt pour aller au travail.\"\n\nAlex se regarde une dernière fois dans le grand miroir.\n\n\"Parfait. Je suis élégant et professionnel. Maintenant, je prends mon sac et mes clés, et je pars!\"\n\nIl regarde sa montre. Il est 7h45.\n\n\"Excellent! J'ai le temps de prendre un café avant de partir.\"",
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrateur",
+            "text": "Alex sort de la salle de bain. Il va dans sa chambre.\n\n\"Bon, maintenant je m'habille. Qu'est-ce que je porte aujourd'hui?\"\n\nAlex ouvre son armoire. Il regarde ses vêtements.\n\n\"Voyons... un pantalon. Lequel?\"\n\nIl a plusieurs pantalons : un pantalon noir, un pantalon gris, un jean bleu.\n\n\"Aujourd'hui, je mets le pantalon gris. Il est confortable et professionnel.\"\n\nAlex prend le pantalon gris. Il s'habille. Il met le pantalon.\n\n\"Maintenant, une chemise.\"\n\nAlex regarde ses chemises. Il a une chemise blanche, une chemise bleue claire, une chemise rayée.\n\n\"La chemise blanche, c'est classique. Parfait pour le bureau.\"\n\nIl met la chemise blanche. Il boutonne la chemise, un bouton après l'autre.\n\n\"Et maintenant, les chaussettes.\"\n\nAlex ouvre le tiroir. Il cherche deux chaussettes noires identiques.\n\n\"Où est l'autre chaussette? Ah, la voilà!\"\n\nIl s'assoit sur le lit. Il met les chaussettes, d'abord la gauche, puis la droite.\n\n\"Ensuite, les chaussures.\"\n\nAlex a des chaussures noires élégantes. Ce sont ses chaussures de travail. Il met les chaussures et il fait les lacets.\n\n\"Bien. Qu'est-ce qu'il manque?\"\n\nAlex se regarde dans le miroir.\n\n\"Ah oui, la ceinture!\"\n\nIl prend une ceinture noire en cuir. Il met la ceinture autour de la taille.\n\n\"Et finalement, je vais mettre une veste. Il fait un peu frais ce matin.\"\n\nAlex prend sa veste grise. Il met la veste. Elle va parfaitement avec le pantalon.\n\n\"Voilà! Je suis habillé. Je suis prêt pour aller au travail.\"\n\nAlex se regarde une dernière fois dans le grand miroir.\n\n\"Parfait. Je suis élégant et professionnel. Maintenant, je prends mon sac et mes clés, et je pars!\"\n\nIl regarde sa montre. Il est 7h45.\n\n\"Excellent! J'ai le temps de prendre un café avant de partir.\""
+          }
+        ],
+        "speakers": {
+          "Narrateur": {
+            "voice": "Charon",
+            "description": "Calm, clear narrator voice"
+          }
+        },
+        "audioStyle": "Narrative storytelling. Clear, moderate-paced French describing the process of getting dressed. Natural, thoughtful tone as Alex makes choices."
+      },
       "generateAudio": true,
       "estimatedMinutes": 15,
       "contentItems": [
@@ -1147,15 +1173,7 @@
             "difficultyRating": 1.6
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Narrateur",
-          "voice": "Charon",
-          "description": "Calm, clear narrator voice"
-        }
-      ],
-      "audioStyle": "Narrative storytelling. Clear, moderate-paced French describing the process of getting dressed. Natural, thoughtful tone as Alex makes choices."
+      ]
     }
   ]
 }

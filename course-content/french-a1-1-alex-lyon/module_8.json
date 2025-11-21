@@ -16,7 +16,21 @@
       "episodeNumber": 1,
       "type": "STORY",
       "title": "La Carte",
-      "content": "Alex a une carte de Lyon dans les mains. C'est sa première grande exploration de la ville!\n\nSur la carte, il voit beaucoup de choses:\n\n\"Voilà la poste. J'ai besoin d'envoyer une lettre à ma famille.\"\n\n\"Ah, la banque! Je dois changer de l'argent.\"\n\n\"Le musée des Beaux-Arts... C'est intéressant!\"\n\n\"Une église... Très jolie!\"\n\n\"Et un grand parc! Parfait pour marcher!\"\n\nAlex regarde les rues sur la carte: \"Rue de la République, avenue Jean Jaurès, place Bellecour...\"\n\nIl cherche la poste sur la carte. \"Où est la poste? Ah! Rue Président Herriot!\"\n\nMais sur la carte, tout est simple. Dans la vraie vie, c'est différent!\n\nAlex sort de son appartement avec la carte. Il marche dans la rue. Il regarde la carte, puis regarde autour de lui.\n\n\"Euh... Où suis-je? Quelle rue? Ah non... Je suis perdu!\"\n\nAlex voit un passant. Il faut demander!",
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrator",
+            "text": "Alex a une carte de Lyon dans les mains. C'est sa première grande exploration de la ville!\n\nSur la carte, il voit beaucoup de choses:\n\n\"Voilà la poste. J'ai besoin d'envoyer une lettre à ma famille.\"\n\n\"Ah, la banque! Je dois changer de l'argent.\"\n\n\"Le musée des Beaux-Arts... C'est intéressant!\"\n\n\"Une église... Très jolie!\"\n\n\"Et un grand parc! Parfait pour marcher!\"\n\nAlex regarde les rues sur la carte: \"Rue de la République, avenue Jean Jaurès, place Bellecour...\"\n\nIl cherche la poste sur la carte. \"Où est la poste? Ah! Rue Président Herriot!\"\n\nMais sur la carte, tout est simple. Dans la vraie vie, c'est différent!\n\nAlex sort de son appartement avec la carte. Il marche dans la rue. Il regarde la carte, puis regarde autour de lui.\n\n\"Euh... Où suis-je? Quelle rue? Ah non... Je suis perdu!\"\n\nAlex voit un passant. Il faut demander!"
+          }
+        ],
+        "speakers": {
+          "Narrator": {
+            "voice": "Charon",
+            "description": "Calm, clear narrator voice"
+          }
+        },
+        "audioStyle": "Narrative storytelling. Clear, slow-paced French suitable for beginners. Warm tone showing Alex's confusion in a new city."
+      },
       "generateAudio": true,
       "estimatedMinutes": 20,
       "contentItems": [
@@ -369,35 +383,100 @@
             "difficultyRating": 1.4
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Narrator",
-          "voice": "Charon",
-          "description": "Calm, clear narrator voice"
-        }
-      ],
-      "audioStyle": "Narrative storytelling. Clear, slow-paced French suitable for beginners. Warm tone showing Alex's confusion in a new city."
+      ]
     },
     {
       "episodeNumber": 2,
       "type": "DIALOGUE",
       "title": "Tournez à Gauche",
-      "content": "Alex voit une femme qui marche dans la rue. Il s'approche.\n\nAlex: Excusez-moi, madame!\n\nPassant: Oui, monsieur?\n\nAlex: Je suis perdu. Où est la poste, s'il vous plaît?\n\nPassant: La poste? Ah oui! C'est facile. Vous allez tout droit.\n\nAlex: Tout droit...\n\nPassant: Oui, tout droit. Puis, tournez à gauche à la première rue.\n\nAlex: Tournez à gauche à la première rue. D'accord.\n\nPassant: Continuez tout droit, et la poste est à droite, après le café.\n\nAlex: À droite, après le café. Merci beaucoup!\n\nPassant: De rien! Bonne journée!\n\nAlex marche. Il va tout droit. Il arrive à une rue.\n\nAlex: La première rue... Je tourne à gauche... Maintenant, je continue tout droit...\n\nIl voit un café.\n\nAlex: Le café! Donc, la poste est à droite!\n\nEt voilà! La poste est là, à droite du café!\n\nAlex: Oui! J'ai trouvé la poste! Merci, madame!",
-      "generateAudio": true,
-      "speakers": [
-        {
-          "name": "Passant",
-          "voice": "Kore",
-          "description": "Helpful person giving directions"
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrateur",
+            "text": "Alex voit une femme qui marche dans la rue. Il s'approche."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Excusez-moi, madame!"
+          },
+          {
+            "speaker": "Passant",
+            "text": "Oui, monsieur?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Je suis perdu. Où est la poste, s'il vous plaît?"
+          },
+          {
+            "speaker": "Passant",
+            "text": "La poste? Ah oui! C'est facile. Vous allez tout droit."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Tout droit..."
+          },
+          {
+            "speaker": "Passant",
+            "text": "Oui, tout droit. Puis, tournez à gauche à la première rue."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Tournez à gauche à la première rue. D'accord."
+          },
+          {
+            "speaker": "Passant",
+            "text": "Continuez tout droit, et la poste est à droite, après le café."
+          },
+          {
+            "speaker": "Alex",
+            "text": "À droite, après le café. Merci beaucoup!"
+          },
+          {
+            "speaker": "Passant",
+            "text": "De rien! Bonne journée!"
+          },
+          {
+            "speaker": "Narrateur",
+            "text": "Alex marche. Il va tout droit. Il arrive à une rue."
+          },
+          {
+            "speaker": "Alex",
+            "text": "La première rue... Je tourne à gauche... Maintenant, je continue tout droit..."
+          },
+          {
+            "speaker": "Narrateur",
+            "text": "Il voit un café."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Le café! Donc, la poste est à droite!"
+          },
+          {
+            "speaker": "Narrateur",
+            "text": "Et voilà! La poste est là, à droite du café!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui! J'ai trouvé la poste! Merci, madame!"
+          }
+        ],
+        "speakers": {
+          "Narrateur": {
+            "voice": "Charon",
+            "description": "Calm narrator describing Alex's journey"
+          },
+          "Passant": {
+            "voice": "Kore",
+            "description": "Helpful person giving directions"
+          },
+          "Alex": {
+            "voice": "Achird",
+            "description": "American man asking for directions"
+          }
         },
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "American man asking for directions"
-        }
-      ],
-      "audioStyle": "Natural street conversation. Passant is helpful and clear. Alex repeats directions to remember them.",
+        "audioStyle": "Natural street conversation. Passant is helpful and clear. Alex repeats directions to remember them."
+      },
+      "generateAudio": true,
       "estimatedMinutes": 25,
       "contentItems": [
         {
@@ -750,21 +829,94 @@
       "episodeNumber": 3,
       "type": "DIALOGUE",
       "title": "Le Transport",
-      "content": "Alex sort de la poste. Il regarde sa montre. Il est tard! Il doit rentrer chez lui.\n\nAlex voit le même passant.\n\nAlex: Excusez-moi encore! Comment je rentre chez moi? Je vais où?\n\nPassant: Vous habitez où?\n\nAlex: Rue de la République.\n\nPassant: Ah! Ce n'est pas loin, mais c'est plus facile en métro. Vous prenez le métro?\n\nAlex: Le métro? Oui, d'accord! Où est la station?\n\nPassant: Allez au métro Bellecour. C'est tout droit, puis à gauche. Vous voyez?\n\nAlex: Oui, je vois. Et après?\n\nPassant: Vous prenez la ligne A, direction Vaulx-en-Velin. Vous descendez à Hôtel de Ville.\n\nAlex: Ligne A, direction Vaulx-en-Velin, descendre à Hôtel de Ville. D'accord!\n\nPassant: Et de là, vous allez à pied rue de la République. C'est cinq minutes.\n\nAlex: Parfait! Je peux aussi aller en bus?\n\nPassant: Oui, il y a le bus, mais le métro est plus rapide.\n\nAlex: D'accord, je vais au métro. Merci beaucoup pour votre aide!\n\nPassant: De rien! Bonne soirée!\n\nAlex: Bonne soirée!\n\nAlex marche vers le métro. Il répète: \"Je vais au métro Bellecour. Je prends la ligne A. Je descends à Hôtel de Ville. Puis, je vais à pied à la maison. Facile!\"",
-      "generateAudio": true,
-      "speakers": [
-        {
-          "name": "Passant",
-          "voice": "Kore",
-          "description": "Helpful person explaining public transport"
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrateur",
+            "text": "Alex sort de la poste. Il regarde sa montre. Il est tard! Il doit rentrer chez lui.\n\nAlex voit le même passant."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Excusez-moi encore! Comment je rentre chez moi? Je vais où?"
+          },
+          {
+            "speaker": "Passant",
+            "text": "Vous habitez où?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Rue de la République."
+          },
+          {
+            "speaker": "Passant",
+            "text": "Ah! Ce n'est pas loin, mais c'est plus facile en métro. Vous prenez le métro?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Le métro? Oui, d'accord! Où est la station?"
+          },
+          {
+            "speaker": "Passant",
+            "text": "Allez au métro Bellecour. C'est tout droit, puis à gauche. Vous voyez?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui, je vois. Et après?"
+          },
+          {
+            "speaker": "Passant",
+            "text": "Vous prenez la ligne A, direction Vaulx-en-Velin. Vous descendez à Hôtel de Ville."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Ligne A, direction Vaulx-en-Velin, descendre à Hôtel de Ville. D'accord!"
+          },
+          {
+            "speaker": "Passant",
+            "text": "Et de là, vous allez à pied rue de la République. C'est cinq minutes."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Parfait! Je peux aussi aller en bus?"
+          },
+          {
+            "speaker": "Passant",
+            "text": "Oui, il y a le bus, mais le métro est plus rapide."
+          },
+          {
+            "speaker": "Alex",
+            "text": "D'accord, je vais au métro. Merci beaucoup pour votre aide!"
+          },
+          {
+            "speaker": "Passant",
+            "text": "De rien! Bonne soirée!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Bonne soirée!"
+          },
+          {
+            "speaker": "Narrateur",
+            "text": "Alex marche vers le métro. Il répète: \"Je vais au métro Bellecour. Je prends la ligne A. Je descends à Hôtel de Ville. Puis, je vais à pied à la maison. Facile!\""
+          }
+        ],
+        "speakers": {
+          "Narrateur": {
+            "voice": "Charon",
+            "description": "Calm narrator describing Alex's return journey"
+          },
+          "Passant": {
+            "voice": "Kore",
+            "description": "Helpful person explaining public transport"
+          },
+          "Alex": {
+            "voice": "Achird",
+            "description": "American man learning to use Lyon metro"
+          }
         },
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "American man learning to use Lyon metro"
-        }
-      ],
-      "audioStyle": "Helpful street conversation. Passant explains public transport clearly. Alex repeats to memorize the route.",
+        "audioStyle": "Helpful street conversation. Passant explains public transport clearly. Alex repeats to memorize the route."
+      },
+      "generateAudio": true,
       "estimatedMinutes": 25,
       "contentItems": [
         {

@@ -5,7 +5,10 @@ import com.fasterxml.jackson.databind.node.ObjectNode
 import com.vocabee.domain.model.Exercise
 import com.vocabee.domain.repository.ExerciseRepository
 import com.vocabee.domain.repository.ExerciseTypeRepository
-import com.vocabee.web.dto.*
+import com.vocabee.web.dto.ExerciseImportResult
+import com.vocabee.web.dto.ExerciseImportStatus
+import com.vocabee.web.dto.ImportedExerciseDto
+import com.vocabee.web.dto.ModuleExerciseData
 import jakarta.persistence.EntityNotFoundException
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
@@ -79,7 +82,7 @@ class ExerciseImportService(
                                 transcript = transcript,
                                 languageCode = moduleData.languageCode,
                                 moduleNumber = moduleData.module,
-                                voice = getVoiceForLanguage(moduleData.languageCode)
+                                speakers = getVoiceForLanguage(moduleData.languageCode)
                             )
 
                             // Update content with generated audio URL
@@ -171,15 +174,6 @@ class ExerciseImportService(
             "listening" -> 90
             "cloze_reading" -> 180
             else -> 90
-        }
-    }
-
-    private fun getVoiceForLanguage(languageCode: String): String {
-        return when (languageCode) {
-            "fr" -> "Leda"  // French Female
-            "en" -> "Puck"  // English Neutral
-            "de" -> "Kore"  // German Female
-            else -> "Leda"  // Default to Leda
         }
     }
 }

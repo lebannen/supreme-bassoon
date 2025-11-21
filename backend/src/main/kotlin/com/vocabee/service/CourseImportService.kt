@@ -2,14 +2,13 @@ package com.vocabee.service
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.readValue
 import com.vocabee.domain.model.*
 import com.vocabee.domain.repository.*
 import org.slf4j.LoggerFactory
 import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import java.util.UUID
+import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 
 data class CourseImportRequest(
@@ -33,19 +32,28 @@ data class ModuleImportRequest(
 )
 
 data class SpeakerConfig(
-    val name: String,
     val voice: String,
     val description: String? = null
+)
+
+data class DialogueLine(
+    val speaker: String,
+    val text: String
+)
+
+data class StructuredDialogue(
+    val lines: List<DialogueLine>,
+    val speakers: Map<String, SpeakerConfig>,
+    val audioStyle: String? = null
 )
 
 data class EpisodeImportRequest(
     val episodeNumber: Int,
     val type: String, // DIALOGUE, STORY, ARTICLE, AUDIO_LESSON
     val title: String,
-    val content: String,
+    val dialogue: StructuredDialogue,
     val generateAudio: Boolean = false,
     val transcript: String? = null,
-    val speakers: List<SpeakerConfig> = emptyList(),
     val audioStyle: String? = null,
     val estimatedMinutes: Int = 15,
     val contentItems: List<ContentItemImportRequest> = emptyList()
@@ -178,156 +186,34 @@ class CourseImportService(
         var exercisesImported = 0
 
         // Create or update module
-        val objectivesNode: JsonNode? = if (moduleRequest.objectives.isNotEmpty()) {
-            objectMapper.valueToTree(moduleRequest.objectives)
-        } else {
-            null
-        }
-
-        val module = moduleRepository.findByCourseIdAndModuleNumber(course.id!!, moduleRequest.moduleNumber)
-            ?.copy(
-                title = moduleRequest.title,
-                theme = moduleRequest.theme,
-                description = moduleRequest.description,
-                objectives = objectivesNode,
-                estimatedMinutes = moduleRequest.estimatedMinutes,
-                updatedAt = java.time.LocalDateTime.now()
-            )
-            ?: Module(
-                courseId = course.id,
-                moduleNumber = moduleRequest.moduleNumber,
-                title = moduleRequest.title,
-                theme = moduleRequest.theme,
-                description = moduleRequest.description,
-                objectives = objectivesNode,
-                estimatedMinutes = moduleRequest.estimatedMinutes
-            )
-
-        val savedModule = moduleRepository.save(module)
+        val savedModule = createOrUpdateModule(course.id!!, moduleRequest)
         logger.info("Module saved with ID: ${savedModule.id}")
 
         // Import episodes
         for (episodeRequest in moduleRequest.episodes) {
             try {
-                val episodeType = try {
-                    EpisodeType.valueOf(episodeRequest.type.uppercase())
-                } catch (e: IllegalArgumentException) {
-                    logger.error("Invalid episode type: ${episodeRequest.type}")
-                    errors.add("Episode ${episodeRequest.episodeNumber}: Invalid type '${episodeRequest.type}'")
-                    continue
-                }
-
-                // Create episode
-                var episode = Episode(
-                    moduleId = savedModule.id!!,
-                    episodeNumber = episodeRequest.episodeNumber,
-                    episodeType = episodeType,
-                    title = episodeRequest.title,
-                    content = episodeRequest.content,
-                    transcript = episodeRequest.transcript,
-                    estimatedMinutes = episodeRequest.estimatedMinutes
+                val savedEpisode = processEpisode(
+                    episodeRequest,
+                    savedModule.id!!,
+                    course,
+                    savedModule.moduleNumber,
+                    generateAudio
                 )
-
-                // Generate audio if requested
-                if (generateAudio && episodeRequest.generateAudio &&
-                    (episodeRequest.type == "DIALOGUE" || episodeRequest.type == "STORY")) {
-                    try {
-                        // Convert SpeakerConfig to SpeakerVoiceConfig
-                        val speakerVoiceConfigs = episodeRequest.speakers.map { speaker ->
-                            SpeakerVoiceConfig(
-                                name = speaker.name,
-                                voice = speaker.voice
-                            )
-                        }
-
-                        val audioUrl = audioGenerationService.generateAudio(
-                            transcript = episodeRequest.content,
-                            languageCode = course.languageCode,
-                            moduleNumber = savedModule.moduleNumber,
-                            voice = if (speakerVoiceConfigs.isEmpty()) "Leda" else speakerVoiceConfigs[0].voice,
-                            speakers = speakerVoiceConfigs,
-                            stylePrompt = episodeRequest.audioStyle
-                        )
-                        episode = episode.copy(audioUrl = audioUrl)
-                        logger.info("Generated audio for episode: ${episode.title} (speakers: ${speakerVoiceConfigs.size})")
-                    } catch (e: Exception) {
-                        logger.error("Failed to generate audio for episode: ${episode.title}", e)
-                        errors.add("Episode ${episodeRequest.episodeNumber}: Audio generation failed - ${e.message}")
-                    }
-                }
-
-                val savedEpisode = episodeRepository.save(episode)
                 episodesImported++
                 logger.info("Episode saved with ID: ${savedEpisode.id}")
 
-                // Delete existing content items for this episode (if updating)
-                episodeContentItemRepository.deleteByEpisodeId(savedEpisode.id!!)
-
-                // Import content items (exercises, grammar rules)
-                for (contentItemRequest in episodeRequest.contentItems) {
-                    try {
-                        val contentType = ContentItemType.valueOf(contentItemRequest.type.uppercase())
-                        var contentId: Long? = null
-
-                        when (contentType) {
-                            ContentItemType.EXERCISE -> {
-                                if (contentItemRequest.exercise == null) {
-                                    errors.add("Episode ${episodeRequest.episodeNumber}, content item ${contentItemRequest.orderIndex}: Missing exercise data")
-                                    continue
-                                }
-
-                                val exerciseId = importExercise(
-                                    course.languageCode,
-                                    savedModule.moduleNumber,
-                                    contentItemRequest.exercise,
-                                    generateAudio
-                                )
-
-                                if (exerciseId != null) {
-                                    contentId = exerciseId
-                                    exercisesImported++
-                                } else {
-                                    errors.add("Episode ${episodeRequest.episodeNumber}, content item ${contentItemRequest.orderIndex}: Failed to import exercise")
-                                    continue
-                                }
-                            }
-
-                            ContentItemType.GRAMMAR_RULE -> {
-                                if (contentItemRequest.grammarRule == null) {
-                                    errors.add("Episode ${episodeRequest.episodeNumber}, content item ${contentItemRequest.orderIndex}: Missing grammar rule data")
-                                    continue
-                                }
-
-                                val grammarRuleId = importGrammarRule(
-                                    course.languageCode,
-                                    course.cefrLevel,
-                                    contentItemRequest.grammarRule
-                                )
-                                contentId = grammarRuleId
-                            }
-
-                            else -> {
-                                errors.add("Episode ${episodeRequest.episodeNumber}, content item ${contentItemRequest.orderIndex}: Unsupported content type '${contentItemRequest.type}'")
-                                continue
-                            }
-                        }
-
-                        // Create content item link
-                        val contentItem = EpisodeContentItem(
-                            episodeId = savedEpisode.id,
-                            orderIndex = contentItemRequest.orderIndex,
-                            contentType = contentType,
-                            contentId = contentId!!,
-                            isRequired = contentItemRequest.isRequired
-                        )
-
-                        episodeContentItemRepository.save(contentItem)
-
-                    } catch (e: Exception) {
-                        logger.error("Failed to import content item ${contentItemRequest.orderIndex} for episode ${episodeRequest.episodeNumber}", e)
-                        errors.add("Episode ${episodeRequest.episodeNumber}, content item ${contentItemRequest.orderIndex}: ${e.message}")
-                    }
-                }
+                // Import content items
+                val contentItemResult = importContentItems(
+                    savedEpisode.id!!,
+                    episodeRequest.episodeNumber,
+                    episodeRequest.contentItems,
+                    course.languageCode,
+                    course.cefrLevel,
+                    savedModule.moduleNumber,
+                    generateAudio
+                )
+                exercisesImported += contentItemResult.exercisesImported
+                errors.addAll(contentItemResult.errors)
 
             } catch (e: Exception) {
                 logger.error("Failed to import episode ${episodeRequest.episodeNumber}", e)
@@ -383,32 +269,7 @@ class CourseImportService(
             }
 
             // Create or update module
-            val objectivesNode: JsonNode? = if (moduleRequest.objectives.isNotEmpty()) {
-                objectMapper.valueToTree(moduleRequest.objectives)
-            } else {
-                null
-            }
-
-            val module = moduleRepository.findByCourseIdAndModuleNumber(course.id!!, moduleRequest.moduleNumber)
-                ?.copy(
-                    title = moduleRequest.title,
-                    theme = moduleRequest.theme,
-                    description = moduleRequest.description,
-                    objectives = objectivesNode,
-                    estimatedMinutes = moduleRequest.estimatedMinutes,
-                    updatedAt = java.time.LocalDateTime.now()
-                )
-                ?: Module(
-                    courseId = course.id,
-                    moduleNumber = moduleRequest.moduleNumber,
-                    title = moduleRequest.title,
-                    theme = moduleRequest.theme,
-                    description = moduleRequest.description,
-                    objectives = objectivesNode,
-                    estimatedMinutes = moduleRequest.estimatedMinutes
-                )
-
-            val savedModule = moduleRepository.save(module)
+            val savedModule = createOrUpdateModule(course.id!!, moduleRequest)
             logger.info("Module saved with ID: ${savedModule.id}")
 
             updateProgress(importId) {
@@ -429,59 +290,29 @@ class CourseImportService(
                         )
                     }
 
-                    val episodeType = try {
-                        EpisodeType.valueOf(episodeRequest.type.uppercase())
-                    } catch (e: IllegalArgumentException) {
-                        logger.error("Invalid episode type: ${episodeRequest.type}")
-                        errors.add("Episode ${episodeRequest.episodeNumber}: Invalid type '${episodeRequest.type}'")
-                        continue
-                    }
-
-                    // Create episode
-                    var episode = Episode(
-                        moduleId = savedModule.id!!,
-                        episodeNumber = episodeRequest.episodeNumber,
-                        episodeType = episodeType,
-                        title = episodeRequest.title,
-                        content = episodeRequest.content,
-                        transcript = episodeRequest.transcript,
-                        estimatedMinutes = episodeRequest.estimatedMinutes
-                    )
-
-                    // Generate audio if requested
+                    // Pre-audio generation progress update
                     if (generateAudio && episodeRequest.generateAudio &&
                         (episodeRequest.type == "DIALOGUE" || episodeRequest.type == "STORY")) {
-                        try {
-                            updateProgress(importId) {
-                                it.copy(message = "Generating audio for: ${episodeRequest.title}")
-                            }
-
-                            // Convert SpeakerConfig to SpeakerVoiceConfig
-                            val speakerVoiceConfigs = episodeRequest.speakers.map { speaker ->
-                                SpeakerVoiceConfig(
-                                    name = speaker.name,
-                                    voice = speaker.voice
-                                )
-                            }
-
-                            val audioUrl = audioGenerationService.generateAudio(
-                                transcript = episodeRequest.content,
-                                languageCode = course.languageCode,
-                                moduleNumber = savedModule.moduleNumber,
-                                voice = if (speakerVoiceConfigs.isEmpty()) "Leda" else speakerVoiceConfigs[0].voice,
-                                speakers = speakerVoiceConfigs,
-                                stylePrompt = episodeRequest.audioStyle
-                            )
-                            episode = episode.copy(audioUrl = audioUrl)
-                            audioGenerated++
-                            logger.info("Generated audio for episode: ${episode.title} (speakers: ${speakerVoiceConfigs.size})")
-                        } catch (e: Exception) {
-                            logger.error("Failed to generate audio for episode: ${episode.title}", e)
-                            errors.add("Episode ${episodeRequest.episodeNumber}: Audio generation failed - ${e.message}")
+                        updateProgress(importId) {
+                            it.copy(message = "Generating audio for: ${episodeRequest.title}")
                         }
                     }
 
-                    val savedEpisode = episodeRepository.save(episode)
+                    val savedEpisode = try {
+                        val episode = processEpisode(
+                            episodeRequest,
+                            savedModule.id!!,
+                            course,
+                            savedModule.moduleNumber,
+                            generateAudio
+                        )
+                        if (episode.audioUrl != null) audioGenerated++
+                        episode
+                    } catch (e: Exception) {
+                        logger.error("Failed to process episode: ${episodeRequest.title}", e)
+                        errors.add("Episode ${episodeRequest.episodeNumber}: ${e.message}")
+                        continue
+                    }
                     episodesImported++
                     logger.info("Episode saved with ID: ${savedEpisode.id}")
 
@@ -567,7 +398,10 @@ class CourseImportService(
                             episodeContentItemRepository.save(contentItem)
 
                         } catch (e: Exception) {
-                            logger.error("Failed to import content item ${contentItemRequest.orderIndex} for episode ${episodeRequest.episodeNumber}", e)
+                            logger.error(
+                                "Failed to import content item ${contentItemRequest.orderIndex} for episode ${episodeRequest.episodeNumber}",
+                                e
+                            )
                             errors.add("Episode ${episodeRequest.episodeNumber}, content item ${contentItemRequest.orderIndex}: ${e.message}")
                         }
                     }
@@ -636,7 +470,8 @@ class CourseImportService(
                         val audioUrl = audioGenerationService.generateAudio(
                             transcript = transcript,
                             languageCode = languageCode,
-                            moduleNumber = moduleNumber
+                            moduleNumber = moduleNumber,
+                            speakers = getVoiceForLanguage(languageCode)
                         )
 
                         // Update content with audio URL
@@ -678,5 +513,227 @@ class CourseImportService(
 
         val savedRule = grammarRuleRepository.save(grammarRule)
         return savedRule.id!!
+    }
+
+    /**
+     * Creates or updates a module based on the request
+     */
+    private fun createOrUpdateModule(
+        courseId: Long,
+        moduleRequest: ModuleImportRequest
+    ): Module {
+        val objectivesNode: JsonNode? = if (moduleRequest.objectives.isNotEmpty()) {
+            objectMapper.valueToTree(moduleRequest.objectives)
+        } else null
+
+        val module = moduleRepository.findByCourseIdAndModuleNumber(courseId, moduleRequest.moduleNumber)
+            ?.copy(
+                title = moduleRequest.title,
+                theme = moduleRequest.theme,
+                description = moduleRequest.description,
+                objectives = objectivesNode,
+                estimatedMinutes = moduleRequest.estimatedMinutes,
+                updatedAt = java.time.LocalDateTime.now()
+            )
+            ?: Module(
+                courseId = courseId,
+                moduleNumber = moduleRequest.moduleNumber,
+                title = moduleRequest.title,
+                theme = moduleRequest.theme,
+                description = moduleRequest.description,
+                objectives = objectivesNode,
+                estimatedMinutes = moduleRequest.estimatedMinutes
+            )
+
+        return moduleRepository.save(module)
+    }
+
+    /**
+     * Data class to hold processed dialogue information
+     */
+    private data class ProcessedDialogue(
+        val content: String,
+        val speakers: List<SpeakerVoiceConfig>,
+        val audioStyle: String?
+    )
+
+    /**
+     * Processes structured dialogue from episode request
+     */
+    private fun processDialogue(dialogue: StructuredDialogue): ProcessedDialogue {
+        // Validate: all speakers in lines exist in speakers map
+        val speakerNames = dialogue.lines.map { it.speaker }.distinct()
+        val missingSpeakers = speakerNames.filterNot { dialogue.speakers.containsKey(it) }
+        if (missingSpeakers.isNotEmpty()) {
+            throw IllegalArgumentException("Speakers not defined in dialogue.speakers: ${missingSpeakers.joinToString()}")
+        }
+
+        // Validate: max 2 speakers for multi-speaker TTS
+        if (speakerNames.size > 2) {
+            throw IllegalArgumentException("Maximum 2 speakers supported for dialogue, found: ${speakerNames.size}")
+        }
+
+        // Build content from dialogue lines
+        val content = dialogue.lines.joinToString("\n\n") { line ->
+            "${line.speaker}: ${line.text}"
+        }
+
+        // Extract speaker voice configs
+        val speakers = speakerNames.map { name ->
+            val config = dialogue.speakers[name]!!
+            SpeakerVoiceConfig(name = name, voice = config.voice)
+        }
+
+        return ProcessedDialogue(content, speakers, dialogue.audioStyle)
+    }
+
+    /**
+     * Processes a single episode and returns the saved episode
+     */
+    private fun processEpisode(
+        episodeRequest: EpisodeImportRequest,
+        moduleId: Long,
+        course: Course,
+        moduleNumber: Int,
+        generateAudio: Boolean
+    ): Episode {
+        val episodeType = try {
+            EpisodeType.valueOf(episodeRequest.type.uppercase())
+        } catch (e: IllegalArgumentException) {
+            throw IllegalArgumentException("Invalid episode type: ${episodeRequest.type}")
+        }
+
+        // Process dialogue
+        val processedDialogue = processDialogue(episodeRequest.dialogue)
+
+        // Create episode
+        var episode = Episode(
+            moduleId = moduleId,
+            episodeNumber = episodeRequest.episodeNumber,
+            episodeType = episodeType,
+            title = episodeRequest.title,
+            content = processedDialogue.content,
+            transcript = episodeRequest.transcript,
+            estimatedMinutes = episodeRequest.estimatedMinutes
+        )
+
+        // Generate audio if requested
+        if (generateAudio && episodeRequest.generateAudio &&
+            (episodeRequest.type == "DIALOGUE" || episodeRequest.type == "STORY")
+        ) {
+            try {
+                val audioUrl = audioGenerationService.generateAudio(
+                    transcript = processedDialogue.content,
+                    languageCode = course.languageCode,
+                    moduleNumber = moduleNumber,
+                    speakers = processedDialogue.speakers,
+                    stylePrompt = processedDialogue.audioStyle
+                )
+                episode = episode.copy(audioUrl = audioUrl)
+                logger.info("Generated audio for episode: ${episode.title} (speakers: ${processedDialogue.speakers.size})")
+            } catch (e: Exception) {
+                logger.error("Failed to generate audio for episode: ${episode.title}", e)
+                throw e
+            }
+        }
+
+        return episodeRepository.save(episode)
+    }
+
+    /**
+     * Result of importing content items
+     */
+    private data class ContentItemImportResult(
+        val exercisesImported: Int,
+        val errors: List<String>
+    )
+
+    /**
+     * Imports all content items for an episode
+     */
+    private fun importContentItems(
+        episodeId: Long,
+        episodeNumber: Int,
+        contentItems: List<ContentItemImportRequest>,
+        languageCode: String,
+        cefrLevel: String,
+        moduleNumber: Int,
+        generateAudio: Boolean
+    ): ContentItemImportResult {
+        val errors = mutableListOf<String>()
+        var exercisesImported = 0
+
+        // Delete existing content items for this episode (if updating)
+        episodeContentItemRepository.deleteByEpisodeId(episodeId)
+
+        for (contentItemRequest in contentItems) {
+            try {
+                val contentType = ContentItemType.valueOf(contentItemRequest.type.uppercase())
+                var contentId: Long? = null
+
+                when (contentType) {
+                    ContentItemType.EXERCISE -> {
+                        if (contentItemRequest.exercise == null) {
+                            errors.add("Episode $episodeNumber, content item ${contentItemRequest.orderIndex}: Missing exercise data")
+                            continue
+                        }
+
+                        val exerciseId = importExercise(
+                            languageCode,
+                            moduleNumber,
+                            contentItemRequest.exercise,
+                            generateAudio
+                        )
+
+                        if (exerciseId != null) {
+                            contentId = exerciseId
+                            exercisesImported++
+                        } else {
+                            errors.add("Episode $episodeNumber, content item ${contentItemRequest.orderIndex}: Failed to import exercise")
+                            continue
+                        }
+                    }
+
+                    ContentItemType.GRAMMAR_RULE -> {
+                        if (contentItemRequest.grammarRule == null) {
+                            errors.add("Episode $episodeNumber, content item ${contentItemRequest.orderIndex}: Missing grammar rule data")
+                            continue
+                        }
+
+                        val grammarRuleId = importGrammarRule(
+                            languageCode,
+                            cefrLevel,
+                            contentItemRequest.grammarRule
+                        )
+                        contentId = grammarRuleId
+                    }
+
+                    else -> {
+                        errors.add("Episode $episodeNumber, content item ${contentItemRequest.orderIndex}: Unsupported content type '${contentItemRequest.type}'")
+                        continue
+                    }
+                }
+
+                // Create content item link
+                val contentItem = EpisodeContentItem(
+                    episodeId = episodeId,
+                    orderIndex = contentItemRequest.orderIndex,
+                    contentType = contentType,
+                    contentId = contentId,
+                    isRequired = contentItemRequest.isRequired
+                )
+
+                episodeContentItemRepository.save(contentItem)
+
+            } catch (e: Exception) {
+                logger.error(
+                    "Failed to import content item ${contentItemRequest.orderIndex} for episode $episodeNumber",
+                    e
+                )
+                errors.add("Episode $episodeNumber, content item ${contentItemRequest.orderIndex}: ${e.message}")
+            }
+        }
+
+        return ContentItemImportResult(exercisesImported, errors)
     }
 }

@@ -16,7 +16,97 @@
       "episodeNumber": 1,
       "type": "DIALOGUE",
       "title": "La Baguette",
-      "content": "C'est le matin. Alex entre dans la boulangerie du quartier. L'odeur du pain frais est magnifique.\n\nBoulangère : Bonjour monsieur ! Bienvenue !\n\nAlex : Bonjour madame !\n\nBoulangère : Vous désirez ?\n\nAlex : Je voudrais une baguette, s'il vous plaît.\n\nBoulangère : Une baguette traditionnelle ou une baguette normale ?\n\nAlex : Euh... Quelle est la différence ?\n\nBoulangère : La baguette traditionnelle est plus croustillante. Elle est un peu plus chère, mais elle est très bonne.\n\nAlex : D'accord ! Je voudrais une baguette traditionnelle, s'il vous plaît.\n\nBoulangère : Parfait ! Autre chose ?\n\nAlex : Oui, je voudrais aussi deux croissants.\n\nBoulangère : Voilà ! Deux croissants au beurre. C'est tout ?\n\nAlex : Oui, c'est tout. Merci.\n\nBoulangère : Alors, une baguette traditionnelle et deux croissants... Ça fait quatre euros cinquante, s'il vous plaît.\n\nAlex : Voilà cinq euros.\n\nBoulangère : Merci. Et voici votre monnaie : cinquante centimes. Bonne journée monsieur !\n\nAlex : Merci ! Bonne journée !\n\nAlex sort de la boulangerie avec son pain chaud. Il est très content. Le pain français, c'est délicieux !",
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrateur",
+            "text": "C'est le matin. Alex entre dans la boulangerie du quartier. L'odeur du pain frais est magnifique."
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Bonjour monsieur ! Bienvenue !"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Bonjour madame !"
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Vous désirez ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Je voudrais une baguette, s'il vous plaît."
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Une baguette traditionnelle ou une baguette normale ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Euh... Quelle est la différence ?"
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "La baguette traditionnelle est plus croustillante. Elle est un peu plus chère, mais elle est très bonne."
+          },
+          {
+            "speaker": "Alex",
+            "text": "D'accord ! Je voudrais une baguette traditionnelle, s'il vous plaît."
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Parfait ! Autre chose ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui, je voudrais aussi deux croissants."
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Voilà ! Deux croissants au beurre. C'est tout ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui, c'est tout. Merci."
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Alors, une baguette traditionnelle et deux croissants... Ça fait quatre euros cinquante, s'il vous plaît."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Voilà cinq euros."
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Merci. Et voici votre monnaie : cinquante centimes. Bonne journée monsieur !"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Merci ! Bonne journée !"
+          },
+          {
+            "speaker": "Narrateur",
+            "text": "Alex sort de la boulangerie avec son pain chaud. Il est très content. Le pain français, c'est délicieux !"
+          }
+        ],
+        "speakers": {
+          "Narrateur": {
+            "voice": "Charon",
+            "description": "Calm narrator setting the scene in the bakery"
+          },
+          "Alex": {
+            "voice": "Achird",
+            "description": "Jeune homme américain qui découvre la boulangerie française"
+          },
+          "Boulangère": {
+            "voice": "Aoede",
+            "description": "Boulangère accueillante et chaleureuse"
+          }
+        },
+        "audioStyle": "Transaction commerciale chaleureuse dans une boulangerie française. La boulangère est professionnelle et amicale. Rythme naturel avec un ton accueillant."
+      },
       "generateAudio": true,
       "estimatedMinutes": 40,
       "contentItems": [
@@ -385,26 +475,115 @@
             "difficultyRating": 1.0
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "Jeune homme américain qui découvre la boulangerie française"
-        },
-        {
-          "name": "La Boulangère",
-          "voice": "Aoede",
-          "description": "Boulangère accueillante et chaleureuse"
-        }
-      ],
-      "audioStyle": "Transaction commerciale chaleureuse dans une boulangerie française. La boulangère est professionnelle et amicale. Rythme naturel avec un ton accueillant."
+      ]
     },
     {
       "episodeNumber": 2,
       "type": "DIALOGUE",
       "title": "Les Pâtisseries",
-      "content": "Le lendemain, Alex retourne à la boulangerie. Cette fois, il veut essayer les pâtisseries.\n\nBoulangère : Bonjour ! Vous revoilà ! Comment allez-vous ?\n\nAlex : Bonjour ! Je vais très bien, merci. Le pain d'hier était délicieux !\n\nBoulangère : Ah, je suis contente ! Aujourd'hui, vous voulez du pain aussi ?\n\nAlex : Oui, une baguette, et je voudrais essayer les pâtisseries. Qu'est-ce que vous recommandez ?\n\nBoulangère : Ah, les pâtisseries ! Regardez : ici, nous avons le pain au chocolat, la tarte aux pommes, le gâteau au chocolat, et l'éclair.\n\nAlex : Mmm, tout a l'air bon ! C'est quoi, l'éclair ?\n\nBoulangère : L'éclair, c'est une pâtisserie allongée avec de la crème à l'intérieur et du chocolat ou du café sur le dessus. C'est très bon !\n\nAlex : D'accord ! Je prends un éclair au chocolat. Et aussi un pain au chocolat.\n\nBoulangère : Parfait ! Vous voulez celui-ci ou celui-là ?\n\nAlex : Euh... Quelle est la différence ?\n\nBoulangère : Celui-ci est plus grand. Celui-là est un peu plus petit.\n\nAlex : Je prends celui-ci, le plus grand !\n\nBoulangère : Très bien ! Donc, une baguette, un éclair au chocolat, et un pain au chocolat. C'est tout ?\n\nAlex : Oui, c'est tout. Ah non ! Je voudrais aussi la tarte aux pommes. Elle est belle !\n\nBoulangère : La tarte entière ou juste une part ?\n\nAlex : Juste une part, s'il vous plaît.\n\nBoulangère : Voilà ! Alors, ça fait neuf euros vingt au total.\n\nAlex : Parfait. Voilà dix euros.\n\nBoulangère : Merci. Voici votre monnaie. Bonne journée !\n\nAlex : Merci, bonne journée !",
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrateur",
+            "text": "Le lendemain, Alex retourne à la boulangerie. Cette fois, il veut essayer les pâtisseries."
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Bonjour ! Vous revoilà ! Comment allez-vous ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Bonjour ! Je vais très bien, merci. Le pain d'hier était délicieux !"
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Ah, je suis contente ! Aujourd'hui, vous voulez du pain aussi ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui, une baguette, et je voudrais essayer les pâtisseries. Qu'est-ce que vous recommandez ?"
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Ah, les pâtisseries ! Regardez : ici, nous avons le pain au chocolat, la tarte aux pommes, le gâteau au chocolat, et l'éclair."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Mmm, tout a l'air bon ! C'est quoi, l'éclair ?"
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "L'éclair, c'est une pâtisserie allongée avec de la crème à l'intérieur et du chocolat ou du café sur le dessus. C'est très bon !"
+          },
+          {
+            "speaker": "Alex",
+            "text": "D'accord ! Je prends un éclair au chocolat. Et aussi un pain au chocolat."
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Parfait ! Vous voulez celui-ci ou celui-là ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Euh... Quelle est la différence ?"
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Celui-ci est plus grand. Celui-là est un peu plus petit."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Je prends celui-ci, le plus grand !"
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Très bien ! Donc, une baguette, un éclair au chocolat, et un pain au chocolat. C'est tout ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui, c'est tout. Ah non ! Je voudrais aussi la tarte aux pommes. Elle est belle !"
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "La tarte entière ou juste une part ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Juste une part, s'il vous plaît."
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Voilà ! Alors, ça fait neuf euros vingt au total."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Parfait. Voilà dix euros."
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Merci. Voici votre monnaie. Bonne journée !"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Merci, bonne journée !"
+          }
+        ],
+        "speakers": {
+          "Narrateur": {
+            "voice": "Charon",
+            "description": "Calm narrator introducing the next day's bakery visit"
+          },
+          "Alex": {
+            "voice": "Achird",
+            "description": "Jeune homme curieux qui découvre les pâtisseries françaises"
+          },
+          "Boulangère": {
+            "voice": "Aoede",
+            "description": "Boulangère qui explique ses produits avec fierté"
+          }
+        },
+        "audioStyle": "Conversation commerciale amicale. La boulangère est enthousiaste quand elle décrit ses pâtisseries. Alex pose des questions avec curiosité."
+      },
       "generateAudio": true,
       "estimatedMinutes": 40,
       "contentItems": [
@@ -794,26 +973,119 @@
             "difficultyRating": 1.0
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "Jeune homme curieux qui découvre les pâtisseries françaises"
-        },
-        {
-          "name": "La Boulangère",
-          "voice": "Aoede",
-          "description": "Boulangère qui explique ses produits avec fierté"
-        }
-      ],
-      "audioStyle": "Conversation commerciale amicale. La boulangère est enthousiaste quand elle décrit ses pâtisseries. Alex pose des questions avec curiosité."
+      ]
     },
     {
       "episodeNumber": 3,
       "type": "DIALOGUE",
       "title": "Payer",
-      "content": "Quelques jours plus tard, Alex est de nouveau à la boulangerie. Il y a une petite file d'attente.\n\nClient devant Alex : Bonjour ! Je voudrais trois baguettes et quatre pains au chocolat.\n\nBoulangère : Très bien ! Ça fait huit euros soixante, s'il vous plaît.\n\nClient : Voilà. Vous acceptez la carte ?\n\nBoulangère : Oui, bien sûr ! À partir de cinq euros.\n\nLe client paie avec sa carte bancaire et part. C'est maintenant le tour d'Alex.\n\nBoulangère : Bonjour Alex ! Toujours fidèle !\n\nAlex : Bonjour ! Oui, votre pain est trop bon ! Combien coûte la baguette tradition ?\n\nBoulangère : La baguette tradition coûte un euro trente.\n\nAlex : Et le pain au chocolat ?\n\nBoulangère : Deux euros.\n\nAlex : D'accord. Je voudrais deux baguettes tradition et trois pains au chocolat, s'il vous plaît.\n\nBoulangère : Parfait ! Voyons... Deux baguettes à un euro trente, ça fait deux euros soixante. Trois pains au chocolat à deux euros, ça fait six euros. Le total est huit euros soixante.\n\nAlex : C'est cher ou c'est pas cher ?\n\nBoulangère : Pour la qualité, ce n'est pas cher ! C'est un prix normal pour du bon pain artisanal.\n\nAlex : D'accord ! Je paie en espèces. Voilà dix euros.\n\nBoulangère : Merci. Voici votre monnaie : un euro quarante. Vous voulez un sac ?\n\nAlex : Oui, s'il vous plaît.\n\nBoulangère : Voilà ! Bonne journée !\n\nAlex : Merci beaucoup ! À bientôt !\n\nBoulangère : À très bientôt !",
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrateur",
+            "text": "Quelques jours plus tard, Alex est de nouveau à la boulangerie. Il y a une petite file d'attente."
+          },
+          {
+            "speaker": "Client",
+            "text": "Bonjour ! Je voudrais trois baguettes et quatre pains au chocolat."
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Très bien ! Ça fait huit euros soixante, s'il vous plaît."
+          },
+          {
+            "speaker": "Client",
+            "text": "Voilà. Vous acceptez la carte ?"
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Oui, bien sûr ! À partir de cinq euros."
+          },
+          {
+            "speaker": "Narrateur",
+            "text": "Le client paie avec sa carte bancaire et part. C'est maintenant le tour d'Alex."
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Bonjour Alex ! Toujours fidèle !"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Bonjour ! Oui, votre pain est trop bon ! Combien coûte la baguette tradition ?"
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "La baguette tradition coûte un euro trente."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Et le pain au chocolat ?"
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Deux euros."
+          },
+          {
+            "speaker": "Alex",
+            "text": "D'accord. Je voudrais deux baguettes tradition et trois pains au chocolat, s'il vous plaît."
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Parfait ! Voyons... Deux baguettes à un euro trente, ça fait deux euros soixante. Trois pains au chocolat à deux euros, ça fait six euros. Le total est huit euros soixante."
+          },
+          {
+            "speaker": "Alex",
+            "text": "C'est cher ou c'est pas cher ?"
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Pour la qualité, ce n'est pas cher ! C'est un prix normal pour du bon pain artisanal."
+          },
+          {
+            "speaker": "Alex",
+            "text": "D'accord ! Je paie en espèces. Voilà dix euros."
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Merci. Voici votre monnaie : un euro quarante. Vous voulez un sac ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui, s'il vous plaît."
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "Voilà ! Bonne journée !"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Merci beaucoup ! À bientôt !"
+          },
+          {
+            "speaker": "Boulangère",
+            "text": "À très bientôt !"
+          }
+        ],
+        "speakers": {
+          "Narrateur": {
+            "voice": "Charon",
+            "description": "Calm narrator describing the bakery scene and queue"
+          },
+          "Client": {
+            "voice": "Aldhibah",
+            "description": "Another customer in the bakery, ordering before Alex"
+          },
+          "Alex": {
+            "voice": "Achird",
+            "description": "Jeune homme qui devient un client régulier"
+          },
+          "Boulangère": {
+            "voice": "Aoede",
+            "description": "Boulangère qui reconnaît Alex et est contente de le revoir"
+          }
+        },
+        "audioStyle": "Transaction commerciale devenue familière. La boulangère reconnaît Alex comme un habitué. Ton chaleureux et amical avec des explications claires sur les prix."
+      },
       "generateAudio": true,
       "estimatedMinutes": 40,
       "contentItems": [
@@ -1179,20 +1451,7 @@
             "difficultyRating": 1.0
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "Jeune homme qui devient un client régulier"
-        },
-        {
-          "name": "La Boulangère",
-          "voice": "Aoede",
-          "description": "Boulangère qui reconnaît Alex et est contente de le revoir"
-        }
-      ],
-      "audioStyle": "Transaction commerciale devenue familière. La boulangère reconnaît Alex comme un habitué. Ton chaleureux et amical avec des explications claires sur les prix."
+      ]
     }
   ]
 }

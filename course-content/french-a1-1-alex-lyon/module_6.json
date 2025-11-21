@@ -16,8 +16,114 @@
       "episodeNumber": 1,
       "type": "DIALOGUE",
       "title": "L'Arbre Généalogique",
-      "content": "Alex est dans son appartement. Il fait un appel vidéo avec sa mère.\n\nMaman : Alex ! Mon chéri ! Comment vas-tu ?\n\nAlex : Salut maman ! Je vais très bien ! Et toi ?\n\nMaman : Ça va bien, merci. Tu me manques ! Raconte-moi, comment est Lyon ?\n\nAlex : C'est magnifique ! J'adore cette ville. Les gens sont sympathiques, le pain est délicieux...\n\nMaman : Je suis contente ! Et le travail ?\n\nAlex : Le travail commence lundi. J'ai rencontré un collègue qui s'appelle Thomas. Il est très gentil.\n\nMaman : Super ! Dis-moi, tu parles français tous les jours maintenant ?\n\nAlex : Oui ! Je parle français avec mes voisins, à la boulangerie, partout !\n\nMaman : Excellent ! Tu progresses vite. Comment va ton père ?\n\nAlex : Attends, je ne comprends pas. Papa n'est pas avec toi ?\n\nMaman : Non, il travaille au bureau aujourd'hui. C'est samedi mais il a beaucoup de travail.\n\nAlex : Ah d'accord. Et comment va ma sœur ?\n\nMaman : Ta sœur va bien ! Elle étudie beaucoup pour ses examens.\n\nAlex : Et mon frère ? Il joue toujours au football ?\n\nMaman : Oui ! Ton frère adore le football. Il joue tous les weekends. Et il demande souvent de tes nouvelles.\n\nAlex : C'est gentil ! Et mes grands-parents ?\n\nMaman : Ta grand-mère et ton grand-père vont très bien. Ils pensent à toi. Ta grand-mère cuisine toujours des gâteaux pour toute la famille.\n\nAlex : Ah, grand-mère et ses gâteaux ! Ça me manque !\n\nMaman : Toute la famille pense à toi, Alex. On est fiers de toi.\n\nAlex : Merci maman. Vous me manquez aussi. Je vous aime tous.\n\nMaman : Nous aussi, on t'aime ! Appelle-nous bientôt !\n\nAlex : Promis ! Bisous maman !\n\nMaman : Bisous mon chéri !",
       "generateAudio": true,
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Maman",
+            "text": "Alex ! Mon chéri ! Comment vas-tu ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Salut maman ! Je vais très bien ! Et toi ?"
+          },
+          {
+            "speaker": "Maman",
+            "text": "Ça va bien, merci. Tu me manques ! Raconte-moi, comment est Lyon ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "C'est magnifique ! J'adore cette ville. Les gens sont sympathiques, le pain est délicieux..."
+          },
+          {
+            "speaker": "Maman",
+            "text": "Je suis contente ! Et le travail ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Le travail commence lundi. J'ai rencontré un collègue qui s'appelle Thomas. Il est très gentil."
+          },
+          {
+            "speaker": "Maman",
+            "text": "Super ! Dis-moi, tu parles français tous les jours maintenant ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui ! Je parle français avec mes voisins, à la boulangerie, partout !"
+          },
+          {
+            "speaker": "Maman",
+            "text": "Excellent ! Tu progresses vite. Comment va ton père ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Attends, je ne comprends pas. Papa n'est pas avec toi ?"
+          },
+          {
+            "speaker": "Maman",
+            "text": "Non, il travaille au bureau aujourd'hui. C'est samedi mais il a beaucoup de travail."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Ah d'accord. Et comment va ma sœur ?"
+          },
+          {
+            "speaker": "Maman",
+            "text": "Ta sœur va bien ! Elle étudie beaucoup pour ses examens."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Et mon frère ? Il joue toujours au football ?"
+          },
+          {
+            "speaker": "Maman",
+            "text": "Oui ! Ton frère adore le football. Il joue tous les weekends. Et il demande souvent de tes nouvelles."
+          },
+          {
+            "speaker": "Alex",
+            "text": "C'est gentil ! Et mes grands-parents ?"
+          },
+          {
+            "speaker": "Maman",
+            "text": "Ta grand-mère et ton grand-père vont très bien. Ils pensent à toi. Ta grand-mère cuisine toujours des gâteaux pour toute la famille."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Ah, grand-mère et ses gâteaux ! Ça me manque !"
+          },
+          {
+            "speaker": "Maman",
+            "text": "Toute la famille pense à toi, Alex. On est fiers de toi."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Merci maman. Vous me manquez aussi. Je vous aime tous."
+          },
+          {
+            "speaker": "Maman",
+            "text": "Nous aussi, on t'aime ! Appelle-nous bientôt !"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Promis ! Bisous maman !"
+          },
+          {
+            "speaker": "Maman",
+            "text": "Bisous mon chéri !"
+          }
+        ],
+        "speakers": {
+          "Alex": {
+            "voice": "Achird",
+            "description": "Jeune homme qui parle avec sa famille aux États-Unis"
+          },
+          "Maman": {
+            "voice": "Leda",
+            "description": "Mère aimante qui est fière de son fils"
+          }
+        },
+        "audioStyle": "Conversation familiale affectueuse par vidéo. La mère est douce et attentionnée. Alex est enthousiaste de partager sa nouvelle vie. Ton chaleureux et émotionnel."
+      },
       "estimatedMinutes": 40,
       "contentItems": [
         {
@@ -423,27 +529,120 @@
             "difficultyRating": 1.2
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "Jeune homme qui parle avec sa famille aux États-Unis"
-        },
-        {
-          "name": "Maman d'Alex",
-          "voice": "Leda",
-          "description": "Mère aimante qui est fière de son fils"
-        }
-      ],
-      "audioStyle": "Conversation familiale affectueuse par vidéo. La mère est douce et attentionnée. Alex est enthousiaste de partager sa nouvelle vie. Ton chaleureux et émotionnel."
+      ]
     },
     {
       "episodeNumber": 2,
       "type": "DIALOGUE",
       "title": "Mon Frère, Ta Sœur",
-      "content": "Quelques jours plus tard, Alex appelle son père.\n\nPapa : Allô, Alex ! Comment vas-tu, mon fils ?\n\nAlex : Salut papa ! Je vais très bien ! Et toi ?\n\nPapa : Ça va bien, merci. Ta mère m'a dit que tu adores Lyon.\n\nAlex : Oui, c'est vrai ! Ma nouvelle vie ici est géniale. Mon appartement est petit mais confortable.\n\nPapa : Super ! Et ton travail commence bientôt, non ?\n\nAlex : Oui, lundi. Mon collègue Thomas est vraiment sympa. Il m'aide beaucoup.\n\nPapa : C'est bien d'avoir des amis là-bas. Et dis-moi, tu parles souvent français maintenant ?\n\nAlex : Oui, tous les jours ! Mes voisins sont gentils. Ma voisine Marie a deux enfants. Son fils a quatre ans et sa fille a sept ans.\n\nPapa : Ah, c'est bien ! Et comment va ton français ?\n\nAlex : Ça progresse ! Mes conversations sont encore simples, mais je comprends beaucoup de choses.\n\nPapa : Excellent ! Bon, je voulais te donner des nouvelles de la famille. Ta sœur étudie beaucoup. Ses examens sont difficiles.\n\nAlex : Oui, maman m'a dit. Ma sœur est courageuse. Elle travaille toujours beaucoup.\n\nPapa : Et ton frère ? Il parle souvent de toi. Ses matchs de football sont tous les samedis.\n\nAlex : Ah, mon frère et son football ! C'est sa passion !\n\nPapa : Exactement ! Et tes grands-parents demandent souvent de tes nouvelles. Leur maison est toujours ouverte pour toi quand tu reviens.\n\nAlex : Merci papa. Ma famille me manque beaucoup.\n\nPapa : Nous aussi, on pense à toi tous les jours. Mais on est fiers de toi. Ton aventure en France, c'est formidable !\n\nAlex : Merci papa. Vos encouragements, c'est important pour moi.\n\nPapa : Appelle-nous quand tu veux. Notre porte est toujours ouverte.\n\nAlex : Promis ! Je vous aime tous.\n\nPapa : On t'aime aussi, mon fils. Prends soin de toi !\n\nAlex : Toi aussi papa. À bientôt !\n\nPapa : À très bientôt !",
       "generateAudio": true,
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Papa",
+            "text": "Allô, Alex ! Comment vas-tu, mon fils ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Salut papa ! Je vais très bien ! Et toi ?"
+          },
+          {
+            "speaker": "Papa",
+            "text": "Ça va bien, merci. Ta mère m'a dit que tu adores Lyon."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui, c'est vrai ! Ma nouvelle vie ici est géniale. Mon appartement est petit mais confortable."
+          },
+          {
+            "speaker": "Papa",
+            "text": "Super ! Et ton travail commence bientôt, non ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui, lundi. Mon collègue Thomas est vraiment sympa. Il m'aide beaucoup."
+          },
+          {
+            "speaker": "Papa",
+            "text": "C'est bien d'avoir des amis là-bas. Et dis-moi, tu parles souvent français maintenant ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui, tous les jours ! Mes voisins sont gentils. Ma voisine Marie a deux enfants. Son fils a quatre ans et sa fille a sept ans."
+          },
+          {
+            "speaker": "Papa",
+            "text": "Ah, c'est bien ! Et comment va ton français ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Ça progresse ! Mes conversations sont encore simples, mais je comprends beaucoup de choses."
+          },
+          {
+            "speaker": "Papa",
+            "text": "Excellent ! Bon, je voulais te donner des nouvelles de la famille. Ta sœur étudie beaucoup. Ses examens sont difficiles."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui, maman m'a dit. Ma sœur est courageuse. Elle travaille toujours beaucoup."
+          },
+          {
+            "speaker": "Papa",
+            "text": "Et ton frère ? Il parle souvent de toi. Ses matchs de football sont tous les samedis."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Ah, mon frère et son football ! C'est sa passion !"
+          },
+          {
+            "speaker": "Papa",
+            "text": "Exactement ! Et tes grands-parents demandent souvent de tes nouvelles. Leur maison est toujours ouverte pour toi quand tu reviens."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Merci papa. Ma famille me manque beaucoup."
+          },
+          {
+            "speaker": "Papa",
+            "text": "Nous aussi, on pense à toi tous les jours. Mais on est fiers de toi. Ton aventure en France, c'est formidable !"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Merci papa. Vos encouragements, c'est important pour moi."
+          },
+          {
+            "speaker": "Papa",
+            "text": "Appelle-nous quand tu veux. Notre porte est toujours ouverte."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Promis ! Je vous aime tous."
+          },
+          {
+            "speaker": "Papa",
+            "text": "On t'aime aussi, mon fils. Prends soin de toi !"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Toi aussi papa. À bientôt !"
+          },
+          {
+            "speaker": "Papa",
+            "text": "À très bientôt !"
+          }
+        ],
+        "speakers": {
+          "Alex": {
+            "voice": "Achird",
+            "description": "Jeune homme qui donne des nouvelles de sa vie en France"
+          },
+          "Papa": {
+            "voice": "Algieba",
+            "description": "Père fier et encourageant"
+          }
+        },
+        "audioStyle": "Conversation père-fils affectueuse et encourageante. Le père est fier et soutenant. Alex est reconnaissant. Ton chaleureux avec des moments d'émotion."
+      },
       "estimatedMinutes": 40,
       "contentItems": [
         {
@@ -834,27 +1033,28 @@
             "difficultyRating": 1.0
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "Jeune homme qui donne des nouvelles de sa vie en France"
-        },
-        {
-          "name": "Papa d'Alex",
-          "voice": "Algieba",
-          "description": "Père fier et encourageant"
-        }
-      ],
-      "audioStyle": "Conversation père-fils affectueuse et encourageante. Le père est fier et soutenant. Alex est reconnaissant. Ton chaleureux avec des moments d'émotion."
+      ]
     },
     {
       "episodeNumber": 3,
       "type": "STORY",
       "title": "Ils Habitent à...",
-      "content": "Le soir, Alex est dans son appartement. Il écrit dans son journal.\n\n\"Cher journal,\n\nAujourd'hui, je pense à ma famille. Ma famille habite aux États-Unis, à New York. Moi, maintenant, j'habite en France, à Lyon. C'est loin, mais nous parlons souvent par vidéo.\n\nMa mère s'appelle Sarah. Elle travaille dans une école. Elle aime beaucoup son travail. Elle parle souvent de ses élèves. Mon père s'appelle Robert. Il travaille dans un bureau. Il aime son travail aussi, mais il travaille beaucoup.\n\nMa sœur s'appelle Emma. Elle étudie à l'université. Elle parle trois langues : anglais, espagnol et français. Elle aime les langues étrangères. Mon frère s'appelle Jake. Il joue au football. Il adore le sport. Il parle toujours de son équipe.\n\nMes grands-parents habitent aussi à New York, mais dans un autre quartier. Mon grand-père s'appelle William. Il aime jardiner. Il cultive des légumes dans son jardin. Ma grand-mère s'appelle Helen. Elle aime cuisiner. Elle prépare toujours des gâteaux délicieux pour toute la famille.\n\nEt moi ? Je m'appelle Alex. J'habite à Lyon maintenant. Je travaille dans l'informatique. Je parle anglais et français. J'aime découvrir la culture française. J'aime le pain français, le fromage, et les pâtisseries. J'adore ma nouvelle vie ici.\n\nMes voisins sont sympas. Marie habite à l'appartement numéro douze. Elle travaille dans un hôpital. Monsieur Dupont habite au premier étage. Il travaille dans un musée. Sophie habite au troisième étage. Elle travaille dans la mode.\n\nThomas, mon collègue, habite dans un autre quartier de Lyon. Il travaille avec moi à TechParis. Il parle anglais très bien. Il aime voyager. Il visite souvent d'autres pays.\n\nToutes ces personnes habitent dans des endroits différents. Elles travaillent dans des domaines différents. Elles parlent des langues différentes. Mais toutes sont importantes dans ma vie.\n\nJe pense souvent à ma famille et à mes amis. Ils me manquent, mais je suis content de mon aventure française.\n\nBonne nuit, journal.\n\nAlex.\"",
       "generateAudio": true,
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrator",
+            "text": "Le soir, Alex est dans son appartement. Il écrit dans son journal.\n\n\"Cher journal,\n\nAujourd'hui, je pense à ma famille. Ma famille habite aux États-Unis, à New York. Moi, maintenant, j'habite en France, à Lyon. C'est loin, mais nous parlons souvent par vidéo.\n\nMa mère s'appelle Sarah. Elle travaille dans une école. Elle aime beaucoup son travail. Elle parle souvent de ses élèves. Mon père s'appelle Robert. Il travaille dans un bureau. Il aime son travail aussi, mais il travaille beaucoup.\n\nMa sœur s'appelle Emma. Elle étudie à l'université. Elle parle trois langues : anglais, espagnol et français. Elle aime les langues étrangères. Mon frère s'appelle Jake. Il joue au football. Il adore le sport. Il parle toujours de son équipe.\n\nMes grands-parents habitent aussi à New York, mais dans un autre quartier. Mon grand-père s'appelle William. Il aime jardiner. Il cultive des légumes dans son jardin. Ma grand-mère s'appelle Helen. Elle aime cuisiner. Elle prépare toujours des gâteaux délicieux pour toute la famille.\n\nEt moi ? Je m'appelle Alex. J'habite à Lyon maintenant. Je travaille dans l'informatique. Je parle anglais et français. J'aime découvrir la culture française. J'aime le pain français, le fromage, et les pâtisseries. J'adore ma nouvelle vie ici.\n\nMes voisins sont sympas. Marie habite à l'appartement numéro douze. Elle travaille dans un hôpital. Monsieur Dupont habite au premier étage. Il travaille dans un musée. Sophie habite au troisième étage. Elle travaille dans la mode.\n\nThomas, mon collègue, habite dans un autre quartier de Lyon. Il travaille avec moi à TechParis. Il parle anglais très bien. Il aime voyager. Il visite souvent d'autres pays.\n\nToutes ces personnes habitent dans des endroits différents. Elles travaillent dans des domaines différents. Elles parlent des langues différentes. Mais toutes sont importantes dans ma vie.\n\nJe pense souvent à ma famille et à mes amis. Ils me manquent, mais je suis content de mon aventure française.\n\nBonne nuit, journal.\n\nAlex.\""
+          }
+        ],
+        "speakers": {
+          "Narrator": {
+            "voice": "Charon",
+            "description": "Narrateur qui lit le journal d'Alex"
+          }
+        },
+        "audioStyle": "Narration d'un journal intime. Ton réflexif et personnel. Rythme calme comme si Alex écrivait ses pensées. Moment d'introspection."
+      },
       "estimatedMinutes": 40,
       "contentItems": [
         {
@@ -1259,15 +1459,7 @@
             "difficultyRating": 1.3
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Narrator",
-          "voice": "Charon",
-          "description": "Narrateur qui lit le journal d'Alex"
-        }
-      ],
-      "audioStyle": "Narration d'un journal intime. Ton réflexif et personnel. Rythme calme comme si Alex écrivait ses pensées. Moment d'introspection."
+      ]
     }
   ]
 }

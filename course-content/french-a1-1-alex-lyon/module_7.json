@@ -16,7 +16,21 @@
       "episodeNumber": 1,
       "type": "STORY",
       "title": "La Semaine",
-      "content": "Alex regarde son nouveau calendrier français accroché au mur de sa cuisine. Il a beaucoup de choses à organiser cette semaine.\n\nAujourd'hui, c'est lundi. Lundi, il va à la boulangerie. Mardi, il va au marché. Mercredi, Alex a rendez-vous avec le technicien internet. Jeudi, il va au parc. Vendredi, c'est le jour du marché encore. Samedi et dimanche, c'est le weekend!\n\nAlex prend un stylo et écrit sur son calendrier:\n\nLundi - Boulangerie, 9h\nMardi - Marché\nMercredi - Technicien internet\nJeudi - Parc\nVendredi - Marché\nSamedi - Weekend!\nDimanche - Repos\n\nIl répète les jours: \"Lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche.\"\n\nAlex pense: \"Aujourd'hui, c'est lundi. Demain, c'est mardi. Et hier? Hier, c'était dimanche!\"\n\nIl sourit. \"Ma première semaine complète à Lyon!\" Il prend son sac et sort. C'est lundi, et la boulangerie attend!",
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrator",
+            "text": "Alex regarde son nouveau calendrier français accroché au mur de sa cuisine. Il a beaucoup de choses à organiser cette semaine.\n\nAujourd'hui, c'est lundi. Lundi, il va à la boulangerie. Mardi, il va au marché. Mercredi, Alex a rendez-vous avec le technicien internet. Jeudi, il va au parc. Vendredi, c'est le jour du marché encore. Samedi et dimanche, c'est le weekend!\n\nAlex prend un stylo et écrit sur son calendrier:\n\nLundi - Boulangerie, 9h\nMardi - Marché\nMercredi - Technicien internet\nJeudi - Parc\nVendredi - Marché\nSamedi - Weekend!\nDimanche - Repos\n\nIl répète les jours: \"Lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche.\"\n\nAlex pense: \"Aujourd'hui, c'est lundi. Demain, c'est mardi. Et hier? Hier, c'était dimanche!\"\n\nIl sourit. \"Ma première semaine complète à Lyon!\" Il prend son sac et sort. C'est lundi, et la boulangerie attend!"
+          }
+        ],
+        "speakers": {
+          "Narrator": {
+            "voice": "Charon",
+            "description": "Calm, clear narrator voice"
+          }
+        },
+        "audioStyle": "Narrative storytelling. Clear, slow-paced French suitable for beginners. Warm, engaging tone."
+      },
       "generateAudio": true,
       "estimatedMinutes": 20,
       "contentItems": [
@@ -361,35 +375,92 @@
             "difficultyRating": 1.5
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Narrator",
-          "voice": "Charon",
-          "description": "Calm, clear narrator voice"
-        }
-      ],
-      "audioStyle": "Narrative storytelling. Clear, slow-paced French suitable for beginners. Warm, engaging tone."
+      ]
     },
     {
       "episodeNumber": 2,
       "type": "DIALOGUE",
       "title": "Le Rendez-vous",
-      "content": "Technicien: Allô, bonjour! C'est le service internet Lyon.\n\nAlex: Bonjour! Je voudrais installer l'internet dans mon appartement, s'il vous plaît.\n\nTechnicien: Bien sûr! Nous avons des disponibilités cette semaine. Vous préférez quel jour?\n\nAlex: Euh... mercredi, c'est possible?\n\nTechnicien: Mercredi... Oui! Nous avons mercredi. C'est le quinze mars. Ça vous va?\n\nAlex: Le quinze mars... Oui, parfait!\n\nTechnicien: Très bien. Vous préférez le matin ou l'après-midi?\n\nAlex: Le matin, c'est mieux pour moi.\n\nTechnicien: D'accord. J'ai un créneau à dix heures. Ça va?\n\nAlex: Oui, dix heures, c'est parfait!\n\nTechnicien: Excellent! Donc, rendez-vous mercredi quinze mars, à dix heures du matin. Quelle est votre adresse?\n\nAlex: Quinze, rue de la République, Lyon.\n\nTechnicien: Parfait! J'ai noté. À mercredi, monsieur!\n\nAlex: À mercredi! Merci beaucoup!\n\nTechnicien: De rien. Bonne journée!\n\nAlex: Bonne journée!",
-      "generateAudio": true,
-      "speakers": [
-        {
-          "name": "Technicien",
-          "voice": "Achird",
-          "description": "Young technician setting up internet"
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Technicien",
+            "text": "Allô, bonjour! C'est le service internet Lyon."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Bonjour! Je voudrais installer l'internet dans mon appartement, s'il vous plaît."
+          },
+          {
+            "speaker": "Technicien",
+            "text": "Bien sûr! Nous avons des disponibilités cette semaine. Vous préférez quel jour?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Euh... mercredi, c'est possible?"
+          },
+          {
+            "speaker": "Technicien",
+            "text": "Mercredi... Oui! Nous avons mercredi. C'est le quinze mars. Ça vous va?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Le quinze mars... Oui, parfait!"
+          },
+          {
+            "speaker": "Technicien",
+            "text": "Très bien. Vous préférez le matin ou l'après-midi?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Le matin, c'est mieux pour moi."
+          },
+          {
+            "speaker": "Technicien",
+            "text": "D'accord. J'ai un créneau à dix heures. Ça va?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui, dix heures, c'est parfait!"
+          },
+          {
+            "speaker": "Technicien",
+            "text": "Excellent! Donc, rendez-vous mercredi quinze mars, à dix heures du matin. Quelle est votre adresse?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Quinze, rue de la République, Lyon."
+          },
+          {
+            "speaker": "Technicien",
+            "text": "Parfait! J'ai noté. À mercredi, monsieur!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "À mercredi! Merci beaucoup!"
+          },
+          {
+            "speaker": "Technicien",
+            "text": "De rien. Bonne journée!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Bonne journée!"
+          }
+        ],
+        "speakers": {
+          "Technicien": {
+            "voice": "Aldhibah",
+            "description": "Young technician setting up internet"
+          },
+          "Alex": {
+            "voice": "Achird",
+            "description": "American man scheduling appointment"
+          }
         },
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "American man scheduling appointment"
-        }
-      ],
-      "audioStyle": "Phone conversation. Professional but friendly tone. Clear pronunciation for scheduling appointment.",
+        "audioStyle": "Phone conversation. Professional but friendly tone. Clear pronunciation for scheduling appointment."
+      },
+      "generateAudio": true,
       "estimatedMinutes": 25,
       "contentItems": [
         {
@@ -746,21 +817,102 @@
       "episodeNumber": 3,
       "type": "DIALOGUE",
       "title": "Quelle Heure?",
-      "content": "Le mercredi arrive. Alex attend le technicien. Il regarde sa montre.\n\nAlex: Il est neuf heures et demie. Le technicien arrive à dix heures.\n\nDRING DRONG! La sonnette! Alex regarde encore sa montre.\n\nAlex: Ah! Il est dix heures pile!\n\nAlex ouvre la porte.\n\nTechnicien: Bonjour! Service internet. Vous êtes Monsieur Alex?\n\nAlex: Oui, c'est moi! Bonjour! Vous êtes très ponctuel!\n\nTechnicien: Oui, dix heures, comme prévu! Bon, ça va prendre combien de temps? Environ une heure, une heure et quart.\n\nAlex: D'accord. Donc... vous avez fini à quelle heure?\n\nTechnicien: Euh... Il est dix heures maintenant. Donc... à onze heures, onze heures et quart maximum.\n\nAlex: Parfait! J'ai un autre rendez-vous à midi.\n\nTechnicien: Midi? Pas de problème! Je finis avant midi.\n\nAlex: C'est génial, merci!\n\nUne heure plus tard...\n\nTechnicien: Voilà! C'est fait! Il est onze heures cinq. L'internet fonctionne!\n\nAlex: Excellent! Merci beaucoup!\n\nTechnicien: De rien! Bonne journée!\n\nAlex: Bonne journée!\n\nAlex regarde l'horloge: il est onze heures dix. Il a encore cinquante minutes avant son rendez-vous à midi. Parfait!",
-      "generateAudio": true,
-      "speakers": [
-        {
-          "name": "Technicien",
-          "voice": "Achird",
-          "description": "Young, friendly internet technician"
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrateur",
+            "text": "Le mercredi arrive. Alex attend le technicien. Il regarde sa montre."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Il est neuf heures et demie. Le technicien arrive à dix heures."
+          },
+          {
+            "speaker": "Narrateur",
+            "text": "DRING DRONG! La sonnette! Alex regarde encore sa montre."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Ah! Il est dix heures pile!"
+          },
+          {
+            "speaker": "Narrateur",
+            "text": "Alex ouvre la porte."
+          },
+          {
+            "speaker": "Technicien",
+            "text": "Bonjour! Service internet. Vous êtes Monsieur Alex?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui, c'est moi! Bonjour! Vous êtes très ponctuel!"
+          },
+          {
+            "speaker": "Technicien",
+            "text": "Oui, dix heures, comme prévu! Bon, ça va prendre combien de temps? Environ une heure, une heure et quart."
+          },
+          {
+            "speaker": "Alex",
+            "text": "D'accord. Donc... vous avez fini à quelle heure?"
+          },
+          {
+            "speaker": "Technicien",
+            "text": "Euh... Il est dix heures maintenant. Donc... à onze heures, onze heures et quart maximum."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Parfait! J'ai un autre rendez-vous à midi."
+          },
+          {
+            "speaker": "Technicien",
+            "text": "Midi? Pas de problème! Je finis avant midi."
+          },
+          {
+            "speaker": "Alex",
+            "text": "C'est génial, merci!"
+          },
+          {
+            "speaker": "Narrateur",
+            "text": "Une heure plus tard..."
+          },
+          {
+            "speaker": "Technicien",
+            "text": "Voilà! C'est fait! Il est onze heures cinq. L'internet fonctionne!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Excellent! Merci beaucoup!"
+          },
+          {
+            "speaker": "Technicien",
+            "text": "De rien! Bonne journée!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Bonne journée!"
+          },
+          {
+            "speaker": "Narrateur",
+            "text": "Alex regarde l'horloge: il est onze heures dix. Il a encore cinquante minutes avant son rendez-vous à midi. Parfait!"
+          }
+        ],
+        "speakers": {
+          "Narrateur": {
+            "voice": "Charon",
+            "description": "Calm narrator describing the scene"
+          },
+          "Technicien": {
+            "voice": "Aldhibah",
+            "description": "Young, friendly internet technician"
+          },
+          "Alex": {
+            "voice": "Achird",
+            "description": "American man learning to tell time in French"
+          }
         },
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "American man learning to tell time in French"
-        }
-      ],
-      "audioStyle": "Natural conversation. Alex and technician coordinate timing. Clear time expressions for learning.",
+        "audioStyle": "Natural conversation. Alex and technician coordinate timing. Clear time expressions for learning."
+      },
+      "generateAudio": true,
       "estimatedMinutes": 25,
       "contentItems": [
         {

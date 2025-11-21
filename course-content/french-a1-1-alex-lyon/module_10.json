@@ -16,21 +16,110 @@
       "episodeNumber": 1,
       "type": "DIALOGUE",
       "title": "Santé!",
-      "content": "C'est samedi soir. Alex organise son premier apéro français! Il a invité sa voisine.\n\nDRING DRONG!\n\nAlex: Bonsoir! Entrez, entrez!\n\nVoisine: Bonsoir, Alex! Merci pour l'invitation! Tenez, j'ai apporté du vin.\n\nAlex: Oh, du vin! Merci beaucoup! C'est très gentil!\n\nVoisine: De rien! C'est un vin de Bourgogne. Vous aimez le vin rouge?\n\nAlex: Oui, j'aime bien le vin rouge! Et vous? Vous préférez le vin rouge ou le vin blanc?\n\nVoisine: Moi, je préfère le vin blanc, mais le rouge, c'est bien aussi!\n\nAlex: Parfait! J'ai aussi de la bière, du jus d'orange et de l'eau. Qu'est-ce que vous voulez boire?\n\nVoisine: Un verre de vin rouge, s'il vous plaît!\n\nAlex: Excellent! Moi aussi, je vais boire du vin rouge.\n\nAlex verse le vin dans deux verres.\n\nAlex: Voilà!\n\nVoisine: Merci! On trinque?\n\nAlex: Oui! Euh... Comment on dit en français?\n\nVoisine: On dit 'Santé!' ou 'Tchin-tchin!'\n\nAlex: Ah oui! Santé!\n\nVoisine: Santé! À votre nouvelle vie à Lyon!\n\nAlex: Merci! C'est délicieux, ce vin!\n\nVoisine: Oui, c'est un bon vin! Alors, vous vous êtes bien installé?\n\nAlex: Oui, très bien! Lyon est magnifique et les gens sont sympas!\n\nVoisine: Je suis contente! Bienvenue dans le quartier!",
-      "generateAudio": true,
-      "speakers": [
-        {
-          "name": "Voisine",
-          "voice": "Kore",
-          "description": "Friendly neighbor teaching apéro customs"
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrateur",
+            "text": "C'est samedi soir. Alex organise son premier apéro français! Il a invité sa voisine.\n\nDRING DRONG!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Bonsoir! Entrez, entrez!"
+          },
+          {
+            "speaker": "Voisine",
+            "text": "Bonsoir, Alex! Merci pour l'invitation! Tenez, j'ai apporté du vin."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oh, du vin! Merci beaucoup! C'est très gentil!"
+          },
+          {
+            "speaker": "Voisine",
+            "text": "De rien! C'est un vin de Bourgogne. Vous aimez le vin rouge?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui, j'aime bien le vin rouge! Et vous? Vous préférez le vin rouge ou le vin blanc?"
+          },
+          {
+            "speaker": "Voisine",
+            "text": "Moi, je préfère le vin blanc, mais le rouge, c'est bien aussi!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Parfait! J'ai aussi de la bière, du jus d'orange et de l'eau. Qu'est-ce que vous voulez boire?"
+          },
+          {
+            "speaker": "Voisine",
+            "text": "Un verre de vin rouge, s'il vous plaît!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Excellent! Moi aussi, je vais boire du vin rouge."
+          },
+          {
+            "speaker": "Narrateur",
+            "text": "Alex verse le vin dans deux verres."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Voilà!"
+          },
+          {
+            "speaker": "Voisine",
+            "text": "Merci! On trinque?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui! Euh... Comment on dit en français?"
+          },
+          {
+            "speaker": "Voisine",
+            "text": "On dit 'Santé!' ou 'Tchin-tchin!'"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Ah oui! Santé!"
+          },
+          {
+            "speaker": "Voisine",
+            "text": "Santé! À votre nouvelle vie à Lyon!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Merci! C'est délicieux, ce vin!"
+          },
+          {
+            "speaker": "Voisine",
+            "text": "Oui, c'est un bon vin! Alors, vous vous êtes bien installé?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui, très bien! Lyon est magnifique et les gens sont sympas!"
+          },
+          {
+            "speaker": "Voisine",
+            "text": "Je suis contente! Bienvenue dans le quartier!"
+          }
+        ],
+        "speakers": {
+          "Narrateur": {
+            "voice": "Charon",
+            "description": "Calm narrator setting the apéro scene"
+          },
+          "Voisine": {
+            "voice": "Kore",
+            "description": "Friendly neighbor teaching apéro customs"
+          },
+          "Alex": {
+            "voice": "Achird",
+            "description": "American hosting his first French apéro"
+          }
         },
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "American hosting his first French apéro"
-        }
-      ],
-      "audioStyle": "Warm, social atmosphere. Friends toasting and enjoying drinks together. Friendly, relaxed tone.",
+        "audioStyle": "Warm, social atmosphere. Friends toasting and enjoying drinks together. Friendly, relaxed tone."
+      },
+      "generateAudio": true,
       "estimatedMinutes": 20,
       "contentItems": [
         {
@@ -380,26 +469,134 @@
       "episodeNumber": 2,
       "type": "DIALOGUE",
       "title": "La Conversation",
-      "content": "Alex et sa voisine continuent à parler. Un autre voisin, Marc, arrive.\n\nDRING DRONG!\n\nAlex: Ah, c'est Marc! Excusez-moi un instant.\n\nAlex ouvre la porte.\n\nAlex: Bonsoir, Marc! Entrez!\n\nMarc: Bonsoir! Merci! Ah, vous avez déjà du monde!\n\nAlex: Oui, voici ma voisine. Nous habitons dans le même immeuble.\n\nMarc: Enchanté! Je m'appelle Marc.\n\nVoisine: Enchantée! Moi, c'est Sophie.\n\nAlex: Marc, qu'est-ce que vous voulez boire? J'ai du vin, de la bière, du jus...\n\nMarc: Un verre de vin blanc, s'il vous plaît!\n\nAlex: Parfait! Voilà!\n\nMarc: Merci! Santé!\n\nTous: Santé!\n\nVoisine: Alors, Marc, vous habitez dans le quartier?\n\nMarc: Oui, j'habite rue Garibaldi, pas loin d'ici. Et vous, vous travaillez où?\n\nVoisine: Je travaille dans un hôpital. Je suis infirmière. Et vous?\n\nMarc: Moi, je suis professeur. J'enseigne l'anglais au lycée.\n\nAlex: Ah, vous parlez anglais!\n\nMarc: Oui, je parle anglais et espagnol aussi! Et vous, Alex, qu'est-ce que vous faites comme loisirs?\n\nAlex: J'aime le sport. Je vais au parc le weekend. J'aime aussi le cinéma et la musique. Et vous?\n\nMarc: Moi, j'adore la lecture et le voyage. J'aime aussi la cuisine française!\n\nVoisine: Moi aussi, j'aime cuisiner! Et j'aime beaucoup la photographie.\n\nAlex: C'est intéressant! Moi, je commence à découvrir Lyon. C'est une ville magnifique!\n\nMarc: Oui! Si vous voulez, je peux vous montrer de bons restaurants!\n\nAlex: Ah, c'est gentil! Avec plaisir!",
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrateur",
+            "text": "Alex et sa voisine continuent à parler. Un autre voisin, Marc, arrive.\n\nDRING DRONG!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Ah, c'est Marc! Excusez-moi un instant."
+          },
+          {
+            "speaker": "Narrateur",
+            "text": "Alex ouvre la porte."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Bonsoir, Marc! Entrez!"
+          },
+          {
+            "speaker": "Marc",
+            "text": "Bonsoir! Merci! Ah, vous avez déjà du monde!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui, voici ma voisine. Nous habitons dans le même immeuble."
+          },
+          {
+            "speaker": "Marc",
+            "text": "Enchanté! Je m'appelle Marc."
+          },
+          {
+            "speaker": "Voisine",
+            "text": "Enchantée! Moi, c'est Sophie."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Marc, qu'est-ce que vous voulez boire? J'ai du vin, de la bière, du jus..."
+          },
+          {
+            "speaker": "Marc",
+            "text": "Un verre de vin blanc, s'il vous plaît!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Parfait! Voilà!"
+          },
+          {
+            "speaker": "Marc",
+            "text": "Merci! Santé!"
+          },
+          {
+            "speaker": "Tous",
+            "text": "Santé!"
+          },
+          {
+            "speaker": "Voisine",
+            "text": "Alors, Marc, vous habitez dans le quartier?"
+          },
+          {
+            "speaker": "Marc",
+            "text": "Oui, j'habite rue Garibaldi, pas loin d'ici. Et vous, vous travaillez où?"
+          },
+          {
+            "speaker": "Voisine",
+            "text": "Je travaille dans un hôpital. Je suis infirmière. Et vous?"
+          },
+          {
+            "speaker": "Marc",
+            "text": "Moi, je suis professeur. J'enseigne l'anglais au lycée."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Ah, vous parlez anglais!"
+          },
+          {
+            "speaker": "Marc",
+            "text": "Oui, je parle anglais et espagnol aussi! Et vous, Alex, qu'est-ce que vous faites comme loisirs?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "J'aime le sport. Je vais au parc le weekend. J'aime aussi le cinéma et la musique. Et vous?"
+          },
+          {
+            "speaker": "Marc",
+            "text": "Moi, j'adore la lecture et le voyage. J'aime aussi la cuisine française!"
+          },
+          {
+            "speaker": "Voisine",
+            "text": "Moi aussi, j'aime cuisiner! Et j'aime beaucoup la photographie."
+          },
+          {
+            "speaker": "Alex",
+            "text": "C'est intéressant! Moi, je commence à découvrir Lyon. C'est une ville magnifique!"
+          },
+          {
+            "speaker": "Marc",
+            "text": "Oui! Si vous voulez, je peux vous montrer de bons restaurants!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Ah, c'est gentil! Avec plaisir!"
+          }
+        ],
+        "speakers": {
+          "Narrateur": {
+            "voice": "Charon",
+            "description": "Calm narrator describing the apéro gathering"
+          },
+          "Marc": {
+            "voice": "Aldhibah",
+            "description": "Friendly neighbor Marc invited to apéro"
+          },
+          "Voisine": {
+            "voice": "Kore",
+            "description": "Sophie, the neighbor"
+          },
+          "Alex": {
+            "voice": "Achird",
+            "description": "American hosting and making conversation"
+          },
+          "Tous": {
+            "voice": "Charon",
+            "description": "Everyone toasting together"
+          }
+        },
+        "audioStyle": "Friendly social gathering. Natural small talk among neighbors. Warm, interested tones."
+      },
       "generateAudio": true,
-      "speakers": [
-        {
-          "name": "Marc",
-          "voice": "Achird",
-          "description": "Friendly neighbor Marc invited to apéro"
-        },
-        {
-          "name": "Voisine",
-          "voice": "Kore",
-          "description": "Sophie, the neighbor"
-        },
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "American hosting and making conversation"
-        }
-      ],
-      "audioStyle": "Friendly social gathering. Natural small talk among neighbors. Warm, interested tones.",
       "estimatedMinutes": 25,
       "contentItems": [
         {
@@ -751,7 +948,21 @@
       "episodeNumber": 3,
       "type": "STORY",
       "title": "Bilan A1.1",
-      "content": "Dimanche matin. Alex se réveille et pense à sa première semaine complète à Lyon.\n\nIl regarde par la fenêtre. \"Aujourd'hui, c'est dimanche. Le soleil brille. Il fait beau!\"\n\nAlex prépare son petit déjeuner. \"Je prends du café, du pain avec du beurre et de la confiture. J'adore le petit déjeuner français!\"\n\nIl pense: \"Il y a un mois, je suis arrivé à l'aéroport. L'agent a demandé: 'Passeport, s'il vous plaît.' J'étais nerveux!\"\n\n\"Maintenant, je sais dire bonjour, je comprends les directions, je vais au marché, je prends le métro... C'est incroyable!\"\n\nAlex regarde son calendrier: \"Demain, c'est lundi. Je commence mon nouveau travail! J'ai rendez-vous à neuf heures.\"\n\nIl compte sur ses doigts: \"Un, deux, trois... J'habite au quinze, rue de la République. Mon numéro de téléphone est... Je sais tout ça en français!\"\n\n\"J'ai des voisins sympas. Sophie est infirmière, Marc est professeur. Ils parlent avec moi et ils sont patients.\"\n\n\"J'aime Lyon! Il y a la poste, la banque, le musée, le parc, le marché... Tout est proche!\"\n\n\"Au marché, j'achète des pommes, des tomates, des carottes... Le vendeur est très gentil. Il m'explique tout.\"\n\n\"Hier soir, c'était mon premier apéro! On a bu du vin, on a dit 'Santé!' et on a parlé de beaucoup de choses. En français!\"\n\nAlex sourit. \"En un mois, je parle français avec mes voisins, je vais aux magasins, je prends les transports... Ma vie à Lyon commence vraiment!\"\n\nIl ouvre son livre de français. \"Mais je continue à apprendre! Le français, c'est difficile, mais c'est aussi très beau. Et maintenant, Lyon, c'est chez moi!\"\n\nAlex ferme les yeux. \"Merci, Lyon. Merci, la France. C'est le début d'une belle aventure!\"",
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrator",
+            "text": "Dimanche matin. Alex se réveille et pense à sa première semaine complète à Lyon.\n\nIl regarde par la fenêtre. \"Aujourd'hui, c'est dimanche. Le soleil brille. Il fait beau!\"\n\nAlex prépare son petit déjeuner. \"Je prends du café, du pain avec du beurre et de la confiture. J'adore le petit déjeuner français!\"\n\nIl pense: \"Il y a un mois, je suis arrivé à l'aéroport. L'agent a demandé: 'Passeport, s'il vous plaît.' J'étais nerveux!\"\n\n\"Maintenant, je sais dire bonjour, je comprends les directions, je vais au marché, je prends le métro... C'est incroyable!\"\n\nAlex regarde son calendrier: \"Demain, c'est lundi. Je commence mon nouveau travail! J'ai rendez-vous à neuf heures.\"\n\nIl compte sur ses doigts: \"Un, deux, trois... J'habite au quinze, rue de la République. Mon numéro de téléphone est... Je sais tout ça en français!\"\n\n\"J'ai des voisins sympas. Sophie est infirmière, Marc est professeur. Ils parlent avec moi et ils sont patients.\"\n\n\"J'aime Lyon! Il y a la poste, la banque, le musée, le parc, le marché... Tout est proche!\"\n\n\"Au marché, j'achète des pommes, des tomates, des carottes... Le vendeur est très gentil. Il m'explique tout.\"\n\n\"Hier soir, c'était mon premier apéro! On a bu du vin, on a dit 'Santé!' et on a parlé de beaucoup de choses. En français!\"\n\nAlex sourit. \"En un mois, je parle français avec mes voisins, je vais aux magasins, je prends les transports... Ma vie à Lyon commence vraiment!\"\n\nIl ouvre son livre de français. \"Mais je continue à apprendre! Le français, c'est difficile, mais c'est aussi très beau. Et maintenant, Lyon, c'est chez moi!\"\n\nAlex ferme les yeux. \"Merci, Lyon. Merci, la France. C'est le début d'une belle aventure!\""
+          }
+        ],
+        "speakers": {
+          "Narrator": {
+            "voice": "Charon",
+            "description": "Reflective narrator voice"
+          }
+        },
+        "audioStyle": "Reflective, warm narrative. Alex looking back on his journey with satisfaction. Thoughtful, celebratory tone marking the end of A1.1."
+      },
       "generateAudio": true,
       "estimatedMinutes": 25,
       "contentItems": [
@@ -1135,15 +1346,7 @@
             "difficultyRating": 2.0
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Narrator",
-          "voice": "Charon",
-          "description": "Reflective narrator voice"
-        }
-      ],
-      "audioStyle": "Reflective, warm narrative. Alex looking back on his journey with satisfaction. Thoughtful, celebratory tone marking the end of A1.1."
+      ]
     }
   ]
 }

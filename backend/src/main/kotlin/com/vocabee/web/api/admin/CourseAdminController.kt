@@ -1,9 +1,10 @@
 package com.vocabee.web.api.admin
 
 import com.vocabee.domain.repository.CourseRepository
-import com.vocabee.domain.repository.ModuleRepository
-import com.vocabee.domain.repository.EpisodeRepository
 import com.vocabee.domain.repository.EpisodeContentItemRepository
+import com.vocabee.domain.repository.EpisodeRepository
+import com.vocabee.domain.repository.ModuleRepository
+import com.vocabee.service.StorageService
 import com.vocabee.web.dto.CourseAdminDto
 import com.vocabee.web.dto.ModuleAdminDto
 import org.slf4j.LoggerFactory
@@ -18,7 +19,8 @@ class CourseAdminController(
     private val courseRepository: CourseRepository,
     private val moduleRepository: ModuleRepository,
     private val episodeRepository: EpisodeRepository,
-    private val episodeContentItemRepository: EpisodeContentItemRepository
+    private val episodeContentItemRepository: EpisodeContentItemRepository,
+    private val storageService: StorageService
 ) {
     private val logger = LoggerFactory.getLogger(javaClass)
 
@@ -71,8 +73,19 @@ class CourseAdminController(
         // Get all episodes for this module
         val episodes = episodeRepository.findByModuleIdOrderByEpisodeNumber(moduleId)
 
-        // Delete content items for each episode
+        // Delete audio files and content items for each episode
         episodes.forEach { episode ->
+            // Delete audio file from storage if it exists
+            episode.audioUrl?.let { audioUrl ->
+                try {
+                    val (bucket, key) = parseStorageUrl(audioUrl)
+                    storageService.deleteFile(bucket, key)
+                    logger.info("Deleted audio file: $audioUrl")
+                } catch (e: Exception) {
+                    logger.error("Failed to delete audio file: $audioUrl", e)
+                }
+            }
+
             episodeContentItemRepository.deleteByEpisodeId(episode.id!!)
         }
 
@@ -85,5 +98,21 @@ class CourseAdminController(
         logger.info("Admin: Successfully deleted module $moduleId with ${episodes.size} episodes")
 
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build()
+    }
+
+    /**
+     * Parse storage URL to extract bucket and key
+     * URL format: http://localhost:9000/bucket-name/path/to/file.ext
+     */
+    private fun parseStorageUrl(url: String): Pair<String, String> {
+        val uri = java.net.URI(url)
+        val path = uri.path.trimStart('/')
+        val parts = path.split('/', limit = 2)
+
+        if (parts.size < 2) {
+            throw IllegalArgumentException("Invalid storage URL format: $url")
+        }
+
+        return Pair(parts[0], parts[1])
     }
 }

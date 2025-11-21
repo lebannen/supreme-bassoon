@@ -2,7 +2,7 @@
 import {onMounted, ref} from 'vue'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
-import FileUpload, {type FileUploadSelectEvent} from 'primevue/fileupload'
+import FileUpload from 'primevue/fileupload'
 import Message from 'primevue/message'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
@@ -31,10 +31,22 @@ interface Module {
 
 interface ImportProgress {
   importId: string;
+  courseSlug: string;
+  courseName: string;
   status: string;
-  progressPercentage: number;
+  totalModules: number;
+  processedModules: number;
+  totalEpisodes: number;
+  processedEpisodes: number;
+  totalExercises: number;
+  processedExercises: number;
+  audioFilesGenerated: number;
+  currentModule: string | null;
+  currentEpisode: string | null;
   message: string;
-  errors: string[]
+  progressPercentage: number;
+  errors: string[];
+  error: string | null
 }
 
 const courses = ref<Course[]>([])
@@ -51,6 +63,8 @@ const importProgress = ref<ImportProgress | null>(null)
 const courseModules = ref<Map<number, Module[]>>(new Map())
 const loadingModules = ref<Set<number>>(new Set())
 const expandedRows = ref<Course[]>([])
+const allImports = ref<ImportProgress[]>([])
+const loadingImports = ref(false)
 
 const getAuthHeaders = () => ({
   Authorization: `Bearer ${localStorage.getItem('auth_token')}`,
@@ -103,6 +117,7 @@ function streamImportProgress(importId: string) {
       if (data.status === 'COMPLETED') successMessage.value = 'Module import completed!'
       if (data.errors?.length) error.value = `Import completed with ${data.errors.length} warnings.`
       eventSource.close()
+      loadAllImports()
     }
   }
   eventSource.onerror = () => {
@@ -153,7 +168,52 @@ async function loadModulesForCourse(courseId: number) {
   }
 }
 
-onMounted(loadCourses)
+async function deleteModule(courseId: number, moduleId: number) {
+  if (!confirm('Are you sure you want to delete this module? This will also delete all episodes and audio files.')) {
+    return
+  }
+
+  try {
+    const response = await fetch(`${API_BASE}/api/admin/courses/modules/${moduleId}`, {
+      method: 'DELETE',
+      headers: getAuthHeaders()
+    })
+    if (!response.ok) throw new Error(`Failed to delete module (${response.status})`)
+
+    successMessage.value = 'Module deleted successfully!'
+    await loadModulesForCourse(courseId)
+  } catch (err) {
+    error.value = err instanceof Error ? err.message : 'Failed to delete module'
+  }
+}
+
+async function loadAllImports() {
+  loadingImports.value = true
+  try {
+    const response = await fetch(`${API_BASE}/api/admin/courses/import/progress`, {headers: getAuthHeaders()})
+    if (!response.ok) throw new Error(`Failed to load import progress (${response.status})`)
+    allImports.value = await response.json()
+  } catch (err) {
+    console.error('Failed to load import progress:', err)
+  } finally {
+    loadingImports.value = false
+  }
+}
+
+const getStatusSeverity = (status: string) => {
+  const map: Record<string, string> = {
+    COMPLETED: 'success',
+    PROCESSING: 'info',
+    QUEUED: 'secondary',
+    FAILED: 'danger'
+  }
+  return map[status] || 'secondary'
+}
+
+onMounted(() => {
+  loadCourses()
+  loadAllImports()
+})
 </script>
 
 <template>
@@ -255,9 +315,63 @@ onMounted(loadCourses)
                     <Tag :value="`${m.data.episodeCount} episodes`"/>
                   </template>
                 </Column>
+                <Column header="Actions" style="width: 8rem">
+                  <template #body="m">
+                    <Button icon="pi pi-trash" severity="danger" text rounded
+                            @click="deleteModule(data.id, m.data.id)"
+                            v-tooltip.top="'Delete module'"/>
+                  </template>
+                </Column>
               </DataTable>
             </div>
           </template>
+        </DataTable>
+      </template>
+    </Card>
+
+    <Card v-if="allImports.length > 0">
+      <template #title>
+        <div class="card-title-icon"><i class="pi pi-history"></i><span>Import History</span></div>
+      </template>
+      <template #content>
+        <DataTable :value="allImports" :loading="loadingImports" stripedRows responsiveLayout="scroll"
+                   :paginator="true" :rows="10">
+          <template #empty>
+            <div class="text-center p-md">No import history.</div>
+          </template>
+          <Column field="courseName" header="Course"/>
+          <Column field="status" header="Status">
+            <template #body="{data}">
+              <Tag :value="data.status" :severity="getStatusSeverity(data.status)"/>
+            </template>
+          </Column>
+          <Column field="processedModules" header="Modules">
+            <template #body="{data}">
+              {{ data.processedModules }}/{{ data.totalModules }}
+            </template>
+          </Column>
+          <Column field="processedEpisodes" header="Episodes">
+            <template #body="{data}">
+              {{ data.processedEpisodes }}/{{ data.totalEpisodes }}
+            </template>
+          </Column>
+          <Column field="processedExercises" header="Exercises">
+            <template #body="{data}">
+              {{ data.processedExercises }}/{{ data.totalExercises }}
+            </template>
+          </Column>
+          <Column field="audioFilesGenerated" header="Audio Files"/>
+          <Column field="progressPercentage" header="Progress">
+            <template #body="{data}">
+              <ProgressBar :value="data.progressPercentage" :showValue="false" style="height: 0.5rem"/>
+              <small class="text-secondary">{{ data.progressPercentage }}%</small>
+            </template>
+          </Column>
+          <Column field="message" header="Status Message">
+            <template #body="{data}">
+              <small class="text-secondary">{{ data.message }}</small>
+            </template>
+          </Column>
         </DataTable>
       </template>
     </Card>

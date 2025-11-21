@@ -16,8 +16,98 @@
       "episodeNumber": 1,
       "type": "DIALOGUE",
       "title": "Toc Toc",
-      "content": "Alex est dans son appartement. Il range ses affaires. Soudain : toc, toc, toc.\n\nAlex ouvre la porte.\n\nVoisine : Bonjour ! Je suis votre voisine. Je m'appelle Marie.\n\nAlex : Bonjour Marie ! Enchanté. Je m'appelle Alex.\n\nMarie : Enchanté, Alex. Bienvenue dans l'immeuble ! J'ai un paquet pour vous. Le facteur l'a laissé chez moi.\n\nAlex : Oh ! Merci beaucoup. C'est très gentil.\n\nMarie : De rien ! Vous venez d'arriver à Lyon ?\n\nAlex : Oui, j'arrive des États-Unis. J'ai vingt-cinq ans et je commence un nouveau travail.\n\nMarie : Ah, les États-Unis ! Moi, j'ai trente-deux ans et j'habite ici depuis cinq ans.\n\nAlex : Vous aimez le quartier ?\n\nMarie : Oui, beaucoup ! Les voisins sont sympathiques. Il y a une boulangerie au coin de la rue. Vous avez des enfants ?\n\nAlex : Non, je n'ai pas d'enfants. Et vous ?\n\nMarie : Oui, j'ai deux enfants. Une fille et un garçon. Ma fille a sept ans et mon fils a quatre ans.\n\nAlex : C'est super !\n\nMarie : Si vous avez besoin de quelque chose, je suis à l'appartement numéro douze.\n\nAlex : Merci Marie ! C'est très gentil.\n\nMarie : Bonne installation ! À bientôt !\n\nAlex : À bientôt !",
       "generateAudio": true,
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrateur",
+            "text": "Alex est dans son appartement. Il range ses affaires. Soudain : toc, toc, toc. Alex ouvre la porte."
+          },
+          {
+            "speaker": "Voisine",
+            "text": "Bonjour ! Je suis votre voisine. Je m'appelle Marie."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Bonjour Marie ! Enchanté. Je m'appelle Alex."
+          },
+          {
+            "speaker": "Marie",
+            "text": "Enchanté, Alex. Bienvenue dans l'immeuble ! J'ai un paquet pour vous. Le facteur l'a laissé chez moi."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oh ! Merci beaucoup. C'est très gentil."
+          },
+          {
+            "speaker": "Marie",
+            "text": "De rien ! Vous venez d'arriver à Lyon ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui, j'arrive des États-Unis. J'ai vingt-cinq ans et je commence un nouveau travail."
+          },
+          {
+            "speaker": "Marie",
+            "text": "Ah, les États-Unis ! Moi, j'ai trente-deux ans et j'habite ici depuis cinq ans."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Vous aimez le quartier ?"
+          },
+          {
+            "speaker": "Marie",
+            "text": "Oui, beaucoup ! Les voisins sont sympathiques. Il y a une boulangerie au coin de la rue. Vous avez des enfants ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Non, je n'ai pas d'enfants. Et vous ?"
+          },
+          {
+            "speaker": "Marie",
+            "text": "Oui, j'ai deux enfants. Une fille et un garçon. Ma fille a sept ans et mon fils a quatre ans."
+          },
+          {
+            "speaker": "Alex",
+            "text": "C'est super !"
+          },
+          {
+            "speaker": "Marie",
+            "text": "Si vous avez besoin de quelque chose, je suis à l'appartement numéro douze."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Merci Marie ! C'est très gentil."
+          },
+          {
+            "speaker": "Marie",
+            "text": "Bonne installation ! À bientôt !"
+          },
+          {
+            "speaker": "Alex",
+            "text": "À bientôt !"
+          }
+        ],
+        "speakers": {
+          "Narrateur": {
+            "voice": "Charon",
+            "description": "Calm narrator setting the scene"
+          },
+          "Alex": {
+            "voice": "Achird",
+            "description": "Jeune homme américain, nouvel arrivant à Lyon"
+          },
+          "Voisine": {
+            "voice": "Kore",
+            "description": "Voisine sympathique qui apporte un paquet"
+          },
+          "Marie": {
+            "voice": "Kore",
+            "description": "Same as Voisine - Marie introduces herself"
+          }
+        },
+        "audioStyle": "Conversation naturelle et amicale entre voisins. Marie est accueillante et chaleureuse. Alex est poli et reconnaissant. Rythme modéré pour les apprenants A1."
+      },
       "estimatedMinutes": 40,
       "contentItems": [
         {
@@ -367,27 +457,28 @@
             "difficultyRating": 1.0
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "Jeune homme américain, nouvel arrivant à Lyon"
-        },
-        {
-          "name": "Voisine",
-          "voice": "Kore",
-          "description": "Voisine sympathique qui apporte un paquet"
-        }
-      ],
-      "audioStyle": "Conversation naturelle et amicale entre voisins. Marie est accueillante et chaleureuse. Alex est poli et reconnaissant. Rythme modéré pour les apprenants A1."
+      ]
     },
     {
       "episodeNumber": 2,
       "type": "STORY",
       "title": "Décrire",
-      "content": "Alex est dans son appartement. Il envoie un message à son ami Thomas.\n\n\"Salut Thomas ! Aujourd'hui, j'ai rencontré ma voisine. Elle s'appelle Marie. Comment est Marie ? Elle est grande et elle a les cheveux bruns. Elle est très sympathique !\n\nMarie a deux enfants. Le garçon est petit. Il a quatre ans. Il a les cheveux blonds et les yeux bleus. Il est mignon.\n\nLa fille est plus grande. Elle a sept ans. Elle a les cheveux bruns comme sa mère. Elle est intelligente.\n\nDans l'immeuble, il y a aussi un autre voisin. Il s'appelle Monsieur Dupont. Il est âgé. Il a les cheveux gris. Il est mince et il porte des lunettes. Il est gentil mais un peu timide.\n\nEt puis, il y a une jeune femme au troisième étage. Elle s'appelle Sophie. Elle est petite et mince. Elle a les cheveux roux et les yeux verts. Elle est très élégante. Elle travaille dans la mode.\n\nLe quartier est vraiment agréable. Les voisins sont tous différents mais sympathiques. Je suis content d'habiter ici !\n\nÀ bientôt, Alex.\"",
       "generateAudio": true,
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrator",
+            "text": "Alex est dans son appartement. Il envoie un message à son ami Thomas.\n\n\"Salut Thomas ! Aujourd'hui, j'ai rencontré ma voisine. Elle s'appelle Marie. Comment est Marie ? Elle est grande et elle a les cheveux bruns. Elle est très sympathique !\n\nMarie a deux enfants. Le garçon est petit. Il a quatre ans. Il a les cheveux blonds et les yeux bleus. Il est mignon.\n\nLa fille est plus grande. Elle a sept ans. Elle a les cheveux bruns comme sa mère. Elle est intelligente.\n\nDans l'immeuble, il y a aussi un autre voisin. Il s'appelle Monsieur Dupont. Il est âgé. Il a les cheveux gris. Il est mince et il porte des lunettes. Il est gentil mais un peu timide.\n\nEt puis, il y a une jeune femme au troisième étage. Elle s'appelle Sophie. Elle est petite et mince. Elle a les cheveux roux et les yeux verts. Elle est très élégante. Elle travaille dans la mode.\n\nLe quartier est vraiment agréable. Les voisins sont tous différents mais sympathiques. Je suis content d'habiter ici !\n\nÀ bientôt, Alex.\""
+          }
+        ],
+        "speakers": {
+          "Narrator": {
+            "voice": "Charon",
+            "description": "Narrateur calme qui lit le message d'Alex"
+          }
+        },
+        "audioStyle": "Narration d'un message écrit. Ton calme et descriptif. Rythme modéré pour permettre aux apprenants de visualiser les descriptions."
+      },
       "estimatedMinutes": 40,
       "contentItems": [
         {
@@ -733,22 +824,108 @@
             "difficultyRating": 1.0
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Narrator",
-          "voice": "Charon",
-          "description": "Narrateur calme qui lit le message d'Alex"
-        }
-      ],
-      "audioStyle": "Narration d'un message écrit. Ton calme et descriptif. Rythme modéré pour permettre aux apprenants de visualiser les descriptions."
+      ]
     },
     {
       "episodeNumber": 3,
       "type": "DIALOGUE",
       "title": "Les Numéros",
-      "content": "Le lendemain, Alex rencontre Marie dans le couloir.\n\nMarie : Bonjour Alex ! Comment allez-vous aujourd'hui ?\n\nAlex : Bonjour Marie ! Ça va bien, merci. Et vous ?\n\nMarie : Très bien ! Dites, vous avez un téléphone français maintenant ?\n\nAlex : Oui ! J'ai acheté une carte SIM hier. J'ai un nouveau numéro.\n\nMarie : Parfait ! On peut échanger nos numéros. Si vous avez besoin de quelque chose, vous pouvez m'appeler.\n\nAlex : C'est une excellente idée ! Mon numéro est le zéro-six, trente-quatre, cinquante-deux, quarante et un, dix-huit.\n\nMarie : Attendez, je note... Zéro-six, trente-quatre, cinquante-deux, quarante et un, dix-huit. C'est ça ?\n\nAlex : Oui, c'est exact !\n\nMarie : Mon numéro est le zéro-sept, vingt-deux, soixante-trois, quinze, quarante-neuf.\n\nAlex : Je note... Zéro-sept, vingt-deux, soixante-trois, quinze, quarante-neuf. Parfait !\n\nMarie : Vous connaissez aussi le numéro des urgences en France ?\n\nAlex : Non, je ne sais pas. Quel est le numéro ?\n\nMarie : C'est le quinze pour le SAMU, le dix-sept pour la police, et le dix-huit pour les pompiers.\n\nAlex : Ah, c'est différent des États-Unis ! Nous, c'est le neuf-un-un pour tout.\n\nMarie : Oui, c'est différent. Il y a aussi le cent-douze, c'est le numéro d'urgence européen. Il fonctionne dans tous les pays d'Europe.\n\nAlex : Cent-douze, d'accord. C'est bon à savoir !\n\nMarie : Voilà, maintenant vous avez tous les numéros importants ! À bientôt Alex !\n\nAlex : À bientôt Marie, et merci pour tout !",
       "generateAudio": true,
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrateur",
+            "text": "Le lendemain, Alex rencontre Marie dans le couloir."
+          },
+          {
+            "speaker": "Marie",
+            "text": "Bonjour Alex ! Comment allez-vous aujourd'hui ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Bonjour Marie ! Ça va bien, merci. Et vous ?"
+          },
+          {
+            "speaker": "Marie",
+            "text": "Très bien ! Dites, vous avez un téléphone français maintenant ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui ! J'ai acheté une carte SIM hier. J'ai un nouveau numéro."
+          },
+          {
+            "speaker": "Marie",
+            "text": "Parfait ! On peut échanger nos numéros. Si vous avez besoin de quelque chose, vous pouvez m'appeler."
+          },
+          {
+            "speaker": "Alex",
+            "text": "C'est une excellente idée ! Mon numéro est le zéro-six, trente-quatre, cinquante-deux, quarante et un, dix-huit."
+          },
+          {
+            "speaker": "Marie",
+            "text": "Attendez, je note... Zéro-six, trente-quatre, cinquante-deux, quarante et un, dix-huit. C'est ça ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui, c'est exact !"
+          },
+          {
+            "speaker": "Marie",
+            "text": "Mon numéro est le zéro-sept, vingt-deux, soixante-trois, quinze, quarante-neuf."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Je note... Zéro-sept, vingt-deux, soixante-trois, quinze, quarante-neuf. Parfait !"
+          },
+          {
+            "speaker": "Marie",
+            "text": "Vous connaissez aussi le numéro des urgences en France ?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Non, je ne sais pas. Quel est le numéro ?"
+          },
+          {
+            "speaker": "Marie",
+            "text": "C'est le quinze pour le SAMU, le dix-sept pour la police, et le dix-huit pour les pompiers."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Ah, c'est différent des États-Unis ! Nous, c'est le neuf-un-un pour tout."
+          },
+          {
+            "speaker": "Marie",
+            "text": "Oui, c'est différent. Il y a aussi le cent-douze, c'est le numéro d'urgence européen. Il fonctionne dans tous les pays d'Europe."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Cent-douze, d'accord. C'est bon à savoir !"
+          },
+          {
+            "speaker": "Marie",
+            "text": "Voilà, maintenant vous avez tous les numéros importants ! À bientôt Alex !"
+          },
+          {
+            "speaker": "Alex",
+            "text": "À bientôt Marie, et merci pour tout !"
+          }
+        ],
+        "speakers": {
+          "Narrateur": {
+            "voice": "Charon",
+            "description": "Brief narrator setting the scene"
+          },
+          "Alex": {
+            "voice": "Achird",
+            "description": "Jeune homme américain qui apprend les numéros français"
+          },
+          "Marie": {
+            "voice": "Kore",
+            "description": "Voisine serviable qui aide Alex"
+          }
+        },
+        "audioStyle": "Conversation amicale et pratique entre voisins. Marie est patiente et pédagogique. Rythme modéré pour bien entendre les numéros."
+      },
       "estimatedMinutes": 40,
       "contentItems": [
         {
@@ -1109,20 +1286,7 @@
             "difficultyRating": 1.0
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "Jeune homme américain qui apprend les numéros français"
-        },
-        {
-          "name": "Marie",
-          "voice": "Kore",
-          "description": "Voisine serviable qui aide Alex"
-        }
-      ],
-      "audioStyle": "Conversation amicale et pratique entre voisins. Marie est patiente et pédagogique. Rythme modéré pour bien entendre les numéros."
+      ]
     }
   ]
 }

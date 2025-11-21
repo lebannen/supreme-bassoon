@@ -16,8 +16,54 @@
       "episodeNumber": 1,
       "type": "DIALOGUE",
       "title": "Le Contrôle des Passeports",
-      "content": "Agent: Bonjour.\n\nAlex: Bonjour.\n\nAgent: Passeport, s'il vous plaît.\n\nAlex: Voilà.\n\nAgent: Merci.\n\nAlex: Merci.\n\nAgent: Au revoir.\n\nAlex: Au revoir.",
       "generateAudio": true,
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Agent de Contrôle",
+            "text": "Bonjour."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Bonjour."
+          },
+          {
+            "speaker": "Agent de Contrôle",
+            "text": "Passeport, s'il vous plaît."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Voilà."
+          },
+          {
+            "speaker": "Agent de Contrôle",
+            "text": "Merci."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Merci."
+          },
+          {
+            "speaker": "Agent de Contrôle",
+            "text": "Au revoir."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Au revoir."
+          }
+        ],
+        "speakers": {
+          "Agent de Contrôle": {
+            "voice": "Charon",
+            "description": "Professional airport security officer"
+          },
+          "Alex": {
+            "voice": "Achird",
+            "description": "Young American man arriving in Lyon"
+          }
+        },
+        "audioStyle": "Natural conversation at moderate pace. Clear pronunciation for A1 learners. Professional and welcoming tone at passport control."
+      },
       "estimatedMinutes": 40,
       "contentItems": [
         {
@@ -315,27 +361,60 @@
             "difficultyRating": 1.3
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Agent de Contrôle",
-          "voice": "Charon",
-          "description": "Professional airport security officer"
-        },
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "Young American man arriving in Lyon"
-        }
-      ],
-      "audioStyle": "Natural conversation at moderate pace. Clear pronunciation for A1 learners. Professional and welcoming tone at passport control."
+      ]
     },
     {
       "episodeNumber": 2,
       "type": "DIALOGUE",
       "title": "Le Taxi",
-      "content": "Chauffeur: Bonjour!\n\nAlex: Bonjour.\n\nChauffeur: Comment allez-vous?\n\nAlex: Ça va, merci. Et vous?\n\nChauffeur: Ça va bien, merci!\n\nAlex: Merci beaucoup.\n\nChauffeur: De rien. Au revoir!\n\nAlex: Au revoir!",
       "generateAudio": true,
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Chauffeur de Taxi",
+            "text": "Bonjour!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Bonjour."
+          },
+          {
+            "speaker": "Chauffeur de Taxi",
+            "text": "Comment allez-vous?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Ça va, merci. Et vous?"
+          },
+          {
+            "speaker": "Chauffeur de Taxi",
+            "text": "Ça va bien, merci!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Merci beaucoup."
+          },
+          {
+            "speaker": "Chauffeur de Taxi",
+            "text": "De rien. Au revoir!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Au revoir!"
+          }
+        ],
+        "speakers": {
+          "Chauffeur de Taxi": {
+            "voice": "Enceladus",
+            "description": "Talkative Lyon taxi driver"
+          },
+          "Alex": {
+            "voice": "Achird",
+            "description": "Young American man, friendly and polite"
+          }
+        },
+        "audioStyle": "Natural conversation at moderate pace. Clear pronunciation for A1 learners. Friendly and welcoming tone from the taxi driver."
+      },
       "estimatedMinutes": 40,
       "contentItems": [
         {
@@ -632,27 +711,28 @@
             "difficultyRating": 1.4
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Chauffeur de Taxi",
-          "voice": "Enceladus",
-          "description": "Talkative Lyon taxi driver"
-        },
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "Young American man, friendly and polite"
-        }
-      ],
-      "audioStyle": "Natural conversation at moderate pace. Clear pronunciation for A1 learners. Friendly and welcoming tone from the taxi driver."
+      ]
     },
     {
       "episodeNumber": 3,
       "type": "STORY",
       "title": "Les Panneaux",
-      "content": "Alex marche dans l'aéroport. Il regarde les panneaux.\n\nSORTIE. Sortie. Alex regarde. Sortie.\n\nENTRÉE. Entrée. Alex regarde. Entrée.\n\nTOILETTES. Toilettes. Alex regarde. Toilettes.\n\nTAXI. Taxi. Alex regarde. Taxi!\n\nMÉTRO. Métro. Alex regarde. Métro.\n\nBUS. Bus. Alex regarde. Bus.\n\nBAGAGES. Bagages. Alex regarde. Bagages.\n\nAlex marche vers le taxi. Taxi!",
       "generateAudio": true,
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrateur",
+            "text": "Alex marche dans l'aéroport. Il regarde les panneaux.\n\nSORTIE. Sortie. Alex regarde. Sortie.\n\nENTRÉE. Entrée. Alex regarde. Entrée.\n\nTOILETTES. Toilettes. Alex regarde. Toilettes.\n\nTAXI. Taxi. Alex regarde. Taxi!\n\nMÉTRO. Métro. Alex regarde. Métro.\n\nBUS. Bus. Alex regarde. Bus.\n\nBAGAGES. Bagages. Alex regarde. Bagages.\n\nAlex marche vers le taxi. Taxi!"
+          }
+        ],
+        "speakers": {
+          "Narrateur": {
+            "voice": "Charon",
+            "description": "Calm, clear narrator voice"
+          }
+        },
+        "audioStyle": "Narrative storytelling. Clear, slow-paced French suitable for absolute beginners. Warm, engaging tone. Emphasis on each sign word for learning."
+      },
       "estimatedMinutes": 40,
       "contentItems": [
         {
@@ -1036,15 +1116,7 @@
             "difficultyRating": 1.0
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Narrateur",
-          "voice": "Charon",
-          "description": "Calm, clear narrator voice"
-        }
-      ],
-      "audioStyle": "Narrative storytelling. Clear, slow-paced French suitable for absolute beginners. Warm, engaging tone. Emphasis on each sign word for learning."
+      ]
     }
   ]
 }

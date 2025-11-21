@@ -17,8 +17,22 @@
       "episodeNumber": 1,
       "type": "STORY",
       "title": "La Boîte",
-      "content": "Alex ouvre une boîte.\n\nDans la boîte: une table. Une table pour la cuisine.\n\nAlex ouvre une boîte.\n\nDans la boîte: une chaise. Une chaise pour la cuisine.\n\nAlex ouvre une boîte.\n\nDans la boîte: un lit. Un lit pour la chambre.\n\nAlex ouvre une boîte.\n\nDans la boîte: un canapé. Un canapé pour le salon.\n\nAlex ouvre une boîte.\n\nDans la boîte: une lampe. Une lampe pour le salon.\n\nLa cuisine. La chambre. Le salon. L'appartement d'Alex!",
       "generateAudio": true,
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrateur",
+            "text": "Alex ouvre une boîte.\n\nDans la boîte: une table. Une table pour la cuisine.\n\nAlex ouvre une boîte.\n\nDans la boîte: une chaise. Une chaise pour la cuisine.\n\nAlex ouvre une boîte.\n\nDans la boîte: un lit. Un lit pour la chambre.\n\nAlex ouvre une boîte.\n\nDans la boîte: un canapé. Un canapé pour le salon.\n\nAlex ouvre une boîte.\n\nDans la boîte: une lampe. Une lampe pour le salon.\n\nLa cuisine. La chambre. Le salon. L'appartement d'Alex!"
+          }
+        ],
+        "speakers": {
+          "Narrateur": {
+            "voice": "Charon",
+            "description": "Calm, clear narrator voice"
+          }
+        },
+        "audioStyle": "Narrative storytelling. Clear, slow-paced French suitable for absolute beginners. Repetitive structure to reinforce vocabulary. Warm, engaging tone."
+      },
       "estimatedMinutes": 40,
       "contentItems": [
         {
@@ -341,22 +355,92 @@
             "difficultyRating": 1.5
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Narrateur",
-          "voice": "Charon",
-          "description": "Calm, clear narrator voice"
-        }
-      ],
-      "audioStyle": "Narrative storytelling. Clear, slow-paced French suitable for absolute beginners. Repetitive structure to reinforce vocabulary. Warm, engaging tone."
+      ]
     },
     {
       "episodeNumber": 2,
       "type": "DIALOGUE",
       "title": "Où est le Chat?",
-      "content": "Voisine: Bonjour, Alex! Vous avez vu un chat?\n\nAlex: Un chat? Non.\n\nVoisine: Un petit chat gris. Où est le chat?\n\nAlex: Le chat est ici?\n\nVoisine: Oui! Regardez! Le chat est là!\n\nAlex: Où? Où?\n\nVoisine: Le chat est sur la table!\n\nAlex: Ah! Sur la table!\n\nVoisine: Non, maintenant le chat est sous la table.\n\nAlex: Sous la table.\n\nVoisine: Le chat est devant la porte!\n\nAlex: Devant la porte.\n\nVoisine: Non! Le chat est derrière le canapé!\n\nAlex: Derrière le canapé.\n\nVoisine: Le chat est dans la boîte!\n\nAlex: Ah! Dans la boîte! Voilà le chat!",
       "generateAudio": true,
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Voisine",
+            "text": "Bonjour, Alex! Vous avez vu un chat?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Un chat? Non."
+          },
+          {
+            "speaker": "Voisine",
+            "text": "Un petit chat gris. Où est le chat?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Le chat est ici?"
+          },
+          {
+            "speaker": "Voisine",
+            "text": "Oui! Regardez! Le chat est là!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Où? Où?"
+          },
+          {
+            "speaker": "Voisine",
+            "text": "Le chat est sur la table!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Ah! Sur la table!"
+          },
+          {
+            "speaker": "Voisine",
+            "text": "Non, maintenant le chat est sous la table."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Sous la table."
+          },
+          {
+            "speaker": "Voisine",
+            "text": "Le chat est devant la porte!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Devant la porte."
+          },
+          {
+            "speaker": "Voisine",
+            "text": "Non! Le chat est derrière le canapé!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Derrière le canapé."
+          },
+          {
+            "speaker": "Voisine",
+            "text": "Le chat est dans la boîte!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Ah! Dans la boîte! Voilà le chat!"
+          }
+        ],
+        "speakers": {
+          "Voisine": {
+            "voice": "Kore",
+            "description": "Friendly neighbor looking for her cat"
+          },
+          "Alex": {
+            "voice": "Achird",
+            "description": "Helpful young man trying to find the cat"
+          }
+        },
+        "audioStyle": "Natural conversation at moderate pace. Clear pronunciation for A1 learners. Animated tone showing the search for the cat. Emphasis on prepositions."
+      },
       "estimatedMinutes": 40,
       "contentItems": [
         {
@@ -712,27 +796,28 @@
             "difficultyRating": 1.1
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Voisine",
-          "voice": "Kore",
-          "description": "Friendly neighbor looking for her cat"
-        },
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "Helpful young man trying to find the cat"
-        }
-      ],
-      "audioStyle": "Natural conversation at moderate pace. Clear pronunciation for A1 learners. Animated tone showing the search for the cat. Emphasis on prepositions."
+      ]
     },
     {
       "episodeNumber": 3,
       "type": "STORY",
       "title": "Les Couleurs du Mur",
-      "content": "Alex regarde les murs. Les murs sont blancs. Blancs.\n\nAlex aime les couleurs.\n\nRouge? Le mur rouge? Non.\n\nBleu? Le mur bleu? Oui! Alex aime le bleu.\n\nVert? Le mur vert? Oui! Alex aime le vert.\n\nJaune? Le mur jaune? Non.\n\nNoir? Le mur noir? Non.\n\nAlex choisit. Un mur bleu dans la chambre. Un mur vert dans le salon. C'est joli!\n\nLa porte est blanche. La fenêtre est blanche. Mais les murs sont bleus et verts!\n\nAlex est content. L'appartement est joli!",
       "generateAudio": true,
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrateur",
+            "text": "Alex regarde les murs. Les murs sont blancs. Blancs.\n\nAlex aime les couleurs.\n\nRouge? Le mur rouge? Non.\n\nBleu? Le mur bleu? Oui! Alex aime le bleu.\n\nVert? Le mur vert? Oui! Alex aime le vert.\n\nJaune? Le mur jaune? Non.\n\nNoir? Le mur noir? Non.\n\nAlex choisit. Un mur bleu dans la chambre. Un mur vert dans le salon. C'est joli!\n\nLa porte est blanche. La fenêtre est blanche. Mais les murs sont bleus et verts!\n\nAlex est content. L'appartement est joli!"
+          }
+        ],
+        "speakers": {
+          "Narrateur": {
+            "voice": "Charon",
+            "description": "Calm, clear narrator voice"
+          }
+        },
+        "audioStyle": "Narrative storytelling. Clear, slow-paced French suitable for absolute beginners. Thoughtful tone as Alex considers different colors. Warm, engaging delivery."
+      },
       "estimatedMinutes": 40,
       "contentItems": [
         {
@@ -1073,15 +1158,7 @@
             "difficultyRating": 1.5
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Narrateur",
-          "voice": "Charon",
-          "description": "Calm, clear narrator voice"
-        }
-      ],
-      "audioStyle": "Narrative storytelling. Clear, slow-paced French suitable for absolute beginners. Thoughtful tone as Alex considers different colors. Warm, engaging delivery."
+      ]
     }
   ]
 }

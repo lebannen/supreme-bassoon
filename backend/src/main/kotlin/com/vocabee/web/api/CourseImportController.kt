@@ -1,6 +1,5 @@
 package com.vocabee.web.api
 
-import com.vocabee.domain.model.CourseImportProgress
 import com.vocabee.domain.model.ImportStatus
 import com.vocabee.service.CourseImportRequest
 import com.vocabee.service.CourseImportResult
@@ -105,6 +104,32 @@ class CourseImportController(
                 )
             )
         }
+    }
+
+    @GetMapping("/import/progress")
+    fun getAllProgress(): ResponseEntity<List<CourseImportProgressDto>> {
+        val allProgress = courseImportService.getAllProgress().map { progress ->
+            CourseImportProgressDto(
+                importId = progress.importId,
+                courseSlug = progress.courseSlug,
+                courseName = progress.courseName,
+                status = progress.status.name,
+                totalModules = progress.totalModules,
+                processedModules = progress.processedModules,
+                totalEpisodes = progress.totalEpisodes,
+                processedEpisodes = progress.processedEpisodes,
+                totalExercises = progress.totalExercises,
+                processedExercises = progress.processedExercises,
+                audioFilesGenerated = progress.audioFilesGenerated,
+                currentModule = progress.currentModule,
+                currentEpisode = progress.currentEpisode,
+                message = progress.message,
+                progressPercentage = progress.progressPercentage,
+                errors = progress.errors,
+                error = progress.error
+            )
+        }
+        return ResponseEntity.ok(allProgress)
     }
 
     @GetMapping("/import/progress/{importId}", produces = [MediaType.TEXT_EVENT_STREAM_VALUE])

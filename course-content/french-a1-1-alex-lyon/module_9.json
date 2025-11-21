@@ -16,21 +16,82 @@
       "episodeNumber": 1,
       "type": "DIALOGUE",
       "title": "Fruits et Légumes",
-      "content": "Alex arrive au marché de Lyon. C'est coloré et vivant! Il voit des fruits et des légumes partout.\n\nVendeur: Bonjour, monsieur! Qu'est-ce que vous désirez aujourd'hui?\n\nAlex: Bonjour! Euh... Je voudrais des fruits, s'il vous plaît.\n\nVendeur: Bien sûr! Regardez! J'ai des pommes, des bananes, des oranges, des fraises... Tout est frais!\n\nAlex: Des pommes! J'aime les pommes. Et des bananes aussi.\n\nVendeur: Parfait! Et des légumes? J'ai des tomates magnifiques, des carottes, de la salade, des courgettes...\n\nAlex: Des tomates, oui! Et des carottes. C'est bon pour la santé!\n\nVendeur: Absolument! Et regardez ces poivrons rouges! Et ces aubergines!\n\nAlex: Les poivrons... Oui, pourquoi pas! Et qu'est-ce que c'est, ça?\n\nVendeur: Ça? Ce sont des radis! Vous aimez les radis?\n\nAlex: Euh... Je ne sais pas. C'est la première fois!\n\nVendeur: Alors, prenez des radis! C'est délicieux avec du sel et du beurre!\n\nAlex: D'accord! Des radis, alors!\n\nVendeur: Excellent choix! Vous voulez autre chose? Des oignons? De l'ail?\n\nAlex: Non, merci. Ça suffit pour aujourd'hui!\n\nVendeur: Très bien! Alors, des pommes, des bananes, des tomates, des carottes, des poivrons et des radis. C'est parfait!",
       "generateAudio": true,
-      "speakers": [
-        {
-          "name": "Vendeur",
-          "voice": "Enceladus",
-          "description": "Cheerful fruit and vegetable seller"
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Vendeur",
+            "text": "Bonjour, monsieur! Qu'est-ce que vous désirez aujourd'hui?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Bonjour! Euh... Je voudrais des fruits, s'il vous plaît."
+          },
+          {
+            "speaker": "Vendeur",
+            "text": "Bien sûr! Regardez! J'ai des pommes, des bananes, des oranges, des fraises... Tout est frais!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Des pommes! J'aime les pommes. Et des bananes aussi."
+          },
+          {
+            "speaker": "Vendeur",
+            "text": "Parfait! Et des légumes? J'ai des tomates magnifiques, des carottes, de la salade, des courgettes..."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Des tomates, oui! Et des carottes. C'est bon pour la santé!"
+          },
+          {
+            "speaker": "Vendeur",
+            "text": "Absolument! Et regardez ces poivrons rouges! Et ces aubergines!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Les poivrons... Oui, pourquoi pas! Et qu'est-ce que c'est, ça?"
+          },
+          {
+            "speaker": "Vendeur",
+            "text": "Ça? Ce sont des radis! Vous aimez les radis?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Euh... Je ne sais pas. C'est la première fois!"
+          },
+          {
+            "speaker": "Vendeur",
+            "text": "Alors, prenez des radis! C'est délicieux avec du sel et du beurre!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "D'accord! Des radis, alors!"
+          },
+          {
+            "speaker": "Vendeur",
+            "text": "Excellent choix! Vous voulez autre chose? Des oignons? De l'ail?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Non, merci. Ça suffit pour aujourd'hui!"
+          },
+          {
+            "speaker": "Vendeur",
+            "text": "Très bien! Alors, des pommes, des bananes, des tomates, des carottes, des poivrons et des radis. C'est parfait!"
+          }
+        ],
+        "speakers": {
+          "Vendeur": {
+            "voice": "Enceladus",
+            "description": "Cheerful fruit and vegetable seller"
+          },
+          "Alex": {
+            "voice": "Achird",
+            "description": "American man shopping at French market"
+          }
         },
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "American man shopping at French market"
-        }
-      ],
-      "audioStyle": "Lively market atmosphere. Vendor is enthusiastic and encouraging. Alex is curious and learning new foods.",
+        "audioStyle": "Lively market atmosphere. Vendor is enthusiastic and encouraging. Alex is curious and learning new foods."
+      },
       "estimatedMinutes": 20,
       "contentItems": [
         {
@@ -384,21 +445,118 @@
       "episodeNumber": 2,
       "type": "DIALOGUE",
       "title": "Un Kilo de...",
-      "content": "Maintenant, Alex doit dire les quantités!\n\nVendeur: Alors, combien de pommes vous voulez?\n\nAlex: Euh... Combien?\n\nVendeur: Oui. Un kilo? Deux kilos? Un demi-kilo?\n\nAlex: Ah! Un kilo de pommes, s'il vous plaît.\n\nVendeur: Un kilo de pommes. Voilà! Et les bananes?\n\nAlex: Un demi-kilo de bananes.\n\nVendeur: Parfait. Les tomates?\n\nAlex: Un kilo de tomates, s'il vous plaît.\n\nVendeur: Un kilo. Les carottes?\n\nAlex: Euh... Beaucoup de carottes! J'aime beaucoup les carottes!\n\nVendeur: Ha ha! D'accord! Un kilo de carottes aussi, alors?\n\nAlex: Oui! Un kilo!\n\nVendeur: Et les poivrons? Combien?\n\nAlex: Juste un peu de poivrons. Trois poivrons, c'est bien.\n\nVendeur: Trois poivrons. Parfait. Et les radis?\n\nAlex: Un petit bouquet de radis, s'il vous plaît.\n\nVendeur: Très bien! Un petit bouquet. Bon, attendez... C'est un peu lourd, tout ça!\n\nAlex: Lourd?\n\nVendeur: Oui, lourd! Ça fait beaucoup! Vous avez un sac?\n\nAlex: Ah oui! J'ai un grand sac. Pas de problème!\n\nVendeur: Excellent! Alors, c'est quinze euros cinquante, s'il vous plaît.\n\nAlex: Quinze euros cinquante. Voilà!\n\nVendeur: Merci, monsieur! Bonne journée et bon appétit!\n\nAlex: Merci! Bonne journée!",
       "generateAudio": true,
-      "speakers": [
-        {
-          "name": "Vendeur",
-          "voice": "Enceladus",
-          "description": "Patient market vendor helping with quantities"
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Vendeur",
+            "text": "Alors, combien de pommes vous voulez?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Euh... Combien?"
+          },
+          {
+            "speaker": "Vendeur",
+            "text": "Oui. Un kilo? Deux kilos? Un demi-kilo?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Ah! Un kilo de pommes, s'il vous plaît."
+          },
+          {
+            "speaker": "Vendeur",
+            "text": "Un kilo de pommes. Voilà! Et les bananes?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Un demi-kilo de bananes."
+          },
+          {
+            "speaker": "Vendeur",
+            "text": "Parfait. Les tomates?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Un kilo de tomates, s'il vous plaît."
+          },
+          {
+            "speaker": "Vendeur",
+            "text": "Un kilo. Les carottes?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Euh... Beaucoup de carottes! J'aime beaucoup les carottes!"
+          },
+          {
+            "speaker": "Vendeur",
+            "text": "Ha ha! D'accord! Un kilo de carottes aussi, alors?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui! Un kilo!"
+          },
+          {
+            "speaker": "Vendeur",
+            "text": "Et les poivrons? Combien?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Juste un peu de poivrons. Trois poivrons, c'est bien."
+          },
+          {
+            "speaker": "Vendeur",
+            "text": "Trois poivrons. Parfait. Et les radis?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Un petit bouquet de radis, s'il vous plaît."
+          },
+          {
+            "speaker": "Vendeur",
+            "text": "Très bien! Un petit bouquet. Bon, attendez... C'est un peu lourd, tout ça!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Lourd?"
+          },
+          {
+            "speaker": "Vendeur",
+            "text": "Oui, lourd! Ça fait beaucoup! Vous avez un sac?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Ah oui! J'ai un grand sac. Pas de problème!"
+          },
+          {
+            "speaker": "Vendeur",
+            "text": "Excellent! Alors, c'est quinze euros cinquante, s'il vous plaît."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Quinze euros cinquante. Voilà!"
+          },
+          {
+            "speaker": "Vendeur",
+            "text": "Merci, monsieur! Bonne journée et bon appétit!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Merci! Bonne journée!"
+          }
+        ],
+        "speakers": {
+          "Vendeur": {
+            "voice": "Enceladus",
+            "description": "Patient market vendor helping with quantities"
+          },
+          "Alex": {
+            "voice": "Achird",
+            "description": "American learning to order quantities"
+          }
         },
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "American learning to order quantities"
-        }
-      ],
-      "audioStyle": "Patient market transaction. Vendor helps Alex understand quantities. Friendly atmosphere.",
+        "audioStyle": "Patient market transaction. Vendor helps Alex understand quantities. Friendly atmosphere."
+      },
       "estimatedMinutes": 25,
       "contentItems": [
         {
@@ -755,8 +913,22 @@
       "episodeNumber": 3,
       "type": "STORY",
       "title": "J'aime, Je Déteste",
-      "content": "De retour à l'appartement, Alex range ses fruits et légumes. Il pense à ses préférences.\n\n\"J'aime les pommes. Les pommes sont délicieuses! J'adore les pommes!\"\n\nIl regarde les bananes. \"J'aime les bananes aussi. Mais... Je préfère les pommes!\"\n\nLes tomates sont sur la table. \"Ah, les tomates! J'aime beaucoup les tomates. Les tomates fraîches, c'est excellent!\"\n\nAlex prend une carotte. \"Les carottes! Je les adore! Les carottes sont bonnes pour la santé et pour les yeux!\"\n\nIl regarde les poivrons. \"Les poivrons... Euh... J'aime bien les poivrons rouges, mais je n'aime pas trop les poivrons verts.\"\n\nEt les radis? Alex prend un radis. C'est sa première fois!\n\n\"Mmm... Les radis... C'est... intéressant! C'est un peu piquant! Je n'adore pas, mais je n'aime pas non plus. C'est... spécial!\"\n\nAlex pense à d'autres aliments:\n\n\"Le pain? J'adore le pain français! Le fromage? J'aime le fromage! Le chocolat? Oh oui, j'adore le chocolat! Le café? Oui, j'aime bien le café le matin.\"\n\n\"Les épinards? Bof... Je n'aime pas beaucoup les épinards. Les champignons? Non! Je déteste les champignons!\"\n\nAlex sourit. \"En France, j'apprends mes préférences! C'est intéressant!\"",
       "generateAudio": true,
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrator",
+            "text": "De retour à l'appartement, Alex range ses fruits et légumes. Il pense à ses préférences.\n\n\"J'aime les pommes. Les pommes sont délicieuses! J'adore les pommes!\"\n\nIl regarde les bananes. \"J'aime les bananes aussi. Mais... Je préfère les pommes!\"\n\nLes tomates sont sur la table. \"Ah, les tomates! J'aime beaucoup les tomates. Les tomates fraîches, c'est excellent!\"\n\nAlex prend une carotte. \"Les carottes! Je les adore! Les carottes sont bonnes pour la santé et pour les yeux!\"\n\nIl regarde les poivrons. \"Les poivrons... Euh... J'aime bien les poivrons rouges, mais je n'aime pas trop les poivrons verts.\"\n\nEt les radis? Alex prend un radis. C'est sa première fois!\n\n\"Mmm... Les radis... C'est... intéressant! C'est un peu piquant! Je n'adore pas, mais je n'aime pas non plus. C'est... spécial!\"\n\nAlex pense à d'autres aliments:\n\n\"Le pain? J'adore le pain français! Le fromage? J'aime le fromage! Le chocolat? Oh oui, j'adore le chocolat! Le café? Oui, j'aime bien le café le matin.\"\n\n\"Les épinards? Bof... Je n'aime pas beaucoup les épinards. Les champignons? Non! Je déteste les champignons!\"\n\nAlex sourit. \"En France, j'apprends mes préférences! C'est intéressant!\""
+          }
+        ],
+        "speakers": {
+          "Narrator": {
+            "voice": "Charon",
+            "description": "Calm narrator voice describing Alex's thoughts"
+          }
+        },
+        "audioStyle": "Thoughtful narrative. Alex reflecting on his food preferences. Clear, expressive tone showing likes and dislikes."
+      },
       "estimatedMinutes": 25,
       "contentItems": [
         {
@@ -1106,15 +1278,7 @@
             "difficultyRating": 1.4
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Narrator",
-          "voice": "Charon",
-          "description": "Calm narrator voice describing Alex's thoughts"
-        }
-      ],
-      "audioStyle": "Thoughtful narrative. Alex reflecting on his food preferences. Clear, expressive tone showing likes and dislikes."
+      ]
     }
   ]
 }

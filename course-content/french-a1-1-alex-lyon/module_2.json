@@ -17,8 +17,62 @@
       "episodeNumber": 1,
       "type": "DIALOGUE",
       "title": "Qui êtes-vous?",
-      "content": "Dupont: Bonjour!\n\nAlex: Bonjour, monsieur.\n\nDupont: Comment vous appelez-vous?\n\nAlex: Je m'appelle Alex.\n\nDupont: Enchanté, Alex. Je m'appelle Monsieur Dupont.\n\nAlex: Enchanté, Monsieur Dupont.\n\nDupont: Vous êtes américain?\n\nAlex: Oui, je suis américain.\n\nDupont: Bienvenue à Lyon!\n\nAlex: Merci, monsieur.",
       "generateAudio": true,
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Dupont",
+            "text": "Bonjour!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Bonjour, monsieur."
+          },
+          {
+            "speaker": "Dupont",
+            "text": "Comment vous appelez-vous?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Je m'appelle Alex."
+          },
+          {
+            "speaker": "Dupont",
+            "text": "Enchanté, Alex. Je m'appelle Monsieur Dupont."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Enchanté, Monsieur Dupont."
+          },
+          {
+            "speaker": "Dupont",
+            "text": "Vous êtes américain?"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Oui, je suis américain."
+          },
+          {
+            "speaker": "Dupont",
+            "text": "Bienvenue à Lyon!"
+          },
+          {
+            "speaker": "Alex",
+            "text": "Merci, monsieur."
+          }
+        ],
+        "speakers": {
+          "Dupont": {
+            "voice": "Algieba",
+            "description": "Middle-aged landlord, patient but formal"
+          },
+          "Alex": {
+            "voice": "Achird",
+            "description": "Young American man, polite and respectful"
+          }
+        },
+        "audioStyle": "Natural conversation at moderate pace. Clear pronunciation for A1 learners. Formal and respectful tone between landlord and new tenant."
+      },
       "estimatedMinutes": 40,
       "contentItems": [
         {
@@ -321,27 +375,88 @@
             "difficultyRating": 1.5
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Monsieur Dupont",
-          "voice": "Algieba",
-          "description": "Middle-aged landlord, patient but formal"
-        },
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "Young American man, polite and respectful"
-        }
-      ],
-      "audioStyle": "Natural conversation at moderate pace. Clear pronunciation for A1 learners. Formal and respectful tone between landlord and new tenant."
+      ]
     },
     {
       "episodeNumber": 2,
       "type": "DIALOGUE",
       "title": "La Clé",
-      "content": "Dupont: Voici l'appartement.\n\nAlex: Merci.\n\nDupont: Voici la clé. Une clé.\n\nAlex: Une clé. Merci.\n\nDupont: Voilà la porte. Une porte.\n\nAlex: Une porte.\n\nDupont: Et voilà la fenêtre. Une fenêtre.\n\nAlex: Une fenêtre.\n\nDupont: Il y a deux fenêtres.\n\nAlex: Deux fenêtres.\n\nDupont: Combien de clés? Une clé.\n\nAlex: Une clé.\n\nDupont: Combien de portes? Une porte, deux portes, trois portes.\n\nAlex: Trois portes!\n\nDupont: Oui. Trois portes.",
       "generateAudio": true,
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Dupont",
+            "text": "Voici l'appartement."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Merci."
+          },
+          {
+            "speaker": "Dupont",
+            "text": "Voici la clé. Une clé."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Une clé. Merci."
+          },
+          {
+            "speaker": "Dupont",
+            "text": "Voilà la porte. Une porte."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Une porte."
+          },
+          {
+            "speaker": "Dupont",
+            "text": "Et voilà la fenêtre. Une fenêtre."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Une fenêtre."
+          },
+          {
+            "speaker": "Dupont",
+            "text": "Il y a deux fenêtres."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Deux fenêtres."
+          },
+          {
+            "speaker": "Dupont",
+            "text": "Combien de clés? Une clé."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Une clé."
+          },
+          {
+            "speaker": "Dupont",
+            "text": "Combien de portes? Une porte, deux portes, trois portes."
+          },
+          {
+            "speaker": "Alex",
+            "text": "Trois portes!"
+          },
+          {
+            "speaker": "Dupont",
+            "text": "Oui. Trois portes."
+          }
+        ],
+        "speakers": {
+          "Dupont": {
+            "voice": "Algieba",
+            "description": "Patient landlord showing the apartment"
+          },
+          "Alex": {
+            "voice": "Achird",
+            "description": "Attentive new tenant learning French"
+          }
+        },
+        "audioStyle": "Natural conversation at moderate pace. Clear, deliberate pronunciation for teaching numbers and objects. Patient, instructional tone."
+      },
       "estimatedMinutes": 40,
       "contentItems": [
         {
@@ -694,27 +809,28 @@
             "difficultyRating": 1.3
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Monsieur Dupont",
-          "voice": "Algieba",
-          "description": "Patient landlord showing the apartment"
-        },
-        {
-          "name": "Alex",
-          "voice": "Achird",
-          "description": "Attentive new tenant learning French"
-        }
-      ],
-      "audioStyle": "Natural conversation at moderate pace. Clear, deliberate pronunciation for teaching numbers and objects. Patient, instructional tone."
+      ]
     },
     {
       "episodeNumber": 3,
       "type": "STORY",
       "title": "Oui ou Non?",
-      "content": "Alex regarde l'appartement.\n\nC'est une porte? Oui. C'est une porte.\n\nC'est une fenêtre? Oui. C'est une fenêtre.\n\nC'est une clé? Oui. C'est une clé.\n\nC'est un taxi? Non. Ce n'est pas un taxi. C'est un appartement.\n\nC'est une baguette? Non. Ce n'est pas une baguette. C'est une clé.\n\nC'est l'aéroport? Non. Ce n'est pas l'aéroport. C'est l'appartement.\n\nAlex est content. Oui! Alex est content.",
       "generateAudio": true,
+      "dialogue": {
+        "lines": [
+          {
+            "speaker": "Narrateur",
+            "text": "Alex regarde l'appartement.\n\nC'est une porte? Oui. C'est une porte.\n\nC'est une fenêtre? Oui. C'est une fenêtre.\n\nC'est une clé? Oui. C'est une clé.\n\nC'est un taxi? Non. Ce n'est pas un taxi. C'est un appartement.\n\nC'est une baguette? Non. Ce n'est pas une baguette. C'est une clé.\n\nC'est l'aéroport? Non. Ce n'est pas l'aéroport. C'est l'appartement.\n\nAlex est content. Oui! Alex est content."
+          }
+        ],
+        "speakers": {
+          "Narrateur": {
+            "voice": "Charon",
+            "description": "Calm, clear narrator voice"
+          }
+        },
+        "audioStyle": "Narrative storytelling. Clear, slow-paced French suitable for absolute beginners. Question-and-answer pattern with emphasis on oui/non responses."
+      },
       "estimatedMinutes": 40,
       "contentItems": [
         {
@@ -1011,15 +1127,7 @@
             "difficultyRating": 1.5
           }
         }
-      ],
-      "speakers": [
-        {
-          "name": "Narrateur",
-          "voice": "Charon",
-          "description": "Calm, clear narrator voice"
-        }
-      ],
-      "audioStyle": "Narrative storytelling. Clear, slow-paced French suitable for absolute beginners. Question-and-answer pattern with emphasis on oui/non responses."
+      ]
     }
   ]
 }
