@@ -1,0 +1,1198 @@
+{
+  "moduleNumber": 5,
+  "title": "La Boulangerie",
+  "theme": "La Nourriture 1 - Buying Food",
+  "description": "Alex découvre la boulangerie française. Apprendre à acheter du pain et des pâtisseries, comprendre les prix, et maîtriser les articles définis.",
+  "objectives": [
+    "Order bakery items using 'je voudrais'",
+    "Use definite articles (le, la, les) correctly",
+    "Understand and say prices in euros",
+    "Ask 'combien ça coûte?' (how much does it cost?)",
+    "Learn bakery vocabulary and cultural customs"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "DIALOGUE",
+      "title": "La Baguette",
+      "content": "C'est le matin. Alex entre dans la boulangerie du quartier. L'odeur du pain frais est magnifique.\n\nBoulangère : Bonjour monsieur ! Bienvenue !\n\nAlex : Bonjour madame !\n\nBoulangère : Vous désirez ?\n\nAlex : Je voudrais une baguette, s'il vous plaît.\n\nBoulangère : Une baguette traditionnelle ou une baguette normale ?\n\nAlex : Euh... Quelle est la différence ?\n\nBoulangère : La baguette traditionnelle est plus croustillante. Elle est un peu plus chère, mais elle est très bonne.\n\nAlex : D'accord ! Je voudrais une baguette traditionnelle, s'il vous plaît.\n\nBoulangère : Parfait ! Autre chose ?\n\nAlex : Oui, je voudrais aussi deux croissants.\n\nBoulangère : Voilà ! Deux croissants au beurre. C'est tout ?\n\nAlex : Oui, c'est tout. Merci.\n\nBoulangère : Alors, une baguette traditionnelle et deux croissants... Ça fait quatre euros cinquante, s'il vous plaît.\n\nAlex : Voilà cinq euros.\n\nBoulangère : Merci. Et voici votre monnaie : cinquante centimes. Bonne journée monsieur !\n\nAlex : Merci ! Bonne journée !\n\nAlex sort de la boulangerie avec son pain chaud. Il est très content. Le pain français, c'est délicieux !",
+      "generateAudio": true,
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Que commande Alex ?",
+            "instructions": "Qu'est-ce qu'Alex achète ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce qu'Alex achète à la boulangerie ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Une baguette traditionnelle et deux croissants",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Une baguette normale et un croissant",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Deux baguettes traditionnelles",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Un pain au chocolat",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'Je voudrais une baguette traditionnelle' et 'deux croissants'.",
+              "hint": "Écoutez ce qu'Alex demande à la boulangère."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Le prix total",
+            "instructions": "Combien Alex paie-t-il ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel est le prix total ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "3,50 €",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "4,50 €",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "5,00 €",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "5,50 €",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "La boulangère dit : 'Ça fait quatre euros cinquante'.",
+              "hint": "Écoutez quand la boulangère annonce le prix."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez : Je voudrais",
+            "instructions": "Complétez la phrase pour commander.",
+            "content": {
+              "text": "Je _____ une baguette, s'il vous plaît.",
+              "blanks": [
+                {
+                  "correctAnswer": "voudrais",
+                  "acceptableAnswers": [
+                    "voudrais"
+                  ],
+                  "options": [
+                    "voudrais",
+                    "veux",
+                    "vais",
+                    "suis"
+                  ]
+                }
+              ],
+              "translation": "I would like a baguette, please.",
+              "hint": "'Je voudrais' est la formule polie pour demander quelque chose."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez : Les articles",
+            "instructions": "Complétez avec 'une' ou 'deux'.",
+            "content": {
+              "text": "Je voudrais _____ baguette et _____ croissants.",
+              "blanks": [
+                {
+                  "correctAnswer": "une",
+                  "acceptableAnswers": [
+                    "une"
+                  ],
+                  "options": [
+                    "une",
+                    "un",
+                    "deux",
+                    "trois"
+                  ]
+                },
+                {
+                  "correctAnswer": "deux",
+                  "acceptableAnswers": [
+                    "deux"
+                  ],
+                  "options": [
+                    "deux",
+                    "un",
+                    "une",
+                    "trois"
+                  ]
+                }
+              ],
+              "translation": "I would like one baguette and two croissants.",
+              "hint": "Baguette est au singulier, croissants au pluriel."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associez : Le vocabulaire de la boulangerie",
+            "instructions": "Associez les mots français avec leur traduction.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "la baguette",
+                  "right": "baguette (long thin bread)"
+                },
+                {
+                  "left": "le croissant",
+                  "right": "croissant"
+                },
+                {
+                  "left": "le pain",
+                  "right": "bread"
+                },
+                {
+                  "left": "la boulangerie",
+                  "right": "bakery"
+                },
+                {
+                  "left": "frais",
+                  "right": "fresh"
+                }
+              ],
+              "hint": "Ce sont des mots essentiels pour la boulangerie."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Remettez les mots dans l'ordre",
+            "instructions": "Formez une phrase correcte.",
+            "content": {
+              "words": [
+                "Je",
+                "voudrais",
+                "une",
+                "baguette",
+                "s'il",
+                "vous",
+                "plaît"
+              ],
+              "correctOrder": [
+                "Je",
+                "voudrais",
+                "une",
+                "baguette",
+                "s'il",
+                "vous",
+                "plaît"
+              ],
+              "translation": "I would like a baguette please",
+              "explanation": "Pour commander poliment : Je voudrais + article + nom + s'il vous plaît",
+              "hint": "Commencez par 'Je voudrais'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Compréhension orale : La différence",
+            "instructions": "Écoutez et répondez.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "La baguette traditionnelle est plus croustillante. Elle est un peu plus chère, mais elle est très bonne.",
+              "question": "Quelle est la caractéristique de la baguette traditionnelle ?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Elle est plus croustillante et très bonne"
+                },
+                {
+                  "id": "b",
+                  "text": "Elle est moins chère"
+                },
+                {
+                  "id": "c",
+                  "text": "Elle est plus grande"
+                },
+                {
+                  "id": "d",
+                  "text": "Elle est plus douce"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "La boulangère explique que la baguette traditionnelle est plus croustillante (crispy) et très bonne.",
+              "hint": "Écoutez ce que dit la boulangère sur la qualité."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Texte à trous : À la boulangerie",
+            "instructions": "Complétez le texte avec les mots manquants.",
+            "content": {
+              "text": "Alex entre dans la {blank1}. La boulangère demande ce qu'il désire. Alex dit : 'Je {blank2} une baguette traditionnelle'. Il commande aussi deux {blank3}. Le prix total est {blank4} euros cinquante. Alex donne cinq euros et reçoit {blank5} centimes de monnaie.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "boulangerie"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "voudrais"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "croissants"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": [
+                    "quatre",
+                    "4"
+                  ]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "cinquante",
+                    "50"
+                  ]
+                }
+              ],
+              "hint": "Relisez le dialogue pour trouver les détails."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire : Croustillant",
+            "instructions": "Que signifie 'croustillant' ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que signifie 'croustillant' ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Crispy / crunchy",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Soft",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Sweet",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Expensive",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Croustillant' signifie 'crispy' ou 'crunchy'. C'est une qualité du bon pain français.",
+              "hint": "C'est une texture du pain frais."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Jeune homme américain qui découvre la boulangerie française"
+        },
+        {
+          "name": "La Boulangère",
+          "voice": "Aoede",
+          "description": "Boulangère accueillante et chaleureuse"
+        }
+      ],
+      "audioStyle": "Transaction commerciale chaleureuse dans une boulangerie française. La boulangère est professionnelle et amicale. Rythme naturel avec un ton accueillant."
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Les Pâtisseries",
+      "content": "Le lendemain, Alex retourne à la boulangerie. Cette fois, il veut essayer les pâtisseries.\n\nBoulangère : Bonjour ! Vous revoilà ! Comment allez-vous ?\n\nAlex : Bonjour ! Je vais très bien, merci. Le pain d'hier était délicieux !\n\nBoulangère : Ah, je suis contente ! Aujourd'hui, vous voulez du pain aussi ?\n\nAlex : Oui, une baguette, et je voudrais essayer les pâtisseries. Qu'est-ce que vous recommandez ?\n\nBoulangère : Ah, les pâtisseries ! Regardez : ici, nous avons le pain au chocolat, la tarte aux pommes, le gâteau au chocolat, et l'éclair.\n\nAlex : Mmm, tout a l'air bon ! C'est quoi, l'éclair ?\n\nBoulangère : L'éclair, c'est une pâtisserie allongée avec de la crème à l'intérieur et du chocolat ou du café sur le dessus. C'est très bon !\n\nAlex : D'accord ! Je prends un éclair au chocolat. Et aussi un pain au chocolat.\n\nBoulangère : Parfait ! Vous voulez celui-ci ou celui-là ?\n\nAlex : Euh... Quelle est la différence ?\n\nBoulangère : Celui-ci est plus grand. Celui-là est un peu plus petit.\n\nAlex : Je prends celui-ci, le plus grand !\n\nBoulangère : Très bien ! Donc, une baguette, un éclair au chocolat, et un pain au chocolat. C'est tout ?\n\nAlex : Oui, c'est tout. Ah non ! Je voudrais aussi la tarte aux pommes. Elle est belle !\n\nBoulangère : La tarte entière ou juste une part ?\n\nAlex : Juste une part, s'il vous plaît.\n\nBoulangère : Voilà ! Alors, ça fait neuf euros vingt au total.\n\nAlex : Parfait. Voilà dix euros.\n\nBoulangère : Merci. Voici votre monnaie. Bonne journée !\n\nAlex : Merci, bonne journée !",
+      "generateAudio": true,
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Que commande Alex ?",
+            "instructions": "Qu'est-ce qu'Alex achète aujourd'hui ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce qu'Alex achète ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Une baguette, un éclair, un pain au chocolat, et une part de tarte",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Seulement une baguette",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Deux éclairs et un gâteau",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Une tarte entière",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex commande : une baguette, un éclair au chocolat, un pain au chocolat, et une part de tarte aux pommes.",
+              "hint": "Alex ajoute la tarte à la fin."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "L'éclair",
+            "instructions": "Comment est l'éclair ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Comment la boulangère décrit-elle l'éclair ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "C'est rond avec des fruits",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "C'est allongé avec de la crème et du chocolat",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "C'est carré avec du sucre",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "C'est une tarte",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "La boulangère dit : 'L'éclair, c'est une pâtisserie allongée avec de la crème à l'intérieur et du chocolat sur le dessus'.",
+              "hint": "Écoutez la description de la boulangère."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez : Les articles définis",
+            "instructions": "Complétez avec le, la, ou l'.",
+            "content": {
+              "text": "_____ pain au chocolat est délicieux. _____ éclair est allongé. _____ tarte aux pommes est belle.",
+              "blanks": [
+                {
+                  "correctAnswer": "Le",
+                  "acceptableAnswers": [
+                    "Le",
+                    "le"
+                  ],
+                  "options": [
+                    "Le",
+                    "La",
+                    "L'",
+                    "Les"
+                  ]
+                },
+                {
+                  "correctAnswer": "L'",
+                  "acceptableAnswers": [
+                    "L'",
+                    "l'"
+                  ],
+                  "options": [
+                    "L'",
+                    "Le",
+                    "La",
+                    "Les"
+                  ]
+                },
+                {
+                  "correctAnswer": "La",
+                  "acceptableAnswers": [
+                    "La",
+                    "la"
+                  ],
+                  "options": [
+                    "La",
+                    "Le",
+                    "L'",
+                    "Les"
+                  ]
+                }
+              ],
+              "translation": "The pain au chocolat is delicious. The éclair is elongated. The apple tart is beautiful.",
+              "hint": "Le = masculin, La = féminin, L' = voyelle"
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez : Celui-ci, celui-là",
+            "instructions": "Complétez avec le bon démonstratif.",
+            "content": {
+              "text": "Vous voulez _____ ou _____ ?",
+              "blanks": [
+                {
+                  "correctAnswer": "celui-ci",
+                  "acceptableAnswers": [
+                    "celui-ci"
+                  ],
+                  "options": [
+                    "celui-ci",
+                    "celui-là",
+                    "celle-ci",
+                    "celle-là"
+                  ]
+                },
+                {
+                  "correctAnswer": "celui-là",
+                  "acceptableAnswers": [
+                    "celui-là"
+                  ],
+                  "options": [
+                    "celui-là",
+                    "celui-ci",
+                    "celle-là",
+                    "celle-ci"
+                  ]
+                }
+              ],
+              "translation": "Do you want this one or that one?",
+              "hint": "Celui-ci = this one (close), celui-là = that one (far)"
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associez : Les pâtisseries",
+            "instructions": "Associez les pâtisseries avec leur description.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "le pain au chocolat",
+                  "right": "viennoiserie avec du chocolat"
+                },
+                {
+                  "left": "l'éclair",
+                  "right": "pâtisserie allongée avec de la crème"
+                },
+                {
+                  "left": "la tarte aux pommes",
+                  "right": "dessert avec des pommes"
+                },
+                {
+                  "left": "le gâteau",
+                  "right": "dessert sucré, souvent pour les fêtes"
+                }
+              ],
+              "hint": "Pensez aux ingrédients et à la forme."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Remettez les mots dans l'ordre",
+            "instructions": "Formez une phrase correcte.",
+            "content": {
+              "words": [
+                "Le",
+                "pain",
+                "au",
+                "chocolat",
+                "est",
+                "délicieux"
+              ],
+              "correctOrder": [
+                "Le",
+                "pain",
+                "au",
+                "chocolat",
+                "est",
+                "délicieux"
+              ],
+              "translation": "The pain au chocolat is delicious",
+              "explanation": "Article défini + nom + verbe être + adjectif",
+              "hint": "Commencez par l'article 'Le'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Compréhension orale : Choisir",
+            "instructions": "Écoutez et répondez.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Celui-ci est plus grand. Celui-là est un peu plus petit.",
+              "question": "Quelle est la différence entre les deux pains au chocolat ?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "La taille : l'un est plus grand"
+                },
+                {
+                  "id": "b",
+                  "text": "Le prix : l'un est plus cher"
+                },
+                {
+                  "id": "c",
+                  "text": "Le goût : l'un est plus sucré"
+                },
+                {
+                  "id": "d",
+                  "text": "La couleur"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "La boulangère explique que celui-ci est plus grand et celui-là est plus petit.",
+              "hint": "Écoutez les mots 'grand' et 'petit'."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Texte à trous : Les pâtisseries",
+            "instructions": "Complétez le texte avec les mots manquants.",
+            "content": {
+              "text": "Alex retourne à la boulangerie pour essayer les {blank1}. La boulangère lui montre le pain au chocolat, {blank2} aux pommes, le gâteau, et l'éclair. Alex choisit {blank3} au chocolat qui est plus grand. Il prend aussi une {blank4} de tarte aux pommes. Le total est {blank5} euros vingt.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "pâtisseries"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": [
+                    "la tarte",
+                    "tarte"
+                  ]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "celui-ci"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "part"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "neuf",
+                    "9"
+                  ]
+                }
+              ],
+              "hint": "Relisez le dialogue pour trouver les détails."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire : Une part",
+            "instructions": "Que signifie 'une part' ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que signifie 'une part de tarte' ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "A slice of pie",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "A whole pie",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "A recipe",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "A type of tart",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Une part' signifie 'a slice' ou 'a portion'. Alex ne veut pas la tarte entière, juste une part.",
+              "hint": "C'est une portion, pas le gâteau entier."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Jeune homme curieux qui découvre les pâtisseries françaises"
+        },
+        {
+          "name": "La Boulangère",
+          "voice": "Aoede",
+          "description": "Boulangère qui explique ses produits avec fierté"
+        }
+      ],
+      "audioStyle": "Conversation commerciale amicale. La boulangère est enthousiaste quand elle décrit ses pâtisseries. Alex pose des questions avec curiosité."
+    },
+    {
+      "episodeNumber": 3,
+      "type": "DIALOGUE",
+      "title": "Payer",
+      "content": "Quelques jours plus tard, Alex est de nouveau à la boulangerie. Il y a une petite file d'attente.\n\nClient devant Alex : Bonjour ! Je voudrais trois baguettes et quatre pains au chocolat.\n\nBoulangère : Très bien ! Ça fait huit euros soixante, s'il vous plaît.\n\nClient : Voilà. Vous acceptez la carte ?\n\nBoulangère : Oui, bien sûr ! À partir de cinq euros.\n\nLe client paie avec sa carte bancaire et part. C'est maintenant le tour d'Alex.\n\nBoulangère : Bonjour Alex ! Toujours fidèle !\n\nAlex : Bonjour ! Oui, votre pain est trop bon ! Combien coûte la baguette tradition ?\n\nBoulangère : La baguette tradition coûte un euro trente.\n\nAlex : Et le pain au chocolat ?\n\nBoulangère : Deux euros.\n\nAlex : D'accord. Je voudrais deux baguettes tradition et trois pains au chocolat, s'il vous plaît.\n\nBoulangère : Parfait ! Voyons... Deux baguettes à un euro trente, ça fait deux euros soixante. Trois pains au chocolat à deux euros, ça fait six euros. Le total est huit euros soixante.\n\nAlex : C'est cher ou c'est pas cher ?\n\nBoulangère : Pour la qualité, ce n'est pas cher ! C'est un prix normal pour du bon pain artisanal.\n\nAlex : D'accord ! Je paie en espèces. Voilà dix euros.\n\nBoulangère : Merci. Voici votre monnaie : un euro quarante. Vous voulez un sac ?\n\nAlex : Oui, s'il vous plaît.\n\nBoulangère : Voilà ! Bonne journée !\n\nAlex : Merci beaucoup ! À bientôt !\n\nBoulangère : À très bientôt !",
+      "generateAudio": true,
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Le prix de la baguette tradition",
+            "instructions": "Combien coûte une baguette tradition ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel est le prix d'une baguette tradition ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "1,00 €",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "1,30 €",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "2,00 €",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "2,60 €",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "La boulangère dit : 'La baguette tradition coûte un euro trente'.",
+              "hint": "Écoutez quand Alex demande le prix."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Le total d'Alex",
+            "instructions": "Combien paie Alex au total ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel est le prix total pour Alex ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "6,00 €",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "8,60 €",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "10,00 €",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "2,60 €",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "La boulangère calcule : 'Le total est huit euros soixante'.",
+              "hint": "C'est le même prix que le premier client."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez : Combien coûte ?",
+            "instructions": "Complétez la question sur le prix.",
+            "content": {
+              "text": "_____ coûte la baguette tradition ?",
+              "blanks": [
+                {
+                  "correctAnswer": "Combien",
+                  "acceptableAnswers": [
+                    "Combien",
+                    "combien"
+                  ],
+                  "options": [
+                    "Combien",
+                    "Comment",
+                    "Quand",
+                    "Où"
+                  ]
+                }
+              ],
+              "translation": "How much does the traditional baguette cost?",
+              "hint": "Utilisez le mot interrogatif pour les prix."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez : Ça coûte",
+            "instructions": "Répondez à la question sur le prix.",
+            "content": {
+              "text": "Le pain au chocolat _____ deux euros.",
+              "blanks": [
+                {
+                  "correctAnswer": "coûte",
+                  "acceptableAnswers": [
+                    "coûte"
+                  ],
+                  "options": [
+                    "coûte",
+                    "est",
+                    "fait",
+                    "a"
+                  ]
+                }
+              ],
+              "translation": "The pain au chocolat costs two euros.",
+              "hint": "Utilisez le verbe 'coûter'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associez : Vocabulaire de l'argent",
+            "instructions": "Associez les mots français avec leur traduction.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "combien",
+                  "right": "how much"
+                },
+                {
+                  "left": "coûter",
+                  "right": "to cost"
+                },
+                {
+                  "left": "cher",
+                  "right": "expensive"
+                },
+                {
+                  "left": "pas cher",
+                  "right": "not expensive / cheap"
+                },
+                {
+                  "left": "en espèces",
+                  "right": "in cash"
+                },
+                {
+                  "left": "la carte",
+                  "right": "the card"
+                }
+              ],
+              "hint": "Ce sont des mots utiles pour parler d'argent."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Remettez les mots dans l'ordre",
+            "instructions": "Formez une phrase correcte.",
+            "content": {
+              "words": [
+                "Combien",
+                "ça",
+                "coûte",
+                "?"
+              ],
+              "correctOrder": [
+                "Combien",
+                "ça",
+                "coûte",
+                "?"
+              ],
+              "translation": "How much does it cost?",
+              "explanation": "Question simple et directe pour demander un prix.",
+              "hint": "Commencez par le mot interrogatif."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Compréhension orale : Le calcul",
+            "instructions": "Écoutez et répondez.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Deux baguettes à un euro trente, ça fait deux euros soixante. Trois pains au chocolat à deux euros, ça fait six euros. Le total est huit euros soixante.",
+              "question": "Comment la boulangère calcule-t-elle le total ?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "2 baguettes (2,60 €) + 3 pains au chocolat (6,00 €) = 8,60 €"
+                },
+                {
+                  "id": "b",
+                  "text": "3 baguettes + 2 pains au chocolat = 8,60 €"
+                },
+                {
+                  "id": "c",
+                  "text": "2 baguettes + 2 pains au chocolat = 8,60 €"
+                },
+                {
+                  "id": "d",
+                  "text": "Le total est 10 €"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "La boulangère fait le calcul étape par étape : 2 × 1,30 = 2,60 et 3 × 2,00 = 6,00, total = 8,60.",
+              "hint": "Écoutez les deux calculs séparés."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Texte à trous : Payer",
+            "instructions": "Complétez le texte avec les mots manquants.",
+            "content": {
+              "text": "Alex demande : '{blank1} coûte la baguette tradition ?' La boulangère répond qu'elle coûte un euro {blank2}. Le pain au chocolat coûte {blank3} euros. Alex commande 2 baguettes et 3 pains au chocolat. Le total est {blank4} euros soixante. Alex paie en {blank5} avec un billet de dix euros. Il reçoit {blank6} euro quarante de monnaie.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "Combien"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": [
+                    "trente",
+                    "30"
+                  ]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": [
+                    "deux",
+                    "2"
+                  ]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": [
+                    "huit",
+                    "8"
+                  ]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "espèces"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": [
+                    "un",
+                    "1"
+                  ]
+                }
+              ],
+              "hint": "Relisez le dialogue et le calcul de la boulangère."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Culture : Payer à la boulangerie",
+            "instructions": "Comment peut-on payer à la boulangerie ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "D'après le dialogue, comment peut-on payer à la boulangerie ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "En espèces ou par carte (à partir de 5 €)",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Seulement en espèces",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Seulement par carte",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Par chèque seulement",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "La boulangère dit 'Vous acceptez la carte ?' et répond 'Oui, bien sûr ! À partir de cinq euros'.",
+              "hint": "Il y a un minimum pour la carte bancaire."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Jeune homme qui devient un client régulier"
+        },
+        {
+          "name": "La Boulangère",
+          "voice": "Aoede",
+          "description": "Boulangère qui reconnaît Alex et est contente de le revoir"
+        }
+      ],
+      "audioStyle": "Transaction commerciale devenue familière. La boulangère reconnaît Alex comme un habitué. Ton chaleureux et amical avec des explications claires sur les prix."
+    }
+  ]
+}

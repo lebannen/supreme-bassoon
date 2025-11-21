@@ -1,0 +1,1435 @@
+{
+  "moduleNumber": 16,
+  "title": "Les Achats",
+  "theme": "La Mode - The Shopping Spree",
+  "description": "L'hiver arrive à Lyon et Alex a besoin de vêtements chauds. Découvrez comment faire du shopping, parler des vêtements, des tailles, et comparer les produits.",
+  "objectives": [
+    "Acheter des vêtements et accessoires",
+    "Utiliser les adjectifs démonstratifs (ce/cet/cette/ces)",
+    "Parler des tailles et de la coupe des vêtements",
+    "Faire des comparaisons (plus...que, moins...que)",
+    "Discuter des matériaux et des couleurs"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "DIALOGUE",
+      "title": "Les Vêtements et Matériaux",
+      "content": "Alex: Bonjour! Je cherche un manteau d'hiver. Il commence à faire vraiment froid à Lyon!\n\nVendeuse: Bonjour monsieur! Bien sûr, nous avons une belle collection de manteaux. Quelle taille faites-vous?\n\nAlex: Je fais du medium, ou du M. Aux États-Unis, c'était toujours ça.\n\nVendeuse: Parfait! Ici en France, le M correspond généralement à la taille 48 ou 50. Vous cherchez quel style de manteau?\n\nAlex: Je voudrais quelque chose de chaud pour l'hiver, mais pas trop lourd. J'aime bien les manteaux longs.\n\nVendeuse: Très bien! Regardez ce manteau-ci. Il est en laine mélangée, très chaud et confortable. Et celui-là est en duvet, encore plus chaud.\n\nAlex: Hmm... La laine, c'est bien? C'est résistant?\n\nVendeuse: Oui, absolument! La laine est un excellent matériau pour l'hiver. Elle garde bien la chaleur et elle est très durable. Ce manteau contient soixante-dix pour cent de laine.\n\nAlex: Et le duvet, c'est quoi exactement?\n\nVendeuse: Le duvet, c'est des plumes d'oiseaux. C'est très léger mais extrêmement chaud. Parfait pour les hivers très froids.\n\nAlex: D'accord. Et vous avez des manteaux en cuir?\n\nVendeuse: Oui, bien sûr! Cette veste en cuir est très élégante. Le cuir est un matériau résistant qui dure des années. Par contre, elle est moins chaude qu'un manteau en laine ou en duvet.\n\nAlex: Je vois. J'ai aussi besoin d'autres vêtements chauds. Un pull, par exemple.\n\nVendeuse: Bien sûr! Nous avons de très beaux pulls en cachemire, en laine, et en coton. Regardez ces pulls-ci. Celui-ci est en cachemire, très doux. Celui-là est en pure laine.\n\nAlex: Le cachemire, c'est cher, non?\n\nVendeuse: C'est un peu plus cher que la laine normale, oui, mais c'est extrêmement doux et chaud. C'est un investissement de qualité!\n\nAlex: Et pour les accessoires? J'ai besoin d'une écharpe et de gants.\n\nVendeuse: Ah oui, essentiel pour l'hiver lyonnais! Cette écharpe-ci est en laine merinos, très douce. Ces gants-là sont en cuir à l'extérieur et en polaire à l'intérieur, parfaits pour le froid.\n\nAlex: La polaire, c'est synthétique?\n\nVendeuse: Oui, exactement! C'est un tissu synthétique très chaud. On l'utilise souvent pour les doublures.\n\nAlex: D'accord. Et vous avez des bonnets?\n\nVendeuse: Bien sûr! Ces bonnets sont en acrylique - c'est synthétique mais très chaud et moins cher. Ceux-ci sont en laine naturelle.\n\nAlex: Il y a beaucoup de choix! Je peux essayer le manteau en laine?\n\nVendeuse: Absolument! Les cabines d'essayage sont au fond du magasin. Je vous apporte le manteau en taille M.",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "American man shopping for winter clothes in Lyon"
+        },
+        {
+          "name": "Vendeuse",
+          "voice": "Leda",
+          "description": "Helpful clothing store employee, youthful and friendly"
+        }
+      ],
+      "audioStyle": "Professional retail conversation. The sales assistant is helpful and knowledgeable about fabrics and materials. Alex is curious and asking questions. Clear, natural pace.",
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Pourquoi acheter?",
+            "instructions": "Pourquoi Alex cherche-t-il un manteau?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Pourquoi Alex a-t-il besoin d'un manteau d'hiver?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il n'aime pas ses vieux vêtements",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Il commence à faire vraiment froid à Lyon",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "C'est la mode",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "C'est pour un cadeau",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit: 'Il commence à faire vraiment froid à Lyon!'",
+              "hint": "C'est lié à la météo."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Vocabulaire: Les matériaux",
+            "instructions": "Associez les matériaux avec leur description.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "La laine",
+                  "right": "Wool - warm and durable"
+                },
+                {
+                  "left": "Le duvet",
+                  "right": "Down - bird feathers, very light and warm"
+                },
+                {
+                  "left": "Le cuir",
+                  "right": "Leather - resistant and elegant"
+                },
+                {
+                  "left": "Le cachemire",
+                  "right": "Cashmere - very soft and warm"
+                },
+                {
+                  "left": "La polaire",
+                  "right": "Fleece - synthetic, warm fabric"
+                }
+              ],
+              "hint": "Ces matériaux sont utilisés pour les vêtements d'hiver."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Démonstratifs: ce/cet/cette/ces",
+            "instructions": "Complétez avec le bon adjectif démonstratif.",
+            "content": {
+              "text": "Regardez _____ manteau (m). _____ veste (f) est en cuir. _____ pulls (m.pl) sont en laine. _____ écharpe (f) est douce. _____ accessoire (m, commence par voyelle) est parfait.",
+              "blanks": [
+                {
+                  "correctAnswer": "ce",
+                  "acceptableAnswers": [
+                    "ce"
+                  ],
+                  "options": [
+                    "ce",
+                    "cet",
+                    "cette",
+                    "ces"
+                  ]
+                },
+                {
+                  "correctAnswer": "Cette",
+                  "acceptableAnswers": [
+                    "Cette",
+                    "cette"
+                  ],
+                  "options": [
+                    "ce",
+                    "cet",
+                    "cette",
+                    "ces"
+                  ]
+                },
+                {
+                  "correctAnswer": "Ces",
+                  "acceptableAnswers": [
+                    "Ces",
+                    "ces"
+                  ],
+                  "options": [
+                    "ce",
+                    "cet",
+                    "cette",
+                    "ces"
+                  ]
+                },
+                {
+                  "correctAnswer": "Cette",
+                  "acceptableAnswers": [
+                    "Cette",
+                    "cette"
+                  ],
+                  "options": [
+                    "ce",
+                    "cet",
+                    "cette",
+                    "ces"
+                  ]
+                },
+                {
+                  "correctAnswer": "Cet",
+                  "acceptableAnswers": [
+                    "Cet",
+                    "cet"
+                  ],
+                  "options": [
+                    "ce",
+                    "cet",
+                    "cette",
+                    "ces"
+                  ]
+                }
+              ],
+              "translation": "This/that coat, this/that jacket, these/those sweaters, this/that scarf, this/that accessory",
+              "hint": "ce (m), cet (m devant voyelle), cette (f), ces (pluriel)"
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 20,
+            "difficultyRating": 1.8
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des mots: Quelle taille?",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "Quelle",
+                "taille",
+                "faites",
+                "-",
+                "vous",
+                "?"
+              ],
+              "correctOrder": [
+                "Quelle",
+                "taille",
+                "faites",
+                "-",
+                "vous",
+                "?"
+              ],
+              "translation": "What size are you? / What size do you wear?",
+              "explanation": "En français, on dit 'faire une taille' pour parler de la taille de vêtements qu'on porte.",
+              "hint": "On utilise le verbe 'faire' pour parler de la taille."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: Les vêtements d'hiver",
+            "instructions": "Identifiez le vêtement.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel accessoire porte-t-on autour du cou en hiver?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Un bonnet",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Des gants",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Une écharpe",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Un pull",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Une écharpe se porte autour du cou pour protéger du froid.",
+              "hint": "C'est long et on l'enroule autour du cou."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Expression: En + matériau",
+            "instructions": "Complétez avec 'en' + matériau.",
+            "content": {
+              "text": "Ce manteau est _____ laine. Cette veste est _____ cuir. Ces gants sont _____ polaire.",
+              "blanks": [
+                {
+                  "correctAnswer": "en",
+                  "acceptableAnswers": [
+                    "en"
+                  ],
+                  "options": [
+                    "en",
+                    "de",
+                    "à",
+                    "avec"
+                  ]
+                },
+                {
+                  "correctAnswer": "en",
+                  "acceptableAnswers": [
+                    "en"
+                  ],
+                  "options": [
+                    "en",
+                    "de",
+                    "à",
+                    "avec"
+                  ]
+                },
+                {
+                  "correctAnswer": "en",
+                  "acceptableAnswers": [
+                    "en"
+                  ],
+                  "options": [
+                    "en",
+                    "de",
+                    "à",
+                    "avec"
+                  ]
+                }
+              ],
+              "translation": "This coat is (made of) wool. This jacket is (made of) leather. These gloves are (made of) fleece.",
+              "hint": "On utilise 'en' pour indiquer le matériau."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Le duvet",
+            "instructions": "Qu'est-ce que le duvet?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Comment la vendeuse décrit-elle le duvet?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "C'est un tissu synthétique",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "C'est des plumes d'oiseaux, léger et très chaud",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "C'est un type de laine",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "C'est du coton",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "La vendeuse dit: 'Le duvet, c'est des plumes d'oiseaux. C'est très léger mais extrêmement chaud.'",
+              "hint": "C'est naturel et vient des oiseaux."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: Shopping pour l'hiver",
+            "instructions": "Complétez le résumé.",
+            "content": {
+              "text": "Alex cherche un {blank1} d'hiver parce qu'il fait froid à Lyon. Sa {blank2} est M en américain, ce qui correspond à la taille 48 ou 50 en France. La vendeuse lui montre plusieurs manteaux. Il y a un manteau en {blank3} mélangée, un en {blank4} qui est très léger et chaud, et une veste en {blank5}. Alex a aussi besoin d'un pull. Le {blank6} est très doux mais un peu cher. Pour les accessoires, il cherche une {blank7} et des {blank8}. Les cabines d'{blank9} sont au fond du magasin.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "manteau"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "taille"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "laine"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "duvet"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "cuir"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "cachemire"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "écharpe"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "gants"
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "essayage"
+                }
+              ],
+              "hint": "Relisez le dialogue pour retrouver tous les vêtements et matériaux."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "matching",
+            "title": "Vocabulaire: Les accessoires d'hiver",
+            "instructions": "Associez les accessoires avec leur fonction.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Une écharpe",
+                  "right": "Pour le cou (neck)"
+                },
+                {
+                  "left": "Des gants",
+                  "right": "Pour les mains (hands)"
+                },
+                {
+                  "left": "Un bonnet",
+                  "right": "Pour la tête (head)"
+                },
+                {
+                  "left": "Un manteau",
+                  "right": "Pour tout le corps (body)"
+                }
+              ],
+              "hint": "Pensez à quelle partie du corps protège chaque accessoire."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "La Cabine d'Essayage",
+      "content": "[Alex essaie le manteau dans la cabine]\n\nAlex: Excusez-moi? Je peux sortir pour vous montrer?\n\nVendeuse: Bien sûr! Venez, il y a un grand miroir ici.\n\n[Alex sort de la cabine]\n\nVendeuse: Oh, ce manteau vous va très bien! La couleur est parfaite avec votre teint.\n\nAlex: Vous trouvez? Je ne sais pas... Comment vous trouvez la taille? Ce n'est pas trop grand?\n\nVendeuse: Attendez, laissez-moi regarder. Levez les bras... Oui, comme ça. Hmm, les épaules tombent bien. Tournez-vous, s'il vous plaît... Non, je pense que la taille est correcte. Ce n'est pas trop grand.\n\nAlex: Mais quand je bouge les bras, je sens que c'est un peu serré ici, au niveau des épaules.\n\nVendeuse: Ah oui, je vois. Le problème, c'est que ce modèle est coupé assez près du corps. C'est la coupe européenne - elle est plus ajustée que la coupe américaine.\n\nAlex: D'accord. Vous avez la taille au-dessus?\n\nVendeuse: Oui, j'ai la taille L. Mais attention, le L sera peut-être trop long pour vous. Vous faites quelle taille de pantalon? Du 40, du 42?\n\nAlex: Euh... en américain, je fais du 32. Je ne sais pas la correspondance française.\n\nVendeuse: Le 32 américain, c'est environ du 42 français. Alors pour le manteau, le M devrait être bien. Essayons un autre modèle, peut-être? Celui-ci est coupé plus large.\n\nAlex: Bonne idée!\n\n[Alex essaie un autre manteau]\n\nAlex: Celui-ci est beaucoup plus confortable! C'est moins serré aux épaules.\n\nVendeuse: Oui, et il vous va très bien! Ce n'est ni trop grand ni trop petit. C'est la bonne taille.\n\nAlex: La longueur est bien aussi?\n\nVendeuse: Parfaite! Le manteau arrive juste au bon endroit, au-dessus du genou. Ce n'est pas trop long et ce n'est pas trop court.\n\nAlex: D'accord! Et les manches? Elles ne sont pas trop longues?\n\nVendeuse: Non, regardez - quand vous baissez les bras naturellement, les manches arrivent juste au niveau du poignet. C'est parfait. Si elles étaient trop longues, elles cacheraient vos mains.\n\nAlex: C'est vrai. Bon, je crois que ce manteau me convient bien. Je vais le prendre!\n\nVendeuse: Excellent choix! Vous voulez aussi essayer un pull? J'ai ce beau pull en cachemire gris.\n\nAlex: Oui, pourquoi pas! Quelle taille je devrais prendre?\n\nVendeuse: Pour les pulls, prenez la même taille que pour les chemises. Vous faites quelle taille de chemise?\n\nAlex: En général, je prends du M.\n\nVendeuse: Alors prenez le M pour le pull aussi. Voilà, essayez-le!\n\n[Alex essaie le pull]\n\nAlex: Hmm... je trouve que c'est un peu juste. C'est serré au niveau de la poitrine.\n\nVendeuse: Oui, je vois. Les pulls en cachemire sont souvent coupés assez près du corps. Vous préférez une coupe plus ample?\n\nAlex: Oui, je préfère quand c'est un peu plus large. Je n'aime pas quand c'est trop serré.\n\nVendeuse: Dans ce cas, prenez la taille L. Elle sera plus confortable pour vous.\n\n[Alex essaie la taille L]\n\nAlex: Ah oui! Celle-ci est beaucoup mieux! C'est parfait. Pas trop serré, pas trop large.\n\nVendeuse: Très bien! Donc vous prenez le manteau et le pull?",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "American man trying on clothes, concerned about fit"
+        },
+        {
+          "name": "Vendeuse",
+          "voice": "Leda",
+          "description": "Professional sales assistant helping with sizing"
+        }
+      ],
+      "audioStyle": "Fitting room conversation. The sales assistant is professional and helpful, giving honest opinions about fit. Alex is carefully considering each item. Natural, patient pace.",
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Le premier manteau",
+            "instructions": "Quel est le problème avec le premier manteau?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Pourquoi Alex n'aime pas le premier manteau?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "La couleur ne lui plaît pas",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "C'est trop long",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "C'est serré aux épaules",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "C'est trop cher",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit: 'quand je bouge les bras, je sens que c'est un peu serré ici, au niveau des épaules.'",
+              "hint": "Le problème est au niveau des épaules."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Vocabulaire: Décrire la taille/coupe",
+            "instructions": "Associez les expressions avec leur sens.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Trop grand",
+                  "right": "Too big / loose"
+                },
+                {
+                  "left": "Trop petit / serré",
+                  "right": "Too small / tight"
+                },
+                {
+                  "left": "Trop long",
+                  "right": "Too long"
+                },
+                {
+                  "left": "Trop court",
+                  "right": "Too short"
+                },
+                {
+                  "left": "Ça va bien / Ça me va",
+                  "right": "It fits well"
+                },
+                {
+                  "left": "La bonne taille",
+                  "right": "The right size"
+                },
+                {
+                  "left": "Une coupe ample",
+                  "right": "A loose/relaxed fit"
+                }
+              ],
+              "hint": "Ces expressions décrivent comment les vêtements vous vont."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Expression: Ni...ni...",
+            "instructions": "Complétez avec l'expression de négation double.",
+            "content": {
+              "text": "Ce manteau n'est _____ trop grand _____ trop petit. C'est parfait!",
+              "blanks": [
+                {
+                  "correctAnswer": "ni",
+                  "acceptableAnswers": [
+                    "ni"
+                  ],
+                  "options": [
+                    "ni",
+                    "ne",
+                    "pas",
+                    "ou"
+                  ]
+                },
+                {
+                  "correctAnswer": "ni",
+                  "acceptableAnswers": [
+                    "ni"
+                  ],
+                  "options": [
+                    "ni",
+                    "ne",
+                    "pas",
+                    "ou"
+                  ]
+                }
+              ],
+              "translation": "This coat is neither too big nor too small. It's perfect!",
+              "hint": "'Ni...ni...' signifie 'neither...nor...'."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des mots: Demander conseil",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "Comment",
+                "vous",
+                "trouvez",
+                "la",
+                "taille",
+                "?"
+              ],
+              "correctOrder": [
+                "Comment",
+                "vous",
+                "trouvez",
+                "la",
+                "taille",
+                "?"
+              ],
+              "translation": "How do you find the size? / What do you think of the size?",
+              "explanation": "'Comment vous trouvez...?' est une façon de demander l'opinion de quelqu'un.",
+              "hint": "Commencez avec 'Comment' pour demander une opinion."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Vocabulaire: Les parties du vêtement",
+            "instructions": "Complétez avec la bonne partie du vêtement.",
+            "content": {
+              "text": "C'est serré au niveau des _____. Les _____ sont trop longues. La _____ est parfaite. Le manteau arrive au-dessus du _____.",
+              "blanks": [
+                {
+                  "correctAnswer": "épaules",
+                  "acceptableAnswers": [
+                    "épaules",
+                    "epaules"
+                  ],
+                  "options": [
+                    "épaules",
+                    "manches",
+                    "poignet",
+                    "genou"
+                  ]
+                },
+                {
+                  "correctAnswer": "manches",
+                  "acceptableAnswers": [
+                    "manches"
+                  ],
+                  "options": [
+                    "épaules",
+                    "manches",
+                    "poitrine",
+                    "longueur"
+                  ]
+                },
+                {
+                  "correctAnswer": "longueur",
+                  "acceptableAnswers": [
+                    "longueur",
+                    "taille"
+                  ],
+                  "options": [
+                    "longueur",
+                    "manche",
+                    "épaule",
+                    "genou"
+                  ]
+                },
+                {
+                  "correctAnswer": "genou",
+                  "acceptableAnswers": [
+                    "genou"
+                  ],
+                  "options": [
+                    "genou",
+                    "poignet",
+                    "épaule",
+                    "pied"
+                  ]
+                }
+              ],
+              "translation": "Parts of clothing: shoulders, sleeves, length, knee",
+              "hint": "Pensez aux différentes parties d'un manteau."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: La coupe européenne",
+            "instructions": "Que dit la vendeuse sur la coupe européenne?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quelle est la différence entre la coupe européenne et américaine?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "La coupe européenne est plus large",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "La coupe européenne est plus ajustée (près du corps)",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "La coupe européenne est plus longue",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Il n'y a pas de différence",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "La vendeuse explique: 'C'est la coupe européenne - elle est plus ajustée que la coupe américaine.'",
+              "hint": "La coupe européenne est moins ample."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Expression: Au niveau de...",
+            "instructions": "Complétez l'expression.",
+            "content": {
+              "text": "C'est serré au _____ des épaules. Les manches arrivent au _____ du poignet.",
+              "blanks": [
+                {
+                  "correctAnswer": "niveau",
+                  "acceptableAnswers": [
+                    "niveau"
+                  ],
+                  "options": [
+                    "niveau",
+                    "endroit",
+                    "point",
+                    "lieu"
+                  ]
+                },
+                {
+                  "correctAnswer": "niveau",
+                  "acceptableAnswers": [
+                    "niveau"
+                  ],
+                  "options": [
+                    "niveau",
+                    "endroit",
+                    "point",
+                    "lieu"
+                  ]
+                }
+              ],
+              "translation": "It's tight at the level of the shoulders. The sleeves reach the level of the wrist.",
+              "hint": "'Au niveau de' signifie 'at the level of'."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: L'essayage",
+            "instructions": "Complétez le résumé.",
+            "content": {
+              "text": "Alex essaie un manteau taille {blank1}. Le premier manteau est serré au niveau des {blank2}. La vendeuse explique que la coupe européenne est plus {blank3} que la coupe américaine. Alex essaie un autre {blank4} qui est coupé plus large. La {blank5} est parfaite - ni trop grande ni trop petite. Les {blank6} arrivent au bon endroit, au niveau du poignet. Alex essaie aussi un pull en {blank7}. La taille M est trop {blank8}, alors il prend la taille {blank9}. Alex achète le manteau et le pull.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "M"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "épaules"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "ajustée"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "modèle"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "taille"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "manches"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "cachemire"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": [
+                    "serrée",
+                    "juste",
+                    "petite"
+                  ]
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "L"
+                }
+              ],
+              "hint": "Relisez le dialogue pour suivre tout le processus d'essayage."
+            },
+            "estimatedDurationSeconds": 150,
+            "pointsValue": 20,
+            "difficultyRating": 1.8
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Culture: Les tailles",
+            "instructions": "Quelle est la correspondance des tailles?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Selon la vendeuse, le M américain correspond à quelle taille française?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "40 ou 42",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "44 ou 46",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "48 ou 50",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "52 ou 54",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "La vendeuse dit: 'le M correspond généralement à la taille 48 ou 50.'",
+              "hint": "C'est la première chose que la vendeuse explique."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 3,
+      "type": "DIALOGUE",
+      "title": "Les Comparaisons",
+      "content": "Vendeuse: Très bien! Donc vous prenez le manteau en laine et le pull en cachemire. Vous avez fait d'excellents choix!\n\nAlex: Merci! Mais attendez... avant de décider, je voudrais comparer avec le manteau en duvet. Il coûte combien, celui-là?\n\nVendeuse: Le manteau en duvet coûte deux cent cinquante euros. Le manteau en laine que vous avez choisi est à cent quatre-vingts euros.\n\nAlex: Donc le manteau en duvet est plus cher que le manteau en laine?\n\nVendeuse: Oui, exactement. Il est plus cher de soixante-dix euros. Mais il est aussi plus chaud et plus léger.\n\nAlex: Hmm... et en termes de qualité? Lequel est meilleur?\n\nVendeuse: Les deux sont d'excellente qualité, mais ils ont des avantages différents. Le duvet est plus léger que la laine - vous le sentez à peine sur vos épaules. Par contre, la laine est plus résistante au vent.\n\nAlex: Et pour l'entretien? C'est facile à nettoyer?\n\nVendeuse: Le manteau en laine est plus facile à entretenir. Vous pouvez le faire nettoyer à sec normalement. Le duvet est plus délicat - il faut faire attention au lavage.\n\nAlex: Je vois. Donc la laine est moins chère, plus facile à entretenir, mais moins chaude que le duvet?\n\nVendeuse: Exactement! Vous avez bien compris. Pour Lyon, les deux conviennent parfaitement. L'hiver ici n'est pas aussi froid qu'en montagne, donc le manteau en laine suffit amplement.\n\nAlex: D'accord. Et ces deux pulls en cachemire - ils sont identiques?\n\nVendeuse: Non, ils sont similaires mais pas identiques. Celui-ci est en cachemire pur à cent pour cent, et celui-là est un mélange de cachemire et de laine.\n\nAlex: Quel est le prix de chacun?\n\nVendeuse: Le pull en cachemire pur coûte cent vingt euros. Le mélange cachemire-laine est moins cher - il coûte quatre-vingt-dix euros.\n\nAlex: Le pull mélangé est aussi doux que le pull en cachemire pur?\n\nVendeuse: Il est doux, mais légèrement moins doux que le cachemire pur. Par contre, il est un peu plus résistant et plus facile à laver. Le cachemire pur est plus délicat.\n\nAlex: Lequel est le plus populaire auprès de vos clients?\n\nVendeuse: Le mélange est plus populaire parce qu'il offre le meilleur rapport qualité-prix. Il est presque aussi doux que le cachemire pur, mais moins cher et plus pratique.\n\nAlex: C'est bon à savoir! Et en couleur? J'hésite entre le gris et le bleu marine.\n\nVendeuse: Les deux couleurs sont très classiques et faciles à assortir. Le gris est peut-être plus polyvalent - il va avec tout. Le bleu marine est aussi élégant que le gris, mais légèrement moins neutre.\n\nAlex: Le gris est plus clair ou plus foncé que sur la photo?\n\nVendeuse: Il est un peu plus clair en réalité. C'est un gris moyen, pas trop foncé, pas trop clair. Très élégant!\n\nAlex: Parfait! Alors je vais prendre le manteau en laine - c'est le meilleur choix pour moi. Il est moins cher, plus pratique, et suffisamment chaud pour Lyon.\n\nVendeuse: Excellent raisonnement!\n\nAlex: Et pour le pull, je prends le mélange cachemire-laine en gris. C'est le plus raisonnable!\n\nVendeuse: Très bon choix! Vous êtes un acheteur intelligent. Vous voulez ajouter une écharpe ou des gants pour compléter votre tenue d'hiver?\n\nAlex: Oui, bonne idée! Montrez-moi l'écharpe en laine merinos que vous avez mentionnée tout à l'heure.\n\nVendeuse: Voilà! Elle est magnifique, non? Et elle est moins chère que l'écharpe en cachemire mais tout aussi chaude.\n\nAlex: Parfait! Je la prends aussi. Bon, maintenant j'ai tout ce qu'il me faut pour l'hiver lyonnais!\n\nVendeuse: Parfait! Je vous fais un paquet cadeau pour le pull et l'écharpe?\n\nAlex: Non merci, c'est pour moi! Je vais même porter le manteau tout de suite - il fait vraiment froid dehors!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "American man carefully comparing options before buying"
+        },
+        {
+          "name": "Vendeuse",
+          "voice": "Leda",
+          "description": "Sales assistant helping compare products"
+        }
+      ],
+      "audioStyle": "Detailed comparison conversation. The sales assistant is knowledgeable and patient, explaining differences clearly. Alex is thoughtful and analytical. Natural, informative pace.",
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Les prix",
+            "instructions": "Comparez les prix.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quelle est la différence de prix entre le manteau en duvet et le manteau en laine?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "50 euros",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "60 euros",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "70 euros",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "80 euros",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Le duvet coûte 250€, la laine coûte 180€. La vendeuse dit: 'Il est plus cher de soixante-dix euros.'",
+              "hint": "La vendeuse donne exactement la différence."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Grammaire: Comparatifs (plus...que, moins...que)",
+            "instructions": "Complétez avec plus/moins...que.",
+            "content": {
+              "text": "Le duvet est _____ cher _____ la laine. Le duvet est _____ léger _____ la laine. La laine est _____ résistante _____ le duvet. Le pull mélangé est _____ cher _____ le cachemire pur.",
+              "blanks": [
+                {
+                  "correctAnswer": "plus",
+                  "acceptableAnswers": [
+                    "plus"
+                  ],
+                  "options": [
+                    "plus",
+                    "moins",
+                    "aussi",
+                    "très"
+                  ]
+                },
+                {
+                  "correctAnswer": "que",
+                  "acceptableAnswers": [
+                    "que",
+                    "qu'"
+                  ],
+                  "options": [
+                    "que",
+                    "de",
+                    "à",
+                    "comme"
+                  ]
+                },
+                {
+                  "correctAnswer": "plus",
+                  "acceptableAnswers": [
+                    "plus"
+                  ],
+                  "options": [
+                    "plus",
+                    "moins",
+                    "aussi",
+                    "très"
+                  ]
+                },
+                {
+                  "correctAnswer": "que",
+                  "acceptableAnswers": [
+                    "que",
+                    "qu'"
+                  ],
+                  "options": [
+                    "que",
+                    "de",
+                    "à",
+                    "comme"
+                  ]
+                },
+                {
+                  "correctAnswer": "plus",
+                  "acceptableAnswers": [
+                    "plus"
+                  ],
+                  "options": [
+                    "plus",
+                    "moins",
+                    "aussi",
+                    "très"
+                  ]
+                },
+                {
+                  "correctAnswer": "que",
+                  "acceptableAnswers": [
+                    "que",
+                    "qu'"
+                  ],
+                  "options": [
+                    "que",
+                    "de",
+                    "à",
+                    "comme"
+                  ]
+                },
+                {
+                  "correctAnswer": "moins",
+                  "acceptableAnswers": [
+                    "moins"
+                  ],
+                  "options": [
+                    "plus",
+                    "moins",
+                    "aussi",
+                    "très"
+                  ]
+                },
+                {
+                  "correctAnswer": "que",
+                  "acceptableAnswers": [
+                    "que",
+                    "qu'"
+                  ],
+                  "options": [
+                    "que",
+                    "de",
+                    "à",
+                    "comme"
+                  ]
+                }
+              ],
+              "translation": "Comparative structures: more...than, less...than",
+              "hint": "Plus = more, moins = less, que = than"
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 2.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Vocabulaire: Les comparaisons",
+            "instructions": "Associez les expressions comparatives.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Plus cher que",
+                  "right": "More expensive than"
+                },
+                {
+                  "left": "Moins cher que",
+                  "right": "Less expensive than / cheaper than"
+                },
+                {
+                  "left": "Aussi...que",
+                  "right": "As...as"
+                },
+                {
+                  "left": "Meilleur(e)",
+                  "right": "Better (quality/adjective)"
+                },
+                {
+                  "left": "Le/la plus...",
+                  "right": "The most..."
+                },
+                {
+                  "left": "Le/la moins...",
+                  "right": "The least..."
+                }
+              ],
+              "hint": "Ces expressions sont essentielles pour comparer des produits."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Comparatif: Aussi...que",
+            "instructions": "Complétez avec 'aussi...que'.",
+            "content": {
+              "text": "Le pull mélangé est _____ doux _____ le cachemire pur? Le bleu marine est _____ élégant _____ le gris.",
+              "blanks": [
+                {
+                  "correctAnswer": "aussi",
+                  "acceptableAnswers": [
+                    "aussi"
+                  ],
+                  "options": [
+                    "aussi",
+                    "plus",
+                    "moins",
+                    "très"
+                  ]
+                },
+                {
+                  "correctAnswer": "que",
+                  "acceptableAnswers": [
+                    "que"
+                  ],
+                  "options": [
+                    "que",
+                    "de",
+                    "à",
+                    "comme"
+                  ]
+                },
+                {
+                  "correctAnswer": "aussi",
+                  "acceptableAnswers": [
+                    "aussi"
+                  ],
+                  "options": [
+                    "aussi",
+                    "plus",
+                    "moins",
+                    "très"
+                  ]
+                },
+                {
+                  "correctAnswer": "que",
+                  "acceptableAnswers": [
+                    "que"
+                  ],
+                  "options": [
+                    "que",
+                    "de",
+                    "à",
+                    "comme"
+                  ]
+                }
+              ],
+              "translation": "Is the blend as soft as pure cashmere? Navy blue is as elegant as gray.",
+              "hint": "'Aussi...que' signifie 'as...as' pour l'égalité."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des mots: Lequel est meilleur?",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "Lequel",
+                "est",
+                "le",
+                "meilleur",
+                "?"
+              ],
+              "correctOrder": [
+                "Lequel",
+                "est",
+                "le",
+                "meilleur",
+                "?"
+              ],
+              "translation": "Which one is better? / Which one is the best?",
+              "explanation": "'Lequel' est un pronom interrogatif pour choisir entre plusieurs options.",
+              "hint": "Commencez avec 'Lequel' pour demander lequel choisir."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Le choix d'Alex",
+            "instructions": "Qu'est-ce qu'Alex décide d'acheter?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quels articles Alex achète-t-il finalement?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Le manteau en duvet et le pull en cachemire pur",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Le manteau en laine, le pull mélangé et l'écharpe",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Seulement le manteau en laine",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Les deux manteaux",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit: 'Je prends le manteau en laine', 'le mélange cachemire-laine en gris', et 'Je la prends aussi' (l'écharpe).",
+              "hint": "Alex choisit les options les plus pratiques et raisonnables."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Expression: Le meilleur rapport qualité-prix",
+            "instructions": "Complétez l'expression.",
+            "content": {
+              "text": "Le pull mélangé offre le meilleur _____ qualité-_____.",
+              "blanks": [
+                {
+                  "correctAnswer": "rapport",
+                  "acceptableAnswers": [
+                    "rapport"
+                  ],
+                  "options": [
+                    "rapport",
+                    "prix",
+                    "qualité",
+                    "choix"
+                  ]
+                },
+                {
+                  "correctAnswer": "prix",
+                  "acceptableAnswers": [
+                    "prix"
+                  ],
+                  "options": [
+                    "rapport",
+                    "prix",
+                    "qualité",
+                    "choix"
+                  ]
+                }
+              ],
+              "translation": "The best value for money / quality-to-price ratio",
+              "hint": "Cette expression parle du meilleur équilibre entre qualité et prix."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: Les comparaisons et le choix",
+            "instructions": "Complétez le résumé.",
+            "content": {
+              "text": "Alex compare le manteau en {blank1} (250€) avec le manteau en {blank2} (180€). Le duvet est plus {blank3} mais aussi plus {blank4} et plus léger. La laine est plus {blank5} au vent et plus facile à entretenir. Pour les pulls, le cachemire {blank6} coûte 120€ et le {blank7} cachemire-laine coûte 90€. Le mélangé offre le meilleur rapport {blank8}-prix. Alex choisit le manteau en laine parce qu'il est moins cher, plus {blank9} et suffisamment chaud pour Lyon. Il prend aussi le pull mélangé en {blank10} et une écharpe en laine merinos.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "duvet"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "laine"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "cher"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "chaud"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "résistante"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "pur"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "mélange"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "qualité"
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "pratique"
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": "gris"
+                }
+              ],
+              "hint": "Relisez le dialogue pour retrouver toutes les comparaisons et les prix."
+            },
+            "estimatedDurationSeconds": 150,
+            "pointsValue": 20,
+            "difficultyRating": 1.9
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Culture: L'hiver à Lyon",
+            "instructions": "Que dit la vendeuse sur l'hiver lyonnais?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Comment la vendeuse décrit-elle l'hiver à Lyon?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Aussi froid qu'en montagne",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Pas aussi froid qu'en montagne",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Très chaud",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Il ne fait jamais froid",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "La vendeuse dit: 'L'hiver ici n'est pas aussi froid qu'en montagne.'",
+              "hint": "Elle compare Lyon avec la montagne."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.3
+          }
+        }
+      ]
+    }
+  ]
+}

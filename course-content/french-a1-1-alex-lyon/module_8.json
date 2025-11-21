@@ -1,0 +1,1118 @@
+{
+  "moduleNumber": 8,
+  "title": "Perdu dans la Ville",
+  "theme": "City Navigation & Directions",
+  "description": "Alex explores Lyon but gets lost! Learn to identify city places, ask for and give directions, and navigate using public transportation. Essential vocabulary for moving around French cities.",
+  "objectives": [
+    "Name common city places (post office, bank, museum, etc.)",
+    "Ask 'Where is...?' questions",
+    "Understand and give simple directions",
+    "Use the imperative mood for directions",
+    "Use the verb 'aller' (to go) with prepositions"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "STORY",
+      "title": "La Carte",
+      "content": "Alex a une carte de Lyon dans les mains. C'est sa première grande exploration de la ville!\n\nSur la carte, il voit beaucoup de choses:\n\n\"Voilà la poste. J'ai besoin d'envoyer une lettre à ma famille.\"\n\n\"Ah, la banque! Je dois changer de l'argent.\"\n\n\"Le musée des Beaux-Arts... C'est intéressant!\"\n\n\"Une église... Très jolie!\"\n\n\"Et un grand parc! Parfait pour marcher!\"\n\nAlex regarde les rues sur la carte: \"Rue de la République, avenue Jean Jaurès, place Bellecour...\"\n\nIl cherche la poste sur la carte. \"Où est la poste? Ah! Rue Président Herriot!\"\n\nMais sur la carte, tout est simple. Dans la vraie vie, c'est différent!\n\nAlex sort de son appartement avec la carte. Il marche dans la rue. Il regarde la carte, puis regarde autour de lui.\n\n\"Euh... Où suis-je? Quelle rue? Ah non... Je suis perdu!\"\n\nAlex voit un passant. Il faut demander!",
+      "generateAudio": true,
+      "estimatedMinutes": 20,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Qu'est-ce qu'Alex cherche?",
+            "instructions": "What is Alex looking for?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Alex cherche quel endroit en premier?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "La banque",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "La poste",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Le musée",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "L'église",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex says: 'Il cherche la poste sur la carte' - He's looking for the post office on the map.",
+              "hint": "Alex wants to send a letter to his family."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Le Problème",
+            "instructions": "What is Alex's problem?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel est le problème d'Alex?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il est fatigué",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Il est perdu",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Il a faim",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Il pleut",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex says: 'Je suis perdu!' - I'm lost!",
+              "hint": "Alex doesn't know where he is."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Les Endroits de la Ville",
+            "instructions": "Match the French place names with their English translations.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "La poste",
+                  "right": "Post office"
+                },
+                {
+                  "left": "La banque",
+                  "right": "Bank"
+                },
+                {
+                  "left": "Le musée",
+                  "right": "Museum"
+                },
+                {
+                  "left": "L'église",
+                  "right": "Church"
+                },
+                {
+                  "left": "Le parc",
+                  "right": "Park"
+                }
+              ],
+              "hint": "These are common places you find in any city."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Où est...?",
+            "instructions": "Complete the question to ask 'where is'.",
+            "content": {
+              "text": "_____ est la poste?",
+              "blanks": [
+                {
+                  "correctAnswer": "Où",
+                  "acceptableAnswers": [
+                    "Où",
+                    "où"
+                  ],
+                  "options": [
+                    "Où",
+                    "Qui",
+                    "Quand",
+                    "Comment"
+                  ]
+                }
+              ],
+              "translation": "Where is the post office?",
+              "hint": "This question word asks about location/place."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Les Rues",
+            "instructions": "Complete with the word for 'street'.",
+            "content": {
+              "text": "_____ de la République, avenue Jean Jaurès, place Bellecour.",
+              "blanks": [
+                {
+                  "correctAnswer": "Rue",
+                  "acceptableAnswers": [
+                    "Rue",
+                    "rue"
+                  ],
+                  "options": [
+                    "Rue",
+                    "Avenue",
+                    "Place",
+                    "Boulevard"
+                  ]
+                }
+              ],
+              "translation": "Republic Street, Jean Jaurès Avenue, Bellecour Square.",
+              "hint": "This is the most common word for 'street'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Demander l'endroit",
+            "instructions": "Arrange the words to ask where something is.",
+            "content": {
+              "words": [
+                "Où",
+                "est",
+                "la",
+                "banque",
+                "?"
+              ],
+              "correctOrder": [
+                "Où",
+                "est",
+                "la",
+                "banque",
+                "?"
+              ],
+              "translation": "Where is the bank?",
+              "explanation": "Use 'Où est' + definite article + place to ask where something is.",
+              "hint": "Start with the question word 'Où'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "La Carte",
+            "instructions": "What does Alex have?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce qu'Alex a dans les mains?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Un téléphone",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Une carte",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Un livre",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Un sac",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The story begins: 'Alex a une carte de Lyon dans les mains' - Alex has a map of Lyon in his hands.",
+              "hint": "He uses this to find places in the city."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Les Endroits",
+            "instructions": "Listen to the places mentioned.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "La poste, la banque, le musée, l'église, le parc.",
+              "question": "Which place is NOT mentioned?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "La poste"
+                },
+                {
+                  "id": "b",
+                  "text": "Le cinéma"
+                },
+                {
+                  "id": "c",
+                  "text": "Le musée"
+                },
+                {
+                  "id": "d",
+                  "text": "Le parc"
+                }
+              ],
+              "correctAnswer": "b",
+              "explanation": "We hear: post office, bank, museum, church, park. We do NOT hear cinema.",
+              "hint": "Listen carefully to all five places."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.2,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Alex et la Carte",
+            "instructions": "Complete the summary of Alex's city exploration.",
+            "content": {
+              "text": "Alex a une {blank1} de Lyon. Sur la carte, il voit la {blank2}, la banque, le {blank3}, une église et un {blank4}. Il cherche la poste. Elle est rue Président Herriot. Alex sort dans la rue mais il ne comprend pas. Il est {blank5}! Il faut demander à un {blank6}.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "carte"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "poste"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "musée"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "parc"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "perdu"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "passant"
+                }
+              ],
+              "hint": "Review the story about Alex exploring Lyon with his map."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.4
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrator",
+          "voice": "Charon",
+          "description": "Calm, clear narrator voice"
+        }
+      ],
+      "audioStyle": "Narrative storytelling. Clear, slow-paced French suitable for beginners. Warm tone showing Alex's confusion in a new city."
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Tournez à Gauche",
+      "content": "Alex voit une femme qui marche dans la rue. Il s'approche.\n\nAlex: Excusez-moi, madame!\n\nPassant: Oui, monsieur?\n\nAlex: Je suis perdu. Où est la poste, s'il vous plaît?\n\nPassant: La poste? Ah oui! C'est facile. Vous allez tout droit.\n\nAlex: Tout droit...\n\nPassant: Oui, tout droit. Puis, tournez à gauche à la première rue.\n\nAlex: Tournez à gauche à la première rue. D'accord.\n\nPassant: Continuez tout droit, et la poste est à droite, après le café.\n\nAlex: À droite, après le café. Merci beaucoup!\n\nPassant: De rien! Bonne journée!\n\nAlex marche. Il va tout droit. Il arrive à une rue.\n\nAlex: La première rue... Je tourne à gauche... Maintenant, je continue tout droit...\n\nIl voit un café.\n\nAlex: Le café! Donc, la poste est à droite!\n\nEt voilà! La poste est là, à droite du café!\n\nAlex: Oui! J'ai trouvé la poste! Merci, madame!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Passant",
+          "voice": "Kore",
+          "description": "Helpful person giving directions"
+        },
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "American man asking for directions"
+        }
+      ],
+      "audioStyle": "Natural street conversation. Passant is helpful and clear. Alex repeats directions to remember them.",
+      "estimatedMinutes": 25,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Première Direction",
+            "instructions": "What is the first direction Alex receives?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quelle est la première direction?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Tournez à gauche",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Tournez à droite",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Allez tout droit",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Continuez",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The passant says: 'Vous allez tout droit' - You go straight ahead.",
+              "hint": "Listen to what the woman says first."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "À Quelle Rue?",
+            "instructions": "At which street does Alex turn left?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Alex tourne à gauche à quelle rue?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "La première rue",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "La deuxième rue",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "La troisième rue",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "La dernière rue",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The passant says: 'tournez à gauche à la première rue' - turn left at the first street.",
+              "hint": "Listen for 'première' which means 'first'."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Les Directions",
+            "instructions": "Match the French direction commands with their English meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Tournez à gauche",
+                  "right": "Turn left"
+                },
+                {
+                  "left": "Tournez à droite",
+                  "right": "Turn right"
+                },
+                {
+                  "left": "Allez tout droit",
+                  "right": "Go straight ahead"
+                },
+                {
+                  "left": "Continuez",
+                  "right": "Continue"
+                },
+                {
+                  "left": "Première rue",
+                  "right": "First street"
+                }
+              ],
+              "hint": "Gauche = left, droite = right, tout droit = straight ahead."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Impératif: Tournez",
+            "instructions": "Complete the direction command.",
+            "content": {
+              "text": "_____ à gauche à la première rue.",
+              "blanks": [
+                {
+                  "correctAnswer": "Tournez",
+                  "acceptableAnswers": [
+                    "Tournez",
+                    "tournez"
+                  ],
+                  "options": [
+                    "Tournez",
+                    "Allez",
+                    "Continuez",
+                    "Marchez"
+                  ]
+                }
+              ],
+              "translation": "Turn left at the first street.",
+              "hint": "This verb means 'turn' in the imperative form."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Direction Complete",
+            "instructions": "Arrange the words for a complete direction.",
+            "content": {
+              "words": [
+                "Allez",
+                "tout",
+                "droit"
+              ],
+              "correctOrder": [
+                "Allez",
+                "tout",
+                "droit"
+              ],
+              "translation": "Go straight ahead",
+              "explanation": "'Tout droit' means straight ahead. Use with 'allez' or 'continuez'.",
+              "hint": "The command verb comes first."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Gauche ou Droite?",
+            "instructions": "Complete with 'left' or 'right'.",
+            "content": {
+              "text": "La poste est à _____, après le café.",
+              "blanks": [
+                {
+                  "correctAnswer": "droite",
+                  "acceptableAnswers": [
+                    "droite"
+                  ],
+                  "options": [
+                    "droite",
+                    "gauche",
+                    "droit",
+                    "devant"
+                  ]
+                }
+              ],
+              "translation": "The post office is on the right, after the café.",
+              "hint": "The passant says the post office is on which side?"
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Le Repère",
+            "instructions": "What landmark helps Alex find the post office?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel repère aide Alex à trouver la poste?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Un restaurant",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Un café",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Une banque",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Un parc",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The passant says: 'la poste est à droite, après le café' - the post office is on the right, after the café.",
+              "hint": "What place does Alex see before finding the post office?"
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Les Directions en Ordre",
+            "instructions": "Listen to the complete directions.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Allez tout droit. Tournez à gauche à la première rue. Continuez tout droit. La poste est à droite, après le café.",
+              "question": "How many direction steps are there?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "2 steps"
+                },
+                {
+                  "id": "b",
+                  "text": "3 steps"
+                },
+                {
+                  "id": "c",
+                  "text": "4 steps"
+                },
+                {
+                  "id": "d",
+                  "text": "5 steps"
+                }
+              ],
+              "correctAnswer": "c",
+              "explanation": "There are 4 steps: 1) Go straight, 2) Turn left at first street, 3) Continue straight, 4) Post office is on right after café.",
+              "hint": "Count each instruction given."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Trouver la Poste",
+            "instructions": "Complete the story about finding the post office.",
+            "content": {
+              "text": "Alex est perdu. Il demande: '{blank1} est la poste?' Une femme répond. Première direction: allez tout {blank2}. Deuxième direction: tournez à {blank3} à la première rue. Troisième direction: {blank4} tout droit. La poste est à {blank5}, après le {blank6}. Alex trouve la poste!",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "Où"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "droit"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "gauche"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "Continuez"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "droite"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "café"
+                }
+              ],
+              "hint": "Follow the directions given in the dialogue."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.5
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 3,
+      "type": "DIALOGUE",
+      "title": "Le Transport",
+      "content": "Alex sort de la poste. Il regarde sa montre. Il est tard! Il doit rentrer chez lui.\n\nAlex voit le même passant.\n\nAlex: Excusez-moi encore! Comment je rentre chez moi? Je vais où?\n\nPassant: Vous habitez où?\n\nAlex: Rue de la République.\n\nPassant: Ah! Ce n'est pas loin, mais c'est plus facile en métro. Vous prenez le métro?\n\nAlex: Le métro? Oui, d'accord! Où est la station?\n\nPassant: Allez au métro Bellecour. C'est tout droit, puis à gauche. Vous voyez?\n\nAlex: Oui, je vois. Et après?\n\nPassant: Vous prenez la ligne A, direction Vaulx-en-Velin. Vous descendez à Hôtel de Ville.\n\nAlex: Ligne A, direction Vaulx-en-Velin, descendre à Hôtel de Ville. D'accord!\n\nPassant: Et de là, vous allez à pied rue de la République. C'est cinq minutes.\n\nAlex: Parfait! Je peux aussi aller en bus?\n\nPassant: Oui, il y a le bus, mais le métro est plus rapide.\n\nAlex: D'accord, je vais au métro. Merci beaucoup pour votre aide!\n\nPassant: De rien! Bonne soirée!\n\nAlex: Bonne soirée!\n\nAlex marche vers le métro. Il répète: \"Je vais au métro Bellecour. Je prends la ligne A. Je descends à Hôtel de Ville. Puis, je vais à pied à la maison. Facile!\"",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Passant",
+          "voice": "Kore",
+          "description": "Helpful person explaining public transport"
+        },
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "American man learning to use Lyon metro"
+        }
+      ],
+      "audioStyle": "Helpful street conversation. Passant explains public transport clearly. Alex repeats to memorize the route.",
+      "estimatedMinutes": 25,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Quel Transport?",
+            "instructions": "What transportation does the passant recommend?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Le passant recommande quel transport?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Le bus",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Le taxi",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Le métro",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "À pied",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The passant says: 'c'est plus facile en métro' - it's easier by metro.",
+              "hint": "Which is described as 'plus rapide' (faster)?"
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Quelle Station?",
+            "instructions": "Where does Alex need to get off?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Alex descend à quelle station?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Bellecour",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Hôtel de Ville",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Vaulx-en-Velin",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "République",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The passant says: 'Vous descendez à Hôtel de Ville' - You get off at Hôtel de Ville.",
+              "hint": "This is where Alex should exit the metro."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Verbe Aller",
+            "instructions": "Complete with the correct form of 'aller'.",
+            "content": {
+              "text": "Je _____ au métro Bellecour.",
+              "blanks": [
+                {
+                  "correctAnswer": "vais",
+                  "acceptableAnswers": [
+                    "vais"
+                  ],
+                  "options": [
+                    "vais",
+                    "vas",
+                    "va",
+                    "allez"
+                  ]
+                }
+              ],
+              "translation": "I go to Bellecour metro.",
+              "hint": "Use the verb 'aller' conjugated for 'je'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Transport et Prépositions",
+            "instructions": "Match the transportation method with the correct preposition.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "En métro",
+                  "right": "By metro"
+                },
+                {
+                  "left": "En bus",
+                  "right": "By bus"
+                },
+                {
+                  "left": "À pied",
+                  "right": "On foot"
+                },
+                {
+                  "left": "En taxi",
+                  "right": "By taxi"
+                },
+                {
+                  "left": "Au métro",
+                  "right": "To the metro (station)"
+                }
+              ],
+              "hint": "En = by (for vehicles), à = to/on (for destinations or foot)."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Prendre le Métro",
+            "instructions": "Complete with the verb 'prendre'.",
+            "content": {
+              "text": "Vous _____ la ligne A.",
+              "blanks": [
+                {
+                  "correctAnswer": "prenez",
+                  "acceptableAnswers": [
+                    "prenez"
+                  ],
+                  "options": [
+                    "prenez",
+                    "prends",
+                    "prend",
+                    "prenons"
+                  ]
+                }
+              ],
+              "translation": "You take line A.",
+              "hint": "Use 'prendre' (to take) conjugated for 'vous'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Aller à + Lieu",
+            "instructions": "Arrange the words correctly.",
+            "content": {
+              "words": [
+                "Je",
+                "vais",
+                "au",
+                "métro"
+              ],
+              "correctOrder": [
+                "Je",
+                "vais",
+                "au",
+                "métro"
+              ],
+              "translation": "I go to the metro",
+              "explanation": "'Aller à' becomes 'aller au' (to the) with masculine nouns. Je vais au métro.",
+              "hint": "Remember: à + le = au."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "À Pied",
+            "instructions": "What does 'à pied' mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que signifie 'à pied'?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "By bus",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "By metro",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "On foot / Walking",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "By bicycle",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'À pied' means 'on foot' or 'walking'. The passant says Alex goes 'à pied' from the metro to his street.",
+              "hint": "Pied means 'foot'."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Le Trajet Complet",
+            "instructions": "Listen to Alex's complete route.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Je vais au métro Bellecour. Je prends la ligne A. Je descends à Hôtel de Ville. Puis, je vais à pied à la maison.",
+              "question": "How does Alex get from the metro station to home?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "By bus"
+                },
+                {
+                  "id": "b",
+                  "text": "By taxi"
+                },
+                {
+                  "id": "c",
+                  "text": "On foot"
+                },
+                {
+                  "id": "d",
+                  "text": "By metro"
+                }
+              ],
+              "correctAnswer": "c",
+              "explanation": "Alex says: 'je vais à pied à la maison' - I go on foot to home.",
+              "hint": "Listen to the last part of his route."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.3,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Rentrer en Métro",
+            "instructions": "Complete the story about taking the metro home.",
+            "content": {
+              "text": "Alex doit rentrer chez lui. Le passant recommande le {blank1} parce que c'est plus rapide que le {blank2}. Alex va {blank3} métro Bellecour. Il prend la {blank4} A, direction Vaulx-en-Velin. Il {blank5} à Hôtel de Ville. De là, il va {blank6} pied à la maison. C'est facile!",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "métro"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "bus"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "au"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "ligne"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "descend"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "à"
+                }
+              ],
+              "hint": "Review the metro directions given in the dialogue."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        }
+      ]
+    }
+  ]
+}

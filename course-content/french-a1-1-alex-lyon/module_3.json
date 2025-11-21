@@ -1,0 +1,1087 @@
+{
+  "moduleNumber": 3,
+  "title": "Le Déménagement",
+  "theme": "Moving In - La Maison",
+  "description": "Alex commence à déballer ses affaires et à organiser son nouvel appartement à Lyon. Apprenez le vocabulaire des meubles, les pièces de la maison, les prépositions de lieu et les couleurs.",
+  "objectives": [
+    "Name furniture items (table, chaise, lit, canapé)",
+    "Identify rooms in an apartment (cuisine, chambre, salon)",
+    "Use gender articles (un/une)",
+    "Describe locations with prepositions (dans, sur, sous, devant, derrière)",
+    "Name basic colors (rouge, bleu, vert, jaune, blanc, noir)",
+    "Ask 'Where is...?' (Où est...?)"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "STORY",
+      "title": "La Boîte",
+      "content": "Alex ouvre une boîte.\n\nDans la boîte: une table. Une table pour la cuisine.\n\nAlex ouvre une boîte.\n\nDans la boîte: une chaise. Une chaise pour la cuisine.\n\nAlex ouvre une boîte.\n\nDans la boîte: un lit. Un lit pour la chambre.\n\nAlex ouvre une boîte.\n\nDans la boîte: un canapé. Un canapé pour le salon.\n\nAlex ouvre une boîte.\n\nDans la boîte: une lampe. Une lampe pour le salon.\n\nLa cuisine. La chambre. Le salon. L'appartement d'Alex!",
+      "generateAudio": true,
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: What is 'une table'?",
+            "instructions": "Identify the furniture item.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What is 'une table'?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "A table",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "A chair",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "A bed",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "A lamp",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Une table' is a table - furniture for eating or working.",
+              "hint": "This is found in the kitchen."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: Rooms",
+            "instructions": "Where does the bed go?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Where does Alex put 'un lit' (a bed)?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "La chambre (bedroom)",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "La cuisine (kitchen)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Le salon (living room)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "La salle de bain (bathroom)",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The bed goes 'pour la chambre' - for the bedroom.",
+              "hint": "Where do you sleep?"
+            },
+            "estimatedDurationSeconds": 35,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Un or Une - table",
+            "instructions": "Choose the correct article.",
+            "content": {
+              "text": "_____ table pour la cuisine.",
+              "blanks": [
+                {
+                  "correctAnswer": "Une",
+                  "acceptableAnswers": [
+                    "Une",
+                    "une"
+                  ],
+                  "options": [
+                    "Une",
+                    "Un",
+                    "Le",
+                    "La"
+                  ]
+                }
+              ],
+              "translation": "A table for the kitchen",
+              "hint": "'Table' is feminine, so use 'une'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Un or Une - lit",
+            "instructions": "Choose the correct article.",
+            "content": {
+              "text": "_____ lit pour la chambre.",
+              "blanks": [
+                {
+                  "correctAnswer": "Un",
+                  "acceptableAnswers": [
+                    "Un",
+                    "un"
+                  ],
+                  "options": [
+                    "Un",
+                    "Une",
+                    "Le",
+                    "La"
+                  ]
+                }
+              ],
+              "translation": "A bed for the bedroom",
+              "hint": "'Lit' is masculine, so use 'un'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associer: Furniture and Rooms",
+            "instructions": "Match each furniture item with the appropriate room.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Une table",
+                  "right": "La cuisine"
+                },
+                {
+                  "left": "Un lit",
+                  "right": "La chambre"
+                },
+                {
+                  "left": "Un canapé",
+                  "right": "Le salon"
+                },
+                {
+                  "left": "Une lampe",
+                  "right": "Le salon"
+                },
+                {
+                  "left": "Une chaise",
+                  "right": "La cuisine"
+                }
+              ],
+              "hint": "Think about which furniture typically goes in which room."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordonner: Bedroom furniture",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Un",
+                "lit",
+                "dans",
+                "la",
+                "chambre"
+              ],
+              "correctOrder": [
+                "Un",
+                "lit",
+                "dans",
+                "la",
+                "chambre"
+              ],
+              "translation": "A bed in the bedroom",
+              "explanation": "This sentence describes where the bed is located using 'dans' (in).",
+              "hint": "Start with 'Un lit' (a bed)."
+            },
+            "estimatedDurationSeconds": 55,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Écouter: Furniture words",
+            "instructions": "Listen and identify the furniture item.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "un canapé",
+              "question": "What furniture item did you hear?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Un canapé (a sofa)"
+                },
+                {
+                  "id": "b",
+                  "text": "Une table (a table)"
+                },
+                {
+                  "id": "c",
+                  "text": "Un lit (a bed)"
+                },
+                {
+                  "id": "d",
+                  "text": "Une chaise (a chair)"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "You heard 'un canapé' which means 'a sofa' or 'a couch'.",
+              "hint": "Listen for the masculine article 'un'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 10,
+            "difficultyRating": 1.1,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Révision: Unpacking Boxes",
+            "instructions": "Fill in the missing words about Alex unpacking.",
+            "content": {
+              "text": "Alex opens boxes. In one box, there's {blank1} table for {blank2} cuisine (kitchen). In another box, there's une {blank3} (chair) also for the kitchen. He finds {blank4} lit (bed) for la {blank5} (bedroom). For the living room (le salon), he unpacks un {blank6} (sofa) and une {blank7} (lamp). Now Alex has furniture in three rooms: la cuisine, la chambre, and le {blank8}.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": [
+                    "une",
+                    "Une"
+                  ]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "la"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "chaise"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": [
+                    "un",
+                    "Un"
+                  ]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "chambre"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "canapé"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "lampe"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "salon"
+                }
+              ],
+              "hint": "Review the furniture items and rooms from the story."
+            },
+            "estimatedDurationSeconds": 150,
+            "pointsValue": 20,
+            "difficultyRating": 1.5
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrateur",
+          "voice": "Charon",
+          "description": "Calm, clear narrator voice"
+        }
+      ],
+      "audioStyle": "Narrative storytelling. Clear, slow-paced French suitable for absolute beginners. Repetitive structure to reinforce vocabulary. Warm, engaging tone."
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Où est le Chat?",
+      "content": "Voisine: Bonjour, Alex! Vous avez vu un chat?\n\nAlex: Un chat? Non.\n\nVoisine: Un petit chat gris. Où est le chat?\n\nAlex: Le chat est ici?\n\nVoisine: Oui! Regardez! Le chat est là!\n\nAlex: Où? Où?\n\nVoisine: Le chat est sur la table!\n\nAlex: Ah! Sur la table!\n\nVoisine: Non, maintenant le chat est sous la table.\n\nAlex: Sous la table.\n\nVoisine: Le chat est devant la porte!\n\nAlex: Devant la porte.\n\nVoisine: Non! Le chat est derrière le canapé!\n\nAlex: Derrière le canapé.\n\nVoisine: Le chat est dans la boîte!\n\nAlex: Ah! Dans la boîte! Voilà le chat!",
+      "generateAudio": true,
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: What are they looking for?",
+            "instructions": "What is the neighbor looking for?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What is the voisine (neighbor) looking for?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Un chat (a cat)",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Une clé (a key)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Une table (a table)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Un canapé (a sofa)",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The neighbor asks: 'Vous avez vu un chat?' - Have you seen a cat?",
+              "hint": "Listen to the first question from the neighbor."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Prépositions: Where is the cat at the end?",
+            "instructions": "Where do they finally find the cat?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Where is the cat at the end of the dialogue?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Dans la boîte (in the box)",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Sur la table (on the table)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Sous la table (under the table)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Derrière le canapé (behind the sofa)",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "At the end: 'Le chat est dans la boîte!' - The cat is in the box!",
+              "hint": "Look at the very last location mentioned."
+            },
+            "estimatedDurationSeconds": 35,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Sur (on)",
+            "instructions": "Complete the sentence with the correct preposition.",
+            "content": {
+              "text": "Le chat est _____ la table.",
+              "blanks": [
+                {
+                  "correctAnswer": "sur",
+                  "acceptableAnswers": [
+                    "sur"
+                  ],
+                  "options": [
+                    "sur",
+                    "sous",
+                    "dans",
+                    "devant"
+                  ]
+                }
+              ],
+              "translation": "The cat is on the table",
+              "hint": "'Sur' means 'on' (on top of)."
+            },
+            "estimatedDurationSeconds": 40,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Sous (under)",
+            "instructions": "Complete the sentence with the correct preposition.",
+            "content": {
+              "text": "Le chat est _____ la table.",
+              "blanks": [
+                {
+                  "correctAnswer": "sous",
+                  "acceptableAnswers": [
+                    "sous"
+                  ],
+                  "options": [
+                    "sous",
+                    "sur",
+                    "dans",
+                    "derrière"
+                  ]
+                }
+              ],
+              "translation": "The cat is under the table",
+              "hint": "'Sous' means 'under' (below)."
+            },
+            "estimatedDurationSeconds": 40,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associer: Prepositions",
+            "instructions": "Match the French prepositions with their English meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "sur",
+                  "right": "on"
+                },
+                {
+                  "left": "sous",
+                  "right": "under"
+                },
+                {
+                  "left": "dans",
+                  "right": "in"
+                },
+                {
+                  "left": "devant",
+                  "right": "in front of"
+                },
+                {
+                  "left": "derrière",
+                  "right": "behind"
+                }
+              ],
+              "hint": "These prepositions describe where something is located."
+            },
+            "estimatedDurationSeconds": 80,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordonner: Location sentence",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Le",
+                "chat",
+                "est",
+                "sous",
+                "la",
+                "table"
+              ],
+              "correctOrder": [
+                "Le",
+                "chat",
+                "est",
+                "sous",
+                "la",
+                "table"
+              ],
+              "translation": "The cat is under the table",
+              "explanation": "This sentence describes location: subject + être + preposition + object.",
+              "hint": "Start with 'Le chat est' (the cat is)."
+            },
+            "estimatedDurationSeconds": 55,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Écouter: Preposition recognition",
+            "instructions": "Listen and identify the preposition.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Le chat est derrière le canapé",
+              "question": "Where is the cat?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Derrière le canapé (behind the sofa)"
+                },
+                {
+                  "id": "b",
+                  "text": "Devant le canapé (in front of the sofa)"
+                },
+                {
+                  "id": "c",
+                  "text": "Sur le canapé (on the sofa)"
+                },
+                {
+                  "id": "d",
+                  "text": "Sous le canapé (under the sofa)"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "You heard 'derrière le canapé' - behind the sofa.",
+              "hint": "Listen carefully for the preposition."
+            },
+            "estimatedDurationSeconds": 50,
+            "pointsValue": 10,
+            "difficultyRating": 1.3,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Révision: Finding the Cat",
+            "instructions": "Fill in the missing prepositions and words.",
+            "content": {
+              "text": "The neighbor is looking for a cat. She asks '{blank1} est le chat?' (Where is the cat?). They look everywhere! First, the cat is {blank2} la table (on the table). Then it's {blank3} la table (under the table). Next, it's {blank4} la porte (in front of the door). Then it's {blank5} le canapé (behind the sofa). Finally, they find the cat {blank6} la boîte (in the box)! Alex says: '{blank7} le chat!' (There's the cat!)",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "Où"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "sur"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "sous"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "devant"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "derrière"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "dans"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "Voilà"
+                }
+              ],
+              "hint": "Review all the locations where the cat was found."
+            },
+            "estimatedDurationSeconds": 140,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: Où est...?",
+            "instructions": "What does 'Où est...?' mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What question does 'Où est le chat?' ask?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Where is the cat?",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "What is the cat?",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Who is the cat?",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "When is the cat?",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Où' means 'where', so 'Où est...?' asks 'Where is...?'",
+              "hint": "'Où' is the question word for location."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Voisine",
+          "voice": "Kore",
+          "description": "Friendly neighbor looking for her cat"
+        },
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Helpful young man trying to find the cat"
+        }
+      ],
+      "audioStyle": "Natural conversation at moderate pace. Clear pronunciation for A1 learners. Animated tone showing the search for the cat. Emphasis on prepositions."
+    },
+    {
+      "episodeNumber": 3,
+      "type": "STORY",
+      "title": "Les Couleurs du Mur",
+      "content": "Alex regarde les murs. Les murs sont blancs. Blancs.\n\nAlex aime les couleurs.\n\nRouge? Le mur rouge? Non.\n\nBleu? Le mur bleu? Oui! Alex aime le bleu.\n\nVert? Le mur vert? Oui! Alex aime le vert.\n\nJaune? Le mur jaune? Non.\n\nNoir? Le mur noir? Non.\n\nAlex choisit. Un mur bleu dans la chambre. Un mur vert dans le salon. C'est joli!\n\nLa porte est blanche. La fenêtre est blanche. Mais les murs sont bleus et verts!\n\nAlex est content. L'appartement est joli!",
+      "generateAudio": true,
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Color choice",
+            "instructions": "What colors does Alex choose for the walls?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What colors does Alex choose?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Bleu et vert (blue and green)",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Rouge et jaune (red and yellow)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Noir et blanc (black and white)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Rouge et bleu (red and blue)",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex chooses 'un mur bleu dans la chambre' and 'un mur vert dans le salon' - a blue wall in the bedroom and a green wall in the living room.",
+              "hint": "Look for the colors Alex says 'Oui!' to."
+            },
+            "estimatedDurationSeconds": 35,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: What color are the doors?",
+            "instructions": "What color is the door?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What color is 'la porte'?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Blanche (white)",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Bleue (blue)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Verte (green)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Rouge (red)",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The story says 'La porte est blanche' - The door is white.",
+              "hint": "Alex keeps some things their original color."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Color adjective",
+            "instructions": "Complete with the correct color.",
+            "content": {
+              "text": "Le mur est _____ dans la chambre.",
+              "blanks": [
+                {
+                  "correctAnswer": "bleu",
+                  "acceptableAnswers": [
+                    "bleu"
+                  ],
+                  "options": [
+                    "bleu",
+                    "vert",
+                    "rouge",
+                    "jaune"
+                  ]
+                }
+              ],
+              "translation": "The wall is blue in the bedroom",
+              "hint": "Alex chooses blue for the bedroom."
+            },
+            "estimatedDurationSeconds": 40,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Another color",
+            "instructions": "Complete with the correct color.",
+            "content": {
+              "text": "Le mur est _____ dans le salon.",
+              "blanks": [
+                {
+                  "correctAnswer": "vert",
+                  "acceptableAnswers": [
+                    "vert"
+                  ],
+                  "options": [
+                    "vert",
+                    "bleu",
+                    "noir",
+                    "jaune"
+                  ]
+                }
+              ],
+              "translation": "The wall is green in the living room",
+              "hint": "Alex chooses green for the living room."
+            },
+            "estimatedDurationSeconds": 40,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associer: Colors",
+            "instructions": "Match the French colors with their English equivalents.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "rouge",
+                  "right": "red"
+                },
+                {
+                  "left": "bleu",
+                  "right": "blue"
+                },
+                {
+                  "left": "vert",
+                  "right": "green"
+                },
+                {
+                  "left": "jaune",
+                  "right": "yellow"
+                },
+                {
+                  "left": "blanc",
+                  "right": "white"
+                },
+                {
+                  "left": "noir",
+                  "right": "black"
+                }
+              ],
+              "hint": "Learn the basic colors in French."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordonner: Color description",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Le",
+                "mur",
+                "est",
+                "bleu"
+              ],
+              "correctOrder": [
+                "Le",
+                "mur",
+                "est",
+                "bleu"
+              ],
+              "translation": "The wall is blue",
+              "explanation": "This sentence describes the color of an object: subject + être + color adjective.",
+              "hint": "Start with 'Le mur est' (the wall is)."
+            },
+            "estimatedDurationSeconds": 50,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Écouter: Color names",
+            "instructions": "Listen and identify the color.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "vert",
+              "question": "What color did you hear?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Vert (green)"
+                },
+                {
+                  "id": "b",
+                  "text": "Bleu (blue)"
+                },
+                {
+                  "id": "c",
+                  "text": "Noir (black)"
+                },
+                {
+                  "id": "d",
+                  "text": "Jaune (yellow)"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "You heard 'vert' which means 'green'.",
+              "hint": "Listen carefully to the pronunciation."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 10,
+            "difficultyRating": 1.1,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Révision: Painting the Walls",
+            "instructions": "Fill in the missing words about Alex's apartment colors.",
+            "content": {
+              "text": "Alex looks at the walls. At first, they are all {blank1} (white). Alex loves {blank2} (colors)! He considers different options. {blank3} (red)? No. Bleu (blue)? {blank4}! Alex likes blue. Vert (green)? Oui! Alex likes {blank5}. Jaune (yellow)? Non. Noir (black)? Non. Alex decides: one {blank6} wall in the bedroom and one {blank7} wall in the living room. The door and windows stay {blank8}. Alex says the apartment is {blank9} (pretty/nice)!",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": [
+                    "blancs",
+                    "blanc"
+                  ]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": [
+                    "couleurs",
+                    "les couleurs"
+                  ]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "Rouge"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "Oui"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "green",
+                    "vert",
+                    "le vert"
+                  ]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": [
+                    "bleu",
+                    "blue"
+                  ]
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": [
+                    "vert",
+                    "green"
+                  ]
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": [
+                    "blanche",
+                    "blanches",
+                    "white"
+                  ]
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "joli"
+                }
+              ],
+              "hint": "Review Alex's color choices for his apartment."
+            },
+            "estimatedDurationSeconds": 150,
+            "pointsValue": 20,
+            "difficultyRating": 1.5
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrateur",
+          "voice": "Charon",
+          "description": "Calm, clear narrator voice"
+        }
+      ],
+      "audioStyle": "Narrative storytelling. Clear, slow-paced French suitable for absolute beginners. Thoughtful tone as Alex considers different colors. Warm, engaging delivery."
+    }
+  ]
+}

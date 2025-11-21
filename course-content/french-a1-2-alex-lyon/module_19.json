@@ -1,0 +1,1474 @@
+{
+  "moduleNumber": 19,
+  "title": "La Carte Postale",
+  "theme": "Le Passé 1",
+  "description": "Alex est revenu de ses vacances à Nice. Il raconte son voyage à son ami Thomas. Apprenez à parler d'événements passés avec le passé composé.",
+  "objectives": [
+    "Comprendre le concept du passé composé",
+    "Former le passé composé avec 'avoir'",
+    "Utiliser les participes passés réguliers (-é, -i, -u)",
+    "Utiliser les participes passés irréguliers (fait, eu, été, vu, pris, bu)",
+    "Raconter des événements passés"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "STORY",
+      "title": "Qu'est-ce qui s'est Passé?",
+      "content": "C'est lundi matin. Alex arrive au bureau avec un grand sourire. Il a un beau bronzage. Il est reposé et heureux.\n\nJulie le voit et s'approche.\n\n« Alex ! Tu es rentré ! Comment étaient tes vacances ? »\n\nAlex sourit encore plus. « Mes vacances étaient magnifiques ! »\n\n« Raconte-moi tout ! » dit Julie.\n\nAlex pense à ses deux semaines à Nice. Tant de souvenirs !\n\nLa première chose qu'il a faite : il est arrivé à l'hôtel le samedi soir. L'hôtel était magnifique.\n\nLe dimanche matin, il s'est réveillé tôt. Il a pris son petit déjeuner sur la terrasse de l'hôtel. La vue sur la mer était incroyable.\n\nAprès le petit déjeuner, il est allé à la plage. C'était la première fois. Le sable était chaud sous ses pieds. L'eau était bleue et claire.\n\nIl a passé toute la journée à la plage. Il a nagé dans la mer. Il s'est allongé au soleil. Il a lu un livre.\n\nLe soir, il est allé au Vieux Nice. Les petites rues étaient charmantes. Il y avait des restaurants partout. Il a choisi un petit restaurant avec une terrasse.\n\nIl a mangé de la socca, comme Julie lui avait recommandé. C'était vraiment délicieux !\n\nPendant deux semaines, c'était comme ça : la plage le matin, une sieste l'après-midi, la ville le soir.\n\nIl a pris beaucoup de photos. Des photos de la mer, de la plage, de la vieille ville, de la nourriture.\n\nUn jour, il est allé à Monaco en train. C'était incroyable ! Tout était si chic, si luxueux.\n\nUn autre jour, il a visité un musée d'art. Il a vu des peintures magnifiques.\n\nIl a parlé avec des gens sur la plage. Il a rencontré des touristes du monde entier : des Italiens, des Allemands, des Anglais.\n\nMais maintenant, c'est fini. Les vacances sont terminées. Il est rentré à Lyon hier soir.\n\nAujourd'hui, c'est lundi. C'est le retour au travail.\n\nMais Alex a de magnifiques souvenirs. Et il a des photos pour ne pas oublier.",
+      "generateAudio": true,
+      "estimatedMinutes": 12,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Le Retour",
+            "instructions": "Choisissez la bonne réponse.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quand est-ce qu'Alex est rentré?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Ce matin",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Hier soir",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "La semaine dernière",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Il y a un mois",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Le texte dit : 'Il est rentré à Lyon hier soir.'",
+              "hint": "Regardez la fin du texte."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Expressions de Temps Passé",
+            "instructions": "Associez les expressions temporelles.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "hier",
+                  "right": "yesterday"
+                },
+                {
+                  "left": "hier soir",
+                  "right": "last night"
+                },
+                {
+                  "left": "la semaine dernière",
+                  "right": "last week"
+                },
+                {
+                  "left": "le mois dernier",
+                  "right": "last month"
+                },
+                {
+                  "left": "il y a deux jours",
+                  "right": "two days ago"
+                },
+                {
+                  "left": "avant",
+                  "right": "before"
+                }
+              ],
+              "hint": "Expressions pour parler du passé."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Les Activités",
+            "instructions": "Qu'est-ce qu'Alex a fait?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quelle activité Alex n'a PAS faite?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il a nagé dans la mer",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Il a mangé de la socca",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Il a fait du ski",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Il est allé à Monaco",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex est allé à la plage en été, pas faire du ski. Le texte mentionne la natation, manger de la socca, et visiter Monaco.",
+              "hint": "Pensez à la saison et au lieu."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Identifier le Passé",
+            "instructions": "Trouvez les verbes au passé composé.",
+            "content": {
+              "text": "Alex _____ arrivé à l'hôtel. Il _____ pris son petit déjeuner. Il _____ allé à la plage. Il _____ nagé dans la mer.",
+              "blanks": [
+                {
+                  "correctAnswer": "est",
+                  "acceptableAnswers": [
+                    "est"
+                  ],
+                  "options": [
+                    "est",
+                    "a",
+                    "était",
+                    "va"
+                  ]
+                },
+                {
+                  "correctAnswer": "a",
+                  "acceptableAnswers": [
+                    "a"
+                  ],
+                  "options": [
+                    "est",
+                    "a",
+                    "était",
+                    "va"
+                  ]
+                },
+                {
+                  "correctAnswer": "est",
+                  "acceptableAnswers": [
+                    "est"
+                  ],
+                  "options": [
+                    "est",
+                    "a",
+                    "était",
+                    "va"
+                  ]
+                },
+                {
+                  "correctAnswer": "a",
+                  "acceptableAnswers": [
+                    "a"
+                  ],
+                  "options": [
+                    "est",
+                    "a",
+                    "était",
+                    "va"
+                  ]
+                }
+              ],
+              "translation": "Alex arrived at the hotel. He had breakfast. He went to the beach. He swam in the sea.",
+              "hint": "Le passé composé utilise 'être' ou 'avoir' + participe passé."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des Mots: Passé Composé",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "Il",
+                "a",
+                "mangé",
+                "de",
+                "la",
+                "socca"
+              ],
+              "correctOrder": [
+                "Il",
+                "a",
+                "mangé",
+                "de",
+                "la",
+                "socca"
+              ],
+              "translation": "He ate socca",
+              "explanation": "Au passé composé, on utilise l'auxiliaire (a) puis le participe passé (mangé).",
+              "hint": "Auxiliaire + participe passé."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Imparfait vs Passé Composé",
+            "instructions": "Identifiez l'usage : description (imparfait) ou action (passé composé).",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Il a nagé",
+                  "right": "action complétée"
+                },
+                {
+                  "left": "L'eau était bleue",
+                  "right": "description"
+                },
+                {
+                  "left": "Il a pris des photos",
+                  "right": "action complétée"
+                },
+                {
+                  "left": "Les vacances étaient magnifiques",
+                  "right": "description"
+                }
+              ],
+              "hint": "L'imparfait décrit, le passé composé raconte une action."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: Souvenirs",
+            "instructions": "Que signifie 'souvenirs'?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que veut dire 'Alex a de magnifiques souvenirs' ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Alex has beautiful memories",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Alex has beautiful photos",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Alex has beautiful dreams",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Alex has beautiful friends",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Souvenirs' signifie 'memories'. Alex garde de beaux souvenirs de ses vacances.",
+              "hint": "Pensez à ce qui reste après les vacances."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Chronologie",
+            "instructions": "Complétez avec les mots de temps.",
+            "content": {
+              "text": "_____, c'est lundi. Alex est rentré _____. Les vacances sont terminées _____. _____, il était à Nice.",
+              "blanks": [
+                {
+                  "correctAnswer": "Aujourd'hui",
+                  "acceptableAnswers": [
+                    "Aujourd'hui",
+                    "aujourd'hui"
+                  ],
+                  "options": [
+                    "Aujourd'hui",
+                    "Hier",
+                    "Demain",
+                    "Maintenant"
+                  ]
+                },
+                {
+                  "correctAnswer": "hier",
+                  "acceptableAnswers": [
+                    "hier",
+                    "hier soir"
+                  ],
+                  "options": [
+                    "hier",
+                    "demain",
+                    "aujourd'hui",
+                    "maintenant"
+                  ]
+                },
+                {
+                  "correctAnswer": "maintenant",
+                  "acceptableAnswers": [
+                    "maintenant"
+                  ],
+                  "options": [
+                    "maintenant",
+                    "hier",
+                    "demain",
+                    "après"
+                  ]
+                },
+                {
+                  "correctAnswer": "Avant",
+                  "acceptableAnswers": [
+                    "Avant",
+                    "avant",
+                    "La semaine dernière"
+                  ],
+                  "options": [
+                    "Avant",
+                    "Après",
+                    "Maintenant",
+                    "Demain"
+                  ]
+                }
+              ],
+              "translation": "Today is Monday. Alex came back yesterday. The vacation is over now. Before, he was in Nice.",
+              "hint": "Pensez à la chronologie des événements."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: Le Retour",
+            "instructions": "Complétez le résumé.",
+            "content": {
+              "text": "Alex est rentré à Lyon {blank1} soir. Aujourd'hui, c'est {blank2}, le retour au {blank3}. Pendant ses vacances à Nice, il a {blank4} beaucoup de choses. Il {blank5} arrivé à l'hôtel le samedi. Le dimanche, il {blank6} allé à la plage. Il a {blank7} dans la mer. Il a {blank8} de la socca. Il a {blank9} beaucoup de photos. Un jour, il {blank10} allé à Monaco. Il a {blank11} des gens du monde entier. Maintenant, les vacances sont {blank12}, mais il a de magnifiques {blank13}.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "hier"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "lundi"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "travail"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "fait"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "est"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "est"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "nagé"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "mangé"
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "pris"
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": "est"
+                },
+                {
+                  "id": "blank11",
+                  "correctAnswer": "rencontré"
+                },
+                {
+                  "id": "blank12",
+                  "correctAnswer": "terminées"
+                },
+                {
+                  "id": "blank13",
+                  "correctAnswer": "souvenirs"
+                }
+              ],
+              "hint": "Relisez toute l'histoire."
+            },
+            "estimatedDurationSeconds": 150,
+            "pointsValue": 25,
+            "difficultyRating": 1.7
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrateur",
+          "voice": "Charon",
+          "description": "Voix narrative pour raconter les souvenirs"
+        }
+      ],
+      "audioStyle": "Récit narratif au passé. Ton nostalgique et heureux pour évoquer les souvenirs de vacances. Rythme clair pour introduire le passé composé aux débutants A1."
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Les Verbes Réguliers",
+      "content": "Alex et son ami Thomas sont assis à une terrasse de café. Thomas n'a pas encore entendu tous les détails des vacances.\n\nThomas : Alors Alex, raconte ! Qu'est-ce que tu as fait exactement à Nice ?\n\nAlex : Oh, j'ai fait tellement de choses ! D'abord, j'ai visité tout le Vieux Nice. J'ai adoré !\n\nThomas : Tu as visité quoi exactement ?\n\nAlex : J'ai marché dans toutes les petites rues. J'ai regardé les vieux bâtiments. J'ai trouvé des boutiques magnifiques.\n\nThomas : Tu as acheté des souvenirs ?\n\nAlex : Oui ! J'ai acheté des cartes postales, des petits savons parfumés, et un t-shirt avec « Nice » écrit dessus.\n\nThomas : Ha ha ! Très touristique ! Et tu as mangé quoi ?\n\nAlex : J'ai mangé beaucoup de choses ! J'ai goûté la socca, comme Julie m'a recommandé. J'ai aussi mangé de la salade niçoise, de la pissaladière...\n\nThomas : Mmm, la pissaladière ! J'adore ça. Et tu as parlé avec les gens ?\n\nAlex : Oui, j'ai parlé français tout le temps ! J'ai discuté avec les serveurs dans les restaurants, avec les gens sur la plage, avec le personnel de l'hôtel.\n\nThomas : Bravo ! Ton français a progressé alors ?\n\nAlex : Oui, je pense ! J'ai utilisé tout ce que j'ai appris. Et les gens ont été très patients avec moi.\n\nThomas : Et la plage ? Tu as nagé ?\n\nAlex : Oh oui ! J'ai nagé tous les jours. J'ai aussi bronzé, j'ai lu des livres, j'ai écouté de la musique sur mon téléphone.\n\nThomas : Tu as rencontré des gens intéressants ?\n\nAlex : Oui ! J'ai rencontré un couple d'Italiens très sympas. On a discuté en français. J'ai aussi rencontré une famille allemande.\n\nThomas : Tu as dansé dans les clubs le soir ?\n\nAlex : Non, pas vraiment. Je n'ai pas dansé. Je n'ai pas aimé la musique dans les clubs. J'ai préféré les restaurants tranquilles.\n\nThomas : Et tu as pris beaucoup de photos ?\n\nAlex : Oui ! J'ai photographié la mer, les couchers de soleil, la nourriture, les rues du Vieux Nice. Regarde, je les ai sur mon téléphone.\n\nThomas : Montre-moi ! ... Wow, c'est magnifique ! Tu as vraiment profité de tes vacances.\n\nAlex : Oui, j'ai passé deux semaines parfaites. Je n'ai pas pensé au travail une seule fois !\n\nThomas : Tu as de la chance ! Moi, je n'ai pas encore pris mes vacances cette année.\n\nAlex : Tu n'as pas pris de vacances ? Pourquoi ?\n\nThomas : J'ai travaillé tout l'été. Mais en septembre, je vais partir. J'ai réservé un voyage en Espagne.\n\nAlex : Super ! Tu vas adorer. L'Espagne, c'est magnifique aussi.\n\nThomas : J'espère ! Bon, tu veux un autre café ?\n\nAlex : Oui, avec plaisir ! Et je vais continuer à te montrer mes photos !",
+      "generateAudio": true,
+      "estimatedMinutes": 13,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Les Achats",
+            "instructions": "Qu'est-ce qu'Alex a acheté?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quels souvenirs Alex a-t-il achetés?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Cartes postales, savons, t-shirt",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Livres, musique, photos",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Vêtements, chaussures, sac",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Rien du tout",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'J'ai acheté des cartes postales, des petits savons parfumés, et un t-shirt avec « Nice » écrit dessus.'",
+              "hint": "Alex liste trois types de souvenirs."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Passé Composé: Verbes -ER",
+            "instructions": "Complétez avec le participe passé.",
+            "content": {
+              "text": "J'ai _____ (visiter) le Vieux Nice. J'ai _____ (marcher) dans les rues. J'ai _____ (regarder) les bâtiments. J'ai _____ (trouver) des boutiques.",
+              "blanks": [
+                {
+                  "correctAnswer": "visité",
+                  "acceptableAnswers": [
+                    "visité",
+                    "visite"
+                  ],
+                  "options": [
+                    "visité",
+                    "visitait",
+                    "visite",
+                    "visiter"
+                  ]
+                },
+                {
+                  "correctAnswer": "marché",
+                  "acceptableAnswers": [
+                    "marché",
+                    "marche"
+                  ],
+                  "options": [
+                    "marché",
+                    "marchait",
+                    "marche",
+                    "marcher"
+                  ]
+                },
+                {
+                  "correctAnswer": "regardé",
+                  "acceptableAnswers": [
+                    "regardé",
+                    "regarde"
+                  ],
+                  "options": [
+                    "regardé",
+                    "regardait",
+                    "regarde",
+                    "regarder"
+                  ]
+                },
+                {
+                  "correctAnswer": "trouvé",
+                  "acceptableAnswers": [
+                    "trouvé",
+                    "trouve"
+                  ],
+                  "options": [
+                    "trouvé",
+                    "trouvait",
+                    "trouve",
+                    "trouver"
+                  ]
+                }
+              ],
+              "translation": "I visited Old Nice. I walked in the streets. I looked at the buildings. I found beautiful shops.",
+              "hint": "Verbes en -ER → participe passé en -é."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 20,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Infinitif et Participe Passé",
+            "instructions": "Associez l'infinitif avec son participe passé.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "manger",
+                  "right": "mangé"
+                },
+                {
+                  "left": "acheter",
+                  "right": "acheté"
+                },
+                {
+                  "left": "parler",
+                  "right": "parlé"
+                },
+                {
+                  "left": "nager",
+                  "right": "nagé"
+                },
+                {
+                  "left": "bronzer",
+                  "right": "bronzé"
+                },
+                {
+                  "left": "photographier",
+                  "right": "photographié"
+                }
+              ],
+              "hint": "Tous ces verbes sont réguliers en -ER."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des Mots: Question au Passé",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "Qu'",
+                "est-ce",
+                "que",
+                "tu",
+                "as",
+                "fait",
+                "?"
+              ],
+              "correctOrder": [
+                "Qu'",
+                "est-ce",
+                "que",
+                "tu",
+                "as",
+                "fait",
+                "?"
+              ],
+              "translation": "What did you do?",
+              "explanation": "Pour demander ce que quelqu'un a fait, on utilise 'Qu'est-ce que + sujet + auxiliaire + participe passé'.",
+              "hint": "Question classique pour le passé."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: La Langue",
+            "instructions": "Comment Alex a-t-il pratiqué son français?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Avec qui Alex a-t-il parlé français?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Personne, il a parlé anglais",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Serveurs, gens sur la plage, personnel d'hôtel",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Seulement avec Thomas",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Il n'a parlé avec personne",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'J'ai parlé français tout le temps ! J'ai discuté avec les serveurs, avec les gens sur la plage, avec le personnel de l'hôtel.'",
+              "hint": "Alex liste plusieurs groupes de personnes."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Passé Composé Négatif",
+            "instructions": "Complétez les phrases négatives.",
+            "content": {
+              "text": "Je n'_____ pas _____ (danser) dans les clubs. Je n'_____ pas _____ (aimer) la musique. Je n'_____ pas _____ (penser) au travail.",
+              "blanks": [
+                {
+                  "correctAnswer": "ai",
+                  "acceptableAnswers": [
+                    "ai"
+                  ],
+                  "options": [
+                    "ai",
+                    "as",
+                    "a",
+                    "avons"
+                  ]
+                },
+                {
+                  "correctAnswer": "dansé",
+                  "acceptableAnswers": [
+                    "dansé",
+                    "danse"
+                  ],
+                  "options": [
+                    "dansé",
+                    "danser",
+                    "danse",
+                    "dansait"
+                  ]
+                },
+                {
+                  "correctAnswer": "ai",
+                  "acceptableAnswers": [
+                    "ai"
+                  ],
+                  "options": [
+                    "ai",
+                    "as",
+                    "a",
+                    "avons"
+                  ]
+                },
+                {
+                  "correctAnswer": "aimé",
+                  "acceptableAnswers": [
+                    "aimé",
+                    "aime"
+                  ],
+                  "options": [
+                    "aimé",
+                    "aimer",
+                    "aime",
+                    "aimait"
+                  ]
+                },
+                {
+                  "correctAnswer": "ai",
+                  "acceptableAnswers": [
+                    "ai"
+                  ],
+                  "options": [
+                    "ai",
+                    "as",
+                    "a",
+                    "avons"
+                  ]
+                },
+                {
+                  "correctAnswer": "pensé",
+                  "acceptableAnswers": [
+                    "pensé",
+                    "pense"
+                  ],
+                  "options": [
+                    "pensé",
+                    "penser",
+                    "pense",
+                    "pensait"
+                  ]
+                }
+              ],
+              "translation": "I didn't dance in the clubs. I didn't like the music. I didn't think about work.",
+              "hint": "Ne + auxiliaire + pas + participe passé."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 20,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Thomas",
+            "instructions": "Qu'en est-il de Thomas?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Pourquoi Thomas n'a-t-il pas encore pris de vacances?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il n'a pas d'argent",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Il a travaillé tout l'été",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Il n'aime pas les vacances",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Il était malade",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Thomas dit : 'J'ai travaillé tout l'été.'",
+              "hint": "Thomas explique pourquoi à Alex."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Activités et Lieux",
+            "instructions": "Associez les activités avec les lieux.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "J'ai nagé",
+                  "right": "dans la mer"
+                },
+                {
+                  "left": "J'ai marché",
+                  "right": "dans les rues"
+                },
+                {
+                  "left": "J'ai mangé",
+                  "right": "dans les restaurants"
+                },
+                {
+                  "left": "J'ai bronzé",
+                  "right": "sur la plage"
+                }
+              ],
+              "hint": "Où fait-on ces activités?"
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: Le Récit d'Alex",
+            "instructions": "Complétez le récit.",
+            "content": {
+              "text": "Alex raconte ses vacances à Thomas. Il a {blank1} tout le Vieux Nice. Il a {blank2} dans les petites rues. Il a {blank3} des souvenirs : des cartes postales, des savons et un t-shirt. Il a {blank4} beaucoup de spécialités niçoises. Il a {blank5} français avec tout le monde. Il a {blank6} tous les jours dans la mer. Il a {blank7} beaucoup de photos. Il a {blank8} un couple d'Italiens. Il n'a pas {blank9} dans les clubs. Il a {blank10} deux semaines parfaites. Il n'a pas {blank11} au travail une seule fois !",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "visité"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "marché"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "acheté"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "mangé"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "parlé"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "nagé"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "pris"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "rencontré"
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "dansé"
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": "passé"
+                },
+                {
+                  "id": "blank11",
+                  "correctAnswer": "pensé"
+                }
+              ],
+              "hint": "Tous les verbes sont au passé composé."
+            },
+            "estimatedDurationSeconds": 150,
+            "pointsValue": 25,
+            "difficultyRating": 1.8
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Jeune Américain enthousiaste racontant ses vacances"
+        },
+        {
+          "name": "Ami Thomas",
+          "voice": "Achird",
+          "description": "Ami français curieux et intéressé"
+        }
+      ],
+      "audioStyle": "Conversation amicale entre amis. Alex raconte avec enthousiasme. Beaucoup de passé composé avec verbes réguliers. Rythme naturel adapté aux A1."
+    },
+    {
+      "episodeNumber": 3,
+      "type": "DIALOGUE",
+      "title": "Les Verbes Irréguliers",
+      "content": "La conversation continue. Alex et Thomas sont toujours à la terrasse du café.\n\nThomas : Tu m'as parlé de Monaco. Raconte-moi ! Qu'est-ce que tu as vu là-bas ?\n\nAlex : Oh, j'ai vu tellement de choses ! D'abord, j'ai vu le casino de Monte-Carlo. C'est immense et magnifique !\n\nThomas : Tu es entré dans le casino ?\n\nAlex : Oui, je suis entré pour regarder. Mais je n'ai pas joué. C'était trop cher pour moi !\n\nThomas : Ha ha ! Sage décision. Et tu as vu le palais princier ?\n\nAlex : Oui ! J'ai pris le bus jusqu'au palais. J'ai vu la relève de la garde. C'était impressionnant !\n\nThomas : Tu as eu de la chance ! Et qu'est-ce que tu as bu là-bas ? Un cocktail chic ?\n\nAlex : Oui ! J'ai bu un cocktail dans un bar avec vue sur le port. C'était cher, mais la vue en valait la peine !\n\nThomas : Je t'envie ! Et sinon, pendant tes deux semaines, tu as fait du sport ?\n\nAlex : Oui, j'ai fait de la natation tous les jours. J'ai aussi fait une randonnée dans les collines derrière Nice.\n\nThomas : Une randonnée ? Tu as eu chaud ?\n\nAlex : Oh oui ! J'ai eu très chaud. Mais j'ai bu beaucoup d'eau. Et la vue du sommet était incroyable !\n\nThomas : Et tu as été malade pendant les vacances ? Après ta grippe en juin ?\n\nAlex : Non, heureusement ! J'ai été en pleine forme pendant tout le voyage. J'ai bien fait de me reposer avant de partir.\n\nThomas : Et qu'est-ce que tu as lu sur la plage ?\n\nAlex : J'ai lu deux romans policiers. J'ai aussi lu des articles sur mon téléphone. J'ai même lu un peu en français !\n\nThomas : Bravo ! Ton français s'améliore vraiment. Et tu as écrit quelque chose ? Un journal de voyage ?\n\nAlex : Oui ! J'ai écrit dans un petit carnet tous les soirs. J'ai écrit ce que j'ai fait pendant la journée, mes impressions, mes découvertes.\n\nThomas : C'est une excellente idée ! Tu as pris beaucoup de notes ?\n\nAlex : Oui, j'ai pris des notes sur les restaurants, sur les endroits à visiter, sur les expressions françaises que j'ai apprises.\n\nThomas : Parfait ! Et tu as mis toutes tes photos sur les réseaux sociaux ?\n\nAlex : J'ai mis quelques photos sur Instagram, oui. Mais pas toutes. J'ai voulu profiter du moment sans passer tout mon temps sur mon téléphone.\n\nThomas : C'est sage. Et tu as pu lire tes emails du travail ?\n\nAlex : Non ! Je n'ai pas ouvert mes emails professionnels une seule fois. J'ai vraiment déconnecté !\n\nThomas : Chapeau ! Moi, je n'ai jamais pu faire ça. J'ai toujours mon téléphone professionnel avec moi.\n\nAlex : Il faut essayer ! Ça fait du bien de déconnecter. J'ai pu vraiment me reposer.\n\nThomas : Tu as raison. Bon, alors, la conclusion ? C'était réussi, ces vacances ?\n\nAlex : Oui ! J'ai eu deux semaines parfaites. J'ai fait ce que je voulais. J'ai vu des choses magnifiques. J'ai été heureux chaque jour.\n\nThomas : Tu as bien fait de partir. Et maintenant, tu es prêt à retourner au travail ?\n\nAlex : Oui, je suis prêt ! J'ai eu mes vacances, maintenant je peux travailler avec énergie !\n\nThomas : Parfait ! Allez, on retourne au bureau alors ?\n\nAlex : Oui, allons-y ! Mais d'abord, laisse-moi te montrer encore quelques photos...\n\nThomas : Ha ha ! D'accord, mais après, on travaille !",
+      "generateAudio": true,
+      "estimatedMinutes": 15,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Monaco",
+            "instructions": "Qu'est-ce qu'Alex a fait à Monaco?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Est-ce qu'Alex a joué au casino?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Oui, il a beaucoup joué",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Non, c'était trop cher",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Oui, mais il a perdu",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Il n'est pas entré",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'Je suis entré pour regarder. Mais je n'ai pas joué. C'était trop cher pour moi !'",
+              "hint": "Alex est entré mais..."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Participes Passés Irréguliers",
+            "instructions": "Associez l'infinitif avec son participe passé irrégulier.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "voir",
+                  "right": "vu"
+                },
+                {
+                  "left": "faire",
+                  "right": "fait"
+                },
+                {
+                  "left": "avoir",
+                  "right": "eu"
+                },
+                {
+                  "left": "être",
+                  "right": "été"
+                },
+                {
+                  "left": "boire",
+                  "right": "bu"
+                },
+                {
+                  "left": "lire",
+                  "right": "lu"
+                },
+                {
+                  "left": "écrire",
+                  "right": "écrit"
+                },
+                {
+                  "left": "prendre",
+                  "right": "pris"
+                },
+                {
+                  "left": "mettre",
+                  "right": "mis"
+                }
+              ],
+              "hint": "Ce sont les participes passés irréguliers les plus communs."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Passé Composé: Verbes Irréguliers",
+            "instructions": "Complétez avec le bon participe passé.",
+            "content": {
+              "text": "J'ai _____ (voir) le casino. J'ai _____ (faire) de la natation. J'ai _____ (avoir) chaud. J'ai _____ (être) en pleine forme. J'ai _____ (boire) un cocktail.",
+              "blanks": [
+                {
+                  "correctAnswer": "vu",
+                  "acceptableAnswers": [
+                    "vu"
+                  ],
+                  "options": [
+                    "vu",
+                    "voit",
+                    "voir",
+                    "voyait"
+                  ]
+                },
+                {
+                  "correctAnswer": "fait",
+                  "acceptableAnswers": [
+                    "fait"
+                  ],
+                  "options": [
+                    "fait",
+                    "faire",
+                    "faisait",
+                    "faite"
+                  ]
+                },
+                {
+                  "correctAnswer": "eu",
+                  "acceptableAnswers": [
+                    "eu"
+                  ],
+                  "options": [
+                    "eu",
+                    "avoir",
+                    "avait",
+                    "eue"
+                  ]
+                },
+                {
+                  "correctAnswer": "été",
+                  "acceptableAnswers": [
+                    "été",
+                    "ete"
+                  ],
+                  "options": [
+                    "été",
+                    "être",
+                    "était",
+                    "étée"
+                  ]
+                },
+                {
+                  "correctAnswer": "bu",
+                  "acceptableAnswers": [
+                    "bu"
+                  ],
+                  "options": [
+                    "bu",
+                    "boire",
+                    "buvait",
+                    "bue"
+                  ]
+                }
+              ],
+              "translation": "I saw the casino. I went swimming. I was hot. I was in great shape. I drank a cocktail.",
+              "hint": "Ces verbes ont des participes passés irréguliers."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 20,
+            "difficultyRating": 1.8
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des Mots: Question Passé",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "Qu'",
+                "est-ce",
+                "que",
+                "tu",
+                "as",
+                "vu",
+                "?"
+              ],
+              "correctOrder": [
+                "Qu'",
+                "est-ce",
+                "que",
+                "tu",
+                "as",
+                "vu",
+                "?"
+              ],
+              "translation": "What did you see?",
+              "explanation": "Question standard au passé composé avec le verbe 'voir'.",
+              "hint": "Comme 'Qu'est-ce que tu as fait ?' mais avec 'voir'."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Le Journal",
+            "instructions": "Qu'est-ce qu'Alex a écrit?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce qu'Alex a écrit tous les soirs?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Des emails",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Des messages sur les réseaux sociaux",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Un journal de voyage dans un carnet",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Des cartes postales",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'J'ai écrit dans un petit carnet tous les soirs. J'ai écrit ce que j'ai fait pendant la journée.'",
+              "hint": "Alex a écrit dans quelque chose de physique."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Passé avec AVOIR",
+            "instructions": "Complétez avec 'avoir' au passé composé.",
+            "content": {
+              "text": "J'ai _____ (avoir) chaud. Tu as _____ (avoir) de la chance. Il a _____ (avoir) raison. Nous avons _____ (avoir) deux semaines.",
+              "blanks": [
+                {
+                  "correctAnswer": "eu",
+                  "acceptableAnswers": [
+                    "eu"
+                  ],
+                  "options": [
+                    "eu",
+                    "avoir",
+                    "avait",
+                    "as"
+                  ]
+                },
+                {
+                  "correctAnswer": "eu",
+                  "acceptableAnswers": [
+                    "eu"
+                  ],
+                  "options": [
+                    "eu",
+                    "avoir",
+                    "avait",
+                    "as"
+                  ]
+                },
+                {
+                  "correctAnswer": "eu",
+                  "acceptableAnswers": [
+                    "eu"
+                  ],
+                  "options": [
+                    "eu",
+                    "avoir",
+                    "avait",
+                    "a"
+                  ]
+                },
+                {
+                  "correctAnswer": "eu",
+                  "acceptableAnswers": [
+                    "eu"
+                  ],
+                  "options": [
+                    "eu",
+                    "avoir",
+                    "avions",
+                    "avons"
+                  ]
+                }
+              ],
+              "translation": "I was hot. You were lucky. He was right. We had two weeks.",
+              "hint": "Le participe passé de 'avoir' est 'eu'."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Activités et Verbes",
+            "instructions": "Associez les activités avec les verbes corrects.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "J'ai lu",
+                  "right": "deux romans"
+                },
+                {
+                  "left": "J'ai écrit",
+                  "right": "un journal"
+                },
+                {
+                  "left": "J'ai pris",
+                  "right": "des photos"
+                },
+                {
+                  "left": "J'ai mis",
+                  "right": "des photos sur Instagram"
+                },
+                {
+                  "left": "J'ai bu",
+                  "right": "un cocktail"
+                }
+              ],
+              "hint": "Associez le verbe avec ce qui suit logiquement."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Déconnecter",
+            "instructions": "Comment Alex a-t-il déconnecté?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce qu'Alex n'a pas fait pendant les vacances?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il n'a pas pris de photos",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Il n'a pas ouvert ses emails professionnels",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Il n'a pas utilisé son téléphone",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Il n'a pas écrit de journal",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'Je n'ai pas ouvert mes emails professionnels une seule fois. J'ai vraiment déconnecté !'",
+              "hint": "Alex a évité quelque chose lié au travail."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: Monaco et Plus",
+            "instructions": "Complétez le résumé complet.",
+            "content": {
+              "text": "À Monaco, Alex a {blank1} le casino et la relève de la garde. Il a {blank2} un cocktail dans un bar chic. Pendant ses vacances, il a {blank3} de la natation et une randonnée. Il a {blank4} très chaud pendant la randonnée. Il a {blank5} en pleine forme pendant tout le voyage. Il a {blank6} deux romans sur la plage. Il a {blank7} un journal tous les soirs. Il a {blank8} des notes sur les restaurants. Il a {blank9} quelques photos sur Instagram. Il n'a pas {blank10} ses emails professionnels. Il a {blank11} deux semaines parfaites. Il a {blank12} heureux chaque jour.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "vu"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "bu"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "fait"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "eu"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "été"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "lu"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "écrit"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "pris"
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "mis"
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": "ouvert"
+                },
+                {
+                  "id": "blank11",
+                  "correctAnswer": "eu"
+                },
+                {
+                  "id": "blank12",
+                  "correctAnswer": "été"
+                }
+              ],
+              "hint": "Tous les verbes sont irréguliers au passé composé."
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 30,
+            "difficultyRating": 2.0
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Jeune Américain racontant avec détails"
+        },
+        {
+          "name": "Ami Thomas",
+          "voice": "Achird",
+          "description": "Ami français posant beaucoup de questions"
+        }
+      ],
+      "audioStyle": "Conversation approfondie entre amis. Focus sur les verbes irréguliers au passé composé. Rythme naturel avec beaucoup d'exemples pratiques. Niveau A1 avancé."
+    }
+  ]
+}

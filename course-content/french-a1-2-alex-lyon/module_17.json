@@ -1,0 +1,1333 @@
+{
+  "moduleNumber": 17,
+  "title": "Pas en Forme",
+  "theme": "La Santé",
+  "description": "Alex ne se sent pas bien. Apprenez à décrire les symptômes, parler de votre santé et demander des conseils à la pharmacie.",
+  "objectives": [
+    "Identifier les parties du corps",
+    "Exprimer la douleur (J'ai mal à...)",
+    "Décrire des symptômes",
+    "Comprendre et utiliser 'il faut'",
+    "Commander des médicaments à la pharmacie"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "STORY",
+      "title": "Les Parties du Corps",
+      "content": "Alex se réveille ce matin et quelque chose ne va pas. Il ne se sent pas bien. Il se lève lentement du lit.\n\nIl met la main sur son front. Il est chaud. Très chaud.\n\nAlex va dans la salle de bain et se regarde dans le miroir. Il pense aux différentes parties de son corps.\n\nIl touche sa tête. Sa tête est lourde.\n\nIl touche sa gorge. Sa gorge est irritée.\n\nIl regarde ses yeux dans le miroir. Ses yeux sont rouges et fatigués.\n\nIl sent son ventre. Son ventre n'est pas normal non plus.\n\nAlex pense : « Mon corps ne va pas bien aujourd'hui. »\n\nIl lève ses bras. Ses bras sont faibles.\n\nIl regarde ses jambes. Ses jambes sont lourdes aussi.\n\nIl touche son dos. Son dos est tendu.\n\nAlex retourne dans sa chambre. Il s'assoit sur le lit.\n\nIl regarde ses mains. Elles tremblent un peu.\n\nIl touche ses oreilles. Elles sont chaudes.\n\nAlex pense : « Je connais mon corps. Aujourd'hui, mon corps me dit : tu es malade. »\n\nIl prend son téléphone. Il cherche : « pharmacie Lyon centre ».\n\nAlex décide : « Je dois aller à la pharmacie. »",
+      "generateAudio": true,
+      "estimatedMinutes": 12,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Comment va Alex?",
+            "instructions": "Choisissez la bonne réponse.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Comment se sent Alex ce matin?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il se sent très bien",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Il ne se sent pas bien",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Il est très heureux",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Il a beaucoup d'énergie",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit 'quelque chose ne va pas' et 'je ne me sens pas bien'.",
+              "hint": "Alex se réveille et remarque que quelque chose ne va pas."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Les Parties du Corps",
+            "instructions": "Associez les parties du corps.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "la tête",
+                  "right": "head"
+                },
+                {
+                  "left": "la gorge",
+                  "right": "throat"
+                },
+                {
+                  "left": "le ventre",
+                  "right": "stomach/belly"
+                },
+                {
+                  "left": "le dos",
+                  "right": "back"
+                },
+                {
+                  "left": "les yeux",
+                  "right": "eyes"
+                },
+                {
+                  "left": "les oreilles",
+                  "right": "ears"
+                }
+              ],
+              "hint": "Pensez aux parties du corps qu'Alex touche."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: Les Membres",
+            "instructions": "Identifiez les membres du corps.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce qu'Alex lève?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Ses bras",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Sa tête",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Ses pieds",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Son dos",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Le texte dit : 'Il lève ses bras. Ses bras sont faibles.'",
+              "hint": "Alex lève quelque chose et trouve que c'est faible."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Les Sensations",
+            "instructions": "Complétez avec le bon adjectif.",
+            "content": {
+              "text": "Son front est _____. Sa tête est _____. Ses yeux sont _____ et fatigués.",
+              "blanks": [
+                {
+                  "correctAnswer": "chaud",
+                  "acceptableAnswers": [
+                    "chaud"
+                  ],
+                  "options": [
+                    "chaud",
+                    "froid",
+                    "petit",
+                    "grand"
+                  ]
+                },
+                {
+                  "correctAnswer": "lourde",
+                  "acceptableAnswers": [
+                    "lourde"
+                  ],
+                  "options": [
+                    "lourde",
+                    "légère",
+                    "petite",
+                    "grande"
+                  ]
+                },
+                {
+                  "correctAnswer": "rouges",
+                  "acceptableAnswers": [
+                    "rouges"
+                  ],
+                  "options": [
+                    "rouges",
+                    "bleus",
+                    "verts",
+                    "noirs"
+                  ]
+                }
+              ],
+              "translation": "His forehead is hot. His head is heavy. His eyes are red and tired.",
+              "hint": "Regardez les descriptions dans le texte."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des Mots: Le Corps",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "Mon",
+                "corps",
+                "ne",
+                "va",
+                "pas",
+                "bien"
+              ],
+              "correctOrder": [
+                "Mon",
+                "corps",
+                "ne",
+                "va",
+                "pas",
+                "bien"
+              ],
+              "translation": "My body is not well",
+              "explanation": "Pour dire que le corps ne va pas bien, on utilise la négation 'ne...pas' autour du verbe.",
+              "hint": "Commencez avec 'Mon corps' puis ajoutez la négation."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Corps et Adjectifs",
+            "instructions": "Associez chaque partie du corps avec sa description.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "les bras",
+                  "right": "faibles"
+                },
+                {
+                  "left": "les jambes",
+                  "right": "lourdes"
+                },
+                {
+                  "left": "la gorge",
+                  "right": "irritée"
+                },
+                {
+                  "left": "le dos",
+                  "right": "tendu"
+                },
+                {
+                  "left": "les mains",
+                  "right": "tremblent"
+                }
+              ],
+              "hint": "Trouvez les descriptions dans le texte."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: La Décision",
+            "instructions": "Que décide Alex à la fin?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Où va Alex?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "À l'hôpital",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "À la pharmacie",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Au travail",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Au restaurant",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'Je dois aller à la pharmacie.'",
+              "hint": "Alex cherche un endroit sur son téléphone."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Se Sentir",
+            "instructions": "Complétez avec la bonne forme.",
+            "content": {
+              "text": "Je ne _____ sens pas bien aujourd'hui.",
+              "blanks": [
+                {
+                  "correctAnswer": "me",
+                  "acceptableAnswers": [
+                    "me",
+                    "m'"
+                  ],
+                  "options": [
+                    "me",
+                    "te",
+                    "se",
+                    "nous"
+                  ]
+                }
+              ],
+              "translation": "I don't feel well today.",
+              "hint": "C'est un verbe pronominal avec 'je'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: Alex est Malade",
+            "instructions": "Complétez le résumé.",
+            "content": {
+              "text": "Ce matin, Alex se réveille et ne se sent pas {blank1}. Son {blank2} est chaud. Sa {blank3} est lourde. Sa {blank4} est irritée. Ses {blank5} sont rouges. Son {blank6} n'est pas normal. Ses bras sont {blank7} et ses jambes sont lourdes. Alex décide d'aller à la {blank8}.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "bien"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "front"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "tête"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "gorge"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "yeux"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "ventre"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "faibles"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "pharmacie"
+                }
+              ],
+              "hint": "Relisez l'histoire pour trouver les détails."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrateur",
+          "voice": "Charon",
+          "description": "Voix calme et claire pour raconter l'histoire"
+        }
+      ],
+      "audioStyle": "Récit narratif. Voix calme et descriptive, adaptée aux débutants A1. Ton empathique pour décrire l'inconfort d'Alex."
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "J'ai Mal à...",
+      "content": "Alex entre dans la pharmacie. Une clochette sonne. Le pharmacien lève la tête et sourit.\n\nPharmacien : Bonjour monsieur. Comment allez-vous aujourd'hui ?\n\nAlex : Bonjour. Je ne vais pas très bien, malheureusement.\n\nPharmacien : Oh, je vois. Qu'est-ce qui ne va pas ? Vous avez des symptômes ?\n\nAlex : Oui. J'ai mal à la tête. Depuis ce matin.\n\nPharmacien : D'accord. Vous avez mal à la tête. Et vous avez d'autres symptômes ?\n\nAlex : Oui... J'ai mal à la gorge aussi. Ma gorge est très irritée.\n\nPharmacien : Hmm. Vous avez mal à la gorge. C'est rouge ?\n\nAlex : Oui, c'est rouge. Et j'ai mal au ventre aussi.\n\nPharmacien : Vous avez mal au ventre. D'accord. Vous avez de la fièvre ?\n\nAlex : Je pense que oui. Mon front est très chaud. Et j'ai très froid aussi.\n\nPharmacien : Vous avez chaud et froid en même temps. C'est classique avec la fièvre. Vous avez mal aux muscles ?\n\nAlex : Oui ! J'ai mal au dos. Et mes bras et mes jambes sont faibles.\n\nPharmacien : Vous avez mal partout, alors. Je comprends. C'est probablement la grippe ou un gros rhume.\n\nAlex : La grippe ? C'est grave ?\n\nPharmacien : Non, non, ne vous inquiétez pas. Ce n'est pas grave, mais c'est très désagréable. Vous êtes fatigué aussi ?\n\nAlex : Oui, je suis très fatigué. Et j'ai mal aux yeux.\n\nPharmacien : Bon. Vous avez tous les symptômes classiques. Ne vous inquiétez pas, on va vous aider.",
+      "generateAudio": true,
+      "estimatedMinutes": 13,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Les Symptômes",
+            "instructions": "Quels symptômes a Alex?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Où Alex a-t-il mal?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Seulement à la tête",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Partout - tête, gorge, ventre, dos",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Seulement à la gorge",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Il n'a mal nulle part",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Le pharmacien dit : 'Vous avez mal partout, alors.' Alex a mal à la tête, à la gorge, au ventre, au dos, aux yeux.",
+              "hint": "Le pharmacien résume tous les symptômes d'Alex."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: J'ai Mal à",
+            "instructions": "Complétez avec la bonne préposition.",
+            "content": {
+              "text": "J'ai mal _____ la tête. J'ai mal _____ la gorge. J'ai mal _____ ventre. J'ai mal _____ dos.",
+              "blanks": [
+                {
+                  "correctAnswer": "à",
+                  "acceptableAnswers": [
+                    "à",
+                    "a"
+                  ],
+                  "options": [
+                    "à",
+                    "au",
+                    "aux",
+                    "de"
+                  ]
+                },
+                {
+                  "correctAnswer": "à",
+                  "acceptableAnswers": [
+                    "à",
+                    "a"
+                  ],
+                  "options": [
+                    "à",
+                    "au",
+                    "aux",
+                    "de"
+                  ]
+                },
+                {
+                  "correctAnswer": "au",
+                  "acceptableAnswers": [
+                    "au"
+                  ],
+                  "options": [
+                    "à",
+                    "au",
+                    "aux",
+                    "de"
+                  ]
+                },
+                {
+                  "correctAnswer": "au",
+                  "acceptableAnswers": [
+                    "au"
+                  ],
+                  "options": [
+                    "à",
+                    "au",
+                    "aux",
+                    "de"
+                  ]
+                }
+              ],
+              "translation": "I have a headache. My throat hurts. My stomach hurts. My back hurts.",
+              "hint": "Utilisez 'à' + la/l', ou 'au' pour le masculin."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Symptômes et Descriptions",
+            "instructions": "Associez les symptômes.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "la fièvre",
+                  "right": "fever"
+                },
+                {
+                  "left": "la grippe",
+                  "right": "flu"
+                },
+                {
+                  "left": "le rhume",
+                  "right": "cold"
+                },
+                {
+                  "left": "fatigué",
+                  "right": "tired"
+                },
+                {
+                  "left": "désagréable",
+                  "right": "unpleasant"
+                },
+                {
+                  "left": "grave",
+                  "right": "serious"
+                }
+              ],
+              "hint": "Vocabulaire médical de base."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des Mots: Expression de Douleur",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "J'",
+                "ai",
+                "mal",
+                "à",
+                "la",
+                "gorge"
+              ],
+              "correctOrder": [
+                "J'",
+                "ai",
+                "mal",
+                "à",
+                "la",
+                "gorge"
+              ],
+              "translation": "My throat hurts / I have a sore throat",
+              "explanation": "Pour exprimer la douleur : J'ai mal + à + article + partie du corps.",
+              "hint": "Commencez avec 'J'ai mal' puis la partie du corps."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Diagnostic: Qu'est-ce qu'Alex a?",
+            "instructions": "Selon le pharmacien, quelle maladie a Alex?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce qu'Alex a probablement?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "La grippe ou un gros rhume",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Une jambe cassée",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Mal aux dents",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Rien du tout",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Le pharmacien dit : 'C'est probablement la grippe ou un gros rhume.'",
+              "hint": "Le pharmacien mentionne deux possibilités."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Avoir aux Muscles",
+            "instructions": "Complétez avec la bonne préposition contractée.",
+            "content": {
+              "text": "Vous avez mal _____ muscles ? - Oui, j'ai mal _____ bras et _____ jambes.",
+              "blanks": [
+                {
+                  "correctAnswer": "aux",
+                  "acceptableAnswers": [
+                    "aux"
+                  ],
+                  "options": [
+                    "à",
+                    "au",
+                    "aux",
+                    "à la"
+                  ]
+                },
+                {
+                  "correctAnswer": "aux",
+                  "acceptableAnswers": [
+                    "aux"
+                  ],
+                  "options": [
+                    "à",
+                    "au",
+                    "aux",
+                    "à la"
+                  ]
+                },
+                {
+                  "correctAnswer": "aux",
+                  "acceptableAnswers": [
+                    "aux"
+                  ],
+                  "options": [
+                    "à",
+                    "au",
+                    "aux",
+                    "à la"
+                  ]
+                }
+              ],
+              "translation": "Do your muscles hurt? - Yes, my arms and legs hurt.",
+              "hint": "Utilisez 'aux' pour le pluriel."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Expression: C'est Grave?",
+            "instructions": "Que répond le pharmacien quand Alex demande si c'est grave?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Est-ce que la grippe est grave?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Oui, c'est très grave",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Non, ce n'est pas grave mais c'est désagréable",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Oui, il faut aller à l'hôpital",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Non, ce n'est rien du tout",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Le pharmacien dit : 'Ce n'est pas grave, mais c'est très désagréable.'",
+              "hint": "Le pharmacien rassure Alex."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: À la Pharmacie",
+            "instructions": "Complétez la conversation.",
+            "content": {
+              "text": "Alex entre dans la pharmacie parce qu'il ne va pas {blank1}. Il a mal à la {blank2}, à la {blank3}, au {blank4} et au {blank5}. Il a aussi de la {blank6}. Son front est très {blank7} et il a {blank8} en même temps. Le pharmacien pense qu'Alex a la {blank9} ou un gros {blank10}. Ce n'est pas {blank11} mais c'est très {blank12}.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "bien"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "tête"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "gorge"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "ventre"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "dos"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "fièvre"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "chaud"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "froid"
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "grippe"
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": "rhume"
+                },
+                {
+                  "id": "blank11",
+                  "correctAnswer": "grave"
+                },
+                {
+                  "id": "blank12",
+                  "correctAnswer": "désagréable"
+                }
+              ],
+              "hint": "Relisez le dialogue pour retrouver tous les symptômes."
+            },
+            "estimatedDurationSeconds": 150,
+            "pointsValue": 20,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: Ne Vous Inquiétez Pas",
+            "instructions": "Que signifie cette expression?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que veut dire 'Ne vous inquiétez pas' ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Don't worry",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Don't move",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Don't forget",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Don't go",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Le pharmacien utilise cette expression pour rassurer Alex.",
+              "hint": "Le pharmacien veut calmer Alex."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Jeune Américain malade, voix un peu faible"
+        },
+        {
+          "name": "Pharmacien",
+          "voice": "Charon",
+          "description": "Pharmacien professionnel et rassurant"
+        }
+      ],
+      "audioStyle": "Conversation professionnelle à la pharmacie. Le pharmacien est patient et rassurant. Alex parle un peu plus lentement car il est malade. Rythme adapté aux débutants A1."
+    },
+    {
+      "episodeNumber": 3,
+      "type": "DIALOGUE",
+      "title": "La Pharmacie",
+      "content": "Pharmacien : Bon, alors. Pour vous sentir mieux, il faut prendre des médicaments.\n\nAlex : D'accord. Qu'est-ce qu'il faut prendre ?\n\nPharmacien : Eh bien, pour la fièvre et la douleur, il faut prendre du paracétamol. Vous connaissez le paracétamol ?\n\nAlex : Oui, je connais. Combien de comprimés il faut prendre ?\n\nPharmacien : Il faut prendre deux comprimés, trois fois par jour. Le matin, à midi, et le soir.\n\nAlex : Deux comprimés, trois fois par jour. D'accord.\n\nPharmacien : Oui. Et il faut les prendre avec un grand verre d'eau. C'est important.\n\nAlex : Il faut boire beaucoup d'eau. Je comprends.\n\nPharmacien : Exactement. Et pour la gorge, il faut prendre ce sirop. Il faut en prendre une cuillère, quatre fois par jour.\n\nAlex : Une cuillère de sirop, quatre fois par jour.\n\nPharmacien : Voilà. Et il faut aussi beaucoup vous reposer. Vous travaillez en ce moment ?\n\nAlex : Oui, je travaille.\n\nPharmacien : Eh bien, pour aujourd'hui et demain, il faut rester à la maison. Il ne faut pas aller au travail.\n\nAlex : Il ne faut pas aller au travail ?\n\nPharmacien : Non. Il faut rester au lit et dormir beaucoup. Le repos, c'est très important pour guérir.\n\nAlex : D'accord. Donc il faut rester à la maison, dormir, et prendre les médicaments.\n\nPharmacien : Exactement ! Et il faut aussi manger un peu, même si vous n'avez pas faim. Il faut manger des soupes, des fruits.\n\nAlex : Il faut manger même sans faim. D'accord.\n\nPharmacien : Oui. Et il faut boire beaucoup. De l'eau, du thé, du jus. Il faut rester hydraté.\n\nAlex : Boire beaucoup d'eau, manger des soupes, rester au lit, prendre les médicaments. J'ai compris.\n\nPharmacien : Parfait ! Et s'il n'y a pas d'amélioration dans trois jours, il faut voir un médecin.\n\nAlex : D'accord. Il faut voir un médecin si ça ne va pas mieux.\n\nPharmacien : Voilà. Tenez, voici le paracétamol et le sirop. Ça fait vingt-trois euros.\n\nAlex : Merci beaucoup. Vous avez une ordonnance à me donner ?\n\nPharmacien : Non, pour ces médicaments, il ne faut pas d'ordonnance. Mais voici les instructions écrites. Il faut les lire attentivement.\n\nAlex : Merci. J'espère que je vais vite guérir !\n\nPharmacien : Oui, avec le repos et les médicaments, ça ira mieux dans quelques jours. Bon courage ! Et il faut prendre soin de vous !\n\nAlex : Merci beaucoup. Au revoir.\n\nPharmacien : Au revoir et bonne guérison !",
+      "generateAudio": true,
+      "estimatedMinutes": 15,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Les Médicaments",
+            "instructions": "Quels médicaments le pharmacien donne-t-il?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce qu'Alex doit prendre?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Du paracétamol et du sirop",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Seulement du paracétamol",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Seulement du sirop",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Des antibiotiques",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Le pharmacien dit : 'Tenez, voici le paracétamol et le sirop.'",
+              "hint": "Le pharmacien donne deux types de médicaments."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Grammaire: Il Faut",
+            "instructions": "Complétez avec 'il faut'.",
+            "content": {
+              "text": "Pour guérir, _____ prendre des médicaments. _____ boire beaucoup d'eau. _____ rester au lit. _____ manger des soupes.",
+              "blanks": [
+                {
+                  "correctAnswer": "il faut",
+                  "acceptableAnswers": [
+                    "il faut"
+                  ],
+                  "options": [
+                    "il faut",
+                    "je dois",
+                    "tu dois",
+                    "vous devez"
+                  ]
+                },
+                {
+                  "correctAnswer": "Il faut",
+                  "acceptableAnswers": [
+                    "Il faut",
+                    "il faut"
+                  ],
+                  "options": [
+                    "Il faut",
+                    "Je dois",
+                    "Tu dois",
+                    "Vous devez"
+                  ]
+                },
+                {
+                  "correctAnswer": "Il faut",
+                  "acceptableAnswers": [
+                    "Il faut",
+                    "il faut"
+                  ],
+                  "options": [
+                    "Il faut",
+                    "Je dois",
+                    "Tu dois",
+                    "Vous devez"
+                  ]
+                },
+                {
+                  "correctAnswer": "Il faut",
+                  "acceptableAnswers": [
+                    "Il faut",
+                    "il faut"
+                  ],
+                  "options": [
+                    "Il faut",
+                    "Je dois",
+                    "Tu dois",
+                    "Vous devez"
+                  ]
+                }
+              ],
+              "translation": "To get better, you need to take medicines. You need to drink a lot of water. You need to stay in bed. You need to eat soups.",
+              "hint": "On utilise 'il faut' pour exprimer la nécessité."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Instructions et Fréquence",
+            "instructions": "Associez les médicaments avec les instructions.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "paracétamol",
+                  "right": "2 comprimés, 3 fois par jour"
+                },
+                {
+                  "left": "sirop",
+                  "right": "1 cuillère, 4 fois par jour"
+                },
+                {
+                  "left": "eau",
+                  "right": "boire beaucoup"
+                },
+                {
+                  "left": "repos",
+                  "right": "rester au lit"
+                },
+                {
+                  "left": "nourriture",
+                  "right": "soupes et fruits"
+                }
+              ],
+              "hint": "Écoutez bien les instructions du pharmacien."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des Mots: Négation avec Il Faut",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "Il",
+                "ne",
+                "faut",
+                "pas",
+                "aller",
+                "au",
+                "travail"
+              ],
+              "correctOrder": [
+                "Il",
+                "ne",
+                "faut",
+                "pas",
+                "aller",
+                "au",
+                "travail"
+              ],
+              "translation": "You mustn't go to work / You shouldn't go to work",
+              "explanation": "Pour la négation avec 'il faut', on utilise 'il ne faut pas'.",
+              "hint": "La négation entoure 'faut'."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Combien de Temps?",
+            "instructions": "Combien de temps Alex doit-il rester à la maison?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Combien de jours il faut rester à la maison?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Un jour",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Deux jours (aujourd'hui et demain)",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Trois jours",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Une semaine",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Le pharmacien dit : 'pour aujourd'hui et demain, il faut rester à la maison.'",
+              "hint": "Le pharmacien mentionne deux moments précis."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Vocabulaire Médical",
+            "instructions": "Associez le vocabulaire.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "le comprimé",
+                  "right": "tablet/pill"
+                },
+                {
+                  "left": "le sirop",
+                  "right": "syrup"
+                },
+                {
+                  "left": "l'ordonnance",
+                  "right": "prescription"
+                },
+                {
+                  "left": "le repos",
+                  "right": "rest"
+                },
+                {
+                  "left": "guérir",
+                  "right": "to heal/get better"
+                },
+                {
+                  "left": "l'amélioration",
+                  "right": "improvement"
+                }
+              ],
+              "hint": "Vocabulaire utilisé par le pharmacien."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Fréquence",
+            "instructions": "Complétez avec la bonne fréquence.",
+            "content": {
+              "text": "Il faut prendre le paracétamol _____ fois par jour. Il faut prendre le sirop _____ fois par jour.",
+              "blanks": [
+                {
+                  "correctAnswer": "trois",
+                  "acceptableAnswers": [
+                    "trois",
+                    "3"
+                  ],
+                  "options": [
+                    "deux",
+                    "trois",
+                    "quatre",
+                    "cinq"
+                  ]
+                },
+                {
+                  "correctAnswer": "quatre",
+                  "acceptableAnswers": [
+                    "quatre",
+                    "4"
+                  ],
+                  "options": [
+                    "deux",
+                    "trois",
+                    "quatre",
+                    "cinq"
+                  ]
+                }
+              ],
+              "translation": "You need to take paracetamol three times a day. You need to take syrup four times a day.",
+              "hint": "Écoutez les instructions du pharmacien."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Quand Voir un Médecin?",
+            "instructions": "Quand est-ce qu'il faut voir un médecin?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Dans quelle situation il faut voir un médecin?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Immédiatement",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "S'il n'y a pas d'amélioration dans trois jours",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Après une semaine",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Ce n'est pas nécessaire",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Le pharmacien dit : 's'il n'y a pas d'amélioration dans trois jours, il faut voir un médecin.'",
+              "hint": "Le pharmacien donne un conseil pour une situation spécifique."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: Les Conseils",
+            "instructions": "Complétez les conseils du pharmacien.",
+            "content": {
+              "text": "Pour guérir, il {blank1} prendre du {blank2} deux fois, {blank3} fois par jour. Il faut aussi prendre du {blank4} une cuillère, quatre fois par jour. Il faut les prendre avec un grand verre d'{blank5}. Il {blank6} rester à la maison et rester au {blank7}. Il faut dormir beaucoup car le {blank8} est très important. Il faut {blank9} des soupes et des fruits, et il faut {blank10} beaucoup. Il ne faut {blank11} d'ordonnance pour ces médicaments. Si ça ne va pas mieux dans trois jours, il faut voir un {blank12}.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "faut"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "paracétamol"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "trois"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "sirop"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "eau"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "faut"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "lit"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "repos"
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "manger"
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": "boire"
+                },
+                {
+                  "id": "blank11",
+                  "correctAnswer": "pas"
+                },
+                {
+                  "id": "blank12",
+                  "correctAnswer": "médecin"
+                }
+              ],
+              "hint": "Relisez tous les conseils du pharmacien."
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 25,
+            "difficultyRating": 1.8
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Jeune Américain malade qui écoute attentivement"
+        },
+        {
+          "name": "Pharmacien",
+          "voice": "Charon",
+          "description": "Pharmacien professionnel donnant des instructions claires"
+        }
+      ],
+      "audioStyle": "Conversation professionnelle avec instructions médicales. Le pharmacien parle clairement et répète les informations importantes. Alex répète pour confirmer sa compréhension. Rythme pédagogique pour les apprenants A1."
+    }
+  ]
+}

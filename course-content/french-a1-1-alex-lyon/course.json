@@ -1,0 +1,20 @@
+{
+  "slug": "french-a1-1-alex-lyon",
+  "name": "French A1.1 - L'Arrivée à Lyon",
+  "languageCode": "fr",
+  "cefrLevel": "A1",
+  "description": "Suivez Alex, un jeune Américain qui arrive à Lyon pour la première fois. Apprenez le français à travers ses premières expériences : l'aéroport, la recherche d'un appartement, les premiers achats, et la découverte de son nouveau quartier. Maîtrisez les salutations essentielles, les conversations quotidiennes de base, et le vocabulaire pratique grâce à des histoires authentiques et des exercices interactifs. Méthode directe : immersion totale en français.",
+  "objectives": [
+    "Se présenter et saluer dans diverses situations",
+    "Comprendre et utiliser les expressions de politesse de base",
+    "Gérer des situations pratiques : logement, achats, directions",
+    "Parler de sa famille et de ses préférences",
+    "Utiliser les nombres pour les prix, dates et heures",
+    "Poser et répondre à des questions simples sur des détails personnels",
+    "Comprendre des conversations courtes et simples",
+    "Décrire son environnement immédiat",
+    "Exprimer ses besoins et préférences de base",
+    "Naviguer dans la ville et utiliser les transports"
+  ],
+  "estimatedHours": 20
+}

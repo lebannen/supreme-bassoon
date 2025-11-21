@@ -1,0 +1,1693 @@
+{
+  "moduleNumber": 20,
+  "title": "Rétrospective",
+  "theme": "Bilan A1",
+  "description": "C'est la fin du voyage d'apprentissage. Alex réfléchit à son année à Lyon, exprime ses émotions et célèbre ses progrès. Félicitations - vous avez terminé le niveau A1 !",
+  "objectives": [
+    "Réviser le passé composé avec tous les verbes",
+    "Exprimer des émotions et des sentiments",
+    "Comparer le présent, le passé et le futur",
+    "Raconter une histoire complète en français",
+    "Célébrer vos accomplissements en français !"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "STORY",
+      "title": "Les Souvenirs",
+      "content": "C'est le mois de septembre. Alex est assis dans son appartement à Lyon. Cela fait maintenant un an qu'il est arrivé en France.\n\nUn an déjà !\n\nIl pense à tout ce qui s'est passé depuis son arrivée.\n\nIl se souvient du premier jour. Il est arrivé à l'aéroport Charles de Gaulle. Il était nerveux. Son français n'était pas très bon. Il a pris un taxi pour Lyon. Le chauffeur parlait vite. Alex ne comprenait pas tout.\n\nIl se souvient de son premier appartement. Il a cherché pendant des semaines. Il a visité beaucoup d'appartements. Finalement, il a trouvé ce petit studio dans le quartier de la Croix-Rousse.\n\nIl se souvient de ses premiers jours au travail. Il a rencontré Julie, sa collègue. Elle a été très gentille avec lui. Elle l'a aidé à s'intégrer. Maintenant, Julie est devenue une vraie amie.\n\nIl se souvient de son premier cours de français. Le professeur parlait lentement pour lui. Les autres étudiants venaient du monde entier. Ils avaient tous les mêmes difficultés.\n\nIl se souvient de ses premières sorties à Lyon. Il s'est perdu plusieurs fois dans les rues. Il a demandé son chemin en français. Les gens ont été patients avec lui.\n\nIl se souvient de son premier repas dans un restaurant français. Il a commandé sans vraiment comprendre le menu. La serveuse a ri gentiment. Le plat était délicieux, mais il ne savait pas exactement ce qu'il mangeait !\n\nIl se souvient de l'hiver. Il a eu froid. Lyon en hiver, ce n'était pas comme New York. Il y avait du brouillard presque tous les jours. Mais il a découvert les cafés chauds, les chocolats chauds, les tartiflettes.\n\nIl se souvient du printemps. Les fleurs sont apparues dans les parcs. Il a fait du vélo le long du Rhône. Il a pique-niqué au parc de la Tête d'Or avec Julie et d'autres collègues.\n\nIl se souvient de l'été. Il a pris ses premières vacances en France. Il est allé à Nice. Il a nagé dans la Méditerranée. Il a mangé de la socca. Il a visité Monaco. C'était magnifique.\n\nEt maintenant, c'est l'automne. Les feuilles changent de couleur. L'air devient plus frais.\n\nAlex regarde par la fenêtre. Il voit les toits de Lyon, la colline de Fourvière, la basilique.\n\nIl sourit.\n\nIl pense : « Il y a un an, je ne parlais presque pas français. Aujourd'hui, je peux avoir des conversations. Je comprends mes collègues. Je lis des livres en français. Je regarde des films français. »\n\nIl pense : « Il y a un an, je ne connaissais personne à Lyon. Aujourd'hui, j'ai des amis. J'ai une vie ici. »\n\nIl pense : « Il y a un an, Lyon était une ville étrangère. Aujourd'hui, c'est ma maison. »\n\nAlex prend son téléphone. Il regarde les photos de cette année. L'aéroport. L'appartement vide. Le premier jour au bureau. Les fêtes avec les collègues. Les restaurants. Les parcs. La neige. Les fleurs. La plage de Nice.\n\nUne année de souvenirs. Une année de progrès. Une année de vie.\n\nAlex est fier de lui. Il a vécu une aventure. Il a appris une langue. Il a découvert un pays. Il a grandi.\n\nEt ce n'est que le début.",
+      "generateAudio": true,
+      "estimatedMinutes": 12,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Combien de Temps?",
+            "instructions": "Depuis combien de temps Alex est-il à Lyon?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Combien de temps s'est passé depuis l'arrivée d'Alex?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Six mois",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Un an",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Deux ans",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Quelques semaines",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Le texte dit : 'Cela fait maintenant un an qu'il est arrivé en France.'",
+              "hint": "C'est écrit au début du texte."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Les Saisons et les Souvenirs",
+            "instructions": "Associez chaque saison avec les souvenirs d'Alex.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "L'hiver",
+                  "right": "froid, brouillard, chocolat chaud"
+                },
+                {
+                  "left": "Le printemps",
+                  "right": "fleurs, vélo, pique-nique"
+                },
+                {
+                  "left": "L'été",
+                  "right": "Nice, plage, Méditerranée"
+                },
+                {
+                  "left": "L'automne",
+                  "right": "feuilles, air frais, réflexion"
+                }
+              ],
+              "hint": "Chaque saison a ses souvenirs spécifiques."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Passé Composé: Révision",
+            "instructions": "Complétez avec les verbes au passé composé.",
+            "content": {
+              "text": "Il _____ (arriver) à l'aéroport. Il _____ (prendre) un taxi. Il _____ (chercher) un appartement. Il _____ (trouver) un studio. Il _____ (rencontrer) Julie. Il _____ (aller) à Nice.",
+              "blanks": [
+                {
+                  "correctAnswer": "est arrivé",
+                  "acceptableAnswers": [
+                    "est arrivé"
+                  ],
+                  "options": [
+                    "est arrivé",
+                    "a arrivé",
+                    "arrivait",
+                    "arrive"
+                  ]
+                },
+                {
+                  "correctAnswer": "a pris",
+                  "acceptableAnswers": [
+                    "a pris"
+                  ],
+                  "options": [
+                    "a pris",
+                    "est pris",
+                    "prenait",
+                    "prend"
+                  ]
+                },
+                {
+                  "correctAnswer": "a cherché",
+                  "acceptableAnswers": [
+                    "a cherché"
+                  ],
+                  "options": [
+                    "a cherché",
+                    "est cherché",
+                    "cherchait",
+                    "cherche"
+                  ]
+                },
+                {
+                  "correctAnswer": "a trouvé",
+                  "acceptableAnswers": [
+                    "a trouvé"
+                  ],
+                  "options": [
+                    "a trouvé",
+                    "est trouvé",
+                    "trouvait",
+                    "trouve"
+                  ]
+                },
+                {
+                  "correctAnswer": "a rencontré",
+                  "acceptableAnswers": [
+                    "a rencontré"
+                  ],
+                  "options": [
+                    "a rencontré",
+                    "est rencontré",
+                    "rencontrait",
+                    "rencontre"
+                  ]
+                },
+                {
+                  "correctAnswer": "est allé",
+                  "acceptableAnswers": [
+                    "est allé"
+                  ],
+                  "options": [
+                    "est allé",
+                    "a allé",
+                    "allait",
+                    "va"
+                  ]
+                }
+              ],
+              "translation": "He arrived at the airport. He took a taxi. He looked for an apartment. He found a studio. He met Julie. He went to Nice.",
+              "hint": "Attention aux verbes avec 'être'."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des Mots: Comparaison",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "Il",
+                "y",
+                "a",
+                "un",
+                "an",
+                ",",
+                "je",
+                "ne",
+                "parlais",
+                "presque",
+                "pas",
+                "français"
+              ],
+              "correctOrder": [
+                "Il",
+                "y",
+                "a",
+                "un",
+                "an",
+                ",",
+                "je",
+                "ne",
+                "parlais",
+                "presque",
+                "pas",
+                "français"
+              ],
+              "translation": "A year ago, I hardly spoke French",
+              "explanation": "'Il y a + temps' = ago. L'imparfait 'parlais' pour une situation passée.",
+              "hint": "Expression de temps + imparfait."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Les Progrès",
+            "instructions": "Qu'est-ce qu'Alex peut faire maintenant?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce qu'Alex peut faire aujourd'hui qu'il ne pouvait pas faire il y a un an?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Conduire une voiture",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Avoir des conversations en français",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Cuisiner des plats français",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Jouer de la guitare",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex pense : 'Aujourd'hui, je peux avoir des conversations. Je comprends mes collègues. Je lis des livres en français.'",
+              "hint": "C'est lié au français."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Avant et Maintenant",
+            "instructions": "Associez les comparaisons.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Avant: ne parlait presque pas français",
+                  "right": "Maintenant: peut avoir des conversations"
+                },
+                {
+                  "left": "Avant: ne connaissait personne",
+                  "right": "Maintenant: a des amis"
+                },
+                {
+                  "left": "Avant: ville étrangère",
+                  "right": "Maintenant: c'est ma maison"
+                },
+                {
+                  "left": "Avant: nerveux et perdu",
+                  "right": "Maintenant: confiant et intégré"
+                }
+              ],
+              "hint": "Regardez comment Alex a changé."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Se Souvenir",
+            "instructions": "Complétez avec les souvenirs.",
+            "content": {
+              "text": "Il se _____ du premier jour. Il se _____ de son premier appartement. Il se _____ de Julie. Il se _____ de l'hiver.",
+              "blanks": [
+                {
+                  "correctAnswer": "souvient",
+                  "acceptableAnswers": [
+                    "souvient"
+                  ],
+                  "options": [
+                    "souvient",
+                    "rappelle",
+                    "souvenu",
+                    "souvenir"
+                  ]
+                },
+                {
+                  "correctAnswer": "souvient",
+                  "acceptableAnswers": [
+                    "souvient"
+                  ],
+                  "options": [
+                    "souvient",
+                    "rappelle",
+                    "souvenu",
+                    "souvenir"
+                  ]
+                },
+                {
+                  "correctAnswer": "souvient",
+                  "acceptableAnswers": [
+                    "souvient"
+                  ],
+                  "options": [
+                    "souvient",
+                    "rappelle",
+                    "souvenu",
+                    "souvenir"
+                  ]
+                },
+                {
+                  "correctAnswer": "souvient",
+                  "acceptableAnswers": [
+                    "souvient"
+                  ],
+                  "options": [
+                    "souvient",
+                    "rappelle",
+                    "souvenu",
+                    "souvenir"
+                  ]
+                }
+              ],
+              "translation": "He remembers the first day. He remembers his first apartment. He remembers Julie. He remembers winter.",
+              "hint": "Verbe pronominal 'se souvenir de'."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Expression: Être Fier",
+            "instructions": "Que signifie 'Alex est fier de lui'?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que veut dire 'Alex est fier de lui' ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Alex is proud of himself",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Alex is tired of himself",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Alex is scared of himself",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Alex is sure of himself",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Fier' signifie 'proud'. Alex est fier de tout ce qu'il a accompli.",
+              "hint": "C'est un sentiment positif."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: Une Année à Lyon",
+            "instructions": "Complétez le résumé de l'année d'Alex.",
+            "content": {
+              "text": "Il y a {blank1} an, Alex est {blank2} à Lyon. Au début, il était {blank3} et son français n'était pas très bon. Il a {blank4} un appartement dans la Croix-Rousse. Il a {blank5} Julie au travail. Elle est devenue son {blank6}. Pendant l'hiver, il a {blank7} froid mais il a découvert les cafés chauds. Au printemps, il a fait du {blank8} le long du Rhône. En été, il est {blank9} à Nice. Maintenant, en automne, il peut {blank10} des conversations en français. Il a des {blank11}. Lyon est devenue sa {blank12}. Alex est {blank13} de lui. Il a {blank14} une langue et {blank15} un pays.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "un"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "arrivé"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "nerveux"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "trouvé"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "rencontré"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "amie"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "eu"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "vélo"
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "allé"
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": "avoir"
+                },
+                {
+                  "id": "blank11",
+                  "correctAnswer": "amis"
+                },
+                {
+                  "id": "blank12",
+                  "correctAnswer": "maison"
+                },
+                {
+                  "id": "blank13",
+                  "correctAnswer": "fier"
+                },
+                {
+                  "id": "blank14",
+                  "correctAnswer": "appris"
+                },
+                {
+                  "id": "blank15",
+                  "correctAnswer": "découvert"
+                }
+              ],
+              "hint": "Relisez toute l'histoire pour retrouver les détails."
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 30,
+            "difficultyRating": 1.8
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrateur",
+          "voice": "Charon",
+          "description": "Voix réflexive et nostalgique"
+        }
+      ],
+      "audioStyle": "Récit narratif rétrospectif. Ton réflexif et émotionnel. Rythme calme pour évoquer les souvenirs d'une année entière. Célébration des progrès accomplis."
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Les Émotions",
+      "content": "Alex retrouve Thomas dans leur café préféré. C'est leur rituel du vendredi après-midi.\n\nThomas : Salut Alex ! Comment tu te sens aujourd'hui ?\n\nAlex : Salut Thomas ! Je me sens... comment dire... nostalgique, je pense.\n\nThomas : Nostalgique ? Pourquoi ?\n\nAlex : Ça fait un an que je suis arrivé en France. Un an jour pour jour.\n\nThomas : Ah oui, c'est vrai ! Alors, comment tu te sens vraiment ? Raconte-moi.\n\nAlex : C'est compliqué. Je ressens beaucoup d'émotions différentes.\n\nThomas : Par exemple ?\n\nAlex : Eh bien, d'abord, je suis très content. Je suis heureux d'être ici. Lyon est une ville magnifique. J'adore vivre ici.\n\nThomas : Oui, je te vois. Tu as l'air heureux.\n\nAlex : Mais en même temps, je suis un peu triste aussi. Ma famille me manque. New York me manque parfois.\n\nThomas : C'est normal. Tu es loin de chez toi.\n\nAlex : Oui. Parfois, je me sens seul. Surtout le soir, quand je suis dans mon appartement.\n\nThomas : Mais tu as des amis ici maintenant, non ?\n\nAlex : Oui, c'est vrai ! Et ça me rend très heureux. Toi, Julie, les collègues du bureau... vous êtes devenus importants pour moi.\n\nThomas : Nous aussi, on t'aime beaucoup, tu sais.\n\nAlex : Merci Thomas. Ça me touche.\n\nThomas : Et tu n'es pas content de tes progrès en français ?\n\nAlex : Si ! Je suis très fier de moi. Au début, j'étais vraiment nerveux. J'avais peur de parler. J'étais stressé tout le temps.\n\nThomas : Et maintenant ?\n\nAlex : Maintenant, je suis plus confiant. Je n'ai plus peur de faire des erreurs. Je suis même surpris de mes progrès !\n\nThomas : Tu devrais être fier ! Ton français est vraiment bon maintenant.\n\nAlex : Merci ! Mais parfois, je suis frustré aussi. Il y a encore beaucoup de choses que je ne comprends pas. Quand les gens parlent vite, je suis perdu.\n\nThomas : C'est normal ! Même pour nous, parfois c'est difficile de comprendre certains accents !\n\nAlex : Vraiment ?\n\nThomas : Oui ! L'accent du sud, l'accent du nord... c'est différent partout en France !\n\nAlex : Ah, ça me rassure !\n\nThomas : Et sinon, tu es content de ton travail ?\n\nAlex : Oui, très content. J'aime mon travail. Mes collègues sont sympas. Je me sens bien dans l'équipe.\n\nThomas : Tu n'es pas fatigué de tout ça ? De vivre dans une langue étrangère ?\n\nAlex : Parfois, oui. Le soir, je suis épuisé. Parler français toute la journée, ça demande beaucoup d'énergie.\n\nThomas : Je comprends. Mais tu t'habitues, non ?\n\nAlex : Oui, de plus en plus. Et je suis excité aussi !\n\nThomas : Excité ? Pourquoi ?\n\nAlex : Parce que j'ai encore tellement de choses à découvrir ! La France est grande. Il y a tant de villes à visiter, tant de plats à goûter, tant de gens à rencontrer !\n\nThomas : C'est vrai ! Tu es optimiste alors ?\n\nAlex : Oui, très optimiste ! Je suis reconnaissant d'avoir cette opportunité. Pas tout le monde peut vivre à l'étranger comme ça.\n\nThomas : Tu as raison. C'est une belle aventure.\n\nAlex : Oui. Alors, pour résumer : je suis heureux, un peu triste, fier, parfois frustré, souvent fatigué, mais toujours optimiste et reconnaissant !\n\nThomas : Ha ha ! Tu ressens toutes les émotions en même temps !\n\nAlex : Exactement ! C'est ça, l'aventure de vivre à l'étranger.\n\nThomas : Eh bien, santé ! À ta première année à Lyon !\n\nAlex : Santé ! Et merci Thomas, pour tout. Tu es un vrai ami.\n\nThomas : De rien, Alex. C'est un plaisir. Allez, on commande une autre bière ?",
+      "generateAudio": true,
+      "estimatedMinutes": 13,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: L'Émotion Principale",
+            "instructions": "Comment Alex se sent-il au début?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quelle émotion Alex ressent-il au début de la conversation?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il est en colère",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Il est nostalgique",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Il est déçu",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Il est jaloux",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'Je me sens... nostalgique, je pense.'",
+              "hint": "C'est parce que ça fait un an."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Les Émotions",
+            "instructions": "Associez les émotions avec leurs traductions.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "heureux",
+                  "right": "happy"
+                },
+                {
+                  "left": "triste",
+                  "right": "sad"
+                },
+                {
+                  "left": "fier",
+                  "right": "proud"
+                },
+                {
+                  "left": "frustré",
+                  "right": "frustrated"
+                },
+                {
+                  "left": "surpris",
+                  "right": "surprised"
+                },
+                {
+                  "left": "confiant",
+                  "right": "confident"
+                },
+                {
+                  "left": "reconnaissant",
+                  "right": "grateful"
+                },
+                {
+                  "left": "excité",
+                  "right": "excited"
+                }
+              ],
+              "hint": "Vocabulaire des émotions et sentiments."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Exprimer les Émotions",
+            "instructions": "Complétez les phrases émotionnelles.",
+            "content": {
+              "text": "Je suis très _____ d'être ici. Je suis _____ de mes progrès. Je me sens parfois _____. Ma famille me _____.",
+              "blanks": [
+                {
+                  "correctAnswer": "content",
+                  "acceptableAnswers": [
+                    "content",
+                    "heureux"
+                  ],
+                  "options": [
+                    "content",
+                    "triste",
+                    "fier",
+                    "nerveux"
+                  ]
+                },
+                {
+                  "correctAnswer": "fier",
+                  "acceptableAnswers": [
+                    "fier"
+                  ],
+                  "options": [
+                    "fier",
+                    "triste",
+                    "frustré",
+                    "surpris"
+                  ]
+                },
+                {
+                  "correctAnswer": "seul",
+                  "acceptableAnswers": [
+                    "seul"
+                  ],
+                  "options": [
+                    "seul",
+                    "content",
+                    "fier",
+                    "excité"
+                  ]
+                },
+                {
+                  "correctAnswer": "manque",
+                  "acceptableAnswers": [
+                    "manque"
+                  ],
+                  "options": [
+                    "manque",
+                    "aime",
+                    "voit",
+                    "appelle"
+                  ]
+                }
+              ],
+              "translation": "I'm very happy to be here. I'm proud of my progress. I sometimes feel alone. I miss my family.",
+              "hint": "Choisissez l'émotion ou le verbe approprié."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des Mots: Manquer",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "Ma",
+                "famille",
+                "me",
+                "manque"
+              ],
+              "correctOrder": [
+                "Ma",
+                "famille",
+                "me",
+                "manque"
+              ],
+              "translation": "I miss my family",
+              "explanation": "Le verbe 'manquer' fonctionne différemment : la chose qui manque est le sujet.",
+              "hint": "Sujet + pronom indirect + manque."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Les Défis",
+            "instructions": "Quelle difficulté Alex mentionne-t-il?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Pourquoi Alex est-il parfois frustré?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il n'aime pas son travail",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Il ne comprend pas quand les gens parlent vite",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Il n'aime pas la nourriture française",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Il n'a pas d'amis",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'Quand les gens parlent vite, je suis perdu.'",
+              "hint": "C'est lié à la compréhension."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Émotions et Raisons",
+            "instructions": "Associez chaque émotion avec sa raison.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "heureux",
+                  "right": "parce qu'il vit à Lyon"
+                },
+                {
+                  "left": "triste",
+                  "right": "parce que sa famille manque"
+                },
+                {
+                  "left": "fier",
+                  "right": "parce que son français a progressé"
+                },
+                {
+                  "left": "excité",
+                  "right": "parce qu'il y a encore beaucoup à découvrir"
+                },
+                {
+                  "left": "fatigué",
+                  "right": "parce que parler français demande de l'énergie"
+                }
+              ],
+              "hint": "Pourquoi ressent-il ces émotions?"
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Évolution des Sentiments",
+            "instructions": "Complétez avec les changements.",
+            "content": {
+              "text": "Au début, j'_____ peur de parler. J'_____ stressé tout le temps. Maintenant, je suis plus _____. Je n'_____ plus peur.",
+              "blanks": [
+                {
+                  "correctAnswer": "avais",
+                  "acceptableAnswers": [
+                    "avais"
+                  ],
+                  "options": [
+                    "avais",
+                    "ai",
+                    "étais",
+                    "suis"
+                  ]
+                },
+                {
+                  "correctAnswer": "étais",
+                  "acceptableAnswers": [
+                    "étais"
+                  ],
+                  "options": [
+                    "étais",
+                    "suis",
+                    "avais",
+                    "ai"
+                  ]
+                },
+                {
+                  "correctAnswer": "confiant",
+                  "acceptableAnswers": [
+                    "confiant"
+                  ],
+                  "options": [
+                    "confiant",
+                    "nerveux",
+                    "stressé",
+                    "fatigué"
+                  ]
+                },
+                {
+                  "correctAnswer": "ai",
+                  "acceptableAnswers": [
+                    "ai",
+                    "n'ai"
+                  ],
+                  "options": [
+                    "ai",
+                    "avais",
+                    "suis",
+                    "étais"
+                  ]
+                }
+              ],
+              "translation": "At first, I was afraid to speak. I was stressed all the time. Now, I'm more confident. I'm no longer afraid.",
+              "hint": "Imparfait pour le passé, présent pour maintenant."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Attitude: Optimisme",
+            "instructions": "Quelle est l'attitude finale d'Alex?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Comment Alex se sent-il en général?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Pessimiste et découragé",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Optimiste et reconnaissant",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Indifférent et ennuyé",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Inquiet et nerveux",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'Je suis très optimiste ! Je suis reconnaissant d'avoir cette opportunité.'",
+              "hint": "Regardez la fin de la conversation."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: Les Sentiments d'Alex",
+            "instructions": "Complétez le résumé émotionnel.",
+            "content": {
+              "text": "Alex ressent beaucoup d'{blank1} différentes. Il est {blank2} d'être à Lyon. Il est {blank3} de ses progrès en français. Mais il est aussi un peu {blank4} parce que sa famille lui {blank5}. Parfois il se sent {blank6}, surtout le soir. Il est parfois {blank7} quand il ne comprend pas. Le soir, il est {blank8} parce que parler français demande de l'{blank9}. Mais il est {blank10} pour le futur et {blank11} d'avoir cette opportunité. Thomas dit qu'Alex ressent toutes les émotions en même {blank12} ! C'est l'aventure de vivre à l'{blank13}.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "émotions"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "heureux"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "fier"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "triste"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "manque"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "seul"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "frustré"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "fatigué"
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "énergie"
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": "excité"
+                },
+                {
+                  "id": "blank11",
+                  "correctAnswer": "reconnaissant"
+                },
+                {
+                  "id": "blank12",
+                  "correctAnswer": "temps"
+                },
+                {
+                  "id": "blank13",
+                  "correctAnswer": "étranger"
+                }
+              ],
+              "hint": "Toutes les émotions d'Alex sont dans le dialogue."
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 30,
+            "difficultyRating": 1.8
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Jeune Américain réflexif et émotionnel"
+        },
+        {
+          "name": "Ami Thomas",
+          "voice": "Achird",
+          "description": "Ami français empathique et encourageant"
+        }
+      ],
+      "audioStyle": "Conversation intime et émotionnelle entre amis. Alex partage ses sentiments profonds. Thomas écoute avec empathie. Ton chaleureux et sincère. Rythme naturel A1."
+    },
+    {
+      "episodeNumber": 3,
+      "type": "STORY",
+      "title": "Examen Final A1",
+      "content": "C'est samedi matin. Alex se réveille tranquillement. Il n'y a pas de travail aujourd'hui.\n\nIl prend son petit déjeuner : un café et des croissants qu'il a achetés hier à la boulangerie du coin. Il sourit. Au début, il n'osait pas entrer dans les boulangeries. Maintenant, il connaît la boulangère. Elle s'appelle Madame Rousseau. Elle lui demande toujours : « Les mêmes que d'habitude ? »\n\nAprès le petit déjeuner, Alex va prendre une douche. Il pense à sa journée. Cet après-midi, il va retrouver Julie et quelques collègues au parc. Ils vont faire un barbecue. Le temps est parfait pour ça : il fait beau, il y a du soleil, il ne fait pas trop chaud.\n\nHier soir, Julie lui a envoyé un message : « N'oublie pas d'apporter une salade ! » Alex a ri. Il y a six mois, il ne cuisinait jamais. Maintenant, il prépare régulièrement des repas français. Il a même acheté un livre de recettes en français !\n\nCe matin, il va faire les courses au marché. Il adore le marché de la Croix-Rousse. Les vendeurs sont sympas. Il y a des fruits frais, des légumes de saison, du fromage local. L'été dernier, il ne comprenait rien quand les vendeurs parlaient. Maintenant, il peut discuter avec eux, demander des conseils, négocier les prix.\n\nAlex sort de l'appartement. Il descend l'escalier. Il salue sa voisine, Madame Petit. « Bonjour Madame Petit ! Belle journée, n'est-ce pas ? »\n\n« Bonjour Alex ! Oui, c'est magnifique ! Vous allez au marché ? »\n\n« Oui, je vais faire des courses pour un barbecue cet après-midi. »\n\n« Ah, comme c'est bien ! Amusez-vous bien ! »\n\n« Merci ! Bonne journée ! »\n\nAlex marche dans les rues de Lyon. Il connaît maintenant tous les chemins. Il sait où sont les meilleurs cafés, les meilleures boulangeries, les meilleurs restaurants. Il sait quel bus prendre pour aller au travail. Il sait où se trouve la bibliothèque, la poste, la pharmacie.\n\nAu marché, il achète des tomates, des concombres, de la salade, des oignons. Il prend aussi du fromage et du pain. Le vendeur de fromage lui recommande un chèvre frais. « C'est parfait pour l'été ! » Alex goûte. « Mmm, délicieux ! J'en prends deux. »\n\nSur le chemin du retour, Alex passe devant son café préféré. Il voit Thomas à l'intérieur. Thomas lui fait signe. Alex entre.\n\n« Salut Alex ! Qu'est-ce que tu fais ? »\n\n« Je reviens du marché. Et toi ? »\n\n« Je lis le journal. Tu veux un café ? »\n\n« Avec plaisir ! »\n\nIls s'installent. Ils parlent de tout et de rien. Du temps qu'il fait. Des nouvelles. Du match de football d'hier soir. De la vie.\n\nAlex pense : « C'est ça, la vie normale à Lyon. Aller au marché le samedi. Prendre un café avec un ami. Parler français naturellement. Je me sens chez moi. »\n\nL'après-midi arrive. Alex est au parc avec Julie, Thomas, et d'autres amis. Le barbecue est allumé. Ça sent bon. Les gens rient, discutent, mangent, boivent. Des enfants jouent au ballon. Des chiens courent.\n\nJulie s'approche d'Alex. « Ta salade est délicieuse ! Tu as utilisé quelle recette ? »\n\n« Une recette que ma grand-mère m'a donnée. Mais je l'ai adaptée avec des ingrédients français. »\n\n« C'est réussi ! Tu es devenu un vrai chef ! »\n\n« Ha ha ! Pas encore, mais je progresse ! »\n\n« Tu sais quoi, Alex ? »\n\n« Quoi ? »\n\n« Tu n'es plus un étranger ici. Tu es devenu un vrai Lyonnais ! »\n\nAlex sourit. Un grand sourire. « Merci Julie. Ça me touche vraiment. »\n\nLe soir tombe. Le ciel devient orange, puis rose, puis violet. Les lumières de Lyon s'allument une par une. La basilique de Fourvière brille au sommet de la colline.\n\nAlex regarde la ville. SA ville. Lyon.\n\nIl pense à tout le chemin parcouru. Il y a un an, il ne parlait presque pas français. Aujourd'hui, il a des conversations, il lit des livres, il comprend des films. Il a un travail qu'il aime, des amis qui comptent pour lui, une vie riche et pleine.\n\nBien sûr, ce n'est pas parfait. Il fait encore des erreurs en français. Il a parfois le mal du pays. Il y a des jours difficiles.\n\nMais il est heureux. Il est fier. Il a réussi.\n\nL'aventure continue. Il y a encore tellement de choses à apprendre, à découvrir, à vivre.\n\nMais ce soir, Alex savoure le moment. Il est ici. Il est présent. Il est chez lui.\n\nBienvenue à la fin du niveau A1, Alex. Tu as brillamment réussi.\n\nEt toi aussi, cher apprenant. Félicitations ! Tu as terminé le cours. Tu peux maintenant communiquer en français. C'est un magnifique accomplissement.\n\nContinue ton voyage. Le français est une langue belle et riche. Il y a encore tant à explorer.\n\nBonne chance pour la suite. Bonne continuation. Et surtout : profite du voyage !\n\nÀ bientôt !",
+      "generateAudio": true,
+      "estimatedMinutes": 15,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: La Journée",
+            "instructions": "Que fait Alex aujourd'hui?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quelle est l'activité principale d'Alex aujourd'hui?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il travaille au bureau",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Il va à un barbecue au parc",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Il prend l'avion pour New York",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Il suit un cours de français",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex va retrouver Julie et des collègues au parc pour un barbecue.",
+              "hint": "C'est une activité sociale l'après-midi."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Les Lieux de Lyon",
+            "instructions": "Associez les lieux avec leurs descriptions.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "la boulangerie",
+                  "right": "où Alex achète des croissants"
+                },
+                {
+                  "left": "le marché",
+                  "right": "où il achète des fruits et légumes"
+                },
+                {
+                  "left": "le café",
+                  "right": "où il rencontre Thomas"
+                },
+                {
+                  "left": "le parc",
+                  "right": "où il va au barbecue"
+                },
+                {
+                  "left": "la basilique",
+                  "right": "qui brille sur la colline"
+                }
+              ],
+              "hint": "Tous ces lieux sont mentionnés dans l'histoire."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Révision: Tous les Temps",
+            "instructions": "Complétez avec le bon temps (présent, passé, futur).",
+            "content": {
+              "text": "Ce matin, il _____ (aller) au marché. Hier, il _____ (acheter) des croissants. Cet après-midi, il _____ (retrouver) ses amis. Il y a un an, il _____ (être) nerveux. Maintenant, il _____ (se sentir) chez lui.",
+              "blanks": [
+                {
+                  "correctAnswer": "va",
+                  "acceptableAnswers": [
+                    "va"
+                  ],
+                  "options": [
+                    "va",
+                    "est allé",
+                    "allait",
+                    "ira"
+                  ]
+                },
+                {
+                  "correctAnswer": "a acheté",
+                  "acceptableAnswers": [
+                    "a acheté"
+                  ],
+                  "options": [
+                    "a acheté",
+                    "achète",
+                    "va acheter",
+                    "achetait"
+                  ]
+                },
+                {
+                  "correctAnswer": "va retrouver",
+                  "acceptableAnswers": [
+                    "va retrouver",
+                    "retrouve"
+                  ],
+                  "options": [
+                    "va retrouver",
+                    "a retrouvé",
+                    "retrouvait",
+                    "retrouvera"
+                  ]
+                },
+                {
+                  "correctAnswer": "était",
+                  "acceptableAnswers": [
+                    "était"
+                  ],
+                  "options": [
+                    "était",
+                    "est",
+                    "a été",
+                    "sera"
+                  ]
+                },
+                {
+                  "correctAnswer": "se sent",
+                  "acceptableAnswers": [
+                    "se sent"
+                  ],
+                  "options": [
+                    "se sent",
+                    "s'est senti",
+                    "se sentait",
+                    "va se sentir"
+                  ]
+                }
+              ],
+              "translation": "This morning, he's going to the market. Yesterday, he bought croissants. This afternoon, he'll meet his friends. A year ago, he was nervous. Now, he feels at home.",
+              "hint": "Choisissez le temps approprié au contexte."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 25,
+            "difficultyRating": 1.9
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des Mots: Sentiment d'Appartenance",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "Je",
+                "me",
+                "sens",
+                "chez",
+                "moi"
+              ],
+              "correctOrder": [
+                "Je",
+                "me",
+                "sens",
+                "chez",
+                "moi"
+              ],
+              "translation": "I feel at home",
+              "explanation": "'Se sentir chez soi' est l'expression pour dire qu'on se sent à la maison.",
+              "hint": "Verbe pronominal + expression de lieu."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Les Progrès Culinaires",
+            "instructions": "Qu'est-ce qu'Alex a appris à faire?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce qu'Alex peut faire maintenant qu'il ne faisait pas avant?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Conduire une voiture",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Cuisiner des repas français",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Jouer au football",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Faire du vélo",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Le texte dit : 'Il y a six mois, il ne cuisinait jamais. Maintenant, il prépare régulièrement des repas français.'",
+              "hint": "C'est lié à la nourriture."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Avant et Maintenant - Complet",
+            "instructions": "Associez les transformations d'Alex.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Avant: n'osait pas entrer dans les boulangeries",
+                  "right": "Maintenant: connaît la boulangère"
+                },
+                {
+                  "left": "Avant: ne cuisinait jamais",
+                  "right": "Maintenant: prépare des repas français"
+                },
+                {
+                  "left": "Avant: ne comprenait rien au marché",
+                  "right": "Maintenant: peut discuter et négocier"
+                },
+                {
+                  "left": "Avant: étranger à Lyon",
+                  "right": "Maintenant: vrai Lyonnais"
+                },
+                {
+                  "left": "Avant: ne parlait presque pas français",
+                  "right": "Maintenant: parle naturellement"
+                }
+              ],
+              "hint": "Toute la transformation d'Alex en un an."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Vocabulaire: La Vie Quotidienne",
+            "instructions": "Complétez avec le vocabulaire de la vie quotidienne.",
+            "content": {
+              "text": "Le matin, Alex prend son petit _____. Il va faire les _____ au marché. Il achète des _____ et des légumes. L'après-midi, il va au _____ avec ses amis. Le soir, il regarde les _____ de Lyon.",
+              "blanks": [
+                {
+                  "correctAnswer": "déjeuner",
+                  "acceptableAnswers": [
+                    "déjeuner",
+                    "dejeuner"
+                  ],
+                  "options": [
+                    "déjeuner",
+                    "dîner",
+                    "repas",
+                    "café"
+                  ]
+                },
+                {
+                  "correctAnswer": "courses",
+                  "acceptableAnswers": [
+                    "courses"
+                  ],
+                  "options": [
+                    "courses",
+                    "achats",
+                    "magasins",
+                    "boutiques"
+                  ]
+                },
+                {
+                  "correctAnswer": "fruits",
+                  "acceptableAnswers": [
+                    "fruits"
+                  ],
+                  "options": [
+                    "fruits",
+                    "produits",
+                    "choses",
+                    "articles"
+                  ]
+                },
+                {
+                  "correctAnswer": "parc",
+                  "acceptableAnswers": [
+                    "parc"
+                  ],
+                  "options": [
+                    "parc",
+                    "jardin",
+                    "restaurant",
+                    "café"
+                  ]
+                },
+                {
+                  "correctAnswer": "lumières",
+                  "acceptableAnswers": [
+                    "lumières",
+                    "lumieres"
+                  ],
+                  "options": [
+                    "lumières",
+                    "rues",
+                    "gens",
+                    "voitures"
+                  ]
+                }
+              ],
+              "translation": "In the morning, Alex has breakfast. He goes grocery shopping at the market. He buys fruits and vegetables. In the afternoon, he goes to the park with friends. In the evening, he watches the lights of Lyon.",
+              "hint": "Vocabulaire de tous les jours."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Le Compliment de Julie",
+            "instructions": "Que dit Julie à Alex?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel compliment Julie fait-elle à Alex?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Tu es un excellent cuisinier",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Tu es devenu un vrai Lyonnais",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Tu parles parfaitement français",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Tu es très sportif",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Julie dit : 'Tu n'es plus un étranger ici. Tu es devenu un vrai Lyonnais !'",
+              "hint": "C'est le plus grand compliment pour Alex."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Révision Grammaticale Complète",
+            "instructions": "Complétez avec toute la grammaire A1.",
+            "content": {
+              "text": "Alex _____ (se réveiller) tranquillement. Il _____ (prendre) son petit déjeuner. Il _____ (aller) au marché. Les vendeurs _____ (être) sympas. Il _____ (savoir) où sont les meilleurs cafés. Il _____ (avoir) des amis. Il _____ (se sentir) chez lui.",
+              "blanks": [
+                {
+                  "correctAnswer": "se réveille",
+                  "acceptableAnswers": [
+                    "se réveille"
+                  ],
+                  "options": [
+                    "se réveille",
+                    "réveille",
+                    "s'est réveillé",
+                    "réveillait"
+                  ]
+                },
+                {
+                  "correctAnswer": "prend",
+                  "acceptableAnswers": [
+                    "prend"
+                  ],
+                  "options": [
+                    "prend",
+                    "a pris",
+                    "prenait",
+                    "va prendre"
+                  ]
+                },
+                {
+                  "correctAnswer": "va",
+                  "acceptableAnswers": [
+                    "va"
+                  ],
+                  "options": [
+                    "va",
+                    "est allé",
+                    "allait",
+                    "ira"
+                  ]
+                },
+                {
+                  "correctAnswer": "sont",
+                  "acceptableAnswers": [
+                    "sont"
+                  ],
+                  "options": [
+                    "sont",
+                    "étaient",
+                    "ont été",
+                    "seront"
+                  ]
+                },
+                {
+                  "correctAnswer": "sait",
+                  "acceptableAnswers": [
+                    "sait"
+                  ],
+                  "options": [
+                    "sait",
+                    "connaît",
+                    "savait",
+                    "a su"
+                  ]
+                },
+                {
+                  "correctAnswer": "a",
+                  "acceptableAnswers": [
+                    "a"
+                  ],
+                  "options": [
+                    "a",
+                    "est",
+                    "avait",
+                    "aura"
+                  ]
+                },
+                {
+                  "correctAnswer": "se sent",
+                  "acceptableAnswers": [
+                    "se sent"
+                  ],
+                  "options": [
+                    "se sent",
+                    "sent",
+                    "s'est senti",
+                    "se sentait"
+                  ]
+                }
+              ],
+              "translation": "Alex wakes up peacefully. He has breakfast. He goes to the market. The vendors are nice. He knows where the best cafes are. He has friends. He feels at home.",
+              "hint": "Utilisez le présent pour les actions habituelles."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 25,
+            "difficultyRating": 1.8
+          }
+        },
+        {
+          "orderIndex": 10,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Vocabulaire: Révision Complète A1",
+            "instructions": "Associez les mots de tout le cours.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "le chemin parcouru",
+                  "right": "the path traveled / journey"
+                },
+                {
+                  "left": "savourer le moment",
+                  "right": "to savor the moment"
+                },
+                {
+                  "left": "être présent",
+                  "right": "to be present"
+                },
+                {
+                  "left": "l'accomplissement",
+                  "right": "accomplishment"
+                },
+                {
+                  "left": "le voyage",
+                  "right": "the journey"
+                },
+                {
+                  "left": "cher apprenant",
+                  "right": "dear learner"
+                }
+              ],
+              "hint": "Vocabulaire pour conclure le cours."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 11,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Réflexion: Le Message Final",
+            "instructions": "Quel est le message final du cours?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce que le narrateur dit à l'apprenant à la fin?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Tu dois continuer à étudier beaucoup",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Félicitations, tu as terminé le cours et réussi",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Le français est trop difficile",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Tu dois retourner au début",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Le narrateur dit : 'Félicitations ! Tu as terminé le cours. Tu peux maintenant communiquer en français. C'est un magnifique accomplissement.'",
+              "hint": "C'est un message positif et encourageant."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 12,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Examen Final: L'Histoire Complète",
+            "instructions": "Complétez cette dernière histoire - votre examen final A1 !",
+            "content": {
+              "text": "C'est samedi matin. Alex se {blank1} tranquillement. Il prend son petit déjeuner : un {blank2} et des croissants. Il va {blank3} au marché de la Croix-Rousse. Il {blank4} des tomates, des concombres et du fromage. Sur le chemin, il {blank5} Thomas dans leur café préféré. Ils {blank6} ensemble. L'après-midi, Alex va au {blank7} avec Julie et des amis. Ils font un {blank8}. Julie dit à Alex : « Tu es devenu un vrai {blank9} ! » Le soir, Alex {blank10} la ville. Les lumières de Lyon s'allument. Il pense : « Je me {blank11} chez moi. » Il est {blank12} de ses progrès. Il y a un an, il ne {blank13} presque pas français. Aujourd'hui, il peut {blank14}. L'aventure {blank15}. Félicitations - tu as {blank16} le niveau A1 ! Continue ton {blank17}. Bonne {blank18} !",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "réveille"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "café"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "faire"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "achète"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "voit"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "parlent"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "parc"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "barbecue"
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "Lyonnais"
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": "regarde"
+                },
+                {
+                  "id": "blank11",
+                  "correctAnswer": "sens"
+                },
+                {
+                  "id": "blank12",
+                  "correctAnswer": "fier"
+                },
+                {
+                  "id": "blank13",
+                  "correctAnswer": "parlait"
+                },
+                {
+                  "id": "blank14",
+                  "correctAnswer": "communiquer"
+                },
+                {
+                  "id": "blank15",
+                  "correctAnswer": "continue"
+                },
+                {
+                  "id": "blank16",
+                  "correctAnswer": "terminé"
+                },
+                {
+                  "id": "blank17",
+                  "correctAnswer": "voyage"
+                },
+                {
+                  "id": "blank18",
+                  "correctAnswer": "continuation"
+                }
+              ],
+              "hint": "C'est votre examen final - utilisez tout ce que vous avez appris !"
+            },
+            "estimatedDurationSeconds": 240,
+            "pointsValue": 50,
+            "difficultyRating": 2.0
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrateur",
+          "voice": "Charon",
+          "description": "Voix narrative chaleureuse et encourageante pour la conclusion"
+        }
+      ],
+      "audioStyle": "Récit narratif final et célébratoire. Ton chaleureux et encourageant. Rythme qui reflète une journée normale à Lyon. Message final direct à l'apprenant. Célébration de l'accomplissement du niveau A1."
+    }
+  ]
+}

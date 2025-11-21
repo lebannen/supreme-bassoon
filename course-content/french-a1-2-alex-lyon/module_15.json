@@ -1,0 +1,1398 @@
+{
+  "moduleNumber": 15,
+  "title": "Les Loisirs",
+  "theme": "Leisure & Hobbies",
+  "description": "Alex découvre les activités sportives et culturelles à Lyon. Apprenez à parler de vos loisirs, sports favoris et comment utiliser 'faire' et 'jouer' correctement.",
+  "objectives": [
+    "Parler de sports et activités avec 'faire'",
+    "Utiliser 'jouer' avec les jeux et instruments",
+    "Distinguer 'faire du/de la' et 'jouer au/à la/du/de la'",
+    "Exprimer la fréquence des activités",
+    "Discuter des hobbies et loisirs"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "DIALOGUE",
+      "title": "Le Sport",
+      "content": "Alex: Julie, tu fais du sport le weekend?\n\nJulie: Oui, j'adore le sport! Je fais de la natation le samedi matin. Et toi?\n\nAlex: Moi, aux États-Unis, je faisais du jogging trois fois par semaine. Mais ici à Lyon, je ne connais pas encore les bons endroits pour courir.\n\nJulie: Il y a un super parc près du Rhône! Beaucoup de gens y font du jogging. Moi aussi, j'y vais parfois.\n\nAlex: Ah bon? C'est une bonne idée! Tu connais une salle de sport dans le quartier?\n\nJulie: Oui! Il y a un excellent club de fitness près du métro. Ils offrent plein de cours: yoga, musculation, spinning... Tu veux que je te montre?\n\nAlex: Avec plaisir! J'aimerais bien m'inscrire.\n\n[Le weekend suivant, à la salle de sport]\n\nProfesseur: Bonjour! Vous êtes nouveau ici?\n\nAlex: Oui, bonjour! Je cherche à m'inscrire. Quels sports est-ce que vous proposez?\n\nProfesseur: On propose beaucoup d'activités. Qu'est-ce que vous aimez faire comme sport?\n\nAlex: J'aime faire du jogging et de la musculation. Je faisais aussi un peu de tennis aux États-Unis.\n\nProfesseur: Parfait! Nous avons une salle de musculation moderne, et on organise des cours de renforcement musculaire trois fois par semaine. Pour le tennis, il y a deux courts extérieurs.\n\nAlex: Excellent! Et il y a des cours pour débutants?\n\nProfesseur: Bien sûr! On a des cours de niveau débutant, intermédiaire et avancé. Vous faites du yoga?\n\nAlex: Non, je n'en ai jamais fait. C'est bien?\n\nProfesseur: Ah, le yoga c'est formidable! C'est excellent pour la flexibilité et la relaxation. Beaucoup de nos membres adorent nos cours de yoga.\n\nAlex: D'accord, pourquoi pas! Je vais essayer.\n\nProfesseur: Super! Alors, on a un cours demain matin à neuf heures. Vous voulez aussi faire de la natation? Nous avons une belle piscine.\n\nAlex: Ah, la natation... je ne sais pas très bien nager, malheureusement.\n\nProfesseur: Pas de problème! On a des cours de natation pour adultes. Vous pouvez apprendre!\n\nAlex: C'est vrai? Alors oui, ça m'intéresse!\n\nProfesseur: Parfait! Voici notre brochure avec tous les horaires. Quand est-ce que vous voulez commencer?\n\nAlex: Je peux commencer cette semaine?\n\nProfesseur: Absolument! Bienvenue au club!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "American man eager to stay active in Lyon"
+        },
+        {
+          "name": "Julie",
+          "voice": "Puck",
+          "description": "Sporty colleague, enthusiastic about fitness"
+        },
+        {
+          "name": "Professeur",
+          "voice": "Kore",
+          "description": "Energetic gym instructor, firm but friendly"
+        }
+      ],
+      "audioStyle": "Energetic conversation about sports and fitness. The instructor is upbeat and encouraging. Alex is enthusiastic about trying new activities. Natural, motivating tone.",
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Le sport de Julie",
+            "instructions": "Quel sport Julie fait-elle?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel sport Julie pratique-t-elle le samedi matin?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Du jogging",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "De la natation",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Du tennis",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Du yoga",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Julie dit: 'Je fais de la natation le samedi matin'.",
+              "hint": "C'est un sport qui se pratique dans l'eau."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Grammaire: FAIRE + sport",
+            "instructions": "Complétez avec 'du', 'de la' ou 'de l''.",
+            "content": {
+              "text": "- Je fais _____ jogging.\n- Elle fait _____ natation.\n- Nous faisons _____ yoga.\n- Ils font _____ musculation.",
+              "blanks": [
+                {
+                  "correctAnswer": "du",
+                  "acceptableAnswers": [
+                    "du"
+                  ],
+                  "options": [
+                    "du",
+                    "de la",
+                    "de l'",
+                    "des"
+                  ]
+                },
+                {
+                  "correctAnswer": "de la",
+                  "acceptableAnswers": [
+                    "de la"
+                  ],
+                  "options": [
+                    "du",
+                    "de la",
+                    "de l'",
+                    "des"
+                  ]
+                },
+                {
+                  "correctAnswer": "du",
+                  "acceptableAnswers": [
+                    "du"
+                  ],
+                  "options": [
+                    "du",
+                    "de la",
+                    "de l'",
+                    "des"
+                  ]
+                },
+                {
+                  "correctAnswer": "de la",
+                  "acceptableAnswers": [
+                    "de la"
+                  ],
+                  "options": [
+                    "du",
+                    "de la",
+                    "de l'",
+                    "des"
+                  ]
+                }
+              ],
+              "translation": "I jog / She swims / We do yoga / They do weight training",
+              "hint": "Utilisez 'du' avec les noms masculins, 'de la' avec les noms féminins."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Vocabulaire: Les sports",
+            "instructions": "Associez les sports avec leur traduction.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "La natation",
+                  "right": "Swimming"
+                },
+                {
+                  "left": "Le jogging",
+                  "right": "Jogging / running"
+                },
+                {
+                  "left": "Le tennis",
+                  "right": "Tennis"
+                },
+                {
+                  "left": "La musculation",
+                  "right": "Weight training"
+                },
+                {
+                  "left": "Le yoga",
+                  "right": "Yoga"
+                }
+              ],
+              "hint": "Ces sports sont populaires dans les salles de fitness."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des mots: Poser une question",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "Qu'est-ce",
+                "que",
+                "vous",
+                "aimez",
+                "faire",
+                "comme",
+                "sport",
+                "?"
+              ],
+              "correctOrder": [
+                "Qu'est-ce",
+                "que",
+                "vous",
+                "aimez",
+                "faire",
+                "comme",
+                "sport",
+                "?"
+              ],
+              "translation": "What kind of sport do you like to do?",
+              "explanation": "'Qu'est-ce que' + sujet + verbe est la structure pour poser une question. 'Comme' ici signifie 'as' ou 'for'.",
+              "hint": "Commencez avec 'Qu'est-ce que' puis le sujet 'vous'."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Grammaire: Le verbe FAIRE",
+            "instructions": "Conjuguez le verbe 'faire'.",
+            "content": {
+              "text": "- Je _____ du sport.\n- Tu _____ de la natation?\n- Il _____ du yoga.\n- Nous _____ de la musculation.\n- Vous _____ du tennis?\n- Elles _____ du jogging.",
+              "blanks": [
+                {
+                  "correctAnswer": "fais",
+                  "acceptableAnswers": [
+                    "fais"
+                  ],
+                  "options": [
+                    "fais",
+                    "fait",
+                    "faisons",
+                    "font"
+                  ]
+                },
+                {
+                  "correctAnswer": "fais",
+                  "acceptableAnswers": [
+                    "fais"
+                  ],
+                  "options": [
+                    "fais",
+                    "fait",
+                    "faites",
+                    "font"
+                  ]
+                },
+                {
+                  "correctAnswer": "fait",
+                  "acceptableAnswers": [
+                    "fait"
+                  ],
+                  "options": [
+                    "fais",
+                    "fait",
+                    "faisons",
+                    "font"
+                  ]
+                },
+                {
+                  "correctAnswer": "faisons",
+                  "acceptableAnswers": [
+                    "faisons"
+                  ],
+                  "options": [
+                    "fais",
+                    "fait",
+                    "faisons",
+                    "font"
+                  ]
+                },
+                {
+                  "correctAnswer": "faites",
+                  "acceptableAnswers": [
+                    "faites"
+                  ],
+                  "options": [
+                    "fais",
+                    "fait",
+                    "faites",
+                    "font"
+                  ]
+                },
+                {
+                  "correctAnswer": "font",
+                  "acceptableAnswers": [
+                    "font"
+                  ],
+                  "options": [
+                    "fais",
+                    "fait",
+                    "faites",
+                    "font"
+                  ]
+                }
+              ],
+              "translation": "Conjugation of 'faire' (to do/make) with sports",
+              "hint": "Faire: je fais, tu fais, il/elle fait, nous faisons, vous faites, ils/elles font"
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 20,
+            "difficultyRating": 1.8
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Alex et la natation",
+            "instructions": "Que dit Alex sur la natation?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Pourquoi Alex hésite sur la natation?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il n'aime pas l'eau",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Il ne sait pas très bien nager",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "C'est trop cher",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Il n'a pas le temps",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit: 'je ne sais pas très bien nager, malheureusement'.",
+              "hint": "Alex n'est pas très bon dans cette activité."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Expression: S'inscrire",
+            "instructions": "Complétez la phrase.",
+            "content": {
+              "text": "Je cherche à m'_____ à la salle de sport.",
+              "blanks": [
+                {
+                  "correctAnswer": "inscrire",
+                  "acceptableAnswers": [
+                    "inscrire"
+                  ],
+                  "options": [
+                    "inscrire",
+                    "abonner",
+                    "enregistrer",
+                    "joindre"
+                  ]
+                }
+              ],
+              "translation": "I'm looking to sign up at the gym.",
+              "hint": "Le verbe 's'inscrire' signifie 'to sign up' ou 'to register'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: À la salle de sport",
+            "instructions": "Complétez le résumé.",
+            "content": {
+              "text": "Julie fait de la {blank1} le samedi matin. Alex faisait du {blank2} aux États-Unis. Julie lui recommande un parc près du {blank3} pour courir. Alex visite une salle de {blank4} pour s'inscrire. Le professeur propose plusieurs activités: du {blank5}, de la musculation et du tennis. Alex n'a jamais fait de {blank6} mais il va essayer. Il ne sait pas très bien {blank7}, mais la salle propose des cours pour apprendre. Alex peut commencer cette {blank8}.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "natation"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "jogging"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "Rhône"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "sport"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "yoga"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "yoga"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "nager"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "semaine"
+                }
+              ],
+              "hint": "Relisez le dialogue pour retrouver tous les sports mentionnés."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: Les équipements",
+            "instructions": "Que trouve-t-on dans cette salle de sport?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce qu'il y a dans la salle de sport?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Deux courts de tennis",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Un terrain de football",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Une patinoire",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Un stade",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Le professeur dit: 'il y a deux courts extérieurs' pour le tennis.",
+              "hint": "C'est pour jouer au tennis."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.3
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Les Jeux et la Musique",
+      "content": "Alex: Julie, tu as des hobbies en dehors du sport?\n\nJulie: Oui! J'adore la musique. Je joue du piano depuis que je suis petite.\n\nAlex: Vraiment? C'est génial! Moi aussi, je joue d'un instrument. Je joue de la guitare.\n\nJulie: Ah bon? Quelle chance! Tu joues quel style de musique?\n\nAlex: Surtout du rock et du blues. Et toi, qu'est-ce que tu joues au piano?\n\nJulie: Moi, je préfère la musique classique. Je joue du Chopin, du Bach... C'est très relaxant après une longue journée de travail.\n\nAlex: Je comprends! Moi, quand je joue de la guitare, j'oublie tous mes soucis.\n\nJulie: Exactement! La musique, c'est thérapeutique. Tu joues depuis combien de temps?\n\nAlex: Depuis l'université, donc... environ dix ans maintenant. Et toi?\n\nJulie: Oh, moi ça fait presque vingt ans! Mes parents m'ont inscrite à des cours quand j'avais six ans.\n\nAlex: Impressionnant! Tu joues dans un groupe ou dans un orchestre?\n\nJulie: Non, je joue seulement pour mon plaisir personnel. Mais toi, tu joues dans un groupe?\n\nAlex: Aux États-Unis, oui. Mais ici à Lyon, pas encore. Je cherche des musiciens pour former un groupe.\n\nJulie: Tu devrais chercher sur internet! Il y a des forums pour les musiciens à Lyon.\n\nAlex: Bonne idée! Je vais regarder.\n\n[Plus tard, au café]\n\nJulie: Dis-moi, tu aimes les jeux de société?\n\nAlex: Ah oui! J'adore! Je joue souvent aux échecs avec mon père.\n\nJulie: Les échecs! C'est un jeu tellement stratégique. Moi, je n'ai jamais vraiment appris à y jouer correctement.\n\nAlex: Je peux t'apprendre si tu veux! C'est fascinant une fois qu'on comprend les règles.\n\nJulie: Pourquoi pas! Et toi, tu joues à d'autres jeux?\n\nAlex: Je joue aux cartes avec mes amis. On organise des soirées poker parfois. Tu joues au poker?\n\nJulie: Non, pas vraiment. Mais je joue aux cartes avec ma famille pendant les vacances. On joue à la belote, c'est un jeu français très populaire.\n\nAlex: La belote? Je ne connais pas! Il faut que tu m'apprennes!\n\nJulie: Avec plaisir! C'est très amusant. On pourrait organiser une soirée jeux avec les collègues du bureau?\n\nAlex: Excellente idée! On pourrait jouer aux cartes, aux échecs, peut-être au Scrabble...\n\nJulie: Oui! Et on pourrait aussi jouer à des jeux de société modernes. Tu connais les \"escape game\"?\n\nAlex: Les escape game? C'est quoi exactement?\n\nJulie: C'est des jeux où on doit résoudre des énigmes pour sortir d'une pièce. Il y a plusieurs salles d'escape game à Lyon. C'est super pour faire une activité entre amis!\n\nAlex: Ça a l'air génial! On devrait essayer!\n\nJulie: Absolument! Je vais chercher les horaires et on organise ça!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "American man passionate about music and games"
+        },
+        {
+          "name": "Julie",
+          "voice": "Puck",
+          "description": "French colleague, pianist and game enthusiast"
+        }
+      ],
+      "audioStyle": "Enthusiastic conversation about hobbies and interests. Both speakers are excited to share their passions. Natural, friendly tone with energy when discussing music and games.",
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Les instruments",
+            "instructions": "Quels instruments jouent-ils?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel instrument Julie joue-t-elle?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "De la guitare",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Du piano",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Du violon",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "De la batterie",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Julie dit: 'Je joue du piano depuis que je suis petite'.",
+              "hint": "C'est un grand instrument à touches."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Grammaire: JOUER DE vs JOUER À",
+            "instructions": "Complétez avec 'du', 'de la', 'au', 'à la', 'aux'.",
+            "content": {
+              "text": "Musique (de): Je joue _____ piano. Il joue _____ guitare.\nJeux (à): Je joue _____ échecs. Elle joue _____ cartes. On joue _____ poker.",
+              "blanks": [
+                {
+                  "correctAnswer": "du",
+                  "acceptableAnswers": [
+                    "du"
+                  ],
+                  "options": [
+                    "du",
+                    "de la",
+                    "au",
+                    "aux"
+                  ]
+                },
+                {
+                  "correctAnswer": "de la",
+                  "acceptableAnswers": [
+                    "de la"
+                  ],
+                  "options": [
+                    "du",
+                    "de la",
+                    "au",
+                    "aux"
+                  ]
+                },
+                {
+                  "correctAnswer": "aux",
+                  "acceptableAnswers": [
+                    "aux"
+                  ],
+                  "options": [
+                    "du",
+                    "de la",
+                    "au",
+                    "aux"
+                  ]
+                },
+                {
+                  "correctAnswer": "aux",
+                  "acceptableAnswers": [
+                    "aux"
+                  ],
+                  "options": [
+                    "du",
+                    "de la",
+                    "au",
+                    "aux"
+                  ]
+                },
+                {
+                  "correctAnswer": "au",
+                  "acceptableAnswers": [
+                    "au"
+                  ],
+                  "options": [
+                    "du",
+                    "de la",
+                    "au",
+                    "aux"
+                  ]
+                }
+              ],
+              "translation": "For music instruments: play the piano/guitar. For games: play chess/cards/poker.",
+              "hint": "Instruments = jouer DE. Jeux/sports = jouer À."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 20,
+            "difficultyRating": 2.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Vocabulaire: Instruments et jeux",
+            "instructions": "Associez les activités avec la bonne préposition.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Jouer ___ piano",
+                  "right": "du (instrument)"
+                },
+                {
+                  "left": "Jouer ___ guitare",
+                  "right": "de la (instrument)"
+                },
+                {
+                  "left": "Jouer ___ échecs",
+                  "right": "aux (jeu pluriel)"
+                },
+                {
+                  "left": "Jouer ___ cartes",
+                  "right": "aux (jeu pluriel)"
+                },
+                {
+                  "left": "Jouer ___ poker",
+                  "right": "au (jeu masculin)"
+                }
+              ],
+              "hint": "Instruments utilisent 'de', jeux utilisent 'à'."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.8
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des mots: Depuis combien de temps?",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "Tu",
+                "joues",
+                "depuis",
+                "combien",
+                "de",
+                "temps",
+                "?"
+              ],
+              "correctOrder": [
+                "Tu",
+                "joues",
+                "depuis",
+                "combien",
+                "de",
+                "temps",
+                "?"
+              ],
+              "translation": "How long have you been playing?",
+              "explanation": "'Depuis combien de temps' est utilisé pour demander la durée d'une action qui continue.",
+              "hint": "Commencez avec 'Tu joues' puis ajoutez l'expression de temps."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: La belote",
+            "instructions": "Qu'est-ce que la belote?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce que la belote selon Julie?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Un sport français",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Un jeu de cartes français populaire",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Un instrument de musique",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Un jeu d'échecs",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Julie dit: 'On joue à la belote, c'est un jeu français très populaire' - dans le contexte des jeux de cartes.",
+              "hint": "Julie y joue avec sa famille pendant les vacances."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Expression: Pour le plaisir",
+            "instructions": "Complétez la phrase.",
+            "content": {
+              "text": "Je ne joue pas dans un orchestre, je joue seulement pour mon _____ personnel.",
+              "blanks": [
+                {
+                  "correctAnswer": "plaisir",
+                  "acceptableAnswers": [
+                    "plaisir"
+                  ],
+                  "options": [
+                    "plaisir",
+                    "travail",
+                    "sport",
+                    "hobby"
+                  ]
+                }
+              ],
+              "translation": "I don't play in an orchestra, I only play for my personal pleasure.",
+              "hint": "'Plaisir' signifie 'pleasure' ou 'enjoyment'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Escape game",
+            "instructions": "Qu'est-ce qu'un escape game?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Comment Julie décrit-elle les escape games?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Un jeu de cartes",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Un sport extrême",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Des jeux où on doit résoudre des énigmes pour sortir d'une pièce",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Un jeu vidéo",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Julie explique: 'C'est des jeux où on doit résoudre des énigmes pour sortir d'une pièce'.",
+              "hint": "Il faut résoudre des problèmes pour sortir."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: Musique et jeux",
+            "instructions": "Complétez le résumé.",
+            "content": {
+              "text": "Julie joue du {blank1} depuis qu'elle est petite. Alex joue de la {blank2}. Julie préfère la musique {blank3}, et Alex joue du rock et du {blank4}. Alex joue de la guitare depuis environ {blank5} ans. Julie joue du piano depuis presque {blank6} ans. Alex joue aux {blank7} avec son père. Julie joue à la {blank8}, un jeu de cartes français. Ils veulent essayer un {blank9} game à Lyon.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "piano"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "guitare"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "classique"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "blues"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "dix",
+                    "10"
+                  ]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": [
+                    "vingt",
+                    "20"
+                  ]
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "échecs"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "belote"
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "escape"
+                }
+              ],
+              "hint": "Relisez le dialogue pour trouver tous les détails sur la musique et les jeux."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.8
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Expression: Former un groupe",
+            "instructions": "Complétez la phrase d'Alex.",
+            "content": {
+              "text": "Je cherche des musiciens pour _____ un groupe.",
+              "blanks": [
+                {
+                  "correctAnswer": "former",
+                  "acceptableAnswers": [
+                    "former",
+                    "créer"
+                  ],
+                  "options": [
+                    "former",
+                    "jouer",
+                    "faire",
+                    "prendre"
+                  ]
+                }
+              ],
+              "translation": "I'm looking for musicians to form a band.",
+              "hint": "'Former' signifie 'to form' ou 'to create'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 10,
+            "difficultyRating": 1.4
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 3,
+      "type": "STORY",
+      "title": "La Fréquence",
+      "content": "Alex réfléchit à ses nouvelles habitudes à Lyon. Il écrit dans son journal.\n\n\"Cher journal,\n\nÇa fait maintenant trois mois que je suis à Lyon, et ma vie a beaucoup changé! Je fais beaucoup plus de sport qu'aux États-Unis. Avant, je faisais du jogging seulement une fois par semaine, mais maintenant je fais du sport presque tous les jours.\n\nLe lundi, le mercredi et le vendredi, je vais à la salle de sport. Je fais de la musculation pendant une heure. C'est devenu une vraie routine pour moi. Le professeur est très sympa et m'encourage toujours.\n\nLe mardi et le jeudi, je fais du jogging le long du Rhône. C'est magnifique! Je cours généralement pendant quarante-cinq minutes. Parfois, je croise Julie qui fait aussi son jogging. On court ensemble de temps en temps.\n\nLe samedi matin, j'ai commencé à prendre des cours de natation. Au début, c'était difficile parce que je ne savais pas bien nager, mais maintenant je progresse bien! Je vais à la piscine chaque samedi à neuf heures.\n\nLe dimanche, c'est mon jour de repos. Je ne fais jamais de sport le dimanche. Je préfère me détendre, lire, ou jouer de la guitare.\n\nEt la musique, justement! Je joue de la guitare tous les soirs, mais pas très longtemps - juste vingt ou trente minutes. C'est ma façon de me relaxer après le travail. Je joue souvent du blues ou du rock. Quelquefois, j'essaie d'apprendre de nouvelles chansons.\n\nJ'ai aussi découvert de nouvelles passions. Je joue aux échecs en ligne plusieurs fois par semaine. C'est addictif! Je joue habituellement le soir, avant de dormir. Parfois, je joue pendant une heure entière sans m'en rendre compte.\n\nAvec Julie et d'autres collègues, on organise régulièrement des soirées jeux. On se retrouve environ deux fois par mois. On joue aux cartes, à des jeux de société, et on passe de très bons moments.\n\nLa semaine dernière, on est allés faire un escape game. C'était génial! On a réussi à sortir de la pièce en cinquante minutes. Maintenant, on veut y retourner souvent - peut-être une fois par mois?\n\nEn ce qui concerne la musique live, je vais rarement à des concerts parce que je ne connais pas encore beaucoup d'endroits à Lyon. Mais Julie m'a dit qu'il y a d'excellentes salles de concert dans le quartier. Je vais certainement y aller plus souvent maintenant.\n\nEt j'ai enfin trouvé des musiciens pour former un groupe! On se retrouve le dimanche après-midi pour répéter. Pour l'instant, on se voit une fois toutes les deux semaines, mais on espère jouer ensemble plus fréquemment bientôt.\n\nMa vie à Lyon est vraiment riche et variée. Je fais constamment de nouvelles découvertes. Je ne m'ennuie jamais! Chaque jour apporte quelque chose de nouveau.\n\nJe suis content d'être ici.\n\nAlex\"",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Narrateur",
+          "voice": "Charon",
+          "description": "Calm narrator reading Alex's journal entry"
+        }
+      ],
+      "audioStyle": "Reflective journal entry narration. Calm, thoughtful tone as Alex reflects on his new routines and hobbies in Lyon. Moderate pace with clear pronunciation of frequency expressions.",
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Sport quotidien",
+            "instructions": "À quelle fréquence Alex fait-il du sport?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Combien de fois par semaine Alex va-t-il à la salle de sport?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Une fois par semaine",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Deux fois par semaine",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Trois fois par semaine",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Tous les jours",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex écrit: 'Le lundi, le mercredi et le vendredi, je vais à la salle de sport' - trois jours.",
+              "hint": "Alex mentionne trois jours spécifiques."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Vocabulaire: Expressions de fréquence",
+            "instructions": "Associez les expressions avec leur signification.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Tous les jours",
+                  "right": "Every day"
+                },
+                {
+                  "left": "Une fois par semaine",
+                  "right": "Once a week"
+                },
+                {
+                  "left": "Deux fois par mois",
+                  "right": "Twice a month"
+                },
+                {
+                  "left": "Souvent",
+                  "right": "Often"
+                },
+                {
+                  "left": "Jamais",
+                  "right": "Never"
+                },
+                {
+                  "left": "Parfois",
+                  "right": "Sometimes"
+                },
+                {
+                  "left": "Rarement",
+                  "right": "Rarely"
+                },
+                {
+                  "left": "Toujours",
+                  "right": "Always"
+                }
+              ],
+              "hint": "Ces expressions indiquent à quelle fréquence on fait quelque chose."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Grammaire: Adverbes de fréquence",
+            "instructions": "Complétez avec l'adverbe de fréquence approprié.",
+            "content": {
+              "text": "Alex fait du sport presque _____ les jours. Il joue de la guitare _____ les soirs. Le dimanche, il ne fait _____ de sport. Il va _____ à des concerts. Il joue _____ aux échecs en ligne.",
+              "blanks": [
+                {
+                  "correctAnswer": "tous",
+                  "acceptableAnswers": [
+                    "tous"
+                  ],
+                  "options": [
+                    "tous",
+                    "toutes",
+                    "chaque",
+                    "jamais"
+                  ]
+                },
+                {
+                  "correctAnswer": "tous",
+                  "acceptableAnswers": [
+                    "tous"
+                  ],
+                  "options": [
+                    "tous",
+                    "toutes",
+                    "chaque",
+                    "parfois"
+                  ]
+                },
+                {
+                  "correctAnswer": "jamais",
+                  "acceptableAnswers": [
+                    "jamais"
+                  ],
+                  "options": [
+                    "jamais",
+                    "toujours",
+                    "souvent",
+                    "parfois"
+                  ]
+                },
+                {
+                  "correctAnswer": "rarement",
+                  "acceptableAnswers": [
+                    "rarement"
+                  ],
+                  "options": [
+                    "rarement",
+                    "souvent",
+                    "toujours",
+                    "jamais"
+                  ]
+                },
+                {
+                  "correctAnswer": "souvent",
+                  "acceptableAnswers": [
+                    "souvent",
+                    "régulièrement"
+                  ],
+                  "options": [
+                    "souvent",
+                    "jamais",
+                    "rarement",
+                    "une fois"
+                  ]
+                }
+              ],
+              "translation": "Frequency adverbs in context",
+              "hint": "Lisez le texte pour trouver la bonne fréquence pour chaque activité."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Le dimanche d'Alex",
+            "instructions": "Que fait Alex le dimanche?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quelle activité Alex ne fait-il jamais le dimanche?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Jouer de la guitare",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Lire",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Faire du sport",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Se détendre",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex écrit: 'Le dimanche, c'est mon jour de repos. Je ne fais jamais de sport le dimanche.'",
+              "hint": "Le dimanche est son jour de repos."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des mots: Fréquence",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "Je",
+                "joue",
+                "de",
+                "la",
+                "guitare",
+                "tous",
+                "les",
+                "soirs"
+              ],
+              "correctOrder": [
+                "Je",
+                "joue",
+                "de",
+                "la",
+                "guitare",
+                "tous",
+                "les",
+                "soirs"
+              ],
+              "translation": "I play guitar every evening",
+              "explanation": "L'expression de fréquence 'tous les soirs' vient généralement à la fin de la phrase.",
+              "hint": "Placez l'expression de temps à la fin."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Expression: Une fois par...",
+            "instructions": "Complétez avec la bonne expression.",
+            "content": {
+              "text": "Le cours de natation: une fois _____ semaine (samedi). Les soirées jeux: deux fois _____ mois. L'escape game: une fois _____ mois.",
+              "blanks": [
+                {
+                  "correctAnswer": "par",
+                  "acceptableAnswers": [
+                    "par"
+                  ],
+                  "options": [
+                    "par",
+                    "pour",
+                    "de",
+                    "à"
+                  ]
+                },
+                {
+                  "correctAnswer": "par",
+                  "acceptableAnswers": [
+                    "par"
+                  ],
+                  "options": [
+                    "par",
+                    "pour",
+                    "de",
+                    "à"
+                  ]
+                },
+                {
+                  "correctAnswer": "par",
+                  "acceptableAnswers": [
+                    "par"
+                  ],
+                  "options": [
+                    "par",
+                    "pour",
+                    "de",
+                    "à"
+                  ]
+                }
+              ],
+              "translation": "Once per week / Twice per month / Once per month",
+              "hint": "'Par' est utilisé pour exprimer 'per' en français."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: La natation",
+            "instructions": "Quand Alex va-t-il à la piscine?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "À quelle fréquence et quand Alex prend-il des cours de natation?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Tous les jours à 9h",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Chaque samedi à 9h",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Deux fois par semaine",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Le dimanche matin",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex écrit: 'Je vais à la piscine chaque samedi à neuf heures.'",
+              "hint": "C'est toujours le même jour de la semaine, le matin."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: Les habitudes d'Alex",
+            "instructions": "Complétez le résumé des habitudes d'Alex.",
+            "content": {
+              "text": "Alex fait beaucoup plus de {blank1} à Lyon qu'avant. Il va à la salle de sport {blank2} fois par semaine: le lundi, mercredi et vendredi. Il fait du {blank3} le long du Rhône le mardi et jeudi. Le {blank4}, il prend des cours de natation à neuf heures. Le dimanche, il ne fait {blank5} de sport - c'est son jour de repos. Il joue de la guitare tous les {blank6}. Il joue aux échecs en ligne {blank7} fois par semaine. Avec ses collègues, il organise des soirées jeux environ deux fois par {blank8}. Il a trouvé des musiciens et ils répètent une fois toutes les deux {blank9}.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "sport"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": [
+                    "trois",
+                    "3"
+                  ]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "jogging"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "samedi"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "jamais"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "soirs"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "plusieurs"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "mois"
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "semaines"
+                }
+              ],
+              "hint": "Relisez le journal d'Alex pour retrouver toutes les fréquences."
+            },
+            "estimatedDurationSeconds": 150,
+            "pointsValue": 20,
+            "difficultyRating": 1.9
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Expression: De temps en temps",
+            "instructions": "Complétez l'expression.",
+            "content": {
+              "text": "Alex et Julie courent ensemble de _____ en _____.",
+              "blanks": [
+                {
+                  "correctAnswer": "temps",
+                  "acceptableAnswers": [
+                    "temps"
+                  ],
+                  "options": [
+                    "temps",
+                    "jour",
+                    "semaine",
+                    "mois"
+                  ]
+                },
+                {
+                  "correctAnswer": "temps",
+                  "acceptableAnswers": [
+                    "temps"
+                  ],
+                  "options": [
+                    "temps",
+                    "jour",
+                    "semaine",
+                    "mois"
+                  ]
+                }
+              ],
+              "translation": "From time to time / occasionally",
+              "hint": "C'est une expression qui signifie 'sometimes' ou 'occasionally'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 10,
+            "difficultyRating": 1.3
+          }
+        }
+      ]
+    }
+  ]
+}

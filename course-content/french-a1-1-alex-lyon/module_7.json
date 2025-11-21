@@ -1,0 +1,1127 @@
+{
+  "moduleNumber": 7,
+  "title": "Le Calendrier",
+  "theme": "Time & Calendar",
+  "description": "Alex learns to navigate time in French - from planning his week with days and dates to scheduling appointments and telling time. Essential skills for organizing life in Lyon.",
+  "objectives": [
+    "Use days of the week in context",
+    "Express dates and months",
+    "Schedule and confirm appointments",
+    "Tell time using hours and minutes",
+    "Ask 'When?' and 'What time?' questions"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "STORY",
+      "title": "La Semaine",
+      "content": "Alex regarde son nouveau calendrier français accroché au mur de sa cuisine. Il a beaucoup de choses à organiser cette semaine.\n\nAujourd'hui, c'est lundi. Lundi, il va à la boulangerie. Mardi, il va au marché. Mercredi, Alex a rendez-vous avec le technicien internet. Jeudi, il va au parc. Vendredi, c'est le jour du marché encore. Samedi et dimanche, c'est le weekend!\n\nAlex prend un stylo et écrit sur son calendrier:\n\nLundi - Boulangerie, 9h\nMardi - Marché\nMercredi - Technicien internet\nJeudi - Parc\nVendredi - Marché\nSamedi - Weekend!\nDimanche - Repos\n\nIl répète les jours: \"Lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche.\"\n\nAlex pense: \"Aujourd'hui, c'est lundi. Demain, c'est mardi. Et hier? Hier, c'était dimanche!\"\n\nIl sourit. \"Ma première semaine complète à Lyon!\" Il prend son sac et sort. C'est lundi, et la boulangerie attend!",
+      "generateAudio": true,
+      "estimatedMinutes": 20,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Quel jour?",
+            "instructions": "What day is it today for Alex?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Aujourd'hui, c'est quel jour?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Dimanche",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Lundi",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Mardi",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Mercredi",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex says: 'Aujourd'hui, c'est lundi' - Today is Monday.",
+              "hint": "The story begins with this information."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Demain",
+            "instructions": "What day is tomorrow?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Si aujourd'hui c'est lundi, demain c'est...?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Dimanche",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Lundi",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Mardi",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Mercredi",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex says: 'Demain, c'est mardi' - Tomorrow is Tuesday.",
+              "hint": "Demain means tomorrow."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Hier",
+            "instructions": "Complete the sentence about yesterday.",
+            "content": {
+              "text": "Aujourd'hui c'est lundi. _____, c'était dimanche.",
+              "blanks": [
+                {
+                  "correctAnswer": "Hier",
+                  "acceptableAnswers": [
+                    "Hier",
+                    "hier"
+                  ],
+                  "options": [
+                    "Hier",
+                    "Demain",
+                    "Aujourd'hui",
+                    "Maintenant"
+                  ]
+                }
+              ],
+              "translation": "Today is Monday. Yesterday was Sunday.",
+              "hint": "Hier means yesterday."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Les Jours de la Semaine",
+            "instructions": "Match the French days with their English translations.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Lundi",
+                  "right": "Monday"
+                },
+                {
+                  "left": "Mercredi",
+                  "right": "Wednesday"
+                },
+                {
+                  "left": "Vendredi",
+                  "right": "Friday"
+                },
+                {
+                  "left": "Samedi",
+                  "right": "Saturday"
+                },
+                {
+                  "left": "Dimanche",
+                  "right": "Sunday"
+                }
+              ],
+              "hint": "Days of the week - memorize the order!"
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Weekend",
+            "instructions": "Complete with the weekend days.",
+            "content": {
+              "text": "_____ et dimanche, c'est le weekend!",
+              "blanks": [
+                {
+                  "correctAnswer": "Samedi",
+                  "acceptableAnswers": [
+                    "Samedi",
+                    "samedi"
+                  ],
+                  "options": [
+                    "Samedi",
+                    "Vendredi",
+                    "Lundi",
+                    "Jeudi"
+                  ]
+                }
+              ],
+              "translation": "Saturday and Sunday, it's the weekend!",
+              "hint": "Which day comes before Sunday?"
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des Mots",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Aujourd'hui",
+                "c'est",
+                "lundi"
+              ],
+              "correctOrder": [
+                "Aujourd'hui",
+                "c'est",
+                "lundi"
+              ],
+              "translation": "Today is Monday",
+              "explanation": "Aujourd'hui (today) + c'est (it is) + day of the week.",
+              "hint": "Start with 'Today'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Quel jour pour le marché?",
+            "instructions": "On which days does Alex go to the market?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Alex va au marché quels jours?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Lundi et mercredi",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Mardi et vendredi",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Samedi et dimanche",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Mercredi et jeudi",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex writes: 'Mardi - Marché' and 'Vendredi - Marché'.",
+              "hint": "Look at Alex's calendar notes."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Les Sept Jours",
+            "instructions": "Listen to all seven days of the week.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche.",
+              "question": "How many days are in a week?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "5 days"
+                },
+                {
+                  "id": "b",
+                  "text": "6 days"
+                },
+                {
+                  "id": "c",
+                  "text": "7 days"
+                },
+                {
+                  "id": "d",
+                  "text": "8 days"
+                }
+              ],
+              "correctAnswer": "c",
+              "explanation": "There are 7 days in a week: lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche.",
+              "hint": "Count the days you hear."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.0,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "La Semaine d'Alex",
+            "instructions": "Fill in the missing words from the story.",
+            "content": {
+              "text": "Alex regarde son calendrier. {blank1}, c'est lundi. Il va à la boulangerie. {blank2}, c'est mardi et il va au {blank3}. Mercredi, il a rendez-vous avec le technicien. {blank4} et dimanche, c'est le weekend! Alex répète: il y a sept jours dans une {blank5}.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "Aujourd'hui"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "Demain"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "marché"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "Samedi"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "semaine"
+                }
+              ],
+              "hint": "Review the story about Alex's weekly schedule."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.5
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrator",
+          "voice": "Charon",
+          "description": "Calm, clear narrator voice"
+        }
+      ],
+      "audioStyle": "Narrative storytelling. Clear, slow-paced French suitable for beginners. Warm, engaging tone."
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Le Rendez-vous",
+      "content": "Technicien: Allô, bonjour! C'est le service internet Lyon.\n\nAlex: Bonjour! Je voudrais installer l'internet dans mon appartement, s'il vous plaît.\n\nTechnicien: Bien sûr! Nous avons des disponibilités cette semaine. Vous préférez quel jour?\n\nAlex: Euh... mercredi, c'est possible?\n\nTechnicien: Mercredi... Oui! Nous avons mercredi. C'est le quinze mars. Ça vous va?\n\nAlex: Le quinze mars... Oui, parfait!\n\nTechnicien: Très bien. Vous préférez le matin ou l'après-midi?\n\nAlex: Le matin, c'est mieux pour moi.\n\nTechnicien: D'accord. J'ai un créneau à dix heures. Ça va?\n\nAlex: Oui, dix heures, c'est parfait!\n\nTechnicien: Excellent! Donc, rendez-vous mercredi quinze mars, à dix heures du matin. Quelle est votre adresse?\n\nAlex: Quinze, rue de la République, Lyon.\n\nTechnicien: Parfait! J'ai noté. À mercredi, monsieur!\n\nAlex: À mercredi! Merci beaucoup!\n\nTechnicien: De rien. Bonne journée!\n\nAlex: Bonne journée!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Technicien",
+          "voice": "Achird",
+          "description": "Young technician setting up internet"
+        },
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "American man scheduling appointment"
+        }
+      ],
+      "audioStyle": "Phone conversation. Professional but friendly tone. Clear pronunciation for scheduling appointment.",
+      "estimatedMinutes": 25,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Quel jour?",
+            "instructions": "What day is the appointment?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Alex a rendez-vous quel jour?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Lundi",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Mardi",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Mercredi",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Jeudi",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "They confirm: 'rendez-vous mercredi' - appointment on Wednesday.",
+              "hint": "Alex asks if a specific day is possible."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "La Date",
+            "instructions": "What is the date of the appointment?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quelle est la date du rendez-vous?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Le 5 mars",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Le 15 mars",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Le 25 mars",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Le 15 mai",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The technician says: 'C'est le quinze mars' - It's March 15th.",
+              "hint": "Listen for the number and the month."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "J'ai rendez-vous",
+            "instructions": "Complete the sentence.",
+            "content": {
+              "text": "J'ai _____ mercredi à dix heures.",
+              "blanks": [
+                {
+                  "correctAnswer": "rendez-vous",
+                  "acceptableAnswers": [
+                    "rendez-vous",
+                    "rendez vous"
+                  ],
+                  "options": [
+                    "rendez-vous",
+                    "réservation",
+                    "temps",
+                    "date"
+                  ]
+                }
+              ],
+              "translation": "I have an appointment on Wednesday at 10 o'clock.",
+              "hint": "This word means 'appointment'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Les Mois",
+            "instructions": "Match the French months with their English translations.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Janvier",
+                  "right": "January"
+                },
+                {
+                  "left": "Mars",
+                  "right": "March"
+                },
+                {
+                  "left": "Juin",
+                  "right": "June"
+                },
+                {
+                  "left": "Septembre",
+                  "right": "September"
+                },
+                {
+                  "left": "Décembre",
+                  "right": "December"
+                }
+              ],
+              "hint": "Many French months look similar to English!"
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Confirmer le Rendez-vous",
+            "instructions": "Arrange the words to confirm an appointment.",
+            "content": {
+              "words": [
+                "J'ai",
+                "rendez-vous",
+                "mercredi"
+              ],
+              "correctOrder": [
+                "J'ai",
+                "rendez-vous",
+                "mercredi"
+              ],
+              "translation": "I have an appointment on Wednesday",
+              "explanation": "Use 'J'ai rendez-vous' + day to confirm an appointment.",
+              "hint": "Start with 'J'ai'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Le Mois",
+            "instructions": "Complete with the correct month.",
+            "content": {
+              "text": "Le rendez-vous est le quinze _____.",
+              "blanks": [
+                {
+                  "correctAnswer": "mars",
+                  "acceptableAnswers": [
+                    "mars",
+                    "Mars"
+                  ],
+                  "options": [
+                    "mars",
+                    "mai",
+                    "juin",
+                    "janvier"
+                  ]
+                }
+              ],
+              "translation": "The appointment is on March 15th.",
+              "hint": "The month sounds like the planet Mars!"
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Matin ou Après-midi?",
+            "instructions": "When is the appointment - morning or afternoon?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Le rendez-vous est le matin ou l'après-midi?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Le matin",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "L'après-midi",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Le soir",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "La nuit",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex says: 'Le matin, c'est mieux pour moi' - The morning is better for me.",
+              "hint": "Alex prefers one time of day."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "La Date Complète",
+            "instructions": "Listen to the complete date.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Mercredi quinze mars, à dix heures du matin.",
+              "question": "What is the complete appointment time?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Wednesday March 15, at 10am"
+                },
+                {
+                  "id": "b",
+                  "text": "Tuesday March 15, at 10am"
+                },
+                {
+                  "id": "c",
+                  "text": "Wednesday March 5, at 10am"
+                },
+                {
+                  "id": "d",
+                  "text": "Wednesday March 15, at 2pm"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "Mercredi = Wednesday, quinze mars = March 15, dix heures du matin = 10 in the morning.",
+              "hint": "Listen for the day, date, and time."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Prendre Rendez-vous",
+            "instructions": "Complete the dialogue summary.",
+            "content": {
+              "text": "Alex téléphone pour installer l'{blank1}. Le technicien propose {blank2}, le quinze {blank3}. Alex préfère le {blank4}, pas l'après-midi. Le rendez-vous est à {blank5} heures. L'adresse d'Alex est quinze, rue de la {blank6}, Lyon. Le technicien dit: 'À mercredi!'",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "internet"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "mercredi"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "mars"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "matin"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "dix",
+                    "10"
+                  ]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "République"
+                }
+              ],
+              "hint": "Review the appointment details from the phone call."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 3,
+      "type": "DIALOGUE",
+      "title": "Quelle Heure?",
+      "content": "Le mercredi arrive. Alex attend le technicien. Il regarde sa montre.\n\nAlex: Il est neuf heures et demie. Le technicien arrive à dix heures.\n\nDRING DRONG! La sonnette! Alex regarde encore sa montre.\n\nAlex: Ah! Il est dix heures pile!\n\nAlex ouvre la porte.\n\nTechnicien: Bonjour! Service internet. Vous êtes Monsieur Alex?\n\nAlex: Oui, c'est moi! Bonjour! Vous êtes très ponctuel!\n\nTechnicien: Oui, dix heures, comme prévu! Bon, ça va prendre combien de temps? Environ une heure, une heure et quart.\n\nAlex: D'accord. Donc... vous avez fini à quelle heure?\n\nTechnicien: Euh... Il est dix heures maintenant. Donc... à onze heures, onze heures et quart maximum.\n\nAlex: Parfait! J'ai un autre rendez-vous à midi.\n\nTechnicien: Midi? Pas de problème! Je finis avant midi.\n\nAlex: C'est génial, merci!\n\nUne heure plus tard...\n\nTechnicien: Voilà! C'est fait! Il est onze heures cinq. L'internet fonctionne!\n\nAlex: Excellent! Merci beaucoup!\n\nTechnicien: De rien! Bonne journée!\n\nAlex: Bonne journée!\n\nAlex regarde l'horloge: il est onze heures dix. Il a encore cinquante minutes avant son rendez-vous à midi. Parfait!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Technicien",
+          "voice": "Achird",
+          "description": "Young, friendly internet technician"
+        },
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "American man learning to tell time in French"
+        }
+      ],
+      "audioStyle": "Natural conversation. Alex and technician coordinate timing. Clear time expressions for learning.",
+      "estimatedMinutes": 25,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Quelle heure - le technicien?",
+            "instructions": "What time does the technician arrive?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Le technicien arrive à quelle heure?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "9h30",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "10h00",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "11h00",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "12h00",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex says: 'Il est dix heures pile!' - It's exactly 10 o'clock!",
+              "hint": "Alex notes the technician is on time."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Quelle heure - fini?",
+            "instructions": "What time does the technician finish?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Le technicien finit à quelle heure?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "10h05",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "11h05",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "11h15",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "12h00",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The technician says: 'Il est onze heures cinq' - It's 11:05.",
+              "hint": "Listen when the technician announces he's finished."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Il est...",
+            "instructions": "Complete the time expression.",
+            "content": {
+              "text": "_____ est dix heures.",
+              "blanks": [
+                {
+                  "correctAnswer": "Il",
+                  "acceptableAnswers": [
+                    "Il",
+                    "il"
+                  ],
+                  "options": [
+                    "Il",
+                    "C'est",
+                    "Je",
+                    "Elle"
+                  ]
+                }
+              ],
+              "translation": "It is ten o'clock.",
+              "hint": "Use the impersonal pronoun for telling time."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "L'Heure",
+            "instructions": "Match the French time expressions with the clock times.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Neuf heures et demie",
+                  "right": "9:30"
+                },
+                {
+                  "left": "Dix heures pile",
+                  "right": "10:00 exactly"
+                },
+                {
+                  "left": "Onze heures et quart",
+                  "right": "11:15"
+                },
+                {
+                  "left": "Midi",
+                  "right": "12:00 (noon)"
+                },
+                {
+                  "left": "Onze heures cinq",
+                  "right": "11:05"
+                }
+              ],
+              "hint": "Et demie = and half, et quart = and quarter."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Demander l'heure",
+            "instructions": "Arrange the words to ask the time.",
+            "content": {
+              "words": [
+                "Il",
+                "est",
+                "quelle",
+                "heure",
+                "?"
+              ],
+              "correctOrder": [
+                "Il",
+                "est",
+                "quelle",
+                "heure",
+                "?"
+              ],
+              "translation": "What time is it?",
+              "explanation": "Use 'Il est quelle heure?' to ask the time.",
+              "hint": "Start with 'Il est'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Et Demie",
+            "instructions": "Complete with 'et demie' for half past.",
+            "content": {
+              "text": "Il est neuf heures _____.",
+              "blanks": [
+                {
+                  "correctAnswer": "et demie",
+                  "acceptableAnswers": [
+                    "et demie",
+                    "et demi"
+                  ],
+                  "options": [
+                    "et demie",
+                    "et quart",
+                    "cinq",
+                    "moins le quart"
+                  ]
+                }
+              ],
+              "translation": "It is 9:30 (nine-thirty / half past nine).",
+              "hint": "This expression means 'and half'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Rendez-vous à Midi",
+            "instructions": "When is Alex's other appointment?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Alex a un autre rendez-vous à quelle heure?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "10h00",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "11h00",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "12h00 (midi)",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "13h00",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex says: 'J'ai un autre rendez-vous à midi' - I have another appointment at noon.",
+              "hint": "Midi means noon/midday."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Les Heures",
+            "instructions": "Listen to the time expressions.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Il est neuf heures et demie. Il est dix heures. Il est onze heures et quart. Il est midi.",
+              "question": "Which time is NOT mentioned?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "9:30"
+                },
+                {
+                  "id": "b",
+                  "text": "10:00"
+                },
+                {
+                  "id": "c",
+                  "text": "10:45"
+                },
+                {
+                  "id": "d",
+                  "text": "11:15"
+                }
+              ],
+              "correctAnswer": "c",
+              "explanation": "We hear 9:30, 10:00, 11:15, and 12:00. We do NOT hear 10:45.",
+              "hint": "Listen carefully to all times mentioned."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "L'Installation Internet",
+            "instructions": "Complete the story about the internet installation.",
+            "content": {
+              "text": "Le mercredi arrive. Alex regarde sa {blank1}: il est neuf heures et demie. Le technicien arrive à {blank2} heures pile. Le travail prend environ une {blank3} et quart. Le technicien finit à onze heures {blank4}. Alex a un autre rendez-vous à {blank5}. Il a encore {blank6} minutes!",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "montre"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": [
+                    "dix",
+                    "10"
+                  ]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "heure"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": [
+                    "cinq",
+                    "5"
+                  ]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "midi"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": [
+                    "cinquante",
+                    "50"
+                  ]
+                }
+              ],
+              "hint": "Review the times mentioned throughout the conversation."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        }
+      ]
+    }
+  ]
+}

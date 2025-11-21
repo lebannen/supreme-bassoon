@@ -1,0 +1,1149 @@
+{
+  "moduleNumber": 10,
+  "title": "L'Apéro",
+  "theme": "Social Gathering & A1.1 Review",
+  "description": "Alex celebrates his progress with a French apéro! This final module reviews everything learned in Modules 1-9 through a natural social gathering. Learn drinks vocabulary, toasting culture, and consolidate all A1.1 skills.",
+  "objectives": [
+    "Use drinks vocabulary and apéro customs",
+    "Make small talk in French about hobbies and interests",
+    "Review all grammar from Modules 1-9",
+    "Demonstrate mastery of être, avoir, aller, and -ER verbs",
+    "Integrate vocabulary from all previous modules"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "DIALOGUE",
+      "title": "Santé!",
+      "content": "C'est samedi soir. Alex organise son premier apéro français! Il a invité sa voisine.\n\nDRING DRONG!\n\nAlex: Bonsoir! Entrez, entrez!\n\nVoisine: Bonsoir, Alex! Merci pour l'invitation! Tenez, j'ai apporté du vin.\n\nAlex: Oh, du vin! Merci beaucoup! C'est très gentil!\n\nVoisine: De rien! C'est un vin de Bourgogne. Vous aimez le vin rouge?\n\nAlex: Oui, j'aime bien le vin rouge! Et vous? Vous préférez le vin rouge ou le vin blanc?\n\nVoisine: Moi, je préfère le vin blanc, mais le rouge, c'est bien aussi!\n\nAlex: Parfait! J'ai aussi de la bière, du jus d'orange et de l'eau. Qu'est-ce que vous voulez boire?\n\nVoisine: Un verre de vin rouge, s'il vous plaît!\n\nAlex: Excellent! Moi aussi, je vais boire du vin rouge.\n\nAlex verse le vin dans deux verres.\n\nAlex: Voilà!\n\nVoisine: Merci! On trinque?\n\nAlex: Oui! Euh... Comment on dit en français?\n\nVoisine: On dit 'Santé!' ou 'Tchin-tchin!'\n\nAlex: Ah oui! Santé!\n\nVoisine: Santé! À votre nouvelle vie à Lyon!\n\nAlex: Merci! C'est délicieux, ce vin!\n\nVoisine: Oui, c'est un bon vin! Alors, vous vous êtes bien installé?\n\nAlex: Oui, très bien! Lyon est magnifique et les gens sont sympas!\n\nVoisine: Je suis contente! Bienvenue dans le quartier!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Voisine",
+          "voice": "Kore",
+          "description": "Friendly neighbor teaching apéro customs"
+        },
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "American hosting his first French apéro"
+        }
+      ],
+      "audioStyle": "Warm, social atmosphere. Friends toasting and enjoying drinks together. Friendly, relaxed tone.",
+      "estimatedMinutes": 20,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Qu'est-ce que c'est?",
+            "instructions": "What is an apéro?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Un apéro, c'est quoi?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "A French breakfast",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "A social gathering with drinks",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "A formal dinner",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "A business meeting",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "An apéro (short for apéritif) is a social gathering with drinks and small snacks before dinner.",
+              "hint": "Alex is hosting a social event with drinks."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Qu'est-ce que la Voisine Apporte?",
+            "instructions": "What does the neighbor bring?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "La voisine apporte quoi?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "De la bière",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Du vin",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Du jus",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "De l'eau",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The neighbor says: 'J'ai apporté du vin' - I brought some wine.",
+              "hint": "She brings a bottle from Bourgogne."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Les Boissons",
+            "instructions": "Match the French drinks with their English translations.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Le vin",
+                  "right": "Wine"
+                },
+                {
+                  "left": "La bière",
+                  "right": "Beer"
+                },
+                {
+                  "left": "Le jus d'orange",
+                  "right": "Orange juice"
+                },
+                {
+                  "left": "L'eau",
+                  "right": "Water"
+                },
+                {
+                  "left": "Un verre",
+                  "right": "A glass"
+                }
+              ],
+              "hint": "Common drinks vocabulary for social gatherings."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Boire",
+            "instructions": "Complete with the verb 'boire' (to drink).",
+            "content": {
+              "text": "Qu'est-ce que vous voulez _____?",
+              "blanks": [
+                {
+                  "correctAnswer": "boire",
+                  "acceptableAnswers": [
+                    "boire"
+                  ],
+                  "options": [
+                    "boire",
+                    "manger",
+                    "prendre",
+                    "avoir"
+                  ]
+                }
+              ],
+              "translation": "What do you want to drink?",
+              "hint": "Use the infinitive form of the verb 'to drink'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Article Partitif",
+            "instructions": "Complete with the correct partitive article.",
+            "content": {
+              "text": "J'ai apporté _____ vin.",
+              "blanks": [
+                {
+                  "correctAnswer": "du",
+                  "acceptableAnswers": [
+                    "du"
+                  ],
+                  "options": [
+                    "du",
+                    "de la",
+                    "des",
+                    "le"
+                  ]
+                }
+              ],
+              "translation": "I brought some wine.",
+              "hint": "Vin is masculine - use the masculine partitive article."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Trinquer!",
+            "instructions": "Arrange the words for the toasting phrase.",
+            "content": {
+              "words": [
+                "Santé",
+                "!"
+              ],
+              "correctOrder": [
+                "Santé",
+                "!"
+              ],
+              "translation": "Cheers! / To your health!",
+              "explanation": "'Santé' means 'health'. It's what French people say when toasting.",
+              "hint": "This is the traditional French toast."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Préférence de la Voisine",
+            "instructions": "What does the neighbor prefer?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "La voisine préfère quel vin?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Le vin rouge",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Le vin blanc",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Le vin rosé",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Pas de vin",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The neighbor says: 'Moi, je préfère le vin blanc' - Me, I prefer white wine.",
+              "hint": "Listen to what she says she prefers."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Trinquer en Français",
+            "instructions": "Listen to the toasting expressions.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Santé! Tchin-tchin! À votre nouvelle vie à Lyon!",
+              "question": "How many ways to toast are mentioned?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "One way"
+                },
+                {
+                  "id": "b",
+                  "text": "Two ways"
+                },
+                {
+                  "id": "c",
+                  "text": "Three ways"
+                },
+                {
+                  "id": "d",
+                  "text": "Four ways"
+                }
+              ],
+              "correctAnswer": "c",
+              "explanation": "Three ways are mentioned: 'Santé!', 'Tchin-tchin!', and 'À votre nouvelle vie à Lyon!'",
+              "hint": "Listen for different toasting phrases."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.2,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Le Premier Apéro",
+            "instructions": "Complete the story about Alex's first apéro.",
+            "content": {
+              "text": "C'est samedi soir. Alex organise un {blank1}. Sa voisine arrive avec du {blank2} de Bourgogne. Alex a aussi de la bière, du jus et de l'{blank3}. Ils prennent un {blank4} de vin rouge. Pour trinquer en français, on dit '{blank5}!' ou 'Tchin-tchin!' C'est un bon vin et Alex est content de sa nouvelle vie à {blank6}!",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "apéro"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "vin"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "eau"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "verre"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "Santé"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "Lyon"
+                }
+              ],
+              "hint": "Review the apéro conversation and French toasting customs."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.3
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "La Conversation",
+      "content": "Alex et sa voisine continuent à parler. Un autre voisin, Marc, arrive.\n\nDRING DRONG!\n\nAlex: Ah, c'est Marc! Excusez-moi un instant.\n\nAlex ouvre la porte.\n\nAlex: Bonsoir, Marc! Entrez!\n\nMarc: Bonsoir! Merci! Ah, vous avez déjà du monde!\n\nAlex: Oui, voici ma voisine. Nous habitons dans le même immeuble.\n\nMarc: Enchanté! Je m'appelle Marc.\n\nVoisine: Enchantée! Moi, c'est Sophie.\n\nAlex: Marc, qu'est-ce que vous voulez boire? J'ai du vin, de la bière, du jus...\n\nMarc: Un verre de vin blanc, s'il vous plaît!\n\nAlex: Parfait! Voilà!\n\nMarc: Merci! Santé!\n\nTous: Santé!\n\nVoisine: Alors, Marc, vous habitez dans le quartier?\n\nMarc: Oui, j'habite rue Garibaldi, pas loin d'ici. Et vous, vous travaillez où?\n\nVoisine: Je travaille dans un hôpital. Je suis infirmière. Et vous?\n\nMarc: Moi, je suis professeur. J'enseigne l'anglais au lycée.\n\nAlex: Ah, vous parlez anglais!\n\nMarc: Oui, je parle anglais et espagnol aussi! Et vous, Alex, qu'est-ce que vous faites comme loisirs?\n\nAlex: J'aime le sport. Je vais au parc le weekend. J'aime aussi le cinéma et la musique. Et vous?\n\nMarc: Moi, j'adore la lecture et le voyage. J'aime aussi la cuisine française!\n\nVoisine: Moi aussi, j'aime cuisiner! Et j'aime beaucoup la photographie.\n\nAlex: C'est intéressant! Moi, je commence à découvrir Lyon. C'est une ville magnifique!\n\nMarc: Oui! Si vous voulez, je peux vous montrer de bons restaurants!\n\nAlex: Ah, c'est gentil! Avec plaisir!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Marc",
+          "voice": "Achird",
+          "description": "Friendly neighbor Marc invited to apéro"
+        },
+        {
+          "name": "Voisine",
+          "voice": "Kore",
+          "description": "Sophie, the neighbor"
+        },
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "American hosting and making conversation"
+        }
+      ],
+      "audioStyle": "Friendly social gathering. Natural small talk among neighbors. Warm, interested tones.",
+      "estimatedMinutes": 25,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Profession de Marc",
+            "instructions": "What is Marc's profession?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quelle est la profession de Marc?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Infirmier",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Professeur",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Médecin",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Informaticien",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Marc says: 'Je suis professeur. J'enseigne l'anglais au lycée' - I'm a teacher. I teach English at high school.",
+              "hint": "Marc teaches English."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Profession de Sophie",
+            "instructions": "What is Sophie's profession?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Sophie travaille où?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Dans un lycée",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Dans un hôpital",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Dans un restaurant",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Dans une banque",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Sophie says: 'Je travaille dans un hôpital. Je suis infirmière' - I work in a hospital. I'm a nurse.",
+              "hint": "She works in healthcare."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Les Loisirs",
+            "instructions": "Match the French leisure activities with English.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Le sport",
+                  "right": "Sports"
+                },
+                {
+                  "left": "Le cinéma",
+                  "right": "Cinema / Movies"
+                },
+                {
+                  "left": "La musique",
+                  "right": "Music"
+                },
+                {
+                  "left": "La lecture",
+                  "right": "Reading"
+                },
+                {
+                  "left": "Le voyage",
+                  "right": "Travel"
+                }
+              ],
+              "hint": "Common hobbies and interests vocabulary."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Se Présenter",
+            "instructions": "Complete the introduction.",
+            "content": {
+              "text": "Enchanté! Je _____ Marc.",
+              "blanks": [
+                {
+                  "correctAnswer": "m'appelle",
+                  "acceptableAnswers": [
+                    "m'appelle"
+                  ],
+                  "options": [
+                    "m'appelle",
+                    "suis",
+                    "habite",
+                    "travaille"
+                  ]
+                }
+              ],
+              "translation": "Nice to meet you! My name is Marc.",
+              "hint": "Use the reflexive verb for introducing your name."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Habiter",
+            "instructions": "Complete with the verb 'habiter'.",
+            "content": {
+              "text": "J'_____ rue Garibaldi.",
+              "blanks": [
+                {
+                  "correctAnswer": "habite",
+                  "acceptableAnswers": [
+                    "habite"
+                  ],
+                  "options": [
+                    "habite",
+                    "habites",
+                    "habitez",
+                    "habitent"
+                  ]
+                }
+              ],
+              "translation": "I live on Garibaldi Street.",
+              "hint": "Use 'habiter' conjugated for 'je'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Les Loisirs",
+            "instructions": "Arrange the words to talk about hobbies.",
+            "content": {
+              "words": [
+                "J'aime",
+                "le",
+                "cinéma"
+              ],
+              "correctOrder": [
+                "J'aime",
+                "le",
+                "cinéma"
+              ],
+              "translation": "I like cinema/movies",
+              "explanation": "Use 'J'aime' + definite article + hobby to express what you like.",
+              "hint": "Start with 'J'aime'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Langues de Marc",
+            "instructions": "What languages does Marc speak?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Marc parle quelles langues?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Français seulement",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Français et anglais",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Français, anglais et espagnol",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Français et italien",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Marc says: 'Je parle anglais et espagnol aussi!' - I speak English and Spanish too! (Plus French, of course)",
+              "hint": "Marc mentions two foreign languages."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Parler de Soi",
+            "instructions": "Listen to people introducing themselves.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Je m'appelle Marc. J'habite rue Garibaldi. Je suis professeur. Je parle anglais et espagnol. J'adore la lecture et le voyage.",
+              "question": "What is Marc's hobby?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Sport and music"
+                },
+                {
+                  "id": "b",
+                  "text": "Reading and travel"
+                },
+                {
+                  "id": "c",
+                  "text": "Cinema and cooking"
+                },
+                {
+                  "id": "d",
+                  "text": "Photography and art"
+                }
+              ],
+              "correctAnswer": "b",
+              "explanation": "Marc says: 'J'adore la lecture et le voyage' - I love reading and travel.",
+              "hint": "Listen for what Marc adores."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.2,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "La Soirée Continue",
+            "instructions": "Complete the story about the apéro conversation.",
+            "content": {
+              "text": "Marc arrive. Il se présente: 'Je {blank1} Marc.' Il habite rue Garibaldi. Marc est {blank2} d'anglais au lycée. Il parle anglais et {blank3}. Sophie travaille dans un {blank4}. Elle est infirmière et elle aime la {blank5}. Alex aime le sport et le {blank6}. Marc propose de montrer de bons restaurants à Alex. C'est une belle soirée!",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "m'appelle"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "professeur"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "espagnol"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "hôpital"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "photographie"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "cinéma"
+                }
+              ],
+              "hint": "Review the conversation about professions and hobbies."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.4
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 3,
+      "type": "STORY",
+      "title": "Bilan A1.1",
+      "content": "Dimanche matin. Alex se réveille et pense à sa première semaine complète à Lyon.\n\nIl regarde par la fenêtre. \"Aujourd'hui, c'est dimanche. Le soleil brille. Il fait beau!\"\n\nAlex prépare son petit déjeuner. \"Je prends du café, du pain avec du beurre et de la confiture. J'adore le petit déjeuner français!\"\n\nIl pense: \"Il y a un mois, je suis arrivé à l'aéroport. L'agent a demandé: 'Passeport, s'il vous plaît.' J'étais nerveux!\"\n\n\"Maintenant, je sais dire bonjour, je comprends les directions, je vais au marché, je prends le métro... C'est incroyable!\"\n\nAlex regarde son calendrier: \"Demain, c'est lundi. Je commence mon nouveau travail! J'ai rendez-vous à neuf heures.\"\n\nIl compte sur ses doigts: \"Un, deux, trois... J'habite au quinze, rue de la République. Mon numéro de téléphone est... Je sais tout ça en français!\"\n\n\"J'ai des voisins sympas. Sophie est infirmière, Marc est professeur. Ils parlent avec moi et ils sont patients.\"\n\n\"J'aime Lyon! Il y a la poste, la banque, le musée, le parc, le marché... Tout est proche!\"\n\n\"Au marché, j'achète des pommes, des tomates, des carottes... Le vendeur est très gentil. Il m'explique tout.\"\n\n\"Hier soir, c'était mon premier apéro! On a bu du vin, on a dit 'Santé!' et on a parlé de beaucoup de choses. En français!\"\n\nAlex sourit. \"En un mois, je parle français avec mes voisins, je vais aux magasins, je prends les transports... Ma vie à Lyon commence vraiment!\"\n\nIl ouvre son livre de français. \"Mais je continue à apprendre! Le français, c'est difficile, mais c'est aussi très beau. Et maintenant, Lyon, c'est chez moi!\"\n\nAlex ferme les yeux. \"Merci, Lyon. Merci, la France. C'est le début d'une belle aventure!\"",
+      "generateAudio": true,
+      "estimatedMinutes": 25,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Review: Jour de la Semaine",
+            "instructions": "What day is it in the story?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel jour est-ce dans l'histoire?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Samedi",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Dimanche",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Lundi",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Vendredi",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The story begins: 'Dimanche matin' - Sunday morning.",
+              "hint": "It's the day before Alex starts work."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Review: Depuis Combien de Temps?",
+            "instructions": "How long has Alex been in Lyon?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Alex est à Lyon depuis combien de temps?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Une semaine",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Deux semaines",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Un mois",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Trois mois",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex thinks: 'Il y a un mois, je suis arrivé' - One month ago, I arrived.",
+              "hint": "Alex reflects on when he arrived at the airport."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Review: Être",
+            "instructions": "Complete with the correct form of être.",
+            "content": {
+              "text": "Sophie _____ infirmière. Marc _____ professeur. Je _____ américain.",
+              "blanks": [
+                {
+                  "correctAnswer": "est",
+                  "acceptableAnswers": [
+                    "est"
+                  ],
+                  "options": [
+                    "est",
+                    "suis",
+                    "êtes",
+                    "sont"
+                  ]
+                }
+              ],
+              "translation": "Sophie is a nurse. Marc is a teacher. I am American.",
+              "hint": "Review être conjugation for different subjects."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 20,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Review: Avoir",
+            "instructions": "Complete with the correct form of avoir.",
+            "content": {
+              "text": "J'_____ un appartement. Tu _____ des voisins sympas. Nous _____ rendez-vous demain.",
+              "blanks": [
+                {
+                  "correctAnswer": "ai",
+                  "acceptableAnswers": [
+                    "ai"
+                  ],
+                  "options": [
+                    "ai",
+                    "as",
+                    "avons",
+                    "ont"
+                  ]
+                }
+              ],
+              "translation": "I have an apartment. You have nice neighbors. We have an appointment tomorrow.",
+              "hint": "Review avoir conjugation."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 20,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Review: Vocabulaire Complet",
+            "instructions": "Match words from all modules (comprehensive review).",
+            "content": {
+              "pairs": [
+                {
+                  "left": "La boulangerie",
+                  "right": "Bakery (Module 5)"
+                },
+                {
+                  "left": "Le rendez-vous",
+                  "right": "Appointment (Module 7)"
+                },
+                {
+                  "left": "Le métro",
+                  "right": "Metro/Subway (Module 8)"
+                },
+                {
+                  "left": "Le marché",
+                  "right": "Market (Module 9)"
+                },
+                {
+                  "left": "Le vin",
+                  "right": "Wine (Module 10)"
+                }
+              ],
+              "hint": "Vocabulary from Modules 5-10."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Review: Aller + Lieu",
+            "instructions": "Arrange words to say where you're going.",
+            "content": {
+              "words": [
+                "Je",
+                "vais",
+                "au",
+                "marché"
+              ],
+              "correctOrder": [
+                "Je",
+                "vais",
+                "au",
+                "marché"
+              ],
+              "translation": "I go to the market",
+              "explanation": "Use 'aller' + au/à la + place. Remember: à + le = au.",
+              "hint": "Review Module 8 (verb aller with prepositions)."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Review: Les Articles",
+            "instructions": "Complete with the correct articles (comprehensive).",
+            "content": {
+              "text": "J'achète _____ pommes (some apples), _____ pain (the bread) et _____ kilo de tomates (one kilo of tomatoes).",
+              "blanks": [
+                {
+                  "correctAnswer": "des",
+                  "acceptableAnswers": [
+                    "des"
+                  ],
+                  "options": [
+                    "des",
+                    "le",
+                    "un",
+                    "de"
+                  ]
+                }
+              ],
+              "translation": "I buy some apples, the bread, and one kilo of tomatoes.",
+              "hint": "Review indefinite, definite, and partitive articles."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Review: Préférences",
+            "instructions": "Arrange words to express preferences.",
+            "content": {
+              "words": [
+                "J'aime",
+                "le",
+                "pain",
+                "français"
+              ],
+              "correctOrder": [
+                "J'aime",
+                "le",
+                "pain",
+                "français"
+              ],
+              "translation": "I like French bread",
+              "explanation": "Use 'J'aime' + article + noun + adjective. Remember adjective placement!",
+              "hint": "Review Module 9 (preferences) and adjective agreement."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Review: L'Histoire d'Alex",
+            "instructions": "Listen to Alex's journey summary.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Je m'appelle Alex. Je suis américain. J'habite à Lyon, quinze rue de la République. Je vais au marché, je prends le métro, je parle avec mes voisins. J'aime le pain français et le café. Demain, je commence mon travail. Lyon, c'est chez moi!",
+              "question": "What does Alex say about tomorrow?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "He goes to the market"
+                },
+                {
+                  "id": "b",
+                  "text": "He starts work"
+                },
+                {
+                  "id": "c",
+                  "text": "He visits the museum"
+                },
+                {
+                  "id": "d",
+                  "text": "He has an apéro"
+                }
+              ],
+              "correctAnswer": "b",
+              "explanation": "Alex says: 'Demain, je commence mon travail' - Tomorrow, I start my work.",
+              "hint": "Listen for what happens 'demain' (tomorrow)."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.4,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 10,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Review: Le Voyage d'Alex (Comprehensive)",
+            "instructions": "Complete Alex's complete story (all modules review).",
+            "content": {
+              "text": "Alex arrive à l'{blank1} de Lyon. Il prend un taxi et va à son appartement, quinze rue de la {blank2}. Il rencontre ses {blank3}. Il va à la {blank4} pour acheter du pain. Il apprend les jours de la {blank5}: lundi, mardi, mercredi... Le technicien vient installer l'{blank6}. Alex se perd dans la ville mais un {blank7} l'aide. Il apprend à prendre le {blank8}. Au marché, il achète des fruits et des {blank9}. Samedi soir, il organise un {blank10} avec du vin. Maintenant, Lyon, c'est chez lui!",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "aéroport"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "République"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "voisins"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "boulangerie"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "semaine"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "internet"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "passant"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "métro"
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "légumes"
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": "apéro"
+                }
+              ],
+              "hint": "This reviews Alex's entire journey through all 10 modules!"
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 30,
+            "difficultyRating": 2.0
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrator",
+          "voice": "Charon",
+          "description": "Reflective narrator voice"
+        }
+      ],
+      "audioStyle": "Reflective, warm narrative. Alex looking back on his journey with satisfaction. Thoughtful, celebratory tone marking the end of A1.1."
+    }
+  ]
+}

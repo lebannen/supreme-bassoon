@@ -1,0 +1,1128 @@
+{
+  "moduleNumber": 4,
+  "title": "Les Voisins",
+  "theme": "Les Autres - Describing People",
+  "description": "Alex rencontre ses voisins à Lyon. Apprendre à décrire les personnes, parler de l'âge, et échanger des numéros de téléphone.",
+  "objectives": [
+    "Use verb avoir for age and possession",
+    "Describe people with basic adjectives (grand, petit, blond, brun)",
+    "Understand and say numbers 11-69",
+    "Exchange phone numbers",
+    "Make simple introductions with neighbors"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "DIALOGUE",
+      "title": "Toc Toc",
+      "content": "Alex est dans son appartement. Il range ses affaires. Soudain : toc, toc, toc.\n\nAlex ouvre la porte.\n\nVoisine : Bonjour ! Je suis votre voisine. Je m'appelle Marie.\n\nAlex : Bonjour Marie ! Enchanté. Je m'appelle Alex.\n\nMarie : Enchanté, Alex. Bienvenue dans l'immeuble ! J'ai un paquet pour vous. Le facteur l'a laissé chez moi.\n\nAlex : Oh ! Merci beaucoup. C'est très gentil.\n\nMarie : De rien ! Vous venez d'arriver à Lyon ?\n\nAlex : Oui, j'arrive des États-Unis. J'ai vingt-cinq ans et je commence un nouveau travail.\n\nMarie : Ah, les États-Unis ! Moi, j'ai trente-deux ans et j'habite ici depuis cinq ans.\n\nAlex : Vous aimez le quartier ?\n\nMarie : Oui, beaucoup ! Les voisins sont sympathiques. Il y a une boulangerie au coin de la rue. Vous avez des enfants ?\n\nAlex : Non, je n'ai pas d'enfants. Et vous ?\n\nMarie : Oui, j'ai deux enfants. Une fille et un garçon. Ma fille a sept ans et mon fils a quatre ans.\n\nAlex : C'est super !\n\nMarie : Si vous avez besoin de quelque chose, je suis à l'appartement numéro douze.\n\nAlex : Merci Marie ! C'est très gentil.\n\nMarie : Bonne installation ! À bientôt !\n\nAlex : À bientôt !",
+      "generateAudio": true,
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Qui est Marie ?",
+            "instructions": "Choisissez la bonne réponse.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qui est Marie ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "La voisine d'Alex",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "La sœur d'Alex",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "La collègue d'Alex",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "La boulangère",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Marie dit : 'Je suis votre voisine' - elle habite dans le même immeuble qu'Alex.",
+              "hint": "Marie se présente au début du dialogue."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "L'âge d'Alex",
+            "instructions": "Quel âge a Alex ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel âge a Alex ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "22 ans",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "25 ans",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "32 ans",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "35 ans",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'J'ai vingt-cinq ans' - he is 25 years old.",
+              "hint": "Écoutez quand Alex parle de lui."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez : J'ai vingt-cinq ans",
+            "instructions": "Complétez avec le verbe avoir.",
+            "content": {
+              "text": "J'_____ vingt-cinq ans.",
+              "blanks": [
+                {
+                  "correctAnswer": "ai",
+                  "acceptableAnswers": [
+                    "ai"
+                  ],
+                  "options": [
+                    "ai",
+                    "as",
+                    "a",
+                    "suis"
+                  ]
+                }
+              ],
+              "translation": "I am 25 years old. (Literally: I have 25 years)",
+              "hint": "En français, on utilise le verbe 'avoir' pour l'âge."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez : Tu as quel âge ?",
+            "instructions": "Complétez avec la bonne forme du verbe avoir.",
+            "content": {
+              "text": "Tu _____ quel âge ?",
+              "blanks": [
+                {
+                  "correctAnswer": "as",
+                  "acceptableAnswers": [
+                    "as"
+                  ],
+                  "options": [
+                    "as",
+                    "ai",
+                    "a",
+                    "es"
+                  ]
+                }
+              ],
+              "translation": "How old are you?",
+              "hint": "Utilisez 'avoir' avec 'tu'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associez : L'âge",
+            "instructions": "Associez les phrases avec les âges.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Alex a vingt-cinq ans",
+                  "right": "25 ans"
+                },
+                {
+                  "left": "Marie a trente-deux ans",
+                  "right": "32 ans"
+                },
+                {
+                  "left": "La fille a sept ans",
+                  "right": "7 ans"
+                },
+                {
+                  "left": "Le fils a quatre ans",
+                  "right": "4 ans"
+                }
+              ],
+              "hint": "Lisez bien les nombres en français."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Remettez les mots dans l'ordre",
+            "instructions": "Formez une phrase correcte.",
+            "content": {
+              "words": [
+                "J'",
+                "ai",
+                "vingt-cinq",
+                "ans"
+              ],
+              "correctOrder": [
+                "J'",
+                "ai",
+                "vingt-cinq",
+                "ans"
+              ],
+              "translation": "I am 25 years old",
+              "explanation": "Pour dire l'âge en français : sujet + avoir + nombre + ans",
+              "hint": "Commencez par le sujet 'J''."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Compréhension orale : Les enfants de Marie",
+            "instructions": "Écoutez et répondez.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Oui, j'ai deux enfants. Une fille et un garçon. Ma fille a sept ans et mon fils a quatre ans.",
+              "question": "Combien d'enfants a Marie ?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Un enfant"
+                },
+                {
+                  "id": "b",
+                  "text": "Deux enfants"
+                },
+                {
+                  "id": "c",
+                  "text": "Trois enfants"
+                },
+                {
+                  "id": "d",
+                  "text": "Pas d'enfants"
+                }
+              ],
+              "correctAnswer": "b",
+              "explanation": "Marie dit : 'j'ai deux enfants' - une fille et un garçon.",
+              "hint": "Écoutez le nombre au début."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.3,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Texte à trous : La rencontre",
+            "instructions": "Complétez le texte avec les mots manquants.",
+            "content": {
+              "text": "Marie est la {blank1} d'Alex. Elle a un {blank2} pour lui. Alex {blank3} vingt-cinq ans et Marie a {blank4} ans. Marie a deux {blank5} : une fille et un garçon. Marie habite à l'appartement numéro {blank6}.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "voisine"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "paquet"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "a"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": [
+                    "trente-deux",
+                    "32"
+                  ]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "enfants"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": [
+                    "douze",
+                    "12"
+                  ]
+                }
+              ],
+              "hint": "Relisez le dialogue pour trouver les informations."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire : Le paquet",
+            "instructions": "Que signifie 'paquet' ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que signifie 'un paquet' ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "A package / parcel",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "A letter",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "A key",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "A neighbor",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Marie a un paquet (package) pour Alex que le facteur a laissé chez elle.",
+              "hint": "Le facteur livre cet objet."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Jeune homme américain, nouvel arrivant à Lyon"
+        },
+        {
+          "name": "Voisine",
+          "voice": "Kore",
+          "description": "Voisine sympathique qui apporte un paquet"
+        }
+      ],
+      "audioStyle": "Conversation naturelle et amicale entre voisins. Marie est accueillante et chaleureuse. Alex est poli et reconnaissant. Rythme modéré pour les apprenants A1."
+    },
+    {
+      "episodeNumber": 2,
+      "type": "STORY",
+      "title": "Décrire",
+      "content": "Alex est dans son appartement. Il envoie un message à son ami Thomas.\n\n\"Salut Thomas ! Aujourd'hui, j'ai rencontré ma voisine. Elle s'appelle Marie. Comment est Marie ? Elle est grande et elle a les cheveux bruns. Elle est très sympathique !\n\nMarie a deux enfants. Le garçon est petit. Il a quatre ans. Il a les cheveux blonds et les yeux bleus. Il est mignon.\n\nLa fille est plus grande. Elle a sept ans. Elle a les cheveux bruns comme sa mère. Elle est intelligente.\n\nDans l'immeuble, il y a aussi un autre voisin. Il s'appelle Monsieur Dupont. Il est âgé. Il a les cheveux gris. Il est mince et il porte des lunettes. Il est gentil mais un peu timide.\n\nEt puis, il y a une jeune femme au troisième étage. Elle s'appelle Sophie. Elle est petite et mince. Elle a les cheveux roux et les yeux verts. Elle est très élégante. Elle travaille dans la mode.\n\nLe quartier est vraiment agréable. Les voisins sont tous différents mais sympathiques. Je suis content d'habiter ici !\n\nÀ bientôt, Alex.\"",
+      "generateAudio": true,
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comment est Marie ?",
+            "instructions": "Choisissez la bonne description.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Comment est Marie ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Elle est grande avec les cheveux bruns",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Elle est petite avec les cheveux blonds",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Elle est mince avec les cheveux roux",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Elle est âgée avec les cheveux gris",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex écrit : 'Elle est grande et elle a les cheveux bruns'.",
+              "hint": "Lisez la première description de Marie."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Le fils de Marie",
+            "instructions": "Comment est le fils de Marie ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quelle est la description du fils de Marie ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il est petit avec les cheveux blonds et les yeux bleus",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Il est grand avec les cheveux bruns",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Il est mince avec des lunettes",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Il a les cheveux roux",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex écrit : 'Le garçon est petit. Il a les cheveux blonds et les yeux bleus'.",
+              "hint": "Le garçon a quatre ans."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez : Elle est grande",
+            "instructions": "Complétez avec l'adjectif.",
+            "content": {
+              "text": "Marie est _____ et sympathique.",
+              "blanks": [
+                {
+                  "correctAnswer": "grande",
+                  "acceptableAnswers": [
+                    "grande"
+                  ],
+                  "options": [
+                    "grande",
+                    "grand",
+                    "petite",
+                    "petit"
+                  ]
+                }
+              ],
+              "translation": "Marie is tall and nice.",
+              "hint": "Marie n'est pas petite. L'adjectif doit être au féminin."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez : Les cheveux",
+            "instructions": "Complétez la description.",
+            "content": {
+              "text": "Sophie a les cheveux _____ et les yeux verts.",
+              "blanks": [
+                {
+                  "correctAnswer": "roux",
+                  "acceptableAnswers": [
+                    "roux"
+                  ],
+                  "options": [
+                    "roux",
+                    "blonds",
+                    "bruns",
+                    "gris"
+                  ]
+                }
+              ],
+              "translation": "Sophie has red hair and green eyes.",
+              "hint": "Sophie a une couleur de cheveux spéciale, pas commune."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associez : Les adjectifs",
+            "instructions": "Associez les adjectifs avec leurs contraires.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "grand",
+                  "right": "petit"
+                },
+                {
+                  "left": "jeune",
+                  "right": "âgé"
+                },
+                {
+                  "left": "mince",
+                  "right": "gros"
+                },
+                {
+                  "left": "sympathique",
+                  "right": "antipathique"
+                }
+              ],
+              "hint": "Trouvez les opposés."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Remettez les mots dans l'ordre",
+            "instructions": "Formez une phrase correcte.",
+            "content": {
+              "words": [
+                "Elle",
+                "est",
+                "grande",
+                "et",
+                "sympathique"
+              ],
+              "correctOrder": [
+                "Elle",
+                "est",
+                "grande",
+                "et",
+                "sympathique"
+              ],
+              "translation": "She is tall and nice",
+              "explanation": "Pour décrire une personne : sujet + être + adjectif(s)",
+              "hint": "Commencez par le sujet 'Elle'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Compréhension orale : Monsieur Dupont",
+            "instructions": "Écoutez et répondez.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Il s'appelle Monsieur Dupont. Il est âgé. Il a les cheveux gris. Il est mince et il porte des lunettes.",
+              "question": "Comment est Monsieur Dupont ?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il est jeune et blond"
+                },
+                {
+                  "id": "b",
+                  "text": "Il est âgé, mince, avec des lunettes"
+                },
+                {
+                  "id": "c",
+                  "text": "Il est grand et gros"
+                },
+                {
+                  "id": "d",
+                  "text": "Il a les cheveux roux"
+                }
+              ],
+              "correctAnswer": "b",
+              "explanation": "Alex décrit Monsieur Dupont comme âgé, mince, avec les cheveux gris et des lunettes.",
+              "hint": "Écoutez tous les détails de la description."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Texte à trous : Les voisins",
+            "instructions": "Complétez le texte avec les mots manquants.",
+            "content": {
+              "text": "Marie est {blank1} et elle a les cheveux {blank2}. Son fils est {blank3} et il a les cheveux blonds. Monsieur Dupont est {blank4} et il porte des {blank5}. Sophie est petite et {blank6}. Elle a les cheveux roux.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "grande"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "bruns"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "petit"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "âgé"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "lunettes"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "mince"
+                }
+              ],
+              "hint": "Relisez les descriptions de chaque voisin."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire : Les yeux",
+            "instructions": "Que signifie 'les yeux' ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que signifie 'les yeux' ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "The eyes",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "The hair",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "The ears",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "The glasses",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Les yeux' signifie 'the eyes'. Singulier : un œil, pluriel : les yeux.",
+              "hint": "C'est une partie du visage qui permet de voir."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrator",
+          "voice": "Charon",
+          "description": "Narrateur calme qui lit le message d'Alex"
+        }
+      ],
+      "audioStyle": "Narration d'un message écrit. Ton calme et descriptif. Rythme modéré pour permettre aux apprenants de visualiser les descriptions."
+    },
+    {
+      "episodeNumber": 3,
+      "type": "DIALOGUE",
+      "title": "Les Numéros",
+      "content": "Le lendemain, Alex rencontre Marie dans le couloir.\n\nMarie : Bonjour Alex ! Comment allez-vous aujourd'hui ?\n\nAlex : Bonjour Marie ! Ça va bien, merci. Et vous ?\n\nMarie : Très bien ! Dites, vous avez un téléphone français maintenant ?\n\nAlex : Oui ! J'ai acheté une carte SIM hier. J'ai un nouveau numéro.\n\nMarie : Parfait ! On peut échanger nos numéros. Si vous avez besoin de quelque chose, vous pouvez m'appeler.\n\nAlex : C'est une excellente idée ! Mon numéro est le zéro-six, trente-quatre, cinquante-deux, quarante et un, dix-huit.\n\nMarie : Attendez, je note... Zéro-six, trente-quatre, cinquante-deux, quarante et un, dix-huit. C'est ça ?\n\nAlex : Oui, c'est exact !\n\nMarie : Mon numéro est le zéro-sept, vingt-deux, soixante-trois, quinze, quarante-neuf.\n\nAlex : Je note... Zéro-sept, vingt-deux, soixante-trois, quinze, quarante-neuf. Parfait !\n\nMarie : Vous connaissez aussi le numéro des urgences en France ?\n\nAlex : Non, je ne sais pas. Quel est le numéro ?\n\nMarie : C'est le quinze pour le SAMU, le dix-sept pour la police, et le dix-huit pour les pompiers.\n\nAlex : Ah, c'est différent des États-Unis ! Nous, c'est le neuf-un-un pour tout.\n\nMarie : Oui, c'est différent. Il y a aussi le cent-douze, c'est le numéro d'urgence européen. Il fonctionne dans tous les pays d'Europe.\n\nAlex : Cent-douze, d'accord. C'est bon à savoir !\n\nMarie : Voilà, maintenant vous avez tous les numéros importants ! À bientôt Alex !\n\nAlex : À bientôt Marie, et merci pour tout !",
+      "generateAudio": true,
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Le numéro d'Alex",
+            "instructions": "Quel est le numéro de téléphone d'Alex ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel est le numéro de téléphone d'Alex ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "06 34 52 41 18",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "07 22 63 15 49",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "06 22 52 41 18",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "07 34 63 15 49",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'Mon numéro est le zéro-six, trente-quatre, cinquante-deux, quarante et un, dix-huit' = 06 34 52 41 18",
+              "hint": "Écoutez quand Alex donne son numéro."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Le numéro d'urgence européen",
+            "instructions": "Quel est le numéro d'urgence européen ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel est le numéro d'urgence européen ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "15",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "17",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "18",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "112",
+                  "isCorrect": true
+                }
+              ],
+              "explanation": "Marie dit : 'Il y a aussi le cent-douze, c'est le numéro d'urgence européen'.",
+              "hint": "C'est un numéro avec trois chiffres."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez : Les nombres",
+            "instructions": "Écrivez le nombre en chiffres.",
+            "content": {
+              "text": "Trente-quatre = _____",
+              "blanks": [
+                {
+                  "correctAnswer": "34",
+                  "acceptableAnswers": [
+                    "34"
+                  ],
+                  "options": [
+                    "34",
+                    "24",
+                    "44",
+                    "54"
+                  ]
+                }
+              ],
+              "translation": "Thirty-four = 34",
+              "hint": "Trente = 30, quatre = 4"
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez : Les nombres 2",
+            "instructions": "Écrivez le nombre en chiffres.",
+            "content": {
+              "text": "Soixante-trois = _____",
+              "blanks": [
+                {
+                  "correctAnswer": "63",
+                  "acceptableAnswers": [
+                    "63"
+                  ],
+                  "options": [
+                    "63",
+                    "53",
+                    "73",
+                    "43"
+                  ]
+                }
+              ],
+              "translation": "Sixty-three = 63",
+              "hint": "Soixante = 60, trois = 3"
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associez : Nombres et chiffres",
+            "instructions": "Associez les nombres écrits avec les chiffres.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "quinze",
+                  "right": "15"
+                },
+                {
+                  "left": "vingt-deux",
+                  "right": "22"
+                },
+                {
+                  "left": "quarante et un",
+                  "right": "41"
+                },
+                {
+                  "left": "cinquante-deux",
+                  "right": "52"
+                },
+                {
+                  "left": "soixante-neuf",
+                  "right": "69"
+                }
+              ],
+              "hint": "Attention aux nombres composés avec 'et'."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Remettez les mots dans l'ordre",
+            "instructions": "Formez une phrase correcte.",
+            "content": {
+              "words": [
+                "Mon",
+                "numéro",
+                "est",
+                "le",
+                "zéro-six"
+              ],
+              "correctOrder": [
+                "Mon",
+                "numéro",
+                "est",
+                "le",
+                "zéro-six"
+              ],
+              "translation": "My number is 06...",
+              "explanation": "Pour donner son numéro : Mon numéro + est + le + numéro",
+              "hint": "Commencez par 'Mon'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Compréhension orale : Le numéro de Marie",
+            "instructions": "Écoutez et notez le bon numéro.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Mon numéro est le zéro-sept, vingt-deux, soixante-trois, quinze, quarante-neuf.",
+              "question": "Quel est le numéro de téléphone de Marie ?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "07 22 63 15 49"
+                },
+                {
+                  "id": "b",
+                  "text": "06 22 63 15 49"
+                },
+                {
+                  "id": "c",
+                  "text": "07 32 63 15 49"
+                },
+                {
+                  "id": "d",
+                  "text": "07 22 53 15 49"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "Marie dit : 'zéro-sept, vingt-deux, soixante-trois, quinze, quarante-neuf' = 07 22 63 15 49",
+              "hint": "Écoutez attentivement chaque groupe de chiffres."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.6,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Texte à trous : Les numéros d'urgence",
+            "instructions": "Complétez le texte avec les numéros manquants.",
+            "content": {
+              "text": "En France, il y a plusieurs numéros d'urgence. Le {blank1} est pour le SAMU (urgences médicales). Le {blank2} est pour la police. Le {blank3} est pour les pompiers. Le numéro d'urgence européen est le {blank4}. Aux États-Unis, c'est le {blank5} pour toutes les urgences.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": [
+                    "15",
+                    "quinze"
+                  ]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": [
+                    "17",
+                    "dix-sept"
+                  ]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": [
+                    "18",
+                    "dix-huit"
+                  ]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": [
+                    "112",
+                    "cent-douze"
+                  ]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "911",
+                    "neuf-un-un"
+                  ]
+                }
+              ],
+              "hint": "Relisez la conversation sur les numéros d'urgence."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire : Échanger",
+            "instructions": "Que signifie 'échanger' ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que signifie 'échanger nos numéros' ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "To exchange our numbers",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "To call each other",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "To delete our numbers",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "To write our numbers",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Échanger' signifie 'to exchange'. Ils partagent leurs numéros de téléphone.",
+              "hint": "Ils se donnent mutuellement leurs numéros."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Jeune homme américain qui apprend les numéros français"
+        },
+        {
+          "name": "Marie",
+          "voice": "Kore",
+          "description": "Voisine serviable qui aide Alex"
+        }
+      ],
+      "audioStyle": "Conversation amicale et pratique entre voisins. Marie est patiente et pédagogique. Rythme modéré pour bien entendre les numéros."
+    }
+  ]
+}

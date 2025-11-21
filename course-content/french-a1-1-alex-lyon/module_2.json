@@ -1,0 +1,1025 @@
+{
+  "moduleNumber": 2,
+  "title": "L'Appartement",
+  "theme": "The Apartment - Qui est-ce?",
+  "description": "Alex rencontre son propriétaire, Monsieur Dupont, et découvre son nouvel appartement à Lyon. Apprenez à vous présenter, parler de votre nationalité, et utiliser les nombres de base.",
+  "objectives": [
+    "Introduce yourself (Je m'appelle...)",
+    "Ask someone's name (Comment vous appelez-vous?)",
+    "State your nationality (Je suis américain)",
+    "Count from 0 to 10",
+    "Use basic yes/no responses",
+    "Recognize basic apartment objects (clé, porte, fenêtre)"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "DIALOGUE",
+      "title": "Qui êtes-vous?",
+      "content": "Dupont: Bonjour!\n\nAlex: Bonjour, monsieur.\n\nDupont: Comment vous appelez-vous?\n\nAlex: Je m'appelle Alex.\n\nDupont: Enchanté, Alex. Je m'appelle Monsieur Dupont.\n\nAlex: Enchanté, Monsieur Dupont.\n\nDupont: Vous êtes américain?\n\nAlex: Oui, je suis américain.\n\nDupont: Bienvenue à Lyon!\n\nAlex: Merci, monsieur.",
+      "generateAudio": true,
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Alex's name",
+            "instructions": "What is the main character's name?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "How does Alex introduce himself?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Je m'appelle Alex",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Je suis Alex",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Bonjour Alex",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Comment vous appelez-vous",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex says 'Je m'appelle Alex' which means 'My name is Alex' or 'I call myself Alex'.",
+              "hint": "Listen for how Alex responds to the question about his name."
+            },
+            "estimatedDurationSeconds": 35,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Nationality",
+            "instructions": "What is Alex's nationality?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What nationality is Alex?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Américain (American)",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Français (French)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Anglais (English)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Canadien (Canadian)",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex responds 'Oui, je suis américain' - Yes, I am American.",
+              "hint": "Monsieur Dupont asks if Alex is American."
+            },
+            "estimatedDurationSeconds": 35,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Je m'appelle",
+            "instructions": "Complete the introduction phrase.",
+            "content": {
+              "text": "Je _____ Alex.",
+              "blanks": [
+                {
+                  "correctAnswer": "m'appelle",
+                  "acceptableAnswers": [
+                    "m'appelle"
+                  ],
+                  "options": [
+                    "m'appelle",
+                    "suis",
+                    "appelle",
+                    "vous"
+                  ]
+                }
+              ],
+              "translation": "My name is Alex / I call myself Alex",
+              "hint": "This is the reflexive verb for introducing your name."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Je suis",
+            "instructions": "Complete the nationality statement.",
+            "content": {
+              "text": "Je _____ américain.",
+              "blanks": [
+                {
+                  "correctAnswer": "suis",
+                  "acceptableAnswers": [
+                    "suis"
+                  ],
+                  "options": [
+                    "suis",
+                    "es",
+                    "est",
+                    "m'appelle"
+                  ]
+                }
+              ],
+              "translation": "I am American",
+              "hint": "Use the verb 'être' (to be) conjugated for 'je'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associer: Questions and Responses",
+            "instructions": "Match the questions with appropriate responses.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Comment vous appelez-vous?",
+                  "right": "Je m'appelle Alex"
+                },
+                {
+                  "left": "Vous êtes américain?",
+                  "right": "Oui, je suis américain"
+                },
+                {
+                  "left": "Bonjour",
+                  "right": "Bonjour"
+                },
+                {
+                  "left": "Enchanté",
+                  "right": "Enchanté"
+                }
+              ],
+              "hint": "Think about natural conversational flow."
+            },
+            "estimatedDurationSeconds": 80,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordonner: Introduction",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Je",
+                "m'appelle",
+                "Alex"
+              ],
+              "correctOrder": [
+                "Je",
+                "m'appelle",
+                "Alex"
+              ],
+              "translation": "My name is Alex",
+              "explanation": "This is the standard way to introduce yourself by name in French.",
+              "hint": "Start with 'Je' (I)."
+            },
+            "estimatedDurationSeconds": 50,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Écouter: Name pronunciation",
+            "instructions": "Listen to the introduction.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Je m'appelle Monsieur Dupont",
+              "question": "Who is introducing themselves?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Monsieur Dupont"
+                },
+                {
+                  "id": "b",
+                  "text": "Alex"
+                },
+                {
+                  "id": "c",
+                  "text": "The taxi driver"
+                },
+                {
+                  "id": "d",
+                  "text": "A neighbor"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "You hear 'Je m'appelle Monsieur Dupont' - the landlord introducing himself.",
+              "hint": "Listen for the name after 'Je m'appelle'."
+            },
+            "estimatedDurationSeconds": 50,
+            "pointsValue": 10,
+            "difficultyRating": 1.1,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Révision: Meeting the Landlord",
+            "instructions": "Fill in the missing words from the dialogue.",
+            "content": {
+              "text": "Monsieur Dupont greets Alex with {blank1}. He asks Alex's name: {blank2} vous appelez-vous? Alex responds: Je {blank3} Alex. When they meet, they both say {blank4}, which means 'nice to meet you'. Monsieur Dupont asks if Alex is American: Vous êtes {blank5}? Alex confirms: Oui, je {blank6} américain. Monsieur Dupont welcomes him: {blank7} à Lyon!",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "Bonjour"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "Comment"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "m'appelle"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "Enchanté"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "américain"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "suis"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "Bienvenue"
+                }
+              ],
+              "hint": "Review the introduction dialogue between Alex and Monsieur Dupont."
+            },
+            "estimatedDurationSeconds": 140,
+            "pointsValue": 20,
+            "difficultyRating": 1.5
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Monsieur Dupont",
+          "voice": "Algieba",
+          "description": "Middle-aged landlord, patient but formal"
+        },
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Young American man, polite and respectful"
+        }
+      ],
+      "audioStyle": "Natural conversation at moderate pace. Clear pronunciation for A1 learners. Formal and respectful tone between landlord and new tenant."
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "La Clé",
+      "content": "Dupont: Voici l'appartement.\n\nAlex: Merci.\n\nDupont: Voici la clé. Une clé.\n\nAlex: Une clé. Merci.\n\nDupont: Voilà la porte. Une porte.\n\nAlex: Une porte.\n\nDupont: Et voilà la fenêtre. Une fenêtre.\n\nAlex: Une fenêtre.\n\nDupont: Il y a deux fenêtres.\n\nAlex: Deux fenêtres.\n\nDupont: Combien de clés? Une clé.\n\nAlex: Une clé.\n\nDupont: Combien de portes? Une porte, deux portes, trois portes.\n\nAlex: Trois portes!\n\nDupont: Oui. Trois portes.",
+      "generateAudio": true,
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: What is 'clé'?",
+            "instructions": "What does 'clé' mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What is 'une clé'?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "A key",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "A door",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "A window",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "An apartment",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Une clé' means 'a key' - the object used to unlock doors.",
+              "hint": "Monsieur Dupont gives this to Alex first."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Nombres: How many doors?",
+            "instructions": "How many doors does the apartment have?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Combien de portes? How many doors?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Trois (3)",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Une (1)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Deux (2)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Quatre (4)",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Monsieur Dupont counts: Une porte, deux portes, trois portes - Three doors.",
+              "hint": "Listen to Monsieur Dupont counting."
+            },
+            "estimatedDurationSeconds": 35,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Nombres: Counting practice",
+            "instructions": "Fill in the missing number.",
+            "content": {
+              "text": "Une fenêtre, _____ fenêtres.",
+              "blanks": [
+                {
+                  "correctAnswer": "deux",
+                  "acceptableAnswers": [
+                    "deux",
+                    "2"
+                  ],
+                  "options": [
+                    "deux",
+                    "trois",
+                    "une",
+                    "quatre"
+                  ]
+                }
+              ],
+              "translation": "One window, two windows",
+              "hint": "What comes after 'une' (one)?"
+            },
+            "estimatedDurationSeconds": 40,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Nombres: Number sequence",
+            "instructions": "Complete the counting sequence.",
+            "content": {
+              "text": "Une porte, deux portes, _____ portes.",
+              "blanks": [
+                {
+                  "correctAnswer": "trois",
+                  "acceptableAnswers": [
+                    "trois",
+                    "3"
+                  ],
+                  "options": [
+                    "trois",
+                    "deux",
+                    "quatre",
+                    "cinq"
+                  ]
+                }
+              ],
+              "translation": "One door, two doors, three doors",
+              "hint": "What number comes after deux (two)?"
+            },
+            "estimatedDurationSeconds": 40,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associer: Numbers and Words",
+            "instructions": "Match the French numbers with their digit equivalents.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "un / une",
+                  "right": "1"
+                },
+                {
+                  "left": "deux",
+                  "right": "2"
+                },
+                {
+                  "left": "trois",
+                  "right": "3"
+                },
+                {
+                  "left": "zéro",
+                  "right": "0"
+                }
+              ],
+              "hint": "Learn the first few numbers in French."
+            },
+            "estimatedDurationSeconds": 70,
+            "pointsValue": 15,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordonner: Voici la clé",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Voici",
+                "la",
+                "clé"
+              ],
+              "correctOrder": [
+                "Voici",
+                "la",
+                "clé"
+              ],
+              "translation": "Here is the key",
+              "explanation": "'Voici' is used to present or show something that is close by.",
+              "hint": "Start with 'Voici' (here is)."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Écouter: Number dictation",
+            "instructions": "Listen and identify the number you hear.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "deux",
+              "question": "What number did you hear?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "2 (deux)"
+                },
+                {
+                  "id": "b",
+                  "text": "3 (trois)"
+                },
+                {
+                  "id": "c",
+                  "text": "10 (dix)"
+                },
+                {
+                  "id": "d",
+                  "text": "12 (douze)"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "You heard 'deux' which means two (2).",
+              "hint": "Listen carefully to the pronunciation."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 10,
+            "difficultyRating": 1.1,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Révision: The Apartment Tour",
+            "instructions": "Fill in the missing words.",
+            "content": {
+              "text": "Monsieur Dupont shows Alex the apartment. He presents the key: {blank1} la clé. He shows the door: Voilà la {blank2}. He points to the window: Et voilà la {blank3}. There are {blank4} windows in the apartment. When asked 'Combien de clés?', there is only {blank5} clé. The apartment has {blank6} portes (doors).",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "Voici"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "porte"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "fenêtre"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": [
+                    "deux",
+                    "2"
+                  ]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "une",
+                    "1"
+                  ]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": [
+                    "trois",
+                    "3"
+                  ]
+                }
+              ],
+              "hint": "Review the apartment tour dialogue."
+            },
+            "estimatedDurationSeconds": 130,
+            "pointsValue": 20,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: Voici vs Voilà",
+            "instructions": "What's the difference?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "When do you use 'Voici' vs 'Voilà'?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Voici = here/closer, Voilà = there/farther",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "They mean exactly the same thing",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Voici = formal, Voilà = informal",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Voici = greeting, Voilà = goodbye",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Voici' (here is) is used for things close by, 'Voilà' (there is) for things slightly farther. In practice, they're often used interchangeably.",
+              "hint": "Think about proximity - near vs. far."
+            },
+            "estimatedDurationSeconds": 40,
+            "pointsValue": 10,
+            "difficultyRating": 1.3
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Monsieur Dupont",
+          "voice": "Algieba",
+          "description": "Patient landlord showing the apartment"
+        },
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Attentive new tenant learning French"
+        }
+      ],
+      "audioStyle": "Natural conversation at moderate pace. Clear, deliberate pronunciation for teaching numbers and objects. Patient, instructional tone."
+    },
+    {
+      "episodeNumber": 3,
+      "type": "STORY",
+      "title": "Oui ou Non?",
+      "content": "Alex regarde l'appartement.\n\nC'est une porte? Oui. C'est une porte.\n\nC'est une fenêtre? Oui. C'est une fenêtre.\n\nC'est une clé? Oui. C'est une clé.\n\nC'est un taxi? Non. Ce n'est pas un taxi. C'est un appartement.\n\nC'est une baguette? Non. Ce n'est pas une baguette. C'est une clé.\n\nC'est l'aéroport? Non. Ce n'est pas l'aéroport. C'est l'appartement.\n\nAlex est content. Oui! Alex est content.",
+      "generateAudio": true,
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Oui ou Non?",
+            "instructions": "Answer the question based on the story.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "C'est un taxi?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Non, ce n'est pas un taxi",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Oui, c'est un taxi",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "C'est une porte",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "C'est l'aéroport",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "No, it's not a taxi. The story says 'Ce n'est pas un taxi. C'est un appartement.'",
+              "hint": "Alex is looking at his apartment, not a taxi."
+            },
+            "estimatedDurationSeconds": 35,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: How is Alex feeling?",
+            "instructions": "What is Alex's emotion?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "How does Alex feel about the apartment?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Content (Happy)",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Triste (Sad)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Fatigué (Tired)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "En colère (Angry)",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "At the end of the story: 'Alex est content. Oui! Alex est content.' - Alex is happy.",
+              "hint": "Look at the last line of the story."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Negative form",
+            "instructions": "Complete the negative sentence.",
+            "content": {
+              "text": "Ce _____ pas un taxi.",
+              "blanks": [
+                {
+                  "correctAnswer": "n'est",
+                  "acceptableAnswers": [
+                    "n'est",
+                    "nest"
+                  ],
+                  "options": [
+                    "n'est",
+                    "est",
+                    "c'est",
+                    "pas"
+                  ]
+                }
+              ],
+              "translation": "It is not a taxi",
+              "hint": "In negation, 'est' becomes 'n'est' before 'pas'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Affirmative",
+            "instructions": "Complete the affirmative sentence.",
+            "content": {
+              "text": "Oui. _____ une porte.",
+              "blanks": [
+                {
+                  "correctAnswer": "C'est",
+                  "acceptableAnswers": [
+                    "C'est",
+                    "c'est"
+                  ],
+                  "options": [
+                    "C'est",
+                    "Ce n'est pas",
+                    "Non",
+                    "Oui"
+                  ]
+                }
+              ],
+              "translation": "Yes. It is a door.",
+              "hint": "Use the affirmative form meaning 'it is'."
+            },
+            "estimatedDurationSeconds": 40,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associer: Questions and Answers",
+            "instructions": "Match the questions with correct yes/no answers.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "C'est une porte?",
+                  "right": "Oui, c'est une porte"
+                },
+                {
+                  "left": "C'est un taxi?",
+                  "right": "Non, ce n'est pas un taxi"
+                },
+                {
+                  "left": "C'est une clé?",
+                  "right": "Oui, c'est une clé"
+                },
+                {
+                  "left": "C'est l'aéroport?",
+                  "right": "Non, ce n'est pas l'aéroport"
+                }
+              ],
+              "hint": "Pay attention to what's actually in the apartment."
+            },
+            "estimatedDurationSeconds": 80,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordonner: Negative sentence",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Ce",
+                "n'est",
+                "pas",
+                "une",
+                "baguette"
+              ],
+              "correctOrder": [
+                "Ce",
+                "n'est",
+                "pas",
+                "une",
+                "baguette"
+              ],
+              "translation": "It is not a baguette",
+              "explanation": "In French negation, 'ne...pas' surrounds the verb. 'Ce n'est pas' = It is not.",
+              "hint": "Start with 'Ce' and remember the negative structure."
+            },
+            "estimatedDurationSeconds": 55,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Écouter: Affirmative vs Negative",
+            "instructions": "Listen and identify if the statement is positive or negative.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "C'est une fenêtre",
+              "question": "Is this statement affirmative or negative?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Affirmative (Yes, it is)"
+                },
+                {
+                  "id": "b",
+                  "text": "Negative (No, it is not)"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "This is affirmative - 'C'est une fenêtre' means 'It is a window' (positive statement).",
+              "hint": "Listen for 'ne...pas' to identify negatives."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 10,
+            "difficultyRating": 1.2,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Révision: Yes or No Story",
+            "instructions": "Fill in the missing words.",
+            "content": {
+              "text": "Alex looks around the apartment. He asks himself questions. Is it a door? {blank1}, c'est une porte. Is it a window? Oui, c'est une {blank2}. Is it a key? Oui, c'est une {blank3}. Is it a taxi? {blank4}, ce n'est pas un taxi. Is it a baguette? Non, ce {blank5} pas une baguette. C'est une clé. At the end, Alex is {blank6} (happy).",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "Oui"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "fenêtre"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "clé"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "Non"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "n'est"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "content"
+                }
+              ],
+              "hint": "Review the yes/no questions Alex asks himself."
+            },
+            "estimatedDurationSeconds": 140,
+            "pointsValue": 20,
+            "difficultyRating": 1.5
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrateur",
+          "voice": "Charon",
+          "description": "Calm, clear narrator voice"
+        }
+      ],
+      "audioStyle": "Narrative storytelling. Clear, slow-paced French suitable for absolute beginners. Question-and-answer pattern with emphasis on oui/non responses."
+    }
+  ]
+}

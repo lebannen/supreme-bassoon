@@ -1,0 +1,1050 @@
+{
+  "moduleNumber": 1,
+  "title": "L'Aéroport",
+  "theme": "The Airport - Bienvenue",
+  "description": "Alex arrive à l'aéroport de Lyon-Saint-Exupéry pour commencer sa nouvelle vie en France. Apprenez les salutations essentielles, les formules de politesse et le vocabulaire de base à travers ses premières rencontres.",
+  "objectives": [
+    "Greet people appropriately (Bonjour, Bonsoir)",
+    "Use basic polite expressions (S'il vous plaît, Merci)",
+    "Ask and respond to 'How are you?' (Comment allez-vous? Ça va?)",
+    "Recognize basic airport vocabulary and signs",
+    "Say goodbye appropriately (Au revoir)"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "DIALOGUE",
+      "title": "Le Contrôle des Passeports",
+      "content": "Agent: Bonjour.\n\nAlex: Bonjour.\n\nAgent: Passeport, s'il vous plaît.\n\nAlex: Voilà.\n\nAgent: Merci.\n\nAlex: Merci.\n\nAgent: Au revoir.\n\nAlex: Au revoir.",
+      "generateAudio": true,
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Reconnaissance: Bonjour",
+            "instructions": "What greeting does the agent use?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What does the agent say first?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Bonjour",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Bonsoir",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Salut",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Au revoir",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The agent says 'Bonjour' which is used during the day as a greeting.",
+              "hint": "Listen to the very first word in the dialogue."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Contexte: When to use Bonjour",
+            "instructions": "When do you typically say 'Bonjour'?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "When is 'Bonjour' typically used?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "During the day",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Only in the evening",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Only at night",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Only with friends",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Bonjour' is used during daytime hours (morning through late afternoon) as a general greeting.",
+              "hint": "Think about when Alex arrives at the airport - during the day."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Bonjour usage",
+            "instructions": "Complete the greeting.",
+            "content": {
+              "text": "When arriving at passport control during the day, you say: _____",
+              "blanks": [
+                {
+                  "correctAnswer": "Bonjour",
+                  "acceptableAnswers": [
+                    "Bonjour",
+                    "bonjour"
+                  ],
+                  "options": [
+                    "Bonjour",
+                    "Bonsoir",
+                    "Salut",
+                    "Au revoir"
+                  ]
+                }
+              ],
+              "translation": "Hello / Good day",
+              "hint": "Use the daytime greeting."
+            },
+            "estimatedDurationSeconds": 40,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Bonsoir usage",
+            "instructions": "Complete the evening greeting.",
+            "content": {
+              "text": "When meeting someone in the evening, you say: _____",
+              "blanks": [
+                {
+                  "correctAnswer": "Bonsoir",
+                  "acceptableAnswers": [
+                    "Bonsoir",
+                    "bonsoir"
+                  ],
+                  "options": [
+                    "Bonsoir",
+                    "Bonjour",
+                    "Bonne nuit",
+                    "Salut"
+                  ]
+                }
+              ],
+              "translation": "Good evening",
+              "hint": "This greeting is used in the evening."
+            },
+            "estimatedDurationSeconds": 40,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associer: Greetings and Time",
+            "instructions": "Match the greeting with the appropriate time of day.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Bonjour",
+                  "right": "Morning / Afternoon"
+                },
+                {
+                  "left": "Bonsoir",
+                  "right": "Evening"
+                },
+                {
+                  "left": "Au revoir",
+                  "right": "When leaving"
+                }
+              ],
+              "hint": "Think about when each greeting is used."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordonner: Polite Request",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Passeport",
+                "s'il",
+                "vous",
+                "plaît"
+              ],
+              "correctOrder": [
+                "Passeport",
+                "s'il",
+                "vous",
+                "plaît"
+              ],
+              "translation": "Passport, please",
+              "explanation": "When making a polite request, you state what you need followed by 's'il vous plaît' (please).",
+              "hint": "Start with what you want, then add the polite phrase."
+            },
+            "estimatedDurationSeconds": 50,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Écouter: Bonjour vs Bonsoir",
+            "instructions": "Listen and identify which greeting you hear.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Bonjour",
+              "question": "Which greeting did you hear?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Bonjour"
+                },
+                {
+                  "id": "b",
+                  "text": "Bonsoir"
+                },
+                {
+                  "id": "c",
+                  "text": "Au revoir"
+                },
+                {
+                  "id": "d",
+                  "text": "Merci"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "You heard 'Bonjour' - the daytime greeting.",
+              "hint": "Listen carefully to the pronunciation."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 10,
+            "difficultyRating": 1.1,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Révision: Passport Control Dialogue",
+            "instructions": "Fill in the missing words from the dialogue.",
+            "content": {
+              "text": "At passport control, the agent says {blank1} to greet Alex. The agent asks for Alex's {blank2}, s'il vous plaît. Alex responds {blank3} when handing over his passport. Both say {blank4} to thank each other. Finally, they say {blank5} when parting.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "Bonjour"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "Passeport"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "Voilà"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "Merci"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "Au revoir",
+                    "au revoir"
+                  ]
+                }
+              ],
+              "hint": "Review the passport control dialogue carefully."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.3
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Agent de Contrôle",
+          "voice": "Charon",
+          "description": "Professional airport security officer"
+        },
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Young American man arriving in Lyon"
+        }
+      ],
+      "audioStyle": "Natural conversation at moderate pace. Clear pronunciation for A1 learners. Professional and welcoming tone at passport control."
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Le Taxi",
+      "content": "Chauffeur: Bonjour!\n\nAlex: Bonjour.\n\nChauffeur: Comment allez-vous?\n\nAlex: Ça va, merci. Et vous?\n\nChauffeur: Ça va bien, merci!\n\nAlex: Merci beaucoup.\n\nChauffeur: De rien. Au revoir!\n\nAlex: Au revoir!",
+      "generateAudio": true,
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: How are you?",
+            "instructions": "What does the taxi driver ask Alex?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What question does the chauffeur ask?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Comment allez-vous? (How are you?)",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Où allez-vous? (Where are you going?)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Comment vous appelez-vous? (What is your name?)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Vous êtes américain? (Are you American?)",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The driver asks 'Comment allez-vous?' which means 'How are you?' in formal French.",
+              "hint": "Listen for the polite 'you' form (vous)."
+            },
+            "estimatedDurationSeconds": 35,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: Ça va",
+            "instructions": "What does 'Ça va' mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What does Alex say when he responds 'Ça va'?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "I'm fine / It's going well",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Thank you",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Goodbye",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Nice to meet you",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Ça va' literally means 'it goes' but is used to say 'I'm fine' or 'It's going well'.",
+              "hint": "This is a common response to 'How are you?'"
+            },
+            "estimatedDurationSeconds": 35,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Ça va response",
+            "instructions": "Complete Alex's response.",
+            "content": {
+              "text": "When someone asks 'Comment allez-vous?', you can respond: _____, merci.",
+              "blanks": [
+                {
+                  "correctAnswer": "Ça va",
+                  "acceptableAnswers": [
+                    "Ça va",
+                    "ça va"
+                  ],
+                  "options": [
+                    "Ça va",
+                    "Bonjour",
+                    "Au revoir",
+                    "Voilà"
+                  ]
+                }
+              ],
+              "translation": "I'm fine, thank you",
+              "hint": "Use the informal way to say you're fine."
+            },
+            "estimatedDurationSeconds": 40,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Ça va bien",
+            "instructions": "Complete the positive response.",
+            "content": {
+              "text": "To say you're doing well, you say: Ça va _____, merci!",
+              "blanks": [
+                {
+                  "correctAnswer": "bien",
+                  "acceptableAnswers": [
+                    "bien"
+                  ],
+                  "options": [
+                    "bien",
+                    "mal",
+                    "merci",
+                    "beaucoup"
+                  ]
+                }
+              ],
+              "translation": "I'm doing well, thank you!",
+              "hint": "This word means 'well' or 'good'."
+            },
+            "estimatedDurationSeconds": 40,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associer: Questions and Responses",
+            "instructions": "Match each question with its appropriate response.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Comment allez-vous?",
+                  "right": "Ça va, merci"
+                },
+                {
+                  "left": "Bonjour",
+                  "right": "Bonjour"
+                },
+                {
+                  "left": "Merci",
+                  "right": "De rien"
+                },
+                {
+                  "left": "Au revoir",
+                  "right": "Au revoir"
+                }
+              ],
+              "hint": "Think about natural conversational responses."
+            },
+            "estimatedDurationSeconds": 70,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordonner: Formal question",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Comment",
+                "allez",
+                "vous",
+                "?"
+              ],
+              "correctOrder": [
+                "Comment",
+                "allez",
+                "vous",
+                "?"
+              ],
+              "translation": "How are you? (formal)",
+              "explanation": "This is the formal way to ask 'How are you?' using 'vous'.",
+              "hint": "Start with 'Comment' (how)."
+            },
+            "estimatedDurationSeconds": 50,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Écouter: Question vs Statement",
+            "instructions": "Listen and identify if this is a question or a statement.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Comment allez-vous?",
+              "question": "Is this a question or a statement?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Question"
+                },
+                {
+                  "id": "b",
+                  "text": "Statement"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "This is a question - 'Comment allez-vous?' The rising intonation indicates it's asking something.",
+              "hint": "Listen for the rising tone at the end."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 10,
+            "difficultyRating": 1.2,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Révision: Taxi Dialogue",
+            "instructions": "Fill in the missing words from the taxi dialogue.",
+            "content": {
+              "text": "The taxi driver greets Alex with {blank1}. He then asks {blank2} allez-vous? Alex responds that he's fine by saying {blank3} va, merci. Alex politely asks back: Et {blank4}? The driver says he's doing well: Ça va {blank5}, merci! When Alex thanks him with 'Merci beaucoup', the driver replies {blank6}.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "Bonjour"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "Comment"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "Ça"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "vous"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "bien"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": [
+                    "De rien",
+                    "de rien"
+                  ]
+                }
+              ],
+              "hint": "Review the polite conversation between Alex and the taxi driver."
+            },
+            "estimatedDurationSeconds": 130,
+            "pointsValue": 20,
+            "difficultyRating": 1.4
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Chauffeur de Taxi",
+          "voice": "Enceladus",
+          "description": "Talkative Lyon taxi driver"
+        },
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Young American man, friendly and polite"
+        }
+      ],
+      "audioStyle": "Natural conversation at moderate pace. Clear pronunciation for A1 learners. Friendly and welcoming tone from the taxi driver."
+    },
+    {
+      "episodeNumber": 3,
+      "type": "STORY",
+      "title": "Les Panneaux",
+      "content": "Alex marche dans l'aéroport. Il regarde les panneaux.\n\nSORTIE. Sortie. Alex regarde. Sortie.\n\nENTRÉE. Entrée. Alex regarde. Entrée.\n\nTOILETTES. Toilettes. Alex regarde. Toilettes.\n\nTAXI. Taxi. Alex regarde. Taxi!\n\nMÉTRO. Métro. Alex regarde. Métro.\n\nBUS. Bus. Alex regarde. Bus.\n\nBAGAGES. Bagages. Alex regarde. Bagages.\n\nAlex marche vers le taxi. Taxi!",
+      "generateAudio": true,
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: What is SORTIE?",
+            "instructions": "What does the sign 'SORTIE' mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What does 'SORTIE' mean?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Exit",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Entrance",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Toilet",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Baggage",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Sortie' means 'exit' - the way out of a building or area.",
+              "hint": "This is where you leave from."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: What is ENTRÉE?",
+            "instructions": "What does the sign 'ENTRÉE' mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What does 'ENTRÉE' mean?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Entrance",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Exit",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Taxi",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Metro",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Entrée' means 'entrance' - the way into a building or area.",
+              "hint": "This is where you enter."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Airport signs",
+            "instructions": "Complete with the correct airport vocabulary.",
+            "content": {
+              "text": "Alex needs to find the exit. He looks for the sign: _____",
+              "blanks": [
+                {
+                  "correctAnswer": "SORTIE",
+                  "acceptableAnswers": [
+                    "SORTIE",
+                    "Sortie",
+                    "sortie"
+                  ],
+                  "options": [
+                    "SORTIE",
+                    "ENTRÉE",
+                    "TOILETTES",
+                    "BAGAGES"
+                  ]
+                }
+              ],
+              "translation": "Exit",
+              "hint": "This sign shows the way out."
+            },
+            "estimatedDurationSeconds": 40,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Transportation",
+            "instructions": "Complete with the correct transportation word.",
+            "content": {
+              "text": "Alex wants to take a _____ to the city center.",
+              "blanks": [
+                {
+                  "correctAnswer": "taxi",
+                  "acceptableAnswers": [
+                    "taxi",
+                    "Taxi",
+                    "TAXI"
+                  ],
+                  "options": [
+                    "taxi",
+                    "métro",
+                    "bus",
+                    "bagages"
+                  ]
+                }
+              ],
+              "translation": "Taxi",
+              "hint": "Alex walks toward this at the end of the story."
+            },
+            "estimatedDurationSeconds": 40,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associer: Signs and Meanings",
+            "instructions": "Match the French signs with their English meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "SORTIE",
+                  "right": "Exit"
+                },
+                {
+                  "left": "ENTRÉE",
+                  "right": "Entrance"
+                },
+                {
+                  "left": "TOILETTES",
+                  "right": "Restrooms"
+                },
+                {
+                  "left": "BAGAGES",
+                  "right": "Baggage"
+                },
+                {
+                  "left": "TAXI",
+                  "right": "Taxi"
+                }
+              ],
+              "hint": "Think about what you see at an airport."
+            },
+            "estimatedDurationSeconds": 80,
+            "pointsValue": 15,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Écouter: Letter pronunciation",
+            "instructions": "Listen to how the word is pronounced.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Bagages",
+              "question": "Which word did you hear?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Bagages"
+                },
+                {
+                  "id": "b",
+                  "text": "Garages"
+                },
+                {
+                  "id": "c",
+                  "text": "Cages"
+                },
+                {
+                  "id": "d",
+                  "text": "Pages"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "'Bagages' means luggage or baggage. Notice the pronunciation of the 'g' sound.",
+              "hint": "Listen for the 'B' sound at the beginning."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 10,
+            "difficultyRating": 1.1,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordonner: Metro sign",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Alex",
+                "regarde",
+                "le",
+                "métro"
+              ],
+              "correctOrder": [
+                "Alex",
+                "regarde",
+                "le",
+                "métro"
+              ],
+              "translation": "Alex looks at the metro (sign)",
+              "explanation": "This simple sentence shows Alex looking at the metro sign.",
+              "hint": "Start with Alex, then the verb 'regarde' (looks)."
+            },
+            "estimatedDurationSeconds": 50,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Révision: Signs at the Airport",
+            "instructions": "Fill in the missing airport vocabulary.",
+            "content": {
+              "text": "Alex walks through the airport looking at signs. He sees {blank1} (exit) and {blank2} (entrance). He also sees {blank3} (restrooms) and {blank4} (baggage). He notices transportation options like {blank5} (metro), {blank6} (bus), and {blank7}. Finally, Alex walks toward the {blank7} to leave the airport.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": [
+                    "SORTIE",
+                    "Sortie",
+                    "sortie"
+                  ]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": [
+                    "ENTRÉE",
+                    "Entrée",
+                    "entrée"
+                  ]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": [
+                    "TOILETTES",
+                    "Toilettes",
+                    "toilettes"
+                  ]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": [
+                    "BAGAGES",
+                    "Bagages",
+                    "bagages"
+                  ]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "MÉTRO",
+                    "Métro",
+                    "métro"
+                  ]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": [
+                    "BUS",
+                    "Bus",
+                    "bus"
+                  ]
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": [
+                    "TAXI",
+                    "Taxi",
+                    "taxi"
+                  ]
+                }
+              ],
+              "hint": "Review all the signs Alex sees in the story."
+            },
+            "estimatedDurationSeconds": 150,
+            "pointsValue": 20,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Where is Alex going?",
+            "instructions": "At the end of the story, where does Alex go?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "What transportation does Alex choose?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Taxi",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Metro",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Bus",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "He stays at the airport",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "At the end, Alex 'marche vers le taxi' - walks toward the taxi.",
+              "hint": "Look at the very last line of the story."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrateur",
+          "voice": "Charon",
+          "description": "Calm, clear narrator voice"
+        }
+      ],
+      "audioStyle": "Narrative storytelling. Clear, slow-paced French suitable for absolute beginners. Warm, engaging tone. Emphasis on each sign word for learning."
+    }
+  ]
+}

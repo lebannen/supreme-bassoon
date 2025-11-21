@@ -1,0 +1,1327 @@
+{
+  "moduleNumber": 18,
+  "title": "Planifier les Vacances",
+  "theme": "Le Futur",
+  "description": "Alex planifie ses premières vacances en France. Apprenez à parler de la météo, réserver un hébergement et exprimer vos projets futurs.",
+  "objectives": [
+    "Comprendre et décrire la météo",
+    "Réserver un hébergement (hôtel, camping)",
+    "Utiliser le futur proche (aller + infinitif)",
+    "Parler de vos projets de vacances",
+    "Comprendre les saisons et le temps"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "STORY",
+      "title": "La Météo",
+      "content": "Alex est enfin guéri. Après une semaine difficile, il se sent beaucoup mieux. Il ouvre son ordinateur et regarde son calendrier.\n\n« Ah ! » pense-t-il. « J'ai deux semaines de vacances en juillet ! »\n\nAlex ouvre un site de météo sur son ordinateur. Il tape : « Météo Lyon juillet ».\n\nLe site montre les prévisions.\n\nEn juillet à Lyon, il fait chaud. Très chaud. La température moyenne est de trente degrés.\n\nIl y a du soleil presque tous les jours. Le ciel est bleu et dégagé.\n\nIl ne pleut pas beaucoup en juillet. C'est la saison sèche.\n\nAlex regarde aussi la météo pour le sud de la France.\n\nÀ Marseille, il fait très chaud aussi. Il fait trente-trois degrés. Il y a du soleil et du vent. C'est parfait pour la plage !\n\nÀ Nice, c'est la même chose. Il fait beau, il y a du soleil, et la mer est chaude.\n\nAlex pense aux différentes saisons en France.\n\nAu printemps, il fait doux. Il y a des fleurs partout. Il pleut parfois, mais c'est agréable.\n\nEn été, il fait chaud. C'est la saison des vacances. Tout le monde va à la plage ou à la montagne.\n\nEn automne, il fait frais. Les feuilles changent de couleur. Il y a du vent et il pleut plus souvent.\n\nEn hiver, il fait froid à Lyon. Il neige parfois. Il y a du brouillard. Mais dans les montagnes, c'est magnifique !\n\nAlex regarde encore la météo de juillet.\n\nIl fait beau. Il y a du soleil. Il ne pleut pas. Il ne fait pas froid. Il n'y a pas de neige. Il n'y a pas de brouillard.\n\n« C'est parfait pour des vacances ! » pense Alex.\n\nIl décide : « Je vais aller au bord de la mer. Je vais chercher un endroit avec du soleil, de la plage, et de l'eau bleue. »\n\nAlex commence à chercher des destinations sur Internet.",
+      "generateAudio": true,
+      "estimatedMinutes": 12,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Quand Sont les Vacances?",
+            "instructions": "Choisissez la bonne réponse.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quand est-ce qu'Alex a ses vacances?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "En mai",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "En juillet",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "En septembre",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "En décembre",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'J'ai deux semaines de vacances en juillet !'",
+              "hint": "C'est un mois d'été."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "La Météo: Expressions",
+            "instructions": "Associez les expressions météo.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Il fait chaud",
+                  "right": "It's hot"
+                },
+                {
+                  "left": "Il y a du soleil",
+                  "right": "It's sunny"
+                },
+                {
+                  "left": "Il pleut",
+                  "right": "It's raining"
+                },
+                {
+                  "left": "Il neige",
+                  "right": "It's snowing"
+                },
+                {
+                  "left": "Il y a du vent",
+                  "right": "It's windy"
+                },
+                {
+                  "left": "Il fait froid",
+                  "right": "It's cold"
+                }
+              ],
+              "hint": "Expressions pour décrire le temps."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Il Fait...",
+            "instructions": "Complétez avec le bon adjectif.",
+            "content": {
+              "text": "En été, il fait _____. En hiver, il fait _____. Au printemps, il fait _____. En automne, il fait _____.",
+              "blanks": [
+                {
+                  "correctAnswer": "chaud",
+                  "acceptableAnswers": [
+                    "chaud"
+                  ],
+                  "options": [
+                    "chaud",
+                    "froid",
+                    "doux",
+                    "frais"
+                  ]
+                },
+                {
+                  "correctAnswer": "froid",
+                  "acceptableAnswers": [
+                    "froid"
+                  ],
+                  "options": [
+                    "chaud",
+                    "froid",
+                    "doux",
+                    "frais"
+                  ]
+                },
+                {
+                  "correctAnswer": "doux",
+                  "acceptableAnswers": [
+                    "doux"
+                  ],
+                  "options": [
+                    "chaud",
+                    "froid",
+                    "doux",
+                    "frais"
+                  ]
+                },
+                {
+                  "correctAnswer": "frais",
+                  "acceptableAnswers": [
+                    "frais"
+                  ],
+                  "options": [
+                    "chaud",
+                    "froid",
+                    "doux",
+                    "frais"
+                  ]
+                }
+              ],
+              "translation": "In summer, it's hot. In winter, it's cold. In spring, it's mild. In autumn, it's cool.",
+              "hint": "Pensez aux températures de chaque saison."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: Les Saisons",
+            "instructions": "Identifiez la saison.",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quelle saison est en juillet?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Le printemps",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "L'été",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "L'automne",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "L'hiver",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Juillet est en été. Le texte dit : 'En été, il fait chaud. C'est la saison des vacances.'",
+              "hint": "C'est la saison la plus chaude."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des Mots: Le Temps",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "Il",
+                "y",
+                "a",
+                "du",
+                "soleil"
+              ],
+              "correctOrder": [
+                "Il",
+                "y",
+                "a",
+                "du",
+                "soleil"
+              ],
+              "translation": "It's sunny / There is sunshine",
+              "explanation": "Pour dire qu'il y a du soleil, on utilise l'expression 'il y a' + du soleil.",
+              "hint": "Commencez avec 'Il y a'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Météo et Villes",
+            "instructions": "Associez les villes avec leur météo.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Lyon en juillet",
+                  "right": "30 degrés, soleil"
+                },
+                {
+                  "left": "Marseille en juillet",
+                  "right": "33 degrés, vent"
+                },
+                {
+                  "left": "Nice en juillet",
+                  "right": "chaud, mer chaude"
+                },
+                {
+                  "left": "Lyon en hiver",
+                  "right": "froid, brouillard"
+                }
+              ],
+              "hint": "Trouvez les informations dans le texte."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Expressions Négatives",
+            "instructions": "Complétez les phrases négatives.",
+            "content": {
+              "text": "En juillet, il ne _____ pas. Il n'y a pas de _____. Il ne fait pas _____.",
+              "blanks": [
+                {
+                  "correctAnswer": "pleut",
+                  "acceptableAnswers": [
+                    "pleut"
+                  ],
+                  "options": [
+                    "pleut",
+                    "neige",
+                    "fait",
+                    "va"
+                  ]
+                },
+                {
+                  "correctAnswer": "neige",
+                  "acceptableAnswers": [
+                    "neige"
+                  ],
+                  "options": [
+                    "neige",
+                    "pluie",
+                    "vent",
+                    "soleil"
+                  ]
+                },
+                {
+                  "correctAnswer": "froid",
+                  "acceptableAnswers": [
+                    "froid"
+                  ],
+                  "options": [
+                    "froid",
+                    "chaud",
+                    "beau",
+                    "mauvais"
+                  ]
+                }
+              ],
+              "translation": "In July, it doesn't rain. There is no snow. It's not cold.",
+              "hint": "Pensez au temps en été."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Où Va Alex?",
+            "instructions": "Où Alex décide-t-il d'aller?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel type d'endroit cherche Alex?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "La montagne avec de la neige",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Une ville avec des musées",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Le bord de la mer avec du soleil",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "La campagne avec des forêts",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'Je vais aller au bord de la mer. Je vais chercher un endroit avec du soleil, de la plage, et de l'eau bleue.'",
+              "hint": "Alex veut du soleil et de l'eau."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: La Planification",
+            "instructions": "Complétez le résumé.",
+            "content": {
+              "text": "Alex a deux semaines de {blank1} en {blank2}. Il regarde la {blank3} sur Internet. En juillet, il fait {blank4} à Lyon. Il y a du {blank5} presque tous les jours. Il ne {blank6} pas beaucoup. À Marseille et à Nice, il fait très chaud aussi. C'est parfait pour la {blank7}. Alex décide d'aller au bord de la {blank8}. Il cherche un endroit avec du soleil, de la plage et de l'eau {blank9}.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "vacances"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "juillet"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "météo"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "chaud"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "soleil"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "pleut"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "plage"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "mer"
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "bleue"
+                }
+              ],
+              "hint": "Relisez l'histoire pour les détails."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrateur",
+          "voice": "Charon",
+          "description": "Voix calme et descriptive"
+        }
+      ],
+      "audioStyle": "Récit narratif avec descriptions météorologiques. Voix claire et pédagogique pour les débutants A1. Ton optimiste pour la planification des vacances."
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Réserver",
+      "content": "Alex entre dans une agence de voyage dans le centre de Lyon. Une agente sourit et le salue.\n\nAgente : Bonjour monsieur ! Bienvenue chez Voyages Soleil. Je peux vous aider ?\n\nAlex : Bonjour madame. Oui, je voudrais réserver des vacances au bord de la mer.\n\nAgente : Très bien ! Pour quand exactement ?\n\nAlex : Pour juillet. Du dix juillet au vingt-quatre juillet. Deux semaines.\n\nAgente : Parfait, deux semaines en juillet. Vous avez une préférence pour la destination ?\n\nAlex : Le sud de la France. Peut-être Marseille, Nice, ou la Côte d'Azur.\n\nAgente : Excellent choix ! Et vous cherchez quel type d'hébergement ? Un hôtel, un camping, une location ?\n\nAlex : Euh... quelle est la différence ?\n\nAgente : Bien sûr, je vous explique. Un hôtel, c'est confortable. Il y a des chambres avec salle de bain, le petit déjeuner, parfois une piscine. C'est plus cher.\n\nAlex : D'accord. Et le camping ?\n\nAgente : Le camping, c'est plus simple et moins cher. Vous dormez dans une tente ou un bungalow. C'est très nature, très convivial. Il y a souvent une piscine aussi.\n\nAlex : Et une location ?\n\nAgente : Une location, c'est un appartement ou une maison. Vous avez une cuisine, vous préparez vos repas. C'est indépendant et économique pour deux semaines.\n\nAlex : Hmm. Je pense que je préfère un hôtel. C'est plus simple pour moi.\n\nAgente : Très bien ! Un hôtel alors. Vous voyagez seul ou avec quelqu'un ?\n\nAlex : Je voyage seul.\n\nAgente : D'accord, une chambre simple. Vous avez un budget ?\n\nAlex : Pas trop cher... peut-être mille euros maximum pour tout ?\n\nAgente : Parfait. Laissez-moi chercher... Ah ! J'ai quelque chose. L'Hôtel Méditerranée à Nice. Une chambre simple avec vue sur la mer. Petit déjeuner inclus. Pour quatorze nuits, ça fait neuf cent cinquante euros.\n\nAlex : C'est bien ! C'est près de la plage ?\n\nAgente : Oui, l'hôtel est à deux minutes de la plage à pied. Très pratique !\n\nAlex : Parfait ! Et qu'est-ce qui est inclus exactement ?\n\nAgente : La chambre pour quatorze nuits, le petit déjeuner chaque matin, l'accès à la piscine de l'hôtel, et le WiFi gratuit.\n\nAlex : Il y a une piscine ? Super !\n\nAgente : Oui, sur le toit de l'hôtel, avec vue panoramique. C'est magnifique !\n\nAlex : Alors je réserve ! Comment je paye ?\n\nAgente : Vous payez cinquante pour cent maintenant, et le reste à l'arrivée à l'hôtel.\n\nAlex : D'accord. Je peux payer par carte ?\n\nAgente : Bien sûr ! Je prépare votre réservation. Votre nom complet, s'il vous plaît ?\n\nAlex : Alexander Martin. M-A-R-T-I-N.\n\nAgente : Parfait monsieur Martin. Et votre numéro de téléphone ?\n\nAlex : C'est le 06 45 78 90 12.\n\nAgente : Merci. Voilà, c'est confirmé ! Vous allez recevoir un email avec tous les détails : l'adresse de l'hôtel, les horaires d'arrivée et de départ, et votre numéro de réservation.\n\nAlex : Excellent ! Merci beaucoup madame !\n\nAgente : De rien monsieur Martin ! Bonnes vacances à Nice !\n\nAlex : Merci ! Au revoir !\n\nAgente : Au revoir !",
+      "generateAudio": true,
+      "estimatedMinutes": 13,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: La Période",
+            "instructions": "Quand Alex va-t-il en vacances?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Combien de temps durent les vacances d'Alex?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Une semaine",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Deux semaines",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Trois semaines",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Un mois",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'Du dix juillet au vingt-quatre juillet. Deux semaines.'",
+              "hint": "Alex précise la durée au début."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Types d'Hébergement",
+            "instructions": "Associez les hébergements avec leurs caractéristiques.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "l'hôtel",
+                  "right": "confortable, chambres avec salle de bain"
+                },
+                {
+                  "left": "le camping",
+                  "right": "tente ou bungalow, nature, moins cher"
+                },
+                {
+                  "left": "la location",
+                  "right": "appartement, avec cuisine, indépendant"
+                },
+                {
+                  "left": "la chambre simple",
+                  "right": "pour une personne seule"
+                }
+              ],
+              "hint": "L'agente explique les différences."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Réserver",
+            "instructions": "Complétez la phrase.",
+            "content": {
+              "text": "Je voudrais _____ des vacances au bord de la mer.",
+              "blanks": [
+                {
+                  "correctAnswer": "réserver",
+                  "acceptableAnswers": [
+                    "réserver"
+                  ],
+                  "options": [
+                    "réserver",
+                    "acheter",
+                    "prendre",
+                    "chercher"
+                  ]
+                }
+              ],
+              "translation": "I would like to book a vacation by the sea.",
+              "hint": "Verbe pour faire une réservation."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Quel Hôtel?",
+            "instructions": "Quel hôtel Alex choisit-il?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Où est l'hôtel qu'Alex réserve?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "À Marseille",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "À Nice",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "À Lyon",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "À Cannes",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "L'agente dit : 'L'Hôtel Méditerranée à Nice.'",
+              "hint": "L'agente nomme la ville où se trouve l'hôtel."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des Mots: Question d'Hébergement",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "Vous",
+                "cherchez",
+                "quel",
+                "type",
+                "d'",
+                "hébergement",
+                "?"
+              ],
+              "correctOrder": [
+                "Vous",
+                "cherchez",
+                "quel",
+                "type",
+                "d'",
+                "hébergement",
+                "?"
+              ],
+              "translation": "What type of accommodation are you looking for?",
+              "explanation": "Pour demander le type, on utilise 'quel type de/d''.",
+              "hint": "Commencez avec 'Vous cherchez'."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Ce Qui Est Inclus",
+            "instructions": "Complétez avec les services.",
+            "content": {
+              "text": "L'hôtel inclut la chambre, le petit _____, l'accès à la _____, et le _____ gratuit.",
+              "blanks": [
+                {
+                  "correctAnswer": "déjeuner",
+                  "acceptableAnswers": [
+                    "déjeuner",
+                    "dejeuner"
+                  ],
+                  "options": [
+                    "déjeuner",
+                    "dîner",
+                    "repas",
+                    "café"
+                  ]
+                },
+                {
+                  "correctAnswer": "piscine",
+                  "acceptableAnswers": [
+                    "piscine"
+                  ],
+                  "options": [
+                    "piscine",
+                    "plage",
+                    "mer",
+                    "salle"
+                  ]
+                },
+                {
+                  "correctAnswer": "WiFi",
+                  "acceptableAnswers": [
+                    "WiFi",
+                    "wifi",
+                    "Wi-Fi"
+                  ],
+                  "options": [
+                    "WiFi",
+                    "téléphone",
+                    "parking",
+                    "restaurant"
+                  ]
+                }
+              ],
+              "translation": "The hotel includes the room, breakfast, access to the pool, and free WiFi.",
+              "hint": "Regardez ce que l'agente liste comme services."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Vocabulaire: La Réservation",
+            "instructions": "Associez le vocabulaire.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "l'hébergement",
+                  "right": "accommodation"
+                },
+                {
+                  "left": "la nuit",
+                  "right": "night (stay)"
+                },
+                {
+                  "left": "l'arrivée",
+                  "right": "arrival"
+                },
+                {
+                  "left": "le départ",
+                  "right": "departure"
+                },
+                {
+                  "left": "le séjour",
+                  "right": "stay"
+                },
+                {
+                  "left": "inclus",
+                  "right": "included"
+                }
+              ],
+              "hint": "Vocabulaire de réservation d'hôtel."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Le Prix",
+            "instructions": "Combien coûte la réservation?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel est le prix total pour quatorze nuits?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "850 euros",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "950 euros",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "1000 euros",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "1050 euros",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "L'agente dit : 'Pour quatorze nuits, ça fait neuf cent cinquante euros.'",
+              "hint": "L'agente donne le prix précis."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: La Réservation",
+            "instructions": "Complétez le résumé.",
+            "content": {
+              "text": "Alex va dans une {blank1} de voyage pour réserver des vacances. Il veut aller au {blank2} de la mer en juillet pour {blank3} semaines. L'agente lui explique trois types d'{blank4} : l'hôtel, le camping, et la location. Alex choisit un {blank5} à Nice. C'est l'Hôtel {blank6}. La chambre a une vue sur la {blank7}. Le prix est {blank8} euros pour quatorze {blank9}. Le petit {blank10} est inclus. L'hôtel est à deux {blank11} de la plage. Il y a une {blank12} sur le toit.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "agence"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "bord"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "deux"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "hébergement"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "hôtel"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "Méditerranée"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "mer"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "950"
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "nuits"
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": "déjeuner"
+                },
+                {
+                  "id": "blank11",
+                  "correctAnswer": "minutes"
+                },
+                {
+                  "id": "blank12",
+                  "correctAnswer": "piscine"
+                }
+              ],
+              "hint": "Relisez le dialogue pour tous les détails."
+            },
+            "estimatedDurationSeconds": 150,
+            "pointsValue": 25,
+            "difficultyRating": 1.7
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Jeune Américain enthousiaste pour ses vacances"
+        },
+        {
+          "name": "Agente de Voyage",
+          "voice": "Aoede",
+          "description": "Agente professionnelle et serviable"
+        }
+      ],
+      "audioStyle": "Conversation professionnelle dans une agence de voyage. L'agente est patiente et explique clairement. Alex pose beaucoup de questions. Rythme naturel adapté aux A1."
+    },
+    {
+      "episodeNumber": 3,
+      "type": "DIALOGUE",
+      "title": "Les Projets",
+      "content": "C'est le lendemain. Alex rencontre Julie, sa collègue, à la pause café.\n\nJulie : Salut Alex ! Tu as l'air content aujourd'hui !\n\nAlex : Oui, je suis très content ! Je viens de réserver mes vacances d'été !\n\nJulie : Ah super ! Tu vas où ?\n\nAlex : Je vais aller à Nice. Au bord de la mer.\n\nJulie : Nice ! C'est magnifique ! Tu vas y aller quand ?\n\nAlex : Je vais y aller en juillet. Du dix au vingt-quatre juillet.\n\nJulie : Qu'est-ce que tu vas faire là-bas ?\n\nAlex : Eh bien, je vais me reposer ! Je vais aller à la plage tous les jours.\n\nJulie : Tu vas nager dans la mer ?\n\nAlex : Oui, bien sûr ! Je vais nager, je vais bronzer, je vais lire des livres sur la plage.\n\nJulie : Ça a l'air parfait ! Tu vas visiter la ville aussi ?\n\nAlex : Oui, je vais visiter le Vieux Nice. Je vais me promener dans les petites rues. Je vais manger dans les restaurants locaux.\n\nJulie : Tu vas goûter la socca ?\n\nAlex : La socca ? Qu'est-ce que c'est ?\n\nJulie : C'est une spécialité niçoise. C'est une sorte de crêpe de pois chiches. C'est délicieux !\n\nAlex : Ah ! Alors oui, je vais goûter la socca ! Et je vais aussi prendre beaucoup de photos.\n\nJulie : Tu vas faire des excursions ?\n\nAlex : Je pense que oui. Je vais peut-être aller à Monaco un jour. C'est près de Nice, non ?\n\nJulie : Oui, c'est à vingt minutes en train ! Tu vas adorer. C'est très chic, très luxueux.\n\nAlex : Et toi Julie, tu vas partir en vacances cet été ?\n\nJulie : Oui ! Je vais aller en Bretagne avec ma famille en août.\n\nAlex : La Bretagne ? C'est où exactement ?\n\nJulie : C'est dans l'ouest de la France. Au bord de l'océan Atlantique.\n\nAlex : Qu'est-ce que vous allez faire ?\n\nJulie : On va louer une maison près de la plage. On va faire du vélo, on va visiter des petits villages, on va manger des crêpes et des fruits de mer.\n\nAlex : Ça a l'air super aussi !\n\nJulie : Oui ! Mes enfants vont jouer sur la plage, construire des châteaux de sable. Mon mari va faire du surf.\n\nAlex : Il sait surfer ?\n\nJulie : Oui, il adore ça ! Et moi, je vais lire des romans et me détendre.\n\nAlex : On va tous bien profiter de l'été alors !\n\nJulie : Exactement ! On travaille dur toute l'année, on mérite des vacances !\n\nAlex : C'est vrai ! Bon, je vais retourner au bureau. J'ai encore beaucoup de travail avant juillet !\n\nJulie : Moi aussi ! Allez, bon courage ! Et prépare bien tes vacances !\n\nAlex : Toi aussi ! À plus tard !\n\nJulie : À plus !",
+      "generateAudio": true,
+      "estimatedMinutes": 15,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Les Activités d'Alex",
+            "instructions": "Que va faire Alex à Nice?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quelle activité Alex ne va PAS faire?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Nager dans la mer",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Faire du surf",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Visiter le Vieux Nice",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Prendre des photos",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex ne mentionne pas le surf. C'est le mari de Julie qui va faire du surf en Bretagne.",
+              "hint": "Une de ces activités est pour quelqu'un d'autre."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Grammaire: Futur Proche",
+            "instructions": "Complétez avec aller + infinitif.",
+            "content": {
+              "text": "Je _____ nager dans la mer. Tu _____ visiter Nice. Il _____ prendre des photos. Nous _____ manger au restaurant.",
+              "blanks": [
+                {
+                  "correctAnswer": "vais",
+                  "acceptableAnswers": [
+                    "vais"
+                  ],
+                  "options": [
+                    "vais",
+                    "vas",
+                    "va",
+                    "allons"
+                  ]
+                },
+                {
+                  "correctAnswer": "vas",
+                  "acceptableAnswers": [
+                    "vas"
+                  ],
+                  "options": [
+                    "vais",
+                    "vas",
+                    "va",
+                    "allez"
+                  ]
+                },
+                {
+                  "correctAnswer": "va",
+                  "acceptableAnswers": [
+                    "va"
+                  ],
+                  "options": [
+                    "vais",
+                    "vas",
+                    "va",
+                    "vont"
+                  ]
+                },
+                {
+                  "correctAnswer": "allons",
+                  "acceptableAnswers": [
+                    "allons"
+                  ],
+                  "options": [
+                    "vais",
+                    "vas",
+                    "va",
+                    "allons"
+                  ]
+                }
+              ],
+              "translation": "I'm going to swim in the sea. You're going to visit Nice. He's going to take photos. We're going to eat at a restaurant.",
+              "hint": "Conjuguez 'aller' puis ajoutez l'infinitif."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Projets et Personnes",
+            "instructions": "Associez les personnes avec leurs projets.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Alex",
+                  "right": "aller à Nice, nager, bronzer"
+                },
+                {
+                  "left": "Julie",
+                  "right": "aller en Bretagne, lire, se détendre"
+                },
+                {
+                  "left": "Les enfants de Julie",
+                  "right": "jouer sur la plage, châteaux de sable"
+                },
+                {
+                  "left": "Le mari de Julie",
+                  "right": "faire du surf"
+                }
+              ],
+              "hint": "Écoutez bien qui va faire quoi."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des Mots: Futur Proche Négatif",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "Je",
+                "ne",
+                "vais",
+                "pas",
+                "travailler",
+                "en",
+                "juillet"
+              ],
+              "correctOrder": [
+                "Je",
+                "ne",
+                "vais",
+                "pas",
+                "travailler",
+                "en",
+                "juillet"
+              ],
+              "translation": "I'm not going to work in July",
+              "explanation": "Au futur proche négatif, on place 'ne...pas' autour du verbe 'aller'.",
+              "hint": "La négation entoure 'vais'."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: La Bretagne",
+            "instructions": "Où est la Bretagne?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Où se trouve la Bretagne?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Dans le sud de la France",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Dans l'ouest de la France",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Dans l'est de la France",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Dans le nord de la France",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Julie dit : 'C'est dans l'ouest de la France. Au bord de l'océan Atlantique.'",
+              "hint": "Julie précise la localisation."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Compléter: Questions au Futur",
+            "instructions": "Complétez les questions.",
+            "content": {
+              "text": "Tu _____ où ? Qu'est-ce que tu _____ faire ? Tu _____ visiter la ville ?",
+              "blanks": [
+                {
+                  "correctAnswer": "vas",
+                  "acceptableAnswers": [
+                    "vas"
+                  ],
+                  "options": [
+                    "vas",
+                    "vais",
+                    "va",
+                    "allez"
+                  ]
+                },
+                {
+                  "correctAnswer": "vas",
+                  "acceptableAnswers": [
+                    "vas"
+                  ],
+                  "options": [
+                    "vas",
+                    "vais",
+                    "va",
+                    "allez"
+                  ]
+                },
+                {
+                  "correctAnswer": "vas",
+                  "acceptableAnswers": [
+                    "vas"
+                  ],
+                  "options": [
+                    "vas",
+                    "vais",
+                    "va",
+                    "allez"
+                  ]
+                }
+              ],
+              "translation": "Where are you going? What are you going to do? Are you going to visit the city?",
+              "hint": "Questions avec 'tu' au futur proche."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Vocabulaire: Les Vacances",
+            "instructions": "Associez le vocabulaire des vacances.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "bronzer",
+                  "right": "to sunbathe/tan"
+                },
+                {
+                  "left": "se détendre",
+                  "right": "to relax"
+                },
+                {
+                  "left": "se promener",
+                  "right": "to walk/stroll"
+                },
+                {
+                  "left": "goûter",
+                  "right": "to taste"
+                },
+                {
+                  "left": "profiter",
+                  "right": "to enjoy/take advantage"
+                },
+                {
+                  "left": "mériter",
+                  "right": "to deserve"
+                }
+              ],
+              "hint": "Verbes utilisés pour parler des vacances."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: La Socca",
+            "instructions": "Qu'est-ce que la socca?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce que la socca?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Un poisson",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Une crêpe de pois chiches",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Un château",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Une plage",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Julie dit : 'C'est une sorte de crêpe de pois chiches. C'est délicieux !'",
+              "hint": "C'est une spécialité niçoise."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: Les Projets de Vacances",
+            "instructions": "Complétez le résumé.",
+            "content": {
+              "text": "Alex a réservé ses vacances. Il {blank1} aller à Nice en {blank2}. Il va {blank3} dans la mer, {blank4} sur la plage, et lire des livres. Il va {blank5} le Vieux Nice et manger dans les restaurants. Il va {blank6} la socca, une spécialité niçoise. Il va peut-être aller à {blank7} un jour. Julie, elle, va aller en {blank8} en août avec sa famille. Ils vont {blank9} une maison près de la plage. Ils vont faire du {blank10}, visiter des villages, et manger des crêpes. Le mari de Julie va faire du {blank11}. Les enfants vont construire des {blank12} de sable.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "va"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "juillet"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "nager"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "bronzer"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "visiter"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "goûter"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "Monaco"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "Bretagne"
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "louer"
+                },
+                {
+                  "id": "blank10",
+                  "correctAnswer": "vélo"
+                },
+                {
+                  "id": "blank11",
+                  "correctAnswer": "surf"
+                },
+                {
+                  "id": "blank12",
+                  "correctAnswer": "châteaux"
+                }
+              ],
+              "hint": "Relisez toute la conversation."
+            },
+            "estimatedDurationSeconds": 180,
+            "pointsValue": 25,
+            "difficultyRating": 1.8
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Jeune Américain enthousiaste et excité"
+        },
+        {
+          "name": "Collègue Julie",
+          "voice": "Puck",
+          "description": "Collègue amicale et sympathique"
+        }
+      ],
+      "audioStyle": "Conversation amicale entre collègues. Ton joyeux et enthousiaste en parlant des projets de vacances. Rythme naturel avec beaucoup de futur proche. Adapté aux A1."
+    }
+  ]
+}

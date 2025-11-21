@@ -1,0 +1,1161 @@
+{
+  "moduleNumber": 11,
+  "title": "La Routine Matinale",
+  "theme": "Morning Routine - Le Quotidien",
+  "description": "Suivez Alex alors qu'il établit sa routine matinale à Lyon. Apprenez les verbes pronominaux et le vocabulaire du quotidien pour décrire votre journée.",
+  "objectives": [
+    "Use reflexive verbs (se réveiller, se lever, se laver)",
+    "Describe morning routine activities",
+    "Talk about bathroom and hygiene habits",
+    "Name clothing items and get dressed",
+    "Express time and sequence in daily routines"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "STORY",
+      "title": "Se Réveiller",
+      "content": "Le réveil sonne. Bip, bip, bip! Il est sept heures du matin.\n\nAlex ouvre les yeux. Il est dans son lit à Lyon. La lumière du soleil entre par la fenêtre.\n\n\"Mmm... déjà le matin?\"\n\nAlex se réveille lentement. Il regarde son téléphone : 7h00.\n\n\"Bon, je me réveille,\" pense Alex. \"C'est l'heure.\"\n\nIl reste encore deux minutes dans le lit. Mais le réveil sonne encore. Bip, bip, bip!\n\n\"D'accord, d'accord...\"\n\nAlex se lève. Il sort du lit. Il met les pieds par terre.\n\n\"Voilà, je me lève. Je suis debout maintenant.\"\n\nAlex s'étire. Il lève les bras en l'air. \"Ahh...\"\n\nIl marche vers la fenêtre. Il ouvre les rideaux complètement.\n\n\"Quelle belle journée!\"\n\nLa ville de Lyon se réveille aussi. Alex voit des gens dans la rue. Des voitures passent. Un bus s'arrête au coin.\n\nAlex bâille. \"J'ai bien dormi. Huit heures de sommeil, parfait.\"\n\nIl regarde encore son téléphone. Maintenant il est 7h05.\n\n\"Bon, je commence ma routine. Tous les jours, c'est pareil : je me réveille à sept heures, je me lève, et je commence la journée.\"\n\nAlex sourit. Il aime sa nouvelle vie à Lyon. Il aime sa routine matinale.\n\n\"Allez, au travail!\" dit-il à lui-même.",
+      "generateAudio": true,
+      "estimatedMinutes": 15,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: À quelle heure?",
+            "instructions": "At what time does Alex's alarm go off?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "À quelle heure le réveil sonne?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "6h00",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "7h00",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "8h00",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "7h30",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Le réveil sonne à sept heures du matin (7h00).",
+              "hint": "Alex regarde son téléphone au début de l'histoire."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: Se réveiller",
+            "instructions": "What does 'se réveiller' mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que signifie 'se réveiller'?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "To wake up",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "To get up",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "To sleep",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "To work",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Se réveiller' means 'to wake up' - when you open your eyes and stop sleeping.",
+              "hint": "This is what happens when your alarm goes off."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez: Je me réveille",
+            "instructions": "Complete the sentence with the correct reflexive pronoun.",
+            "content": {
+              "text": "Je _____ réveille à sept heures.",
+              "blanks": [
+                {
+                  "correctAnswer": "me",
+                  "acceptableAnswers": [
+                    "me",
+                    "m'"
+                  ],
+                  "options": [
+                    "me",
+                    "te",
+                    "se",
+                    "nous"
+                  ]
+                }
+              ],
+              "translation": "I wake up at seven o'clock.",
+              "hint": "The reflexive pronoun for 'je' is 'me' (or m' before a vowel)."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez: Je me lève",
+            "instructions": "Complete with the correct reflexive verb form.",
+            "content": {
+              "text": "Bon, je _____ _____.",
+              "blanks": [
+                {
+                  "correctAnswer": "me",
+                  "acceptableAnswers": [
+                    "me",
+                    "m'"
+                  ],
+                  "options": [
+                    "me",
+                    "te",
+                    "se",
+                    "le"
+                  ]
+                },
+                {
+                  "correctAnswer": "lève",
+                  "acceptableAnswers": [
+                    "lève",
+                    "leve"
+                  ],
+                  "options": [
+                    "lève",
+                    "lever",
+                    "lèves",
+                    "levons"
+                  ]
+                }
+              ],
+              "translation": "Good, I'm getting up.",
+              "hint": "'Se lever' means 'to get up' - leaving the bed."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associez: Morning Activities",
+            "instructions": "Match the French morning activities with their English meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "se réveiller",
+                  "right": "to wake up"
+                },
+                {
+                  "left": "se lever",
+                  "right": "to get up"
+                },
+                {
+                  "left": "s'étirer",
+                  "right": "to stretch"
+                },
+                {
+                  "left": "bâiller",
+                  "right": "to yawn"
+                },
+                {
+                  "left": "dormir",
+                  "right": "to sleep"
+                }
+              ],
+              "hint": "Think about what you do when you wake up in the morning."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrangez: Le réveil sonne",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Le",
+                "réveil",
+                "sonne",
+                "à",
+                "sept",
+                "heures"
+              ],
+              "correctOrder": [
+                "Le",
+                "réveil",
+                "sonne",
+                "à",
+                "sept",
+                "heures"
+              ],
+              "translation": "The alarm goes off at seven o'clock.",
+              "explanation": "In French, 'sonner' means 'to ring' or 'to go off' for an alarm.",
+              "hint": "Start with 'Le réveil' (the alarm)."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Combien d'heures?",
+            "instructions": "How many hours did Alex sleep?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Combien d'heures Alex a-t-il dormi?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Six heures",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Sept heures",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Huit heures",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Neuf heures",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'J'ai bien dormi. Huit heures de sommeil, parfait.'",
+              "hint": "Alex mentions he slept well and the number of hours."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Écoute: La routine",
+            "instructions": "Listen and answer the question.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Tous les jours, c'est pareil : je me réveille à sept heures, je me lève, et je commence la journée.",
+              "question": "What does Alex say about his routine?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Every day is the same"
+                },
+                {
+                  "id": "b",
+                  "text": "Every day is different"
+                },
+                {
+                  "id": "c",
+                  "text": "He doesn't have a routine"
+                },
+                {
+                  "id": "d",
+                  "text": "He wakes up at different times"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "'C'est pareil' means 'it's the same' - Alex has a consistent morning routine.",
+              "hint": "Listen for the phrase 'tous les jours' (every day)."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.4,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Texte à trous: La routine d'Alex",
+            "instructions": "Fill in the blanks to complete the summary.",
+            "content": {
+              "text": "Le matin, le {blank1} sonne à sept heures. Alex ouvre les yeux et se {blank2} lentement. Ensuite, il se {blank3} et sort du lit. Il {blank4} et lève les bras. Par la fenêtre, il voit que la ville de Lyon se réveille aussi. Alex a bien {blank5}, huit heures de sommeil. Il aime sa {blank6} matinale.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "réveil"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "réveille"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "lève"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": [
+                    "s'étire",
+                    "étire"
+                  ]
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "dormi"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "routine"
+                }
+              ],
+              "hint": "Review Alex's morning sequence from the story."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrateur",
+          "voice": "Charon",
+          "description": "Calm, clear narrator voice"
+        }
+      ],
+      "audioStyle": "Narrative storytelling. Clear, moderate-paced French suitable for A1.2 learners. Warm, engaging tone describing Alex's morning routine."
+    },
+    {
+      "episodeNumber": 2,
+      "type": "STORY",
+      "title": "La Salle de Bain",
+      "content": "Alex entre dans la salle de bain. Il allume la lumière.\n\n\"Bon, maintenant je me lave.\"\n\nAlex va vers le lavabo. Il ouvre le robinet. L'eau coule. Il se lave les mains d'abord.\n\n\"L'eau est un peu froide... voilà, maintenant elle est chaude. Parfait.\"\n\nIl se lave le visage avec de l'eau froide. \"Ça réveille!\"\n\nAlex prend le savon. Il se lave bien le visage. Puis il prend une serviette et il se sèche.\n\n\"Maintenant, la douche.\"\n\nAlex entre dans la douche. Il ouvre l'eau. Il attend que l'eau soit chaude.\n\n\"Ah, c'est bon!\"\n\nAlex se douche. Il utilise le shampooing pour les cheveux. Il prend le gel douche pour le corps. Il se lave partout.\n\n\"J'aime bien me doucher le matin. Ça me réveille vraiment!\"\n\nAprès dix minutes, Alex sort de la douche. Il prend la grande serviette bleue. Il se sèche les cheveux, le corps, les bras, les jambes.\n\n\"Voilà, je suis propre maintenant.\"\n\nAlex regarde dans le miroir. Il a les cheveux mouillés.\n\n\"Je me brosse les dents maintenant.\"\n\nIl prend sa brosse à dents et le dentifrice. Il met du dentifrice sur la brosse. Il se brosse les dents pendant deux minutes.\n\n\"Une, deux, trois... C'est important de bien se brosser les dents!\"\n\nIl se rince la bouche avec de l'eau.\n\n\"Parfait. Maintenant, je me rase.\"\n\nAlex prend son rasoir électrique. Il se rase la barbe. Bzzz, bzzz.\n\n\"Voilà, c'est fini!\"\n\nAlex se regarde dans le miroir encore une fois.\n\n\"Très bien. Je me sens propre et frais. Maintenant, je m'habille!\"",
+      "generateAudio": true,
+      "estimatedMinutes": 15,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Que fait Alex?",
+            "instructions": "What is the main activity in this episode?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que fait Alex dans cet épisode?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il prépare le petit déjeuner",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Il se lave dans la salle de bain",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Il s'habille pour le travail",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Il téléphone à un ami",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex fait sa routine dans la salle de bain : il se lave, se douche, se brosse les dents, et se rase.",
+              "hint": "Where does Alex go after waking up?"
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associez: Bathroom Items",
+            "instructions": "Match the French bathroom items with their English meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "le savon",
+                  "right": "soap"
+                },
+                {
+                  "left": "la serviette",
+                  "right": "towel"
+                },
+                {
+                  "left": "le shampooing",
+                  "right": "shampoo"
+                },
+                {
+                  "left": "la brosse à dents",
+                  "right": "toothbrush"
+                },
+                {
+                  "left": "le dentifrice",
+                  "right": "toothpaste"
+                }
+              ],
+              "hint": "These are common items you find in a bathroom."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez: Se laver",
+            "instructions": "Complete with the correct form.",
+            "content": {
+              "text": "Alex _____ lave le visage.",
+              "blanks": [
+                {
+                  "correctAnswer": "se",
+                  "acceptableAnswers": [
+                    "se",
+                    "s'"
+                  ],
+                  "options": [
+                    "se",
+                    "me",
+                    "te",
+                    "le"
+                  ]
+                }
+              ],
+              "translation": "Alex washes his face.",
+              "hint": "The reflexive pronoun for 'il/elle' is 'se'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez: Se brosser les dents",
+            "instructions": "Complete the reflexive verb phrase.",
+            "content": {
+              "text": "Je _____ brosse les dents.",
+              "blanks": [
+                {
+                  "correctAnswer": "me",
+                  "acceptableAnswers": [
+                    "me",
+                    "m'"
+                  ],
+                  "options": [
+                    "me",
+                    "te",
+                    "se",
+                    "nous"
+                  ]
+                }
+              ],
+              "translation": "I brush my teeth.",
+              "hint": "With reflexive verbs, use the reflexive pronoun that matches the subject."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: Se doucher",
+            "instructions": "What does 'se doucher' mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que signifie 'se doucher'?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "To take a shower",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "To wash hands",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "To dry off",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "To brush teeth",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Se doucher' means 'to take a shower' or 'to shower'.",
+              "hint": "Alex does this after washing his face."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrangez: Je me brosse les dents",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Je",
+                "me",
+                "brosse",
+                "les",
+                "dents"
+              ],
+              "correctOrder": [
+                "Je",
+                "me",
+                "brosse",
+                "les",
+                "dents"
+              ],
+              "translation": "I brush my teeth.",
+              "explanation": "With body parts, French uses the definite article (les) not possessive adjectives.",
+              "hint": "The reflexive pronoun 'me' comes right after the subject 'je'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: L'ordre",
+            "instructions": "In what order does Alex do these activities?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que fait Alex en premier?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il se brosse les dents",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Il se rase",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Il se lave le visage",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Il s'habille",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex se lave le visage en premier, avant de se doucher.",
+              "hint": "What does Alex do first when he enters the bathroom?"
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Écoute: La douche",
+            "instructions": "Listen and answer the question.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "J'aime bien me doucher le matin. Ça me réveille vraiment!",
+              "question": "Why does Alex like to shower in the morning?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "It really wakes him up"
+                },
+                {
+                  "id": "b",
+                  "text": "It's relaxing"
+                },
+                {
+                  "id": "c",
+                  "text": "The water is cold"
+                },
+                {
+                  "id": "d",
+                  "text": "He doesn't have time at night"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "'Ça me réveille vraiment' means 'it really wakes me up' - Alex likes the energizing effect.",
+              "hint": "Listen for what the shower does for Alex."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.5,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Texte à trous: Dans la salle de bain",
+            "instructions": "Fill in the blanks about Alex's bathroom routine.",
+            "content": {
+              "text": "Dans la salle de bain, Alex se {blank1} d'abord le visage avec de l'eau froide. Ensuite, il prend une {blank2} et entre dans la douche. Il utilise le {blank3} pour les cheveux et le gel douche pour le corps. Après la douche, il se {blank4} avec une grande serviette bleue. Puis il prend sa brosse à {blank5} et le dentifrice. Il se brosse les dents pendant deux minutes. Finalement, il se {blank6} avec un rasoir électrique.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "lave"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": [
+                    "douche",
+                    "serviette"
+                  ]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "shampooing"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "sèche"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "dents"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "rase"
+                }
+              ],
+              "hint": "Think about the sequence of Alex's bathroom activities."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.7
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrateur",
+          "voice": "Charon",
+          "description": "Calm, clear narrator voice"
+        }
+      ],
+      "audioStyle": "Narrative storytelling. Clear, moderate-paced French describing bathroom routine. Natural, conversational tone with Alex's thoughts."
+    },
+    {
+      "episodeNumber": 3,
+      "type": "STORY",
+      "title": "S'Habiller",
+      "content": "Alex sort de la salle de bain. Il va dans sa chambre.\n\n\"Bon, maintenant je m'habille. Qu'est-ce que je porte aujourd'hui?\"\n\nAlex ouvre son armoire. Il regarde ses vêtements.\n\n\"Voyons... un pantalon. Lequel?\"\n\nIl a plusieurs pantalons : un pantalon noir, un pantalon gris, un jean bleu.\n\n\"Aujourd'hui, je mets le pantalon gris. Il est confortable et professionnel.\"\n\nAlex prend le pantalon gris. Il s'habille. Il met le pantalon.\n\n\"Maintenant, une chemise.\"\n\nAlex regarde ses chemises. Il a une chemise blanche, une chemise bleue claire, une chemise rayée.\n\n\"La chemise blanche, c'est classique. Parfait pour le bureau.\"\n\nIl met la chemise blanche. Il boutonne la chemise, un bouton après l'autre.\n\n\"Et maintenant, les chaussettes.\"\n\nAlex ouvre le tiroir. Il cherche deux chaussettes noires identiques.\n\n\"Où est l'autre chaussette? Ah, la voilà!\"\n\nIl s'assoit sur le lit. Il met les chaussettes, d'abord la gauche, puis la droite.\n\n\"Ensuite, les chaussures.\"\n\nAlex a des chaussures noires élégantes. Ce sont ses chaussures de travail. Il met les chaussures et il fait les lacets.\n\n\"Bien. Qu'est-ce qu'il manque?\"\n\nAlex se regarde dans le miroir.\n\n\"Ah oui, la ceinture!\"\n\nIl prend une ceinture noire en cuir. Il met la ceinture autour de la taille.\n\n\"Et finalement, je vais mettre une veste. Il fait un peu frais ce matin.\"\n\nAlex prend sa veste grise. Il met la veste. Elle va parfaitement avec le pantalon.\n\n\"Voilà! Je suis habillé. Je suis prêt pour aller au travail.\"\n\nAlex se regarde une dernière fois dans le grand miroir.\n\n\"Parfait. Je suis élégant et professionnel. Maintenant, je prends mon sac et mes clés, et je pars!\"\n\nIl regarde sa montre. Il est 7h45.\n\n\"Excellent! J'ai le temps de prendre un café avant de partir.\"",
+      "generateAudio": true,
+      "estimatedMinutes": 15,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Quel pantalon?",
+            "instructions": "Which pants does Alex choose?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel pantalon Alex choisit-il?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Le pantalon noir",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Le pantalon gris",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Le jean bleu",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Le pantalon blanc",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex choisit le pantalon gris parce qu'il est confortable et professionnel.",
+              "hint": "Alex says this pair is comfortable and professional."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associez: Clothing Items",
+            "instructions": "Match the French clothing items with their English meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "le pantalon",
+                  "right": "pants"
+                },
+                {
+                  "left": "la chemise",
+                  "right": "shirt"
+                },
+                {
+                  "left": "les chaussettes",
+                  "right": "socks"
+                },
+                {
+                  "left": "les chaussures",
+                  "right": "shoes"
+                },
+                {
+                  "left": "la veste",
+                  "right": "jacket"
+                },
+                {
+                  "left": "la ceinture",
+                  "right": "belt"
+                }
+              ],
+              "hint": "These are items Alex wears to work."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez: S'habiller",
+            "instructions": "Complete with the correct form of s'habiller.",
+            "content": {
+              "text": "Je _____ _____. Qu'est-ce que je porte aujourd'hui?",
+              "blanks": [
+                {
+                  "correctAnswer": "m'",
+                  "acceptableAnswers": [
+                    "m'",
+                    "me"
+                  ],
+                  "options": [
+                    "m'",
+                    "t'",
+                    "s'",
+                    "nous"
+                  ]
+                },
+                {
+                  "correctAnswer": "habille",
+                  "acceptableAnswers": [
+                    "habille"
+                  ],
+                  "options": [
+                    "habille",
+                    "habilles",
+                    "habillons",
+                    "habillez"
+                  ]
+                }
+              ],
+              "translation": "I'm getting dressed. What am I wearing today?",
+              "hint": "'S'habiller' means 'to get dressed' or 'to dress oneself'."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez: Mettre",
+            "instructions": "Complete with the correct form of 'mettre'.",
+            "content": {
+              "text": "Je _____ le pantalon gris.",
+              "blanks": [
+                {
+                  "correctAnswer": "mets",
+                  "acceptableAnswers": [
+                    "mets"
+                  ],
+                  "options": [
+                    "mets",
+                    "met",
+                    "mettons",
+                    "mettez"
+                  ]
+                }
+              ],
+              "translation": "I put on the gray pants.",
+              "hint": "'Mettre' means 'to put' or 'to put on' (clothing)."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: Porter",
+            "instructions": "What does 'porter' mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que signifie 'porter' dans le contexte des vêtements?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "To wear / to carry",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "To buy",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "To wash",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "To choose",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Porter' means 'to wear' or 'to carry'. 'Qu'est-ce que je porte?' = 'What am I wearing?'",
+              "hint": "Alex asks himself what he will wear today."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrangez: Il met la chemise",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Il",
+                "met",
+                "la",
+                "chemise",
+                "blanche"
+              ],
+              "correctOrder": [
+                "Il",
+                "met",
+                "la",
+                "chemise",
+                "blanche"
+              ],
+              "translation": "He puts on the white shirt.",
+              "explanation": "In French, the adjective for color usually comes after the noun.",
+              "hint": "The color adjective 'blanche' comes after 'chemise'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Quelle heure?",
+            "instructions": "What time does Alex finish getting dressed?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quelle heure est-il quand Alex est prêt?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "7h15",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "7h30",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "7h45",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "8h00",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Quand Alex regarde sa montre à la fin, il est 7h45.",
+              "hint": "Alex checks his watch at the end of the episode."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Écoute: Prêt pour le travail",
+            "instructions": "Listen and answer the question.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Voilà! Je suis habillé. Je suis prêt pour aller au travail.",
+              "question": "What does Alex say he is ready for?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "To go to work"
+                },
+                {
+                  "id": "b",
+                  "text": "To go shopping"
+                },
+                {
+                  "id": "c",
+                  "text": "To exercise"
+                },
+                {
+                  "id": "d",
+                  "text": "To eat breakfast"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "'Prêt pour aller au travail' means 'ready to go to work'.",
+              "hint": "Listen for where Alex is going."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Texte à trous: S'habiller pour le travail",
+            "instructions": "Fill in the blanks about Alex getting dressed.",
+            "content": {
+              "text": "Alex ouvre son {blank1} et regarde ses vêtements. Il choisit un {blank2} gris et une {blank3} blanche. Il cherche deux {blank4} noires identiques dans le tiroir. Il met ses {blank5} de travail et fait les lacets. Il ajoute une {blank6} noire en cuir et finalement une veste grise. Maintenant il est {blank7} et prêt pour aller au bureau.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "armoire"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "pantalon"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "chemise"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "chaussettes"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "chaussures"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "ceinture"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": [
+                    "habillé",
+                    "prêt",
+                    "élégant"
+                  ]
+                }
+              ],
+              "hint": "Think about the order in which Alex puts on his clothes."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrateur",
+          "voice": "Charon",
+          "description": "Calm, clear narrator voice"
+        }
+      ],
+      "audioStyle": "Narrative storytelling. Clear, moderate-paced French describing the process of getting dressed. Natural, thoughtful tone as Alex makes choices."
+    }
+  ]
+}

@@ -1,0 +1,1150 @@
+{
+  "moduleNumber": 12,
+  "title": "Le Trajet",
+  "theme": "The Commute - Le Transport",
+  "description": "Accompagnez Alex dans son trajet quotidien vers le bureau. Apprenez à parler des moyens de transport, acheter des tickets, et gérer les retards.",
+  "objectives": [
+    "Use prepositions 'en' and 'à' with transportation modes",
+    "Master the irregular verb 'prendre' (to take)",
+    "Buy tickets and navigate public transportation",
+    "Apologize and give excuses for being late",
+    "Discuss different commute options"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "DIALOGUE",
+      "title": "Comment Tu Vas?",
+      "content": "Alex: Bonjour! Vous allez au centre-ville aussi?\n\nCollègue: Oui, bonjour! Je vais au bureau. Et vous?\n\nAlex: Moi aussi, je vais au travail. Comment vous allez au bureau d'habitude?\n\nCollègue: Normalement, je vais en bus. C'est pratique et direct. Et vous?\n\nAlex: Moi, aujourd'hui je vais en bus aussi. C'est ma première fois!\n\nCollègue: Ah bon? D'habitude, vous allez comment?\n\nAlex: D'habitude, je vais à pied. Mais aujourd'hui, je suis un peu en retard.\n\nCollègue: Ah, je comprends! Le bus, c'est plus rapide que la marche. Vous habitez loin?\n\nAlex: Non, pas très loin. Vingt minutes à pied, cinq minutes en bus.\n\nCollègue: Ah oui, alors vous pouvez marcher! Moi, j'habite très loin. Trente minutes en bus.\n\nAlex: Et vous ne prenez jamais le métro?\n\nCollègue: Non, il n'y a pas de station de métro près de chez moi. Mais il y a un arrêt de bus juste en face de mon appartement. C'est très pratique.\n\nAlex: Vous avez de la chance! Moi, je marche cinq minutes jusqu'à l'arrêt.\n\nCollègue: Et vous, vous ne venez jamais en voiture?\n\nAlex: Non, je n'ai pas de voiture. Et vous?\n\nCollègue: Moi non plus. À Lyon, ce n'est pas nécessaire. Les transports en commun sont excellents!\n\nAlex: C'est vrai! Et on peut aussi aller à vélo, non?\n\nCollègue: Oui, absolument! Il y a des Vélo'v partout. Vous utilisez les Vélo'v?\n\nAlex: Pas encore, mais je veux essayer bientôt!\n\nCollègue: C'est super pratique pour les courtes distances. Bon, voilà notre bus qui arrive!\n\nAlex: Parfait! On y va!",
+      "generateAudio": true,
+      "estimatedMinutes": 15,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Aujourd'hui",
+            "instructions": "How is Alex going to work today?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Comment Alex va-t-il au bureau aujourd'hui?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "À pied",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "En bus",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "En métro",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "En voiture",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Aujourd'hui, Alex va en bus parce qu'il est un peu en retard. C'est sa première fois!",
+              "hint": "Alex mentions it's his first time using this method."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: D'habitude",
+            "instructions": "How does Alex usually go to work?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Comment Alex va-t-il au travail d'habitude?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "En bus",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "À pied",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "À vélo",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "En voiture",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'D'habitude, je vais à pied.' - Usually, he walks to work.",
+              "hint": "Alex lives only 20 minutes away by foot."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associez: Prépositions de transport",
+            "instructions": "Match the correct preposition with each mode of transportation.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "en bus",
+                  "right": "by bus"
+                },
+                {
+                  "left": "en métro",
+                  "right": "by metro"
+                },
+                {
+                  "left": "en voiture",
+                  "right": "by car"
+                },
+                {
+                  "left": "à pied",
+                  "right": "on foot"
+                },
+                {
+                  "left": "à vélo",
+                  "right": "by bike"
+                }
+              ],
+              "hint": "Use 'en' for vehicles you go inside, 'à' for methods without enclosure."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez: En ou à?",
+            "instructions": "Choose the correct preposition.",
+            "content": {
+              "text": "Je vais au travail _____ bus.",
+              "blanks": [
+                {
+                  "correctAnswer": "en",
+                  "acceptableAnswers": [
+                    "en"
+                  ],
+                  "options": [
+                    "en",
+                    "à",
+                    "au",
+                    "de"
+                  ]
+                }
+              ],
+              "translation": "I go to work by bus.",
+              "hint": "For vehicles you ride inside (bus, car, metro), use 'en'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez: À pied",
+            "instructions": "Complete with the correct preposition.",
+            "content": {
+              "text": "Normalement, je vais au bureau _____ pied.",
+              "blanks": [
+                {
+                  "correctAnswer": "à",
+                  "acceptableAnswers": [
+                    "à",
+                    "a"
+                  ],
+                  "options": [
+                    "à",
+                    "en",
+                    "de",
+                    "au"
+                  ]
+                }
+              ],
+              "translation": "Normally, I go to the office on foot.",
+              "hint": "For walking and biking, use 'à'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrangez: Comment allez-vous?",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Comment",
+                "vous",
+                "allez",
+                "au",
+                "bureau",
+                "?"
+              ],
+              "correctOrder": [
+                "Comment",
+                "vous",
+                "allez",
+                "au",
+                "bureau",
+                "?"
+              ],
+              "translation": "How do you go to the office?",
+              "explanation": "This is a common question to ask about someone's commute method.",
+              "hint": "Start with 'Comment' (how) and use the verb 'aller' (to go)."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: Les transports en commun",
+            "instructions": "What are 'les transports en commun'?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que sont 'les transports en commun'?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Public transportation",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Private cars",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Bicycles",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Walking",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Les transports en commun' are public transportation - buses, metros, trams, etc.",
+              "hint": "These are shared by many people, not private."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Écoute: Pratique",
+            "instructions": "Listen and answer the question.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "À Lyon, ce n'est pas nécessaire d'avoir une voiture. Les transports en commun sont excellents!",
+              "question": "What does the colleague say about Lyon?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "A car is not necessary because public transport is excellent"
+                },
+                {
+                  "id": "b",
+                  "text": "Everyone needs a car"
+                },
+                {
+                  "id": "c",
+                  "text": "Public transport is expensive"
+                },
+                {
+                  "id": "d",
+                  "text": "There is no metro in Lyon"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "In Lyon, you don't need a car because the public transportation system is excellent.",
+              "hint": "Listen for what is NOT necessary in Lyon."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.5,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Texte à trous: Le trajet",
+            "instructions": "Fill in the blanks about commuting options.",
+            "content": {
+              "text": "Alex va normalement au travail à {blank1}, mais aujourd'hui il va en {blank2} parce qu'il est en retard. Le trajet dure vingt minutes à pied, mais seulement {blank3} minutes en bus. La collègue habite loin, donc elle prend toujours le {blank4}. Elle n'a pas de {blank5} de métro près de chez elle. À Lyon, une {blank6} n'est pas nécessaire car les transports en commun sont excellents.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "pied"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "bus"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": [
+                    "cinq",
+                    "5"
+                  ]
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "bus"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "station"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "voiture"
+                }
+              ],
+              "hint": "Think about different ways to commute mentioned in the dialogue."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Young American man, curious about public transport"
+        },
+        {
+          "name": "Collègue de Bus",
+          "voice": "Aoede",
+          "description": "Friendly person waiting for the bus"
+        }
+      ],
+      "audioStyle": "Natural conversation at a bus stop. Both speakers are friendly and chatty, discussing their commute routines. Moderate pace suitable for A1.2 learners."
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Acheter des Tickets",
+      "content": "Alex: Bonjour! Je voudrais acheter un ticket de bus, s'il vous plaît.\n\nEmployé: Bonjour, monsieur. Vous voulez un ticket à l'unité ou un carnet?\n\nAlex: Euh... qu'est-ce qu'un carnet?\n\nEmployé: Un carnet, c'est un ensemble de dix tickets. C'est plus économique si vous prenez souvent le bus.\n\nAlex: Ah, je comprends! Oui, je prends le bus régulièrement maintenant. Je prends un carnet, alors.\n\nEmployé: Très bien. Vous voulez aussi une carte TCL pour le mois?\n\nAlex: Une carte pour le mois? Comment ça marche?\n\nEmployé: Avec la carte mensuelle, vous prenez le bus, le métro et le tram de manière illimitée pendant un mois.\n\nAlex: Ah, c'est intéressant! C'est combien?\n\nEmployé: La carte mensuelle coûte soixante-cinq euros. Le carnet de dix tickets coûte seize euros.\n\nAlex: Hmm... je réfléchis. Je ne prends pas le bus tous les jours... Je prends le carnet pour l'instant.\n\nEmployé: D'accord, pas de problème. Vous payez comment? Carte bancaire ou espèces?\n\nAlex: Je paie par carte, c'est possible?\n\nEmployé: Oui, bien sûr. Insérez votre carte ici, s'il vous plaît.\n\nAlex: Voilà... Le code... Et c'est bon!\n\nEmployé: Parfait! Voici votre carnet de tickets. N'oubliez pas : vous devez composter votre ticket quand vous montez dans le bus.\n\nAlex: Composter? Qu'est-ce que ça veut dire?\n\nEmployé: Ça veut dire valider votre ticket dans la petite machine jaune à l'entrée du bus. Comme ça, le ticket est activé.\n\nAlex: Ah, je vois! Je dois mettre le ticket dans la machine?\n\nEmployé: Exactement! Vous mettez le ticket, la machine fait un bruit, et hop, c'est validé!\n\nAlex: D'accord, merci beaucoup pour l'explication!\n\nEmployé: De rien! Bonne journée et bon voyage!\n\nAlex: Merci, bonne journée!",
+      "generateAudio": true,
+      "estimatedMinutes": 15,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Qu'est-ce qu'Alex achète?",
+            "instructions": "What does Alex decide to buy?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce qu'Alex achète finalement?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Un ticket à l'unité",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Un carnet de dix tickets",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Une carte mensuelle",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Rien",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex achète un carnet de dix tickets parce qu'il ne prend pas le bus tous les jours.",
+              "hint": "Alex chooses the option with 10 tickets."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: Composter",
+            "instructions": "What does 'composter' mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que signifie 'composter un ticket'?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "To validate/stamp a ticket",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "To buy a ticket",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "To throw away a ticket",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "To show a ticket",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Composter' means to validate or stamp your ticket in the machine when you board.",
+              "hint": "You do this in the yellow machine at the bus entrance."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez: Prendre (je)",
+            "instructions": "Complete with the correct form of 'prendre'.",
+            "content": {
+              "text": "Je _____ le bus régulièrement maintenant.",
+              "blanks": [
+                {
+                  "correctAnswer": "prends",
+                  "acceptableAnswers": [
+                    "prends"
+                  ],
+                  "options": [
+                    "prends",
+                    "prend",
+                    "prenons",
+                    "prenez"
+                  ]
+                }
+              ],
+              "translation": "I take the bus regularly now.",
+              "hint": "'Prendre' is irregular. For 'je': prends."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez: Prendre (vous)",
+            "instructions": "Complete with the correct form of 'prendre'.",
+            "content": {
+              "text": "Vous _____ le bus tous les jours?",
+              "blanks": [
+                {
+                  "correctAnswer": "prenez",
+                  "acceptableAnswers": [
+                    "prenez"
+                  ],
+                  "options": [
+                    "prenez",
+                    "prends",
+                    "prend",
+                    "prennent"
+                  ]
+                }
+              ],
+              "translation": "Do you take the bus every day?",
+              "hint": "For 'vous', the verb ending is -ez."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associez: Types de tickets",
+            "instructions": "Match the ticket types with their descriptions.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "un ticket à l'unité",
+                  "right": "single ticket"
+                },
+                {
+                  "left": "un carnet",
+                  "right": "book of 10 tickets"
+                },
+                {
+                  "left": "une carte mensuelle",
+                  "right": "monthly pass"
+                },
+                {
+                  "left": "composter",
+                  "right": "to validate"
+                },
+                {
+                  "left": "illimité",
+                  "right": "unlimited"
+                }
+              ],
+              "hint": "Think about different ticket options for public transport."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrangez: Je voudrais acheter",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Je",
+                "voudrais",
+                "acheter",
+                "un",
+                "ticket",
+                "de",
+                "bus"
+              ],
+              "correctOrder": [
+                "Je",
+                "voudrais",
+                "acheter",
+                "un",
+                "ticket",
+                "de",
+                "bus"
+              ],
+              "translation": "I would like to buy a bus ticket.",
+              "explanation": "'Je voudrais' (I would like) is the polite way to make a request.",
+              "hint": "Start with 'Je voudrais' (I would like)."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Combien coûte?",
+            "instructions": "How much does the carnet cost?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Combien coûte le carnet de dix tickets?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "10 euros",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "16 euros",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "65 euros",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "20 euros",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "L'employé dit : 'Le carnet de dix tickets coûte seize euros.'",
+              "hint": "Listen for the price of the carnet, not the monthly card."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Écoute: La validation",
+            "instructions": "Listen and answer the question.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Vous devez composter votre ticket quand vous montez dans le bus. Vous mettez le ticket dans la machine jaune à l'entrée.",
+              "question": "When must you validate your ticket?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "When you board the bus"
+                },
+                {
+                  "id": "b",
+                  "text": "When you buy it"
+                },
+                {
+                  "id": "c",
+                  "text": "When you exit the bus"
+                },
+                {
+                  "id": "d",
+                  "text": "Before buying the ticket"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "'Quand vous montez dans le bus' means 'when you board the bus'.",
+              "hint": "Listen for when you need to use the yellow machine."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.6,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Texte à trous: Acheter des tickets",
+            "instructions": "Fill in the blanks about buying tickets.",
+            "content": {
+              "text": "Alex veut acheter un {blank1} de bus. L'employé lui explique qu'un {blank2} contient dix tickets et c'est plus économique. La carte {blank3} coûte soixante-cinq euros et permet de prendre le bus, le métro et le tram de manière {blank4} pendant un mois. Alex choisit le carnet qui coûte {blank5} euros. Il paie par {blank6} bancaire. L'employé lui rappelle de {blank7} le ticket dans la machine jaune quand il monte dans le bus.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "ticket"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "carnet"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "mensuelle"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "illimitée"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "seize",
+                    "16"
+                  ]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "carte"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "composter"
+                }
+              ],
+              "hint": "Review the conversation about ticket options and prices."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.7
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Young American man learning about the ticket system"
+        },
+        {
+          "name": "Employé de Métro",
+          "voice": "Charon",
+          "description": "Helpful metro/bus ticket office employee"
+        }
+      ],
+      "audioStyle": "Professional customer service conversation. The employee is patient and informative, explaining options clearly. Alex is curious and asks clarifying questions. Moderate pace."
+    },
+    {
+      "episodeNumber": 3,
+      "type": "DIALOGUE",
+      "title": "En Retard!",
+      "content": "Alex: Bonjour, monsieur. Excusez-moi pour le retard!\n\nChef: Bonjour, Alex. Vous êtes en retard de quinze minutes. Qu'est-ce qui s'est passé?\n\nAlex: Je suis vraiment désolé. Il y a eu un problème avec le bus ce matin.\n\nChef: Un problème avec le bus? Quel genre de problème?\n\nAlex: Le bus est tombé en panne. Nous avons dû attendre le bus suivant.\n\nChef: Ah, je comprends. Les pannes, ça arrive. Vous prenez quel bus normalement?\n\nAlex: Je prends le bus numéro C3. D'habitude, il est très ponctuel, mais ce matin, c'était exceptionnel.\n\nChef: Ne vous inquiétez pas, Alex. Ces choses arrivent. Mais la prochaine fois, si vous êtes en retard, envoyez-moi un message, d'accord?\n\nAlex: Oui, bien sûr! Je suis désolé, je n'y ai pas pensé. Je vais le faire la prochaine fois.\n\nChef: Parfait. Et si le bus a des problèmes, vous pouvez aussi prendre le métro, non?\n\nAlex: Oui, c'est une bonne idée. Il y a une station de métro pas très loin de chez moi. Je peux prendre la ligne A.\n\nChef: Exactement. C'est toujours bien d'avoir un plan B! Le métro est généralement plus fiable que le bus.\n\nAlex: Vous avez raison. Demain, je vais partir un peu plus tôt, comme ça, si il y a un problème, j'ai le temps.\n\nChef: Très bien, Alex. C'est une bonne solution. Bon, maintenant, au travail! Vous avez une réunion à dix heures.\n\nAlex: Ah oui, la réunion avec l'équipe marketing! Je ne l'oublie pas. J'ai encore trente minutes pour me préparer.\n\nChef: Parfait. Allez-y, installez-vous. Et encore une fois, pas de souci pour ce matin.\n\nAlex: Merci beaucoup pour votre compréhension! Je vous promets, ça ne va pas se reproduire souvent.\n\nChef: Je vous fais confiance, Alex. Bonne journée!\n\nAlex: Bonne journée à vous aussi!",
+      "generateAudio": true,
+      "estimatedMinutes": 15,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Pourquoi le retard?",
+            "instructions": "Why was Alex late?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Pourquoi Alex est-il en retard?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il s'est réveillé tard",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Le bus est tombé en panne",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Il a pris le mauvais bus",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Il n'avait pas de ticket",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'Le bus est tombé en panne' - the bus broke down.",
+              "hint": "Something happened to the bus itself."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: Désolé",
+            "instructions": "What does 'Je suis désolé' mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que signifie 'Je suis désolé'?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "I am sorry",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "I am happy",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "I am tired",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "I am late",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Je suis désolé' is how you say 'I'm sorry' or 'I apologize' in French.",
+              "hint": "This is an apology phrase."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associez: Excuses et problèmes",
+            "instructions": "Match the problems with appropriate responses.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Je suis désolé",
+                  "right": "I'm sorry"
+                },
+                {
+                  "left": "Excusez-moi",
+                  "right": "Excuse me"
+                },
+                {
+                  "left": "tomber en panne",
+                  "right": "to break down"
+                },
+                {
+                  "left": "être en retard",
+                  "right": "to be late"
+                },
+                {
+                  "left": "Ne vous inquiétez pas",
+                  "right": "Don't worry"
+                }
+              ],
+              "hint": "These are useful phrases for apologizing and explaining delays."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez: En retard de",
+            "instructions": "Complete the expression about being late.",
+            "content": {
+              "text": "Vous êtes en retard _____ quinze minutes.",
+              "blanks": [
+                {
+                  "correctAnswer": "de",
+                  "acceptableAnswers": [
+                    "de",
+                    "d'"
+                  ],
+                  "options": [
+                    "de",
+                    "à",
+                    "en",
+                    "pour"
+                  ]
+                }
+              ],
+              "translation": "You are fifteen minutes late.",
+              "hint": "Use 'de' to express 'by how much' you are late."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez: Qu'est-ce qui s'est passé?",
+            "instructions": "Complete the question asking what happened.",
+            "content": {
+              "text": "Qu'est-ce qui _____ est passé?",
+              "blanks": [
+                {
+                  "correctAnswer": "s'",
+                  "acceptableAnswers": [
+                    "s'",
+                    "se"
+                  ],
+                  "options": [
+                    "s'",
+                    "est",
+                    "a",
+                    "se"
+                  ]
+                }
+              ],
+              "translation": "What happened?",
+              "hint": "This is a reflexive construction in the past."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrangez: Excusez-moi pour le retard",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Excusez-moi",
+                "pour",
+                "le",
+                "retard"
+              ],
+              "correctOrder": [
+                "Excusez-moi",
+                "pour",
+                "le",
+                "retard"
+              ],
+              "translation": "Excuse me for being late.",
+              "explanation": "This is a polite way to apologize for arriving late.",
+              "hint": "Start with 'Excusez-moi' (excuse me)."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Quel bus?",
+            "instructions": "Which bus does Alex usually take?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel bus Alex prend-il normalement?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Le bus numéro A3",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Le bus numéro C3",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Le bus numéro B5",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Le bus numéro 13",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'Je prends le bus numéro C3.'",
+              "hint": "Listen for the bus number Alex mentions."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Écoute: Le plan B",
+            "instructions": "Listen and answer the question.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "C'est toujours bien d'avoir un plan B! Le métro est généralement plus fiable que le bus.",
+              "question": "What does the boss say about the metro?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "The metro is generally more reliable than the bus"
+                },
+                {
+                  "id": "b",
+                  "text": "The metro is slower than the bus"
+                },
+                {
+                  "id": "c",
+                  "text": "The metro doesn't work in the morning"
+                },
+                {
+                  "id": "d",
+                  "text": "The metro is more expensive"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "'Plus fiable' means 'more reliable' - the metro has fewer problems than buses.",
+              "hint": "Listen for the comparison between metro and bus."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.5,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Texte à trous: Expliquer le retard",
+            "instructions": "Fill in the blanks about Alex's lateness.",
+            "content": {
+              "text": "Alex arrive en {blank1} de quinze minutes au bureau. Il dit '{blank2}' à son chef pour s'excuser. Le {blank3} numéro C3 est tombé en {blank4} ce matin. Son chef lui dit de ne pas s'inquiéter mais d'envoyer un {blank5} la prochaine fois. Le chef suggère de prendre le {blank6} comme plan B parce qu'il est plus {blank7} que le bus. Alex promet de partir plus tôt demain.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "retard"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": [
+                    "désolé",
+                    "excusez-moi"
+                  ]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "bus"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "panne"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "message"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "métro"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "fiable"
+                }
+              ],
+              "hint": "Think about what caused Alex to be late and his boss's suggestions."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.7
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Young American man, apologetic about being late"
+        },
+        {
+          "name": "Chef de Bureau",
+          "voice": "Charon",
+          "description": "Understanding but professional office manager"
+        }
+      ],
+      "audioStyle": "Professional workplace conversation. Alex is apologetic and respectful, the boss is understanding but wants to establish good communication practices. Moderate pace with clear pronunciation."
+    }
+  ]
+}

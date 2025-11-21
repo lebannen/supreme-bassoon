@@ -1,0 +1,20 @@
+{
+  "slug": "french-a1-2-alex-lyon",
+  "name": "French A1.2 - La Vie Quotidienne à Lyon",
+  "languageCode": "fr",
+  "cefrLevel": "A1",
+  "description": "Continuez l'aventure d'Alex à Lyon. Découvrez la vie quotidienne en France : les routines matinales, le travail au bureau, les sorties au restaurant, les loisirs, et les voyages. Apprenez à raconter des événements passés et à planifier le futur. Maîtrisez les verbes réflexifs, les temps verbaux de base (présent, passé composé, futur proche), et enrichissez votre vocabulaire pour des conversations plus complexes. Suite du cours A1.1. Méthode directe : immersion totale en français.",
+  "objectives": [
+    "Décrire sa routine quotidienne avec des verbes réflexifs",
+    "Gérer les situations de travail et les interactions professionnelles",
+    "Commander au restaurant et gérer les problèmes courants",
+    "Parler de ses loisirs, sports et activités préférées",
+    "Faire du shopping et comparer des produits",
+    "Décrire des symptômes de santé et demander des médicaments",
+    "Parler de la météo et planifier des vacances",
+    "Raconter des événements passés au passé composé",
+    "Exprimer des projets futurs avec le futur proche",
+    "Exprimer ses émotions et sentiments"
+  ],
+  "estimatedHours": 20
+}

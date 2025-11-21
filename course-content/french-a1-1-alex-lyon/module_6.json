@@ -1,0 +1,1273 @@
+{
+  "moduleNumber": 6,
+  "title": "Appeler la Famille",
+  "theme": "La Famille - Family",
+  "description": "Alex appelle sa famille aux États-Unis pour raconter sa nouvelle vie à Lyon. Apprendre le vocabulaire de la famille, les adjectifs possessifs, et les verbes réguliers en -ER.",
+  "objectives": [
+    "Learn family vocabulary (mère, père, frère, sœur, etc.)",
+    "Use possessive adjectives (mon, ma, mes, ton, ta, tes)",
+    "Conjugate regular -ER verbs in singular forms (habiter, parler, travailler)",
+    "Talk about where people live and what they do",
+    "Express family relationships"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "DIALOGUE",
+      "title": "L'Arbre Généalogique",
+      "content": "Alex est dans son appartement. Il fait un appel vidéo avec sa mère.\n\nMaman : Alex ! Mon chéri ! Comment vas-tu ?\n\nAlex : Salut maman ! Je vais très bien ! Et toi ?\n\nMaman : Ça va bien, merci. Tu me manques ! Raconte-moi, comment est Lyon ?\n\nAlex : C'est magnifique ! J'adore cette ville. Les gens sont sympathiques, le pain est délicieux...\n\nMaman : Je suis contente ! Et le travail ?\n\nAlex : Le travail commence lundi. J'ai rencontré un collègue qui s'appelle Thomas. Il est très gentil.\n\nMaman : Super ! Dis-moi, tu parles français tous les jours maintenant ?\n\nAlex : Oui ! Je parle français avec mes voisins, à la boulangerie, partout !\n\nMaman : Excellent ! Tu progresses vite. Comment va ton père ?\n\nAlex : Attends, je ne comprends pas. Papa n'est pas avec toi ?\n\nMaman : Non, il travaille au bureau aujourd'hui. C'est samedi mais il a beaucoup de travail.\n\nAlex : Ah d'accord. Et comment va ma sœur ?\n\nMaman : Ta sœur va bien ! Elle étudie beaucoup pour ses examens.\n\nAlex : Et mon frère ? Il joue toujours au football ?\n\nMaman : Oui ! Ton frère adore le football. Il joue tous les weekends. Et il demande souvent de tes nouvelles.\n\nAlex : C'est gentil ! Et mes grands-parents ?\n\nMaman : Ta grand-mère et ton grand-père vont très bien. Ils pensent à toi. Ta grand-mère cuisine toujours des gâteaux pour toute la famille.\n\nAlex : Ah, grand-mère et ses gâteaux ! Ça me manque !\n\nMaman : Toute la famille pense à toi, Alex. On est fiers de toi.\n\nAlex : Merci maman. Vous me manquez aussi. Je vous aime tous.\n\nMaman : Nous aussi, on t'aime ! Appelle-nous bientôt !\n\nAlex : Promis ! Bisous maman !\n\nMaman : Bisous mon chéri !",
+      "generateAudio": true,
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Avec qui parle Alex ?",
+            "instructions": "Qui est à l'écran avec Alex ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Avec qui Alex fait-il un appel vidéo ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Sa mère",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Son père",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Sa sœur",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Ses grands-parents",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex parle avec sa mère (maman). Son père travaille au bureau.",
+              "hint": "C'est la personne qui dit 'Mon chéri'."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Le frère d'Alex",
+            "instructions": "Que fait le frère d'Alex ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce que le frère d'Alex aime faire ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il cuisine des gâteaux",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Il étudie pour ses examens",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Il joue au football",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Il travaille au bureau",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "La maman dit : 'Ton frère adore le football. Il joue tous les weekends'.",
+              "hint": "C'est un sport populaire."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez : Mon, ma, mes",
+            "instructions": "Complétez avec le bon possessif.",
+            "content": {
+              "text": "_____ mère s'appelle Sarah. _____ père s'appelle Robert. _____ sœur étudie beaucoup.",
+              "blanks": [
+                {
+                  "correctAnswer": "Ma",
+                  "acceptableAnswers": [
+                    "Ma",
+                    "ma"
+                  ],
+                  "options": [
+                    "Ma",
+                    "Mon",
+                    "Mes",
+                    "Ta"
+                  ]
+                },
+                {
+                  "correctAnswer": "Mon",
+                  "acceptableAnswers": [
+                    "Mon",
+                    "mon"
+                  ],
+                  "options": [
+                    "Mon",
+                    "Ma",
+                    "Mes",
+                    "Ton"
+                  ]
+                },
+                {
+                  "correctAnswer": "Ma",
+                  "acceptableAnswers": [
+                    "Ma",
+                    "ma"
+                  ],
+                  "options": [
+                    "Ma",
+                    "Mon",
+                    "Mes",
+                    "Sa"
+                  ]
+                }
+              ],
+              "translation": "My mother is called Sarah. My father is called Robert. My sister studies a lot.",
+              "hint": "Mon = masculin, Ma = féminin, Mes = pluriel"
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez : Ton, ta, tes",
+            "instructions": "Complétez avec le bon possessif.",
+            "content": {
+              "text": "_____ sœur va bien ! _____ frère adore le football. _____ grands-parents pensent à toi.",
+              "blanks": [
+                {
+                  "correctAnswer": "Ta",
+                  "acceptableAnswers": [
+                    "Ta",
+                    "ta"
+                  ],
+                  "options": [
+                    "Ta",
+                    "Ton",
+                    "Tes",
+                    "Ma"
+                  ]
+                },
+                {
+                  "correctAnswer": "Ton",
+                  "acceptableAnswers": [
+                    "Ton",
+                    "ton"
+                  ],
+                  "options": [
+                    "Ton",
+                    "Ta",
+                    "Tes",
+                    "Mon"
+                  ]
+                },
+                {
+                  "correctAnswer": "Tes",
+                  "acceptableAnswers": [
+                    "Tes",
+                    "tes"
+                  ],
+                  "options": [
+                    "Tes",
+                    "Ton",
+                    "Ta",
+                    "Mes"
+                  ]
+                }
+              ],
+              "translation": "Your sister is doing well! Your brother loves football. Your grandparents are thinking of you.",
+              "hint": "Ton = masculin, Ta = féminin, Tes = pluriel"
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associez : La famille",
+            "instructions": "Associez les membres de la famille avec leur traduction.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "la mère",
+                  "right": "mother"
+                },
+                {
+                  "left": "le père",
+                  "right": "father"
+                },
+                {
+                  "left": "la sœur",
+                  "right": "sister"
+                },
+                {
+                  "left": "le frère",
+                  "right": "brother"
+                },
+                {
+                  "left": "la grand-mère",
+                  "right": "grandmother"
+                },
+                {
+                  "left": "le grand-père",
+                  "right": "grandfather"
+                }
+              ],
+              "hint": "Ce sont les membres proches de la famille."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Remettez les mots dans l'ordre",
+            "instructions": "Formez une phrase correcte.",
+            "content": {
+              "words": [
+                "Ma",
+                "mère",
+                "s'appelle",
+                "Sarah"
+              ],
+              "correctOrder": [
+                "Ma",
+                "mère",
+                "s'appelle",
+                "Sarah"
+              ],
+              "translation": "My mother is called Sarah",
+              "explanation": "Possessif + nom de famille + verbe s'appeler + prénom",
+              "hint": "Commencez par le possessif 'Ma'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Compréhension orale : La grand-mère",
+            "instructions": "Écoutez et répondez.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Ta grand-mère et ton grand-père vont très bien. Ils pensent à toi. Ta grand-mère cuisine toujours des gâteaux pour toute la famille.",
+              "question": "Que fait la grand-mère d'Alex ?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Elle cuisine des gâteaux pour la famille"
+                },
+                {
+                  "id": "b",
+                  "text": "Elle étudie"
+                },
+                {
+                  "id": "c",
+                  "text": "Elle joue au football"
+                },
+                {
+                  "id": "d",
+                  "text": "Elle travaille au bureau"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "La mère dit : 'Ta grand-mère cuisine toujours des gâteaux pour toute la famille'.",
+              "hint": "C'est une activité dans la cuisine."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.3,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Texte à trous : La famille d'Alex",
+            "instructions": "Complétez le texte avec les mots manquants.",
+            "content": {
+              "text": "Alex parle avec sa {blank1}. Son père n'est pas là parce qu'il {blank2} au bureau. La {blank3} d'Alex étudie pour ses examens. Son {blank4} joue au football tous les weekends. Ses {blank5} pensent à lui. Sa grand-mère cuisine des {blank6} pour toute la famille.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "mère"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "travaille"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "sœur"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "frère"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "grands-parents"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "gâteaux"
+                }
+              ],
+              "hint": "Relisez le dialogue pour trouver les informations sur chaque membre de la famille."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Expression : Tu me manques",
+            "instructions": "Que signifie cette expression ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que signifie 'Tu me manques' ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "I miss you",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "I love you",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Thank you",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "I'm sorry",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Tu me manques' = I miss you (literally: you are missing to me). La mère dit ça parce qu'Alex est loin.",
+              "hint": "C'est ce qu'on dit quand quelqu'un est absent."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Jeune homme qui parle avec sa famille aux États-Unis"
+        },
+        {
+          "name": "Maman d'Alex",
+          "voice": "Leda",
+          "description": "Mère aimante qui est fière de son fils"
+        }
+      ],
+      "audioStyle": "Conversation familiale affectueuse par vidéo. La mère est douce et attentionnée. Alex est enthousiaste de partager sa nouvelle vie. Ton chaleureux et émotionnel."
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Mon Frère, Ta Sœur",
+      "content": "Quelques jours plus tard, Alex appelle son père.\n\nPapa : Allô, Alex ! Comment vas-tu, mon fils ?\n\nAlex : Salut papa ! Je vais très bien ! Et toi ?\n\nPapa : Ça va bien, merci. Ta mère m'a dit que tu adores Lyon.\n\nAlex : Oui, c'est vrai ! Ma nouvelle vie ici est géniale. Mon appartement est petit mais confortable.\n\nPapa : Super ! Et ton travail commence bientôt, non ?\n\nAlex : Oui, lundi. Mon collègue Thomas est vraiment sympa. Il m'aide beaucoup.\n\nPapa : C'est bien d'avoir des amis là-bas. Et dis-moi, tu parles souvent français maintenant ?\n\nAlex : Oui, tous les jours ! Mes voisins sont gentils. Ma voisine Marie a deux enfants. Son fils a quatre ans et sa fille a sept ans.\n\nPapa : Ah, c'est bien ! Et comment va ton français ?\n\nAlex : Ça progresse ! Mes conversations sont encore simples, mais je comprends beaucoup de choses.\n\nPapa : Excellent ! Bon, je voulais te donner des nouvelles de la famille. Ta sœur étudie beaucoup. Ses examens sont difficiles.\n\nAlex : Oui, maman m'a dit. Ma sœur est courageuse. Elle travaille toujours beaucoup.\n\nPapa : Et ton frère ? Il parle souvent de toi. Ses matchs de football sont tous les samedis.\n\nAlex : Ah, mon frère et son football ! C'est sa passion !\n\nPapa : Exactement ! Et tes grands-parents demandent souvent de tes nouvelles. Leur maison est toujours ouverte pour toi quand tu reviens.\n\nAlex : Merci papa. Ma famille me manque beaucoup.\n\nPapa : Nous aussi, on pense à toi tous les jours. Mais on est fiers de toi. Ton aventure en France, c'est formidable !\n\nAlex : Merci papa. Vos encouragements, c'est important pour moi.\n\nPapa : Appelle-nous quand tu veux. Notre porte est toujours ouverte.\n\nAlex : Promis ! Je vous aime tous.\n\nPapa : On t'aime aussi, mon fils. Prends soin de toi !\n\nAlex : Toi aussi papa. À bientôt !\n\nPapa : À très bientôt !",
+      "generateAudio": true,
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "L'appartement d'Alex",
+            "instructions": "Comment est l'appartement d'Alex ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Comment Alex décrit-il son appartement ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Petit mais confortable",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Grand et luxueux",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Vieux et inconfortable",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Moderne mais cher",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'Mon appartement est petit mais confortable'.",
+              "hint": "Écoutez quand Alex parle de son logement."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Les examens",
+            "instructions": "Qui a des examens difficiles ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qui étudie pour des examens difficiles ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Le frère d'Alex",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "La sœur d'Alex",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Les enfants de Marie",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Alex",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Le père dit : 'Ta sœur étudie beaucoup. Ses examens sont difficiles'.",
+              "hint": "C'est une personne de la famille d'Alex."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez : Son, sa, ses",
+            "instructions": "Complétez avec le bon possessif (3ème personne).",
+            "content": {
+              "text": "Marie a deux enfants. _____ fils a quatre ans. _____ fille a sept ans. _____ enfants sont adorables.",
+              "blanks": [
+                {
+                  "correctAnswer": "Son",
+                  "acceptableAnswers": [
+                    "Son",
+                    "son"
+                  ],
+                  "options": [
+                    "Son",
+                    "Sa",
+                    "Ses",
+                    "Mon"
+                  ]
+                },
+                {
+                  "correctAnswer": "Sa",
+                  "acceptableAnswers": [
+                    "Sa",
+                    "sa"
+                  ],
+                  "options": [
+                    "Sa",
+                    "Son",
+                    "Ses",
+                    "Ma"
+                  ]
+                },
+                {
+                  "correctAnswer": "Ses",
+                  "acceptableAnswers": [
+                    "Ses",
+                    "ses"
+                  ],
+                  "options": [
+                    "Ses",
+                    "Son",
+                    "Sa",
+                    "Mes"
+                  ]
+                }
+              ],
+              "translation": "Marie has two children. Her son is 4 years old. Her daughter is 7 years old. Her children are adorable.",
+              "hint": "Son = masculin, Sa = féminin, Ses = pluriel"
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez : Votre, vos",
+            "instructions": "Complétez avec le bon possessif (forme de politesse).",
+            "content": {
+              "text": "_____ encouragements, c'est important pour moi. _____ porte est toujours ouverte.",
+              "blanks": [
+                {
+                  "correctAnswer": "Vos",
+                  "acceptableAnswers": [
+                    "Vos",
+                    "vos"
+                  ],
+                  "options": [
+                    "Vos",
+                    "Votre",
+                    "Tes",
+                    "Ton"
+                  ]
+                },
+                {
+                  "correctAnswer": "Votre",
+                  "acceptableAnswers": [
+                    "Votre",
+                    "votre"
+                  ],
+                  "options": [
+                    "Votre",
+                    "Vos",
+                    "Ta",
+                    "Ton"
+                  ]
+                }
+              ],
+              "translation": "Your encouragement is important to me. Your door is always open.",
+              "hint": "Votre = singulier, Vos = pluriel (forme polie ou pluriel)"
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associez : Les possessifs",
+            "instructions": "Associez les possessifs avec leur traduction.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "mon frère",
+                  "right": "my brother"
+                },
+                {
+                  "left": "ta sœur",
+                  "right": "your sister"
+                },
+                {
+                  "left": "son fils",
+                  "right": "his/her son"
+                },
+                {
+                  "left": "notre maison",
+                  "right": "our house"
+                },
+                {
+                  "left": "vos enfants",
+                  "right": "your children (formal/plural)"
+                }
+              ],
+              "hint": "Attention à la personne et au genre."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Remettez les mots dans l'ordre",
+            "instructions": "Formez une phrase correcte.",
+            "content": {
+              "words": [
+                "Mon",
+                "frère",
+                "joue",
+                "au",
+                "football"
+              ],
+              "correctOrder": [
+                "Mon",
+                "frère",
+                "joue",
+                "au",
+                "football"
+              ],
+              "translation": "My brother plays football",
+              "explanation": "Possessif + nom + verbe + à + article + nom",
+              "hint": "Commencez par 'Mon'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Compréhension orale : Les grands-parents",
+            "instructions": "Écoutez et répondez.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Et tes grands-parents demandent souvent de tes nouvelles. Leur maison est toujours ouverte pour toi quand tu reviens.",
+              "question": "Que dit le père sur les grands-parents ?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Leur maison est toujours ouverte pour Alex"
+                },
+                {
+                  "id": "b",
+                  "text": "Ils sont en voyage"
+                },
+                {
+                  "id": "c",
+                  "text": "Ils déménagent"
+                },
+                {
+                  "id": "d",
+                  "text": "Ils ne parlent jamais d'Alex"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "Le père dit : 'Leur maison est toujours ouverte pour toi' - Alex est toujours le bienvenu.",
+              "hint": "C'est une phrase sur l'accueil."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Texte à trous : Conversation avec papa",
+            "instructions": "Complétez le texte avec les mots manquants.",
+            "content": {
+              "text": "Alex parle avec son {blank1}. Il dit que {blank2} appartement est petit mais confortable. {blank3} collègue Thomas est sympa. La sœur d'Alex étudie pour {blank4} examens. Le frère d'Alex joue au football. {blank5} matchs sont tous les samedis. Les grands-parents d'Alex demandent de {blank6} nouvelles.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "père"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "son"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "Son"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "ses"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "Ses"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "ses"
+                }
+              ],
+              "hint": "Utilisez les possessifs appropriés (mon/ma/mes, son/sa/ses)."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire : Formidable",
+            "instructions": "Que signifie 'formidable' ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que signifie 'Ton aventure en France, c'est formidable' ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Your adventure in France is wonderful/great",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "Your adventure is terrible",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Your adventure is dangerous",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Your adventure is expensive",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Formidable' signifie 'wonderful', 'great', 'fantastic'. C'est un mot très positif.",
+              "hint": "Le père est fier d'Alex."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Jeune homme qui donne des nouvelles de sa vie en France"
+        },
+        {
+          "name": "Papa d'Alex",
+          "voice": "Algieba",
+          "description": "Père fier et encourageant"
+        }
+      ],
+      "audioStyle": "Conversation père-fils affectueuse et encourageante. Le père est fier et soutenant. Alex est reconnaissant. Ton chaleureux avec des moments d'émotion."
+    },
+    {
+      "episodeNumber": 3,
+      "type": "STORY",
+      "title": "Ils Habitent à...",
+      "content": "Le soir, Alex est dans son appartement. Il écrit dans son journal.\n\n\"Cher journal,\n\nAujourd'hui, je pense à ma famille. Ma famille habite aux États-Unis, à New York. Moi, maintenant, j'habite en France, à Lyon. C'est loin, mais nous parlons souvent par vidéo.\n\nMa mère s'appelle Sarah. Elle travaille dans une école. Elle aime beaucoup son travail. Elle parle souvent de ses élèves. Mon père s'appelle Robert. Il travaille dans un bureau. Il aime son travail aussi, mais il travaille beaucoup.\n\nMa sœur s'appelle Emma. Elle étudie à l'université. Elle parle trois langues : anglais, espagnol et français. Elle aime les langues étrangères. Mon frère s'appelle Jake. Il joue au football. Il adore le sport. Il parle toujours de son équipe.\n\nMes grands-parents habitent aussi à New York, mais dans un autre quartier. Mon grand-père s'appelle William. Il aime jardiner. Il cultive des légumes dans son jardin. Ma grand-mère s'appelle Helen. Elle aime cuisiner. Elle prépare toujours des gâteaux délicieux pour toute la famille.\n\nEt moi ? Je m'appelle Alex. J'habite à Lyon maintenant. Je travaille dans l'informatique. Je parle anglais et français. J'aime découvrir la culture française. J'aime le pain français, le fromage, et les pâtisseries. J'adore ma nouvelle vie ici.\n\nMes voisins sont sympas. Marie habite à l'appartement numéro douze. Elle travaille dans un hôpital. Monsieur Dupont habite au premier étage. Il travaille dans un musée. Sophie habite au troisième étage. Elle travaille dans la mode.\n\nThomas, mon collègue, habite dans un autre quartier de Lyon. Il travaille avec moi à TechParis. Il parle anglais très bien. Il aime voyager. Il visite souvent d'autres pays.\n\nToutes ces personnes habitent dans des endroits différents. Elles travaillent dans des domaines différents. Elles parlent des langues différentes. Mais toutes sont importantes dans ma vie.\n\nJe pense souvent à ma famille et à mes amis. Ils me manquent, mais je suis content de mon aventure française.\n\nBonne nuit, journal.\n\nAlex.\"",
+      "generateAudio": true,
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Où habite la famille d'Alex ?",
+            "instructions": "Où habite la famille d'Alex ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Où habite la famille d'Alex ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "À New York, aux États-Unis",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "À Lyon, en France",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "À Paris, en France",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "À Londres, en Angleterre",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex écrit : 'Ma famille habite aux États-Unis, à New York'.",
+              "hint": "C'est une grande ville américaine."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Le travail de Sarah",
+            "instructions": "Où travaille la mère d'Alex ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Où travaille Sarah, la mère d'Alex ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Dans un bureau",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Dans une école",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Dans un hôpital",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Dans un musée",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex écrit : 'Ma mère s'appelle Sarah. Elle travaille dans une école'.",
+              "hint": "Elle parle de ses élèves."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez : Habiter",
+            "instructions": "Conjuguez le verbe habiter.",
+            "content": {
+              "text": "Je _____ à Lyon. Tu _____ à Paris. Elle _____ à New York.",
+              "blanks": [
+                {
+                  "correctAnswer": "habite",
+                  "acceptableAnswers": [
+                    "habite"
+                  ],
+                  "options": [
+                    "habite",
+                    "habites",
+                    "habitons",
+                    "habitent"
+                  ]
+                },
+                {
+                  "correctAnswer": "habites",
+                  "acceptableAnswers": [
+                    "habites"
+                  ],
+                  "options": [
+                    "habites",
+                    "habite",
+                    "habitez",
+                    "habitent"
+                  ]
+                },
+                {
+                  "correctAnswer": "habite",
+                  "acceptableAnswers": [
+                    "habite"
+                  ],
+                  "options": [
+                    "habite",
+                    "habites",
+                    "habitons",
+                    "habitent"
+                  ]
+                }
+              ],
+              "translation": "I live in Lyon. You live in Paris. She lives in New York.",
+              "hint": "Je/il/elle = -e, Tu = -es"
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez : Parler",
+            "instructions": "Conjuguez le verbe parler.",
+            "content": {
+              "text": "Je _____ français. Tu _____ anglais. Il _____ espagnol.",
+              "blanks": [
+                {
+                  "correctAnswer": "parle",
+                  "acceptableAnswers": [
+                    "parle"
+                  ],
+                  "options": [
+                    "parle",
+                    "parles",
+                    "parlons",
+                    "parlent"
+                  ]
+                },
+                {
+                  "correctAnswer": "parles",
+                  "acceptableAnswers": [
+                    "parles"
+                  ],
+                  "options": [
+                    "parles",
+                    "parle",
+                    "parlez",
+                    "parlent"
+                  ]
+                },
+                {
+                  "correctAnswer": "parle",
+                  "acceptableAnswers": [
+                    "parle"
+                  ],
+                  "options": [
+                    "parle",
+                    "parles",
+                    "parlons",
+                    "parlent"
+                  ]
+                }
+              ],
+              "translation": "I speak French. You speak English. He speaks Spanish.",
+              "hint": "Même conjugaison qu'habiter : -e, -es, -e"
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associez : Les verbes en -ER",
+            "instructions": "Associez les verbes avec leur traduction.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "habiter",
+                  "right": "to live"
+                },
+                {
+                  "left": "parler",
+                  "right": "to speak"
+                },
+                {
+                  "left": "travailler",
+                  "right": "to work"
+                },
+                {
+                  "left": "aimer",
+                  "right": "to like/love"
+                },
+                {
+                  "left": "étudier",
+                  "right": "to study"
+                }
+              ],
+              "hint": "Ce sont tous des verbes réguliers en -ER."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Remettez les mots dans l'ordre",
+            "instructions": "Formez une phrase correcte.",
+            "content": {
+              "words": [
+                "Je",
+                "parle",
+                "français",
+                "et",
+                "anglais"
+              ],
+              "correctOrder": [
+                "Je",
+                "parle",
+                "français",
+                "et",
+                "anglais"
+              ],
+              "translation": "I speak French and English",
+              "explanation": "Sujet + verbe + langue + et + langue",
+              "hint": "Commencez par 'Je'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Compréhension orale : Emma",
+            "instructions": "Écoutez et répondez.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Ma sœur s'appelle Emma. Elle étudie à l'université. Elle parle trois langues : anglais, espagnol et français.",
+              "question": "Combien de langues parle Emma ?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Une langue"
+                },
+                {
+                  "id": "b",
+                  "text": "Deux langues"
+                },
+                {
+                  "id": "c",
+                  "text": "Trois langues"
+                },
+                {
+                  "id": "d",
+                  "text": "Quatre langues"
+                }
+              ],
+              "correctAnswer": "c",
+              "explanation": "Alex écrit : 'Elle parle trois langues : anglais, espagnol et français'.",
+              "hint": "Comptez les langues mentionnées."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.3,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Texte à trous : Le journal d'Alex",
+            "instructions": "Complétez le texte avec les mots manquants.",
+            "content": {
+              "text": "Alex {blank1} à Lyon maintenant. Sa famille habite à {blank2}. Sa mère travaille dans une {blank3}. Son père travaille dans un {blank4}. Sa sœur {blank5} trois langues. Son frère joue au {blank6}. Alex parle {blank7} et anglais. Il aime la culture française.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "habite"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": [
+                    "New York",
+                    "New-York"
+                  ]
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "école"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "bureau"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "parle"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "football"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "français"
+                }
+              ],
+              "hint": "Relisez le journal d'Alex pour trouver toutes les informations."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Grammaire : Les verbes en -ER",
+            "instructions": "Comment conjugue-t-on les verbes en -ER au présent ?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quelle est la terminaison pour 'je' avec un verbe en -ER ?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "-e",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "-es",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "-ons",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "-ez",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Pour 'je' avec un verbe en -ER : on enlève -ER et on ajoute -e. Exemple : parler → je parle, habiter → j'habite.",
+              "hint": "Regardez les exemples : je parle, j'habite, je travaille."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.3
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrator",
+          "voice": "Charon",
+          "description": "Narrateur qui lit le journal d'Alex"
+        }
+      ],
+      "audioStyle": "Narration d'un journal intime. Ton réflexif et personnel. Rythme calme comme si Alex écrivait ses pensées. Moment d'introspection."
+    }
+  ]
+}

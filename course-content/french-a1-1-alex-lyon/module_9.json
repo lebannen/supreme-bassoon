@@ -1,0 +1,1120 @@
+{
+  "moduleNumber": 9,
+  "title": "Le Marché",
+  "theme": "Food Shopping & Quantities",
+  "description": "Alex discovers the vibrant French market! Learn fruit and vegetable names, how to order quantities, and express food preferences. Essential vocabulary for shopping and daily life in France.",
+  "objectives": [
+    "Name common fruits and vegetables",
+    "Order quantities (un kilo, beaucoup, un peu)",
+    "Use the partitive article (du/de la/des)",
+    "Express likes and dislikes with food",
+    "Navigate a French market conversation"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "DIALOGUE",
+      "title": "Fruits et Légumes",
+      "content": "Alex arrive au marché de Lyon. C'est coloré et vivant! Il voit des fruits et des légumes partout.\n\nVendeur: Bonjour, monsieur! Qu'est-ce que vous désirez aujourd'hui?\n\nAlex: Bonjour! Euh... Je voudrais des fruits, s'il vous plaît.\n\nVendeur: Bien sûr! Regardez! J'ai des pommes, des bananes, des oranges, des fraises... Tout est frais!\n\nAlex: Des pommes! J'aime les pommes. Et des bananes aussi.\n\nVendeur: Parfait! Et des légumes? J'ai des tomates magnifiques, des carottes, de la salade, des courgettes...\n\nAlex: Des tomates, oui! Et des carottes. C'est bon pour la santé!\n\nVendeur: Absolument! Et regardez ces poivrons rouges! Et ces aubergines!\n\nAlex: Les poivrons... Oui, pourquoi pas! Et qu'est-ce que c'est, ça?\n\nVendeur: Ça? Ce sont des radis! Vous aimez les radis?\n\nAlex: Euh... Je ne sais pas. C'est la première fois!\n\nVendeur: Alors, prenez des radis! C'est délicieux avec du sel et du beurre!\n\nAlex: D'accord! Des radis, alors!\n\nVendeur: Excellent choix! Vous voulez autre chose? Des oignons? De l'ail?\n\nAlex: Non, merci. Ça suffit pour aujourd'hui!\n\nVendeur: Très bien! Alors, des pommes, des bananes, des tomates, des carottes, des poivrons et des radis. C'est parfait!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Vendeur",
+          "voice": "Enceladus",
+          "description": "Cheerful fruit and vegetable seller"
+        },
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "American man shopping at French market"
+        }
+      ],
+      "audioStyle": "Lively market atmosphere. Vendor is enthusiastic and encouraging. Alex is curious and learning new foods.",
+      "estimatedMinutes": 20,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Qu'est-ce qu'Alex achète?",
+            "instructions": "What does Alex buy?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Alex achète des fruits ou des légumes?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Seulement des fruits",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Seulement des légumes",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Des fruits et des légumes",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Rien",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex buys both fruits (pommes, bananes) and vegetables (tomates, carottes, poivrons, radis).",
+              "hint": "Listen to the vendor's final summary."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Nouveau pour Alex",
+            "instructions": "What is new for Alex?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel légume Alex n'a jamais mangé?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Les tomates",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Les carottes",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Les radis",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Les poivrons",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex says: 'C'est la première fois!' when asked about radishes.",
+              "hint": "Alex says it's his first time with this vegetable."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Fruits et Légumes",
+            "instructions": "Match the French produce names with their English translations.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Pomme",
+                  "right": "Apple"
+                },
+                {
+                  "left": "Banane",
+                  "right": "Banana"
+                },
+                {
+                  "left": "Tomate",
+                  "right": "Tomato"
+                },
+                {
+                  "left": "Carotte",
+                  "right": "Carrot"
+                },
+                {
+                  "left": "Salade",
+                  "right": "Lettuce/Salad"
+                }
+              ],
+              "hint": "Many are similar to English words!"
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Je voudrais des...",
+            "instructions": "Complete with the plural article.",
+            "content": {
+              "text": "Je voudrais _____ pommes, s'il vous plaît.",
+              "blanks": [
+                {
+                  "correctAnswer": "des",
+                  "acceptableAnswers": [
+                    "des"
+                  ],
+                  "options": [
+                    "des",
+                    "les",
+                    "un",
+                    "le"
+                  ]
+                }
+              ],
+              "translation": "I would like some apples, please.",
+              "hint": "Use the plural indefinite article for 'some'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Catégorie",
+            "instructions": "Complete the sentence about categories.",
+            "content": {
+              "text": "Les pommes et les bananes sont des _____.",
+              "blanks": [
+                {
+                  "correctAnswer": "fruits",
+                  "acceptableAnswers": [
+                    "fruits"
+                  ],
+                  "options": [
+                    "fruits",
+                    "légumes",
+                    "tomates",
+                    "radis"
+                  ]
+                }
+              ],
+              "translation": "Apples and bananas are fruits.",
+              "hint": "What category do apples and bananas belong to?"
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Au Marché",
+            "instructions": "Arrange the words for a market request.",
+            "content": {
+              "words": [
+                "Je",
+                "voudrais",
+                "des",
+                "tomates"
+              ],
+              "correctOrder": [
+                "Je",
+                "voudrais",
+                "des",
+                "tomates"
+              ],
+              "translation": "I would like some tomatoes",
+              "explanation": "Use 'Je voudrais' + des + plural noun to request items at the market.",
+              "hint": "Start with 'Je voudrais'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Tout est Frais",
+            "instructions": "What does 'frais' mean?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que signifie 'tout est frais'?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Everything is expensive",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Everything is fresh",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Everything is cold",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Everything is big",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Frais' means 'fresh'. The vendor is saying all the produce is fresh.",
+              "hint": "A quality the vendor uses to describe the produce."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Liste de Courses",
+            "instructions": "Listen to Alex's shopping list.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Des pommes, des bananes, des tomates, des carottes, des poivrons et des radis.",
+              "question": "How many different items does Alex buy?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "4 items"
+                },
+                {
+                  "id": "b",
+                  "text": "5 items"
+                },
+                {
+                  "id": "c",
+                  "text": "6 items"
+                },
+                {
+                  "id": "d",
+                  "text": "7 items"
+                }
+              ],
+              "correctAnswer": "c",
+              "explanation": "Alex buys 6 items: apples, bananas, tomatoes, carrots, peppers, and radishes.",
+              "hint": "Count each produce item mentioned."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.2,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Au Marché de Lyon",
+            "instructions": "Complete the market shopping story.",
+            "content": {
+              "text": "Alex arrive au {blank1} de Lyon. Le vendeur a beaucoup de {blank2} et de légumes. Alex aime les {blank3}, alors il en prend. Il prend aussi des {blank4} et des tomates. Le vendeur recommande des {blank5} - c'est la première fois pour Alex! Tout est {blank6} au marché!",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "marché"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "fruits"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "pommes"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "bananes"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "radis"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "frais"
+                }
+              ],
+              "hint": "Review the dialogue about Alex's market visit."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.3
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Un Kilo de...",
+      "content": "Maintenant, Alex doit dire les quantités!\n\nVendeur: Alors, combien de pommes vous voulez?\n\nAlex: Euh... Combien?\n\nVendeur: Oui. Un kilo? Deux kilos? Un demi-kilo?\n\nAlex: Ah! Un kilo de pommes, s'il vous plaît.\n\nVendeur: Un kilo de pommes. Voilà! Et les bananes?\n\nAlex: Un demi-kilo de bananes.\n\nVendeur: Parfait. Les tomates?\n\nAlex: Un kilo de tomates, s'il vous plaît.\n\nVendeur: Un kilo. Les carottes?\n\nAlex: Euh... Beaucoup de carottes! J'aime beaucoup les carottes!\n\nVendeur: Ha ha! D'accord! Un kilo de carottes aussi, alors?\n\nAlex: Oui! Un kilo!\n\nVendeur: Et les poivrons? Combien?\n\nAlex: Juste un peu de poivrons. Trois poivrons, c'est bien.\n\nVendeur: Trois poivrons. Parfait. Et les radis?\n\nAlex: Un petit bouquet de radis, s'il vous plaît.\n\nVendeur: Très bien! Un petit bouquet. Bon, attendez... C'est un peu lourd, tout ça!\n\nAlex: Lourd?\n\nVendeur: Oui, lourd! Ça fait beaucoup! Vous avez un sac?\n\nAlex: Ah oui! J'ai un grand sac. Pas de problème!\n\nVendeur: Excellent! Alors, c'est quinze euros cinquante, s'il vous plaît.\n\nAlex: Quinze euros cinquante. Voilà!\n\nVendeur: Merci, monsieur! Bonne journée et bon appétit!\n\nAlex: Merci! Bonne journée!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Vendeur",
+          "voice": "Enceladus",
+          "description": "Patient market vendor helping with quantities"
+        },
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "American learning to order quantities"
+        }
+      ],
+      "audioStyle": "Patient market transaction. Vendor helps Alex understand quantities. Friendly atmosphere.",
+      "estimatedMinutes": 25,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Combien de Pommes?",
+            "instructions": "How many apples does Alex buy?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Alex achète combien de pommes?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Un demi-kilo",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Un kilo",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Deux kilos",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Trois kilos",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex says: 'Un kilo de pommes, s'il vous plaît' - One kilo of apples, please.",
+              "hint": "Listen to Alex's first quantity request."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Quel Légume - Beaucoup?",
+            "instructions": "Which vegetable does Alex want a lot of?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Alex dit 'beaucoup' pour quel légume?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Les tomates",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Les carottes",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Les poivrons",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Les radis",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex says: 'Beaucoup de carottes! J'aime beaucoup les carottes!' - Lots of carrots! I really like carrots!",
+              "hint": "Alex really loves this vegetable!"
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Les Quantités",
+            "instructions": "Match the French quantity expressions with English.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Un kilo",
+                  "right": "One kilogram"
+                },
+                {
+                  "left": "Un demi-kilo",
+                  "right": "Half a kilo"
+                },
+                {
+                  "left": "Beaucoup",
+                  "right": "A lot / Many"
+                },
+                {
+                  "left": "Un peu",
+                  "right": "A little / A bit"
+                },
+                {
+                  "left": "Combien",
+                  "right": "How much / How many"
+                }
+              ],
+              "hint": "These are essential quantity words for shopping."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Un Kilo de...",
+            "instructions": "Complete the quantity expression.",
+            "content": {
+              "text": "Un kilo _____ tomates, s'il vous plaît.",
+              "blanks": [
+                {
+                  "correctAnswer": "de",
+                  "acceptableAnswers": [
+                    "de"
+                  ],
+                  "options": [
+                    "de",
+                    "des",
+                    "du",
+                    "les"
+                  ]
+                }
+              ],
+              "translation": "One kilo of tomatoes, please.",
+              "hint": "After quantities, use 'de' not 'des'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Commander la Quantité",
+            "instructions": "Arrange the words to order a quantity.",
+            "content": {
+              "words": [
+                "Un",
+                "kilo",
+                "de",
+                "carottes"
+              ],
+              "correctOrder": [
+                "Un",
+                "kilo",
+                "de",
+                "carottes"
+              ],
+              "translation": "One kilo of carrots",
+              "explanation": "Quantity structure: number + unit + de + item (plural).",
+              "hint": "Follow the pattern: un kilo de + plural noun."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Un Peu ou Beaucoup?",
+            "instructions": "Complete with the correct quantity expression.",
+            "content": {
+              "text": "Juste _____ peu de poivrons. Trois poivrons.",
+              "blanks": [
+                {
+                  "correctAnswer": "un",
+                  "acceptableAnswers": [
+                    "un"
+                  ],
+                  "options": [
+                    "un",
+                    "beaucoup",
+                    "trop",
+                    "assez"
+                  ]
+                }
+              ],
+              "translation": "Just a little bit of peppers. Three peppers.",
+              "hint": "The expression is 'un peu' - a little."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Le Prix Total",
+            "instructions": "How much does Alex pay?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel est le prix total?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "15€00",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "15€50",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "16€50",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "25€50",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "The vendor says: 'C'est quinze euros cinquante' - It's fifteen euros fifty.",
+              "hint": "Listen for 'quinze euros cinquante'."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Lourd!",
+            "instructions": "Listen to what the vendor says.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "C'est un peu lourd, tout ça! Ça fait beaucoup! Vous avez un sac?",
+              "question": "What does the vendor mean?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "The items are expensive"
+                },
+                {
+                  "id": "b",
+                  "text": "The items are heavy"
+                },
+                {
+                  "id": "c",
+                  "text": "The items are fresh"
+                },
+                {
+                  "id": "d",
+                  "text": "The items are ready"
+                }
+              ],
+              "correctAnswer": "b",
+              "explanation": "'Lourd' means heavy. The vendor is saying Alex bought a lot and it's heavy!",
+              "hint": "The vendor is concerned about the weight."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.3,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Les Quantités au Marché",
+            "instructions": "Complete the story about ordering quantities.",
+            "content": {
+              "text": "Le vendeur demande: '{blank1}?' pour savoir la quantité. Alex commande un {blank2} de pommes et un demi-kilo de bananes. Il dit '{blank3} de carottes' parce qu'il aime beaucoup les carottes! Pour les poivrons, il veut juste un {blank4}. Le total est {blank5} euros cinquante. C'est un peu {blank6}, alors Alex a besoin d'un grand sac!",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "Combien"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "kilo"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "Beaucoup"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "peu"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": [
+                    "quinze",
+                    "15"
+                  ]
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "lourd"
+                }
+              ],
+              "hint": "Review the quantities and expressions from the dialogue."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.5
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 3,
+      "type": "STORY",
+      "title": "J'aime, Je Déteste",
+      "content": "De retour à l'appartement, Alex range ses fruits et légumes. Il pense à ses préférences.\n\n\"J'aime les pommes. Les pommes sont délicieuses! J'adore les pommes!\"\n\nIl regarde les bananes. \"J'aime les bananes aussi. Mais... Je préfère les pommes!\"\n\nLes tomates sont sur la table. \"Ah, les tomates! J'aime beaucoup les tomates. Les tomates fraîches, c'est excellent!\"\n\nAlex prend une carotte. \"Les carottes! Je les adore! Les carottes sont bonnes pour la santé et pour les yeux!\"\n\nIl regarde les poivrons. \"Les poivrons... Euh... J'aime bien les poivrons rouges, mais je n'aime pas trop les poivrons verts.\"\n\nEt les radis? Alex prend un radis. C'est sa première fois!\n\n\"Mmm... Les radis... C'est... intéressant! C'est un peu piquant! Je n'adore pas, mais je n'aime pas non plus. C'est... spécial!\"\n\nAlex pense à d'autres aliments:\n\n\"Le pain? J'adore le pain français! Le fromage? J'aime le fromage! Le chocolat? Oh oui, j'adore le chocolat! Le café? Oui, j'aime bien le café le matin.\"\n\n\"Les épinards? Bof... Je n'aime pas beaucoup les épinards. Les champignons? Non! Je déteste les champignons!\"\n\nAlex sourit. \"En France, j'apprends mes préférences! C'est intéressant!\"",
+      "generateAudio": true,
+      "estimatedMinutes": 25,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Quel Fruit Préféré?",
+            "instructions": "Which fruit does Alex prefer?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Alex préfère quel fruit?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Les bananes",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Les pommes",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Les oranges",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Les fraises",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex says: 'Je préfère les pommes!' - I prefer apples!",
+              "hint": "Alex likes both fruits but prefers one."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Qu'est-ce qu'Alex Déteste?",
+            "instructions": "What does Alex hate?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce qu'Alex déteste?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Les carottes",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Les tomates",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Les champignons",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Les radis",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex says: 'Je déteste les champignons!' - I hate mushrooms!",
+              "hint": "Alex is very clear about not liking this food."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Les Préférences",
+            "instructions": "Match the French preference expressions with English.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "J'aime",
+                  "right": "I like"
+                },
+                {
+                  "left": "J'adore",
+                  "right": "I love / I adore"
+                },
+                {
+                  "left": "Je préfère",
+                  "right": "I prefer"
+                },
+                {
+                  "left": "Je déteste",
+                  "right": "I hate / I detest"
+                },
+                {
+                  "left": "Je n'aime pas",
+                  "right": "I don't like"
+                }
+              ],
+              "hint": "Range from love to hate!"
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "J'aime les...",
+            "instructions": "Complete with the correct verb.",
+            "content": {
+              "text": "J'_____ les pommes. Les pommes sont délicieuses!",
+              "blanks": [
+                {
+                  "correctAnswer": "aime",
+                  "acceptableAnswers": [
+                    "aime",
+                    "adore"
+                  ],
+                  "options": [
+                    "aime",
+                    "adore",
+                    "préfère",
+                    "déteste"
+                  ]
+                }
+              ],
+              "translation": "I like apples. Apples are delicious!",
+              "hint": "Use a positive preference verb."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Préférence",
+            "instructions": "Arrange the words to express preference.",
+            "content": {
+              "words": [
+                "Je",
+                "préfère",
+                "les",
+                "pommes"
+              ],
+              "correctOrder": [
+                "Je",
+                "préfère",
+                "les",
+                "pommes"
+              ],
+              "translation": "I prefer apples",
+              "explanation": "Use 'Je préfère' + definite article + plural noun to state a preference.",
+              "hint": "Start with 'Je préfère'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Négation",
+            "instructions": "Complete the negative sentence.",
+            "content": {
+              "text": "Je _____ aime pas les épinards.",
+              "blanks": [
+                {
+                  "correctAnswer": "n'",
+                  "acceptableAnswers": [
+                    "n'",
+                    "ne"
+                  ],
+                  "options": [
+                    "n'",
+                    "ne",
+                    "pas",
+                    "non"
+                  ]
+                }
+              ],
+              "translation": "I don't like spinach.",
+              "hint": "Use the first part of negation: ne/n'...pas."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Les Radis",
+            "instructions": "What does Alex think of radishes?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Alex aime les radis?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il adore",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Il déteste",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "C'est neutre / spécial",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Il préfère ça",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex says: 'Je n'adore pas, mais je n'aime pas non plus. C'est spécial!' - neutral/special.",
+              "hint": "Alex is undecided about this new food."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Les Préférences d'Alex",
+            "instructions": "Listen to Alex's food preferences.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "J'adore les pommes. J'aime les tomates. Je n'aime pas les épinards. Je déteste les champignons.",
+              "question": "Which food does Alex have a neutral opinion about?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Apples"
+                },
+                {
+                  "id": "b",
+                  "text": "Tomatoes"
+                },
+                {
+                  "id": "c",
+                  "text": "Spinach"
+                },
+                {
+                  "id": "d",
+                  "text": "None - all are clear opinions"
+                }
+              ],
+              "correctAnswer": "d",
+              "explanation": "Alex expresses clear opinions about all these foods - loves apples, likes tomatoes, doesn't like spinach, hates mushrooms.",
+              "hint": "Listen to the verbs used for each food."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.3,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Les Goûts d'Alex",
+            "instructions": "Complete the story about Alex's food preferences.",
+            "content": {
+              "text": "Alex range ses courses. Il {blank1} les pommes - il les adore! Il préfère les pommes aux {blank2}. Il aime beaucoup les {blank3} fraîches et les carottes. Les radis? C'est un peu {blank4} mais intéressant! Alex aime le pain français, le {blank5} et le chocolat. Mais il ne mange pas d'épinards et il {blank6} les champignons!",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "aime"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "bananes"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "tomates"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "piquant"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "fromage"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "déteste"
+                }
+              ],
+              "hint": "Review Alex's thoughts about different foods."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.4
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrator",
+          "voice": "Charon",
+          "description": "Calm narrator voice describing Alex's thoughts"
+        }
+      ],
+      "audioStyle": "Thoughtful narrative. Alex reflecting on his food preferences. Clear, expressive tone showing likes and dislikes."
+    }
+  ]
+}

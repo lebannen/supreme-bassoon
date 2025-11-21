@@ -1,0 +1,1230 @@
+{
+  "moduleNumber": 14,
+  "title": "La Pause Déjeuner",
+  "theme": "Le Restaurant",
+  "description": "Alex déjeune au restaurant avec sa collègue Julie. Découvrez comment commander un repas, discuter de la nourriture, et gérer les petits problèmes au restaurant.",
+  "objectives": [
+    "Comprendre et commander au restaurant",
+    "Utiliser le verbe 'boire' (irrégulier)",
+    "Discuter des menus et des plats",
+    "Demander l'addition et résoudre des problèmes",
+    "Utiliser l'inversion pour poser des questions"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "DIALOGUE",
+      "title": "Le Menu",
+      "content": "Julie: Alex, tu as faim? On va déjeuner?\n\nAlex: Oui, bonne idée! Il est déjà midi et demi.\n\nJulie: Il y a un bon restaurant près du bureau. Ils ont un excellent menu du jour.\n\nAlex: Parfait! Allons-y!\n\n[Au restaurant]\n\nServeur: Bonjour messieurs-dames! Bienvenue! Vous avez réservé?\n\nJulie: Non, mais on est seulement deux personnes.\n\nServeur: Pas de problème. Voici une table près de la fenêtre. Installez-vous, s'il vous plaît.\n\nAlex et Julie: Merci!\n\nServeur: Voilà les menus. Je vous laisse quelques minutes pour choisir. Vous voulez quelque chose à boire tout de suite?\n\nJulie: Je vais prendre une carafe d'eau, s'il vous plaît.\n\nAlex: Pour moi aussi, de l'eau, merci.\n\nServeur: Très bien. Je reviens dans quelques instants.\n\n[Julie et Alex regardent le menu]\n\nAlex: Voyons... Qu'est-ce qu'il y a aujourd'hui? Le menu du jour comprend une entrée, un plat principal et un dessert.\n\nJulie: Oui, c'est toujours une bonne affaire. Regarde, en entrée il y a une salade de chèvre chaud ou une soupe à l'oignon.\n\nAlex: J'adore la soupe à l'oignon! Et comme plat?\n\nJulie: Il y a du poulet rôti, du saumon grillé, ou un steak-frites.\n\nAlex: Le saumon a l'air délicieux! Et toi, qu'est-ce que tu vas prendre?\n\nJulie: Moi, je vais prendre la salade en entrée et le poulet comme plat principal.\n\nAlex: Et pour le dessert?\n\nJulie: Ils ont une tarte aux pommes maison... Ça me tente beaucoup!\n\nAlex: Moi, je vais prendre une crème brûlée. J'en ai entendu parler mais je n'en ai jamais mangé.\n\nJulie: Oh, tu vas adorer! C'est vraiment bon ici.",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Young American man, enthusiastic about French cuisine"
+        },
+        {
+          "name": "Julie",
+          "voice": "Puck",
+          "description": "Friendly French colleague, upbeat and helpful"
+        },
+        {
+          "name": "Serveur",
+          "voice": "Algieba",
+          "description": "Professional restaurant server, smooth and polite"
+        }
+      ],
+      "audioStyle": "Natural lunchtime conversation between colleagues. The server is professional and friendly. Alex and Julie are relaxed and enjoying choosing their meal. Moderate pace, clear pronunciation.",
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Combien de personnes?",
+            "instructions": "Combien de personnes vont déjeuner?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Combien de personnes déjeunent au restaurant?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Une personne",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Deux personnes",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Trois personnes",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Quatre personnes",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Julie dit au serveur: 'on est seulement deux personnes' - we are only two people.",
+              "hint": "Écoutez ce que Julie dit au serveur."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Le menu du jour",
+            "instructions": "Que comprend le menu du jour?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce qui est inclus dans le menu du jour?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Seulement un plat principal",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Une entrée et un plat",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Une entrée, un plat et un dessert",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Seulement des boissons",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex lit le menu: 'Le menu du jour comprend une entrée, un plat principal et un dessert.'",
+              "hint": "Alex explique ce qu'il y a dans le menu."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Vocabulaire: Les parties du menu",
+            "instructions": "Complétez avec le mot correct.",
+            "content": {
+              "text": "Au restaurant, on commence avec une _____, puis on mange le plat principal, et on finit avec un _____.",
+              "blanks": [
+                {
+                  "correctAnswer": "entrée",
+                  "acceptableAnswers": [
+                    "entrée",
+                    "entree"
+                  ],
+                  "options": [
+                    "entrée",
+                    "sortie",
+                    "carte",
+                    "menu"
+                  ]
+                },
+                {
+                  "correctAnswer": "dessert",
+                  "acceptableAnswers": [
+                    "dessert"
+                  ],
+                  "options": [
+                    "dessert",
+                    "plat",
+                    "café",
+                    "addition"
+                  ]
+                }
+              ],
+              "translation": "At the restaurant, we start with an appetizer, then we eat the main course, and we finish with a dessert.",
+              "hint": "L'entrée est au début, le dessert est à la fin."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Vocabulaire: Les plats du menu",
+            "instructions": "Associez les plats français avec leur description.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Soupe à l'oignon",
+                  "right": "Traditional French onion soup"
+                },
+                {
+                  "left": "Salade de chèvre chaud",
+                  "right": "Salad with warm goat cheese"
+                },
+                {
+                  "left": "Poulet rôti",
+                  "right": "Roasted chicken"
+                },
+                {
+                  "left": "Saumon grillé",
+                  "right": "Grilled salmon"
+                },
+                {
+                  "left": "Crème brûlée",
+                  "right": "Custard dessert with caramelized sugar"
+                }
+              ],
+              "hint": "Ces plats sont des classiques de la cuisine française."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des mots: Commander de l'eau",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "Je",
+                "vais",
+                "prendre",
+                "une",
+                "carafe",
+                "d'eau"
+              ],
+              "correctOrder": [
+                "Je",
+                "vais",
+                "prendre",
+                "une",
+                "carafe",
+                "d'eau"
+              ],
+              "translation": "I'll have a carafe of water",
+              "explanation": "'Je vais prendre' est une expression courante pour commander au restaurant (futur proche).",
+              "hint": "Commencez avec 'Je vais' puis le verbe à l'infinitif."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Expression: Commander au restaurant",
+            "instructions": "Complétez la phrase pour commander.",
+            "content": {
+              "text": "_____ plat principal, je vais prendre le saumon grillé.",
+              "blanks": [
+                {
+                  "correctAnswer": "Comme",
+                  "acceptableAnswers": [
+                    "Comme",
+                    "comme"
+                  ],
+                  "options": [
+                    "Comme",
+                    "Pour",
+                    "Avec",
+                    "Dans"
+                  ]
+                }
+              ],
+              "translation": "For the main course, I'll have the grilled salmon.",
+              "hint": "'Comme' signifie 'as' ou 'for' dans ce contexte."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Les choix d'Alex",
+            "instructions": "Que va prendre Alex?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel menu complet va prendre Alex?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Salade, poulet, tarte",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Soupe, saumon, crème brûlée",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Soupe, poulet, tarte",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Salade, saumon, crème brûlée",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit: 'J'adore la soupe à l'oignon', 'Le saumon a l'air délicieux', et 'je vais prendre une crème brûlée'.",
+              "hint": "Écoutez ce qu'Alex dit qu'il aime et va prendre."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: Au restaurant",
+            "instructions": "Complétez le résumé du dialogue.",
+            "content": {
+              "text": "Alex et Julie vont déjeuner dans un {blank1} près du bureau. Le serveur leur donne une table près de la {blank2}. Pour boire, ils prennent de l'{blank3}. Le {blank4} du jour comprend une entrée, un plat et un dessert. Alex va prendre la {blank5} à l'oignon, le {blank6} grillé et une crème {blank7}. Julie choisit la salade, le {blank8} rôti et une tarte aux pommes.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "restaurant"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "fenêtre"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "eau"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "menu"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "soupe"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "saumon"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "brûlée"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "poulet"
+                }
+              ],
+              "hint": "Relisez le dialogue pour retrouver les détails."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Culture: La crème brûlée",
+            "instructions": "Que savez-vous de la crème brûlée?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce qu'Alex dit de la crème brûlée?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il en mange souvent",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Il n'aime pas ça",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Il en a entendu parler mais n'en a jamais mangé",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Il préfère la tarte",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit: 'J'en ai entendu parler mais je n'en ai jamais mangé' - I've heard about it but I've never eaten it.",
+              "hint": "C'est la première fois qu'Alex va goûter ce dessert."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 2,
+      "type": "DIALOGUE",
+      "title": "Commander",
+      "content": "Serveur: Alors, vous avez choisi?\n\nJulie: Oui, nous sommes prêts.\n\nServeur: Très bien. Je vous écoute.\n\nJulie: Pour moi, je vais prendre la salade de chèvre chaud en entrée, le poulet rôti comme plat principal, et la tarte aux pommes en dessert.\n\nServeur: Parfait. Et pour vous, monsieur?\n\nAlex: Moi, je voudrais la soupe à l'oignon pour commencer, puis le saumon grillé, et enfin une crème brûlée.\n\nServeur: Excellent choix! Et comme boisson? Vous voulez du vin avec le repas?\n\nJulie: Bonne idée! On pourrait prendre une bouteille de vin blanc?\n\nAlex: Euh... je ne bois pas beaucoup de vin d'habitude. Qu'est-ce que vous recommandez?\n\nServeur: Avec le poisson et le poulet, je vous suggère un Chablis. C'est un vin blanc sec et frais qui accompagne très bien ces plats.\n\nJulie: Parfait! On prend une bouteille de Chablis, s'il vous plaît.\n\nServeur: Une bouteille de Chablis, entendu. Et vous, monsieur, vous buvez du vin ou vous préférez autre chose?\n\nAlex: Je vais goûter le vin, mais je vais aussi prendre de l'eau gazeuse.\n\nServeur: Très bien. Une eau gazeuse pour monsieur. Vous voulez de l'eau plate aussi, madame?\n\nJulie: Non merci, le vin suffira pour moi!\n\nServeur: Parfait! Je vous apporte le vin et l'eau tout de suite, et vos entrées arrivent dans quelques minutes.\n\nJulie: Merci!\n\n[Quelques minutes plus tard]\n\nServeur: Voici la soupe à l'oignon pour monsieur, et la salade de chèvre chaud pour madame. Bon appétit!\n\nAlex et Julie: Merci, bon appétit!\n\nJulie: Alors Alex, comment tu trouves la soupe?\n\nAlex: C'est délicieux! Le fromage fondu sur le dessus... mmm! Et ta salade?\n\nJulie: Excellente comme toujours. Le chèvre est parfait. Tu sais, ce restaurant, c'est mon endroit préféré pour déjeuner.\n\nAlex: Je comprends pourquoi! L'ambiance est agréable et la nourriture est vraiment bonne.\n\nJulie: Oui, et les prix sont raisonnables. Le menu du jour est toujours une bonne affaire.\n\nAlex: Tu viens souvent ici?\n\nJulie: Oui, au moins une fois par semaine. Parfois je viens avec d'autres collègues du bureau.\n\nAlex: Il faudra que je revienne! Peut-être la semaine prochaine?",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "American man, trying French wine for the first time"
+        },
+        {
+          "name": "Julie",
+          "voice": "Puck",
+          "description": "French colleague, enthusiastic about the restaurant"
+        },
+        {
+          "name": "Serveur",
+          "voice": "Algieba",
+          "description": "Professional server, making wine recommendations"
+        }
+      ],
+      "audioStyle": "Restaurant ordering conversation. The server is professional and helpful with wine suggestions. Julie is confident and familiar with the restaurant. Alex is curious and trying new things. Natural, relaxed pace.",
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Le vin",
+            "instructions": "Quel vin commandent-ils?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel vin le serveur recommande-t-il?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Un vin rouge",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Un Bordeaux",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Un Chablis",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Du champagne",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Le serveur dit: 'je vous suggère un Chablis. C'est un vin blanc sec et frais'.",
+              "hint": "C'est un vin blanc qui accompagne le poisson et le poulet."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Grammaire: Le verbe BOIRE",
+            "instructions": "Conjuguez le verbe 'boire' correctement.",
+            "content": {
+              "text": "- Je ne _____ pas beaucoup de vin.\n- Vous _____ du vin?\n- Julie _____ seulement du vin, pas d'eau.",
+              "blanks": [
+                {
+                  "correctAnswer": "bois",
+                  "acceptableAnswers": [
+                    "bois"
+                  ],
+                  "options": [
+                    "bois",
+                    "boit",
+                    "buvez",
+                    "boivent"
+                  ]
+                },
+                {
+                  "correctAnswer": "buvez",
+                  "acceptableAnswers": [
+                    "buvez"
+                  ],
+                  "options": [
+                    "bois",
+                    "boit",
+                    "buvez",
+                    "boivent"
+                  ]
+                },
+                {
+                  "correctAnswer": "boit",
+                  "acceptableAnswers": [
+                    "boit"
+                  ],
+                  "options": [
+                    "bois",
+                    "boit",
+                    "buvez",
+                    "boivent"
+                  ]
+                }
+              ],
+              "translation": "I don't drink much wine. / Do you drink wine? / Julie only drinks wine, not water.",
+              "hint": "Boire: je bois, tu bois, il/elle boit, nous buvons, vous buvez, ils/elles boivent"
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.8
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Vocabulaire: Les boissons",
+            "instructions": "Associez les boissons avec leur description.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Vin blanc",
+                  "right": "White wine"
+                },
+                {
+                  "left": "Eau gazeuse",
+                  "right": "Sparkling water"
+                },
+                {
+                  "left": "Eau plate",
+                  "right": "Still water"
+                },
+                {
+                  "left": "Bouteille",
+                  "right": "Bottle"
+                },
+                {
+                  "left": "Carafe",
+                  "right": "Carafe / pitcher"
+                }
+              ],
+              "hint": "Ces mots sont essentiels pour commander des boissons."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des mots: Commander",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "Je",
+                "voudrais",
+                "la",
+                "soupe",
+                "pour",
+                "commencer"
+              ],
+              "correctOrder": [
+                "Je",
+                "voudrais",
+                "la",
+                "soupe",
+                "pour",
+                "commencer"
+              ],
+              "translation": "I would like the soup to start",
+              "explanation": "'Je voudrais' (I would like) est une manière polie de commander. 'Pour commencer' signifie 'to start/begin'.",
+              "hint": "Commencez avec 'Je voudrais' puis le plat."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Expression: Bon appétit",
+            "instructions": "Complétez l'expression française.",
+            "content": {
+              "text": "Quand le serveur apporte les plats, il dit: '_____ _____!' pour souhaiter un bon repas.",
+              "blanks": [
+                {
+                  "correctAnswer": "Bon appétit",
+                  "acceptableAnswers": [
+                    "Bon appétit",
+                    "bon appétit"
+                  ],
+                  "options": [
+                    "Bon appétit",
+                    "Bonne journée",
+                    "Bon courage",
+                    "Bonne chance"
+                  ]
+                }
+              ],
+              "translation": "Enjoy your meal!",
+              "hint": "C'est l'expression qu'on dit avant de manger."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Alex et le vin",
+            "instructions": "Que dit Alex sur le vin?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quelle est la relation d'Alex avec le vin?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il boit beaucoup de vin",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Il ne boit pas de vin du tout",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Il ne boit pas beaucoup de vin d'habitude",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Il préfère le vin rouge",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit: 'je ne bois pas beaucoup de vin d'habitude' - I don't drink much wine usually.",
+              "hint": "Alex n'est pas habitué au vin."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Question: Demander une recommandation",
+            "instructions": "Complétez la question.",
+            "content": {
+              "text": "Qu'est-ce que vous _____ ?",
+              "blanks": [
+                {
+                  "correctAnswer": "recommandez",
+                  "acceptableAnswers": [
+                    "recommandez"
+                  ],
+                  "options": [
+                    "recommandez",
+                    "recommande",
+                    "recommandons",
+                    "prenez"
+                  ]
+                }
+              ],
+              "translation": "What do you recommend?",
+              "hint": "Le verbe est 'recommander' conjugué avec 'vous'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: Commander au restaurant",
+            "instructions": "Complétez le texte.",
+            "content": {
+              "text": "Le serveur demande s'ils ont {blank1}. Julie commande la salade, le poulet et la {blank2}. Alex prend la soupe, le saumon et la crème {blank3}. Pour les boissons, ils commandent une {blank4} de Chablis, un vin {blank5} sec. Alex prend aussi de l'eau {blank6}. Julie vient dans ce restaurant au moins une fois par {blank7}. Alex trouve que la soupe est {blank8}.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "choisi"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "tarte"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "brûlée"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "bouteille"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "blanc"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "gazeuse"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "semaine"
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": [
+                    "délicieux",
+                    "délicieuse",
+                    "excellente",
+                    "bonne"
+                  ]
+                }
+              ],
+              "hint": "Relisez le dialogue pour retrouver tous les détails."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.7
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Culture: Le menu du jour",
+            "instructions": "Que dit Julie sur le menu du jour?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Pourquoi Julie recommande-t-elle le menu du jour?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Parce que c'est rapide",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Parce que c'est une bonne affaire (bon rapport qualité-prix)",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Parce qu'il n'y a rien d'autre",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Parce que c'est végétarien",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Julie dit deux fois que 'le menu du jour est toujours une bonne affaire' - a good deal.",
+              "hint": "Julie parle des prix."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.3
+          }
+        }
+      ]
+    },
+    {
+      "episodeNumber": 3,
+      "type": "DIALOGUE",
+      "title": "Les Problèmes",
+      "content": "Alex: Julie, tout va bien? Tu ne manges pas?\n\nJulie: Mon poulet est un peu froid... Je pense qu'il n'est pas assez chaud.\n\nAlex: Oh non! Tu devrais dire quelque chose au serveur.\n\nJulie: Oui, tu as raison. Excusez-moi, monsieur?\n\nServeur: Oui, madame? Il y a un problème?\n\nJulie: Eh bien, mon poulet est malheureusement un peu froid. Pourriez-vous le réchauffer, s'il vous plaît?\n\nServeur: Oh, je suis vraiment désolé! Bien sûr, je vous l'apporte tout de suite bien chaud. Toutes mes excuses.\n\nJulie: Merci beaucoup, c'est très gentil.\n\nServeur: C'est normal. Et vous, monsieur, votre saumon est bon?\n\nAlex: Oui, excellent! Mais... est-ce qu'on pourrait avoir du sel et du poivre, s'il vous plaît?\n\nServeur: Absolument! Je vous apporte ça immédiatement.\n\n[Le serveur revient]\n\nServeur: Voilà le sel et le poivre. Et voici votre poulet, madame. Il est bien chaud maintenant.\n\nJulie: Parfait, merci!\n\nServeur: Est-ce que je peux vous apporter autre chose? Du pain? De l'eau?\n\nAlex: Oui, s'il vous plaît, on pourrait avoir de l'eau? Notre carafe est vide.\n\nServeur: Tout de suite! Je vous apporte une nouvelle carafe.\n\nJulie: Merci!\n\n[Plus tard, après le repas]\n\nAlex: C'était vraiment délicieux! La crème brûlée était incroyable.\n\nJulie: Je suis contente que ça t'ait plu! Bon, on demande l'addition?\n\nAlex: Oui, bonne idée. Excusez-moi! L'addition, s'il vous plaît!\n\nServeur: Voilà, messieurs-dames. Je vous laisse ça ici.\n\n[Alex regarde l'addition]\n\nAlex: Attendez... il y a une erreur. On a commandé une seule bouteille de vin, mais l'addition montre deux bouteilles.\n\nJulie: Tu as raison! Monsieur, excusez-nous?\n\nServeur: Oui?\n\nJulie: Il y a une petite erreur sur l'addition. Vous avez marqué deux bouteilles de vin, mais nous n'en avons pris qu'une.\n\nServeur: Oh! Vous avez absolument raison. Je suis désolé, c'est une erreur. Je vous refais l'addition correcte tout de suite.\n\n[Il revient avec la bonne addition]\n\nServeur: Voilà la nouvelle addition. Encore toutes mes excuses pour l'erreur.\n\nAlex: Pas de problème, ça arrive! On peut payer par carte?\n\nServeur: Bien sûr! Je vous apporte le terminal.\n\nJulie: Attends Alex, on partage? Combien ça fait chacun?\n\nAlex: Voyons... avec le vin et tout, ça fait vingt-huit euros chacun.\n\nJulie: Parfait! Tiens, voilà ma carte.\n\nServeur: Très bien. Merci messieurs-dames! Bonne journée!\n\nAlex et Julie: Merci, bonne journée!",
+      "generateAudio": true,
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "American man, observant and helpful"
+        },
+        {
+          "name": "Julie",
+          "voice": "Puck",
+          "description": "French colleague, polite when addressing problems"
+        },
+        {
+          "name": "Serveur",
+          "voice": "Algieba",
+          "description": "Professional server, apologetic and accommodating"
+        }
+      ],
+      "audioStyle": "Restaurant problem-solving conversation. Polite and professional tone when addressing issues. The server is very apologetic and helpful. Natural pacing with clear pronunciation.",
+      "estimatedMinutes": 40,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Le problème de Julie",
+            "instructions": "Quel est le problème avec le poulet?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Pourquoi Julie n'est pas satisfaite de son poulet?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il est trop salé",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Il est froid",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Il n'est pas bon",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "C'est le mauvais plat",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Julie dit: 'Mon poulet est un peu froid... il n'est pas assez chaud'.",
+              "hint": "Le problème concerne la température."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: L'erreur sur l'addition",
+            "instructions": "Quelle erreur y a-t-il sur l'addition?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quelle erreur Alex trouve-t-il sur l'addition?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Le prix est trop élevé",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Il manque un plat",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Il y a deux bouteilles de vin au lieu d'une",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Le dessert n'est pas marqué",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit: 'l'addition montre deux bouteilles' mais 'nous n'en avons pris qu'une'.",
+              "hint": "Le serveur a compté trop de bouteilles."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Vocabulaire: Au restaurant - Problèmes",
+            "instructions": "Associez les mots avec leur signification.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Froid",
+                  "right": "Cold"
+                },
+                {
+                  "left": "Chaud",
+                  "right": "Hot / warm"
+                },
+                {
+                  "left": "L'addition",
+                  "right": "The bill / check"
+                },
+                {
+                  "left": "Sel",
+                  "right": "Salt"
+                },
+                {
+                  "left": "Poivre",
+                  "right": "Pepper"
+                }
+              ],
+              "hint": "Ces mots sont utiles pour décrire des problèmes au restaurant."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Ordre des mots: Demander l'addition",
+            "instructions": "Mettez les mots dans le bon ordre.",
+            "content": {
+              "words": [
+                "L'addition",
+                "s'il",
+                "vous",
+                "plaît",
+                "!"
+              ],
+              "correctOrder": [
+                "L'addition",
+                "s'il",
+                "vous",
+                "plaît",
+                "!"
+              ],
+              "translation": "The bill, please!",
+              "explanation": "C'est la phrase standard pour demander l'addition dans un restaurant français.",
+              "hint": "Commencez avec 'L'addition' puis ajoutez la formule de politesse."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Politesse: S'excuser et demander",
+            "instructions": "Complétez les phrases polies.",
+            "content": {
+              "text": "Pour signaler un problème: 'Il y a un petit _____.' Pour demander poliment: '_____ le réchauffer, s'il vous plaît?'",
+              "blanks": [
+                {
+                  "correctAnswer": "problème",
+                  "acceptableAnswers": [
+                    "problème",
+                    "probleme"
+                  ],
+                  "options": [
+                    "problème",
+                    "erreur",
+                    "souci",
+                    "défaut"
+                  ]
+                },
+                {
+                  "correctAnswer": "Pourriez-vous",
+                  "acceptableAnswers": [
+                    "Pourriez-vous",
+                    "Pouvez-vous"
+                  ],
+                  "options": [
+                    "Pourriez-vous",
+                    "Pouvez-vous",
+                    "Voulez-vous",
+                    "Devez-vous"
+                  ]
+                }
+              ],
+              "translation": "There's a small problem. / Could you heat it up, please?",
+              "hint": "Utilisez le conditionnel pour être encore plus poli."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Expression: Partager l'addition",
+            "instructions": "Complétez la question.",
+            "content": {
+              "text": "Julie demande à Alex: 'On _____ ? Combien ça fait chacun?'",
+              "blanks": [
+                {
+                  "correctAnswer": "partage",
+                  "acceptableAnswers": [
+                    "partage"
+                  ],
+                  "options": [
+                    "partage",
+                    "paie",
+                    "prend",
+                    "divise"
+                  ]
+                }
+              ],
+              "translation": "Shall we split it? How much is it each?",
+              "hint": "Le verbe 'partager' signifie 'to share' ou 'to split'."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Le paiement",
+            "instructions": "Comment vont-ils payer?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Comment Alex et Julie paient-ils?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "En espèces (cash)",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Par carte",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Par chèque",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Ils ne paient pas",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex demande: 'On peut payer par carte?' et le serveur apporte le terminal.",
+              "hint": "Ils utilisent leur carte bancaire."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Résumé: Gérer les problèmes",
+            "instructions": "Complétez le résumé.",
+            "content": {
+              "text": "Le poulet de Julie est {blank1}, alors elle demande au serveur de le {blank2}. Alex demande du {blank3} et du poivre. Leur carafe d'eau est {blank4}, donc le serveur en apporte une nouvelle. Quand ils demandent l'{blank5}, Alex remarque une {blank6}: il y a deux bouteilles de vin marquées au lieu d'une. Le serveur {blank7} et refait l'addition. Ils paient par {blank8} et partagent le prix: vingt-huit euros {blank9}.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "froid"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "réchauffer"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "sel"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "vide"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "addition"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "erreur"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": [
+                    "s'excuse",
+                    "s'excuse",
+                    "est désolé"
+                  ]
+                },
+                {
+                  "id": "blank8",
+                  "correctAnswer": "carte"
+                },
+                {
+                  "id": "blank9",
+                  "correctAnswer": "chacun"
+                }
+              ],
+              "hint": "Relisez le dialogue pour retrouver tous les détails des problèmes et solutions."
+            },
+            "estimatedDurationSeconds": 150,
+            "pointsValue": 20,
+            "difficultyRating": 1.8
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": false,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Culture: Signaler un problème",
+            "instructions": "Comment signaler poliment un problème?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quelle expression Julie utilise-t-elle pour signaler le problème poliment?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Mon poulet est horrible!",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Mon poulet est malheureusement un peu froid",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "C'est inacceptable!",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Je ne vais pas payer!",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Julie utilise 'malheureusement' et 'un peu' pour être très polie en signalant le problème.",
+              "hint": "Julie minimise le problème pour rester polie."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.4
+          }
+        }
+      ]
+    }
+  ]
+}

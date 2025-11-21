@@ -1,0 +1,1163 @@
+{
+  "moduleNumber": 13,
+  "title": "Au Bureau",
+  "theme": "At the Office - Le Travail",
+  "description": "Découvrez le monde professionnel avec Alex au bureau. Apprenez le vocabulaire du travail, les emails formels, et les verbes modaux pour faire des demandes polies.",
+  "objectives": [
+    "Name office supplies and equipment",
+    "Read and understand formal emails",
+    "Use modal verbs (pouvoir, vouloir, devoir)",
+    "Make polite requests at work",
+    "Navigate workplace communication"
+  ],
+  "estimatedMinutes": 120,
+  "episodes": [
+    {
+      "episodeNumber": 1,
+      "type": "STORY",
+      "title": "Les Fournitures",
+      "content": "Alex entre dans le bureau. C'est son premier jour de travail à TechParis.\n\n\"Voilà mon bureau!\"\n\nAlex regarde son espace de travail. Il y a un grand bureau en bois avec plusieurs objets dessus.\n\n\"Voyons ce que j'ai...\"\n\nSur le bureau, il y a un ordinateur. C'est un ordinateur portable moderne.\n\n\"Parfait! Un bon ordinateur pour travailler.\"\n\nÀ côté de l'ordinateur, il y a un téléphone noir. C'est le téléphone fixe du bureau.\n\n\"Le téléphone... Je vais avoir mon propre numéro!\"\n\nAlex voit aussi une souris d'ordinateur et un clavier sans fil.\n\n\"Bien, la souris et le clavier sont là. Tout est en place.\"\n\nIl ouvre le tiroir du bureau. À l'intérieur, il trouve des stylos, des crayons, et des surligneurs de différentes couleurs.\n\n\"Super! J'ai des stylos. Un stylo bleu, un stylo noir, et... un stylo rouge.\"\n\nIl y a aussi du papier. Beaucoup de feuilles blanches dans le tiroir.\n\n\"Du papier... Parfait pour prendre des notes.\"\n\nAlex regarde à gauche. Il voit une imprimante sur une petite table.\n\n\"Ah, l'imprimante est ici. Elle est partagée avec mes collègues.\"\n\nSur l'imprimante, il y a des instructions en français.\n\n\"Je dois apprendre à utiliser l'imprimante. Plus tard!\"\n\nAlex trouve aussi un cahier vide et un bloc-notes.\n\n\"Un cahier pour mes réunions, et un bloc-notes pour les messages rapides. Excellent!\"\n\nIl voit une agrafeuse dans le tiroir, des trombones dans une petite boîte, et un rouleau de ruban adhésif.\n\n\"J'ai tout ce qu'il faut : une agrafeuse, des trombones, du scotch...\"\n\nSur le mur, il y a un tableau blanc avec des marqueurs de différentes couleurs.\n\n\"Un tableau blanc! C'est utile pour les brainstormings.\"\n\nAlex s'assoit sur sa chaise de bureau. Elle est confortable et ergonomique.\n\n\"La chaise est confortable. C'est important quand on travaille huit heures par jour!\"\n\nIl allume l'ordinateur. L'écran s'illumine.\n\n\"Bon, maintenant je peux commencer à travailler. J'ai tout ce dont j'ai besoin!\"",
+      "generateAudio": true,
+      "estimatedMinutes": 15,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Premier jour",
+            "instructions": "What is special about this day for Alex?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce qui est spécial aujourd'hui pour Alex?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "C'est son anniversaire",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "C'est son premier jour de travail",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Il achète un nouvel ordinateur",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Il déménage",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "C'est le premier jour de travail d'Alex à TechParis.",
+              "hint": "Alex is discovering his workspace for the first time."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associez: Fournitures de bureau",
+            "instructions": "Match the French office supply terms with their English meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "un ordinateur",
+                  "right": "computer"
+                },
+                {
+                  "left": "un stylo",
+                  "right": "pen"
+                },
+                {
+                  "left": "une imprimante",
+                  "right": "printer"
+                },
+                {
+                  "left": "une chaise",
+                  "right": "chair"
+                },
+                {
+                  "left": "un téléphone",
+                  "right": "telephone"
+                },
+                {
+                  "left": "du papier",
+                  "right": "paper"
+                }
+              ],
+              "hint": "These are common items you find in an office."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Vocabulaire: Une agrafeuse",
+            "instructions": "What is 'une agrafeuse'?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qu'est-ce qu'une agrafeuse?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "A stapler",
+                  "isCorrect": true
+                },
+                {
+                  "id": "b",
+                  "text": "A pen",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "A notebook",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "A computer",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "'Une agrafeuse' is a stapler - used to attach papers together.",
+              "hint": "This tool uses small metal pieces to hold papers together."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez: Il y a",
+            "instructions": "Complete with 'il y a'.",
+            "content": {
+              "text": "Sur le bureau, _____ _____ un ordinateur.",
+              "blanks": [
+                {
+                  "correctAnswer": "il",
+                  "acceptableAnswers": [
+                    "il"
+                  ],
+                  "options": [
+                    "il",
+                    "je",
+                    "elle",
+                    "on"
+                  ]
+                },
+                {
+                  "correctAnswer": "y",
+                  "acceptableAnswers": [
+                    "y"
+                  ],
+                  "options": [
+                    "y",
+                    "a",
+                    "est",
+                    "sont"
+                  ]
+                },
+                {
+                  "correctAnswer": "a",
+                  "acceptableAnswers": [
+                    "a"
+                  ],
+                  "options": [
+                    "a",
+                    "est",
+                    "sont",
+                    "y"
+                  ]
+                }
+              ],
+              "translation": "On the desk, there is a computer.",
+              "hint": "'Il y a' means 'there is' or 'there are'."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associez: Plus de fournitures",
+            "instructions": "Match more office supplies.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "un cahier",
+                  "right": "notebook"
+                },
+                {
+                  "left": "des trombones",
+                  "right": "paper clips"
+                },
+                {
+                  "left": "un tableau blanc",
+                  "right": "whiteboard"
+                },
+                {
+                  "left": "une souris",
+                  "right": "mouse"
+                },
+                {
+                  "left": "un clavier",
+                  "right": "keyboard"
+                }
+              ],
+              "hint": "Think about what you need for writing and computer work."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrangez: J'ai tout",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "J'",
+                "ai",
+                "tout",
+                "ce",
+                "qu'",
+                "il",
+                "faut"
+              ],
+              "correctOrder": [
+                "J'",
+                "ai",
+                "tout",
+                "ce",
+                "qu'",
+                "il",
+                "faut"
+              ],
+              "translation": "I have everything I need.",
+              "explanation": "'Tout ce qu'il faut' is an expression meaning 'everything that's needed'.",
+              "hint": "This is a useful expression for saying you have everything necessary."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: L'imprimante",
+            "instructions": "What does Alex say about the printer?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que dit Alex à propos de l'imprimante?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Elle est sur son bureau",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Elle est cassée",
+                  "isCorrect": false
+                },
+                {
+                  "id": "c",
+                  "text": "Elle est partagée avec ses collègues",
+                  "isCorrect": true
+                },
+                {
+                  "id": "d",
+                  "text": "Il n'y en a pas",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex dit : 'L'imprimante est ici. Elle est partagée avec mes collègues.'",
+              "hint": "The printer is not just for Alex."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Écoute: La chaise",
+            "instructions": "Listen and answer the question.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "La chaise est confortable. C'est important quand on travaille huit heures par jour!",
+              "question": "Why is the chair important?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Because you work eight hours a day"
+                },
+                {
+                  "id": "b",
+                  "text": "Because it's expensive"
+                },
+                {
+                  "id": "c",
+                  "text": "Because it's new"
+                },
+                {
+                  "id": "d",
+                  "text": "Because it's blue"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "A comfortable chair is important when you work 8 hours a day.",
+              "hint": "Listen for how long Alex will be sitting."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.4,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Texte à trous: Le bureau d'Alex",
+            "instructions": "Fill in the blanks about Alex's office setup.",
+            "content": {
+              "text": "Alex arrive à son nouveau {blank1} pour son premier jour de travail. Sur son bureau, il y a un {blank2} portable, un {blank3} fixe, une souris et un {blank4}. Dans le tiroir, il trouve des {blank5}, des crayons, et du papier. Il y a aussi une {blank6} partagée avec ses collègues sur une petite table. Alex trouve sa {blank7} de bureau très confortable. Maintenant il peut commencer à travailler!",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "bureau"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "ordinateur"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "téléphone"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "clavier"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "stylos"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "imprimante"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "chaise"
+                }
+              ],
+              "hint": "Think about what office equipment and supplies Alex discovers."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrateur",
+          "voice": "Charon",
+          "description": "Calm, clear narrator voice"
+        }
+      ],
+      "audioStyle": "Narrative storytelling. Clear, moderate-paced French describing Alex's first day and office setup. Curious, observant tone."
+    },
+    {
+      "episodeNumber": 2,
+      "type": "STORY",
+      "title": "L'Email Formel",
+      "content": "Alex allume son ordinateur. Il ouvre sa boîte email. Il a déjà plusieurs messages!\n\n\"Voyons... J'ai cinq nouveaux emails.\"\n\nAlex clique sur le premier email. C'est un message de son chef.\n\n\"De : Monsieur Rousseau. Objet : Bienvenue à TechParis.\"\n\nAlex lit l'email à haute voix :\n\n\"Bonjour Monsieur Martin,\n\nBienvenue dans l'équipe TechParis! Nous sommes ravis de vous avoir parmi nous.\n\nVotre première réunion d'équipe aura lieu jeudi à 10h dans la salle de conférence B. Merci de confirmer votre présence.\n\nSi vous avez des questions, n'hésitez pas à me contacter.\n\nCordialement,\nPierre Rousseau\nDirecteur de Projet\"\n\n\"C'est très formel,\" pense Alex. \"Je dois répondre de manière professionnelle.\"\n\nAlex commence à écrire sa réponse :\n\n\"Bonjour Monsieur Rousseau,\n\nJe vous remercie pour votre message de bienvenue.\n\nJe confirme ma présence à la réunion de jeudi à 10h.\n\nJe suis très heureux de rejoindre l'équipe.\n\nCordialement,\nAlex Martin\"\n\nAlex relit son email. \"Bien, c'est poli et professionnel.\"\n\nIl clique sur \"Envoyer\".\n\n\"Voilà, c'est envoyé!\"\n\nAlex ouvre le deuxième email. C'est de Julie, une collègue.\n\n\"De : Julie Mercier. Objet : Déjeuner?\"\n\n\"Salut Alex!\n\nBienvenue! Tu veux déjeuner avec moi aujourd'hui à midi? Je peux te montrer les bons restaurants du quartier.\n\nÀ tout à l'heure!\nJulie\"\n\n\"Ah, ce message est moins formel,\" remarque Alex. \"C'est plus amical.\"\n\nAlex répond :\n\n\"Salut Julie!\n\nMerci pour l'invitation! Oui, avec plaisir! On se retrouve où?\n\nÀ midi!\nAlex\"\n\nAlex sourit. \"Les emails entre collègues sont différents des emails avec le chef. C'est important de comprendre le niveau de formalité.\"\n\nIl ouvre le troisième email. C'est un message automatique du service informatique.\n\n\"Objet : Vos identifiants réseau\n\nMadame, Monsieur,\n\nVeuillez trouver ci-joint vos identifiants pour accéder au réseau de l'entreprise.\n\nNom d'utilisateur : amartin\nMot de passe temporaire : TechP@ris2025\n\nMerci de changer votre mot de passe lors de votre première connexion.\n\nCordialement,\nService Informatique\"\n\n\"Parfait! Maintenant je peux me connecter au réseau,\" dit Alex.\n\nIl continue à lire ses emails, apprenant le style professionnel français.",
+      "generateAudio": true,
+      "estimatedMinutes": 15,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Premier email",
+            "instructions": "Who sent the first email to Alex?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Qui a envoyé le premier email à Alex?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Julie Mercier",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Monsieur Rousseau",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Le service informatique",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Un client",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Le premier email vient de Monsieur Rousseau, le directeur de projet.",
+              "hint": "This person is Alex's boss."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associez: Formules d'email",
+            "instructions": "Match the formal email phrases with their meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "Bonjour Monsieur",
+                  "right": "Hello Sir (formal)"
+                },
+                {
+                  "left": "Cordialement",
+                  "right": "Kind regards"
+                },
+                {
+                  "left": "Je vous remercie",
+                  "right": "I thank you (formal)"
+                },
+                {
+                  "left": "N'hésitez pas",
+                  "right": "Don't hesitate"
+                },
+                {
+                  "left": "Veuillez trouver",
+                  "right": "Please find"
+                }
+              ],
+              "hint": "These are common phrases in formal French business emails."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: La réunion",
+            "instructions": "When is the team meeting?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quand a lieu la réunion d'équipe?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Lundi à 10h",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Jeudi à 10h",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Vendredi à 14h",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Aujourd'hui à midi",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "La réunion a lieu jeudi à 10h dans la salle de conférence B.",
+              "hint": "Look for the day and time in Monsieur Rousseau's email."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.1
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez: Email formel",
+            "instructions": "Complete the formal greeting.",
+            "content": {
+              "text": "Bonjour _____ Rousseau,",
+              "blanks": [
+                {
+                  "correctAnswer": "Monsieur",
+                  "acceptableAnswers": [
+                    "Monsieur",
+                    "M."
+                  ],
+                  "options": [
+                    "Monsieur",
+                    "Madame",
+                    "Mademoiselle",
+                    "Pierre"
+                  ]
+                }
+              ],
+              "translation": "Hello Mr. Rousseau,",
+              "hint": "Use the formal title for a man in business correspondence."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Comparaison: Formel vs Informel",
+            "instructions": "Which email is less formal?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Quel email est moins formel?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "L'email de Monsieur Rousseau",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "L'email de Julie",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "L'email du service informatique",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Tous sont formels",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "L'email de Julie est moins formel - elle dit 'Salut' et 'Tu' au lieu de 'vous'.",
+              "hint": "Julie's email is more friendly and casual."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrangez: Confirmation",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Je",
+                "confirme",
+                "ma",
+                "présence",
+                "à",
+                "la",
+                "réunion"
+              ],
+              "correctOrder": [
+                "Je",
+                "confirme",
+                "ma",
+                "présence",
+                "à",
+                "la",
+                "réunion"
+              ],
+              "translation": "I confirm my attendance at the meeting.",
+              "explanation": "'Confirmer sa présence' is a formal way to say you will attend.",
+              "hint": "This is Alex's response to his boss."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez: Clôture formelle",
+            "instructions": "Complete the formal closing.",
+            "content": {
+              "text": "_____,\nAlex Martin",
+              "blanks": [
+                {
+                  "correctAnswer": "Cordialement",
+                  "acceptableAnswers": [
+                    "Cordialement",
+                    "Bien cordialement"
+                  ],
+                  "options": [
+                    "Cordialement",
+                    "Bisous",
+                    "À bientôt",
+                    "Salut"
+                  ]
+                }
+              ],
+              "translation": "Kind regards, / Sincerely,\nAlex Martin",
+              "hint": "This is the most common formal closing in French business emails."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.3
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Écoute: Le niveau de formalité",
+            "instructions": "Listen and answer the question.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "Les emails entre collègues sont différents des emails avec le chef. C'est important de comprendre le niveau de formalité.",
+              "question": "What does Alex learn?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "It's important to understand the level of formality in emails"
+                },
+                {
+                  "id": "b",
+                  "text": "All emails should be formal"
+                },
+                {
+                  "id": "c",
+                  "text": "French people don't use email"
+                },
+                {
+                  "id": "d",
+                  "text": "He shouldn't write emails"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "Alex learns that emails to colleagues are different from emails to the boss - formality level matters.",
+              "hint": "Think about the difference between Julie's and Monsieur Rousseau's emails."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.5,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Texte à trous: Les emails professionnels",
+            "instructions": "Fill in the blanks about professional emails.",
+            "content": {
+              "text": "Alex ouvre sa boîte {blank1} et trouve plusieurs messages. Le premier email vient de Monsieur {blank2}, son chef, qui l'invite à une {blank3} jeudi à 10h. Alex répond en commençant par '{blank4} Monsieur Rousseau' et termine par '{blank5}'. Le deuxième email est de {blank6}, une collègue. Son message est moins {blank7} et plus amical. Alex comprend qu'il faut adapter le niveau de formalité selon la personne.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": "email"
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "Rousseau"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "réunion"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "Bonjour"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "Cordialement"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "Julie"
+                },
+                {
+                  "id": "blank7",
+                  "correctAnswer": "formel"
+                }
+              ],
+              "hint": "Think about the different emails Alex receives and how he responds."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.6
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Narrateur",
+          "voice": "Charon",
+          "description": "Calm, clear narrator voice"
+        }
+      ],
+      "audioStyle": "Narrative storytelling. Clear, moderate-paced French. Alex reads emails aloud with appropriate formal/informal intonation. Thoughtful, learning tone."
+    },
+    {
+      "episodeNumber": 3,
+      "type": "DIALOGUE",
+      "title": "Puis-je...?",
+      "content": "Alex: Excusez-moi, Monsieur Rousseau. Puis-je vous parler un moment?\n\nChef: Bien sûr, Alex! Entrez. Asseyez-vous. Que puis-je faire pour vous?\n\nAlex: Je voudrais vous poser quelques questions sur le projet.\n\nChef: Oui, allez-y. Je vous écoute.\n\nAlex: Merci. Alors, pour le projet, est-ce que je peux consulter les documents de l'année dernière?\n\nChef: Absolument! Vous pouvez accéder à tous les anciens documents dans le dossier partagé sur le serveur.\n\nAlex: Parfait. Et puis-je contacter directement les clients, ou est-ce que je dois passer par vous?\n\nChef: Bonne question. Pour l'instant, vous devez me consulter avant de contacter un client. C'est la procédure pour les nouveaux employés.\n\nAlex: Je comprends. Pas de problème. Est-ce que je peux aussi participer aux réunions avec l'équipe marketing?\n\nChef: Oui, vous pouvez assister à toutes les réunions interdépartementales. C'est même recommandé!\n\nAlex: Excellent! Une dernière question : est-ce que je peux travailler de chez moi un jour par semaine?\n\nChef: Ah, le télétravail! Oui, vous pouvez travailler à distance un jour par semaine. Beaucoup de collègues le font. Quel jour préférez-vous?\n\nAlex: Je pense que le vendredi serait idéal pour moi.\n\nChef: Le vendredi, pas de problème. Mais vous devez informer l'équipe à l'avance et rester disponible par email et téléphone.\n\nAlex: Bien sûr, je comprends. Je vais être très disponible.\n\nChef: Parfait! Y a-t-il autre chose? Vous voulez demander quelque chose d'autre?\n\nAlex: Oui, une petite chose. Puis-je utiliser la salle de conférence B cet après-midi? Je dois préparer ma présentation.\n\nChef: Voyons voir... Oui, elle est libre de 14h à 16h. Vous pouvez la réserver.\n\nAlex: Merci beaucoup! C'est très gentil.\n\nChef: De rien, Alex. N'hésitez pas si vous avez d'autres questions. Ma porte est toujours ouverte!\n\nAlex: Je vous remercie. C'est très rassurant de savoir que je peux vous parler.\n\nChef: C'est normal! Nous voulons que vous vous sentiez à l'aise ici. Bienvenue dans l'équipe!\n\nAlex: Merci encore, Monsieur Rousseau!\n\nChef: Appelez-moi Pierre, s'il vous plaît. Nous ne sommes pas si formels entre collègues!\n\nAlex: D'accord, Pierre. Merci!",
+      "generateAudio": true,
+      "estimatedMinutes": 15,
+      "contentItems": [
+        {
+          "orderIndex": 1,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Le télétravail",
+            "instructions": "What does Alex want to do?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que veut faire Alex un jour par semaine?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Prendre un congé",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Travailler de chez lui",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Partir plus tôt",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Travailler le weekend",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Alex demande s'il peut travailler de chez lui (télétravail) un jour par semaine, le vendredi.",
+              "hint": "This is about working remotely."
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.0
+          }
+        },
+        {
+          "orderIndex": 2,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez: Pouvoir (je)",
+            "instructions": "Complete with the correct form of 'pouvoir'.",
+            "content": {
+              "text": "Puis-_____ vous parler un moment?",
+              "blanks": [
+                {
+                  "correctAnswer": "je",
+                  "acceptableAnswers": [
+                    "je",
+                    "j'"
+                  ],
+                  "options": [
+                    "je",
+                    "tu",
+                    "il",
+                    "nous"
+                  ]
+                }
+              ],
+              "translation": "May I speak with you for a moment?",
+              "hint": "'Puis-je' is the inverted form of 'je peux' (I can) - very formal."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.6
+          }
+        },
+        {
+          "orderIndex": 3,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez: Pouvoir (vous)",
+            "instructions": "Complete with 'pouvoir' conjugated for 'vous'.",
+            "content": {
+              "text": "Vous _____ accéder à tous les documents.",
+              "blanks": [
+                {
+                  "correctAnswer": "pouvez",
+                  "acceptableAnswers": [
+                    "pouvez"
+                  ],
+                  "options": [
+                    "pouvez",
+                    "peux",
+                    "peut",
+                    "peuvent"
+                  ]
+                }
+              ],
+              "translation": "You can access all the documents.",
+              "hint": "Pouvoir: je peux, tu peux, il peut, nous pouvons, vous pouvez, ils peuvent."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 4,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "fill_in_blank",
+            "title": "Complétez: Devoir",
+            "instructions": "Complete with the correct form of 'devoir'.",
+            "content": {
+              "text": "Vous _____ me consulter avant de contacter un client.",
+              "blanks": [
+                {
+                  "correctAnswer": "devez",
+                  "acceptableAnswers": [
+                    "devez"
+                  ],
+                  "options": [
+                    "devez",
+                    "dois",
+                    "doit",
+                    "doivent"
+                  ]
+                }
+              ],
+              "translation": "You must consult me before contacting a client.",
+              "hint": "'Devoir' means 'must' or 'have to'. For 'vous': devez."
+            },
+            "estimatedDurationSeconds": 45,
+            "pointsValue": 15,
+            "difficultyRating": 1.5
+          }
+        },
+        {
+          "orderIndex": 5,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "matching",
+            "title": "Associez: Verbes modaux",
+            "instructions": "Match the modal verbs with their meanings.",
+            "content": {
+              "pairs": [
+                {
+                  "left": "pouvoir",
+                  "right": "can / to be able to"
+                },
+                {
+                  "left": "devoir",
+                  "right": "must / to have to"
+                },
+                {
+                  "left": "vouloir",
+                  "right": "to want"
+                },
+                {
+                  "left": "je peux",
+                  "right": "I can"
+                },
+                {
+                  "left": "je dois",
+                  "right": "I must"
+                }
+              ],
+              "hint": "These are the three main modal verbs in French."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 6,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "sentence_scramble",
+            "title": "Arrangez: Demande polie",
+            "instructions": "Put the words in the correct order.",
+            "content": {
+              "words": [
+                "Je",
+                "voudrais",
+                "vous",
+                "poser",
+                "une",
+                "question"
+              ],
+              "correctOrder": [
+                "Je",
+                "voudrais",
+                "vous",
+                "poser",
+                "une",
+                "question"
+              ],
+              "translation": "I would like to ask you a question.",
+              "explanation": "'Je voudrais' (I would like) is the polite form for making requests.",
+              "hint": "Start with 'Je voudrais' (I would like)."
+            },
+            "estimatedDurationSeconds": 60,
+            "pointsValue": 15,
+            "difficultyRating": 1.4
+          }
+        },
+        {
+          "orderIndex": 7,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "multiple_choice",
+            "title": "Compréhension: Les clients",
+            "instructions": "What must Alex do before contacting clients?",
+            "content": {
+              "question": {
+                "type": "text",
+                "content": "Que doit faire Alex avant de contacter les clients?"
+              },
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Il peut les contacter directement",
+                  "isCorrect": false
+                },
+                {
+                  "id": "b",
+                  "text": "Il doit consulter son chef",
+                  "isCorrect": true
+                },
+                {
+                  "id": "c",
+                  "text": "Il ne peut jamais les contacter",
+                  "isCorrect": false
+                },
+                {
+                  "id": "d",
+                  "text": "Il doit attendre un mois",
+                  "isCorrect": false
+                }
+              ],
+              "explanation": "Pour l'instant, Alex doit consulter son chef avant de contacter un client. C'est la procédure pour les nouveaux employés.",
+              "hint": "What is the procedure for new employees?"
+            },
+            "estimatedDurationSeconds": 30,
+            "pointsValue": 10,
+            "difficultyRating": 1.2
+          }
+        },
+        {
+          "orderIndex": 8,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "listening",
+            "title": "Écoute: La porte ouverte",
+            "instructions": "Listen and answer the question.",
+            "content": {
+              "audioUrl": "placeholder_will_be_generated",
+              "transcript": "N'hésitez pas si vous avez d'autres questions. Ma porte est toujours ouverte!",
+              "question": "What does the boss mean by 'my door is always open'?",
+              "questionType": "multiple_choice",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Alex can ask questions anytime"
+                },
+                {
+                  "id": "b",
+                  "text": "The office is hot"
+                },
+                {
+                  "id": "c",
+                  "text": "The door is broken"
+                },
+                {
+                  "id": "d",
+                  "text": "Alex must leave"
+                }
+              ],
+              "correctAnswer": "a",
+              "explanation": "'Ma porte est toujours ouverte' is an expression meaning you're always welcome to ask questions or talk.",
+              "hint": "This is a welcoming expression in business."
+            },
+            "estimatedDurationSeconds": 90,
+            "pointsValue": 15,
+            "difficultyRating": 1.6,
+            "generateAudio": true
+          }
+        },
+        {
+          "orderIndex": 9,
+          "type": "EXERCISE",
+          "isRequired": true,
+          "exercise": {
+            "type": "cloze_reading",
+            "title": "Texte à trous: Les demandes au bureau",
+            "instructions": "Fill in the blanks about Alex's requests.",
+            "content": {
+              "text": "Alex demande à son chef : '{blank1}' pour demander la permission de parler. Il veut savoir s'il {blank2} consulter les documents de l'année dernière. Son chef répond qu'il {blank3} accéder à tous les documents. Alex demande aussi s'il peut travailler de chez lui un jour par semaine - le {blank4}. Il {blank5} informer l'équipe à l'avance. Le chef termine en disant 'Ma porte est toujours {blank6}' pour montrer qu'Alex peut lui poser des questions à tout moment.",
+              "blanks": [
+                {
+                  "id": "blank1",
+                  "correctAnswer": [
+                    "Puis-je",
+                    "Puis-je vous parler"
+                  ]
+                },
+                {
+                  "id": "blank2",
+                  "correctAnswer": "peut"
+                },
+                {
+                  "id": "blank3",
+                  "correctAnswer": "peut"
+                },
+                {
+                  "id": "blank4",
+                  "correctAnswer": "vendredi"
+                },
+                {
+                  "id": "blank5",
+                  "correctAnswer": "doit"
+                },
+                {
+                  "id": "blank6",
+                  "correctAnswer": "ouverte"
+                }
+              ],
+              "hint": "Focus on the modal verbs pouvoir and devoir, and Alex's questions."
+            },
+            "estimatedDurationSeconds": 120,
+            "pointsValue": 20,
+            "difficultyRating": 1.7
+          }
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Alex",
+          "voice": "Achird",
+          "description": "Young American man, polite and professional"
+        },
+        {
+          "name": "Chef de Bureau",
+          "voice": "Charon",
+          "description": "Professional office manager, helpful and welcoming"
+        }
+      ],
+      "audioStyle": "Professional workplace conversation. Alex is respectful and uses formal requests. The boss is welcoming and encouraging. Clear pronunciation, moderate pace for A1.2 learners."
+    }
+  ]
+}
