@@ -71,7 +71,9 @@ class WordSetController(
         @RequestParam languageCode: String,
         @RequestParam(required = false) level: String?
     ): ResponseEntity<Map<String, Any>> {
-        val count = wordSetService.loadWordSetsFromJson(filePath, languageCode, level)
+        val count = java.io.FileInputStream(filePath).use { inputStream ->
+            wordSetService.loadWordSetsFromJson(inputStream, languageCode, level)
+        }
         return ResponseEntity.ok(mapOf(
             "message" to "Successfully loaded word sets",
             "count" to count

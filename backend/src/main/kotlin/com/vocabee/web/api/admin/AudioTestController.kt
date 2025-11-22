@@ -22,7 +22,7 @@ class AudioTestController(
                 transcript = request.text,
                 languageCode = request.languageCode,
                 moduleNumber = 0, // Test files go to module_0
-                voice = request.voice
+                speakers = listOf(com.vocabee.service.SpeakerVoiceConfig("Narrator", request.voice))
             )
 
             ResponseEntity.ok(

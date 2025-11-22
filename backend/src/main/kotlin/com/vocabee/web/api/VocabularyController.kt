@@ -28,7 +28,7 @@ class VocabularyController(
         @PathVariable lemma: String
     ): ResponseEntity<WordDto> {
         val word = vocabularyService.getWord(languageCode, lemma)
-            ?: return ResponseEntity.notFound().build()
+            ?: throw jakarta.persistence.EntityNotFoundException("Word not found: $lemma in $languageCode")
 
         return ResponseEntity.ok(word)
     }

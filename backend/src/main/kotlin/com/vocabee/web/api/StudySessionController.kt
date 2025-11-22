@@ -28,14 +28,8 @@ class StudySessionController(
         val userId = getUserIdFromToken(authorization)
             ?: return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build()
 
-        return try {
-            val session = studySessionService.startSession(userId, request)
-            ResponseEntity.status(HttpStatus.CREATED).body(session)
-        } catch (e: IllegalStateException) {
-            ResponseEntity.status(HttpStatus.CONFLICT).build()
-        } catch (e: IllegalArgumentException) {
-            ResponseEntity.badRequest().build()
-        }
+        val session = studySessionService.startSession(userId, request)
+        return ResponseEntity.status(HttpStatus.CREATED).body(session)
     }
 
     @GetMapping("/sessions/active")
@@ -59,12 +53,8 @@ class StudySessionController(
         val userId = getUserIdFromToken(authorization)
             ?: return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build()
 
-        return try {
-            val session = studySessionService.getSession(id, userId)
-            ResponseEntity.ok(session)
-        } catch (e: IllegalArgumentException) {
-            ResponseEntity.notFound().build()
-        }
+        val session = studySessionService.getSession(id, userId)
+        return ResponseEntity.ok(session)
     }
 
     @DeleteMapping("/sessions/{id}")
@@ -75,14 +65,8 @@ class StudySessionController(
         val userId = getUserIdFromToken(authorization)
             ?: return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build()
 
-        return try {
-            studySessionService.abandonSession(id, userId)
-            ResponseEntity.noContent().build()
-        } catch (e: IllegalArgumentException) {
-            ResponseEntity.notFound().build()
-        } catch (e: IllegalStateException) {
-            ResponseEntity.status(HttpStatus.CONFLICT).build()
-        }
+        studySessionService.abandonSession(id, userId)
+        return ResponseEntity.noContent().build()
     }
 
     // ========== Study Flow ==========
@@ -95,15 +79,9 @@ class StudySessionController(
         val userId = getUserIdFromToken(authorization)
             ?: return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build()
 
-        return try {
-            val card = studySessionService.getNextCard(id, userId)
-                ?: return ResponseEntity.noContent().build()
-            ResponseEntity.ok(card)
-        } catch (e: IllegalArgumentException) {
-            ResponseEntity.notFound().build()
-        } catch (e: IllegalStateException) {
-            ResponseEntity.status(HttpStatus.CONFLICT).build()
-        }
+        val card = studySessionService.getNextCard(id, userId)
+            ?: return ResponseEntity.noContent().build()
+        return ResponseEntity.ok(card)
     }
 
     @PostMapping("/sessions/{id}/answer")
@@ -115,14 +93,8 @@ class StudySessionController(
         val userId = getUserIdFromToken(authorization)
             ?: return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build()
 
-        return try {
-            val response = studySessionService.submitAnswer(id, userId, request)
-            ResponseEntity.ok(response)
-        } catch (e: IllegalArgumentException) {
-            ResponseEntity.badRequest().build()
-        } catch (e: IllegalStateException) {
-            ResponseEntity.status(HttpStatus.CONFLICT).build()
-        }
+        val response = studySessionService.submitAnswer(id, userId, request)
+        return ResponseEntity.ok(response)
     }
 
     @PostMapping("/sessions/{id}/complete")
@@ -133,14 +105,8 @@ class StudySessionController(
         val userId = getUserIdFromToken(authorization)
             ?: return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build()
 
-        return try {
-            val summary = studySessionService.completeSession(id, userId)
-            ResponseEntity.ok(summary)
-        } catch (e: IllegalArgumentException) {
-            ResponseEntity.notFound().build()
-        } catch (e: IllegalStateException) {
-            ResponseEntity.status(HttpStatus.CONFLICT).build()
-        }
+        val summary = studySessionService.completeSession(id, userId)
+        return ResponseEntity.ok(summary)
     }
 
     // ========== Session History ==========
@@ -165,23 +131,11 @@ class StudySessionController(
         val userId = getUserIdFromToken(authorization)
             ?: return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build()
 
-        return try {
-            // For now, we'll return the complete summary
-            // This could be cached or stored separately in the future
-            val summary = studySessionService.completeSession(id, userId)
-            ResponseEntity.ok(summary)
-        } catch (e: IllegalStateException) {
-            // Already completed, fetch from session
-            try {
-                val session = studySessionService.getSession(id, userId)
-                // Convert to summary (this would need additional method)
-                ResponseEntity.noContent().build()
-            } catch (e: IllegalArgumentException) {
-                ResponseEntity.notFound().build()
-            }
-        } catch (e: IllegalArgumentException) {
-            ResponseEntity.notFound().build()
-        }
+        // This method attempts to complete the session if not already, then returns the summary.
+        // If the session is already completed, `completeSession` might throw an IllegalStateException.
+        // In this case, we let the exception propagate to the GlobalExceptionHandler.
+        val summary = studySessionService.completeSession(id, userId)
+        return ResponseEntity.ok(summary)
     }
 
     // ========== Due Words ==========
@@ -211,8 +165,9 @@ class StudySessionController(
 
     // ========== Helper Methods ==========
 
-    private fun getUserIdFromToken(authorization: String): Long? {
+    private fun getUserIdFromToken(authorization: String): Long {
         val token = authorization.removePrefix("Bearer ").trim()
         return jwtService.getUserIdFromToken(token)
+            ?: throw org.springframework.security.access.AccessDeniedException("Invalid token")
     }
 }

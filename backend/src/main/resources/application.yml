@@ -60,3 +60,8 @@ logging:
     com.vocabee: DEBUG
     org.springframework.web: INFO
     org.hibernate.SQL: WARN
+
+jwt:
+  secret: ${JWT_SECRET:verysecretkeyforlocaldevelopmentonlydonotuseinproduction123456789}
+  expiration: 86400000 # 24 hours
+
