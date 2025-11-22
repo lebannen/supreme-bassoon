@@ -1,6 +1,6 @@
-import {createRouter, createWebHistory} from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import {useAuthStore} from '@/stores/auth'
+import { useAuthStore } from '@/stores/auth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,13 +29,13 @@ const router = createRouter({
       path: '/profile',
       name: 'profile',
       component: () => import('../views/auth/ProfileView.vue'),
-        meta: {requiresAuth: true},
+      meta: { requiresAuth: true },
     },
     {
       path: '/vocabulary',
       name: 'vocabulary',
       component: () => import('../views/vocabulary/VocabularyView.vue'),
-        meta: {requiresAuth: true},
+      meta: { requiresAuth: true },
     },
     {
       path: '/search',
@@ -46,7 +46,7 @@ const router = createRouter({
       path: '/import',
       name: 'import',
       component: () => import('../views/admin/ImportView.vue'),
-        meta: {requiresAuth: true},
+      meta: { requiresAuth: true },
     },
     {
       path: '/word-sets',
@@ -62,11 +62,11 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue'),
     },
     {
-        path: '/playground',
-        name: 'playground',
-        component: () => import('../views/PlaygroundView.vue'),
+      path: '/playground',
+      name: 'playground',
+      component: () => import('../views/PlaygroundView.vue'),
     },
-      {
+    {
       path: '/book',
       name: 'book',
       component: () => import('../views/reading/BookView.vue'),
@@ -80,13 +80,13 @@ const router = createRouter({
       path: '/reading/:id',
       name: 'ReadingText',
       component: () => import('../views/reading/BookView.vue'),
-        props: true,
+      props: true,
     },
     {
       path: '/reading/import',
       name: 'reading-import',
       component: () => import('../views/admin/ReadingImportView.vue'),
-        meta: {requiresAuth: true},
+      meta: { requiresAuth: true },
     },
     {
       path: '/reading/admin',
@@ -97,56 +97,62 @@ const router = createRouter({
       path: '/study',
       name: 'study',
       component: () => import('../views/study/StudyHomeView.vue'),
-        meta: {requiresAuth: true},
+      meta: { requiresAuth: true },
     },
     {
       path: '/study/session',
       name: 'study-session',
       component: () => import('../views/study/StudySessionView.vue'),
-        meta: {requiresAuth: true},
+      meta: { requiresAuth: true },
     },
     {
       path: '/exercises',
       name: 'exercises',
       component: () => import('../views/exercises/ExercisesView.vue'),
-        meta: {requiresAuth: true},
+      meta: { requiresAuth: true },
     },
     {
       path: '/modules',
       name: 'modules',
       component: () => import('../views/exercises/ModuleView.vue'),
-        meta: {requiresAuth: true},
+      meta: { requiresAuth: true },
     },
     {
       path: '/exercises/:id',
       name: 'exercise-detail',
       component: () => import('../views/exercises/ExerciseDetailView.vue'),
       props: true,
-        meta: {requiresAuth: true},
+      meta: { requiresAuth: true },
     },
     {
       path: '/stats',
       name: 'stats',
       component: () => import('../views/exercises/StatsView.vue'),
-        meta: {requiresAuth: true},
+      meta: { requiresAuth: true },
     },
     {
       path: '/admin/audio-test',
       name: 'audio-test',
       component: () => import('../views/admin/AudioTestView.vue'),
-        meta: {requiresAuth: true},
+      meta: { requiresAuth: true },
     },
     {
       path: '/admin/exercise-import',
       name: 'exercise-import',
       component: () => import('../views/admin/ExerciseImportView.vue'),
-        meta: {requiresAuth: true},
+      meta: { requiresAuth: true },
     },
     {
       path: '/admin/courses',
       name: 'course-admin',
       component: () => import('../views/admin/CourseAdminView.vue'),
-        meta: {requiresAuth: true}, // TODO: Add role-based access control later
+      meta: { requiresAuth: true }, // TODO: Add role-based access control later
+    },
+    {
+      path: '/admin/creator',
+      name: 'content-creator',
+      component: () => import('../views/admin/creator/CourseCreatorView.vue'),
+      meta: { requiresAuth: true },
     },
     // Course Structure Routes
     {
@@ -168,7 +174,7 @@ const router = createRouter({
       path: '/episodes/:id',
       name: 'episode',
       component: () => import('../views/courses/EpisodeView.vue'),
-        meta: {requiresAuth: true},
+      meta: { requiresAuth: true },
     },
   ],
 })
@@ -182,7 +188,7 @@ router.beforeEach((to, from, next) => {
     // Redirect to login page
     next({
       name: 'login',
-        query: {redirect: to.fullPath}, // Save the intended destination
+      query: { redirect: to.fullPath }, // Save the intended destination
     })
   } else if ((to.name === 'login' || to.name === 'register') && authStore.isAuthenticated) {
     // If already logged in, redirect to home
