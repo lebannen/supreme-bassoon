@@ -41,7 +41,7 @@ data class Course(
     @Column(length = 20)
     val status: CourseStatus = CourseStatus.DRAFT,
 
-    val isPublished: Boolean = false,
+    var isPublished: Boolean = false,
 
     val createdAt: LocalDateTime = LocalDateTime.now(),
     val updatedAt: LocalDateTime = LocalDateTime.now(),

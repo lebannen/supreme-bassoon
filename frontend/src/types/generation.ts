@@ -54,6 +54,24 @@ export interface GenerateOutlineRequest {
     seriesContext?: string
 }
 
+export interface GenerateModulePlanRequest {
+    targetLanguage: string
+    level: string
+    seriesContext: string
+    moduleNumber: number
+    moduleTitle: string
+    moduleTheme: string
+    moduleDescription: string
+}
+
+export interface GeneratedModulePlan {
+    detailedDescription: string
+    objectives: string[]
+    vocabularyFocus: string[]
+    grammarFocus: string[]
+    episodeOutline: GeneratedEpisodeSummary[]
+}
+
 export interface GenerateEpisodeContentRequest {
     targetLanguage: string
     level: string
@@ -75,6 +93,10 @@ export interface GeneratedEpisodeSummary {
     title: string
     type: 'DIALOGUE' | 'STORY'
     summary: string
+}
+
+export interface GeneratedOutline {
+    episodes: GeneratedEpisodeSummary[]
 }
 
 

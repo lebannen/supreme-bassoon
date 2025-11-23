@@ -14,16 +14,43 @@ data class SpeakerVoiceConfig(
     val voice: String
 )
 
-fun getVoiceForLanguage(languageCode: String): List<SpeakerVoiceConfig> {
-    val speaker = when (languageCode) {
-        "fr" -> "Leda"  // French Female
-        "en" -> "Puck"  // English Neutral
-        "de" -> "Kore"  // German Female
-        else -> "Leda"  // Default to Leda
+/**
+ * Get voice configurations for a language
+ * For multi-speaker dialogues, returns 2 different voices
+ * speakerNames: actual speaker names from the dialogue (e.g., ["Sam", "Le Conservateur"])
+ */
+fun getVoicesForLanguage(
+    languageCode: String,
+    speakerNames: List<String> = listOf("Narrator")
+): List<SpeakerVoiceConfig> {
+    // If only one speaker requested, use single voice
+    if (speakerNames.size == 1) {
+        val voice = when (languageCode) {
+            "fr" -> "Leda"  // French Female
+            "en" -> "Puck"  // English Neutral
+            "de" -> "Kore"  // German Female
+            else -> "Leda"
+        }
+        return listOf(SpeakerVoiceConfig(speakerNames[0], voice))
     }
 
-    val config = SpeakerVoiceConfig("Narrator", speaker)
-    return listOf(config)
+    // For multi-speaker (dialogue), use 2 different voices
+    val (voice1, voice2) = when (languageCode) {
+        "fr" -> Pair("Leda", "Charon")  // French Female + Male
+        "en" -> Pair("Puck", "Charon")  // English Neutral + Male
+        "de" -> Pair("Kore", "Charon")  // German Female + Male
+        else -> Pair("Leda", "Charon")
+    }
+
+    return listOf(
+        SpeakerVoiceConfig(speakerNames[0], voice1),
+        SpeakerVoiceConfig(speakerNames.getOrElse(1) { "Speaker2" }, voice2)
+    )
+}
+
+// Backwards compatibility
+fun getVoiceForLanguage(languageCode: String): List<SpeakerVoiceConfig> {
+    return getVoicesForLanguage(languageCode, listOf("Narrator"))
 }
 
 interface AudioGenerationService {

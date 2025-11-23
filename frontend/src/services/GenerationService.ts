@@ -4,10 +4,12 @@ import type {
     GenerateBatchExercisesRequest,
     GenerateExerciseRequest,
     GenerateModuleRequest,
+    GenerateModulePlanRequest,
     GenerateStructureRequest,
     GenerateSyllabusRequest,
     GeneratedContentItem,
     GeneratedModule,
+    GeneratedModulePlan,
     GeneratedSyllabus,
     GenerateOutlineRequest,
     GeneratedOutline,
@@ -18,7 +20,7 @@ import type {
 
 class GenerationAPI extends BaseAPI {
     async generateModule(request: GenerateModuleRequest): Promise<ModuleGenerationResponse> {
-        return this.post<ModuleGenerationResponse>('/api/admin/generation/generate', request)
+        return this.post<ModuleGenerationResponse>('/api/admin/generation/module', request)
     }
 
     async generateDialogue(request: GenerateModuleRequest): Promise<string> {
@@ -44,6 +46,10 @@ class GenerationAPI extends BaseAPI {
 
     async generateOutline(request: GenerateOutlineRequest): Promise<GeneratedOutline> {
         return this.post<GeneratedOutline>('/api/admin/generation/outline', request)
+    }
+
+    async generateModulePlan(request: GenerateModulePlanRequest): Promise<GeneratedModulePlan> {
+        return this.post<GeneratedModulePlan>('/api/admin/generation/module-plan', request)
     }
 
     async generateEpisodeContent(request: GenerateEpisodeContentRequest): Promise<GeneratedEpisodeContent> {

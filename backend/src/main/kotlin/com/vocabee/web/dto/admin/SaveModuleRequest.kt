@@ -3,7 +3,8 @@ package com.vocabee.web.dto.admin
 import com.vocabee.domain.generation.GeneratedEpisodeContent
 
 data class SaveModuleRequest(
-    val episodes: List<SaveEpisodeRequest>
+    val episodes: List<SaveEpisodeRequest>,
+    val generateAudio: Boolean = false
 )
 
 data class SaveEpisodeRequest(

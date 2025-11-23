@@ -62,3 +62,11 @@ data class GeneratedEpisodeSummary(
     val type: String, // DIALOGUE, STORY
     val summary: String
 )
+
+data class GeneratedModulePlan(
+    val detailedDescription: String,
+    val objectives: List<String>,
+    val vocabularyFocus: List<String>,
+    val grammarFocus: List<String>,
+    val episodeOutline: List<GeneratedEpisodeSummary>
+)

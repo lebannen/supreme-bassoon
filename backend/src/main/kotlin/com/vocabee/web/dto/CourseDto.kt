@@ -1,7 +1,10 @@
 package com.vocabee.web.dto
 
 import com.fasterxml.jackson.databind.JsonNode
-import com.vocabee.domain.model.*
+import com.vocabee.domain.model.Course
+import com.vocabee.domain.model.Episode
+import com.vocabee.domain.model.GrammarRule
+import com.vocabee.domain.model.Module
 
 // ============================================================================
 // COURSE DTOs
@@ -75,6 +78,19 @@ data class ModuleAdminDto(
     val episodeCount: Int
 )
 
+data class ModuleDetailDto(
+    val id: Long,
+    val moduleNumber: Int,
+    val title: String,
+    val theme: String?,
+    val description: String?,
+    val objectives: List<String>?,
+    val vocabularyFocus: List<String>?,
+    val grammarFocus: List<String>?,
+    val episodeOutline: JsonNode?,
+    val episodeCount: Int
+)
+
 // ============================================================================
 // EPISODE DTOs
 // ============================================================================
@@ -97,6 +113,7 @@ data class EpisodeDto(
     val type: String,
     val title: String,
     val content: String,
+    val data: String?,  // JSON string containing structured content (dialogue, story, etc.)
     val audioUrl: String?,
     val transcript: String?,
     val estimatedMinutes: Int,
@@ -230,6 +247,7 @@ fun Episode.toDto(contentItems: List<EpisodeContentItemDto> = emptyList()) = Epi
     type = episodeType.name,
     title = title,
     content = content,
+    data = data,  // Include structured JSON data (dialogue, story, etc.)
     audioUrl = audioUrl,
     transcript = transcript,
     estimatedMinutes = estimatedMinutes,

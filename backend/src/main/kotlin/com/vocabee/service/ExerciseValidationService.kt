@@ -262,8 +262,8 @@ class ExerciseValidationService {
         val userWordsList = mutableListOf<String>()
         userOrderedWords.forEach { userWordsList.add(it.asText()) }
 
-        // Compare the arrays
-        val isCorrect = userWordsList == correctWordsList
+        // Compare the arrays (case-insensitive to handle capitalization differences)
+        val isCorrect = userWordsList.map { it.lowercase() } == correctWordsList.map { it.lowercase() }
 
         // Reconstruct the correct sentence for display
         val correctSentenceDisplay = correctWordsList.joinToString(" ")

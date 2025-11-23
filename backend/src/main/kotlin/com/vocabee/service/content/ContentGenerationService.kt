@@ -1,22 +1,9 @@
 package com.vocabee.service.content
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.vocabee.domain.generation.GeneratedContentItem
-import com.vocabee.domain.generation.GeneratedDialogue
-import com.vocabee.domain.generation.GeneratedExercise
-import com.vocabee.domain.generation.GeneratedEpisodeContent
-import com.vocabee.domain.generation.GeneratedModule
-import com.vocabee.domain.generation.GeneratedOutline
-import com.vocabee.domain.generation.GeneratedSyllabus
+import com.vocabee.domain.generation.*
 import com.vocabee.service.external.gemini.GeminiTextClient
-import com.vocabee.web.dto.admin.generation.GenerateBatchExercisesRequest
-import com.vocabee.web.dto.admin.generation.GenerateEpisodeContentRequest
-import com.vocabee.web.dto.admin.generation.GenerateExerciseRequest
-import com.vocabee.web.dto.admin.generation.GenerateModuleRequest
-import com.vocabee.web.dto.admin.generation.GenerateOutlineRequest
-import com.vocabee.web.dto.admin.generation.GenerateSyllabusRequest
-import com.vocabee.web.dto.admin.generation.GenerateStructureRequest
-import com.vocabee.web.dto.admin.generation.ModuleGenerationResponse
+import com.vocabee.web.dto.admin.generation.*
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 
@@ -158,9 +145,7 @@ class ContentGenerationService(
     private fun buildPrompt(request: GenerateModuleRequest): String {
         return """
             You are an expert language course creator. Create a JSON module for a language learning app.
-            
-            You are an expert language course creator. Create a JSON module for a language learning app.
-            
+
             Target Language: ${request.targetLanguage}
             Level: ${request.level}
             Theme: "${request.theme}"
@@ -296,79 +281,108 @@ class ContentGenerationService(
             3. Ensure questions test different skills (Vocabulary, Grammar, Comprehension).
             4. "id" should be a unique string (e.g., "ex-1", "ex-2").
             
-            SCHEMAS:
-            
+            SCHEMAS (CRITICAL - Follow EXACTLY):
+
             1. MULTIPLE_CHOICE:
             {
               "type": "EXERCISE",
               "exercise": {
                 "type": "MULTIPLE_CHOICE",
                 "content": {
-                  "question": { "content": "Question text" },
+                  "question": { "content": "Question text in ${request.targetLanguage}" },
                   "options": [
                     { "id": "opt1", "text": "Option A", "isCorrect": false },
-                    { "id": "opt2", "text": "Option B", "isCorrect": true }
+                    { "id": "opt2", "text": "Option B", "isCorrect": true },
+                    { "id": "opt3", "text": "Option C", "isCorrect": false },
+                    { "id": "opt4", "text": "Option D", "isCorrect": false }
                   ]
                 }
               }
             }
-            
-            2. FILL_IN_THE_BLANK:
+
+            2. FILL_IN_THE_BLANK (CRITICAL - Use "text" and "blanks" structure):
             {
               "type": "EXERCISE",
               "exercise": {
                 "type": "FILL_IN_THE_BLANK",
                 "content": {
-                  "question": { "content": "Sentence with a ______." },
-                  "options": [
-                     { "id": "ans", "text": "missing word", "isCorrect": true } 
-                  ]
+                  "text": "Sentence with a _____ blank.",
+                  "blanks": [
+                    {
+                      "correctAnswer": "missing",
+                      "acceptableAnswers": ["missing", "Missing"],
+                      "options": ["missing", "wrong1", "wrong2", "wrong3"]
+                    }
+                  ],
+                  "translation": "Optional English translation",
+                  "hint": "Optional hint"
                 }
               }
             }
-            
+
             3. MATCHING:
             {
               "type": "EXERCISE",
               "exercise": {
                 "type": "MATCHING",
                 "content": {
-                  "question": { "content": "Match the pairs" },
                   "pairs": [
-                    { "left": "French Word", "right": "English Meaning" },
-                    { "left": "Chat", "right": "Cat" }
+                    { "left": "Bonjour", "right": "Hello" },
+                    { "left": "Au revoir", "right": "Goodbye" },
+                    { "left": "Merci", "right": "Thank you" },
+                    { "left": "Oui", "right": "Yes" }
                   ]
                 }
               }
             }
-            
-            4. SENTENCE_SCRAMBLE:
+
+            4. SENTENCE_SCRAMBLE (CRITICAL - "words" and "correctOrder" MUST have IDENTICAL length):
             {
               "type": "EXERCISE",
               "exercise": {
                 "type": "SENTENCE_SCRAMBLE",
                 "content": {
-                  "sentence": "The correct full sentence.",
-                  "words": ["The", "correct", "full", "sentence"],
-                  "translation": "Optional translation"
+                  "words": ["Je", "m'appelle", "Marie"],
+                  "correctOrder": ["Je", "m'appelle", "Marie"],
+                  "translation": "My name is Marie",
+                  "explanation": "Optional explanation",
+                  "hint": "Optional hint"
                 }
               }
             }
-            
+
+            CRITICAL FOR SENTENCE_SCRAMBLE:
+            - "words" is an array of ALL the words in the sentence (in any scrambled order)
+            - "correctOrder" is an array of THE EXACT SAME WORDS but in the correct sentence order
+            - Both arrays MUST contain the exact same words, just potentially in different order
+            - Both arrays MUST have the SAME LENGTH (if "words" has 6 items, "correctOrder" MUST also have 6 items)
+            - Example: If words = ["est", "La", "belle", "très", "salle"], then correctOrder = ["La", "salle", "est", "très", "belle"]
+            - NEVER omit or add words between the two arrays!
+
             5. CLOZE_READING:
             {
               "type": "EXERCISE",
               "exercise": {
                 "type": "CLOZE_READING",
                 "content": {
-                  "text": "This is a {blank1} with multiple {blank2}.",
+                  "text": "This is a {blank1} with multiple {blank2} in the text.",
                   "blanks": [
-                    { "id": "blank1", "correctAnswer": "text" },
+                    { "id": "blank1", "correctAnswer": "paragraph" },
                     { "id": "blank2", "correctAnswer": "blanks" }
-                  ]
+                  ],
+                  "hint": "Optional hint"
                 }
               }
             }
+
+            FINAL VALIDATION CHECKLIST:
+            ✓ For SENTENCE_SCRAMBLE: Count the items in "words" and "correctOrder" - they MUST be equal
+            ✓ For FILL_IN_THE_BLANK: "blanks" is an array, not nested under "question"
+            ✓ For MATCHING: "pairs" is directly in "content", not nested
+            ✓ All exercises have valid JSON structure
+            ✓ No markdown formatting (no ```json blocks)
+
+            Now generate the exercises as a JSON array:
         """.trimIndent()
     }
 
@@ -382,14 +396,14 @@ class ContentGenerationService(
     private fun buildSyllabusPrompt(request: GenerateSyllabusRequest): String {
         return """
             You are an expert language curriculum designer. Create a syllabus for a language course.
-            
+
             Target Language: ${request.targetLanguage}
             Level: ${request.level}
             Series Context (The "Bible"): ${request.seriesContext}
-            
-            Generate a list of 10 modules that form a coherent narrative arc based on the Series Context.
+
+            Generate a list of 2 modules that form a coherent narrative arc based on the Series Context.
             Each module should have a clear theme and a progression in difficulty.
-            
+
             Return the response in strict JSON format matching this schema:
             {
               "modules": [
@@ -419,15 +433,15 @@ class ContentGenerationService(
     private fun buildOutlinePrompt(request: GenerateOutlineRequest): String {
         return """
             You are an expert language curriculum designer. Create an outline of episodes for a specific module.
-            
+
             Target Language: ${request.targetLanguage}
             Level: ${request.level}
             Module Theme: ${request.moduleTheme}
             Module Description: ${request.moduleDescription}
             Series Context: ${request.seriesContext ?: "N/A"}
-            
-            Generate a list of 3-5 episodes for this module.
-            The episodes should follow a logical sequence (e.g., Introduction -> Conflict -> Resolution -> Educational Summary).
+
+            Generate a list of 2 episodes for this module.
+            The episodes should follow a logical sequence (e.g., Introduction -> Practice).
             
             Types of episodes:
             - DIALOGUE: A conversation between characters.
@@ -450,6 +464,97 @@ class ContentGenerationService(
     private fun parseOutlineResponse(response: String): GeneratedOutline {
         val json = extractJson(response)
         return objectMapper.readValue(json, GeneratedOutline::class.java)
+    }
+
+    fun generateModulePlan(request: GenerateModulePlanRequest): GeneratedModulePlan {
+        logger.info("Generating module plan for module ${request.moduleNumber}: ${request.moduleTitle}")
+        val prompt = buildModulePlanPrompt(request)
+        val response = geminiClient.generateText(prompt)
+        return parseModulePlanResponse(response)
+    }
+
+    private fun buildModulePlanPrompt(request: GenerateModulePlanRequest): String {
+        return """
+            You are an expert language curriculum designer. Create a detailed plan for a specific module in a language course.
+
+            Target Language: ${request.targetLanguage}
+            Level: ${request.level}
+            Series Context: ${request.seriesContext}
+
+            Module Number: ${request.moduleNumber}
+            Module Title: ${request.moduleTitle}
+            Module Theme: ${request.moduleTheme}
+            Module Description: ${request.moduleDescription}
+
+            Generate a comprehensive module plan that includes:
+            1. A detailed, multi-paragraph description of what happens in this module (story-wise)
+            2. 3-5 specific learning objectives (what students will be able to do)
+            3. Key vocabulary themes/words that should be covered (as an array of strings)
+            4. Key grammar points that should be covered (as an array of strings)
+            5. An outline of 3-5 episodes that tell the module's story
+
+            IMPORTANT CONSTRAINTS FOR EPISODES:
+            - Each episode must be either type "DIALOGUE" (conversation between characters) or "STORY" (narrative text)
+            - DIALOGUE episodes: A conversation that teaches language through natural dialogue
+            - STORY episodes: A narrative that advances the plot while teaching language
+            - Episodes are LINEAR content (not interactive games, puzzles, or drills)
+            - Exercises (multiple choice, fill-in-blank, etc.) will be generated AUTOMATICALLY from the episode content
+            - Do NOT describe episodes as "puzzles", "drills", "interactive scenes", or "mini-games"
+
+            The episodes should follow a logical narrative arc within the module's theme.
+
+            IMPORTANT: Return ONLY valid JSON with no additional text or markdown. Follow this exact schema:
+
+            {
+              "detailedDescription": "Multi-paragraph description...",
+              "objectives": [
+                "Objective 1",
+                "Objective 2",
+                "Objective 3"
+              ],
+              "vocabularyFocus": [
+                "Vocab theme 1",
+                "Vocab theme 2",
+                "Vocab theme 3"
+              ],
+              "grammarFocus": [
+                "Grammar point 1",
+                "Grammar point 2"
+              ],
+              "episodeOutline": [
+                {
+                  "episodeNumber": 1,
+                  "title": "At the Café",
+                  "type": "DIALOGUE",
+                  "summary": "Alex meets Marie at a local café and they have a conversation about ordering food and drinks. Through their dialogue, learners are introduced to common café vocabulary and polite request forms."
+                },
+                {
+                  "episodeNumber": 2,
+                  "title": "The Discovery",
+                  "type": "STORY",
+                  "summary": "Alex walks through the market and discovers a clue in an old bookshop. The narrative describes the setting, Alex's thoughts, and the mysterious note he finds, introducing descriptive vocabulary and past tense."
+                },
+                {
+                  "episodeNumber": 3,
+                  "title": "Calling the Detective",
+                  "type": "DIALOGUE",
+                  "summary": "Alex calls his friend Sophie to discuss the clue. Their phone conversation covers making plans, expressing opinions, and discussing possibilities, teaching communication phrases and future tense."
+                }
+              ]
+            }
+
+            Note: vocabularyFocus and grammarFocus MUST be arrays of strings, not objects.
+        """.trimIndent()
+    }
+
+    private fun parseModulePlanResponse(response: String): GeneratedModulePlan {
+        val json = extractJson(response)
+        try {
+            return objectMapper.readValue(json, GeneratedModulePlan::class.java)
+        } catch (e: Exception) {
+            logger.error("Failed to parse module plan response. Raw JSON: $json")
+            throw RuntimeException("Failed to parse module plan: ${e.message}. Please try regenerating.", e)
+        }
     }
 
     private fun extractJson(response: String): String {
@@ -492,26 +597,50 @@ class ContentGenerationService(
         }
 
         // 2. Generate Exercises based on the content
+        logger.info("Generating exercises for episode: ${request.episodeTitle}")
         val exerciseRequest = GenerateBatchExercisesRequest(
             context = cleanedContent,
             targetLanguage = request.targetLanguage,
             level = request.level,
             exerciseCounts = mapOf(
-                "MULTIPLE_CHOICE" to 2,
-                "FILL_IN_THE_BLANK" to 2,
-                "MATCHING" to 1
+                "MULTIPLE_CHOICE" to 4,
+                "FILL_IN_THE_BLANK" to 4,
+                "SENTENCE_SCRAMBLE" to 2,
+                "CLOZE_READING" to 1,
+                "MATCHING" to 2
             )
         )
-        val exercises = generateBatchExercises(exerciseRequest)
+        val exercises = try {
+            generateBatchExercises(exerciseRequest)
+        } catch (e: Exception) {
+            logger.error("Failed to generate exercises for episode ${request.episodeTitle}: ${e.message}", e)
+            emptyList() // Return empty list if exercise generation fails
+        }
+        logger.info("Generated ${exercises.size}/13 exercises for episode: ${request.episodeTitle}")
 
         // 3. Construct Response
         return if (request.episodeType == "DIALOGUE") {
-            // Parse dialogue lines for structured storage
-            val lines = cleanedContent.lines().filter { it.isNotBlank() && it.contains(":") }.map {
-                val parts = it.split(":", limit = 2)
-                com.vocabee.domain.generation.GeneratedDialogueLine(parts[0].trim(), parts[1].trim())
+            // Parse dialogue lines for structured storage, filtering out Narrator lines
+            val lines = cleanedContent.lines()
+                .filter { it.isNotBlank() && it.contains(":") }
+                .mapNotNull {
+                    val parts = it.split(":", limit = 2)
+                    val speaker = parts[0].trim()
+                    // Filter out Narrator lines as a safety measure
+                    if (speaker.equals("Narrator", ignoreCase = true)) {
+                        logger.warn("Filtered out Narrator line in dialogue: $it")
+                        null
+                    } else {
+                        com.vocabee.domain.generation.GeneratedDialogueLine(speaker, parts[1].trim())
+                    }
+                }
+
+            // Validate speaker count for audio generation compatibility
+            val uniqueSpeakers = lines.map { it.speaker }.toSet()
+            if (uniqueSpeakers.size != 2) {
+                logger.warn("Dialogue has ${uniqueSpeakers.size} unique speakers (expected 2): $uniqueSpeakers")
             }
-            
+
             GeneratedEpisodeContent(
                 dialogue = GeneratedDialogue(lines = lines, speakers = emptyMap()), // Speakers can be inferred or left empty for now
                 exercises = exercises
@@ -525,24 +654,53 @@ class ContentGenerationService(
     }
 
     private fun buildEpisodeContentPrompt(request: GenerateEpisodeContentRequest): String {
-        val typeInstruction = if (request.episodeType == "STORY") "Write a short story." else "Write a dialogue."
-        
+        val typeSpecificRules = if (request.episodeType == "DIALOGUE") {
+            """
+            DIALOGUE FORMAT RULES (CRITICAL - Audio system requires exactly 2 speakers):
+            1. Use EXACTLY 2 speakers throughout the entire dialogue
+            2. Speaker names MUST remain consistent - do NOT change speaker names mid-dialogue
+               ❌ BAD: "Voix mystérieuse" changing to "Le Conservateur"
+               ✅ GOOD: Use "Le Conservateur" from the start, or use "Sam" and "Le Conservateur"
+            3. NEVER use "Narrator" as a speaker - our audio system only supports 2 speaking characters
+            4. To convey sound effects or actions, integrate them into the dialogue naturally:
+               ❌ BAD: "Narrator: Le téléphone sonne. Dring ! Dring !"
+               ✅ GOOD: "Sam: Allô ? [le téléphone a sonné]" OR just start with "Sam: Allô ?"
+               ❌ BAD: "Narrator: Clic."
+               ✅ GOOD: End the dialogue without narrating the hang-up
+            5. Each line format: "SpeakerName: The dialogue text"
+            6. Keep it conversational and natural for the language level (${request.level})
+            7. Do NOT use quotation marks around the dialogue text
+            8. The dialogue should be 10-15 exchanges to provide enough learning content
+            """.trimIndent()
+        } else {
+            """
+            STORY FORMAT RULES:
+            1. Write a continuous narrative text in the target language
+            2. Use 'Narrator: ' prefix for each paragraph or write plain paragraphs
+            3. Keep the story appropriate for level ${request.level}
+            4. Make it engaging and relevant to the episode theme
+            5. Story should be 150-200 words
+            """.trimIndent()
+        }
+
         return """
-            You are an expert language course creator. $typeInstruction
-            
+            You are an expert language course creator for ${request.targetLanguage} at ${request.level} level.
+
             Target Language: ${request.targetLanguage}
-            Level: ${request.level}
+            CEFR Level: ${request.level}
             Module Theme: "${request.moduleTheme}"
             Episode Title: "${request.episodeTitle}"
             Episode Summary: "${request.episodeSummary}"
             Series Context: ${request.seriesContext ?: "N/A"}
-            
-            STRICT RULES:
-            1. Output ONLY the text of the dialogue/story.
-            2. Do NOT include JSON or any other formatting.
-            3. Use standard script format (Speaker: Line). For stories, use 'Narrator: Line' or just text.
-            4. Ensure the content is appropriate for the requested level (${request.level}).
-            5. Do NOT use quotation marks around the dialogue lines.
+
+            $typeSpecificRules
+
+            GENERAL RULES:
+            1. Output ONLY the dialogue/story text - no JSON, no markdown, no extra formatting
+            2. Use only vocabulary and grammar appropriate for ${request.level} level
+            3. Make the content engaging and educational
+
+            Now generate the ${request.episodeType.lowercase()} content:
         """.trimIndent()
     }
 }

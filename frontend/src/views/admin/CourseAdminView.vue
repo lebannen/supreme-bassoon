@@ -210,6 +210,40 @@ const getStatusSeverity = (status: string) => {
   return map[status] || 'secondary'
 }
 
+async function togglePublishStatus(course: Course) {
+  try {
+    const response = await fetch(`${API_BASE}/api/admin/courses/${course.id}/publish?publish=${!course.isPublished}`, {
+      method: 'PUT',
+      headers: getAuthHeaders()
+    })
+    if (!response.ok) throw new Error(`Failed to update publish status (${response.status})`)
+
+    successMessage.value = `Course "${course.name}" ${!course.isPublished ? 'published' : 'unpublished'} successfully!`
+    await loadCourses()
+  } catch (err) {
+    error.value = err instanceof Error ? err.message : 'Failed to update publish status'
+  }
+}
+
+async function deleteCourse(course: Course) {
+  if (!confirm(`Are you sure you want to delete "${course.name}"? This will permanently delete all modules, episodes, and exercises. This action cannot be undone.`)) {
+    return
+  }
+
+  try {
+    const response = await fetch(`${API_BASE}/api/admin/courses/${course.id}`, {
+      method: 'DELETE',
+      headers: getAuthHeaders()
+    })
+    if (!response.ok) throw new Error(`Failed to delete course (${response.status})`)
+
+    successMessage.value = `Course "${course.name}" deleted successfully!`
+    await loadCourses()
+  } catch (err) {
+    error.value = err instanceof Error ? err.message : 'Failed to delete course'
+  }
+}
+
 onMounted(() => {
   loadCourses()
   loadAllImports()
@@ -219,8 +253,13 @@ onMounted(() => {
 <template>
   <div class="view-container content-area-lg">
     <div class="page-header">
-      <h1 class="flex items-center gap-md"><i class="pi pi-cog icon-primary"></i> Course Administration</h1>
-      <p class="text-secondary">Import and manage course content.</p>
+      <div class="flex justify-between items-center">
+        <div>
+          <h1 class="flex items-center gap-md"><i class="pi pi-cog icon-primary"></i> Course Administration</h1>
+          <p class="text-secondary">Create and manage course content.</p>
+        </div>
+        <Button label="Create New Course" icon="pi pi-plus" severity="success" @click="$router.push('/admin/wizard')"/>
+      </div>
     </div>
 
     <Message v-if="error" severity="error" @close="error = null">{{ error }}</Message>
@@ -301,9 +340,34 @@ onMounted(() => {
               <Tag :value="data.isPublished ? 'Yes' : 'No'" :severity="data.isPublished ? 'success' : 'warning'"/>
             </template>
           </Column>
-          <Column header="Actions" style="width: 8rem">
+          <Column header="Actions" style="width: 14rem">
             <template #body="{data}">
-              <Button icon="pi pi-external-link" rounded text severity="primary" v-tooltip="'Manage Course'" @click="$router.push(`/admin/courses/${data.id}`)" />
+              <Button
+                  :icon="data.isPublished ? 'pi pi-eye-slash' : 'pi pi-eye'"
+                  rounded
+                  text
+                  :severity="data.isPublished ? 'warning' : 'success'"
+                  v-tooltip.top="data.isPublished ? 'Unpublish Course' : 'Publish Course'"
+                  @click="togglePublishStatus(data)"
+                  class="mr-xs"
+              />
+              <Button
+                  icon="pi pi-external-link"
+                  rounded
+                  text
+                  severity="primary"
+                  v-tooltip.top="'Manage Course'"
+                  @click="$router.push(`/admin/courses/${data.id}`)"
+                  class="mr-xs"
+              />
+              <Button
+                  icon="pi pi-trash"
+                  rounded
+                  text
+                  severity="danger"
+                  v-tooltip.top="'Delete Course'"
+                  @click="deleteCourse(data)"
+              />
             </template>
           </Column>
           <template #expansion="{ data }">

@@ -155,23 +155,35 @@ const router = createRouter({
       meta: { requiresAuth: true }, // TODO: Add role-based access control later
     },
     {
-      path: '/admin/creator',
-      name: 'content-creator',
-      component: () => import('../views/admin/creator/CourseCreatorView.vue'),
-      meta: { requiresAuth: true },
-    },
-    {
       path: '/admin/wizard',
       name: 'course-wizard',
       component: () => import('../views/admin/creator/CourseWizardView.vue'),
       meta: { requiresAuth: true },
     },
     {
-      path: '/admin/courses/:courseId/modules/:moduleId/wizard',
-      name: 'module-wizard',
-      component: () => import('../views/admin/creator/ModuleWizardView.vue'),
+        path: '/admin/courses/:courseId/modules/:moduleId/episodes/generate',
+        name: 'episode-wizard',
+        component: () => import('../views/admin/creator/EpisodeWizardView.vue'),
       meta: { requiresAuth: true },
     },
+      {
+          path: '/admin/courses/:courseId/episodes/:episodeId/view',
+          name: 'episode-viewer',
+          component: () => import('../views/admin/creator/EpisodeViewerView.vue'),
+          meta: {requiresAuth: true},
+      },
+      {
+          path: '/admin/courses/:courseId/import',
+          name: 'course-import',
+          component: () => import('../views/admin/creator/CourseImportView.vue'),
+          meta: {requiresAuth: true},
+      },
+      {
+          path: '/admin/courses/:courseId/voices',
+          name: 'voice-assignment',
+          component: () => import('../views/admin/creator/VoiceAssignmentView.vue'),
+          meta: {requiresAuth: true}
+      },
     // Course Structure Routes
     {
       path: '/courses',

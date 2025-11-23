@@ -1,21 +1,9 @@
 package com.vocabee.web.api.admin
 
-import com.vocabee.domain.generation.GeneratedContentItem
-import com.vocabee.domain.generation.GeneratedEpisodeContent
-import com.vocabee.domain.generation.GeneratedModule
-import com.vocabee.domain.generation.GeneratedOutline
-import com.vocabee.domain.generation.GeneratedSyllabus
+import com.vocabee.domain.generation.*
 import com.vocabee.service.content.ContentGenerationService
 import com.vocabee.service.content.ContentValidator
-import com.vocabee.web.dto.admin.generation.DialogueGenerationResponse
-import com.vocabee.web.dto.admin.generation.GenerateBatchExercisesRequest
-import com.vocabee.web.dto.admin.generation.GenerateEpisodeContentRequest
-import com.vocabee.web.dto.admin.generation.GenerateExerciseRequest
-import com.vocabee.web.dto.admin.generation.GenerateModuleRequest
-import com.vocabee.web.dto.admin.generation.GenerateOutlineRequest
-import com.vocabee.web.dto.admin.generation.GenerateStructureRequest
-import com.vocabee.web.dto.admin.generation.GenerateSyllabusRequest
-import com.vocabee.web.dto.admin.generation.ModuleGenerationResponse
+import com.vocabee.web.dto.admin.generation.*
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -69,6 +57,12 @@ class AdminGenerationController(
     fun generateOutline(@RequestBody request: GenerateOutlineRequest): ResponseEntity<GeneratedOutline> {
         val outline = contentGenerationService.generateOutline(request)
         return ResponseEntity.ok(outline)
+    }
+
+    @PostMapping("/module-plan")
+    fun generateModulePlan(@RequestBody request: GenerateModulePlanRequest): ResponseEntity<GeneratedModulePlan> {
+        val modulePlan = contentGenerationService.generateModulePlan(request)
+        return ResponseEntity.ok(modulePlan)
     }
 
     @PostMapping("/episode")

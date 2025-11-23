@@ -34,6 +34,18 @@ data class Module(
     @Column(columnDefinition = "JSONB")
     val objectives: JsonNode? = null,
 
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(columnDefinition = "JSONB")
+    val vocabularyFocus: JsonNode? = null,
+
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(columnDefinition = "JSONB")
+    val grammarFocus: JsonNode? = null,
+
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(columnDefinition = "JSONB")
+    val episodeOutline: JsonNode? = null,
+
     val estimatedMinutes: Int = 120,
 
     @Enumerated(EnumType.STRING)

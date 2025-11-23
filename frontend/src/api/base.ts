@@ -1,5 +1,3 @@
-import router from '@/router'
-
 /**
  * Base API client with automatic error handling and authentication
  */
@@ -90,6 +88,7 @@ export class BaseAPI {
     private async handle401() {
         // Dynamic import to avoid circular dependency
         const { useAuthStore } = await import('@/stores/auth')
+        const router = (await import('@/router')).default
         const authStore = useAuthStore()
 
         // Only log out if we're currently authenticated
