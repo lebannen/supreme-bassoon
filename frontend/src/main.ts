@@ -1,15 +1,16 @@
 import './assets/main.css'
 
-import {createApp} from 'vue'
-import {createPinia} from 'pinia'
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import PrimeVue from 'primevue/config'
 import Aura from '@primevue/themes/aura'
 import ConfirmationService from 'primevue/confirmationservice'
 import ToastService from 'primevue/toastservice'
+import Tooltip from 'primevue/tooltip'
 
 import App from './App.vue'
 import router from './router'
-import {useAuthStore} from './stores/auth'
+import { useAuthStore } from './stores/auth'
 
 // PrimeIcons
 import 'primeicons/primeicons.css'
@@ -28,6 +29,7 @@ app.use(PrimeVue, {
 })
 app.use(ConfirmationService)
 app.use(ToastService)
+app.directive('tooltip', Tooltip)
 
 // Initialize auth from localStorage
 const authStore = useAuthStore()

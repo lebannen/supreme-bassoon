@@ -36,6 +36,17 @@ data class Module(
 
     val estimatedMinutes: Int = 120,
 
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20)
+    var status: ModuleStatus = ModuleStatus.PLANNED,
+
     val createdAt: LocalDateTime = LocalDateTime.now(),
     val updatedAt: LocalDateTime = LocalDateTime.now()
 )
+
+enum class ModuleStatus {
+    PLANNED,
+    DRAFTING,
+    READY,
+    PUBLISHED
+}

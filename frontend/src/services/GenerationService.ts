@@ -1,9 +1,24 @@
+
 import { BaseAPI } from '@/api/base'
-import type { GenerateModuleRequest, GenerateStructureRequest, GenerateExerciseRequest, ModuleGenerationResponse, GeneratedModule, GeneratedContentItem } from '@/types/generation'
+import type {
+    GenerateBatchExercisesRequest,
+    GenerateExerciseRequest,
+    GenerateModuleRequest,
+    GenerateStructureRequest,
+    GenerateSyllabusRequest,
+    GeneratedContentItem,
+    GeneratedModule,
+    GeneratedSyllabus,
+    GenerateOutlineRequest,
+    GeneratedOutline,
+    GenerateEpisodeContentRequest,
+    GeneratedEpisodeContent,
+    ModuleGenerationResponse
+} from '@/types/generation'
 
 class GenerationAPI extends BaseAPI {
     async generateModule(request: GenerateModuleRequest): Promise<ModuleGenerationResponse> {
-        return this.post<ModuleGenerationResponse>('/api/admin/generation/module', request)
+        return this.post<ModuleGenerationResponse>('/api/admin/generation/generate', request)
     }
 
     async generateDialogue(request: GenerateModuleRequest): Promise<string> {
@@ -17,6 +32,22 @@ class GenerationAPI extends BaseAPI {
 
     async generateExercise(request: GenerateExerciseRequest): Promise<GeneratedContentItem> {
         return this.post<GeneratedContentItem>('/api/admin/generation/exercise', request)
+    }
+
+    async generateBatchExercises(request: GenerateBatchExercisesRequest): Promise<GeneratedContentItem[]> {
+        return this.post<GeneratedContentItem[]>('/api/admin/generation/exercises/batch', request)
+    }
+
+    async generateSyllabus(request: GenerateSyllabusRequest): Promise<GeneratedSyllabus> {
+        return this.post<GeneratedSyllabus>('/api/admin/generation/syllabus', request)
+    }
+
+    async generateOutline(request: GenerateOutlineRequest): Promise<GeneratedOutline> {
+        return this.post<GeneratedOutline>('/api/admin/generation/outline', request)
+    }
+
+    async generateEpisodeContent(request: GenerateEpisodeContentRequest): Promise<GeneratedEpisodeContent> {
+        return this.post<GeneratedEpisodeContent>('/api/admin/generation/episode', request)
     }
 
     async validateModule(module: GeneratedModule): Promise<string[]> {

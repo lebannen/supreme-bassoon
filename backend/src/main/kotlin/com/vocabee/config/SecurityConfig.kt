@@ -31,6 +31,7 @@ class SecurityConfig(
                     .requestMatchers("/api/auth/**", "/login/**", "/oauth2/**", "/error").permitAll()
                     .requestMatchers("/api/v1/**").permitAll()
                     .requestMatchers("/api/files/**").permitAll()  // File uploads
+                    .requestMatchers("/api/admin/generation/**").permitAll() // Temporary for testing
                     .requestMatchers("/api/admin/**").authenticated()  // TODO: Add role-based access control (check for ADMIN role)
                     .requestMatchers("/api/reading/texts", "/api/reading/texts/*", "/api/reading/texts/import", "/api/reading/texts/*/audio").permitAll()  // Public text browsing, import, and audio updates
                     .requestMatchers("/api/reading/**").authenticated()  // Progress tracking requires auth

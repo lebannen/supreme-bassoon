@@ -38,7 +38,8 @@ data class CourseAdminDto(
     val languageCode: String,
     val cefrLevel: String,
     val estimatedHours: Int,
-    val isPublished: Boolean
+    val isPublished: Boolean,
+    val seriesContext: String? = null
 )
 
 // ============================================================================

@@ -143,6 +143,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/admin/courses/:id',
+      name: 'course-dashboard',
+      component: () => import('../views/admin/CourseDashboardView.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/admin/courses',
       name: 'course-admin',
       component: () => import('../views/admin/CourseAdminView.vue'),
@@ -152,6 +158,18 @@ const router = createRouter({
       path: '/admin/creator',
       name: 'content-creator',
       component: () => import('../views/admin/creator/CourseCreatorView.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/admin/wizard',
+      name: 'course-wizard',
+      component: () => import('../views/admin/creator/CourseWizardView.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/admin/courses/:courseId/modules/:moduleId/wizard',
+      name: 'module-wizard',
+      component: () => import('../views/admin/creator/ModuleWizardView.vue'),
       meta: { requiresAuth: true },
     },
     // Course Structure Routes

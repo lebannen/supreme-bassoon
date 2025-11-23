@@ -7,6 +7,7 @@ import com.vocabee.domain.repository.ModuleRepository
 import com.vocabee.service.StorageService
 import com.vocabee.web.dto.CourseAdminDto
 import com.vocabee.web.dto.ModuleAdminDto
+import com.vocabee.web.dto.admin.CreateCourseRequest
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -20,7 +21,8 @@ class CourseAdminController(
     private val moduleRepository: ModuleRepository,
     private val episodeRepository: EpisodeRepository,
     private val episodeContentItemRepository: EpisodeContentItemRepository,
-    private val storageService: StorageService
+    private val storageService: StorageService,
+    private val objectMapper: com.fasterxml.jackson.databind.ObjectMapper
 ) {
     private val logger = LoggerFactory.getLogger(javaClass)
 
@@ -37,7 +39,8 @@ class CourseAdminController(
                 languageCode = course.languageCode,
                 cefrLevel = course.cefrLevel,
                 estimatedHours = course.estimatedHours,
-                isPublished = course.isPublished
+                isPublished = course.isPublished,
+                seriesContext = course.seriesContext
             )
         }
 
@@ -98,6 +101,103 @@ class CourseAdminController(
         logger.info("Admin: Successfully deleted module $moduleId with ${episodes.size} episodes")
 
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build()
+    }
+
+    @PostMapping
+    @Transactional
+    fun createCourse(@RequestBody request: CreateCourseRequest): ResponseEntity<CourseAdminDto> {
+        logger.info("Admin: Creating course for ${request.targetLanguage} ${request.level}")
+
+        // 1. Create Course
+        val slug = "${request.targetLanguage.lowercase()}-${request.level.lowercase()}-${System.currentTimeMillis()}"
+        val course = com.vocabee.domain.model.Course(
+            slug = slug,
+            name = "${request.targetLanguage} ${request.level} Course",
+            languageCode = request.targetLanguage,
+            cefrLevel = request.level,
+            description = "Generated course based on series context: ${request.seriesContext.take(50)}...",
+            seriesContext = request.seriesContext,
+            status = com.vocabee.domain.model.CourseStatus.DRAFT
+        )
+        val savedCourse = courseRepository.save(course)
+
+        // 2. Create Modules from Syllabus
+        request.syllabus.modules.forEach { moduleSummary ->
+            val module = com.vocabee.domain.model.Module(
+                courseId = savedCourse.id!!,
+                moduleNumber = moduleSummary.moduleNumber,
+                title = moduleSummary.title,
+                theme = moduleSummary.theme,
+                description = moduleSummary.description,
+                status = com.vocabee.domain.model.ModuleStatus.PLANNED
+            )
+            moduleRepository.save(module)
+        }
+
+        return ResponseEntity.ok(CourseAdminDto(
+            id = savedCourse.id!!,
+            slug = savedCourse.slug,
+            name = savedCourse.name,
+            languageCode = savedCourse.languageCode,
+            cefrLevel = savedCourse.cefrLevel,
+            estimatedHours = savedCourse.estimatedHours,
+            isPublished = savedCourse.isPublished,
+            seriesContext = savedCourse.seriesContext
+        ))
+    }
+
+    @PutMapping("/modules/{moduleId}")
+    @Transactional
+    fun saveModule(
+        @PathVariable moduleId: Long,
+        @RequestBody request: com.vocabee.web.dto.admin.SaveModuleRequest
+    ): ResponseEntity<ModuleAdminDto> {
+        logger.info("Admin: Saving module $moduleId with ${request.episodes.size} episodes")
+
+        val module = moduleRepository.findById(moduleId)
+            .orElseThrow { IllegalArgumentException("Module not found: $moduleId") }
+
+        // Delete existing episodes to replace with new ones
+        val existingEpisodes = episodeRepository.findByModuleIdOrderByEpisodeNumber(moduleId)
+        existingEpisodes.forEach { episode ->
+            episodeContentItemRepository.deleteByEpisodeId(episode.id!!)
+        }
+        episodeRepository.deleteByModuleId(moduleId)
+
+        // Create new episodes
+        request.episodes.forEach { episodeRequest ->
+            val contentJson = objectMapper.writeValueAsString(episodeRequest.content)
+            
+            // Extract plain text content for the content column
+            val plainContent = if (episodeRequest.type == "DIALOGUE") {
+                episodeRequest.content.dialogue?.lines?.joinToString("\n") { "${it.speaker}: ${it.text}" } ?: ""
+            } else {
+                episodeRequest.content.story ?: ""
+            }
+
+            val episode = com.vocabee.domain.model.Episode(
+                moduleId = module.id!!,
+                episodeNumber = episodeRequest.episodeNumber,
+                title = episodeRequest.title,
+                episodeType = com.vocabee.domain.model.EpisodeType.valueOf(episodeRequest.type),
+                summary = episodeRequest.summary,
+                content = plainContent,
+                data = contentJson,
+                status = com.vocabee.domain.model.EpisodeStatus.DRAFTING
+            )
+            episodeRepository.save(episode)
+        }
+
+        // Update module status
+        module.status = com.vocabee.domain.model.ModuleStatus.DRAFTING
+        moduleRepository.save(module)
+
+        return ResponseEntity.ok(ModuleAdminDto(
+            id = module.id!!,
+            moduleNumber = module.moduleNumber,
+            title = module.title,
+            episodeCount = request.episodes.size
+        ))
     }
 
     /**

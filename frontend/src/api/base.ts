@@ -1,4 +1,3 @@
-import {useAuthStore} from '@/stores/auth'
 import router from '@/router'
 
 /**
@@ -89,6 +88,8 @@ export class BaseAPI {
      * Handle 401 Unauthorized responses
      */
     private async handle401() {
+        // Dynamic import to avoid circular dependency
+        const { useAuthStore } = await import('@/stores/auth')
         const authStore = useAuthStore()
 
         // Only log out if we're currently authenticated

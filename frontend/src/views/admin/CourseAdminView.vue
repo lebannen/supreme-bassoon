@@ -301,6 +301,11 @@ onMounted(() => {
               <Tag :value="data.isPublished ? 'Yes' : 'No'" :severity="data.isPublished ? 'success' : 'warning'"/>
             </template>
           </Column>
+          <Column header="Actions" style="width: 8rem">
+            <template #body="{data}">
+              <Button icon="pi pi-external-link" rounded text severity="primary" v-tooltip="'Manage Course'" @click="$router.push(`/admin/courses/${data.id}`)" />
+            </template>
+          </Column>
           <template #expansion="{ data }">
             <div class="p-md bg-surface-ground">
               <h4 class="font-bold mb-md">Modules for {{ data.name }}</h4>

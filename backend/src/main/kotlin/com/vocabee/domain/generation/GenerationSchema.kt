@@ -40,3 +40,25 @@ data class GeneratedExercise(
     val meta: Map<String, Any>? = null,
     val content: Map<String, Any>
 )
+
+data class GeneratedSyllabus(
+    val modules: List<GeneratedModuleSummary>
+)
+
+data class GeneratedModuleSummary(
+    val moduleNumber: Int,
+    val title: String,
+    val theme: String,
+    val description: String
+)
+
+data class GeneratedOutline(
+    val episodes: List<GeneratedEpisodeSummary>
+)
+
+data class GeneratedEpisodeSummary(
+    val episodeNumber: Int,
+    val title: String,
+    val type: String, // DIALOGUE, STORY
+    val summary: String
+)

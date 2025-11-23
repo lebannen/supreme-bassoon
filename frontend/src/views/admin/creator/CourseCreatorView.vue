@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { GenerationService } from '@/services/GenerationService'
-import type { GenerateModuleRequest, GenerateStructureRequest, GenerateExerciseRequest, GeneratedModule, GeneratedContentItem } from '@/types/generation'
+import type { GenerateModuleRequest, GenerateStructureRequest, GenerateBatchExercisesRequest, GeneratedModule, GeneratedContentItem } from '@/types/generation'
 import Button from 'primevue/button'
 import Checkbox from 'primevue/checkbox'
 import Dialog from 'primevue/dialog'
@@ -47,10 +47,8 @@ const generatedModule = ref<GeneratedModule | null>(null)
 const speakerVoiceMap = ref<Record<string, string>>({})
 
 // Step 3: Workshop
-const showExerciseDialog = ref(false)
-const exerciseType = ref('multiple_choice')
-const exerciseInstructions = ref('')
-const generatingExercise = ref(false)
+const generatingExercises = ref(false)
+
 
 const levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
 const languages = ['French', 'Spanish', 'German', 'Italian', 'English']
@@ -131,14 +129,10 @@ const nextStep = () => {
   }
 }
 
-const openExerciseDialog = () => {
-  showExerciseDialog.value = true
-}
-
-const generateExercise = async () => {
+const generateBatchExercises = async () => {
   if (!generatedModule.value?.episodes[0]?.dialogue) return
 
-  generatingExercise.value = true
+  generatingExercises.value = true
   
   try {
     // Use full context
@@ -146,28 +140,31 @@ const generateExercise = async () => {
       .map(l => `${l.speaker}: ${l.text}`)
       .join('\n')
 
-    const request: GenerateExerciseRequest = {
+    const request: GenerateBatchExercisesRequest = {
       context: contextLines,
-      type: exerciseType.value,
       targetLanguage: targetLanguage.value,
       level: level.value,
-      instructions: exerciseInstructions.value || undefined
+      exerciseCounts: {
+        'MULTIPLE_CHOICE': 4,
+        'FILL_IN_THE_BLANK': 4,
+        'SENTENCE_SCRAMBLE': 2,
+        'CLOZE_READING': 1,
+        'MATCHING': 2
+      }
     }
 
-    const exercise = await GenerationService.generateExercise(request)
+    const exercises = await GenerationService.generateBatchExercises(request)
     
     // Add to module
     if (!generatedModule.value.episodes[0].contentItems) {
       generatedModule.value.episodes[0].contentItems = []
     }
-    generatedModule.value.episodes[0].contentItems.push(exercise)
+    generatedModule.value.episodes[0].contentItems.push(...exercises)
     
-    showExerciseDialog.value = false
-    exerciseInstructions.value = ''
   } catch (e: any) {
     error.value = e.message
   } finally {
-    generatingExercise.value = false
+    generatingExercises.value = false
   }
 }
 
@@ -320,19 +317,53 @@ const finalizeModule = () => {
 
       <div class="col-span-1">
         <div class="sticky top-4 flex flex-col gap-lg">
-          <Button label="Add Exercise" icon="pi pi-plus" @click="openExerciseDialog" />
+          <Button 
+            label="Auto-Generate Workshop" 
+            icon="pi pi-sparkles" 
+            @click="generateBatchExercises" 
+            :loading="generatingExercises"
+            severity="help"
+          />
           
           <Panel header="Module Exercises">
             <div v-if="generatedModule?.episodes[0]?.contentItems?.length" class="flex flex-col gap-md">
               <div v-for="(item, idx) in generatedModule.episodes[0].contentItems" :key="idx" class="p-md border rounded bg-surface-card shadow-sm relative group">
                 <Button icon="pi pi-trash" text severity="danger" class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity" @click="removeExercise(idx)" />
                 <span class="text-xs font-bold uppercase text-secondary mb-xs block">{{ item.exercise.type }}</span>
-                <p class="font-bold m-0 mb-xs">{{ item.exercise.content.question.content }}</p>
-                <ul class="list-disc pl-md m-0 text-sm text-secondary">
-                  <li v-for="opt in item.exercise.content.options" :key="opt.id" :class="{'text-green-600 font-bold': opt.isCorrect}">
-                    {{ opt.text }}
-                  </li>
-                </ul>
+                <div v-if="item.exercise.type === 'MATCHING'">
+                  <p class="font-bold m-0 mb-xs">{{ item.exercise.content.question.content }}</p>
+                  <div class="grid grid-cols-2 gap-sm text-sm">
+                    <template v-for="(pair, pIdx) in item.exercise.content.pairs" :key="pIdx">
+                      <div class="p-xs bg-surface-ground rounded">{{ pair.left }}</div>
+                      <div class="p-xs bg-surface-ground rounded">{{ pair.right }}</div>
+                    </template>
+                  </div>
+                </div>
+
+                <div v-else-if="item.exercise.type === 'SENTENCE_SCRAMBLE'">
+                  <p class="font-bold m-0 mb-xs">Unscramble: {{ item.exercise.content.sentence }}</p>
+                  <div class="flex flex-wrap gap-xs">
+                    <span v-for="(word, wIdx) in item.exercise.content.words" :key="wIdx" class="p-xs bg-surface-ground rounded text-sm border border-surface-border">
+                      {{ word }}
+                    </span>
+                  </div>
+                </div>
+
+                <div v-else-if="item.exercise.type === 'CLOZE_READING'">
+                  <p class="font-bold m-0 mb-xs">Cloze Reading</p>
+                  <p class="text-sm leading-relaxed bg-surface-ground p-sm rounded italic">
+                    {{ item.exercise.content.text }}
+                  </p>
+                </div>
+                
+                <div v-else>
+                  <p class="font-bold m-0 mb-xs">{{ item.exercise.content.question.content }}</p>
+                  <ul class="list-disc pl-md m-0 text-sm text-secondary">
+                    <li v-for="opt in item.exercise.content.options" :key="opt.id" :class="{'text-green-600 font-bold': opt.isCorrect}">
+                      {{ opt.text }}
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
             <div v-else class="text-center p-lg text-secondary">
@@ -345,38 +376,8 @@ const finalizeModule = () => {
       </div>
     </div>
 
-    <!-- Exercise Dialog -->
-    <Dialog v-model:visible="showExerciseDialog" modal header="Create Exercise" :style="{ width: '500px' }">
-      <div class="flex flex-col gap-md">
-        <div class="flex flex-col gap-xs">
-          <label class="font-bold">Type</label>
-          <div class="flex flex-col gap-sm">
-            <div class="flex items-center gap-2">
-              <RadioButton v-model="exerciseType" inputId="mc" value="multiple_choice" />
-              <label for="mc">Multiple Choice</label>
-            </div>
-            <div class="flex items-center gap-2">
-              <RadioButton v-model="exerciseType" inputId="fib" value="fill_in_blank" />
-              <label for="fib">Fill in the Blank</label>
-            </div>
-            <div class="flex items-center gap-2">
-              <RadioButton v-model="exerciseType" inputId="match" value="matching" />
-              <label for="match">Matching</label>
-            </div>
-          </div>
-        </div>
+    <!-- Exercise Dialog Removed -->
 
-        <div class="flex flex-col gap-xs">
-          <label for="ex-instr" class="font-bold">Instructions (Optional)</label>
-          <Textarea id="ex-instr" v-model="exerciseInstructions" rows="2" placeholder="Specific instructions for the AI..." />
-        </div>
-      </div>
-
-      <template #footer>
-        <Button label="Cancel" text severity="secondary" @click="showExerciseDialog = false" />
-        <Button label="Generate" icon="pi pi-sparkles" @click="generateExercise" :loading="generatingExercise" />
-      </template>
-    </Dialog>
   </div>
 </template>
 

@@ -34,9 +34,22 @@ data class Course(
 
     val estimatedHours: Int = 40,
 
+    @Column(columnDefinition = "TEXT")
+    val seriesContext: String? = null, // The "Bible": Characters, Setting, Backstory
+
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20)
+    val status: CourseStatus = CourseStatus.DRAFT,
+
     val isPublished: Boolean = false,
 
     val createdAt: LocalDateTime = LocalDateTime.now(),
     val updatedAt: LocalDateTime = LocalDateTime.now(),
     val createdBy: String = "system"
 )
+
+enum class CourseStatus {
+    DRAFT,
+    PUBLISHED,
+    ARCHIVED
+}

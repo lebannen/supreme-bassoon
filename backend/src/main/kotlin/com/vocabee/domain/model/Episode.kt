@@ -1,6 +1,8 @@
 package com.vocabee.domain.model
 
 import jakarta.persistence.*
+import org.hibernate.annotations.JdbcTypeCode
+import org.hibernate.type.SqlTypes
 import java.time.LocalDateTime
 
 enum class EpisodeType {
@@ -42,8 +44,26 @@ data class Episode(
     @Column(columnDefinition = "TEXT")
     val transcript: String? = null,
 
+    @Column(columnDefinition = "TEXT")
+    val summary: String? = null, // The "Plot Point" for this episode
+
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(columnDefinition = "JSONB")
+    val data: String? = null, // Stores the full generated content (Dialogue + Exercises)
+
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20)
+    var status: EpisodeStatus = EpisodeStatus.PLANNED,
+
     val estimatedMinutes: Int = 15,
 
     val createdAt: LocalDateTime = LocalDateTime.now(),
     val updatedAt: LocalDateTime = LocalDateTime.now()
 )
+
+enum class EpisodeStatus {
+    PLANNED,
+    DRAFTING,
+    READY,
+    PUBLISHED
+}

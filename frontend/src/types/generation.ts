@@ -22,6 +22,62 @@ export interface GenerateExerciseRequest {
     instructions?: string
 }
 
+export interface GenerateBatchExercisesRequest {
+    context: string
+    targetLanguage: string
+    level: string
+    exerciseCounts: Record<string, number>
+}
+
+export interface GenerateSyllabusRequest {
+    targetLanguage: string
+    level: string
+    seriesContext: string
+}
+
+export interface GeneratedSyllabus {
+    modules: GeneratedModuleSummary[]
+}
+
+export interface GeneratedModuleSummary {
+    moduleNumber: number
+    title: string
+    theme: string
+    description: string
+}
+
+export interface GenerateOutlineRequest {
+    targetLanguage: string
+    level: string
+    moduleTheme: string
+    moduleDescription: string
+    seriesContext?: string
+}
+
+export interface GenerateEpisodeContentRequest {
+    targetLanguage: string
+    level: string
+    seriesContext: string
+    moduleTheme: string
+    episodeTitle: string
+    episodeType: string // DIALOGUE | STORY
+    episodeSummary: string
+}
+
+export interface GeneratedEpisodeContent {
+    dialogue?: GeneratedDialogue
+    story?: string
+    exercises: GeneratedContentItem[]
+}
+
+export interface GeneratedEpisodeSummary {
+    episodeNumber: number
+    title: string
+    type: 'DIALOGUE' | 'STORY'
+    summary: string
+}
+
+
 export interface GeneratedModule {
     title: string
     theme: string
