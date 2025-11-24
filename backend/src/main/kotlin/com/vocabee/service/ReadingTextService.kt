@@ -12,7 +12,8 @@ import java.time.LocalDateTime
 @Service
 class ReadingTextService(
     private val readingTextRepository: ReadingTextRepository,
-    private val progressRepository: UserReadingProgressRepository
+    private val progressRepository: UserReadingProgressRepository,
+    private val markdownParsingService: MarkdownParsingService
 ) {
     private val logger = LoggerFactory.getLogger(ReadingTextService::class.java)
 
@@ -56,6 +57,41 @@ class ReadingTextService(
      */
     fun getTextById(id: Long): ReadingText? {
         return readingTextRepository.findById(id).orElse(null)
+    }
+
+    /**
+     * Import/create a new reading text from markdown or text file
+     */
+    @Transactional
+    fun createTextFromMarkdown(
+        rawContent: String,
+        languageCode: String,
+        level: String? = null,
+        topic: String? = null,
+        description: String? = null,
+        author: String? = null,
+        source: String? = null
+    ): ReadingText {
+        logger.info("Creating reading text from markdown/text file")
+
+        // Parse markdown to extract title and clean content
+        val parsed = markdownParsingService.parseMarkdownText(rawContent)
+
+        val text = ReadingText(
+            title = parsed.title,
+            content = parsed.content,
+            languageCode = languageCode,
+            level = level,
+            topic = topic,
+            wordCount = parsed.wordCount,
+            description = description,
+            estimatedMinutes = parsed.estimatedMinutes,
+            author = author,
+            source = source,
+            isPublished = true  // Auto-publish imported texts
+        )
+
+        return readingTextRepository.save(text)
     }
 
     /**
@@ -205,5 +241,24 @@ class ReadingTextService(
      */
     fun getInProgressTexts(userId: Long): List<UserReadingProgress> {
         return progressRepository.findByUserIdAndCompleted(userId, false)
+    }
+
+    /**
+     * Delete a reading text by ID
+     */
+    @Transactional
+    fun deleteText(textId: Long) {
+        logger.info("Deleting reading text with ID: $textId")
+
+        val text = readingTextRepository.findById(textId).orElse(null)
+            ?: throw IllegalArgumentException("Reading text not found with id: $textId")
+
+        // Delete all user progress for this text first
+        progressRepository.deleteByTextId(textId)
+
+        // Delete the text
+        readingTextRepository.delete(text)
+
+        logger.info("Successfully deleted reading text: ${text.title}")
     }
 }

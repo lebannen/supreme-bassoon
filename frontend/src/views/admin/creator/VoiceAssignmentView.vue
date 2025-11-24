@@ -10,6 +10,7 @@ import Column from 'primevue/column'
 import Tag from 'primevue/tag'
 import Message from 'primevue/message'
 import ProgressSpinner from 'primevue/progressspinner'
+import Image from 'primevue/image'
 
 const router = useRouter()
 const route = useRoute()
@@ -26,6 +27,13 @@ interface CharacterInfo {
   }>
 }
 
+interface CharacterProfile {
+  name: string
+  description: string
+  referenceImageUrl: string
+  appearanceDetails: string
+}
+
 interface GenerateCourseContentResponse {
   modules: any[]
   characterAnalysis: {
@@ -38,12 +46,13 @@ interface GenerateCourseContentResponse {
     episodesWithWarnings: number
     episodesWithErrors: number
   }
+  characterProfiles: CharacterProfile[]
 }
 
 interface VoiceAssignment {
   characterName: string
   voiceName: string
-  gender: string | null
+  gender: string | null  // Kept for API compatibility
 }
 
 const generationResult = ref<GenerateCourseContentResponse | null>(null)
@@ -63,15 +72,45 @@ onMounted(() => {
   loading.value = false
 })
 
-// Available Gemini TTS voices
+// Available Gemini TTS voices - organized by pitch
 const availableVoices = [
-  {label: 'Puck (Neutral)', value: 'Puck', gender: 'neutral'},
-  {label: 'Charon (Neutral)', value: 'Charon', gender: 'neutral'},
-  {label: 'Kore (Neutral)', value: 'Kore', gender: 'neutral'},
-  {label: 'Fenrir (Neutral)', value: 'Fenrir', gender: 'neutral'},
-  {label: 'Aoede (Female)', value: 'Aoede', gender: 'female'},
-  {label: 'Leda (Female)', value: 'Leda', gender: 'female'},
-  {label: 'Juno (Female)', value: 'Juno', gender: 'female'},
+  // Higher pitch voices
+  {label: 'Zephyr (Bright, Higher)', value: 'Zephyr', pitch: 'higher'},
+  {label: 'Leda (Youthful, Higher)', value: 'Leda', pitch: 'higher'},
+  {label: 'Laomedeia (Upbeat, Higher)', value: 'Laomedeia', pitch: 'higher'},
+  {label: 'Achernar (Soft, Higher)', value: 'Achernar', pitch: 'higher'},
+
+  // Middle pitch voices
+  {label: 'Puck (Upbeat, Middle)', value: 'Puck', pitch: 'middle'},
+  {label: 'Kore (Firm, Middle)', value: 'Kore', pitch: 'middle'},
+  {label: 'Aoede (Breezy, Middle)', value: 'Aoede', pitch: 'middle'},
+  {label: 'Callirrhoe (Easy-going, Middle)', value: 'Callirrhoe', pitch: 'middle'},
+  {label: 'Autonoe (Bright, Middle)', value: 'Autonoe', pitch: 'middle'},
+  {label: 'Despina (Smooth, Middle)', value: 'Despina', pitch: 'middle'},
+  {label: 'Erinome (Clear, Middle)', value: 'Erinome', pitch: 'middle'},
+  {label: 'Rasalgethi (Informative, Middle)', value: 'Rasalgethi', pitch: 'middle'},
+  {label: 'Gacrux (Mature, Middle)', value: 'Gacrux', pitch: 'middle'},
+  {label: 'Pulcherrima (Forward, Middle)', value: 'Pulcherrima', pitch: 'middle'},
+  {label: 'Vindemiatrix (Gentle, Middle)', value: 'Vindemiatrix', pitch: 'middle'},
+  {label: 'Sadaltager (Knowledgeable, Middle)', value: 'Sadaltager', pitch: 'middle'},
+  {label: 'Sulafat (Warm, Middle)', value: 'Sulafat', pitch: 'middle'},
+
+  // Lower middle pitch voices
+  {label: 'Fenrir (Excitable, Lower middle)', value: 'Fenrir', pitch: 'lower-middle'},
+  {label: 'Orus (Firm, Lower middle)', value: 'Orus', pitch: 'lower-middle'},
+  {label: 'Iapetus (Clear, Lower middle)', value: 'Iapetus', pitch: 'lower-middle'},
+  {label: 'Umbriel (Easy-going, Lower middle)', value: 'Umbriel', pitch: 'lower-middle'},
+  {label: 'Alnilam (Firm, Lower middle)', value: 'Alnilam', pitch: 'lower-middle'},
+  {label: 'Schedar (Even, Lower middle)', value: 'Schedar', pitch: 'lower-middle'},
+  {label: 'Achird (Friendly, Lower middle)', value: 'Achird', pitch: 'lower-middle'},
+  {label: 'Zubenelgenubi (Casual, Lower middle)', value: 'Zubenelgenubi', pitch: 'lower-middle'},
+
+  // Lower pitch voices
+  {label: 'Charon (Informative, Lower)', value: 'Charon', pitch: 'lower'},
+  {label: 'Enceladus (Breathy, Lower)', value: 'Enceladus', pitch: 'lower'},
+  {label: 'Algieba (Smooth, Lower)', value: 'Algieba', pitch: 'lower'},
+  {label: 'Algenib (Gravelly, Lower)', value: 'Algenib', pitch: 'lower'},
+  {label: 'Sadachbia (Lively, Lower)', value: 'Sadachbia', pitch: 'lower'},
 ]
 
 // Voice assignments
@@ -87,17 +126,21 @@ function initializeVoiceAssignments() {
     voiceAssignments.value.set(character.name, {
       characterName: character.name,
       voiceName: voice.value,
-      gender: voice.gender
+      gender: null  // Voices are neutral/can be used for any character
     })
   })
 }
 
 const characters = computed(() => {
   if (!generationResult.value?.characterAnalysis?.characters) return []
-  return generationResult.value.characterAnalysis.characters.map(char => ({
-    ...char,
-    assignment: voiceAssignments.value.get(char.name)
-  }))
+  return generationResult.value.characterAnalysis.characters.map(char => {
+    const profile = generationResult.value?.characterProfiles?.find(p => p.name === char.name)
+    return {
+      ...char,
+      assignment: voiceAssignments.value.get(char.name),
+      profile: profile
+    }
+  })
 })
 
 const saving = ref(false)
@@ -109,7 +152,7 @@ function updateVoiceAssignment(characterName: string, voiceName: string) {
     voiceAssignments.value.set(characterName, {
       characterName,
       voiceName: voice.value,
-      gender: voice.gender
+      gender: null  // Voices are neutral/can be used for any character
     })
   }
 }
@@ -148,7 +191,9 @@ async function saveAndGenerateAudio() {
           }))
           .filter(module => module.episodes.length > 0),
       voiceAssignments: Array.from(voiceAssignments.value.values()),
-      generateAudio: true
+      characterProfiles: generationResult.value.characterProfiles || [],
+      generateAudio: true,
+      generateImages: true
     }
 
     await CourseService.saveCourseContent(saveRequest)
@@ -228,9 +273,31 @@ function goBack() {
         <template #title>Character Voice Assignments</template>
         <template #content>
           <DataTable :value="characters" stripedRows class="p-datatable-sm">
+            <Column header="Reference" style="width: 6rem">
+              <template #body="slotProps">
+                <div v-if="slotProps.data.profile?.referenceImageUrl" class="character-image-cell">
+                  <Image
+                      :src="slotProps.data.profile.referenceImageUrl"
+                      :alt="slotProps.data.name"
+                      preview
+                      class="character-reference-image"
+                      imageClass="character-reference-image-img"
+                  />
+                </div>
+                <div v-else class="character-image-placeholder">
+                  <i class="pi pi-user text-2xl text-secondary"></i>
+                </div>
+              </template>
+            </Column>
+
             <Column field="name" header="Character" sortable>
               <template #body="slotProps">
-                <strong>{{ slotProps.data.name }}</strong>
+                <div>
+                  <strong class="block">{{ slotProps.data.name }}</strong>
+                  <small v-if="slotProps.data.profile?.description" class="text-secondary block mt-xs">
+                    {{ slotProps.data.profile.description }}
+                  </small>
+                </div>
               </template>
             </Column>
 
@@ -260,12 +327,12 @@ function goBack() {
               </template>
             </Column>
 
-            <Column header="Gender" style="width: 8rem">
+            <Column header="Pitch" style="width: 10rem">
               <template #body="slotProps">
                 <Tag
-                    v-if="slotProps.data.assignment?.gender"
-                    :value="slotProps.data.assignment.gender"
-                    :severity="slotProps.data.assignment.gender === 'female' ? 'info' : 'secondary'"
+                    v-if="slotProps.data.assignment?.voiceName"
+                    :value="availableVoices.find(v => v.value === slotProps.data.assignment.voiceName)?.pitch || ''"
+                    :severity="availableVoices.find(v => v.value === slotProps.data.assignment.voiceName)?.pitch === 'higher' ? 'info' : availableVoices.find(v => v.value === slotProps.data.assignment.voiceName)?.pitch === 'lower' ? 'contrast' : 'secondary'"
                 />
               </template>
             </Column>
@@ -323,5 +390,41 @@ function goBack() {
 
 .space-y-md > * + * {
   margin-top: 1rem;
+}
+
+.character-image-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.character-reference-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.character-reference-image:hover {
+  transform: scale(1.05);
+}
+
+.character-reference-image :deep(.character-reference-image-img) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.character-image-placeholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  background: var(--surface-ground);
+  border: 2px dashed var(--surface-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

@@ -6,6 +6,8 @@ import Button from 'primevue/button'
 import Card from 'primevue/card'
 import Tag from 'primevue/tag'
 import Message from 'primevue/message'
+import InputText from 'primevue/inputtext'
+import Dropdown from 'primevue/dropdown'
 import type {ReadingText} from '@/types/reading'
 
 const router = useRouter()
@@ -19,6 +21,29 @@ const uploadSummary = ref<{
   errors: { file: string; message: string }[]
 } | null>(null)
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
+
+// Import settings
+const languageCode = ref('fr')
+const level = ref('A1')
+const topic = ref('')
+const author = ref('')
+const description = ref('')
+
+const languageOptions = [
+  {label: 'French', value: 'fr'},
+  {label: 'Spanish', value: 'es'},
+  {label: 'German', value: 'de'},
+  {label: 'Italian', value: 'it'}
+]
+
+const levelOptions = [
+  {label: 'A1', value: 'A1'},
+  {label: 'A2', value: 'A2'},
+  {label: 'B1', value: 'B1'},
+  {label: 'B2', value: 'B2'},
+  {label: 'C1', value: 'C1'},
+  {label: 'C2', value: 'C2'}
+]
 
 const onFilesSelect = () => {
   fileStatus.value = {}
@@ -40,15 +65,48 @@ const handleUpload = async (event: FileUploadUploaderEvent) => {
         reader.onerror = () => reject(new Error('Failed to read file'))
         reader.readAsText(file)
       })
-      const jsonData = JSON.parse(content)
-      const requestData = {
-        title: jsonData.title, content: jsonData.content, languageCode: jsonData.language_code,
-        level: jsonData.level, topic: jsonData.topic, description: jsonData.description,
-        author: jsonData.author || 'import', source: jsonData.source || 'manual-upload',
+
+      // Determine file type and handle accordingly
+      const isMarkdown = file.name.endsWith('.md') || file.name.endsWith('.txt')
+
+      let response: Response
+
+      if (isMarkdown) {
+        // Handle markdown/text files
+        const requestData = {
+          content: content,
+          languageCode: languageCode.value,
+          level: level.value || null,
+          topic: topic.value || null,
+          description: description.value || null,
+          author: author.value || 'import',
+          source: file.name
+        }
+        response = await fetch(`${API_BASE}/api/reading/texts/import-markdown`, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(requestData),
+        })
+      } else {
+        // Handle JSON files (legacy format)
+        const jsonData = JSON.parse(content)
+        const requestData = {
+          title: jsonData.title,
+          content: jsonData.content,
+          languageCode: jsonData.language_code,
+          level: jsonData.level,
+          topic: jsonData.topic,
+          description: jsonData.description,
+          author: jsonData.author || 'import',
+          source: jsonData.source || 'manual-upload',
+        }
+        response = await fetch(`${API_BASE}/api/reading/texts/import`, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(requestData),
+        })
       }
-      const response = await fetch(`${API_BASE}/api/reading/texts/import`, {
-        method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(requestData),
-      })
+
       if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`)
       uploadedTexts.value.push(await response.json())
       fileStatus.value[file.name] = {status: 'success'}
@@ -81,10 +139,45 @@ const getStatusSeverity = (status: string) => ({
   <div class="view-container content-area-lg">
     <div class="page-header">
       <h1>Import Reading Texts</h1>
-      <p class="text-secondary">Upload JSON files containing reading texts.</p>
+      <p class="text-secondary">Upload markdown (.md), text (.txt), or JSON files containing reading texts.</p>
     </div>
 
-    <FileUpload name="files[]" :multiple="true" accept=".json" :maxFileSize="10000000" :customUpload="true"
+    <!-- Import Settings -->
+    <Card class="mb-lg">
+      <template #title>Import Settings</template>
+      <template #content>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+          <div class="flex flex-col gap-xs">
+            <label for="language" class="font-semibold text-sm">Language</label>
+            <Dropdown id="language" v-model="languageCode" :options="languageOptions" optionLabel="label"
+                      optionValue="value"/>
+          </div>
+          <div class="flex flex-col gap-xs">
+            <label for="level" class="font-semibold text-sm">CEFR Level</label>
+            <Dropdown id="level" v-model="level" :options="levelOptions" optionLabel="label" optionValue="value"/>
+          </div>
+          <div class="flex flex-col gap-xs">
+            <label for="topic" class="font-semibold text-sm">Topic (Optional)</label>
+            <InputText id="topic" v-model="topic" placeholder="e.g., travel, food"/>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-md mt-md">
+          <div class="flex flex-col gap-xs">
+            <label for="author" class="font-semibold text-sm">Author (Optional)</label>
+            <InputText id="author" v-model="author" placeholder="e.g., John Doe"/>
+          </div>
+          <div class="flex flex-col gap-xs">
+            <label for="description" class="font-semibold text-sm">Description (Optional)</label>
+            <InputText id="description" v-model="description" placeholder="Brief description"/>
+          </div>
+        </div>
+        <Message severity="info" :closable="false" class="mt-md">
+          <p class="text-sm">These settings apply to all markdown/text files. JSON files use their own metadata.</p>
+        </Message>
+      </template>
+    </Card>
+
+    <FileUpload name="files[]" :multiple="true" accept=".md,.txt,.json" :maxFileSize="10000000" :customUpload="true"
                 @uploader="handleUpload" @select="onFilesSelect" :auto="false">
       <template #header="{ chooseCallback, uploadCallback, clearCallback, files }">
         <div class="upload-header">
@@ -137,8 +230,8 @@ const getStatusSeverity = (status: string) => ({
         </div>
         <div v-if="!files.length && !uploadedTexts.length" class="empty-state">
           <i class="pi pi-cloud-upload empty-icon"></i>
-          <h3>Drag & Drop JSON Files Here</h3>
-          <p class="text-secondary">or click "Choose" to select multiple files.</p>
+          <h3>Drag & Drop Files Here</h3>
+          <p class="text-secondary">Supports .md, .txt, and .json files. Click "Choose" to select multiple files.</p>
         </div>
       </template>
     </FileUpload>

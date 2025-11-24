@@ -66,6 +66,24 @@ class ReadingController(
         return ResponseEntity.ok(text.toDto())
     }
 
+    @PostMapping("/texts/import-markdown")
+    fun importMarkdown(@RequestBody request: com.vocabee.web.dto.ImportMarkdownRequest): ResponseEntity<ReadingTextDto> {
+        logger.info("Importing markdown/text file (${request.content.length} characters)")
+
+        val text = readingTextService.createTextFromMarkdown(
+            rawContent = request.content,
+            languageCode = request.languageCode,
+            level = request.level,
+            topic = request.topic,
+            description = request.description,
+            author = request.author,
+            source = request.source
+        )
+
+        logger.info("Successfully imported: ${text.title} (${text.wordCount} words)")
+        return ResponseEntity.ok(text.toDto())
+    }
+
     @PatchMapping("/texts/{id}/audio")
     fun updateAudioUrl(
         @PathVariable id: Long,
@@ -76,6 +94,19 @@ class ReadingController(
         return try {
             val updatedText = readingTextService.updateAudioUrl(id, request.audioUrl)
             ResponseEntity.ok(updatedText.toDto())
+        } catch (e: IllegalArgumentException) {
+            logger.error("Text not found: ${e.message}")
+            ResponseEntity.notFound().build()
+        }
+    }
+
+    @DeleteMapping("/texts/{id}")
+    fun deleteText(@PathVariable id: Long): ResponseEntity<Void> {
+        logger.info("Deleting reading text $id")
+
+        return try {
+            readingTextService.deleteText(id)
+            ResponseEntity.noContent().build()
         } catch (e: IllegalArgumentException) {
             logger.error("Text not found: ${e.message}")
             ResponseEntity.notFound().build()

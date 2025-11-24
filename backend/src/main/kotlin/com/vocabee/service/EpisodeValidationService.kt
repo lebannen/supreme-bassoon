@@ -308,34 +308,33 @@ class EpisodeValidationService {
             }
 
             "SENTENCE_SCRAMBLE" -> {
-                val words = content["words"]
-                if (words == null || words !is List<*>) {
+                val sentence = content["sentence"]
+                if (sentence == null || sentence !is String) {
                     issues.add(
                         ValidationIssue(
-                            field = "exercises[$index].content.words",
-                            message = "Sentence scramble missing or invalid field: words",
+                            field = "exercises[$index].content.sentence",
+                            message = "Sentence scramble missing or invalid field: sentence (must be a string)",
                             severity = ErrorSeverity.ERROR
                         )
                     )
-                }
-                val correctOrder = content["correctOrder"]
-                if (correctOrder == null || correctOrder !is List<*>) {
-                    issues.add(
-                        ValidationIssue(
-                            field = "exercises[$index].content.correctOrder",
-                            message = "Sentence scramble missing or invalid field: correctOrder",
-                            severity = ErrorSeverity.ERROR
-                        )
-                    )
-                }
-                // Validate words and correctOrder match
-                if (words is List<*> && correctOrder is List<*>) {
-                    if (words.size != correctOrder.size) {
+                } else {
+                    if (sentence.isBlank()) {
                         issues.add(
                             ValidationIssue(
-                                field = "exercises[$index].content",
-                                message = "Sentence scramble words array (${words.size}) and correctOrder array (${correctOrder.size}) have different lengths",
+                                field = "exercises[$index].content.sentence",
+                                message = "Sentence scramble has empty sentence",
                                 severity = ErrorSeverity.ERROR
+                            )
+                        )
+                    }
+                    // Check that sentence has at least 2 words
+                    val wordCount = sentence.trim().split("\\s+".toRegex()).size
+                    if (wordCount < 2) {
+                        issues.add(
+                            ValidationIssue(
+                                field = "exercises[$index].content.sentence",
+                                message = "Sentence scramble should have at least 2 words (found $wordCount)",
+                                severity = ErrorSeverity.WARNING
                             )
                         )
                     }

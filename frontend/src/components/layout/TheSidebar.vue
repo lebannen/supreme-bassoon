@@ -47,7 +47,7 @@
   const adminNav = [
     {icon: 'pi pi-cog', label: 'Manage Courses', path: '/admin/courses', auth: true},
     {icon: 'pi pi-sparkles', label: 'Course Wizard', path: '/admin/wizard', auth: true},
-    {icon: 'pi pi-upload', label: 'Import Content', path: '/reading/import', auth: true},
+    {icon: 'pi pi-book', label: 'Reading Admin', path: '/reading/admin', auth: true},
   ]
 </script>
 

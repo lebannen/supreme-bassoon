@@ -25,9 +25,43 @@ const languages = [
 ]
 
 const voices = [
-  { label: 'Leda (French Female)', value: 'Leda' },
-  { label: 'Puck (English Neutral)', value: 'Puck' },
-  {label: 'Kore (German Female)', value: 'Kore'},
+  // Higher pitch voices
+  {label: 'Zephyr (Bright, Higher)', value: 'Zephyr'},
+  {label: 'Leda (Youthful, Higher)', value: 'Leda'},
+  {label: 'Laomedeia (Upbeat, Higher)', value: 'Laomedeia'},
+  {label: 'Achernar (Soft, Higher)', value: 'Achernar'},
+
+  // Middle pitch voices
+  {label: 'Puck (Upbeat, Middle)', value: 'Puck'},
+  {label: 'Kore (Firm, Middle)', value: 'Kore'},
+  {label: 'Aoede (Breezy, Middle)', value: 'Aoede'},
+  {label: 'Callirrhoe (Easy-going, Middle)', value: 'Callirrhoe'},
+  {label: 'Autonoe (Bright, Middle)', value: 'Autonoe'},
+  {label: 'Despina (Smooth, Middle)', value: 'Despina'},
+  {label: 'Erinome (Clear, Middle)', value: 'Erinome'},
+  {label: 'Rasalgethi (Informative, Middle)', value: 'Rasalgethi'},
+  {label: 'Gacrux (Mature, Middle)', value: 'Gacrux'},
+  {label: 'Pulcherrima (Forward, Middle)', value: 'Pulcherrima'},
+  {label: 'Vindemiatrix (Gentle, Middle)', value: 'Vindemiatrix'},
+  {label: 'Sadaltager (Knowledgeable, Middle)', value: 'Sadaltager'},
+  {label: 'Sulafat (Warm, Middle)', value: 'Sulafat'},
+
+  // Lower middle pitch voices
+  {label: 'Fenrir (Excitable, Lower middle)', value: 'Fenrir'},
+  {label: 'Orus (Firm, Lower middle)', value: 'Orus'},
+  {label: 'Iapetus (Clear, Lower middle)', value: 'Iapetus'},
+  {label: 'Umbriel (Easy-going, Lower middle)', value: 'Umbriel'},
+  {label: 'Alnilam (Firm, Lower middle)', value: 'Alnilam'},
+  {label: 'Schedar (Even, Lower middle)', value: 'Schedar'},
+  {label: 'Achird (Friendly, Lower middle)', value: 'Achird'},
+  {label: 'Zubenelgenubi (Casual, Lower middle)', value: 'Zubenelgenubi'},
+
+  // Lower pitch voices
+  {label: 'Charon (Informative, Lower)', value: 'Charon'},
+  {label: 'Enceladus (Breathy, Lower)', value: 'Enceladus'},
+  {label: 'Algieba (Smooth, Lower)', value: 'Algieba'},
+  {label: 'Algenib (Gravelly, Lower)', value: 'Algenib'},
+  {label: 'Sadachbia (Lively, Lower)', value: 'Sadachbia'},
 ]
 
 async function generateAudio() {

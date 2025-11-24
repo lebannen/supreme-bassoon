@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import {computed, ref, onMounted} from 'vue'
+import {computed, onMounted, ref} from 'vue'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
 import Chip from 'primevue/chip'
 
 interface Props {
   content: {
-    words: string[]
     sentence: string
     translation?: string
     hint?: string
+    explanation?: string
   }
 }
 
@@ -28,12 +28,19 @@ const isCorrect = ref(false)
 const autoAdvanceTimer = ref<any>(null)
 const autoAdvanceSeconds = ref(5)
 
-const totalWords = computed(() => props.content.words.length)
+// Split sentence into words and cache the result
+// Remove punctuation before splitting to match backend validation logic
+const sentenceWords = computed(() => {
+  const withoutPunctuation = props.content.sentence.replace(/[?.!,;:]/g, '')
+  return withoutPunctuation.trim().split(/\s+/)
+})
+const totalWords = computed(() => sentenceWords.value.length)
 
 onMounted(initializeWords)
 
 function initializeWords() {
-  availableWords.value = [...props.content.words].sort(() => Math.random() - 0.5)
+  // Split the sentence into words and shuffle them
+  availableWords.value = [...sentenceWords.value].sort(() => Math.random() - 0.5)
 }
 
 function selectWord(word: string, index: number) {

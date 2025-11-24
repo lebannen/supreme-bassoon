@@ -11,7 +11,7 @@ const emit = defineEmits(['word-click'])
 
 const words = computed(() => {
   if (!props.content) return []
-  return props.content.split(/\\s+/).filter((w) => w.length > 0)
+  return props.content.split(/\s+/).filter((w) => w.length > 0)
 })
 
 function onWordClick(word: string) {

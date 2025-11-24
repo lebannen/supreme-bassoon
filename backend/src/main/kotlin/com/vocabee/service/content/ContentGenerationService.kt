@@ -336,14 +336,13 @@ class ContentGenerationService(
               }
             }
 
-            4. SENTENCE_SCRAMBLE (CRITICAL - "words" and "correctOrder" MUST have IDENTICAL length):
+            4. SENTENCE_SCRAMBLE (SIMPLIFIED - Store only the correct sentence):
             {
               "type": "EXERCISE",
               "exercise": {
                 "type": "SENTENCE_SCRAMBLE",
                 "content": {
-                  "words": ["Je", "m'appelle", "Marie"],
-                  "correctOrder": ["Je", "m'appelle", "Marie"],
+                  "sentence": "Je m'appelle Marie",
                   "translation": "My name is Marie",
                   "explanation": "Optional explanation",
                   "hint": "Optional hint"
@@ -351,13 +350,11 @@ class ContentGenerationService(
               }
             }
 
-            CRITICAL FOR SENTENCE_SCRAMBLE:
-            - "words" is an array of ALL the words in the sentence (in any scrambled order)
-            - "correctOrder" is an array of THE EXACT SAME WORDS but in the correct sentence order
-            - Both arrays MUST contain the exact same words, just potentially in different order
-            - Both arrays MUST have the SAME LENGTH (if "words" has 6 items, "correctOrder" MUST also have 6 items)
-            - Example: If words = ["est", "La", "belle", "très", "salle"], then correctOrder = ["La", "salle", "est", "très", "belle"]
-            - NEVER omit or add words between the two arrays!
+            NOTE FOR SENTENCE_SCRAMBLE:
+            - "sentence" is the correct sentence in the target language
+            - The frontend will automatically split it into words and shuffle them for the user
+            - Keep sentences clear and grammatically correct
+            - Example: "sentence": "La salle est très belle"
 
             5. CLOZE_READING:
             {
@@ -376,7 +373,7 @@ class ContentGenerationService(
             }
 
             FINAL VALIDATION CHECKLIST:
-            ✓ For SENTENCE_SCRAMBLE: Count the items in "words" and "correctOrder" - they MUST be equal
+            ✓ For SENTENCE_SCRAMBLE: "sentence" is a string containing the correct sentence
             ✓ For FILL_IN_THE_BLANK: "blanks" is an array, not nested under "question"
             ✓ For MATCHING: "pairs" is directly in "content", not nested
             ✓ All exercises have valid JSON structure
@@ -618,7 +615,17 @@ class ContentGenerationService(
         }
         logger.info("Generated ${exercises.size}/13 exercises for episode: ${request.episodeTitle}")
 
-        // 3. Construct Response
+        // 3. Generate Image Prompts
+        logger.info("Generating image prompts for episode: ${request.episodeTitle}")
+        val imagePrompts = try {
+            generateImagePrompts(cleanedContent, request)
+        } catch (e: Exception) {
+            logger.error("Failed to generate image prompts for episode ${request.episodeTitle}: ${e.message}", e)
+            emptyList()
+        }
+        logger.info("Generated ${imagePrompts.size} image prompts for episode: ${request.episodeTitle}")
+
+        // 4. Construct Response
         return if (request.episodeType == "DIALOGUE") {
             // Parse dialogue lines for structured storage, filtering out Narrator lines
             val lines = cleanedContent.lines()
@@ -643,12 +650,14 @@ class ContentGenerationService(
 
             GeneratedEpisodeContent(
                 dialogue = GeneratedDialogue(lines = lines, speakers = emptyMap()), // Speakers can be inferred or left empty for now
-                exercises = exercises
+                exercises = exercises,
+                imagePrompts = imagePrompts
             )
         } else {
             GeneratedEpisodeContent(
                 story = cleanedContent,
-                exercises = exercises
+                exercises = exercises,
+                imagePrompts = imagePrompts
             )
         }
     }
@@ -702,5 +711,69 @@ class ContentGenerationService(
 
             Now generate the ${request.episodeType.lowercase()} content:
         """.trimIndent()
+    }
+
+    private fun generateImagePrompts(
+        content: String,
+        request: GenerateEpisodeContentRequest
+    ): List<com.vocabee.domain.generation.ImagePrompt> {
+        val prompt = """
+            Based on the following ${request.episodeType.lowercase()} content from a ${request.level} level ${request.targetLanguage} language learning episode, generate 3-4 vivid image prompts that would help visualize key scenes or moments.
+
+            Episode Title: "${request.episodeTitle}"
+            Episode Type: ${request.episodeType}
+            Content:
+            ```
+            $content
+            ```
+
+            For each image prompt, provide:
+            1. A detailed visual description suitable for AI image generation (in English)
+            2. The scene context explaining what's happening in this moment of the episode
+
+            Guidelines:
+            - Focus on key moments, settings, or emotional beats from the content
+            - Use descriptive, visual language (colors, lighting, composition, mood)
+            - Make images culturally appropriate and educational
+            - Avoid text or speech bubbles in the images
+            - Each prompt should be distinct and capture a different scene/moment
+
+            Return ONLY valid JSON in this format (no markdown, no extra text):
+            {
+              "imagePrompts": [
+                {
+                  "description": "A cozy Parisian café with outdoor seating, warm afternoon sunlight streaming through trees, bistro tables with red checkered tablecloths, the Eiffel Tower visible in the distant background",
+                  "sceneContext": "The opening scene where the characters meet at the café"
+                },
+                {
+                  "description": "Two people at a café table, one gesturing expressively while talking, coffee cups and pastries on the table, friendly animated conversation, urban Parisian street setting",
+                  "sceneContext": "The main dialogue between the characters discussing their day"
+                }
+              ]
+            }
+        """.trimIndent()
+
+        val response = geminiClient.generateText(prompt, "application/json")
+        val json = extractJson(response)
+
+        return try {
+            val jsonNode = objectMapper.readTree(json)
+            val promptsNode = jsonNode.get("imagePrompts")
+
+            if (promptsNode == null || !promptsNode.isArray) {
+                logger.warn("Invalid image prompts response format, returning empty list")
+                return emptyList()
+            }
+
+            promptsNode.map { node ->
+                com.vocabee.domain.generation.ImagePrompt(
+                    description = node.get("description")?.asText() ?: "",
+                    sceneContext = node.get("sceneContext")?.asText() ?: ""
+                )
+            }.filter { it.description.isNotBlank() }
+        } catch (e: Exception) {
+            logger.error("Failed to parse image prompts response: ${e.message}", e)
+            emptyList()
+        }
     }
 }

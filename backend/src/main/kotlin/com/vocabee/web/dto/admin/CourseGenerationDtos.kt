@@ -1,5 +1,6 @@
 package com.vocabee.web.dto.admin
 
+import com.vocabee.domain.generation.CharacterProfile
 import com.vocabee.domain.generation.GeneratedEpisodeContent
 import com.vocabee.domain.validation.EpisodeValidationResult
 import com.vocabee.domain.validation.ValidationIssue
@@ -62,7 +63,8 @@ data class ValidationSummary(
 data class GenerateCourseContentResponse(
     val modules: List<ModuleGenerationResult>,
     val characterAnalysis: CharacterAnalysis,
-    val validationSummary: ValidationSummary
+    val validationSummary: ValidationSummary,
+    val characterProfiles: List<CharacterProfile> = emptyList()
 )
 
 // Voice assignment
@@ -77,7 +79,9 @@ data class SaveCourseContentRequest(
     val courseId: Long,
     val modules: List<SaveModuleContentRequest>,
     val voiceAssignments: List<VoiceAssignment>,
-    val generateAudio: Boolean = true
+    val characterProfiles: List<CharacterProfile> = emptyList(),
+    val generateAudio: Boolean = true,
+    val generateImages: Boolean = true
 )
 
 data class SaveModuleContentRequest(

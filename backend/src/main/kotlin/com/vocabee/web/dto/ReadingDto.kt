@@ -53,3 +53,13 @@ data class ImportTextRequest(
     val source: String?,
     val audioUrl: String?
 )
+
+data class ImportMarkdownRequest(
+    val content: String,
+    val languageCode: String,
+    val level: String?,
+    val topic: String?,
+    val description: String?,
+    val author: String?,
+    val source: String?
+)

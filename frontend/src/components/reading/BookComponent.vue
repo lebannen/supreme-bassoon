@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed, ref} from 'vue'
+import {computed, ref, watch} from 'vue'
 import PageComponent from './PageComponent.vue'
 import AudioPlayer from '@/components/audio/AudioPlayer.vue'
 import Button from 'primevue/button'
@@ -9,6 +9,7 @@ interface Props {
   content?: string
   pageSize?: number
   audioUrl?: string | null
+  currentPage?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -16,13 +17,19 @@ const props = withDefaults(defineProps<Props>(), {
   content: '',
   pageSize: 300,
   audioUrl: null,
+  currentPage: 1,
 })
 
-const emit = defineEmits(['word-click', 'page-change'])
+const emit = defineEmits(['word-click', 'page-change', 'update:current-page'])
 
-const currentPage = ref(1)
+const currentPage = ref(props.currentPage)
 const isFlipping = ref(false)
 const flipDirection = ref<'forward' | 'backward'>('forward')
+
+// Sync prop changes with local ref (in case parent resets the page)
+watch(() => props.currentPage, (newPage) => {
+  currentPage.value = newPage
+})
 
 const bookPages = computed(() => {
   if (props.pages.length > 0) return props.pages
@@ -45,12 +52,18 @@ function getPageContent(pageNum: number): string {
 
 function nextPage() {
   if (currentPage.value * 2 >= totalPages.value || isFlipping.value) return
+  console.log('Next page clicked. Current page:', currentPage.value)
   flipDirection.value = 'forward'
   isFlipping.value = true
   setTimeout(() => {
     currentPage.value++
-    isFlipping.value = false
+    emit('update:current-page', currentPage.value)
+    console.log('Page updated to:', currentPage.value)
     emit('page-change', currentPage.value * 2 - 1, totalPages.value)
+  }, 400)
+  setTimeout(() => {
+    isFlipping.value = false
+    console.log('Flip animation complete. Current page:', currentPage.value)
   }, 600)
 }
 
@@ -60,8 +73,11 @@ function previousPage() {
   isFlipping.value = true
   setTimeout(() => {
     currentPage.value--
-    isFlipping.value = false
+    emit('update:current-page', currentPage.value)
     emit('page-change', currentPage.value * 2 - 1, totalPages.value)
+  }, 400)
+  setTimeout(() => {
+    isFlipping.value = false
   }, 600)
 }
 </script>
@@ -73,25 +89,31 @@ function previousPage() {
     <div class="book">
       <div class="page-wrapper">
         <!-- Static Pages -->
-        <div class="page left-page" :class="{ hidden: isFlipping }">
+        <div v-if="!isFlipping" class="page left-page" :key="`left-${currentPage}`">
           <PageComponent :page-number="currentPage * 2 - 1" :content="getPageContent(currentPage * 2 - 1)"
                          @word-click="$emit('word-click', $event)"/>
         </div>
-        <div class="page right-page" :class="{ hidden: isFlipping }">
+        <div v-if="!isFlipping" class="page right-page" :key="`right-${currentPage}`">
           <PageComponent :page-number="currentPage * 2" :content="getPageContent(currentPage * 2)"
                          @word-click="$emit('word-click', $event)"/>
         </div>
 
         <!-- Flipping Page -->
         <div v-if="isFlipping" class="page flipping-page" :class="`flipping-${flipDirection}`">
-          <PageComponent v-if="flipDirection === 'forward'" class="front" :page-number="currentPage * 2"
-                         :content="getPageContent(currentPage * 2)" @word-click="$emit('word-click', $event)"/>
-          <PageComponent v-if="flipDirection === 'forward'" class="back" :page-number="currentPage * 2 + 1"
-                         :content="getPageContent(currentPage * 2 + 1)" @word-click="$emit('word-click', $event)"/>
-          <PageComponent v-if="flipDirection === 'backward'" class="front" :page-number="currentPage * 2 - 1"
-                         :content="getPageContent(currentPage * 2 - 1)" @word-click="$emit('word-click', $event)"/>
-          <PageComponent v-if="flipDirection === 'backward'" class="back" :page-number="currentPage * 2 - 2"
-                         :content="getPageContent(currentPage * 2 - 2)" @word-click="$emit('word-click', $event)"/>
+          <div class="front">
+            <PageComponent
+                :page-number="flipDirection === 'forward' ? currentPage * 2 : currentPage * 2 - 1"
+                :content="flipDirection === 'forward' ? getPageContent(currentPage * 2) : getPageContent(currentPage * 2 - 1)"
+                @word-click="$emit('word-click', $event)"
+            />
+          </div>
+          <div class="back">
+            <PageComponent
+                :page-number="flipDirection === 'forward' ? currentPage * 2 + 1 : currentPage * 2 - 2"
+                :content="flipDirection === 'forward' ? getPageContent(currentPage * 2 + 1) : getPageContent(currentPage * 2 - 2)"
+                @word-click="$emit('word-click', $event)"
+            />
+          </div>
         </div>
       </div>
       <div class="spine"></div>
@@ -191,6 +213,13 @@ function previousPage() {
   }
 }
 
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
 .front {
   transform: rotateY(0deg);
 }
@@ -219,10 +248,6 @@ function previousPage() {
 
 .page-indicator {
   font-weight: 600;
-}
-
-.page.hidden {
-  visibility: hidden;
 }
 
 @media (max-width: 768px) {

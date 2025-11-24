@@ -2,9 +2,7 @@ package com.vocabee.web.api.admin
 
 import com.vocabee.domain.generation.GeneratedEpisodeSummary
 import com.vocabee.domain.repository.*
-import com.vocabee.service.AudioGenerationService
-import com.vocabee.service.EpisodeValidationService
-import com.vocabee.service.StorageService
+import com.vocabee.service.*
 import com.vocabee.service.content.ContentGenerationService
 import com.vocabee.web.dto.CourseAdminDto
 import com.vocabee.web.dto.ModuleAdminDto
@@ -27,9 +25,11 @@ class CourseAdminController(
     private val exerciseRepository: ExerciseRepository,
     private val exerciseTypeRepository: ExerciseTypeRepository,
     private val audioGenerationService: AudioGenerationService,
+    private val imageGenerationService: ImageGenerationService,
     private val storageService: StorageService,
     private val contentGenerationService: ContentGenerationService,
     private val episodeValidationService: EpisodeValidationService,
+    private val characterProfileService: CharacterProfileService,
     private val objectMapper: com.fasterxml.jackson.databind.ObjectMapper
 ) {
     private val logger = LoggerFactory.getLogger(javaClass)
@@ -593,11 +593,27 @@ class CourseAdminController(
         logger.info("Batch generation complete: ${validationSummary.validEpisodes}/${validationSummary.totalEpisodes} episodes valid")
         logger.info("Found ${characterInfo.size} characters across ${totalDialogueLines} dialogue lines")
 
+        // Generate character profiles
+        val characterProfiles = try {
+            logger.info("Generating character reference images for ${characterInfo.size} characters")
+            characterProfileService.generateCharacterProfiles(
+                modules = moduleResults,
+                courseSlug = course.slug,
+                courseContext = course.seriesContext ?: ""
+            )
+        } catch (e: Exception) {
+            logger.error("Failed to generate character profiles: ${e.message}", e)
+            emptyList()
+        }
+
+        logger.info("Generated ${characterProfiles.size} character profiles")
+
         return ResponseEntity.ok(
             GenerateCourseContentResponse(
                 modules = moduleResults,
                 characterAnalysis = characterAnalysis,
-                validationSummary = validationSummary
+                validationSummary = validationSummary,
+                characterProfiles = characterProfiles
             )
         )
     }
@@ -617,6 +633,7 @@ class CourseAdminController(
 
         var totalEpisodesSaved = 0
         var totalAudioGenerated = 0
+        var totalImagesGenerated = 0
 
         // Process each module
         request.modules.forEach { moduleRequest ->
@@ -716,6 +733,96 @@ class CourseAdminController(
                     }
                 }
 
+                // Generate images if requested
+                val imageUrls = mutableListOf<Map<String, String>>()
+                if (request.generateImages && episodeRequest.content.imagePrompts.isNotEmpty()) {
+                    logger.info("Generating ${episodeRequest.content.imagePrompts.size} images for episode: ${episodeRequest.title}")
+
+                    // Extract character names from this episode's dialogue for reference images
+                    val episodeCharacters = if (episodeRequest.type == "DIALOGUE") {
+                        episodeRequest.content.dialogue?.lines
+                            ?.map { it.speaker }
+                            ?.distinct()
+                            ?: emptyList()
+                    } else {
+                        emptyList()
+                    }
+
+                    // Get character reference image URLs for consistency
+                    val characterReferenceUrls = request.characterProfiles
+                        .filter { profile -> episodeCharacters.contains(profile.name) }
+                        .map { it.referenceImageUrl }
+
+                    if (characterReferenceUrls.isNotEmpty()) {
+                        logger.info(
+                            "Using ${characterReferenceUrls.size} character reference images: ${
+                                episodeCharacters.joinToString(
+                                    ", "
+                                )
+                            }"
+                        )
+                    }
+
+                    episodeRequest.content.imagePrompts.forEachIndexed { index, imagePrompt ->
+                        try {
+                            logger.info(
+                                "Generating image ${index + 1}/${episodeRequest.content.imagePrompts.size}: ${
+                                    imagePrompt.description.take(
+                                        50
+                                    )
+                                }..."
+                            )
+
+                            // Generate image using Gemini with character references for consistency
+                            val generatedImage = imageGenerationService.generateImage(
+                                prompt = imagePrompt.description,
+                                referenceImageUrls = characterReferenceUrls
+                            )
+
+                            // Upload to storage
+                            val uploadResult = storageService.uploadFile(
+                                inputStream = generatedImage.imageData.inputStream(),
+                                originalFilename = "episode_${episodeRequest.episodeNumber}_image_${index + 1}.png",
+                                contentType = generatedImage.mimeType,
+                                fileType = com.vocabee.domain.model.FileType.IMAGE,
+                                folder = "episode-images/${course.slug}/module-${module.moduleNumber}"
+                            )
+
+                            // Store image URL with context
+                            imageUrls.add(
+                                mapOf(
+                                    "url" to uploadResult.url,
+                                    "description" to imagePrompt.description,
+                                    "sceneContext" to imagePrompt.sceneContext
+                                )
+                            )
+
+                            totalImagesGenerated++
+                            logger.info("Successfully generated and uploaded image ${index + 1}")
+                        } catch (e: Exception) {
+                            logger.error(
+                                "Failed to generate image ${index + 1} for episode ${episodeRequest.title}: ${e.message}",
+                                e
+                            )
+                            // Continue without this image - don't fail the whole process
+                        }
+                    }
+
+                    logger.info("Successfully generated ${imageUrls.size}/${episodeRequest.content.imagePrompts.size} images for episode: ${episodeRequest.title}")
+                }
+
+                // Update content JSON with image URLs if any were generated
+                val finalContentJson = if (imageUrls.isNotEmpty()) {
+                    val contentMap = objectMapper.readValue(contentJson, Map::class.java) as MutableMap<String, Any?>
+                    contentMap["images"] = imageUrls
+                    objectMapper.writeValueAsString(contentMap)
+                } else {
+                    contentJson
+                }
+
+                // Update episode data with final content including images
+                episode = episode.copy(data = finalContentJson)
+
                 val savedEpisode = episodeRepository.save(episode)
                 totalEpisodesSaved++
 
@@ -769,13 +876,14 @@ class CourseAdminController(
             moduleRepository.save(module)
         }
 
-        logger.info("Course content saved successfully: $totalEpisodesSaved episodes, $totalAudioGenerated audio files generated")
+        logger.info("Course content saved successfully: $totalEpisodesSaved episodes, $totalAudioGenerated audio files generated, $totalImagesGenerated images generated")
 
         return ResponseEntity.ok(
             mapOf(
                 "success" to true,
                 "episodesSaved" to totalEpisodesSaved,
-                "audioGenerated" to totalAudioGenerated
+                "audioGenerated" to totalAudioGenerated,
+                "imagesGenerated" to totalImagesGenerated
             )
         )
     }

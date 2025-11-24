@@ -10,4 +10,5 @@ interface UserReadingProgressRepository : JpaRepository<UserReadingProgress, Lon
     fun findByUserIdAndTextId(userId: Long, textId: Long): Optional<UserReadingProgress>
     fun findByUserId(userId: Long): List<UserReadingProgress>
     fun findByUserIdAndCompleted(userId: Long, completed: Boolean): List<UserReadingProgress>
+    fun deleteByTextId(textId: Long)
 }

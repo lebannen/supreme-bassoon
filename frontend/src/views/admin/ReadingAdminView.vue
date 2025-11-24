@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {computed, onMounted, ref} from 'vue'
+import {useRouter} from 'vue-router'
 import {storeToRefs} from 'pinia'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
@@ -7,11 +8,18 @@ import Select from 'primevue/select'
 import Tag from 'primevue/tag'
 import Message from 'primevue/message'
 import ProgressSpinner from 'primevue/progressspinner'
-import FileUpload, {type FileUploadSelectEvent} from 'primevue/fileupload'
+import DataTable from 'primevue/datatable'
+import Column from 'primevue/column'
+import {type FileUploadSelectEvent} from 'primevue/fileupload'
+import {useConfirm} from 'primevue/useconfirm'
+import {useToast} from 'primevue/usetoast'
 import {useReadingStore} from '@/stores/reading'
 import type {ReadingText} from '@/types/reading'
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
+const router = useRouter()
+const confirm = useConfirm()
+const toast = useToast()
 
 const readingStore = useReadingStore()
 const {texts, loading, error} = storeToRefs(readingStore)
@@ -70,77 +78,146 @@ const handleAudioUpload = async (event: FileUploadSelectEvent, text: ReadingText
   }
 }
 
+async function deleteText(text: ReadingText) {
+  confirm.require({
+    message: `Are you sure you want to delete "${text.title}"? This action cannot be undone.`,
+    header: 'Confirm Deletion',
+    icon: 'pi pi-exclamation-triangle',
+    rejectLabel: 'Cancel',
+    acceptLabel: 'Delete',
+    rejectClass: 'p-button-secondary',
+    acceptClass: 'p-button-danger',
+    accept: async () => {
+      try {
+        const response = await fetch(`${API_BASE}/api/reading/texts/${text.id}`, {
+          method: 'DELETE'
+        })
+
+        if (!response.ok) throw new Error('Failed to delete text')
+
+        toast.add({
+          severity: 'success',
+          summary: 'Deleted',
+          detail: `"${text.title}" has been deleted`,
+          life: 3000
+        })
+
+        await readingStore.loadTexts({})
+      } catch (err) {
+        toast.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: err instanceof Error ? err.message : 'Failed to delete text',
+          life: 5000
+        })
+      }
+    }
+  })
+}
+
 onMounted(() => readingStore.loadTexts({}))
 </script>
 
 <template>
   <div class="view-container content-area-lg">
     <div class="page-header">
-      <h1>Reading Texts Administration</h1>
-      <p class="text-secondary">Manage reading texts and their audio files.</p>
+      <div class="flex justify-between items-center">
+        <div>
+          <h1>Reading Texts Administration</h1>
+          <p class="text-secondary">Manage reading texts and their audio files.</p>
+        </div>
+        <Button label="Import Texts" icon="pi pi-upload" @click="router.push('/reading/import')"/>
+      </div>
     </div>
 
-    <div class="filters">
-      <Select v-model="selectedLanguage" :options="languages" optionLabel="label" optionValue="value"
-              placeholder="Filter by language" class="filter-select"/>
-      <Select v-model="selectedLevel" :options="levels" optionLabel="label" optionValue="value"
-              placeholder="Filter by level" class="filter-select"/>
-      <Button label="Clear Filters" icon="pi pi-times" severity="secondary"
-              @click="selectedLanguage = null; selectedLevel = null"/>
-    </div>
+    <Card class="mb-lg">
+      <template #content>
+        <div class="flex gap-md items-end">
+          <div class="flex-1">
+            <label class="font-semibold text-sm mb-xs block">Language</label>
+            <Select v-model="selectedLanguage" :options="languages" optionLabel="label" optionValue="value"
+                    placeholder="All Languages" class="w-full"/>
+          </div>
+          <div class="flex-1">
+            <label class="font-semibold text-sm mb-xs block">Level</label>
+            <Select v-model="selectedLevel" :options="levels" optionLabel="label" optionValue="value"
+                    placeholder="All Levels" class="w-full"/>
+          </div>
+          <Button label="Clear Filters" icon="pi pi-times" severity="secondary"
+                  @click="selectedLanguage = null; selectedLevel = null"/>
+        </div>
+      </template>
+    </Card>
 
-    <div v-if="loading" class="loading-state">
+    <div v-if="loading" class="flex justify-center p-xl">
       <ProgressSpinner/>
     </div>
     <Message v-else-if="error" severity="error">{{ error }}</Message>
 
-    <div v-else-if="filteredTexts.length > 0" class="content-grid">
-      <Card v-for="text in filteredTexts" :key="text.id">
-        <template #header>
-          <div class="p-md flex justify-between items-start gap-md bg-surface-section">
-            <div class="flex-1">
-              <h3 class="text-lg font-bold mb-sm">{{ text.title }}</h3>
-              <div class="meta-badges">
-                <Tag :value="text.level || 'N/A'"/>
-                <Tag :value="getLanguageName(text.languageCode)" severity="secondary"/>
-                <Tag v-if="text.topic" :value="formatTopic(text.topic)" severity="contrast"/>
+    <Card v-else>
+      <template #content>
+        <DataTable
+            v-if="filteredTexts.length > 0"
+            :value="filteredTexts"
+            stripedRows
+            sortField="createdAt"
+            :sortOrder="-1"
+            class="p-datatable-sm"
+        >
+          <Column field="id" header="ID" sortable style="width: 5rem"></Column>
+          <Column field="title" header="Title" sortable>
+            <template #body="slotProps">
+              <strong>{{ slotProps.data.title }}</strong>
+            </template>
+          </Column>
+          <Column field="languageCode" header="Language" sortable style="width: 8rem">
+            <template #body="slotProps">
+              <Tag :value="slotProps.data.languageCode.toUpperCase()" severity="info"/>
+            </template>
+          </Column>
+          <Column field="level" header="Level" sortable style="width: 6rem">
+            <template #body="slotProps">
+              <Tag v-if="slotProps.data.level" :value="slotProps.data.level" severity="secondary"/>
+              <span v-else class="text-secondary">-</span>
+            </template>
+          </Column>
+          <Column field="wordCount" header="Words" sortable style="width: 8rem"></Column>
+          <Column field="estimatedMinutes" header="Time" sortable style="width: 7rem">
+            <template #body="slotProps">
+              {{ slotProps.data.estimatedMinutes }} min
+            </template>
+          </Column>
+          <Column field="audioUrl" header="Audio" style="width: 7rem">
+            <template #body="slotProps">
+              <Tag v-if="slotProps.data.audioUrl" value="Yes" severity="success"/>
+              <Tag v-else value="No" severity="warning"/>
+            </template>
+          </Column>
+          <Column field="createdAt" header="Created" sortable style="width: 10rem">
+            <template #body="slotProps">
+              {{ new Date(slotProps.data.createdAt).toLocaleDateString() }}
+            </template>
+          </Column>
+          <Column header="Actions" style="width: 10rem">
+            <template #body="slotProps">
+              <div class="flex gap-sm">
+                <Button
+                    icon="pi pi-trash"
+                    severity="danger"
+                    text
+                    rounded
+                    v-tooltip.top="'Delete'"
+                    @click="deleteText(slotProps.data)"
+                />
               </div>
-            </div>
-            <div class="stat-icon-sm" :class="text.audioUrl ? 'stat-icon-success' : 'stat-icon-warning'">
-              <i :class="text.audioUrl ? 'pi pi-volume-up' : 'pi pi-volume-off'"></i>
-            </div>
-          </div>
-        </template>
-        <template #content>
-          <div class="content-area">
-            <p v-if="text.description" class="text-secondary m-0">{{ text.description }}</p>
-            <div class="icon-label-group compact">
-              <span class="icon-label"><i class="pi pi-book"></i>{{ text.wordCount || 0 }} words</span>
-              <span v-if="text.estimatedMinutes" class="icon-label"><i class="pi pi-clock"></i>{{
-                  text.estimatedMinutes
-                }} min</span>
-            </div>
-            <div v-if="text.audioUrl" class="p-md bg-surface-ground rounded-md">
-              <label class="font-semibold mb-sm block">Current Audio</label>
-              <a :href="text.audioUrl" target="_blank" class="audio-link text-primary hover:underline">
-                <i class="pi pi-external-link"></i> {{ getAudioFilename(text.audioUrl) }}
-              </a>
-            </div>
-            <div class="content-area">
-              <label class="font-semibold">{{ text.audioUrl ? 'Replace Audio' : 'Upload Audio' }}</label>
-              <FileUpload mode="basic" :name="`audio-${text.id}`" accept="audio/*" :maxFileSize="50000000"
-                          :customUpload="true" @select="handleAudioUpload($event, text)" :auto="true"
-                          chooseLabel="Choose Audio File"/>
-              <Message v-if="uploadResults[text.id]" :severity="uploadResults[text.id]?.success ? 'success' : 'error'"
-                       @close="uploadResults[text.id] = null">
-                {{ uploadResults[text.id]?.message }}
-              </Message>
-            </div>
-          </div>
-        </template>
-      </Card>
-    </div>
-    <div v-else class="empty-state"><i class="pi pi-inbox empty-icon"></i>
-      <h3>No texts found</h3></div>
+            </template>
+          </Column>
+        </DataTable>
+        <div v-else class="text-center p-xl text-secondary">
+          <i class="pi pi-inbox text-4xl mb-md"></i>
+          <p>No texts found</p>
+        </div>
+      </template>
+    </Card>
   </div>
 </template>

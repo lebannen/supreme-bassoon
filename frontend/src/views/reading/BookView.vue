@@ -2,16 +2,15 @@
 import {computed, onMounted, ref} from 'vue'
 import {useRoute, useRouter} from 'vue-router'
 import {storeToRefs} from 'pinia'
-import BookComponent from '@/components/reading/BookComponent.vue'
+import ScrollReader from '@/components/reading/ScrollReader.vue'
 import WordCard from '@/components/vocabulary/WordCard.vue'
-import Select from 'primevue/select'
 import Button from 'primevue/button'
 import Tag from 'primevue/tag'
 import Message from 'primevue/message'
 import ProgressSpinner from 'primevue/progressspinner'
 import {dictionaryAPI} from '@/api'
 import {useReadingStore} from '@/stores/reading'
-import type {Language, Word} from '@/types/dictionary'
+import type {Word} from '@/types/dictionary'
 
 const router = useRouter()
 const route = useRoute()
@@ -26,7 +25,9 @@ const wordError = ref<string | null>(null)
 const bookLanguage = computed(() => currentText.value?.languageCode)
 
 async function loadText() {
-  if (id.value) await readingStore.loadTextById(id.value)
+  if (id.value) {
+    await readingStore.loadTextById(id.value)
+  }
 }
 
 async function onWordClick(lemma: string) {
@@ -45,11 +46,22 @@ async function onWordClick(lemma: string) {
   }
 }
 
-async function onPageChange(currentPage: number, totalPages: number) {
-  if (id.value) await readingStore.updateProgress(id.value, currentPage, totalPages)
+async function onScrollProgress(scrollPercentage: number) {
+  // Update reading progress based on scroll position
+  // We can use scroll percentage to track progress
+  if (id.value) {
+    await readingStore.updateProgress(id.value, scrollPercentage, 100)
+  }
 }
 
-const getLanguageName = (code: string) => readingStore.getLanguageName(code)
+const languages = [
+  {label: 'French', value: 'fr'},
+  {label: 'German', value: 'de'},
+  {label: 'Spanish', value: 'es'},
+  {label: 'Italian', value: 'it'},
+]
+
+const getLanguageName = (code: string) => languages.find(l => l.value === code)?.label || code.toUpperCase()
 const formatTopic = (topic: string) => topic.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
 
 onMounted(loadText)
@@ -76,8 +88,12 @@ onMounted(loadText)
           <Tag v-if="progress?.completed" value="Completed" icon="pi pi-check-circle" severity="success"/>
         </div>
       </div>
-      <BookComponent :content="currentText.content" :audio-url="currentText.audioUrl" :page-size="300"
-                     @word-click="onWordClick" @page-change="onPageChange"/>
+      <ScrollReader
+          :content="currentText.content"
+          :audio-url="currentText.audioUrl"
+          @word-click="onWordClick"
+          @scroll-progress="onScrollProgress"
+      />
     </div>
     <div v-else class="empty-state">
       <i class="pi pi-book empty-icon"></i>
