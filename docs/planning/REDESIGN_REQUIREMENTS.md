@@ -9,7 +9,9 @@
 
 ## Executive Summary
 
-Vocabee is a language learning platform focused on **practical language acquisition through multiple engagement methods**. Unlike traditional linear course platforms, Vocabee emphasizes daily engagement, content discovery, and flexible learning paths.
+Vocabee is a language learning platform focused on **practical language acquisition through multiple engagement methods
+**. Unlike traditional linear course platforms, Vocabee emphasizes daily engagement, content discovery, and flexible
+learning paths.
 
 ### Core Philosophy
 
@@ -24,7 +26,9 @@ Vocabee is a language learning platform focused on **practical language acquisit
 ## Platform Vision
 
 ### Primary Goal
+
 Enable language learners to build practical skills through:
+
 - Daily micro-tasks (10-15 minutes)
 - Discoverable authentic content (dialogues, stories)
 - Structured learning paths (optional courses)
@@ -32,6 +36,7 @@ Enable language learners to build practical skills through:
 - Grammar reference when needed
 
 ### User Value Proposition
+
 "Learn French naturally through daily practice, real conversations, and structured courses - all in one place."
 
 ---
@@ -39,6 +44,7 @@ Enable language learners to build practical skills through:
 ## User Personas
 
 ### Primary Persona: Sarah (Self-Directed Learner)
+
 - **Age:** 28, working professional
 - **Goal:** Learn French for travel and personal growth
 - **Time:** 15-20 minutes per day, inconsistent schedule
@@ -46,6 +52,7 @@ Enable language learners to build practical skills through:
 - **Pain Points:** Gets bored with rigid courses, needs flexibility
 
 ### Secondary Persona: Mike (Structured Learner)
+
 - **Age:** 35, planning to move to France
 - **Goal:** Reach A1 proficiency in 3 months
 - **Time:** 1 hour daily, dedicated study time
@@ -53,6 +60,7 @@ Enable language learners to build practical skills through:
 - **Pain Points:** Wants structure but also practice variety
 
 ### Tertiary Persona: Lisa (Casual Explorer)
+
 - **Age:** 42, hobbyist
 - **Goal:** Maintain French skills from high school
 - **Time:** Sporadic, whenever interested
@@ -64,9 +72,11 @@ Enable language learners to build practical skills through:
 ## Content Types & Data Model
 
 ### 1. Vocabulary
+
 **Description:** Individual words with definitions, translations, examples, pronunciation
 
 **Attributes:**
+
 - Word (lemma form)
 - Translation(s)
 - Part of speech
@@ -77,15 +87,18 @@ Enable language learners to build practical skills through:
 - User-specific data: added date, review history, notes
 
 **User Actions:**
+
 - Search words
 - Save to personal vocabulary
 - Review with spaced repetition
 - Add personal notes
 
 ### 2. Dialogues
+
 **Description:** Short conversations (2-5 speakers) with audio, transcript, vocabulary
 
 **Attributes:**
+
 - Title
 - Topic/theme (e.g., "At the Restaurant", "Making Friends")
 - Speakers (character names)
@@ -97,6 +110,7 @@ Enable language learners to build practical skills through:
 - Can be standalone OR part of a course module
 
 **User Actions:**
+
 - Play audio
 - Read transcript (toggle visibility)
 - Click words in transcript for definitions
@@ -104,9 +118,11 @@ Enable language learners to build practical skills through:
 - Mark as complete
 
 ### 3. Stories
+
 **Description:** Short narratives for reading/listening practice with audio
 
 **Attributes:**
+
 - Title
 - Text content (2-10 paragraphs)
 - Duration (3-10 minutes)
@@ -117,6 +133,7 @@ Enable language learners to build practical skills through:
 - Can be standalone OR part of a course module
 
 **User Actions:**
+
 - Read text
 - Listen to narration
 - Click words for definitions
@@ -124,9 +141,11 @@ Enable language learners to build practical skills through:
 - Mark as complete
 
 ### 4. Grammar Rules
+
 **Description:** Reference documentation for grammar topics with examples and practice
 
 **Attributes:**
+
 - Topic name (e.g., "Passé Composé", "Definite Articles")
 - Category (tenses, articles, pronouns, etc.)
 - Difficulty level
@@ -137,11 +156,13 @@ Enable language learners to build practical skills through:
 - Optional: practice exercises
 
 **Organization:**
+
 - Hierarchical (category > topic > sub-topic)
 - Searchable
 - Cross-referenced
 
 **User Actions:**
+
 - Browse by category
 - Search topics
 - Read explanations
@@ -150,9 +171,11 @@ Enable language learners to build practical skills through:
 - Bookmark favorites
 
 ### 5. Exercises
+
 **Description:** Interactive practice activities with immediate feedback
 
 **Exercise Types:**
+
 - Multiple Choice (select correct answer from options)
 - Fill-in-Blank (type missing word in sentence)
 - Sentence Scramble (reorder words to form sentence)
@@ -161,6 +184,7 @@ Enable language learners to build practical skills through:
 - Cloze Reading (fill multiple blanks in paragraph)
 
 **Common Attributes:**
+
 - Type
 - Title
 - Instructions
@@ -172,6 +196,7 @@ Enable language learners to build practical skills through:
 - Explanation/feedback
 
 **User Actions:**
+
 - Attempt exercise
 - Submit answer
 - See immediate feedback (correct/incorrect)
@@ -180,15 +205,18 @@ Enable language learners to build practical skills through:
 - Auto-advance to next if correct (with 3-second countdown)
 
 ### 6. Courses
+
 **Description:** Structured learning paths organized into modules and episodes
 
 **Structure:**
+
 - **Course** (e.g., "French A1: Sophie's Parisian Journey")
-  - Contains 5-15 **Modules**
-    - Each module contains 2-4 **Episodes**
-      - Each episode contains **Content Items** (dialogues, stories, grammar rules, exercises)
+    - Contains 5-15 **Modules**
+        - Each module contains 2-4 **Episodes**
+            - Each episode contains **Content Items** (dialogues, stories, grammar rules, exercises)
 
 **Course Attributes:**
+
 - Name
 - Description
 - Language & CEFR level
@@ -197,12 +225,14 @@ Enable language learners to build practical skills through:
 - Total exercises
 
 **Module Attributes:**
+
 - Module number
 - Title (e.g., "Greetings & Introductions")
 - Description
 - Number of episodes
 
 **Episode Attributes:**
+
 - Title
 - Type (Dialogue, Story, Article, Audio Lesson)
 - Content (dialogue or story)
@@ -210,12 +240,14 @@ Enable language learners to build practical skills through:
 - Ordered list of content items (grammar rules, exercises)
 
 **User Progress:**
+
 - Track completed episodes
 - Track completed exercises within episodes
 - Overall course completion percentage
 - Resume from last incomplete item
 
 **User Actions:**
+
 - Browse available courses
 - Enroll in course
 - Navigate modules and episodes
@@ -223,9 +255,11 @@ Enable language learners to build practical skills through:
 - Track progress
 
 ### 7. Vocabulary Sets
+
 **Description:** Curated word lists for specific topics or levels
 
 **Attributes:**
+
 - Name (e.g., "Essential A1 Verbs", "Restaurant Vocabulary")
 - Description
 - Level
@@ -233,6 +267,7 @@ Enable language learners to build practical skills through:
 - Source (system-curated or user-created)
 
 **User Actions:**
+
 - Browse sets
 - Add entire set to personal vocabulary
 - Create custom sets
@@ -246,12 +281,13 @@ Enable language learners to build practical skills through:
 **Purpose:** Provide a focused, achievable daily practice routine
 
 **Requirements:**
+
 1. System generates personalized daily task list (4-6 items)
 2. Task types include:
-   - Vocabulary review (spaced repetition)
-   - Random exercises (2-3)
-   - Content recommendation (dialogue or story)
-   - Grammar tip of the day
+    - Vocabulary review (spaced repetition)
+    - Random exercises (2-3)
+    - Content recommendation (dialogue or story)
+    - Grammar tip of the day
 3. Each task shows estimated time
 4. Tasks marked as complete when finished
 5. Streak tracking (consecutive days with tasks completed)
@@ -260,6 +296,7 @@ Enable language learners to build practical skills through:
 8. Progress indicator shows tasks completed / total
 
 **User Flows:**
+
 1. User lands on platform → sees today's tasks
 2. Clicks "Start" on a task → begins that activity
 3. Completes task → returns to task list, sees checkmark
@@ -273,45 +310,49 @@ Enable language learners to build practical skills through:
 **Requirements:**
 
 **2.1 Library Organization**
+
 1. Content organized into sections: Dialogues, Stories, Grammar
 2. Each section browseable independently
 3. Filtering by:
-   - Difficulty level (A1, A2, B1, B2, C1, C2)
-   - Topic/theme
-   - Duration
+    - Difficulty level (A1, A2, B1, B2, C1, C2)
+    - Topic/theme
+    - Duration
 4. Search across all content
 5. Sort by: most recent, most popular, level
 
 **2.2 Content Display**
+
 1. Grid layout for visual browsing
 2. Each item shows:
-   - Cover image or illustration
-   - Title
-   - Type (Dialogue/Story/Grammar)
-   - Level badge
-   - Duration
-   - Audio indicator (if has audio)
-   - Completion status (if completed)
+    - Cover image or illustration
+    - Title
+    - Type (Dialogue/Story/Grammar)
+    - Level badge
+    - Duration
+    - Audio indicator (if has audio)
+    - Completion status (if completed)
 3. Click to view details/play
 
 **2.3 Content Consumption**
+
 1. Dedicated view for each content type
 2. Dialogues/Stories:
-   - Audio player (play/pause, progress bar, speed control)
-   - Transcript (toggle visibility)
-   - Interactive text (click words for definitions)
-   - Vocabulary extraction (list of key words)
-   - Save words to personal vocabulary
-   - Mark as complete
-   - Next/previous navigation (if in sequence)
+    - Audio player (play/pause, progress bar, speed control)
+    - Transcript (toggle visibility)
+    - Interactive text (click words for definitions)
+    - Vocabulary extraction (list of key words)
+    - Save words to personal vocabulary
+    - Mark as complete
+    - Next/previous navigation (if in sequence)
 3. Grammar:
-   - Structured text presentation
-   - Examples highlighted
-   - Conjugation tables (for verbs)
-   - Related topics linked
-   - Practice exercises linked (if available)
+    - Structured text presentation
+    - Examples highlighted
+    - Conjugation tables (for verbs)
+    - Related topics linked
+    - Practice exercises linked (if available)
 
 **User Flows:**
+
 1. User navigates to Library
 2. Selects section (Dialogues/Stories/Grammar)
 3. Filters by level/topic
@@ -328,43 +369,47 @@ Enable language learners to build practical skills through:
 **Requirements:**
 
 **3.1 Course Browsing**
+
 1. List of available courses
 2. Each course shows:
-   - Cover image
-   - Title
-   - Language & level
-   - Number of modules
-   - Total estimated hours
-   - Enrollment status
+    - Cover image
+    - Title
+    - Language & level
+    - Number of modules
+    - Total estimated hours
+    - Enrollment status
 3. Click to view details
 
 **3.2 Course Navigation**
+
 1. Course overview shows:
-   - Description
-   - Progress (if enrolled)
-   - List of modules
+    - Description
+    - Progress (if enrolled)
+    - List of modules
 2. Module list shows:
-   - Module number and title
-   - Number of episodes
-   - Completion status (not started / in progress / completed)
-   - Locked state (if sequential)
+    - Module number and title
+    - Number of episodes
+    - Completion status (not started / in progress / completed)
+    - Locked state (if sequential)
 3. Clicking module expands to show episodes
 4. Clicking episode opens episode view
 
 **3.3 Episode Experience**
+
 1. Episode shows:
-   - Episode content (dialogue or story)
-   - Audio player
-   - Transcript
-   - Sequence of content items below:
-     - Grammar rules
-     - Exercises
+    - Episode content (dialogue or story)
+    - Audio player
+    - Transcript
+    - Sequence of content items below:
+        - Grammar rules
+        - Exercises
 2. Content items completed in order
 3. Progress tracked per episode
 4. Can resume from last incomplete item
 5. Navigation: previous/next episode
 
 **User Flows:**
+
 1. User browses courses
 2. Clicks course → sees overview and modules
 3. Clicks module → expands to show episodes
@@ -381,47 +426,51 @@ Enable language learners to build practical skills through:
 **Requirements:**
 
 **4.1 Vocabulary Collection**
+
 1. Users can save words from:
-   - Content (dialogues, stories)
-   - Exercises
-   - Direct search/browse
+    - Content (dialogues, stories)
+    - Exercises
+    - Direct search/browse
 2. Each saved word includes:
-   - Word and translation
-   - Source (where it was encountered)
-   - Personal notes (optional)
-   - Added date
-   - Review history
+    - Word and translation
+    - Source (where it was encountered)
+    - Personal notes (optional)
+    - Added date
+    - Review history
 
 **4.2 Vocabulary Browsing**
+
 1. List view of all saved words
 2. Search saved words
 3. Filter by:
-   - Level
-   - Source
-   - Due for review
+    - Level
+    - Source
+    - Due for review
 4. Sort by:
-   - Recently added
-   - Alphabetical
-   - Next review date
+    - Recently added
+    - Alphabetical
+    - Next review date
 
 **4.3 Study Sessions**
+
 1. Multiple session types:
-   - Quick Review (5 words, ~2 min)
-   - Due Reviews (all words due today)
-   - All Words (comprehensive review)
-   - Weak Words (struggled words only)
+    - Quick Review (5 words, ~2 min)
+    - Due Reviews (all words due today)
+    - All Words (comprehensive review)
+    - Weak Words (struggled words only)
 2. Session shows:
-   - Word count
-   - Estimated time
-   - "Start" button
+    - Word count
+    - Estimated time
+    - "Start" button
 3. Review interface:
-   - Shows word (or translation, randomized)
-   - User attempts to recall
-   - Reveals answer
-   - User rates difficulty (Easy/Good/Hard/Again)
-   - System schedules next review based on spaced repetition algorithm
+    - Shows word (or translation, randomized)
+    - User attempts to recall
+    - Reveals answer
+    - User rates difficulty (Easy/Good/Hard/Again)
+    - System schedules next review based on spaced repetition algorithm
 
 **User Flows:**
+
 1. User encounters word in content
 2. Clicks word → sees definition popup
 3. Clicks "Save to vocabulary"
@@ -439,15 +488,17 @@ Enable language learners to build practical skills through:
 **Requirements:**
 
 **5.1 Progress Dashboard**
+
 1. Overall stats:
-   - Current level progress (e.g., "A1 - 78% complete")
-   - Total words learned
-   - Study streak
-   - This week's activity (exercises, words, time)
+    - Current level progress (e.g., "A1 - 78% complete")
+    - Total words learned
+    - Study streak
+    - This week's activity (exercises, words, time)
 2. Course progress (if enrolled)
 3. Recent activity log
 
 **5.2 Profile Settings**
+
 1. User information
 2. Learning language selection
 3. Native language
@@ -456,6 +507,7 @@ Enable language learners to build practical skills through:
 6. Audio settings (autoplay, speed)
 
 **User Flows:**
+
 1. User accesses profile
 2. Views stats and progress
 3. Adjusts settings
@@ -466,6 +518,7 @@ Enable language learners to build practical skills through:
 **Purpose:** Content management for administrators
 
 **Requirements:**
+
 1. Separate admin interface (accessible only to admin users)
 2. Course import/management
 3. Content creation/editing
@@ -486,14 +539,14 @@ Enable language learners to build practical skills through:
 
 1. Opens Vocabee → lands on Home/Daily Tasks
 2. Sees task list:
-   - ✓ Vocabulary Review (completed yesterday evening)
-   - ○ Daily Exercises (3 exercises)
-   - ○ Quick Listen: "At the Café"
-   - ○ Grammar Tip: Present Tense Review
+    - ✓ Vocabulary Review (completed yesterday evening)
+    - ○ Daily Exercises (3 exercises)
+    - ○ Quick Listen: "At the Café"
+    - ○ Grammar Tip: Present Tense Review
 3. Clicks "Start" on Daily Exercises
 4. Completes 3 exercises (multiple choice, fill-in-blank, listening)
-   - Each exercise shows feedback
-   - Auto-advances after correct answers (3s countdown)
+    - Each exercise shows feedback
+    - Auto-advances after correct answers (3s countdown)
 5. Returns to task list → sees exercises checked off
 6. Starts "Quick Listen"
 7. Plays dialogue, reads along
@@ -520,8 +573,8 @@ Enable language learners to build practical skills through:
 4. Browses grid of dialogue cards
 5. Clicks "Ordering at a Restaurant"
 6. Opens dialogue player
-   - Sees cover image, title, metadata
-   - Clicks "Play Audio"
+    - Sees cover image, title, metadata
+    - Clicks "Play Audio"
 7. Listens to conversation
 8. Toggles transcript visibility on
 9. Reads along while listening
@@ -547,14 +600,14 @@ Enable language learners to build practical skills through:
 3. Sees progress: Module 2, Episode 1 - 45% complete overall
 4. Clicks "Continue" → opens current episode
 5. Episode: "At the Hotel - Checking In"
-   - Main content: Dialogue with Sophie checking into hotel
+    - Main content: Dialogue with Sophie checking into hotel
 6. Plays audio, reads transcript
 7. Saves 3 new words from dialogue
 8. Scrolls to episode content items:
-   - Grammar Rule: "Polite expressions with 'voudrais'"
-   - Exercise 1: Multiple choice on hotel vocabulary
-   - Exercise 2: Fill-in-blank with polite phrases
-   - Exercise 3: Listening comprehension
+    - Grammar Rule: "Polite expressions with 'voudrais'"
+    - Exercise 1: Multiple choice on hotel vocabulary
+    - Exercise 2: Fill-in-blank with polite phrases
+    - Exercise 3: Listening comprehension
 9. Clicks grammar rule → reads explanation, views examples
 10. Returns to episode → starts Exercise 1
 11. Completes all 3 exercises
@@ -576,27 +629,27 @@ Enable language learners to build practical skills through:
 1. Opens Vocabee → Home shows "Vocabulary Review - 12 words due"
 2. Clicks "Start Review"
 3. Review interface loads
-   - Shows progress: 0/12
+    - Shows progress: 0/12
 4. Card 1: Shows "hello" in English
-   - Sarah thinks of French word
-   - Clicks "Reveal"
-   - Sees "bonjour"
-   - Rates: "Easy"
+    - Sarah thinks of French word
+    - Clicks "Reveal"
+    - Sees "bonjour"
+    - Rates: "Easy"
 5. Card 2: Shows "merci"
-   - Sarah thinks of English
-   - Clicks "Reveal"
-   - Sees "thank you"
-   - Remembers well → Rates: "Good"
+    - Sarah thinks of English
+    - Clicks "Reveal"
+    - Sees "thank you"
+    - Remembers well → Rates: "Good"
 6. Card 3: Shows "table" in English
-   - Sarah not sure
-   - Clicks "Reveal"
-   - Sees "la table" (correct)
-   - Didn't remember well → Rates: "Hard"
+    - Sarah not sure
+    - Clicks "Reveal"
+    - Sees "la table" (correct)
+    - Didn't remember well → Rates: "Hard"
 7. Continues through all 12 words
 8. Session complete → sees summary:
-   - 12 words reviewed
-   - 8 Easy, 3 Good, 1 Hard
-   - Next review: 8 words tomorrow
+    - 12 words reviewed
+    - 8 Easy, 3 Good, 1 Hard
+    - Next review: 8 words tomorrow
 9. Returns to Home
 
 **Key Touchpoints:** Vocabulary Review Interface, Spaced Repetition Ratings
@@ -608,43 +661,45 @@ Enable language learners to build practical skills through:
 ### Design Principles
 
 1. **Clarity Over Cleverness**
-   - Clear labels and actions
-   - Obvious navigation
-   - No hidden features
+    - Clear labels and actions
+    - Obvious navigation
+    - No hidden features
 
 2. **Content First**
-   - Minimize UI chrome
-   - Focus on learning content
-   - Reduce distractions
+    - Minimize UI chrome
+    - Focus on learning content
+    - Reduce distractions
 
 3. **Progressive Disclosure**
-   - Show what's needed, when it's needed
-   - Don't overwhelm with options
-   - Expand details on demand
+    - Show what's needed, when it's needed
+    - Don't overwhelm with options
+    - Expand details on demand
 
 4. **Consistent Patterns**
-   - Same actions work the same way everywhere
-   - Predictable layouts
-   - Familiar interactions
+    - Same actions work the same way everywhere
+    - Predictable layouts
+    - Familiar interactions
 
 5. **Visual Hierarchy**
-   - Clear importance levels
-   - Guide user's eye
-   - Logical reading order
+    - Clear importance levels
+    - Guide user's eye
+    - Logical reading order
 
 6. **Encouraging, Not Pushy**
-   - Celebrate progress
-   - Gentle reminders
-   - No guilt-tripping
+    - Celebrate progress
+    - Gentle reminders
+    - No guilt-tripping
 
 ### Technical Constraints
 
 **Platform:**
+
 - Web application (primary)
 - Desktop and tablet focus (mobile later)
 - Modern browsers (Chrome, Firefox, Safari, Edge)
 
 **Audio:**
+
 - All dialogues and stories have audio available (AI-generated)
 - Audio can be played, paused, speed-controlled
 - Audio is NOT always visible - minimize player UI until needed
@@ -652,11 +707,13 @@ Enable language learners to build practical skills through:
 - When playing, show more detailed controls
 
 **Images:**
+
 - Content items (courses, dialogues, stories) should have cover images
 - Images make content more appealing and easier to scan
 - Use illustrations or AI-generated images (not critical for mockups - placeholders OK)
 
 **Performance:**
+
 - Quick load times expected
 - Instant feedback on interactions
 - Smooth transitions
@@ -664,22 +721,26 @@ Enable language learners to build practical skills through:
 ### UX Constraints
 
 **Information Density:**
+
 - Spacious design (generous whitespace)
 - Don't cram too much on screen
 - Readable text sizes
 - Comfortable click/tap targets
 
 **Navigation:**
+
 - Maximum 2-3 clicks to reach any feature
 - Clear "back" paths
 - Breadcrumbs for deep hierarchies (courses → modules → episodes)
 
 **Feedback:**
+
 - Immediate response to user actions
 - Clear success/error states
 - Progress always visible
 
 **Accessibility:**
+
 - Keyboard navigable
 - Screen reader friendly (semantic HTML)
 - Sufficient color contrast
@@ -688,30 +749,30 @@ Enable language learners to build practical skills through:
 ### Non-Negotiables
 
 1. **Daily Tasks must be front and center**
-   - Not buried in navigation
-   - The first thing users see (or one click away)
+    - Not buried in navigation
+    - The first thing users see (or one click away)
 
 2. **Audio must be minimally intrusive**
-   - Don't show full player always
-   - Show indicator that audio exists
-   - Expand controls when playing
+    - Don't show full player always
+    - Show indicator that audio exists
+    - Expand controls when playing
 
 3. **Progress must persist**
-   - All completions saved
-   - Resume from where left off
-   - Never lose progress
+    - All completions saved
+    - Resume from where left off
+    - Never lose progress
 
 4. **Multiple entry points to content**
-   - Same dialogue accessible from:
-     - Daily tasks
-     - Library
-     - Course episode
-     - Recommendations
+    - Same dialogue accessible from:
+        - Daily tasks
+        - Library
+        - Course episode
+        - Recommendations
 
 5. **Grammar is reference, not sequential**
-   - Can be accessed anytime
-   - Not blocking progress
-   - Searchable and browseable
+    - Can be accessed anytime
+    - Not blocking progress
+    - Searchable and browseable
 
 ---
 
@@ -720,55 +781,55 @@ Enable language learners to build practical skills through:
 ### Priority 1 (Must Have)
 
 1. **Home / Daily Tasks**
-   - The landing page
-   - Shows today's task list
-   - Quick stats (streak, progress)
-   - Recommendations
+    - The landing page
+    - Shows today's task list
+    - Quick stats (streak, progress)
+    - Recommendations
 
 2. **Library - Content Browse**
-   - Grid of content items (dialogues/stories/grammar)
-   - Filters and search
-   - Clear visual hierarchy
+    - Grid of content items (dialogues/stories/grammar)
+    - Filters and search
+    - Clear visual hierarchy
 
 3. **Content Player (Dialogue/Story)**
-   - Audio playback
-   - Transcript
-   - Word interaction
-   - Vocabulary save
+    - Audio playback
+    - Transcript
+    - Word interaction
+    - Vocabulary save
 
 4. **Exercise View**
-   - Unified interface for all exercise types
-   - Question display
-   - Answer input/selection
-   - Feedback and auto-advance
+    - Unified interface for all exercise types
+    - Question display
+    - Answer input/selection
+    - Feedback and auto-advance
 
 5. **Vocabulary Management**
-   - List of saved words
-   - Search/filter
-   - Study session options
+    - List of saved words
+    - Search/filter
+    - Study session options
 
 ### Priority 2 (Important)
 
 6. **Course Overview**
-   - Course details
-   - Module list
-   - Progress indicators
+    - Course details
+    - Module list
+    - Progress indicators
 
 7. **Episode View**
-   - Episode content
-   - Grammar rules
-   - Exercise sequence
+    - Episode content
+    - Grammar rules
+    - Exercise sequence
 
 8. **Grammar Reference**
-   - Topic browsing
-   - Grammar rule display
-   - Examples and tables
+    - Topic browsing
+    - Grammar rule display
+    - Examples and tables
 
 ### Priority 3 (Nice to Have)
 
 9. **Study Session / Review**
-   - Flashcard-style review
-   - Rating interface
+    - Flashcard-style review
+    - Rating interface
 
 10. **Profile / Settings**
     - User stats
@@ -788,69 +849,76 @@ Enable language learners to build practical skills through:
 ### Aesthetic Preferences
 
 **Overall Feel:**
+
 - Clean and modern
 - Professional but approachable
 - Spacious (not cramped)
 - Calm color palette (not overly colorful)
 
 **Reference Styles:**
+
 - **Clean & Minimal:** Notion, Linear, Readwise
 - **NOT:** Duolingo (too playful/gamified), traditional LMS platforms (too corporate)
 
 **Key Visual Elements:**
 
 1. **Typography**
-   - Clear, readable fonts
-   - Generous line height
-   - Clear size hierarchy (h1, h2, body, small)
+    - Clear, readable fonts
+    - Generous line height
+    - Clear size hierarchy (h1, h2, body, small)
 
 2. **Colors**
-   - Soft, muted primary color (not bright)
-   - Plenty of white/light backgrounds
-   - Subtle grays for UI chrome
-   - Green for success/completion
-   - Red/orange for errors (used sparingly)
-   - Accent color for interactive elements
+    - Soft, muted primary color (not bright)
+    - Plenty of white/light backgrounds
+    - Subtle grays for UI chrome
+    - Green for success/completion
+    - Red/orange for errors (used sparingly)
+    - Accent color for interactive elements
 
 3. **Cards & Containers**
-   - Subtle shadows (not heavy drop shadows)
-   - Rounded corners (modern)
-   - Clear separation between elements
+    - Subtle shadows (not heavy drop shadows)
+    - Rounded corners (modern)
+    - Clear separation between elements
 
 4. **Spacing**
-   - Generous margins and padding
-   - Visual breathing room
-   - Clear grouping of related items
+    - Generous margins and padding
+    - Visual breathing room
+    - Clear grouping of related items
 
 5. **Icons**
-   - Simple, line-style icons
-   - Consistent style across platform
-   - Used purposefully, not decoratively
+    - Simple, line-style icons
+    - Consistent style across platform
+    - Used purposefully, not decoratively
 
 ### Component Patterns to Consider
 
 **Cards:**
+
 - Content items (dialogues, stories)
 - Task items
 - Stat widgets
 
 **Lists:**
+
 - Vocabulary words
 - Module/episode lists
 - Grammar topics
 
 **Progress Indicators:**
+
 - Progress bars (courses, episodes)
 - Completion checkmarks
 - Streak counters
 
 **Interactive Elements:**
+
 - Buttons (primary, secondary, text)
 - Input fields (search, text entry)
 - Toggles (show/hide transcript)
 - Dropdown filters
 
 **Media:**
+
 - Cover images
 - Audio player (minimal default, expanded when playing)
 - Illustrations
@@ -864,12 +932,14 @@ Enable language learners to build practical skills through:
 Create mockups for BOTH navigation styles:
 
 ### Option A: Top Navigation Bar
+
 - 5-6 main sections in horizontal nav
 - Clean, modern
 - More content space
 - Example: Home | Library | Courses | Vocabulary | Profile
 
 ### Option B: Sidebar Navigation
+
 - Vertical sidebar (always visible or collapsible)
 - More room for navigation items
 - Feels more app-like
@@ -887,6 +957,7 @@ Create mockups for BOTH navigation styles:
   ```
 
 **Decision Criteria:**
+
 - Which feels more intuitive?
 - Which provides better context?
 - Which scales better with future features?
@@ -900,39 +971,44 @@ Create mockups for BOTH navigation styles:
 ### Common Interactions
 
 **1. Saving Vocabulary**
+
 - Click word in content → popup shows definition
 - "Save to vocabulary" button in popup
 - Feedback: "Saved!" confirmation
 - Icon changes to indicate saved state
 
 **2. Audio Playback**
+
 - Minimalist by default: just "▶ Play Audio" button
 - When playing:
-  - Shows progress bar
-  - Play/pause button
-  - Time elapsed / total
-  - Speed control (1x, 1.25x, 1.5x, 2x)
-  - Transcript sync (optional: highlight current line)
+    - Shows progress bar
+    - Play/pause button
+    - Time elapsed / total
+    - Speed control (1x, 1.25x, 1.5x, 2x)
+    - Transcript sync (optional: highlight current line)
 
 **3. Exercise Submission**
+
 - User selects/types answer
 - "Submit" button enabled when answer provided
 - On submit:
-  - Immediate feedback (correct/incorrect)
-  - Explanation shown
-  - If correct: "Next (3s)" button with countdown
-  - If incorrect: "Try Again" button
+    - Immediate feedback (correct/incorrect)
+    - Explanation shown
+    - If correct: "Next (3s)" button with countdown
+    - If incorrect: "Try Again" button
 - Auto-advance after 3 seconds (if correct)
 
 **4. Progress Tracking**
+
 - Visual indicators throughout:
-  - Checkmarks for completed items
-  - Progress bars for courses/modules/episodes
-  - Counters (e.g., "2/3 exercises")
+    - Checkmarks for completed items
+    - Progress bars for courses/modules/episodes
+    - Counters (e.g., "2/3 exercises")
 - Progress saved automatically
 - No manual "save progress" action needed
 
 **5. Content Filtering**
+
 - Dropdown filters (Level, Topic, etc.)
 - Search bar
 - Filter results update immediately
@@ -940,6 +1016,7 @@ Create mockups for BOTH navigation styles:
 - Count of results shown
 
 **6. Navigation**
+
 - Breadcrumbs for deep paths (Course > Module > Episode)
 - "Back" buttons where appropriate
 - "Next" / "Previous" for sequences
@@ -950,6 +1027,7 @@ Create mockups for BOTH navigation styles:
 ## Content Examples (For Mockup Use)
 
 ### Sample Dialogue
+
 ```
 Title: At the Café
 Type: Dialogue
@@ -971,6 +1049,7 @@ Vocabulary: table, s'il vous plaît, merci, menu, café
 ```
 
 ### Sample Story
+
 ```
 Title: Sophie Arrives in Paris
 Type: Story
@@ -988,6 +1067,7 @@ Vocabulary: airport, taxi, hotel, first time, key, welcome
 ```
 
 ### Sample Grammar Rule
+
 ```
 Topic: Present Tense - Être (to be)
 Category: Verbs > Present Tense
@@ -1013,6 +1093,7 @@ Examples:
 ### Sample Exercises
 
 **Multiple Choice:**
+
 ```
 Question: What is the French word for "thank you"?
 Options:
@@ -1026,6 +1107,7 @@ Explanation: "Merci" is the standard way to say thank you in French.
 ```
 
 **Fill-in-Blank:**
+
 ```
 Sentence: Je _____ au marché.
 Correct Answer: vais
@@ -1034,6 +1116,7 @@ Explanation: "Je vais" means "I go" or "I am going"
 ```
 
 **Listening:**
+
 ```
 Audio: [French phrase spoken]
 Question: What did you hear?
@@ -1051,23 +1134,27 @@ Correct: A
 ## Non-Functional Requirements
 
 ### Performance
+
 - Page load time: < 2 seconds
 - Interaction response: < 100ms
 - Audio start playback: < 1 second
 
 ### Accessibility
+
 - WCAG 2.1 AA compliance
 - Keyboard navigation for all functions
 - Screen reader compatible
 - Color contrast ratios meet standards
 
 ### Browser Support
+
 - Chrome (latest 2 versions)
 - Firefox (latest 2 versions)
 - Safari (latest 2 versions)
 - Edge (latest 2 versions)
 
 ### Data & Privacy
+
 - User progress saved to backend
 - Audio files served efficiently
 - Secure authentication
@@ -1115,6 +1202,7 @@ Please create HTML mockups (with CSS) for the **Priority 1 screens**:
 5. Vocabulary Management
 
 **For each screen:**
+
 - Create two versions: Top Nav and Sidebar Nav
 - Use placeholder content from examples above
 - Include realistic text, not lorem ipsum
@@ -1125,6 +1213,7 @@ Please create HTML mockups (with CSS) for the **Priority 1 screens**:
 - Include comments explaining sections
 
 **Style Guidelines:**
+
 - Spacious, clean design (like Notion or Linear)
 - Soft color palette (not bright/gamified)
 - Readable typography (generous line-height)
@@ -1152,6 +1241,7 @@ Please create HTML mockups (with CSS) for the **Priority 1 screens**:
 ## Appendix: Platform Statistics (For Context)
 
 **Current Content:**
+
 - 1 complete course (French A1)
 - 10 modules
 - 24 episodes (stories and dialogues)
@@ -1161,6 +1251,7 @@ Please create HTML mockups (with CSS) for the **Priority 1 screens**:
 - 12 languages supported in vocabulary (French focus)
 
 **Technologies:**
+
 - Web application
 - AI-generated audio (Gemini TTS)
 - PostgreSQL database
@@ -1168,6 +1259,7 @@ Please create HTML mockups (with CSS) for the **Priority 1 screens**:
 - Modern JavaScript frontend
 
 **User Capabilities:**
+
 - Create account, authenticate
 - Browse and search vocabulary
 - Save personal word lists
@@ -1180,4 +1272,5 @@ Please create HTML mockups (with CSS) for the **Priority 1 screens**:
 
 **Document End**
 
-This requirements document should provide complete functional context for creating innovative, user-focused mockups without being influenced by existing implementation details.
+This requirements document should provide complete functional context for creating innovative, user-focused mockups
+without being influenced by existing implementation details.

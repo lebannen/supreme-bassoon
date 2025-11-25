@@ -8,7 +8,8 @@
 
 ## Overview
 
-Create a backend admin endpoint that imports exercise JSON files and generates audio files server-side, eliminating the need for external scripts.
+Create a backend admin endpoint that imports exercise JSON files and generates audio files server-side, eliminating the
+need for external scripts.
 
 ---
 
@@ -19,6 +20,7 @@ Create a backend admin endpoint that imports exercise JSON files and generates a
 **Endpoint**: `POST /api/admin/exercises/import`
 
 **Request**:
+
 ```json
 {
   "moduleFile": "module_1_exercises.json",
@@ -28,6 +30,7 @@ Create a backend admin endpoint that imports exercise JSON files and generates a
 ```
 
 **OR** direct JSON upload:
+
 ```json
 {
   "content": { /* entire module JSON */ },
@@ -36,6 +39,7 @@ Create a backend admin endpoint that imports exercise JSON files and generates a
 ```
 
 **Response**:
+
 ```json
 {
   "imported": 8,
@@ -62,12 +66,14 @@ Create a backend admin endpoint that imports exercise JSON files and generates a
 **New Kotlin Service**: `AudioGenerationService`
 
 **Responsibilities**:
+
 - Generate audio from text using Gemini TTS
 - Save MP3 files to local storage or MinIO/S3
 - Return audio URL for database storage
 - Handle retries and errors
 
 **Key Methods**:
+
 ```kotlin
 interface AudioGenerationService {
     // Generate audio and return URL
@@ -87,11 +93,13 @@ interface AudioGenerationService {
 ### 3. **File Storage Strategy**
 
 **Option A: Local File Storage (Simpler)**
+
 - Save to `frontend/public/audio/` directly
 - Serve via frontend static files
 - Good for development/small scale
 
 **Option B: MinIO/S3 (Production-ready)**
+
 - Upload to MinIO (already configured in project)
 - Return S3-compatible URL
 - Better for scalability and backups
@@ -132,6 +140,7 @@ class ExerciseImportService(
 ```
 
 **Data Classes**:
+
 ```kotlin
 data class ModuleExerciseData(
     val module: Int,
@@ -167,6 +176,7 @@ data class ImportResult(
 **Implementation Options**:
 
 **Option A: Direct Gemini API in Kotlin**
+
 ```kotlin
 @Service
 class GeminiAudioGenerationService(
@@ -187,6 +197,7 @@ class GeminiAudioGenerationService(
 ```
 
 **Option B: Shell out to Python script** (reuse existing `gemini_tts.py`)
+
 ```kotlin
 @Service
 class PythonAudioGenerationService : AudioGenerationService {
@@ -253,6 +264,7 @@ class ExerciseImportController(
 **Handling Listening Exercises**:
 
 **Current JSON format** (from `module_1_exercises.json`):
+
 ```json
 {
   "type": "listening",
@@ -266,16 +278,18 @@ class ExerciseImportController(
 ```
 
 **Processing Logic**:
+
 1. Detect exercise type = "listening"
 2. Check if `content.transcript` exists
 3. **Ignore `content.audioUrl`** from JSON (if present)
 4. If `generateAudio = true`:
-   - Extract `transcript`, `languageCode` from content or module level
-   - Call `audioGenerationService.generateAudio()`
-   - **Replace** `content.audioUrl` with generated URL
+    - Extract `transcript`, `languageCode` from content or module level
+    - Call `audioGenerationService.generateAudio()`
+    - **Replace** `content.audioUrl` with generated URL
 5. Save exercise to database with new audioUrl
 
 **Audio URL Convention**:
+
 ```
 /audio/{languageCode}/module_{moduleNumber}/{sanitized_transcript}.mp3
 ```
@@ -287,6 +301,7 @@ Same sanitization rules as before (lowercase, remove special chars, etc.)
 ## File Storage Configuration
 
 **application.yml**:
+
 ```yaml
 audio:
   storage:
@@ -322,11 +337,13 @@ gemini:
 ```
 
 **Database**: Exercise still saved, but `audioUrl` could be:
+
 - Null (to be generated later)
 - Placeholder URL
 - Error marker
 
 **Retry Mechanism**: Separate endpoint to regenerate failed audio
+
 ```
 POST /api/admin/exercises/{id}/regenerate-audio
 ```
@@ -336,10 +353,12 @@ POST /api/admin/exercises/{id}/regenerate-audio
 ## Security & Permissions
 
 **Admin Only**:
+
 - `@PreAuthorize("hasRole('ADMIN')")`
 - Only authenticated admin users can import
 
 **Validation**:
+
 - File size limits (e.g., max 10MB for JSON)
 - Module number validation
 - Exercise type validation (must exist in `exercise_types` table)
@@ -352,6 +371,7 @@ POST /api/admin/exercises/{id}/regenerate-audio
 **Admin UI**: New view for importing exercises
 
 **Features**:
+
 - File upload for JSON
 - Preview exercises before import
 - Toggle "Generate Audio" checkbox
@@ -365,10 +385,12 @@ POST /api/admin/exercises/{id}/regenerate-audio
 ## Migration Path
 
 **For existing exercises in database**:
+
 - Already have `audioUrl` and audio files
 - No changes needed
 
 **For new `module_1_exercises.json`**:
+
 - Upload via endpoint
 - Backend generates audio
 - Ignores hardcoded `audioUrl` in JSON
@@ -379,16 +401,19 @@ POST /api/admin/exercises/{id}/regenerate-audio
 ## Testing Strategy
 
 ### Unit Tests
+
 - `ExerciseImportServiceTest`: Test JSON parsing, exercise creation
 - `AudioGenerationServiceTest`: Mock audio generation
 - `ExerciseImportControllerTest`: Test endpoint security, validation
 
 ### Integration Tests
+
 - Import full module JSON
 - Verify exercises created in database
 - Verify audio files created (or mock calls)
 
 ### Manual Testing
+
 1. Upload `module_1_exercises.json` via Postman
 2. Verify 8 exercises imported
 3. Check audio file created for listening exercise
@@ -399,25 +424,25 @@ POST /api/admin/exercises/{id}/regenerate-audio
 ## Implementation Order
 
 1. **Phase 1**: Create `ExerciseImportService` (no audio yet)
-   - Parse JSON
-   - Create exercises
-   - Return import result
+    - Parse JSON
+    - Create exercises
+    - Return import result
 
 2. **Phase 2**: Add `AudioGenerationService` (Python wrapper)
-   - Shell out to existing `gemini_tts.py`
-   - Save files locally
-   - Return URL
+    - Shell out to existing `gemini_tts.py`
+    - Save files locally
+    - Return URL
 
 3. **Phase 3**: Integrate audio into import
-   - Detect listening exercises
-   - Extract transcript
-   - Generate audio
-   - Update content JSON
+    - Detect listening exercises
+    - Extract transcript
+    - Generate audio
+    - Update content JSON
 
 4. **Phase 4**: Create admin controller endpoint
-   - POST `/api/admin/exercises/import`
-   - Security, validation
-   - Error handling
+    - POST `/api/admin/exercises/import`
+    - Security, validation
+    - Error handling
 
 5. **Phase 5** (Optional): Frontend admin UI
 

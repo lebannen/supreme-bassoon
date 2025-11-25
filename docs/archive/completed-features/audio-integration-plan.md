@@ -7,7 +7,8 @@
 
 ## Overview
 
-Implement a reusable file upload system using MinIO (S3-compatible storage) for audio files, with seamless migration path to AWS S3/GCS. This provides unified local development and production deployment.
+Implement a reusable file upload system using MinIO (S3-compatible storage) for audio files, with seamless migration
+path to AWS S3/GCS. This provides unified local development and production deployment.
 
 ---
 
@@ -34,6 +35,7 @@ Implement a reusable file upload system using MinIO (S3-compatible storage) for 
 ```
 
 **Key Benefits:**
+
 - 🔄 **Unified API**: Same code for dev & prod
 - 🚀 **Scalable**: Local to cloud without changes
 - 🔧 **Reusable**: Generic file upload, not just audio
@@ -100,6 +102,7 @@ networks:
 ```
 
 **Access:**
+
 - S3 API: http://localhost:9000
 - Web Console: http://localhost:9001 (admin/minioadmin123)
 
@@ -149,6 +152,7 @@ spring:
 ```
 
 **Production environment:**
+
 ```bash
 # AWS S3
 S3_ENDPOINT=https://s3.amazonaws.com
@@ -1141,6 +1145,7 @@ const props = defineProps<{
 ### 6.1 Testing Checklist
 
 **Local Development (MinIO):**
+
 - [ ] Start docker-compose with MinIO
 - [ ] Access MinIO console (http://localhost:9001)
 - [ ] Upload audio via API
@@ -1150,11 +1155,13 @@ const props = defineProps<{
 - [ ] Update existing text with audio
 
 **Backend Tests:**
+
 - [ ] StorageService unit tests
 - [ ] FileUploadController integration tests
 - [ ] Audio URL validation tests
 
 **Frontend Tests:**
+
 - [ ] File upload component tests
 - [ ] Audio player functionality
 - [ ] Audio indicator display
@@ -1164,6 +1171,7 @@ const props = defineProps<{
 ### 6.2 Production Deployment
 
 **AWS S3 Setup:**
+
 ```bash
 # Create bucket
 aws s3 mb s3://vocabee-audio-prod
@@ -1190,6 +1198,7 @@ export S3_PATH_STYLE=false
 ```
 
 **Migrate Existing Audio:**
+
 ```bash
 # Install MinIO client
 brew install minio/stable/mc
@@ -1209,6 +1218,7 @@ mc mirror local/vocabee-audio aws/vocabee-audio-prod
 ### What Was Built
 
 **Backend (Kotlin + Spring Boot):**
+
 - ✅ MinIO Docker setup with auto-created buckets
 - ✅ S3 client configuration (compatible with MinIO/AWS S3)
 - ✅ FileType enum with validation (audio/image/document)
@@ -1218,6 +1228,7 @@ mc mirror local/vocabee-audio aws/vocabee-audio-prod
 - ✅ Security config allowing public file endpoints
 
 **Frontend (Vue 3 + TypeScript):**
+
 - ✅ useFileUpload composable
 - ✅ ReadingAdminView with drag-and-drop audio upload
 - ✅ AudioPlayer component with controls
@@ -1225,6 +1236,7 @@ mc mirror local/vocabee-audio aws/vocabee-audio-prod
 - ✅ Integration with BookComponent
 
 **TTS Pipeline (Python + Gemini API):**
+
 - ✅ gemini_tts.py library for TTS generation
 - ✅ MP3 output at 128kbps (67% smaller than WAV)
 - ✅ Batch audio generation from reading texts
@@ -1232,32 +1244,35 @@ mc mirror local/vocabee-audio aws/vocabee-audio-prod
 - ✅ 17 audio files generated for French/German texts
 
 **Database:**
+
 - ✅ V11 migration adding audio_url column to reading_texts
 - ✅ Audio URL tracking for all texts
 
 ### Enhancements Beyond Original Plan
 
 1. **MP3 Optimization**: Changed from WAV to MP3 128kbps
-   - 67% file size reduction (40MB → 13MB for 17 files)
-   - Better for web streaming
-   - Significant bandwidth savings
+    - 67% file size reduction (40MB → 13MB for 17 files)
+    - Better for web streaming
+    - Significant bandwidth savings
 
 2. **Admin UI**: Added comprehensive admin interface
-   - Visual audio status indicators
-   - Per-text upload with progress tracking
-   - Filter texts by language/level
-   - Upload results with detailed feedback
+    - Visual audio status indicators
+    - Per-text upload with progress tracking
+    - Filter texts by language/level
+    - Upload results with detailed feedback
 
 3. **Dark Theme Integration**: Audio player styled to match app theme
 
 ### Files Created/Modified
 
 **Backend:**
+
 - `backend/src/main/resources/db/migration/V11__Add_audio_url_to_reading_texts.sql`
 - `backend/src/main/kotlin/com/vocabee/domain/model/FileType.kt` (updated with audio MIME types)
 - `backend/src/main/kotlin/com/vocabee/config/SecurityConfig.kt` (updated for file/audio endpoints)
 
 **Frontend:**
+
 - `frontend/src/components/AudioPlayer.vue` (NEW)
 - `frontend/src/views/ReadingAdminView.vue` (NEW)
 - `frontend/src/components/BookComponent.vue` (updated with audio player)
@@ -1265,10 +1280,12 @@ mc mirror local/vocabee-audio aws/vocabee-audio-prod
 - `frontend/src/App.vue` (updated navigation with Admin menu)
 
 **Scripts:**
+
 - `scripts/genai/gemini_tts.py` (updated to generate MP3)
 - `scripts/genai/convert_wav_to_mp3.py` (NEW)
 
 **Audio Files:**
+
 - 17 MP3 files generated (French A1/A2, German A1/A2)
 - Total size: 13.35 MB
 
@@ -1293,6 +1310,7 @@ mc mirror local/vocabee-audio aws/vocabee-audio-prod
 3. **Future**: Add CloudFlare CDN for global distribution
 
 **Benefits:**
+
 - 🎯 Production-ready architecture
 - 🔄 Zero code changes for cloud migration
 - 💰 Cost-effective ($0 local, ~$1-5/mo cloud)

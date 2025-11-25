@@ -26,6 +26,7 @@ All exercise types have been successfully implemented in this order:
 ### Backend Foundation
 
 #### Task 0.1: Database Migration
+
 **File:** `backend/src/main/resources/db/migration/V12__Create_exercise_tables.sql`
 
 ```sql
@@ -130,6 +131,7 @@ CREATE INDEX idx_collection_items_collection ON exercise_collection_items(collec
 ```
 
 **Checklist:**
+
 - [x] Create migration file (V12__Create_exercise_tables.sql)
 - [x] Test migration locally
 - [x] Verify all indexes created
@@ -139,7 +141,9 @@ CREATE INDEX idx_collection_items_collection ON exercise_collection_items(collec
 ---
 
 #### Task 0.2: Domain Models
+
 **Files:**
+
 - `backend/src/main/kotlin/com/vocabee/domain/model/ExerciseType.kt`
 - `backend/src/main/kotlin/com/vocabee/domain/model/Exercise.kt`
 - `backend/src/main/kotlin/com/vocabee/domain/model/UserExerciseAttempt.kt`
@@ -259,6 +263,7 @@ data class UserExerciseAttempt(
 ```
 
 **Checklist:**
+
 - [x] Create domain models
 - [x] Add JSONB type handler (using @JdbcTypeCode(SqlTypes.JSON))
 - [x] Test entity mapping
@@ -268,6 +273,7 @@ data class UserExerciseAttempt(
 ---
 
 #### Task 0.3: Repositories
+
 **File:** `backend/src/main/kotlin/com/vocabee/domain/repository/ExerciseRepository.kt`
 
 ```kotlin
@@ -325,6 +331,7 @@ interface UserExerciseAttemptRepository : JpaRepository<UserExerciseAttempt, Lon
 ```
 
 **Checklist:**
+
 - [x] Create repository interfaces
 - [x] Test query methods
 - [x] Verify JSONB queries work
@@ -334,6 +341,7 @@ interface UserExerciseAttemptRepository : JpaRepository<UserExerciseAttempt, Lon
 ---
 
 #### Task 0.4: DTOs
+
 **File:** `backend/src/main/kotlin/com/vocabee/web/dto/ExerciseDto.kt`
 
 ```kotlin
@@ -425,6 +433,7 @@ fun Exercise.toDto() = ExerciseDto(
 ```
 
 **Checklist:**
+
 - [x] Create DTO classes
 - [x] Add extension functions
 - [x] Test serialization
@@ -434,6 +443,7 @@ fun Exercise.toDto() = ExerciseDto(
 ---
 
 #### Task 0.5: Validation Service (Generic Framework)
+
 **File:** `backend/src/main/kotlin/com/vocabee/service/ExerciseValidationService.kt`
 
 ```kotlin
@@ -486,6 +496,7 @@ class UnsupportedExerciseTypeException(message: String) : RuntimeException(messa
 ```
 
 **Checklist:**
+
 - [x] Create validation service skeleton
 - [x] Add exception handling
 - [x] Prepare for incremental implementation
@@ -496,6 +507,7 @@ class UnsupportedExerciseTypeException(message: String) : RuntimeException(messa
 ---
 
 #### Task 0.6: Exercise Service
+
 **File:** `backend/src/main/kotlin/com/vocabee/service/ExerciseService.kt`
 
 ```kotlin
@@ -586,6 +598,7 @@ class ExerciseService(
 ```
 
 **Checklist:**
+
 - [x] Create exercise service
 - [x] Add transaction support
 - [x] Test service methods
@@ -595,6 +608,7 @@ class ExerciseService(
 ---
 
 #### Task 0.7: API Controller
+
 **File:** `backend/src/main/kotlin/com/vocabee/web/api/ExerciseController.kt`
 
 ```kotlin
@@ -654,6 +668,7 @@ class ExerciseController(
 ```
 
 **Checklist:**
+
 - [x] Create controller
 - [x] Add authentication (JWT-based)
 - [x] Test endpoints
@@ -665,6 +680,7 @@ class ExerciseController(
 ### Frontend Foundation
 
 #### Task 0.8: TypeScript Types
+
 **File:** `frontend/src/types/exercise.ts`
 
 ```typescript
@@ -720,6 +736,7 @@ export interface UserProgress {
 ```
 
 **Checklist:**
+
 - [x] Create type definitions
 - [x] Export from index
 
@@ -728,6 +745,7 @@ export interface UserProgress {
 ---
 
 #### Task 0.9: Exercise API Composable
+
 **File:** `frontend/src/composables/useExerciseApi.ts`
 
 ```typescript
@@ -841,6 +859,7 @@ export function useExerciseApi() {
 ```
 
 **Checklist:**
+
 - [x] Create composable
 - [x] Add authentication headers
 - [x] Test API calls
@@ -850,7 +869,9 @@ export function useExerciseApi() {
 ---
 
 #### Task 0.10: Basic Page Structure
+
 **Files:**
+
 - `frontend/src/views/ExercisesView.vue` (list page)
 - `frontend/src/views/ExerciseDetailView.vue` (exercise runner)
 - Update `frontend/src/router/index.ts`
@@ -997,6 +1018,7 @@ onMounted(fetchExercises)
 ```
 
 **Checklist:**
+
 - [x] Create exercise list view (ExercisesView)
 - [x] Create exercise detail view (ExerciseDetailView)
 - [x] Add basic styling
@@ -1012,12 +1034,14 @@ onMounted(fetchExercises)
 ### Completed Work
 
 **Backend (100% Complete):**
+
 - ✅ Multiple Choice validation logic in `ExerciseValidationService.kt`
 - ✅ Database migration V13 with 5 sample exercises
 - ✅ Full JSONB support with correct annotations
 - ✅ Integration testing with 3 unit tests (all passing)
 
 **Frontend (100% Complete):**
+
 - ✅ `MultipleChoiceExercise.vue` component created
 - ✅ Interactive option selection with A/B/C/D labels
 - ✅ Hint system implemented
@@ -1027,9 +1051,10 @@ onMounted(fetchExercises)
 - ✅ UI polish complete
 
 **Sample Data:**
+
 - ✅ 5 French A1 exercises created in module_2.json
-  - Integrated into Episode 1 and Episode 3
-  - Covers vocabulary, comprehension, and grammar
+    - Integrated into Episode 1 and Episode 3
+    - Covers vocabulary, comprehension, and grammar
 
 ---
 
@@ -1038,6 +1063,7 @@ onMounted(fetchExercises)
 **All Phases Completed:** ✅ **100% COMPLETE**
 
 **Phase 0 - Infrastructure:** ✅ Complete
+
 - ✅ Database schema (V12, V13)
 - ✅ Backend infrastructure
 - ✅ API endpoints with JWT auth
@@ -1045,37 +1071,44 @@ onMounted(fetchExercises)
 - ✅ Generic validation framework
 
 **Phase 1 - Multiple Choice:** ✅ Complete
+
 - ✅ Backend validation (3 tests)
 - ✅ Frontend component
 - ✅ 5 sample exercises
 
 **Phase 2 - Fill in Blank:** ✅ Complete
+
 - ✅ Backend validation (6 tests)
 - ✅ Multi-blank support
 - ✅ Frontend component
 - ✅ 6 sample exercises
 
 **Phase 3 - Sentence Scramble:** ✅ Complete
+
 - ✅ Backend validation (7 tests)
 - ✅ Drag-and-drop UI
 - ✅ 6 sample exercises
 
 **Phase 4 - Matching:** ✅ Complete
+
 - ✅ Backend validation (7 tests)
 - ✅ Click-to-match UI
 - ✅ 6 sample exercises
 
 **Phase 5 - Listening:** ✅ Complete
+
 - ✅ Backend validation (10 tests)
 - ✅ Audio player UI
 - ✅ 6 sample exercises with audio
 
 **Phase 6 - Cloze Reading:** ✅ Complete
+
 - ✅ Backend validation (9 tests)
 - ✅ Inline input UI
 - ✅ 6 sample exercises
 
 **Total Achievements:**
+
 - 6 exercise types fully implemented
 - 35 sample exercises
 - 45 unit tests (all passing)
@@ -1085,6 +1118,7 @@ onMounted(fetchExercises)
 - Complete documentation
 
 **Next Steps:**
+
 1. Create additional course content (Modules 3-10)
 2. Implement AI-assisted exercise generation
 3. Add exercise collections and unlocking system

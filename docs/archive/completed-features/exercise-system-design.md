@@ -32,6 +32,7 @@
 All infrastructure components have been implemented and tested:
 
 **Backend:**
+
 - ✅ Database migration V12 created and deployed
 - ✅ Domain models: `Exercise`, `ExerciseType`, `UserExerciseAttempt`
 - ✅ Repositories: `ExerciseRepository`, `UserExerciseAttemptRepository`, `ExerciseTypeRepository`
@@ -42,6 +43,7 @@ All infrastructure components have been implemented and tested:
 - ✅ JSONB support with `@JdbcTypeCode(SqlTypes.JSON)` annotation
 
 **Frontend:**
+
 - ✅ TypeScript types defined (`exercise.ts`)
 - ✅ API composable (`useExerciseApi.ts`)
 - ✅ Routing configured
@@ -94,6 +96,7 @@ All infrastructure components have been implemented and tested:
 - ✅ Audio file generation script created
 
 **Audio Files Generated:**
+
 1. `/audio/fr/greetings/bonjour.mp3` (21 KB)
 2. `/audio/fr/numbers/cinq.mp3` (32 KB)
 3. `/audio/fr/phrases/comment_allez_vous.mp3` (22 KB)
@@ -118,6 +121,7 @@ All infrastructure components have been implemented and tested:
 **Total Exercise Types Implemented:** 6/6 (100%)
 
 **Total Sample Exercises:** 35
+
 - Multiple Choice: 5 exercises
 - Fill in the Blank: 6 exercises
 - Sentence Scramble: 6 exercises
@@ -137,7 +141,9 @@ All infrastructure components have been implemented and tested:
 
 ## Overview
 
-The Exercise System extends Vocabee's learning capabilities beyond passive reading and spaced repetition flashcards to include interactive, structured exercises aligned with the French A1 curriculum (extensible to other languages and levels).
+The Exercise System extends Vocabee's learning capabilities beyond passive reading and spaced repetition flashcards to
+include interactive, structured exercises aligned with the French A1 curriculum (extensible to other languages and
+levels).
 
 ### Core Goals
 
@@ -159,26 +165,31 @@ The Exercise System extends Vocabee's learning capabilities beyond passive readi
 ## Design Principles
 
 ### 1. Fail-Fast Validation
+
 - Users get immediate feedback on every interaction
 - Clear indication of correct/incorrect answers
 - Explanatory hints available on demand
 
 ### 2. Adaptive Scaffolding
+
 - Earlier exercises use recognition (multiple choice, matching)
 - Later exercises use recall (fill-in-blank, typing)
 - Hardest exercises require production (translation, speaking)
 
 ### 3. Context-Rich Content
+
 - All exercises tied to real vocabulary and grammar
 - Examples from authentic language use (Wiktionary)
 - Cultural context where relevant
 
 ### 4. Gamification Without Distraction
+
 - Points and progress tracking
 - Unlocking system for motivation
 - No artificial time pressure (except optional challenges)
 
 ### 5. Mobile-First Design
+
 - Touch-friendly interactions (tap, drag, swipe)
 - Minimal typing on mobile
 - Responsive layouts
@@ -188,6 +199,7 @@ The Exercise System extends Vocabee's learning capabilities beyond passive readi
 ## Exercise Type Categories
 
 ### Category 1: Vocabulary Recognition (A1 Modules 1-3)
+
 **Cognitive Load:** Low
 **Input Method:** Tap/Click
 
@@ -197,6 +209,7 @@ The Exercise System extends Vocabee's learning capabilities beyond passive readi
 - **Multiple Choice (Definition)**: "What does 'bonjour' mean?"
 
 ### Category 2: Grammar & Structure (A1 Modules 2-5)
+
 **Cognitive Load:** Medium
 **Input Method:** Select, Drag
 
@@ -206,6 +219,7 @@ The Exercise System extends Vocabee's learning capabilities beyond passive readi
 - **Gender Identification**: Masculine or feminine?
 
 ### Category 3: Listening Comprehension (A1 Modules 4-6)
+
 **Cognitive Load:** Medium
 **Input Method:** Select, Type
 
@@ -215,6 +229,7 @@ The Exercise System extends Vocabee's learning capabilities beyond passive readi
 - **Dialogue Comprehension**: Answer questions about dialogue
 
 ### Category 4: Reading Comprehension (A1 Modules 5-7)
+
 **Cognitive Load:** Medium-High
 **Input Method:** Select, Type
 
@@ -224,6 +239,7 @@ The Exercise System extends Vocabee's learning capabilities beyond passive readi
 - **Sentence Completion**: Finish the sentence
 
 ### Category 5: Production & Translation (A1 Modules 7-10)
+
 **Cognitive Load:** High
 **Input Method:** Type, Speak
 
@@ -352,6 +368,7 @@ CREATE INDEX idx_collection_items_collection ON exercise_collection_items(collec
 **Interaction:** Select
 
 **Content Structure (JSONB):**
+
 ```json
 {
   "question": {
@@ -371,11 +388,13 @@ CREATE INDEX idx_collection_items_collection ON exercise_collection_items(collec
 ```
 
 **Generation Strategy:**
+
 - Question: Use word from vocabulary/word set
 - Correct answer: Use Wiktionary definition or translation
 - Distractors: Select semantically similar words or same part of speech
 
 **Validation Logic:**
+
 ```kotlin
 fun validateMultipleChoice(userAnswer: String, content: JsonNode): ValidationResult {
     val correctOption = content["options"].find { it["isCorrect"].asBoolean() }
@@ -398,6 +417,7 @@ fun validateMultipleChoice(userAnswer: String, content: JsonNode): ValidationRes
 **Interaction:** Drag-and-drop or tap pairs
 
 **Content Structure (JSONB):**
+
 ```json
 {
   "pairs": [
@@ -411,6 +431,7 @@ fun validateMultipleChoice(userAnswer: String, content: JsonNode): ValidationRes
 ```
 
 **User Response Structure:**
+
 ```json
 {
   "matches": [
@@ -423,6 +444,7 @@ fun validateMultipleChoice(userAnswer: String, content: JsonNode): ValidationRes
 ```
 
 **Validation Logic:**
+
 ```kotlin
 fun validateMatching(userMatches: List<Match>, correctPairs: List<Pair>): ValidationResult {
     val correctCount = userMatches.count { match ->
@@ -448,6 +470,7 @@ fun validateMatching(userMatches: List<Match>, correctPairs: List<Pair>): Valida
 **Interaction:** Drag-and-drop
 
 **Content Structure (JSONB):**
+
 ```json
 {
   "correctSentence": "Je parle français",
@@ -463,6 +486,7 @@ fun validateMatching(userMatches: List<Match>, correctPairs: List<Pair>): Valida
 ```
 
 **User Response Structure:**
+
 ```json
 {
   "orderedWords": ["w1", "w2", "w3"]
@@ -470,6 +494,7 @@ fun validateMatching(userMatches: List<Match>, correctPairs: List<Pair>): Valida
 ```
 
 **Validation Logic:**
+
 ```kotlin
 fun validateSentenceScramble(userOrder: List<String>, correctOrder: List<String>): ValidationResult {
     val isCorrect = userOrder == correctOrder
@@ -495,6 +520,7 @@ fun validateSentenceScramble(userOrder: List<String>, correctOrder: List<String>
 **Interaction:** Select from dropdown or type
 
 **Content Structure (JSONB):**
+
 ```json
 {
   "sentence": "Je ____ français.",
@@ -510,6 +536,7 @@ fun validateSentenceScramble(userOrder: List<String>, correctOrder: List<String>
 ```
 
 **User Response Structure (Dropdown):**
+
 ```json
 {
   "answer": "parle"
@@ -517,6 +544,7 @@ fun validateSentenceScramble(userOrder: List<String>, correctOrder: List<String>
 ```
 
 **Validation Logic:**
+
 ```kotlin
 fun validateFillInBlank(userAnswer: String, correctAnswer: String): ValidationResult {
     val isCorrect = userAnswer.trim().equals(correctAnswer, ignoreCase = true)
@@ -542,6 +570,7 @@ fun validateFillInBlank(userAnswer: String, correctAnswer: String): ValidationRe
 **Interaction:** Select
 
 **Content Structure (JSONB):**
+
 ```json
 {
   "audioUrl": "https://.../bonjour.mp3",
@@ -566,6 +595,7 @@ fun validateFillInBlank(userAnswer: String, correctAnswer: String): ValidationRe
 **Interaction:** Select or type
 
 **Content Structure (JSONB):**
+
 ```json
 {
   "passage": "Marie entre dans un petit café. Elle s'assoit près de la __1__. Le __2__ arrive avec un sourire.",
@@ -910,6 +940,7 @@ function getOptionClass(optionId: string) {
 ## Implementation Phases
 
 ### Phase 0: Infrastructure (Week 1-2) ✅ **COMPLETE**
+
 **Priority: Critical**
 
 - [x] Create database migrations for exercise tables (V12, V13)
@@ -925,6 +956,7 @@ function getOptionClass(optionId: string) {
 ---
 
 ### Phase 1: First Exercise Type - Multiple Choice (Week 2-3) 🚧 **IN PROGRESS**
+
 **Priority: High**
 
 - [x] Implement multiple choice validation logic
@@ -942,6 +974,7 @@ function getOptionClass(optionId: string) {
 ---
 
 ### Phase 3: Second Exercise Type - Matching (Week 3-4)
+
 **Priority: High**
 
 - [ ] Implement matching validation logic
@@ -955,6 +988,7 @@ function getOptionClass(optionId: string) {
 ---
 
 ### Phase 4: Exercise Collections (Week 4-5)
+
 **Priority: Medium**
 
 - [ ] Implement collection browsing
@@ -968,15 +1002,18 @@ function getOptionClass(optionId: string) {
 ---
 
 ### Phase 5: Additional Exercise Types (Week 5-8)
+
 **Priority: Medium**
 
 Implement in order:
+
 1. Sentence Scramble (Week 5)
 2. Fill-in-the-Blank (Week 6)
 3. Listening Exercises (Week 7)
 4. Cloze Reading (Week 8)
 
 Each follows same pattern:
+
 - Backend validation
 - Frontend component
 - 5-10 sample exercises
@@ -987,6 +1024,7 @@ Each follows same pattern:
 ---
 
 ### Phase 6: AI Exercise Generation (Week 9-10)
+
 **Priority: Low (Enhancement)**
 
 - [ ] Implement ExerciseGenerationService
@@ -1002,6 +1040,7 @@ Each follows same pattern:
 ## AI Integration Strategy
 
 ### Approach 1: Manual Curation (MVP)
+
 **Timeline:** Immediate
 **Effort:** High upfront, low ongoing
 
@@ -1011,10 +1050,12 @@ Each follows same pattern:
 - Slow to scale
 
 ### Approach 2: AI-Assisted Generation (Post-MVP)
+
 **Timeline:** Phase 6
 **Effort:** Medium upfront, low ongoing
 
 **For Multiple Choice:**
+
 ```
 Prompt to Gemini:
 "Create a multiple choice vocabulary exercise for A1 French learners.
@@ -1033,6 +1074,7 @@ Format as JSON with question, correct answer, and 3 distractors."
 ```
 
 **For Sentence Scramble:**
+
 ```
 Prompt:
 "Create a sentence scramble exercise for A1 French learners using this sentence:
@@ -1046,6 +1088,7 @@ Requirements:
 ```
 
 **For Cloze Reading:**
+
 ```
 Prompt:
 "Convert this French A1 text into a cloze reading exercise:
@@ -1070,16 +1113,19 @@ Requirements:
 ## Success Metrics
 
 ### User Engagement
+
 - **Exercise Completion Rate**: % of started exercises completed
 - **Daily Exercise Users**: Users doing at least 1 exercise per day
 - **Average Session Length**: Time spent on exercises per session
 
 ### Learning Effectiveness
+
 - **First-Attempt Accuracy**: % correct on first try
 - **Improvement Over Time**: Accuracy increase after repeated attempts
 - **Retention**: Performance on review exercises after 1 week
 
 ### Content Quality
+
 - **User Satisfaction**: Rating of exercise quality (1-5 stars)
 - **Report Rate**: % of exercises flagged as problematic
 - **Completion Time**: Average time per exercise type
@@ -1089,18 +1135,21 @@ Requirements:
 ## Future Enhancements
 
 ### Advanced Exercise Types
+
 1. **Speaking Exercises**: Record and compare pronunciation
 2. **Dialogue Role-Play**: Interactive conversation practice
 3. **Writing Exercises**: Free-form sentence construction with AI evaluation
 4. **Adaptive Difficulty**: Exercises adjust based on user performance
 
 ### Gamification
+
 1. **Achievements**: Badges for completing collections, streaks, accuracy
 2. **Leaderboards**: Compare progress with friends (opt-in)
 3. **Daily Challenges**: Special time-limited exercises
 4. **Unlockables**: New exercise types, themes, or features
 
 ### Social Features
+
 1. **Exercise Sharing**: Users create and share custom exercises
 2. **Collaborative Learning**: Compete or cooperate with friends
 3. **Teacher Dashboard**: Create exercises for students
@@ -1120,6 +1169,7 @@ Requirements:
 **Document Status:** ✅ **COMPLETE** - All 6 Exercise Types Implemented and Tested
 **Progress:** All Phases Complete ✅
 **Summary:**
+
 - Phase 0 (Infrastructure): ✅ Complete
 - Phase 1 (Multiple Choice): ✅ Complete
 - Phase 2 (Fill in Blank): ✅ Complete
@@ -1129,6 +1179,7 @@ Requirements:
 - Phase 6 (Cloze Reading): ✅ Complete
 
 **Next Steps:**
+
 1. Create additional exercise content for French A1 modules 3-10
 2. Implement AI-assisted exercise generation (Phase 6 from original plan)
 3. Add exercise collections and unlocking system

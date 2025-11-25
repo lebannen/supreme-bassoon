@@ -4,7 +4,9 @@
 **Completed Date:** January 2025
 
 ## Overview
+
 Implement a complete reading texts management system that allows:
+
 1. ✅ Importing texts from JSON files
 2. ✅ Automatic conversion of raw text into paginated book format
 3. ✅ Browsing and selecting texts by level, topic, language
@@ -149,11 +151,13 @@ data class UserReadingProgress(
 ### Algorithm (Frontend)
 
 The book component already handles pagination. We need to:
+
 1. Split text into paragraphs
 2. Let the BookComponent handle word wrapping and page breaks
 3. Calculate pages dynamically based on viewport size
 
 **No pre-processing needed** - the BookComponent's `computePages()` method already:
+
 - Splits by paragraphs
 - Handles word wrapping
 - Creates page breaks
@@ -329,6 +333,7 @@ export function useReadingTexts() {
 ## 7. Implementation Phases
 
 ### Phase 1: Backend Foundation
+
 1. Create database migration V10
 2. Create ReadingText and UserReadingProgress entities
 3. Create repositories
@@ -337,18 +342,21 @@ export function useReadingTexts() {
 6. Test with manual database inserts
 
 ### Phase 2: Import System
+
 1. Create JSON import endpoint
 2. Create script to batch import from `texts/` directory
 3. Test importing sample texts
 4. Calculate word count automatically
 
 ### Phase 3: Frontend - Library View
+
 1. Create TextLibrary component
 2. Implement filtering by level, topic, language
 3. Create TextCard for preview
 4. Add navigation to reading view
 
 ### Phase 4: Frontend - Reading View
+
 1. Update ReadingView to load from API (not hardcoded)
 2. Integrate with BookComponent
 3. Track reading progress
@@ -356,6 +364,7 @@ export function useReadingTexts() {
 5. Show completion status
 
 ### Phase 5: Cleanup & Polish
+
 1. Remove example/hardcoded text from BookExample
 2. Update navigation to point to library
 3. Add loading states
@@ -414,6 +423,7 @@ Output plain text only with paragraphs and dialogue formatting.
 ## 9. Sample Texts to Create
 
 ### French A1
+
 1. Au Café (At the café)
 2. À la Boulangerie (At the bakery)
 3. Ma Famille (My family)
@@ -421,6 +431,7 @@ Output plain text only with paragraphs and dialogue formatting.
 5. Au Supermarché (At the supermarket)
 
 ### German A1
+
 1. Im Café (At the café)
 2. Meine Familie (My family)
 3. Einkaufen (Shopping)
@@ -446,6 +457,7 @@ Output plain text only with paragraphs and dialogue formatting.
 ### Completed Features
 
 **Backend (Phase 1):**
+
 - ✅ Database migration V10 with `reading_texts` and `user_reading_progress` tables
 - ✅ ReadingText and UserReadingProgress entities
 - ✅ ReadingTextRepository with custom query methods
@@ -454,6 +466,7 @@ Output plain text only with paragraphs and dialogue formatting.
 - ✅ Unit tests (ReadingTextServiceTest) and integration tests (ReadingTextIntegrationTest)
 
 **Backend (Phase 2 - Import):**
+
 - ✅ JSON import endpoint `/api/reading/texts/import`
 - ✅ Automatic word count calculation
 - ✅ Automatic reading time estimation
@@ -461,6 +474,7 @@ Output plain text only with paragraphs and dialogue formatting.
 - ✅ Security config: public text browsing, authenticated progress tracking
 
 **Frontend (Phase 3 - Library):**
+
 - ✅ `useReadingTexts` composable with native fetch API
 - ✅ `TextCard` component for text previews
 - ✅ `TextLibrary` component with filtering
@@ -468,6 +482,7 @@ Output plain text only with paragraphs and dialogue formatting.
 - ✅ Routes: `/reading` (library), `/reading/:id` (reader), `/reading/import` (import UI)
 
 **Frontend (Phase 4 - Reading):**
+
 - ✅ `BookView` supports both demo and reading modes
 - ✅ Dynamic text loading from API by ID
 - ✅ Progress tracking integration
@@ -475,6 +490,7 @@ Output plain text only with paragraphs and dialogue formatting.
 - ✅ WordCard integration for vocabulary lookup
 
 **Frontend (Phase 5 - Import UI):**
+
 - ✅ `ReadingImportView` with drag & drop
 - ✅ Multi-file upload capability
 - ✅ Per-file status tracking
@@ -489,6 +505,7 @@ Output plain text only with paragraphs and dialogue formatting.
 ### Files Created/Modified
 
 **Backend:**
+
 - `backend/src/main/resources/db/migration/V10__Create_reading_texts.sql`
 - `backend/src/main/kotlin/com/vocabee/domain/model/ReadingText.kt`
 - `backend/src/main/kotlin/com/vocabee/domain/model/UserReadingProgress.kt`
@@ -504,6 +521,7 @@ Output plain text only with paragraphs and dialogue formatting.
 - `backend/src/test/kotlin/com/vocabee/integration/ReadingTextIntegrationTest.kt`
 
 **Frontend:**
+
 - `frontend/src/composables/useReadingTexts.ts`
 - `frontend/src/components/reading/TextCard.vue`
 - `frontend/src/components/reading/TextLibrary.vue`
@@ -515,6 +533,7 @@ Output plain text only with paragraphs and dialogue formatting.
 - `frontend/src/App.vue` (updated navigation)
 
 **Sample Texts:**
+
 - `texts/fr_a1_boulangerie.json`
 - `texts/fr_a1_famille.json`
 - `texts/de_a1_cafe.json`
