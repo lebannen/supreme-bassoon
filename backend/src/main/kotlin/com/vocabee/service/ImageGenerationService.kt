@@ -55,13 +55,25 @@ class ImageGenerationService(
     fun generateImage(prompt: String, referenceImageUrls: List<String> = emptyList()): GeneratedImage {
         logger.info("Generating image with prompt: ${prompt.take(100)}...")
 
+        // First try with reference images if provided
         if (referenceImageUrls.isNotEmpty()) {
-            logger.info("Using ${referenceImageUrls.size} reference images for character consistency")
+            logger.info("Attempting with ${referenceImageUrls.size} reference images for character consistency")
+            try {
+                return generateImageInternal(prompt, referenceImageUrls, advancedModel)
+            } catch (e: Exception) {
+                logger.warn("Generation with reference images failed, retrying without: ${e.message}")
+            }
         }
 
-        // Choose model based on whether we need reference image support
-        val model = if (referenceImageUrls.isNotEmpty()) advancedModel else basicModel
+        // Fallback: generate without reference images using basic model
+        return generateImageInternal(prompt, emptyList(), basicModel)
+    }
 
+    private fun generateImageInternal(
+        prompt: String,
+        referenceImageUrls: List<String>,
+        model: String
+    ): GeneratedImage {
         val requestBody = buildRequestBody(prompt, referenceImageUrls)
         val request = HttpRequest.newBuilder()
             .uri(URI.create("$baseUrl/models/$model:generateContent"))
@@ -70,19 +82,14 @@ class ImageGenerationService(
             .POST(HttpRequest.BodyPublishers.ofString(requestBody))
             .build()
 
-        try {
-            val response = httpClient.send(request, HttpResponse.BodyHandlers.ofString())
+        val response = httpClient.send(request, HttpResponse.BodyHandlers.ofString())
 
-            if (response.statusCode() != 200) {
-                logger.error("Image generation failed with status ${response.statusCode()}: ${response.body()}")
-                throw RuntimeException("Image generation failed: HTTP ${response.statusCode()}")
-            }
-
-            return parseImageResponse(response.body())
-        } catch (e: Exception) {
-            logger.error("Failed to generate image: ${e.message}", e)
-            throw RuntimeException("Image generation failed: ${e.message}", e)
+        if (response.statusCode() != 200) {
+            logger.error("Image generation failed with status ${response.statusCode()}: ${response.body()}")
+            throw RuntimeException("Image generation failed: HTTP ${response.statusCode()}")
         }
+
+        return parseImageResponse(response.body())
     }
 
     private fun buildRequestBody(prompt: String, referenceImageUrls: List<String> = emptyList()): String {
@@ -117,7 +124,7 @@ class ImageGenerationService(
                 mapOf("parts" to parts)
             ),
             "generationConfig" to mapOf(
-                "responseModalities" to listOf("IMAGE")
+                "responseModalities" to listOf("TEXT", "IMAGE")
             )
         )
 
@@ -152,9 +159,19 @@ class ImageGenerationService(
                 throw RuntimeException("No candidates in response")
             }
 
-            val content = candidates[0].get("content")
+            val candidate = candidates[0]
+            val finishReason = candidate.get("finishReason")?.asText()
+            val finishMessage = candidate.get("finishMessage")?.asText()
+
+            // Check for known failure reasons
+            if (finishReason != null && finishReason != "STOP") {
+                logger.error("Image generation failed: finishReason=$finishReason, message=$finishMessage")
+                throw RuntimeException("Image generation blocked: $finishReason - ${finishMessage ?: "No details"}")
+            }
+
+            val content = candidate.get("content")
             if (content == null) {
-                throw RuntimeException("No content in candidate")
+                throw RuntimeException("No content in candidate (finishReason=$finishReason)")
             }
 
             val parts = content.get("parts")

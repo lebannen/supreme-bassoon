@@ -135,8 +135,8 @@ data class EpisodeContentItemDto(
 
 data class GrammarRuleDto(
     val id: Long,
-    val title: String,
-    val explanation: String,
+    val name: String,
+    val description: String,
     val examples: List<String> = emptyList(),
     val category: String?
 )
@@ -256,8 +256,8 @@ fun Episode.toDto(contentItems: List<EpisodeContentItemDto> = emptyList()) = Epi
 
 fun GrammarRule.toDto() = GrammarRuleDto(
     id = id!!,
-    title = title,
-    explanation = explanation,
+    name = name,
+    description = description,
     examples = examples?.let { parseJsonArrayToStringList(it) } ?: emptyList(),
     category = category
 )

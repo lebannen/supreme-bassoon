@@ -19,15 +19,25 @@ data class GrammarRule(
     @Column(length = 10)
     val cefrLevel: String = "A1",
 
+    @Column(length = 100)
+    val slug: String? = null,
+
     @Column(nullable = false)
-    val title: String,
+    val name: String,
 
     @Column(nullable = false, columnDefinition = "TEXT")
-    val explanation: String,
+    val description: String,
 
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(columnDefinition = "JSONB")
     val examples: JsonNode? = null,
+
+    @Column(columnDefinition = "TEXT")
+    val usageNotes: String? = null,
+
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(columnDefinition = "JSONB")
+    val commonErrors: JsonNode? = null,
 
     @Column(length = 100)
     val category: String? = null,

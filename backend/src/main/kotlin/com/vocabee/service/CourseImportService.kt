@@ -503,8 +503,8 @@ class CourseImportService(
         val grammarRule = GrammarRule(
             languageCode = languageCode,
             cefrLevel = cefrLevel,
-            title = grammarRequest.title,
-            explanation = grammarRequest.explanation,
+            name = grammarRequest.title,
+            description = grammarRequest.explanation,
             examples = if (grammarRequest.examples.isNotEmpty()) {
                 objectMapper.valueToTree(grammarRequest.examples)
             } else null,

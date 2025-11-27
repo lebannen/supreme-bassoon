@@ -184,6 +184,25 @@ const router = createRouter({
           component: () => import('../views/admin/creator/VoiceAssignmentView.vue'),
           meta: {requiresAuth: true}
       },
+      // Pipeline Routes
+      {
+          path: '/admin/pipeline',
+          name: 'pipeline-list',
+          component: () => import('../views/admin/pipeline/PipelineListView.vue'),
+          meta: {requiresAuth: true}
+      },
+      {
+          path: '/admin/pipeline/:id',
+          name: 'pipeline-detail',
+          component: () => import('../views/admin/pipeline/PipelineDetailView.vue'),
+          meta: {requiresAuth: true}
+      },
+      {
+          path: '/admin/pipeline/:id/debug',
+          name: 'pipeline-debug',
+          component: () => import('../views/admin/pipeline/PipelineDebugView.vue'),
+          meta: {requiresAuth: true}
+      },
     // Course Structure Routes
     {
       path: '/courses',
