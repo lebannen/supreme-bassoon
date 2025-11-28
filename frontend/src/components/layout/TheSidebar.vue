@@ -1,12 +1,17 @@
 <script setup lang="ts">
   import {useRoute, useRouter} from 'vue-router'
   import {useAuthStore} from '@/stores/auth'
+  import {useProgressStore} from '@/stores/progress'
+  import {storeToRefs} from 'pinia'
   import ThemeToggle from './ThemeToggle.vue'
   import Button from 'primevue/button'
 
   const router = useRouter()
   const route = useRoute()
   const authStore = useAuthStore()
+  const progressStore = useProgressStore()
+
+  const {userStats, completedGoalsCount, dailyGoals} = storeToRefs(progressStore)
 
   const getUserInitials = (name: string | null) => {
     if (!name) return 'U'
@@ -56,7 +61,21 @@
   <aside class="sidebar bg-surface-section border-r border-surface">
     <router-link to="/" class="logo text-primary">Vocabee</router-link>
 
-    <ThemeToggle class="mb-6"/>
+    <ThemeToggle class="mb-4"/>
+
+    <!-- Mini Stats (Authenticated Users) -->
+    <div v-if="authStore.isAuthenticated" class="mini-stats mb-5">
+      <div class="mini-stat">
+        <i class="pi pi-bolt text-warning"></i>
+        <span class="mini-stat-value">{{ userStats.streak }}</span>
+        <span class="mini-stat-label">Streak</span>
+      </div>
+      <div class="mini-stat">
+        <i class="pi pi-check-circle text-success"></i>
+        <span class="mini-stat-value">{{ completedGoalsCount }}/{{ dailyGoals.length }}</span>
+        <span class="mini-stat-label">Goals</span>
+      </div>
+    </div>
 
     <div class="flex-1 overflow-y-auto">
       <!-- Main Navigation -->
@@ -210,5 +229,40 @@
     font-weight: 600;
     font-size: 0.9rem;
     flex-shrink: 0;
+  }
+
+  /* Mini Stats */
+  .mini-stats {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background: var(--surface-ground);
+    border-radius: var(--radius-md);
+  }
+
+  .mini-stat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    text-align: center;
+  }
+
+  .mini-stat i {
+    font-size: 1.25rem;
+  }
+
+  .mini-stat-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+
+  .mini-stat-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    color: var(--text-color-secondary);
   }
 </style>

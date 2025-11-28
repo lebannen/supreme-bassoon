@@ -9,7 +9,7 @@ import org.springframework.web.reactive.function.client.WebClient
 @Component
 class GeminiTextClient(
     @Value("\${gemini.api.key}") private val apiKey: String,
-    @Value("\${gemini.text.model:gemini-2.5-pro}") private val model: String,
+    @Value("\${gemini.text.model:gemini-3-pro-preview}") private val model: String,
     private val objectMapper: ObjectMapper
 ) {
     private val logger = LoggerFactory.getLogger(javaClass)

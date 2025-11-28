@@ -54,6 +54,7 @@ export interface EpisodeSummary {
 export interface Module {
     id: number
     courseId: number
+    courseSlug: string
     moduleNumber: number
     title: string
     theme: string | null

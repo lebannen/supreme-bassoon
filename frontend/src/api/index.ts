@@ -17,9 +17,11 @@
  * ```
  */
 
+import {ActivityAPI} from './activity'
 import {AuthAPI} from './auth'
 import {CourseAPI} from './course'
 import {DictionaryAPI} from './dictionary'
+import {enrollmentAPI} from './enrollment'
 import {ExerciseAPI} from './exercise'
 import {ReadingAPI} from './reading'
 import {StudyAPI} from './study'
@@ -27,9 +29,11 @@ import {VocabularyAPI} from './vocabulary'
 import {WordSetAPI} from './wordSet'
 
 // Export singleton instances for use throughout the application
+export const activityAPI = new ActivityAPI()
 export const authAPI = new AuthAPI()
 export const courseAPI = new CourseAPI()
 export const dictionaryAPI = new DictionaryAPI()
+export {enrollmentAPI} from './enrollment'
 export const exerciseAPI = new ExerciseAPI()
 export const readingAPI = new ReadingAPI()
 export const studyAPI = new StudyAPI()
@@ -37,9 +41,11 @@ export const vocabularyAPI = new VocabularyAPI()
 export const wordSetAPI = new WordSetAPI()
 
 // Also export the classes for testing or advanced use cases
+export {ActivityAPI} from './activity'
 export {AuthAPI} from './auth'
 export {CourseAPI} from './course'
 export {DictionaryAPI} from './dictionary'
+export type {EnrollmentResponse} from './enrollment'
 export {ExerciseAPI} from './exercise'
 export {ReadingAPI} from './reading'
 export {StudyAPI} from './study'

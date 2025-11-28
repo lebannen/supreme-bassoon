@@ -1,6 +1,7 @@
 import {defineStore} from 'pinia'
 import {computed, ref} from 'vue'
 import {studyAPI} from '@/api'
+import {useProgressStore} from '@/stores/progress'
 import type {
     DueWordsResponse,
     NextCardResponse,
@@ -122,6 +123,10 @@ export const useStudyStore = defineStore('study', () => {
         correct,
             responseTimeMs,
       })
+
+        // Record word review activity for daily goals
+        const progressStore = useProgressStore()
+        progressStore.recordActivity('word')
 
       // Update session stats
         const updatedSession = await studyAPI.getSession(activeSession.value.sessionId)

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {onMounted, ref} from 'vue'
+import {computed, onMounted, ref} from 'vue'
 import {useRoute, useRouter} from 'vue-router'
 import {storeToRefs} from 'pinia'
 import Card from 'primevue/card'
@@ -12,6 +12,7 @@ import {useToast} from 'primevue/usetoast'
 import {useCourseStore} from '@/stores/course'
 import {useVocabularyStore} from '@/stores/vocabulary'
 import {useAuthStore} from '@/stores/auth'
+import {useProgressStore} from '@/stores/progress'
 import {dictionaryAPI, wordSetAPI} from '@/api'
 import type {WordSetDetail} from '@/types/wordSet'
 import type {Word} from '@/types/dictionary'
@@ -23,7 +24,10 @@ const toast = useToast()
 const courseStore = useCourseStore()
 const vocabularyStore = useVocabularyStore()
 const authStore = useAuthStore()
+const progressStore = useProgressStore()
 const {currentModule: module, loading, error} = storeToRefs(courseStore)
+
+const accessDenied = ref(false)
 
 const moduleWordSet = ref<WordSetDetail | null>(null)
 const wordSetLoading = ref(false)
@@ -32,6 +36,21 @@ const selectedWord = ref<Word | null>(null)
 const wordLoading = ref(false)
 const wordError = ref<string | null>(null)
 const importing = ref(false)
+const vocabularyExpanded = ref(false)
+
+// Episode progress tracking
+const completedEpisodes = computed(() => {
+  if (!module.value?.courseId) return new Set<number>()
+  const enrollment = progressStore.getEnrollment(module.value.courseId)
+  // For now, track based on completed count - in future could be per-episode
+  return new Set<number>()
+})
+
+const currentEpisodeId = computed(() => {
+  if (!module.value?.courseId) return null
+  const enrollment = progressStore.getEnrollment(module.value.courseId)
+  return enrollment?.currentEpisodeId || null
+})
 
 const episodeTypeIcon = (type: string) => ({
   STORY: 'pi-book',
@@ -122,6 +141,13 @@ onMounted(async () => {
   const moduleId = Number(route.params.id)
   if (moduleId) {
     await courseStore.loadModule(moduleId)
+
+    // Check enrollment
+    if (module.value?.courseId && !progressStore.isEnrolled(module.value.courseId)) {
+      accessDenied.value = true
+      return
+    }
+
     await loadWordSet(moduleId)
   }
 })
@@ -134,9 +160,37 @@ onMounted(async () => {
     </div>
     <Message v-else-if="error" severity="error">{{ error }}</Message>
 
+    <!-- Access Denied - Not Enrolled -->
+    <div v-else-if="accessDenied" class="access-denied-container">
+      <Card class="access-denied-card">
+        <template #content>
+          <div class="text-center p-5">
+            <i class="pi pi-lock text-5xl text-secondary mb-4"></i>
+            <h2 class="text-2xl font-bold mb-2">Module Locked</h2>
+            <p class="text-secondary mb-4">
+              You need to enroll in this course to access its modules and episodes.
+            </p>
+            <div class="flex justify-content-center gap-3">
+              <Button
+                  label="Go Back"
+                  icon="pi pi-arrow-left"
+                  @click="router.back()"
+              />
+              <Button
+                  label="Browse Courses"
+                  severity="secondary"
+                  outlined
+                  @click="router.push('/courses')"
+              />
+            </div>
+          </div>
+        </template>
+      </Card>
+    </div>
+
     <div v-else-if="module" class="content-area-lg">
       <div class="detail-header">
-        <Button icon="pi pi-arrow-left" text rounded @click="router.push(`/courses/${module.courseId}`)"
+        <Button icon="pi pi-arrow-left" text rounded @click="router.push(`/courses/${module.courseSlug}`)"
                 class="detail-header-back-btn"/>
         <div class="detail-header-content">
           <div class="meta-badges">
@@ -165,21 +219,24 @@ onMounted(async () => {
         </template>
       </Card>
 
-      <!-- Vocabulary Section -->
-      <Card v-if="moduleWordSet?.words?.length || wordSetLoading">
-        <template #title>
-          <div class="flex justify-content-between align-items-center">
-            <div class="card-title-icon"><i class="pi pi-bookmark"></i><span>Module Vocabulary</span></div>
-            <div class="flex align-items-center gap-2">
+      <!-- Vocabulary Section (Collapsible) -->
+      <Card v-if="moduleWordSet?.words?.length || wordSetLoading" class="vocabulary-card">
+        <template #content>
+          <div class="vocabulary-header" @click="vocabularyExpanded = !vocabularyExpanded">
+            <div class="flex align-items-center gap-3">
+              <i class="pi pi-bookmark text-primary"></i>
+              <span class="font-semibold">Module Vocabulary</span>
               <Tag v-if="moduleWordSet" :value="`${moduleWordSet.wordCount} words`" severity="info"/>
+            </div>
+            <div class="flex align-items-center gap-2">
               <Button
                   v-if="authStore.isAuthenticated && moduleWordSet && !moduleWordSet.isImported"
-                  label="Add All to Vocabulary"
+                  label="Add All"
                   icon="pi pi-plus"
                   size="small"
                   outlined
                   :loading="importing"
-                  @click="importAllWords"
+                  @click.stop="importAllWords"
               />
               <Tag
                   v-else-if="moduleWordSet?.isImported"
@@ -187,22 +244,29 @@ onMounted(async () => {
                   severity="success"
                   icon="pi pi-check"
               />
+              <Button
+                  :icon="vocabularyExpanded ? 'pi pi-chevron-up' : 'pi pi-chevron-down'"
+                  text
+                  rounded
+                  size="small"
+                  @click.stop="vocabularyExpanded = !vocabularyExpanded"
+              />
             </div>
           </div>
-        </template>
-        <template #content>
-          <div v-if="wordSetLoading" class="flex justify-content-center p-4">
-            <ProgressSpinner style="width: 40px; height: 40px"/>
-          </div>
-          <div v-else-if="moduleWordSet?.words" class="vocabulary-grid">
-            <div
-                v-for="word in moduleWordSet.words"
-                :key="word.id"
-                class="vocabulary-word"
-                @click="handleWordClick(word.lemma)"
-            >
-              <span class="word-lemma">{{ word.lemma }}</span>
-              <Tag v-if="word.partOfSpeech" :value="word.partOfSpeech" size="small" severity="secondary"/>
+          <div v-if="vocabularyExpanded" class="vocabulary-content">
+            <div v-if="wordSetLoading" class="flex justify-content-center p-4">
+              <ProgressSpinner style="width: 40px; height: 40px"/>
+            </div>
+            <div v-else-if="moduleWordSet?.words" class="vocabulary-grid">
+              <div
+                  v-for="word in moduleWordSet.words"
+                  :key="word.id"
+                  class="vocabulary-word"
+                  @click="handleWordClick(word.lemma)"
+              >
+                <span class="word-lemma">{{ word.lemma }}</span>
+                <Tag v-if="word.partOfSpeech" :value="word.partOfSpeech" size="small" severity="secondary"/>
+              </div>
             </div>
           </div>
         </template>
@@ -211,18 +275,28 @@ onMounted(async () => {
       <div class="section">
         <div class="section-header"><h2>Episodes</h2></div>
         <div class="content-grid">
-          <Card v-for="episode in module.episodes" :key="episode.id" class="card-interactive"
+          <Card v-for="episode in module.episodes" :key="episode.id" class="card-interactive episode-card"
+                :class="{ 'current-episode': currentEpisodeId === episode.id }"
                 @click="router.push(`/episodes/${episode.id}`)">
             <template #header>
-              <div class="p-md flex justify-content-between align-items-center bg-surface-section">
-                <div class="number-badge-sm bg-primary text-primary-contrast">{{ episode.episodeNumber }}</div>
+              <div class="episode-card-header">
+                <div class="number-badge number-badge-sm"
+                     :class="completedEpisodes.has(episode.id) ? 'bg-green-500 text-white' : 'bg-primary text-primary-contrast'">
+                  <i v-if="completedEpisodes.has(episode.id)" class="pi pi-check"></i>
+                  <span v-else>{{ episode.episodeNumber }}</span>
+                </div>
                 <div class="flex gap-2 flex-wrap">
                   <Tag :value="episode.type" :icon="episodeTypeIcon(episode.type)"/>
                   <Tag v-if="episode.hasAudio" value="Audio" severity="success" icon="pi pi-volume-up"/>
                 </div>
               </div>
             </template>
-            <template #title>{{ episode.title }}</template>
+            <template #title>
+              <div class="flex align-items-center gap-2">
+                <span>{{ episode.title }}</span>
+                <Tag v-if="currentEpisodeId === episode.id" value="Continue" severity="warn" size="small"/>
+              </div>
+            </template>
             <template #footer>
               <div class="icon-label-group compact">
                 <span class="icon-label"><i class="pi pi-list"></i>{{ episode.totalExercises }} exercises</span>
@@ -247,10 +321,38 @@ onMounted(async () => {
 </template>
 
 <style scoped>
+/* Vocabulary Section */
+.vocabulary-card :deep(.p-card-body) {
+  padding: 0;
+}
+
+.vocabulary-card :deep(.p-card-content) {
+  padding: 0;
+}
+
+.vocabulary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.vocabulary-header:hover {
+  background: var(--surface-50);
+}
+
+.vocabulary-content {
+  padding: 0 1.25rem 1.25rem;
+  border-top: 1px solid var(--surface-200);
+}
+
 .vocabulary-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 0.75rem;
+  padding-top: 1rem;
 }
 
 .vocabulary-word {
@@ -277,6 +379,14 @@ onMounted(async () => {
   color: var(--text-color);
 }
 
+:deep(.dark) .vocabulary-header:hover {
+  background: var(--surface-800);
+}
+
+:deep(.dark) .vocabulary-content {
+  border-top-color: var(--surface-700);
+}
+
 :deep(.dark) .vocabulary-word {
   background: var(--surface-800);
   border-color: var(--surface-700);
@@ -285,5 +395,40 @@ onMounted(async () => {
 :deep(.dark) .vocabulary-word:hover {
   background: var(--primary-900);
   border-color: var(--primary-700);
+}
+
+/* Episode Cards */
+.episode-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: var(--surface-50);
+}
+
+:deep(.dark) .episode-card-header {
+  background: var(--surface-800);
+}
+
+.episode-card.current-episode {
+  border: 2px solid var(--yellow-500);
+  box-shadow: 0 0 0 3px var(--yellow-100);
+}
+
+:deep(.dark) .episode-card.current-episode {
+  box-shadow: 0 0 0 3px var(--yellow-900);
+}
+
+/* Access Denied State */
+.access-denied-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+.access-denied-card {
+  max-width: 500px;
+  width: 100%;
 }
 </style>

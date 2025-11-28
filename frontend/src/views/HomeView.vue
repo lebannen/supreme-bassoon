@@ -6,8 +6,9 @@ import Card from 'primevue/card'
 import {useAuthStore} from '@/stores/auth'
 import {useDashboardStore} from '@/stores/dashboard'
 import StatCard from '@/components/ui/StatCard.vue'
-import TaskCard from '@/components/ui/TaskCard.vue'
-import ContentCard from '@/components/ui/ContentCard.vue'
+import DailyGoalsCard from '@/components/ui/DailyGoalsCard.vue'
+import ContinueLearningCard from '@/components/ui/ContinueLearningCard.vue'
+import EnrollmentCard from '@/components/ui/EnrollmentCard.vue'
 
 const router = useRouter()
 const authStore = useAuthStore()
@@ -19,6 +20,13 @@ const timeBasedGreeting = computed(() => {
   if (hour < 12) return 'Good morning'
   if (hour < 18) return 'Good afternoon'
   return 'Good evening'
+})
+
+const streakMessage = computed(() => {
+  const streak = dashboardStore.userStats.streak
+  if (streak === 0) return 'Start your streak today!'
+  if (streak === 1) return "You're on a 1-day streak! Keep going!"
+  return `You're on a ${streak}-day streak! Keep it up!`
 })
 
 const features = [
@@ -37,10 +45,6 @@ onMounted(() => {
     dashboardStore.loadDashboardData()
   }
 })
-
-const handleTaskAction = (taskId: number) => {
-  dashboardStore.completeTask(taskId)
-}
 </script>
 
 <template>
@@ -49,37 +53,81 @@ const handleTaskAction = (taskId: number) => {
     <div v-if="authStore.isAuthenticated" class="view-container content-area-lg">
       <div class="page-header">
         <h1>{{ timeBasedGreeting }}, {{ greetingName }}!</h1>
-        <p class="text-secondary">You're on a {{ dashboardStore.userStats.streak }}-day streak 🔥 Keep it up!</p>
+        <p class="text-secondary">{{ streakMessage }}</p>
       </div>
 
+      <!-- Continue Learning (if enrolled in courses) -->
+      <ContinueLearningCard
+          v-if="dashboardStore.continueLearning"
+          :data="dashboardStore.continueLearning"
+      />
+
+      <!-- Stats Grid -->
       <div class="stats-grid">
-        <StatCard icon="pi pi-bolt" label="Study Streak" :value="`${dashboardStore.userStats.streak} days`"
-                  variant="warning"/>
-        <StatCard icon="pi pi-book" label="Words Learned" :value="dashboardStore.userStats.wordsLearned"
-                  variant="purple"/>
-        <StatCard icon="pi pi-clock" label="Time This Week" :value="dashboardStore.userStats.timeThisWeek"
-                  variant="blue"/>
+        <StatCard
+            icon="pi pi-bolt"
+            label="Study Streak"
+            :value="`${dashboardStore.userStats.streak} days`"
+            variant="warning"
+        />
+        <StatCard
+            icon="pi pi-book"
+            label="Words Learned"
+            :value="dashboardStore.userStats.wordsLearned"
+            variant="purple"
+        />
+        <StatCard
+            icon="pi pi-clock"
+            label="Time This Week"
+            :value="dashboardStore.userStats.timeThisWeek"
+            variant="blue"
+        />
       </div>
 
+      <!-- Daily Goals -->
       <section class="section">
+        <DailyGoalsCard :goals="dashboardStore.dailyGoals"/>
+      </section>
+
+      <!-- My Courses -->
+      <section v-if="dashboardStore.hasActiveEnrollments" class="section">
         <div class="section-header">
-          <h2>Today's Tasks</h2>
+          <h2>My Courses</h2>
+          <Button
+              label="Browse More"
+              icon="pi pi-plus"
+              text
+              @click="router.push('/courses')"
+          />
         </div>
-        <div class="task-list">
-          <TaskCard v-for="task in dashboardStore.dailyTasks" :key="task.id" :icon="task.icon" :title="task.title"
-                    :meta="task.meta" :completed="task.completed" @action="handleTaskAction(task.id)"/>
+        <div class="content-grid">
+          <EnrollmentCard
+              v-for="enrollment in dashboardStore.enrollments"
+              :key="enrollment.id"
+              :enrollment="enrollment"
+          />
         </div>
       </section>
 
-      <section class="section">
-        <div class="section-header">
-          <h2>Recommended for You</h2>
-        </div>
-        <div class="content-grid">
-          <ContentCard v-for="content in dashboardStore.recommendedContent" :key="content.id" :type="content.type"
-                       :icon="content.icon" :title="content.title" :level="content.level"
-                       @click="router.push('/courses')"/>
-        </div>
+      <!-- Empty State - No Enrollments -->
+      <section v-else class="section">
+        <Card class="empty-courses-card">
+          <template #content>
+            <div class="empty-state">
+              <i class="pi pi-book empty-icon text-primary"></i>
+              <h3>Start Your Learning Journey</h3>
+              <p class="text-secondary mb-4">
+                Enroll in a course to begin learning and track your progress.
+              </p>
+              <Button
+                  label="Browse Courses"
+                  icon="pi pi-arrow-right"
+                  iconPos="right"
+                  @click="router.push('/courses')"
+              />
+            </div>
+          </template>
+        </Card>
       </section>
     </div>
 
@@ -126,5 +174,9 @@ const handleTaskAction = (taskId: number) => {
 .hero-section {
   padding: 6rem 1.5rem;
   background-color: var(--surface-section);
+}
+
+.empty-courses-card {
+  text-align: center;
 }
 </style>

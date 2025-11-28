@@ -9,9 +9,12 @@ interface Props {
   text: string
   languageCode: string
   vocabularyWords?: WordSummary[]
+  highlightVocabulary?: boolean
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  highlightVocabulary: true
+})
 
 const showWordDialog = ref(false)
 const selectedWord = ref<Word | null>(null)
@@ -116,12 +119,12 @@ async function handleWordCardClick(lemma: string) {
 </script>
 
 <template>
-  <span class="dialogue-text">
+    <span class="dialogue-text">
     <template v-for="(token, index) in tokens" :key="index">
       <span
           v-if="token.type === 'word'"
           class="word"
-          :class="{ 'vocabulary-word': token.isVocabulary }"
+          :class="{ 'vocabulary-word': token.isVocabulary && highlightVocabulary }"
           @click="handleWordClick(token)"
       >{{ token.text }}</span>
       <span v-else>{{ token.text }}</span>
@@ -142,39 +145,39 @@ async function handleWordCardClick(lemma: string) {
   display: inline;
 }
 
+/* All clickable words - just hover highlight */
 .word {
   cursor: pointer;
-  border-radius: 2px;
-  transition: background-color 0.15s, color 0.15s;
+  border-radius: 3px;
+  padding: 1px 3px;
+  margin: 0 -3px;
+  transition: background-color 0.15s;
 }
 
 .word:hover {
   background-color: var(--primary-100);
-  color: var(--primary-700);
 }
 
+/* Vocabulary words - yellow highlight for words to learn */
 .vocabulary-word {
-  background-color: var(--yellow-100);
-  color: var(--yellow-900);
-  padding: 0 2px;
+  background-color: rgba(250, 204, 21, 0.25);
   border-radius: 3px;
 }
 
 .vocabulary-word:hover {
-  background-color: var(--yellow-200);
+  background-color: rgba(250, 204, 21, 0.5);
 }
 
-:deep(.dark) .word:hover {
+/* Dark mode */
+:root.p-dark .word:hover {
   background-color: var(--primary-900);
-  color: var(--primary-300);
 }
 
-:deep(.dark) .vocabulary-word {
-  background-color: var(--yellow-900);
-  color: var(--yellow-100);
+:root.p-dark .vocabulary-word {
+  background-color: rgba(250, 204, 21, 0.2);
 }
 
-:deep(.dark) .vocabulary-word:hover {
-  background-color: var(--yellow-800);
+:root.p-dark .vocabulary-word:hover {
+  background-color: rgba(250, 204, 21, 0.35);
 }
 </style>

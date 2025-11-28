@@ -36,6 +36,5 @@
       severity="secondary"
       text
       rounded
-      class="w-full"
   />
 </template>

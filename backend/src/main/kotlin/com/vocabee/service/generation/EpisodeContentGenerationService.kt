@@ -5,11 +5,10 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import com.vocabee.domain.model.*
 import com.vocabee.domain.repository.*
 import com.vocabee.service.external.gemini.GeminiTextClient
-import com.vocabee.web.dto.admin.generation.*
+import com.vocabee.web.dto.admin.generation.EpisodeContentGenerationResult
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import java.util.*
 
 /**
  * Stage 3: Episode Content Generation
@@ -101,8 +100,25 @@ class EpisodeContentGenerationService(
                     object : com.fasterxml.jackson.core.type.TypeReference<List<String>>() {})
             } ?: emptyList()
 
-            val episodeCharacters = characters.filter { char ->
+            var episodeCharacters = characters.filter { char ->
                 episodeCharacterIds.contains(char.id.toString())
+            }
+
+            // Validate and constrain character count for dialogue episodes
+            if (episodePlan.episodeType == "DIALOGUE") {
+                if (episodeCharacters.size != 2) {
+                    logger.warn("Dialogue episode '${episodePlan.title}' has ${episodeCharacters.size} characters, expected 2. Adjusting...")
+                    episodeCharacters = when {
+                        episodeCharacters.size > 2 -> episodeCharacters.take(2)
+                        episodeCharacters.size == 1 -> {
+                            // Add another character from the available pool
+                            val additionalChar = characters.firstOrNull { !episodeCharacters.contains(it) }
+                            if (additionalChar != null) episodeCharacters + additionalChar else episodeCharacters
+                        }
+
+                        else -> characters.take(2) // No characters specified, take first 2
+                    }
+                }
             }
 
             // Get vocabulary
@@ -258,6 +274,8 @@ class EpisodeContentGenerationService(
 
         val feedbackSection = feedback?.let { "## Feedback\nPlease incorporate: $it\n" } ?: ""
 
+        val cefrGuidelines = CefrLevelGuidelines.getContentPromptSection(generation.cefrLevel)
+
         val typeSpecificRules = if (episodePlan.episodeType == "DIALOGUE") {
             """
             ## Dialogue Rules (CRITICAL)
@@ -300,6 +318,8 @@ class EpisodeContentGenerationService(
             - Vocabulary (use as many as naturally fit): ${vocabulary.joinToString(", ")}
             - Grammar points to demonstrate: ${grammarRules.joinToString(", ")}
 
+            $cefrGuidelines
+
             $typeSpecificRules
 
             $feedbackSection
@@ -320,10 +340,10 @@ class EpisodeContentGenerationService(
         }
               "summary": "Brief summary of what happened in this episode (in English, 2-3 sentences)",
               "characterDevelopments": [
-                {"characterName": "Marie", "note": "Revealed she used to live in Lyon"}
+                {"characterName": "[Character from this episode]", "note": "[Any character reveal or development]"}
               ],
-              "vocabularyUsed": ["word1", "word2"],
-              "vocabularyMissing": ["word3", "word4"]
+              "vocabularyUsed": ["[words from vocabulary list that were used]"],
+              "vocabularyMissing": ["[words from vocabulary list that couldn't fit naturally]"]
             }
 
             Generate the episode content now:
@@ -393,15 +413,17 @@ class EpisodeContentGenerationService(
             {
               "imagePrompts": [
                 {
-                  "description": "A cozy Parisian café with outdoor seating, warm afternoon sunlight streaming through plane trees, bistro tables with red checkered tablecloths, the Eiffel Tower visible in the distant background, pigeons on the cobblestones",
-                  "sceneContext": "The café setting where the conversation takes place"
+                  "description": "[Detailed visual description of the setting - include lighting, colors, atmosphere, architectural details relevant to the scene]",
+                  "sceneContext": "[What's happening in this moment of the episode]"
                 },
                 {
-                  "description": "A charming Montmartre street corner with a classic French boulangerie, morning light, flower boxes in windows, vintage lampposts, locals walking with baguettes",
-                  "sceneContext": "The neighborhood atmosphere of the episode"
+                  "description": "[Another distinct scene from the episode - different location or moment, with visual details]",
+                  "sceneContext": "[Context for this scene in the story]"
                 }
               ]
             }
+
+            IMPORTANT: Generate prompts specific to THIS episode's setting and content. Do not default to generic café or tourist landmark images.
         """.trimIndent()
 
         val response = geminiClient.generateText(prompt, "application/json")

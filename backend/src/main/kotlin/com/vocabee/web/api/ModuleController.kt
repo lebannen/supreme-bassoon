@@ -1,16 +1,25 @@
 package com.vocabee.web.api
 
-import com.vocabee.domain.repository.*
+import com.vocabee.domain.repository.CourseRepository
+import com.vocabee.domain.repository.EpisodeContentItemRepository
+import com.vocabee.domain.repository.EpisodeRepository
+import com.vocabee.domain.repository.ModuleRepository
 import com.vocabee.service.JwtService
-import com.vocabee.web.dto.*
+import com.vocabee.web.dto.ModuleDto
+import com.vocabee.web.dto.toDto
+import com.vocabee.web.dto.toSummaryDto
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/modules")
 class ModuleController(
     private val moduleRepository: ModuleRepository,
+    private val courseRepository: CourseRepository,
     private val episodeRepository: EpisodeRepository,
     private val episodeContentItemRepository: EpisodeContentItemRepository,
     private val jwtService: JwtService
@@ -24,6 +33,9 @@ class ModuleController(
         val module = moduleRepository.findById(id)
             .orElse(null) ?: return ResponseEntity.notFound().build()
 
+        val course = courseRepository.findById(module.courseId)
+            .orElse(null) ?: return ResponseEntity.notFound().build()
+
         val episodes = episodeRepository.findByModuleIdOrderByEpisodeNumber(module.id!!)
         val episodeSummaries = episodes.map { episode ->
             val contentItems = episodeContentItemRepository.findByEpisodeIdOrderByOrderIndex(episode.id!!)
@@ -31,6 +43,6 @@ class ModuleController(
             episode.toSummaryDto(totalExercises = exerciseCount)
         }
 
-        return ResponseEntity.ok(module.toDto(episodes = episodeSummaries))
+        return ResponseEntity.ok(module.toDto(courseSlug = course.slug, episodes = episodeSummaries))
     }
 }

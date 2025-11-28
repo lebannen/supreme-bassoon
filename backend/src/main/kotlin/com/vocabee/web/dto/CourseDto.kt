@@ -62,6 +62,7 @@ data class ModuleSummaryDto(
 data class ModuleDto(
     val id: Long,
     val courseId: Long,
+    val courseSlug: String,
     val moduleNumber: Int,
     val title: String,
     val theme: String?,
@@ -217,9 +218,10 @@ fun Module.toSummaryDto(totalEpisodes: Int = 0) = ModuleSummaryDto(
     totalEpisodes = totalEpisodes
 )
 
-fun Module.toDto(episodes: List<EpisodeSummaryDto> = emptyList()) = ModuleDto(
+fun Module.toDto(courseSlug: String, episodes: List<EpisodeSummaryDto> = emptyList()) = ModuleDto(
     id = id!!,
     courseId = courseId,
+    courseSlug = courseSlug,
     moduleNumber = moduleNumber,
     title = title,
     theme = theme,

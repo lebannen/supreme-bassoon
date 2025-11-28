@@ -244,8 +244,8 @@ function getLanguageLabel(code: string): string {
         :modal="true"
         :style="{ width: '500px' }"
     >
-      <div class="flex flex-columnumn gap-4">
-        <div class="flex flex-columnumn gap-2">
+      <div class="flex flex-column gap-4">
+        <div class="flex flex-column gap-2">
           <label for="language">Language</label>
           <Dropdown
               id="language"
@@ -257,7 +257,7 @@ function getLanguageLabel(code: string): string {
           />
         </div>
 
-        <div class="flex flex-columnumn gap-2">
+        <div class="flex flex-column gap-2">
           <label for="level">CEFR Level</label>
           <Dropdown
               id="level"
@@ -269,33 +269,33 @@ function getLanguageLabel(code: string): string {
           />
         </div>
 
-        <div class="flex gap-4">
-          <div class="flex flex-columnumn gap-2 flex-1">
+        <div class="flex flex-row gap-4">
+          <div class="flex flex-column gap-2">
             <label for="modules">Number of Modules</label>
             <InputNumber
                 id="modules"
+                fluid
                 v-model="newGeneration.moduleCount"
                 :min="1"
                 :max="12"
                 showButtons
-                class="w-full"
             />
           </div>
 
-          <div class="flex flex-columnumn gap-2 flex-1">
+          <div class="flex flex-column gap-2">
             <label for="episodes">Episodes per Module</label>
             <InputNumber
                 id="episodes"
+                fluid
                 v-model="newGeneration.episodesPerModule"
                 :min="1"
                 :max="10"
                 showButtons
-                class="w-full"
             />
           </div>
         </div>
 
-        <div class="flex flex-columnumn gap-2">
+        <div class="flex flex-column gap-2">
           <label for="themes">Theme Preferences (optional)</label>
           <Textarea
               id="themes"
@@ -337,5 +337,9 @@ function getLanguageLabel(code: string): string {
 <style scoped>
 .pipeline-list {
   padding: 1rem;
+}
+
+.number-input-sm {
+  width: 8rem;
 }
 </style>

@@ -4,11 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.vocabee.domain.model.*
 import com.vocabee.domain.repository.*
 import com.vocabee.web.dto.CourseDto
-import com.vocabee.web.dto.ModuleSummaryDto
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import java.time.LocalDateTime
 import java.util.*
 
 /**
@@ -30,6 +28,7 @@ class CoursePublishService(
     private val exerciseRepository: ExerciseRepository,
     private val exerciseTypeRepository: ExerciseTypeRepository,
     private val episodeContentItemRepository: EpisodeContentItemRepository,
+    private val wordSetRepository: WordSetRepository,
     private val objectMapper: ObjectMapper
 ) {
     private val logger = LoggerFactory.getLogger(javaClass)
@@ -160,6 +159,13 @@ class CoursePublishService(
 
         val savedModule = moduleRepository.save(module)
         logger.info("Created module: ${savedModule.id} - ${savedModule.title}")
+
+        // Link word set to published module
+        wordSetRepository.findByGenerationModulePlanId(modulePlan.id)?.let { wordSet ->
+            wordSet.moduleId = savedModule.id
+            wordSetRepository.save(wordSet)
+            logger.info("Linked word set ${wordSet.id} to module ${savedModule.id}")
+        }
 
         // Create episodes
         val episodePlans = episodePlanRepository.findByModulePlanIdOrderByEpisodeNumber(modulePlan.id)

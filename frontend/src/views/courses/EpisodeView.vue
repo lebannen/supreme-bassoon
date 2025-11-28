@@ -9,6 +9,7 @@ import Divider from 'primevue/divider'
 import ProgressBar from 'primevue/progressbar'
 import Tag from 'primevue/tag'
 import Image from 'primevue/image'
+import Checkbox from 'primevue/checkbox'
 import MultipleChoiceExercise from '@/components/exercises/MultipleChoiceExercise.vue'
 import FillInBlankExercise from '@/components/exercises/FillInBlankExercise.vue'
 import SentenceScrambleExercise from '@/components/exercises/SentenceScrambleExercise.vue'
@@ -18,6 +19,7 @@ import ListeningExercise from '@/components/exercises/ListeningExercise.vue'
 import AudioPlayer from '@/components/audio/AudioPlayer.vue'
 import DialogueText from '@/components/vocabulary/DialogueText.vue'
 import {useCourseStore} from '@/stores/course'
+import {useProgressStore} from '@/stores/progress'
 import {wordSetAPI} from '@/api'
 import type {WordSetDetail} from '@/types/wordSet'
 
@@ -25,13 +27,22 @@ const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
 const route = useRoute()
 const router = useRouter()
 const courseStore = useCourseStore()
+const progressStore = useProgressStore()
 
-const {currentEpisode: episode, loading, error} = storeToRefs(courseStore)
+const {currentEpisode: episode, currentModule: module, loading, error} = storeToRefs(courseStore)
+const accessDenied = ref(false)
 const hasReadContent = ref(false)
 const completedExercises = ref<number[]>([])
 const currentExerciseIndex = ref(0)
+const episodeCompletionRecorded = ref(false)
 const exerciseComponentRef = ref<any>(null)
 const moduleWordSet = ref<WordSetDetail | null>(null)
+const highlightVocabulary = ref(localStorage.getItem('highlight_vocabulary') !== 'false')
+
+// Watch and persist highlighting preference
+watch(highlightVocabulary, (value) => {
+  localStorage.setItem('highlight_vocabulary', String(value))
+})
 
 const episodeTypeIcon = computed(() => ({
   STORY: 'pi-book',
@@ -90,45 +101,113 @@ async function loadEpisode() {
   const episodeId = Number(route.params.id)
   if (episodeId) {
     await courseStore.loadEpisode(episodeId)
-    if (localStorage.getItem('auth_token')) await loadProgress()
-    // Load module word set for vocabulary highlighting
+
+    // Load module to get courseId for enrollment check
     if (episode.value?.moduleId) {
+      await courseStore.loadModule(episode.value.moduleId)
+
+      // Check enrollment
+      if (module.value?.courseId && !progressStore.isEnrolled(module.value.courseId)) {
+        accessDenied.value = true
+        return
+      }
+
+      // Update progress store with current position
+      if (module.value?.courseId) {
+        progressStore.updateProgress(
+            module.value.courseId,
+            episode.value.id,
+            episode.value.title,
+            module.value.id,
+            module.value.title
+        )
+      }
+
+      // Load module word set for vocabulary highlighting
       try {
         moduleWordSet.value = await wordSetAPI.getWordSetByModuleId(episode.value.moduleId)
       } catch (err) {
-        console.warn('Could not load module word set:', err)
+        // Word set not available for this module - highlighting disabled
       }
     }
+
+    await loadProgress()
   }
 }
 
 async function loadProgress() {
-  try {
-    const response = await fetch(`${API_BASE}/api/episodes/${route.params.id}/progress`, {headers: getAuthHeaders()})
-    if (response.ok) {
-      const data = await response.json()
-      hasReadContent.value = data.hasReadContent
-      completedExercises.value = data.completedExercises || []
-      if (episode.value) {
-        const firstIncomplete = episode.value.contentItems.findIndex(item => item.exercise && !completedExercises.value.includes(item.exercise.id))
-        currentExerciseIndex.value = firstIncomplete >= 0 ? firstIncomplete : 0
-      }
+  const episodeId = route.params.id as string
+
+  // Load from localStorage first
+  const localProgress = localStorage.getItem(`episode_progress_${episodeId}`)
+  let localHasRead = false
+  let localCompleted: number[] = []
+
+  if (localProgress) {
+    try {
+      const data = JSON.parse(localProgress)
+      localHasRead = data.hasReadContent || false
+      localCompleted = data.completedExercises || []
+    } catch (e) {
+      // Ignore parse errors
     }
-  } catch (err) {
-    console.error('Error loading progress:', err)
   }
+
+  // Try to load from API for authenticated users
+  let apiHasRead = false
+  let apiCompleted: number[] = []
+
+  if (localStorage.getItem('auth_token')) {
+    try {
+      const response = await fetch(`${API_BASE}/api/episodes/${episodeId}/progress`, {headers: getAuthHeaders()})
+      if (response.ok) {
+        const data = await response.json()
+        apiHasRead = data.hasReadContent || false
+        apiCompleted = data.completedExercises || []
+      }
+    } catch (err) {
+      // API failed
+    }
+  }
+
+  // Merge: use the "best" progress (prefer true for hasRead, union for exercises)
+  hasReadContent.value = localHasRead || apiHasRead
+  completedExercises.value = [...new Set([...localCompleted, ...apiCompleted])]
+
+  // Set current exercise index
+  if (episode.value) {
+    const firstIncomplete = episode.value.contentItems.findIndex(
+        item => item.exercise && !completedExercises.value.includes(item.exercise.id)
+    )
+        currentExerciseIndex.value = firstIncomplete >= 0 ? firstIncomplete : 0
+  }
+}
+
+function saveProgressToLocalStorage() {
+  const episodeId = route.params.id as string
+  localStorage.setItem(`episode_progress_${episodeId}`, JSON.stringify({
+    hasReadContent: hasReadContent.value,
+    completedExercises: completedExercises.value
+  }))
 }
 
 async function markContentAsRead() {
   if (hasReadContent.value) return
+  hasReadContent.value = true
+  saveProgressToLocalStorage()
+
   try {
-    const response = await fetch(`${API_BASE}/api/episodes/${route.params.id}/complete-content`, {
+    await fetch(`${API_BASE}/api/episodes/${route.params.id}/complete-content`, {
       method: 'POST',
       headers: getAuthHeaders()
     })
-    if (response.ok) hasReadContent.value = true
   } catch (err) {
-    console.error('Error marking content as read:', err)
+    // API failed but localStorage is updated
+  }
+
+  // Check if episode is now complete (all exercises done OR no exercises)
+  if (episode.value && completedExercises.value.length === episode.value.contentItems.length) {
+    handleEpisodeComplete()
   }
 }
 
@@ -144,14 +223,48 @@ async function handleExerciseSubmit(response: any) {
     exerciseComponentRef.value?.setResult(result)
     if (result.isCorrect && !completedExercises.value.includes(exerciseId)) {
       completedExercises.value.push(exerciseId)
-      await fetch(`${API_BASE}/api/episodes/${route.params.id}/complete-exercise/${exerciseId}`, {
-        method: 'POST',
-        headers: getAuthHeaders()
-      })
+      saveProgressToLocalStorage()
+
+      // Record activity for daily goals
+      progressStore.recordActivity('exercise')
+
+      try {
+        await fetch(`${API_BASE}/api/episodes/${route.params.id}/complete-exercise/${exerciseId}`, {
+          method: 'POST',
+          headers: getAuthHeaders()
+        })
+      } catch (err) {
+        // API failed but localStorage is updated
+      }
+
+      // Check if episode is complete
+      if (episode.value && completedExercises.value.length === episode.value.contentItems.length && hasReadContent.value) {
+        handleEpisodeComplete()
+      }
     }
   } catch (err) {
     console.error('Error submitting exercise:', err)
   }
+}
+
+function handleEpisodeComplete() {
+  if (!module.value?.courseId || !episode.value) return
+  if (episodeCompletionRecorded.value) return // Prevent duplicate recording
+
+  episodeCompletionRecorded.value = true
+
+  // Find next episode if available
+  const currentIndex = module.value.episodes?.findIndex(e => e.id === episode.value?.id) ?? -1
+  const nextEpisode = module.value.episodes?.[currentIndex + 1]
+
+  progressStore.completeEpisode(
+      module.value.courseId,
+      episode.value.id,
+      nextEpisode?.id,
+      nextEpisode?.title,
+      module.value.id,
+      module.value.title
+  )
 }
 
 watch(currentExercise, () => exerciseComponentRef.value = null, {flush: 'pre'})
@@ -162,6 +275,35 @@ onMounted(loadEpisode)
   <div class="detail-container content-area-lg" :class="{ 'has-margin-images': episodeImages.length > 0 }">
     <div v-if="loading" class="loading-state"><i class="pi pi-spin pi-spinner text-3xl"></i></div>
     <Message v-else-if="error" severity="error">{{ error }}</Message>
+
+    <!-- Access Denied - Not Enrolled -->
+    <div v-else-if="accessDenied" class="access-denied-container">
+      <Card class="access-denied-card">
+        <template #content>
+          <div class="text-center p-5">
+            <i class="pi pi-lock text-5xl text-secondary mb-4"></i>
+            <h2 class="text-2xl font-bold mb-2">Episode Locked</h2>
+            <p class="text-secondary mb-4">
+              You need to enroll in this course to access its episodes.
+            </p>
+            <div class="flex justify-content-center gap-3">
+              <Button
+                  label="Go Back"
+                  icon="pi pi-arrow-left"
+                  @click="router.back()"
+              />
+              <Button
+                  label="Browse Courses"
+                  severity="secondary"
+                  outlined
+                  @click="router.push('/courses')"
+              />
+            </div>
+          </div>
+        </template>
+      </Card>
+    </div>
+
     <div v-else-if="episode" class="content-area-lg">
       <div class="detail-header">
         <Button icon="pi pi-arrow-left" text rounded @click="router.push(`/course-modules/${episode.moduleId}`)"
@@ -216,17 +358,21 @@ onMounted(loadEpisode)
                 preview
                 class="episode-image"
             />
-            <div class="image-caption">
-              <p class="text-xs font-medium text-secondary">{{ image.sceneContext }}</p>
-            </div>
           </div>
         </div>
 
         <!-- Main card content -->
         <Card class="episode-main-card">
           <template #title>
-            <div class="card-title-icon"><i
-                :class="episodeTypeIcon"></i><span>{{ episode.type === 'DIALOGUE' ? 'Dialogue' : 'Story' }}</span></div>
+            <div class="flex justify-content-between align-items-center">
+              <div class="card-title-icon"><i
+                  :class="episodeTypeIcon"></i><span>{{ episode.type === 'DIALOGUE' ? 'Dialogue' : 'Story' }}</span>
+              </div>
+              <label v-if="moduleWordSet?.words?.length" class="highlight-toggle">
+                <Checkbox v-model="highlightVocabulary" :binary="true"/>
+                <span class="text-sm">Highlight vocabulary</span>
+              </label>
+            </div>
           </template>
           <template #content>
             <div class="content-area">
@@ -244,6 +390,7 @@ onMounted(loadEpisode)
                         :text="line.text"
                         :language-code="episodeLanguageCode"
                         :vocabulary-words="moduleWordSet?.words"
+                        :highlight-vocabulary="highlightVocabulary"
                     />
                   </div>
                 </div>
@@ -256,6 +403,7 @@ onMounted(loadEpisode)
                       :text="paragraph"
                       :language-code="episodeLanguageCode"
                       :vocabulary-words="moduleWordSet?.words"
+                      :highlight-vocabulary="highlightVocabulary"
                   />
                 </p>
               </div>
@@ -489,15 +637,6 @@ onMounted(loadEpisode)
   object-fit: cover;
 }
 
-.image-caption {
-  padding: 0.75rem 1rem 1rem;
-}
-
-.image-caption p {
-  margin: 0;
-  line-height: 1.4;
-}
-
 /* Responsive: Adjust for different screen sizes */
 @media (max-width: 1400px) {
   .episode-content-card-wrapper {
@@ -519,5 +658,32 @@ onMounted(loadEpisode)
   .margin-images-alternating {
     display: none; /* Hide margin images on smaller screens */
   }
+}
+
+/* Access Denied State */
+.access-denied-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+.access-denied-card {
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Highlight Toggle */
+.highlight-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: normal;
+  color: var(--text-color-secondary);
+}
+
+.highlight-toggle:hover {
+  color: var(--text-color);
 }
 </style>

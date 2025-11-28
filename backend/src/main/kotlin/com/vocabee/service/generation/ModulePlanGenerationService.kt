@@ -3,9 +3,15 @@ package com.vocabee.service.generation
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.vocabee.domain.model.*
-import com.vocabee.domain.repository.*
+import com.vocabee.domain.repository.GenerationBlueprintRepository
+import com.vocabee.domain.repository.GenerationCharacterRepository
+import com.vocabee.domain.repository.GenerationEpisodePlanRepository
+import com.vocabee.domain.repository.GenerationModulePlanRepository
 import com.vocabee.service.external.gemini.GeminiTextClient
-import com.vocabee.web.dto.admin.generation.*
+import com.vocabee.web.dto.admin.generation.GrammarDistributionDto
+import com.vocabee.web.dto.admin.generation.ModulePlanGenerationResult
+import com.vocabee.web.dto.admin.generation.ModuleTopicDto
+import com.vocabee.web.dto.admin.generation.PlotArcPointDto
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -202,6 +208,9 @@ class ModulePlanGenerationService(
             """
         } ?: ""
 
+        val cefrVocabGuidelines = CefrLevelGuidelines.getVocabularyPromptSection(generation.cefrLevel)
+        val cefrGuidelines = CefrLevelGuidelines.getCurriculumPromptSection(generation.cefrLevel)
+
         return """
             You are an expert language curriculum designer. Create a detailed module plan for a language learning course.
 
@@ -228,6 +237,10 @@ class ModulePlanGenerationService(
             - Grammar Rules to Cover: ${grammarRules.joinToString(", ")}
             - Episodes Required: ${generation.episodesPerModule}
 
+            $cefrGuidelines
+
+            $cefrVocabGuidelines
+
             $feedbackSection
 
             ## Requirements
@@ -236,46 +249,40 @@ class ModulePlanGenerationService(
             Create a compelling module that:
             - Advances the overall story
             - Teaches the assigned topic naturally
-            - Is appropriate for ${generation.cefrLevel} level
+            - Strictly adheres to ${generation.cefrLevel} level constraints
 
             ### Episode Plans
             For each episode, provide:
             1. **title**: Descriptive episode title
             2. **sceneDescription**: What happens in this episode (2-3 sentences)
             3. **episodeType**: Either "DIALOGUE" or "STORY"
-            4. **vocabulary**: 15-20 target words/phrases for this episode
+            4. **vocabulary**: 15-20 target words/phrases for this episode (MUST be ${generation.cefrLevel} appropriate)
             5. **grammarRules**: Which grammar rules from the module are demonstrated
-            6. **characterNames**: Which characters appear (use exact names from Characters list)
+            6. **characterNames**: EXACTLY 2 characters for DIALOGUE episodes (use exact names from Characters list). Story episodes can have 1-3 characters.
             7. **plotPoints**: Key plot developments in this episode
-
-            ### Vocabulary Guidelines
-            - Choose words that fit naturally in the scene
-            - Include a mix of nouns, verbs, adjectives, and common phrases
-            - Ensure words are appropriate for ${generation.cefrLevel} level
-            - Avoid repeating too many words from previous modules
 
             ## Output Format
             Return ONLY valid JSON (no markdown):
 
             {
-              "title": "Module Title",
-              "theme": "Module Theme",
-              "description": "2-3 paragraph description of the module",
+              "title": "[Module Title]",
+              "theme": "[Module Theme]",
+              "description": "[2-3 paragraph description of the module]",
               "objectives": [
                 "By the end of this module, learners will be able to...",
                 "Learners will understand how to..."
               ],
-              "plotSummary": "Summary of what happens in this module (for context in next module)",
+              "plotSummary": "[Summary of what happens in this module]",
               "episodes": [
                 {
                   "episodeNumber": 1,
-                  "title": "Episode Title",
-                  "sceneDescription": "Description of the scene and what happens",
+                  "title": "[Episode Title]",
+                  "sceneDescription": "[Description of the scene and what happens]",
                   "episodeType": "DIALOGUE",
-                  "vocabulary": ["word1", "word2", "phrase one", "phrase two"],
-                  "grammarRules": ["present-er-verbs"],
-                  "characterNames": ["Marie", "Alex"],
-                  "plotPoints": "Key things that happen in this episode"
+                  "vocabulary": ["[${generation.cefrLevel}-appropriate word]", "[phrase]"],
+                  "grammarRules": ["[grammar-rule-slug]"],
+                  "characterNames": ["[Character1]", "[Character2]"],
+                  "plotPoints": "[Key things that happen in this episode]"
                 }
               ]
             }
