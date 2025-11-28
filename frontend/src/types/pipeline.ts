@@ -6,6 +6,7 @@ export type GenerationStage =
     | 'BLUEPRINT'
     | 'MODULE_PLANNING'
     | 'EPISODE_CONTENT'
+    | 'VOCABULARY_LINKING'
     | 'CHARACTER_PROFILES'
     | 'EXERCISES'
     | 'MEDIA'
@@ -287,10 +288,11 @@ export const STAGE_CONFIG: Record<GenerationStage, { label: string; icon: string
     BLUEPRINT: {label: 'Blueprint', icon: 'pi-file-edit', order: 0},
     MODULE_PLANNING: {label: 'Module Planning', icon: 'pi-list', order: 1},
     EPISODE_CONTENT: {label: 'Episode Content', icon: 'pi-book', order: 2},
-    CHARACTER_PROFILES: {label: 'Characters', icon: 'pi-users', order: 3},
-    EXERCISES: {label: 'Exercises', icon: 'pi-check-square', order: 4},
-    MEDIA: {label: 'Media', icon: 'pi-volume-up', order: 5},
-    COMPLETED: {label: 'Completed', icon: 'pi-check-circle', order: 6},
+    VOCABULARY_LINKING: {label: 'Vocabulary', icon: 'pi-bookmark', order: 3},
+    CHARACTER_PROFILES: {label: 'Characters', icon: 'pi-users', order: 4},
+    EXERCISES: {label: 'Exercises', icon: 'pi-check-square', order: 5},
+    MEDIA: {label: 'Media', icon: 'pi-volume-up', order: 6},
+    COMPLETED: {label: 'Completed', icon: 'pi-check-circle', order: 7},
     FAILED: {label: 'Failed', icon: 'pi-times-circle', order: -1}
 }
 

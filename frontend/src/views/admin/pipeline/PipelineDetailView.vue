@@ -37,6 +37,7 @@ const stages: GenerationStage[] = [
   'BLUEPRINT',
   'MODULE_PLANNING',
   'EPISODE_CONTENT',
+  'VOCABULARY_LINKING',
   'CHARACTER_PROFILES',
   'EXERCISES',
   'MEDIA',

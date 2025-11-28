@@ -16,7 +16,10 @@ import MatchingExercise from '@/components/exercises/MatchingExercise.vue'
 import ClozeReadingExercise from '@/components/exercises/ClozeReadingExercise.vue'
 import ListeningExercise from '@/components/exercises/ListeningExercise.vue'
 import AudioPlayer from '@/components/audio/AudioPlayer.vue'
+import DialogueText from '@/components/vocabulary/DialogueText.vue'
 import {useCourseStore} from '@/stores/course'
+import {wordSetAPI} from '@/api'
+import type {WordSetDetail} from '@/types/wordSet'
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
 const route = useRoute()
@@ -28,6 +31,7 @@ const hasReadContent = ref(false)
 const completedExercises = ref<number[]>([])
 const currentExerciseIndex = ref(0)
 const exerciseComponentRef = ref<any>(null)
+const moduleWordSet = ref<WordSetDetail | null>(null)
 
 const episodeTypeIcon = computed(() => ({
   STORY: 'pi-book',
@@ -75,6 +79,8 @@ function getSpeakerIndex(speaker: string): number {
   return uniqueSpeakers.value.indexOf(speaker)
 }
 
+const episodeLanguageCode = computed(() => moduleWordSet.value?.languageCode || 'fr')
+
 const getAuthHeaders = () => ({
   Authorization: `Bearer ${localStorage.getItem('auth_token')}`,
   'Content-Type': 'application/json'
@@ -85,6 +91,14 @@ async function loadEpisode() {
   if (episodeId) {
     await courseStore.loadEpisode(episodeId)
     if (localStorage.getItem('auth_token')) await loadProgress()
+    // Load module word set for vocabulary highlighting
+    if (episode.value?.moduleId) {
+      try {
+        moduleWordSet.value = await wordSetAPI.getWordSetByModuleId(episode.value.moduleId)
+      } catch (err) {
+        console.warn('Could not load module word set:', err)
+      }
+    }
   }
 }
 
@@ -225,12 +239,26 @@ onMounted(loadEpisode)
                     :class="`speaker-${getSpeakerIndex(line.speaker)}`"
                 >
                   <div class="speaker-name">{{ line.speaker }}</div>
-                  <div class="dialogue-text">{{ line.text }}</div>
+                  <div class="dialogue-text-wrapper">
+                    <DialogueText
+                        :text="line.text"
+                        :language-code="episodeLanguageCode"
+                        :vocabulary-words="moduleWordSet?.words"
+                    />
+                  </div>
                 </div>
               </div>
 
               <!-- Story or fallback display -->
-              <div v-else class="prose" v-html="episode.content.replace(/\n\n/g, '<br/><br/>')"></div>
+              <div v-else class="prose">
+                <p v-for="(paragraph, idx) in episode.content.split(/\n\n+/)" :key="idx" class="story-paragraph">
+                  <DialogueText
+                      :text="paragraph"
+                      :language-code="episodeLanguageCode"
+                      :vocabulary-words="moduleWordSet?.words"
+                  />
+                </p>
+              </div>
 
               <AudioPlayer v-if="episode.audioUrl" :audio-url="episode.audioUrl" class="mt-lg"/>
               <div v-if="!hasReadContent" class="text-center mt-lg">
@@ -299,6 +327,14 @@ onMounted(loadEpisode)
 .prose {
   line-height: 1.8;
   font-size: 1.1rem;
+}
+
+.story-paragraph {
+  margin-bottom: 1rem;
+}
+
+.story-paragraph:last-child {
+  margin-bottom: 0;
 }
 
 .exercise-header {
@@ -373,7 +409,7 @@ onMounted(loadEpisode)
   margin-bottom: 0.5rem;
 }
 
-.dialogue-text {
+.dialogue-text-wrapper {
   font-size: 1.1rem;
   line-height: 1.7;
   color: var(--text-color);

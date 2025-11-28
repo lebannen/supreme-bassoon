@@ -2,6 +2,7 @@ package com.vocabee.domain.model
 
 import jakarta.persistence.*
 import java.time.Instant
+import java.util.*
 
 @Entity
 @Table(name = "word_sets")
@@ -27,6 +28,14 @@ data class WordSet(
 
     @Column(name = "word_count", nullable = false)
     var wordCount: Int = 0,
+
+    /** Link to published course module */
+    @Column(name = "module_id")
+    var moduleId: Long? = null,
+
+    /** Link to generation module plan (for pipeline-generated word sets) */
+    @Column(name = "generation_module_plan_id")
+    var generationModulePlanId: UUID? = null,
 
     @Column(name = "created_at", nullable = false, updatable = false)
     val createdAt: Instant = Instant.now(),

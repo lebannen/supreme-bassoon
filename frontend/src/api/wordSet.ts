@@ -35,6 +35,34 @@ export class WordSetAPI extends BaseAPI {
     }
 
     /**
+     * Get word set for a published course module
+     */
+    async getWordSetByModuleId(moduleId: number): Promise<WordSetDetail | null> {
+        try {
+            return await this.get<WordSetDetail>(`/api/word-sets/module/${moduleId}`)
+        } catch (error) {
+            if (error instanceof Error && error.message.includes('404')) {
+                return null
+            }
+            throw error
+        }
+    }
+
+    /**
+     * Get word set for a generation module plan (pipeline preview)
+     */
+    async getWordSetByGenerationModuleId(modulePlanId: string): Promise<WordSetDetail | null> {
+        try {
+            return await this.get<WordSetDetail>(`/api/word-sets/generation-module/${modulePlanId}`)
+        } catch (error) {
+            if (error instanceof Error && error.message.includes('404')) {
+                return null
+            }
+            throw error
+        }
+    }
+
+    /**
      * Import a word set to user's vocabulary
      */
     async importWordSet(

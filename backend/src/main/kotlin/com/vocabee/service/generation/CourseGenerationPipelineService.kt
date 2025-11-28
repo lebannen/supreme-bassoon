@@ -26,6 +26,7 @@ class CourseGenerationPipelineService(
     private val blueprintGenerator: BlueprintGenerationService,
     private val modulePlanGenerator: ModulePlanGenerationService,
     private val episodeContentGenerator: EpisodeContentGenerationService,
+    private val vocabularyLinkingService: VocabularyLinkingService,
     private val characterProfileService: CharacterProfileConsolidationService,
     private val exerciseGenerator: PipelineExerciseGenerationService,
     private val mediaGenerator: PipelineMediaGenerationService,
@@ -182,6 +183,12 @@ class CourseGenerationPipelineService(
                 }
 
                 GenerationStage.EPISODE_CONTENT -> {
+                    generation.currentStage = GenerationStage.VOCABULARY_LINKING
+                    generationRepository.save(generation)
+                    vocabularyLinkingService.processAll(generation)
+                }
+
+                GenerationStage.VOCABULARY_LINKING -> {
                     generation.currentStage = GenerationStage.CHARACTER_PROFILES
                     generationRepository.save(generation)
                     characterProfileService.consolidateAll(generation)
@@ -258,6 +265,12 @@ class CourseGenerationPipelineService(
                         }
                     }
                     episodeContentGenerator.generateAll(generation, feedback?.feedback)
+                }
+
+                GenerationStage.VOCABULARY_LINKING -> {
+                    // Clear vocabulary linking data and regenerate
+                    vocabularyLinkingService.clearVocabularyLinking(generationId)
+                    vocabularyLinkingService.processAll(generation)
                 }
 
                 GenerationStage.CHARACTER_PROFILES -> {

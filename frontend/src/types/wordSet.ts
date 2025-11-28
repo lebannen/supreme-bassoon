@@ -23,7 +23,6 @@ export interface WordSummary {
 }
 
 export interface ImportWordSetRequest {
-  wordSetId: number
   addNotes?: boolean
   notes?: string
 }

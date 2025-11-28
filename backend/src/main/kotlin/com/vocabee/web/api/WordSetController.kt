@@ -46,6 +46,34 @@ class WordSetController(
         return ResponseEntity.ok(wordSet)
     }
 
+    /**
+     * Get word set for a published course module.
+     */
+    @GetMapping("/module/{moduleId}")
+    fun getWordSetByModule(
+        @PathVariable moduleId: Long,
+        @RequestHeader(value = "Authorization", required = false) authorization: String?
+    ): ResponseEntity<WordSetDetailDto> {
+        val userId = authorization?.let { getUserIdFromToken(it) }
+        val wordSet = wordSetService.getWordSetByModuleId(moduleId, userId)
+            ?: return ResponseEntity.notFound().build()
+        return ResponseEntity.ok(wordSet)
+    }
+
+    /**
+     * Get word set for a generation module plan (during pipeline).
+     */
+    @GetMapping("/generation-module/{modulePlanId}")
+    fun getWordSetByGenerationModule(
+        @PathVariable modulePlanId: java.util.UUID,
+        @RequestHeader(value = "Authorization", required = false) authorization: String?
+    ): ResponseEntity<WordSetDetailDto> {
+        val userId = authorization?.let { getUserIdFromToken(it) }
+        val wordSet = wordSetService.getWordSetByGenerationModulePlanId(modulePlanId, userId)
+            ?: return ResponseEntity.notFound().build()
+        return ResponseEntity.ok(wordSet)
+    }
+
     @PostMapping("/{id}/import")
     fun importWordSet(
         @PathVariable id: Long,

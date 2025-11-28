@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.io.InputStream
+import java.util.*
 
 @Service
 class WordSetService(
@@ -62,6 +63,54 @@ class WordSetService(
         } ?: false
 
         val items = wordSetItemRepository.findByWordSetIdOrderByDisplayOrderAsc(wordSetId)
+        val words = items.map { item ->
+            WordSummaryDto(
+                id = item.word.id!!,
+                lemma = item.word.lemma,
+                partOfSpeech = item.word.partOfSpeech,
+                frequencyRank = item.word.frequencyRank
+            )
+        }
+
+        val language = languageRepository.findByCode(wordSet.languageCode)
+        return WordSetDetailDto(
+            id = wordSet.id!!,
+            name = wordSet.name,
+            description = wordSet.description,
+            languageCode = wordSet.languageCode,
+            languageName = language?.name ?: wordSet.languageCode,
+            level = wordSet.level,
+            theme = wordSet.theme,
+            wordCount = wordSet.wordCount,
+            isImported = isImported,
+            words = words
+        )
+    }
+
+    /**
+     * Get word set by published course module ID.
+     */
+    @Transactional(readOnly = true)
+    fun getWordSetByModuleId(moduleId: Long, userId: Long?): WordSetDetailDto? {
+        val wordSet = wordSetRepository.findByModuleId(moduleId) ?: return null
+        return getWordSetDetailDto(wordSet, userId)
+    }
+
+    /**
+     * Get word set by generation module plan ID (for pipeline preview).
+     */
+    @Transactional(readOnly = true)
+    fun getWordSetByGenerationModulePlanId(modulePlanId: UUID, userId: Long?): WordSetDetailDto? {
+        val wordSet = wordSetRepository.findByGenerationModulePlanId(modulePlanId) ?: return null
+        return getWordSetDetailDto(wordSet, userId)
+    }
+
+    private fun getWordSetDetailDto(wordSet: WordSet, userId: Long?): WordSetDetailDto {
+        val isImported = userId?.let {
+            userImportedWordSetRepository.existsByUserIdAndWordSetId(it, wordSet.id!!)
+        } ?: false
+
+        val items = wordSetItemRepository.findByWordSetIdOrderByDisplayOrderAsc(wordSet.id!!)
         val words = items.map { item ->
             WordSummaryDto(
                 id = item.word.id!!,

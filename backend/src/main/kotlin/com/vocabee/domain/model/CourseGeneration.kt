@@ -7,7 +7,7 @@ import java.util.*
 /**
  * Tracks the state of a course generation workflow.
  * Each generation goes through multiple stages: BLUEPRINT -> MODULE_PLANNING ->
- * EPISODE_CONTENT -> CHARACTER_PROFILES -> EXERCISES -> MEDIA -> COMPLETED
+ * EPISODE_CONTENT -> VOCABULARY_LINKING -> CHARACTER_PROFILES -> EXERCISES -> MEDIA -> COMPLETED
  */
 @Entity
 @Table(name = "course_generations")
@@ -64,6 +64,7 @@ enum class GenerationStage {
     BLUEPRINT,
     MODULE_PLANNING,
     EPISODE_CONTENT,
+    VOCABULARY_LINKING,
     CHARACTER_PROFILES,
     EXERCISES,
     MEDIA,
