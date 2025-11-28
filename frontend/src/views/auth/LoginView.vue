@@ -31,11 +31,11 @@ const handleGoogleLogin = () => {
 </script>
 
 <template>
-  <div class="flex items-center justify-center page-container-with-padding">
+  <div class="flex align-items-center justify-content-center page-container-with-padding">
     <Card class="w-full max-w-md shadow-lg">
       <template #header>
-        <div class="text-center p-xl">
-          <h1 class="text-3xl font-bold text-primary mb-xs">Vocabee</h1>
+        <div class="text-center p-5">
+          <h1 class="text-3xl font-bold text-primary mb-1">Vocabee</h1>
           <p class="text-secondary">Sign in to your account</p>
         </div>
       </template>
@@ -46,13 +46,13 @@ const handleGoogleLogin = () => {
           </Message>
           <Message v-if="authStore.error" severity="error">{{ authStore.error }}</Message>
 
-          <div class="flex flex-col gap-sm">
+          <div class="flex flex-column gap-2">
             <label for="email" class="font-semibold">Email</label>
             <InputText id="email" v-model="email" type="email" placeholder="Enter your email" required
                        autocomplete="email"/>
           </div>
 
-          <div class="flex flex-col gap-sm">
+          <div class="flex flex-column gap-2">
             <label for="password" class="font-semibold">Password</label>
             <Password id="password" v-model="password" placeholder="Enter your password" :feedback="false" required
                       toggleMask autocomplete="current-password"/>
@@ -60,7 +60,7 @@ const handleGoogleLogin = () => {
 
           <Button type="submit" label="Sign In" :loading="authStore.loading" class="w-full"/>
 
-          <div class="flex items-center gap-md">
+          <div class="flex align-items-center gap-3">
             <Divider class="flex-1"/>
             <span class="text-secondary text-sm">OR</span>
             <Divider class="flex-1"/>

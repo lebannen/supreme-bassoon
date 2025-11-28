@@ -179,17 +179,17 @@ function getContentPreview(content: GeneratedEpisodeContent) {
 </script>
 
 <template>
-  <div class="episode-wizard p-xl max-w-6xl mx-auto">
-    <div class="mb-xl">
-      <h1 class="text-3xl font-bold mb-sm">Episode Content Generation</h1>
+  <div class="episode-wizard p-5 max-w-6xl mx-auto">
+    <div class="mb-5">
+      <h1 class="text-3xl font-bold mb-2">Episode Content Generation</h1>
       <p class="text-secondary" v-if="module && course">
         Generating episodes for <strong>{{ module.title }}</strong> ({{ course.name }})
       </p>
     </div>
 
-    <Steps :model="steps" :activeStep="activeStep" class="mb-xl"/>
+    <Steps :model="steps" :activeStep="activeStep" class="mb-5"/>
 
-    <div v-if="loading" class="flex justify-center p-xl">
+    <div v-if="loading" class="flex justify-content-center p-5">
       <ProgressSpinner/>
     </div>
 
@@ -201,11 +201,11 @@ function getContentPreview(content: GeneratedEpisodeContent) {
     <div v-else>
       <!-- Step 0: Review Module Plan -->
       <div v-if="activeStep === 0">
-        <h2 class="text-2xl font-bold mb-lg">Module Plan</h2>
+        <h2 class="text-2xl font-bold mb-4">Module Plan</h2>
 
-        <Card class="mb-xl bg-surface-card">
+        <Card class="mb-5 bg-surface-card">
           <template #title>
-            <div class="flex items-center justify-between">
+            <div class="flex align-items-center justify-content-between">
               <div>Module {{ module?.moduleNumber }}: {{ module?.title }}</div>
               <Tag :value="module?.theme" severity="info"/>
             </div>
@@ -213,12 +213,12 @@ function getContentPreview(content: GeneratedEpisodeContent) {
           <template #content>
             <div class="space-y-lg">
               <div v-if="module?.description">
-                <h4 class="font-bold text-sm uppercase text-secondary mb-xs">Description</h4>
+                <h4 class="font-bold text-sm uppercase text-secondary mb-1">Description</h4>
                 <p class="m-0 text-secondary">{{ module.description }}</p>
               </div>
 
               <div v-if="module?.objectives && module.objectives.length > 0">
-                <h4 class="font-bold text-sm uppercase text-secondary mb-xs">Learning Objectives</h4>
+                <h4 class="font-bold text-sm uppercase text-secondary mb-1">Learning Objectives</h4>
                 <ul class="list-disc pl-lg m-0">
                   <li v-for="(obj, idx) in module.objectives" :key="idx" class="text-sm">
                     {{ obj }}
@@ -226,11 +226,11 @@ function getContentPreview(content: GeneratedEpisodeContent) {
                 </ul>
               </div>
 
-              <div class="grid grid-cols-2 gap-md"
+              <div class="grid grid-cols-2 gap-3"
                    v-if="(module?.vocabularyFocus && module.vocabularyFocus.length > 0) || (module?.grammarFocus && module.grammarFocus.length > 0)">
                 <div v-if="module?.vocabularyFocus && module.vocabularyFocus.length > 0">
-                  <h4 class="font-bold text-sm uppercase text-secondary mb-xs">Vocabulary Focus</h4>
-                  <div class="flex flex-wrap gap-xs">
+                  <h4 class="font-bold text-sm uppercase text-secondary mb-1">Vocabulary Focus</h4>
+                  <div class="flex flex-wrap gap-1">
                     <span
                         v-for="(vocab, idx) in module.vocabularyFocus"
                         :key="idx"
@@ -242,8 +242,8 @@ function getContentPreview(content: GeneratedEpisodeContent) {
                 </div>
 
                 <div v-if="module?.grammarFocus && module.grammarFocus.length > 0">
-                  <h4 class="font-bold text-sm uppercase text-secondary mb-xs">Grammar Focus</h4>
-                  <div class="flex flex-wrap gap-xs">
+                  <h4 class="font-bold text-sm uppercase text-secondary mb-1">Grammar Focus</h4>
+                  <div class="flex flex-wrap gap-1">
                     <span
                         v-for="(grammar, idx) in module.grammarFocus"
                         :key="idx"
@@ -258,13 +258,13 @@ function getContentPreview(content: GeneratedEpisodeContent) {
           </template>
         </Card>
 
-        <h3 class="text-xl font-bold mb-md">Episode Outline ({{ episodeOutline.length }} episodes)</h3>
-        <div class="grid gap-md mb-xl">
+        <h3 class="text-xl font-bold mb-3">Episode Outline ({{ episodeOutline.length }} episodes)</h3>
+        <div class="grid gap-3 mb-5">
           <Card v-for="episode in episodeOutline" :key="episode.episodeNumber" class="bg-surface-card">
             <template #title>
-              <div class="flex items-center gap-sm">
+              <div class="flex align-items-center gap-2">
                 <span
-                    class="bg-primary text-primary-contrast rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
+                    class="bg-primary text-primary-contrast rounded-full w-8 h-8 flex align-items-center justify-content-center text-sm font-bold">
                   {{ episode.episodeNumber }}
                 </span>
                 <span>{{ episode.title }}</span>
@@ -289,10 +289,10 @@ function getContentPreview(content: GeneratedEpisodeContent) {
 
       <!-- Step 1: Generate & Review Episodes -->
       <div v-if="activeStep === 1">
-        <h2 class="text-2xl font-bold mb-lg">Generate & Review Episodes</h2>
+        <h2 class="text-2xl font-bold mb-4">Generate & Review Episodes</h2>
 
-        <div class="mb-lg">
-          <ProgressBar :value="Math.round((currentEpisodeIndex / episodeOutline.length) * 100)" class="mb-sm"/>
+        <div class="mb-4">
+          <ProgressBar :value="Math.round((currentEpisodeIndex / episodeOutline.length) * 100)" class="mb-2"/>
           <p class="text-sm text-secondary text-center">
             Episode {{ currentEpisodeIndex + 1 }} of {{ episodeOutline.length }}
           </p>
@@ -300,9 +300,9 @@ function getContentPreview(content: GeneratedEpisodeContent) {
 
         <div v-if="currentEpisode">
           <!-- Episode Info -->
-          <Card class="mb-lg">
+          <Card class="mb-4">
             <template #title>
-              <div class="flex items-center justify-between">
+              <div class="flex align-items-center justify-content-between">
                 <div>Episode {{ currentEpisode.episodeNumber }}: {{ currentEpisode.title }}</div>
                 <Tag :value="currentEpisode.type" severity="info"/>
               </div>
@@ -313,8 +313,8 @@ function getContentPreview(content: GeneratedEpisodeContent) {
           </Card>
 
           <!-- Generate or Show Content -->
-          <div v-if="!currentGeneratedContent" class="text-center p-xl">
-            <p class="mb-lg text-lg">Ready to generate content for this episode?</p>
+          <div v-if="!currentGeneratedContent" class="text-center p-5">
+            <p class="mb-4 text-lg">Ready to generate content for this episode?</p>
             <Button
                 label="Generate Episode"
                 icon="pi pi-bolt"
@@ -326,15 +326,15 @@ function getContentPreview(content: GeneratedEpisodeContent) {
           </div>
 
           <div v-else>
-            <Message v-if="error" severity="error" class="mb-lg" @close="error = ''">{{ error }}</Message>
+            <Message v-if="error" severity="error" class="mb-4" @close="error = ''">{{ error }}</Message>
 
             <!-- Show Generated Content -->
-            <Card class="mb-lg">
+            <Card class="mb-4">
               <template #title>Generated Content</template>
               <template #content>
-                <div class="flex flex-col gap-lg">
+                <div class="flex flex-column gap-4">
                   <div>
-                    <label class="block font-bold text-sm mb-sm text-secondary">{{
+                    <label class="block font-bold text-sm mb-2 text-secondary">{{
                         currentEpisode.type === 'DIALOGUE' ? 'Dialogue' : 'Story'
                       }}</label>
                     <Textarea
@@ -349,7 +349,7 @@ function getContentPreview(content: GeneratedEpisodeContent) {
                   </div>
 
                   <div>
-                    <label class="block font-bold text-sm mb-sm text-secondary">Exercises Generated</label>
+                    <label class="block font-bold text-sm mb-2 text-secondary">Exercises Generated</label>
                     <p class="text-sm text-secondary">{{ currentGeneratedContent.content.exercises?.length || 0 }}
                       exercises created</p>
                   </div>
@@ -358,8 +358,8 @@ function getContentPreview(content: GeneratedEpisodeContent) {
             </Card>
 
             <!-- Action Buttons -->
-            <div class="flex justify-between items-center">
-              <div class="flex gap-sm">
+            <div class="flex justify-content-between align-items-center">
+              <div class="flex gap-2">
                 <Button
                     v-if="currentEpisodeIndex > 0"
                     label="Previous"
@@ -369,7 +369,7 @@ function getContentPreview(content: GeneratedEpisodeContent) {
                 />
               </div>
 
-              <div class="flex gap-sm">
+              <div class="flex gap-2">
                 <Button
                     label="Regenerate"
                     icon="pi pi-refresh"
@@ -395,18 +395,18 @@ function getContentPreview(content: GeneratedEpisodeContent) {
 
       <!-- Step 2: Save Episodes -->
       <div v-if="activeStep === 2">
-        <h2 class="text-2xl font-bold mb-lg">Save Episodes</h2>
+        <h2 class="text-2xl font-bold mb-4">Save Episodes</h2>
 
-        <Message severity="success" class="mb-lg">
+        <Message severity="success" class="mb-4">
           All {{ episodeOutline.length }} episodes have been reviewed and approved!
         </Message>
 
-        <Card class="mb-xl">
+        <Card class="mb-5">
           <template #title>Summary</template>
           <template #content>
-            <div class="grid gap-sm">
+            <div class="grid gap-2">
               <div v-for="(episode, idx) in Array.from(generatedEpisodes.values())" :key="idx"
-                   class="flex items-center gap-sm p-sm bg-surface-ground rounded">
+                   class="flex align-items-center gap-2 p-sm bg-surface-ground rounded">
                 <i class="pi pi-check-circle text-green-500"></i>
                 <span class="font-bold">Episode {{ episode.episodeNumber }}:</span>
                 <span>{{ episode.title }}</span>
@@ -416,8 +416,8 @@ function getContentPreview(content: GeneratedEpisodeContent) {
           </template>
         </Card>
 
-        <div class="text-center p-xl">
-          <div class="flex items-center justify-center gap-sm mb-xl">
+        <div class="text-center p-5">
+          <div class="flex align-items-center justify-content-center gap-2 mb-5">
             <Checkbox v-model="generateAudio" :binary="true" inputId="generateAudio"/>
             <label for="generateAudio" class="cursor-pointer">Generate audio for dialogue episodes</label>
           </div>

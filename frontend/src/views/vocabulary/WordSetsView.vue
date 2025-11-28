@@ -11,7 +11,7 @@ import {useToast} from 'primevue/usetoast'
 import {useConfirm} from 'primevue/useconfirm'
 import ProgressSpinner from 'primevue/progressspinner'
 import Dialog from 'primevue/dialog'
-import FileUpload, {type FileUploadSelectEvent} from 'primevue/fileupload'
+import FileUpload from 'primevue/fileupload'
 import {storeToRefs} from 'pinia'
 import {useAuthStore} from '@/stores/auth'
 import {useVocabularyStore} from '@/stores/vocabulary'
@@ -95,12 +95,12 @@ onMounted(loadWordSets)
   <Toast/>
   <div class="view-container content-area-lg">
     <div class="page-header">
-      <h1 class="flex items-center gap-md"><i class="pi pi-bookmark text-3xl icon-primary"></i> Word Sets</h1>
+      <h1 class="flex align-items-center gap-3"><i class="pi pi-bookmark text-3xl icon-primary"></i> Word Sets</h1>
       <p class="text-secondary">Pre-made collections of words to build your vocabulary.</p>
     </div>
 
-    <div class="flex justify-between items-end flex-wrap gap-md">
-      <div class="flex flex-col gap-sm">
+    <div class="flex justify-content-between items-end flex-wrap gap-3">
+      <div class="flex flex-column gap-2">
         <label for="language-select" class="font-semibold">Filter by Language</label>
         <Select id="language-select" v-model="selectedLanguage" :options="languages" optionLabel="name"
                 optionValue="code" @change="loadWordSets" class="w-full md:w-64"/>
@@ -134,9 +134,9 @@ onMounted(loadWordSets)
     </div>
 
     <div v-else class="content-grid">
-      <Card v-for="wordSet in wordSets" :key="wordSet.id" class="flex flex-col">
+      <Card v-for="wordSet in wordSets" :key="wordSet.id" class="flex flex-column">
         <template #header>
-          <div class="p-md flex justify-end items-center gap-sm bg-surface-section">
+          <div class="p-md flex justify-end align-items-center gap-2 bg-surface-section">
             <Tag v-if="wordSet.level" :value="wordSet.level"/>
             <Tag v-if="wordSet.isImported" value="Imported" icon="pi pi-check" severity="success"/>
           </div>
@@ -148,14 +148,14 @@ onMounted(loadWordSets)
         </template>
         <template #footer>
           <div class="mt-auto pt-md border-t border-surface">
-            <div class="icon-label-group vertical compact mb-md">
+            <div class="icon-label-group vertical compact mb-3">
               <span class="icon-label"><i class="pi pi-book"></i>{{ wordSet.wordCount }} words</span>
               <span v-if="authStore.isAuthenticated && wordSet.userVocabularyCount > 0" class="icon-label"><i
                   class="pi pi-check-circle text-success"></i>{{
                   wordSet.userVocabularyCount
                 }} in your vocabulary</span>
             </div>
-            <div class="flex flex-col gap-sm">
+            <div class="flex flex-column gap-2">
               <Button v-if="authStore.isAuthenticated" :label="wordSet.isImported ? 'Re-import' : 'Import'"
                       :icon="wordSet.isImported ? 'pi pi-refresh' : 'pi pi-download'"
                       @click="confirmImportWordSet(wordSet)" :loading="importingSetId === wordSet.id"

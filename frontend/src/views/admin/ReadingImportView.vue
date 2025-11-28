@@ -143,30 +143,30 @@ const getStatusSeverity = (status: string) => ({
     </div>
 
     <!-- Import Settings -->
-    <Card class="mb-lg">
+    <Card class="mb-4">
       <template #title>Import Settings</template>
       <template #content>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
-          <div class="flex flex-col gap-xs">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div class="flex flex-column gap-1">
             <label for="language" class="font-semibold text-sm">Language</label>
             <Dropdown id="language" v-model="languageCode" :options="languageOptions" optionLabel="label"
                       optionValue="value"/>
           </div>
-          <div class="flex flex-col gap-xs">
+          <div class="flex flex-column gap-1">
             <label for="level" class="font-semibold text-sm">CEFR Level</label>
             <Dropdown id="level" v-model="level" :options="levelOptions" optionLabel="label" optionValue="value"/>
           </div>
-          <div class="flex flex-col gap-xs">
+          <div class="flex flex-column gap-1">
             <label for="topic" class="font-semibold text-sm">Topic (Optional)</label>
             <InputText id="topic" v-model="topic" placeholder="e.g., travel, food"/>
           </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-md mt-md">
-          <div class="flex flex-col gap-xs">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-md">
+          <div class="flex flex-column gap-1">
             <label for="author" class="font-semibold text-sm">Author (Optional)</label>
             <InputText id="author" v-model="author" placeholder="e.g., John Doe"/>
           </div>
-          <div class="flex flex-col gap-xs">
+          <div class="flex flex-column gap-1">
             <label for="description" class="font-semibold text-sm">Description (Optional)</label>
             <InputText id="description" v-model="description" placeholder="Brief description"/>
           </div>
@@ -252,7 +252,7 @@ const getStatusSeverity = (status: string) => ({
           </div>
         </div>
         <div v-if="uploadSummary.errors.length > 0" class="mt-lg p-md bg-red-50 dark:bg-red-900 rounded-md">
-          <h4 class="text-red-700 dark:text-red-300 font-bold mb-sm">Errors:</h4>
+          <h4 class="text-red-700 dark:text-red-300 font-bold mb-2">Errors:</h4>
           <ul class="list-disc pl-lg m-0 text-red-600 dark:text-red-400">
             <li v-for="(error, index) in uploadSummary.errors" :key="index"><strong>{{ error.file }}:</strong>
               {{ error.message }}

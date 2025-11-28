@@ -43,15 +43,15 @@ defineExpose({
   <div class="flashcard-container">
     <Card class="flashcard-header">
       <template #content>
-        <div class="flex justify-between items-center w-full">
-          <div class="flex items-center gap-lg">
+        <div class="flex justify-content-between align-items-center w-full">
+          <div class="flex align-items-center gap-4">
             <span class="font-bold">Card {{ progress.position }} of {{ progress.total }}</span>
-            <span class="flex items-center gap-sm text-secondary">
+            <span class="flex align-items-center gap-2 text-secondary">
               <i class="pi pi-bolt"></i>
               <span>{{ progress.currentStreak }}/{{ progress.needsStreak }} streak</span>
             </span>
           </div>
-          <div class="flex gap-sm">
+          <div class="flex gap-2">
             <Tag :value="`Review #${srsInfo.reviewCount + 1}`" severity="contrast"/>
             <Tag :value="srsInfo.currentInterval" severity="secondary"/>
           </div>
@@ -64,12 +64,12 @@ defineExpose({
         <!-- Front -->
         <Card class="card-face card-front">
           <template #content>
-            <div class="flex flex-col items-center justify-center text-center gap-2xl h-full">
-              <div class="flex flex-col items-center gap-md">
+            <div class="flex flex-column align-items-center justify-content-center text-center gap-6 h-full">
+              <div class="flex flex-column align-items-center gap-3">
                 <h1 class="text-4xl font-bold m-0">{{ word.lemma }}</h1>
                 <Tag v-if="word.partOfSpeech" :value="word.partOfSpeech"/>
               </div>
-              <div class="flex items-center gap-sm text-secondary">
+              <div class="flex align-items-center gap-2 text-secondary">
                 <i class="pi pi-refresh"></i>
                 <span>Click to reveal</span>
               </div>
@@ -79,13 +79,13 @@ defineExpose({
         <!-- Back -->
         <Card class="card-face card-back">
           <template #content>
-            <div class="flex flex-col gap-lg h-full">
-              <div class="flex items-center gap-md pb-md border-b border-surface">
+            <div class="flex flex-column gap-4 h-full">
+              <div class="flex align-items-center gap-3 pb-md border-b border-surface">
                 <h2 class="text-2xl font-bold m-0">{{ word.lemma }}</h2>
                 <Tag v-if="word.partOfSpeech" :value="word.partOfSpeech"/>
               </div>
               <div class="flex-1 overflow-y-auto pr-sm">
-                <div v-for="def in uniqueDefinitions" :key="def.id" class="mb-lg">
+                <div v-for="def in uniqueDefinitions" :key="def.id" class="mb-4">
                   <p class="m-0"><span class="font-bold">{{ def.definitionNumber }}.</span> {{ def.definitionText }}</p>
                 </div>
               </div>

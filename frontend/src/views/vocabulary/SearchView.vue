@@ -106,16 +106,16 @@ onMounted(() => {
       <p class="text-secondary">Search for words and explore their definitions.</p>
     </div>
 
-    <div class="p-lg bg-surface-card rounded-lg content-area">
-      <div class="grid md:grid-cols-3 gap-lg">
-        <div class="flex flex-col gap-sm md:col-span-1">
+    <div class="p-4 bg-surface-card rounded-lg content-area">
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="flex flex-column gap-2 md:col-span-1">
           <label for="language-select" class="font-semibold">Language</label>
           <Select id="language-select" v-model="selectedLanguage" :options="languages" optionLabel="name"
                   optionValue="code" placeholder="Select a language" :loading="isLoadingLanguages"/>
         </div>
-        <div class="flex flex-col gap-sm md:col-span-2">
+        <div class="flex flex-column gap-2 md:col-span-2">
           <label for="search-input" class="font-semibold">Search for a word</label>
-          <div class="flex gap-sm">
+          <div class="flex gap-2">
             <InputText id="search-input" v-model="searchQuery" placeholder="Enter a word..." class="flex-1"
                        :disabled="!selectedLanguage" @keyup.enter="performSearch"/>
             <Button label="Search" icon="pi pi-search" @click="performSearch"

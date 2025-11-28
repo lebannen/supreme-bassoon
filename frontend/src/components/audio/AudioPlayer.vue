@@ -86,8 +86,8 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div v-if="audioUrl" class="p-lg bg-surface rounded-lg shadow-md">
-    <div class="flex items-center gap-md">
+  <div v-if="audioUrl" class="p-4 bg-surface rounded-lg shadow-md">
+    <div class="flex align-items-center gap-3">
       <Button
           :icon="isPlaying ? 'pi pi-pause' : 'pi pi-play'"
           @click="togglePlay"
@@ -98,7 +98,7 @@ onBeforeUnmount(() => {
           aria-label="Play/Pause"
       />
 
-      <div class="flex-1 flex flex-col gap-xs">
+      <div class="flex-1 flex flex-column gap-1">
         <Slider
             :modelValue="currentTime"
             @update:modelValue="onSliderChange"
@@ -106,7 +106,7 @@ onBeforeUnmount(() => {
             :disabled="loading"
             class="w-full"
         />
-        <div class="flex justify-between text-xs text-secondary">
+        <div class="flex justify-content-between text-xs text-secondary">
           <span>{{ formatTime(currentTime) }}</span>
           <span>{{ formatTime(duration) }}</span>
         </div>

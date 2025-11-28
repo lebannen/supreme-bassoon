@@ -1,23 +1,22 @@
 <script setup lang="ts">
-import {ref, computed} from 'vue'
-import { useRouter } from 'vue-router'
+import {computed, ref} from 'vue'
+import {useRouter} from 'vue-router'
 import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
 import Textarea from 'primevue/textarea'
 import Dropdown from 'primevue/dropdown'
 import Card from 'primevue/card'
 import Message from 'primevue/message'
-import ProgressSpinner from 'primevue/progressspinner'
 import ProgressBar from 'primevue/progressbar'
 import Steps from 'primevue/steps'
-import { GenerationService } from '@/services/GenerationService'
-import { CourseService } from '@/services/CourseService'
+import {GenerationService} from '@/services/GenerationService'
+import {CourseService} from '@/services/CourseService'
 import type {
-  GenerateSyllabusRequest,
-  GeneratedSyllabus,
+  GeneratedModulePlan,
   GeneratedModuleSummary,
+  GeneratedSyllabus,
   GenerateModulePlanRequest,
-  GeneratedModulePlan
+  GenerateSyllabusRequest
 } from '@/types/generation'
 
 const router = useRouter()
@@ -215,41 +214,41 @@ function prevStep() {
 </script>
 
 <template>
-  <div class="course-wizard p-xl max-w-6xl mx-auto">
-    <div class="mb-xl">
-      <h1 class="text-3xl font-bold mb-sm">Create New Course</h1>
+  <div class="course-wizard p-5 max-w-6xl mx-auto">
+    <div class="mb-5">
+      <h1 class="text-3xl font-bold mb-2">Create New Course</h1>
       <p class="text-secondary">AI-powered course creation with full planning and control.</p>
     </div>
 
-    <Steps :model="steps" :activeStep="activeStep" class="mb-xl"/>
+    <Steps :model="steps" :activeStep="activeStep" class="mb-5"/>
 
-    <Message v-if="error" severity="error" class="mb-lg">{{ error }}</Message>
+    <Message v-if="error" severity="error" class="mb-4">{{ error }}</Message>
 
     <!-- STEP 1: COURSE SETTINGS -->
     <div v-if="activeStep === 0" class="step-content">
-      <h2 class="text-2xl font-bold mb-lg">Course Settings</h2>
+      <h2 class="text-2xl font-bold mb-4">Course Settings</h2>
 
-      <div class="field mb-xl">
-        <label class="block font-bold mb-sm">Course Name</label>
+      <div class="field mb-5">
+        <label class="block font-bold mb-2">Course Name</label>
         <InputText v-model="courseName" class="w-full" placeholder="e.g., Alex's Parisian Adventure"/>
         <small class="text-secondary">Give your course a descriptive name</small>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-xl mb-xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
         <div class="field">
-          <label class="block font-bold mb-sm">Target Language</label>
+          <label class="block font-bold mb-2">Target Language</label>
           <Dropdown v-model="targetLanguage" :options="languages" optionLabel="label" optionValue="value"
                     class="w-full"/>
         </div>
         <div class="field">
-          <label class="block font-bold mb-sm">Level</label>
+          <label class="block font-bold mb-2">Level</label>
           <Dropdown v-model="level" :options="levels" optionLabel="label" optionValue="value" class="w-full"/>
         </div>
       </div>
 
-      <div class="field mb-xl">
-        <label class="block font-bold mb-sm">Series Context (The "Bible")</label>
-        <p class="text-sm text-secondary mb-sm">
+      <div class="field mb-5">
+        <label class="block font-bold mb-2">Series Context (The "Bible")</label>
+        <p class="text-sm text-secondary mb-2">
           Describe the main characters, setting, and overall story arc. This will guide the AI in generating cohesive
           modules.
         </p>
@@ -273,10 +272,10 @@ function prevStep() {
 
     <!-- STEP 2: GENERATE SYLLABUS -->
     <div v-if="activeStep === 1" class="step-content">
-      <h2 class="text-2xl font-bold mb-lg">Generate Syllabus</h2>
+      <h2 class="text-2xl font-bold mb-4">Generate Syllabus</h2>
 
-      <div v-if="!generatedSyllabus" class="text-center p-xl">
-        <p class="mb-lg text-lg">Ready to generate a 10-module syllabus based on your series context?</p>
+      <div v-if="!generatedSyllabus" class="text-center p-5">
+        <p class="mb-4 text-lg">Ready to generate a 10-module syllabus based on your series context?</p>
         <Button
             label="Generate Syllabus"
             icon="pi pi-sparkles"
@@ -287,7 +286,7 @@ function prevStep() {
       </div>
 
       <div v-else>
-        <div class="flex justify-between items-center mb-md">
+        <div class="flex justify-content-between align-items-center mb-3">
           <h3 class="text-xl font-bold">Generated Modules</h3>
           <Button
               label="Regenerate Syllabus"
@@ -298,12 +297,12 @@ function prevStep() {
           />
         </div>
 
-        <div class="grid gap-md mb-xl">
+        <div class="grid gap-3 mb-5">
           <Card v-for="module in generatedSyllabus.modules" :key="module.moduleNumber" class="bg-surface-card">
             <template #title>
-              <div class="flex items-center gap-sm">
+              <div class="flex align-items-center gap-2">
                 <span
-                    class="bg-primary text-primary-contrast rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
+                    class="bg-primary text-primary-contrast rounded-full w-8 h-8 flex align-items-center justify-content-center text-sm font-bold">
                   {{ module.moduleNumber }}
                 </span>
                 <span>{{ module.title }}</span>
@@ -318,7 +317,7 @@ function prevStep() {
           </Card>
         </div>
 
-        <div class="flex justify-between">
+        <div class="flex justify-content-between">
           <Button label="Back" icon="pi pi-arrow-left" text @click="prevStep"/>
           <Button
               label="Next: Enrich Modules"
@@ -332,15 +331,15 @@ function prevStep() {
 
     <!-- STEP 3: ENRICH MODULES -->
     <div v-if="activeStep === 2" class="step-content">
-      <h2 class="text-2xl font-bold mb-lg">Enrich Modules with Details</h2>
-      <p class="text-secondary mb-xl">
+      <h2 class="text-2xl font-bold mb-4">Enrich Modules with Details</h2>
+      <p class="text-secondary mb-5">
         Now we'll generate detailed plans for each module, including learning objectives, vocabulary focus, grammar
         points, and episode outlines.
       </p>
 
-      <div v-if="enrichedModules.size === 0" class="text-center p-xl">
-        <p class="mb-lg text-lg">Generate detailed plans for all {{ generatedSyllabus?.modules.length }} modules?</p>
-        <p class="text-sm text-secondary mb-xl">This may take 2-3 minutes.</p>
+      <div v-if="enrichedModules.size === 0" class="text-center p-5">
+        <p class="mb-4 text-lg">Generate detailed plans for all {{ generatedSyllabus?.modules.length }} modules?</p>
+        <p class="text-sm text-secondary mb-5">This may take 2-3 minutes.</p>
         <Button
             label="Enrich All Modules"
             icon="pi pi-bolt"
@@ -351,23 +350,23 @@ function prevStep() {
         />
 
         <div v-if="currentEnrichingModule !== null" class="mt-xl max-w-md mx-auto">
-          <p class="mb-sm text-primary">Enriching Module {{ currentEnrichingModule }}...</p>
+          <p class="mb-2 text-primary">Enriching Module {{ currentEnrichingModule }}...</p>
           <ProgressBar :value="enrichmentProgress"/>
         </div>
       </div>
 
       <div v-else class="enriched-modules">
-        <div class="grid gap-lg mb-xl">
+        <div class="grid gap-4 mb-5">
           <Card
               v-for="module in generatedSyllabus?.modules"
               :key="module.moduleNumber"
               class="bg-surface-card"
           >
             <template #title>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-sm">
+              <div class="flex align-items-center justify-content-between">
+                <div class="flex align-items-center gap-2">
                   <span
-                      class="bg-primary text-primary-contrast rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
+                      class="bg-primary text-primary-contrast rounded-full w-8 h-8 flex align-items-center justify-content-center text-sm font-bold">
                     {{ module.moduleNumber }}
                   </span>
                   <span>{{ module.title }}</span>
@@ -386,7 +385,7 @@ function prevStep() {
             <template #content>
               <div v-if="enrichedModules.get(module.moduleNumber)" class="space-y-md">
                 <div>
-                  <h4 class="font-bold text-sm uppercase text-secondary mb-xs">Objectives</h4>
+                  <h4 class="font-bold text-sm uppercase text-secondary mb-1">Objectives</h4>
                   <ul class="list-disc pl-lg m-0">
                     <li v-for="(obj, idx) in enrichedModules.get(module.moduleNumber)?.objectives" :key="idx"
                         class="text-sm">
@@ -396,7 +395,7 @@ function prevStep() {
                 </div>
 
                 <div>
-                  <h4 class="font-bold text-sm uppercase text-secondary mb-xs">Episode Outline
+                  <h4 class="font-bold text-sm uppercase text-secondary mb-1">Episode Outline
                     ({{ enrichedModules.get(module.moduleNumber)?.episodeOutline.length }} episodes)</h4>
                   <div class="space-y-xs">
                     <div
@@ -411,10 +410,10 @@ function prevStep() {
                   </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-md">
+                <div class="grid grid-cols-2 gap-3">
                   <div>
-                    <h4 class="font-bold text-sm uppercase text-secondary mb-xs">Vocabulary</h4>
-                    <div class="flex flex-wrap gap-xs">
+                    <h4 class="font-bold text-sm uppercase text-secondary mb-1">Vocabulary</h4>
+                    <div class="flex flex-wrap gap-1">
                       <span
                           v-for="(vocab, idx) in enrichedModules.get(module.moduleNumber)?.vocabularyFocus"
                           :key="idx"
@@ -425,8 +424,8 @@ function prevStep() {
                     </div>
                   </div>
                   <div>
-                    <h4 class="font-bold text-sm uppercase text-secondary mb-xs">Grammar</h4>
-                    <div class="flex flex-wrap gap-xs">
+                    <h4 class="font-bold text-sm uppercase text-secondary mb-1">Grammar</h4>
+                    <div class="flex flex-wrap gap-1">
                       <span
                           v-for="(grammar, idx) in enrichedModules.get(module.moduleNumber)?.grammarFocus"
                           :key="idx"
@@ -442,7 +441,7 @@ function prevStep() {
           </Card>
         </div>
 
-        <div class="flex justify-between">
+        <div class="flex justify-content-between">
           <Button label="Back" icon="pi pi-arrow-left" text @click="prevStep"/>
           <Button
               label="Next: Review & Create"
@@ -456,35 +455,35 @@ function prevStep() {
 
     <!-- STEP 4: REVIEW & CREATE -->
     <div v-if="activeStep === 3" class="step-content">
-      <h2 class="text-2xl font-bold mb-lg">Review & Create Course</h2>
+      <h2 class="text-2xl font-bold mb-4">Review & Create Course</h2>
 
-      <Card class="mb-xl bg-surface-card">
+      <Card class="mb-5 bg-surface-card">
         <template #title>Course Overview</template>
         <template #content>
-          <div class="grid grid-cols-2 gap-lg">
+          <div class="grid grid-cols-2 gap-4">
             <div>
-              <label class="block font-bold text-sm mb-xs">Course Name</label>
+              <label class="block font-bold text-sm mb-1">Course Name</label>
               <p class="m-0">{{ courseName }}</p>
             </div>
             <div>
-              <label class="block font-bold text-sm mb-xs">Language & Level</label>
+              <label class="block font-bold text-sm mb-1">Language & Level</label>
               <p class="m-0">{{ languages.find(l => l.value === targetLanguage)?.label }} - {{ level }}</p>
             </div>
             <div>
-              <label class="block font-bold text-sm mb-xs">Total Modules</label>
+              <label class="block font-bold text-sm mb-1">Total Modules</label>
               <p class="m-0">{{ generatedSyllabus?.modules.length }}</p>
             </div>
             <div class="col-span-2">
-              <label class="block font-bold text-sm mb-xs">Series Context</label>
+              <label class="block font-bold text-sm mb-1">Series Context</label>
               <p class="m-0 text-sm text-secondary">{{ seriesContext.substring(0, 200) }}...</p>
             </div>
           </div>
         </template>
       </Card>
 
-      <div class="text-center p-xl">
-        <p class="mb-lg text-lg">Ready to create your course?</p>
-        <p class="text-sm text-secondary mb-xl">
+      <div class="text-center p-5">
+        <p class="mb-4 text-lg">Ready to create your course?</p>
+        <p class="text-sm text-secondary mb-5">
           This will create the course with all {{ generatedSyllabus?.modules.length }} modules.
           You can then generate episode content for each module individually.
         </p>

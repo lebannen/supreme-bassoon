@@ -31,9 +31,9 @@ const props = withDefaults(defineProps<BaseCardProps>(), {
 
 const cardClasses = computed(() => {
   return {
-    'p-lg': props.padding === 'default',
-    'p-xl': props.padding === 'lg',
-    'p-4xl': props.padding === 'xl',
+    'p-4': props.padding === 'default',
+    'p-5': props.padding === 'lg',
+    'p-8': props.padding === 'xl',
     'hover-lift': props.hoverable,
     'card-interactive': props.hoverable || props.hoverableLift,
   }

@@ -57,7 +57,7 @@ const gradientStyle = computed(() => {
   <Card class="card-interactive content-card" @click="emit('click')">
     <template #header>
       <div
-          class="h-160 flex items-center justify-center relative"
+          class="h-160 flex align-items-center justify-content-center relative"
           :style="gradientStyle"
       >
         <i v-if="icon" class="text-4xl" :class="icon"></i>

@@ -68,13 +68,13 @@ onMounted(() => {
     <div class="view-container content-area-lg">
       <!-- Header -->
       <div class="page-header">
-        <h1 class="flex items-center gap-md">
+        <h1 class="flex align-items-center gap-3">
           <i class="pi pi-chart-bar text-3xl icon-primary"></i>
           Your Statistics
         </h1>
       </div>
 
-      <Message v-if="error" severity="error" :closable="false" class="mb-md">
+      <Message v-if="error" severity="error" :closable="false" class="mb-3">
         {{ error }}
       </Message>
 
@@ -83,7 +83,7 @@ onMounted(() => {
         <p class="text-lg text-secondary">Loading your statistics...</p>
       </div>
 
-      <div v-else-if="stats" class="flex flex-col gap-lg">
+      <div v-else-if="stats" class="flex flex-column gap-4">
         <!-- Overview Stats -->
         <Card>
           <template #title>
@@ -93,12 +93,12 @@ onMounted(() => {
             </div>
           </template>
           <template #content>
-            <div class="stats-grid mb-2xl">
+            <div class="stats-grid mb-6">
               <div class="stat">
                 <div class="stat-icon stat-icon-yellow">
                   <i class="pi pi-trophy"></i>
                 </div>
-                <div class="flex flex-col gap-xs">
+                <div class="flex flex-column gap-1">
                   <span class="text-3xl font-bold text-primary">{{
                       stats.totalExercisesMastered
                     }}</span>
@@ -113,7 +113,7 @@ onMounted(() => {
                 <div class="stat-icon stat-icon-purple">
                   <i class="pi pi-star"></i>
                 </div>
-                <div class="flex flex-col gap-xs">
+                <div class="flex flex-column gap-1">
                   <span class="text-3xl font-bold text-primary">
                     {{ stats.overallAverageScore ? Math.round(stats.overallAverageScore) : 0 }}%
                   </span>
@@ -128,7 +128,7 @@ onMounted(() => {
                 <div class="stat-icon stat-icon-blue">
                   <i class="pi pi-clock"></i>
                 </div>
-                <div class="flex flex-col gap-xs">
+                <div class="flex flex-column gap-1">
                   <span class="text-3xl font-bold text-primary">{{
                       formatTime(stats.totalTimeSpentSeconds)
                     }}</span>
@@ -141,7 +141,7 @@ onMounted(() => {
                 <div class="stat-icon stat-icon-green">
                   <i class="pi pi-check-circle"></i>
                 </div>
-                <div class="flex flex-col gap-xs">
+                <div class="flex flex-column gap-1">
                   <span class="text-3xl font-bold text-primary">{{
                       stats.totalExercisesCompleted
                     }}</span>
@@ -152,7 +152,7 @@ onMounted(() => {
             </div>
 
             <div class="divider-top">
-              <div class="flex justify-between items-center mb-sm font-semibold text-primary">
+              <div class="flex justify-content-between align-items-center mb-2 font-semibold text-primary">
                 <span>Overall Progress</span>
                 <span class="text-xl text-primary"
                 >{{ Math.round(completionPercentage) }}%</span
@@ -173,9 +173,9 @@ onMounted(() => {
           </template>
           <template #content>
             <div class="stats-grid">
-              <div class="flex items-center gap-lg p-lg gradient-warning" style="border-radius: var(--radius-lg)">
+              <div class="flex align-items-center gap-4 p-4 gradient-warning" style="border-radius: var(--radius-lg)">
                 <i class="pi pi-calendar text-3xl"></i>
-                <div class="flex flex-col gap-xs">
+                <div class="flex flex-column gap-1">
                   <span class="text-4xl font-bold line-height-tight">{{
                       stats.currentStreak
                     }}</span>
@@ -183,9 +183,9 @@ onMounted(() => {
                   <span class="text-sm">days in a row</span>
                 </div>
               </div>
-              <div class="flex items-center gap-lg p-lg gradient-purple" style="border-radius: var(--radius-lg)">
+              <div class="flex align-items-center gap-4 p-4 gradient-purple" style="border-radius: var(--radius-lg)">
                 <i class="pi pi-crown text-3xl"></i>
-                <div class="flex flex-col gap-xs">
+                <div class="flex flex-column gap-1">
                   <span class="text-4xl font-bold line-height-tight">{{
                       stats.longestStreak
                     }}</span>
@@ -210,21 +210,21 @@ onMounted(() => {
               <i class="pi pi-inbox empty-icon"></i>
               <p>No activity yet. Start practicing to see your progress here!</p>
             </div>
-            <div v-else class="flex flex-col gap-sm">
+            <div v-else class="flex flex-column gap-2">
               <div
                 v-for="activity in stats.recentActivity"
                 :key="`${activity.exerciseId}-${activity.completedAt}`"
                 class="list-item-interactive"
                 @click="navigateToExercise(activity.exerciseId)"
               >
-                <div class="flex justify-between items-center mb-xs">
+                <div class="flex justify-content-between align-items-center mb-1">
                   <Tag :value="activity.exerciseType" class="text-xs"/>
                   <span class="text-sm text-secondary">{{ formatDate(activity.completedAt) }}</span>
                 </div>
-                <div class="font-semibold text-primary mb-xs">{{ activity.exerciseTitle }}</div>
-                <div class="flex justify-between items-center">
+                <div class="font-semibold text-primary mb-1">{{ activity.exerciseTitle }}</div>
+                <div class="flex justify-content-between align-items-center">
                   <div
-                      class="flex items-center gap-xs font-semibold"
+                      class="flex align-items-center gap-1 font-semibold"
                       :class="activity.isCorrect ? 'text-success' : 'text-error'"
                   >
                     <i
@@ -249,19 +249,19 @@ onMounted(() => {
           </template>
           <template #content>
             <div class="language-stats">
-              <div class="flex flex-col gap-xs">
+              <div class="flex flex-column gap-1">
                 <span class="text-sm text-secondary text-uppercase">Total Exercises</span>
                 <span class="text-2xl font-bold text-primary">{{ lang.totalExercises }}</span>
               </div>
-              <div class="flex flex-col gap-xs">
+              <div class="flex flex-column gap-1">
                 <span class="text-sm text-secondary text-uppercase">Completed</span>
                 <span class="text-2xl font-bold text-primary">{{ lang.completedExercises }}</span>
               </div>
-              <div class="flex flex-col gap-xs">
+              <div class="flex flex-column gap-1">
                 <span class="text-sm text-secondary text-uppercase">Mastered</span>
                 <span class="text-2xl font-bold text-primary">{{ lang.masteredExercises }}</span>
               </div>
-              <div class="flex flex-col gap-xs">
+              <div class="flex flex-column gap-1">
                 <span class="text-sm text-secondary text-uppercase">Average Score</span>
                 <span class="text-2xl font-bold text-primary">{{
                     lang.averageScore ? Math.round(lang.averageScore) + '%' : 'N/A'
@@ -270,14 +270,14 @@ onMounted(() => {
             </div>
 
             <div v-if="Object.keys(lang.moduleProgress).length > 0" class="modules-section">
-              <h4 class="mb-md text-primary font-semibold">Modules</h4>
+              <h4 class="mb-3 text-primary font-semibold">Modules</h4>
               <div class="content-grid">
                 <div
                   v-for="module in Object.values(lang.moduleProgress)"
                   :key="module.moduleNumber"
                   class="module-card"
                 >
-                  <div class="flex justify-between items-center mb-sm">
+                  <div class="flex justify-content-between align-items-center mb-2">
                     <span class="font-semibold text-primary">Module {{ module.moduleNumber }}</span>
                     <span class="font-bold module-percentage"
                     >{{ Math.round(module.completionPercentage) }}%</span

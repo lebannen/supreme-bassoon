@@ -56,7 +56,7 @@ onUnmounted(() => {
 
 <template>
   <div class="scroll-reader-container">
-    <AudioPlayer v-if="audioUrl" :audio-url="audioUrl" class="w-full max-w-3xl mb-lg"/>
+    <AudioPlayer v-if="audioUrl" :audio-url="audioUrl" class="w-full max-w-3xl mb-4"/>
 
     <div class="reading-progress-bar">
       <div class="progress-fill" :style="{ width: `${scrollProgress}%` }"></div>

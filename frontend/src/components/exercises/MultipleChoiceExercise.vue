@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed, ref} from 'vue'
+import {ref} from 'vue'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
 
@@ -92,7 +92,7 @@ defineExpose({ setResult, reset })
 
 <template>
   <div class="multiple-choice-exercise">
-    <div class="p-lg bg-surface-card rounded-lg text-center">
+    <div class="p-4 bg-surface-card rounded-lg text-center">
       <h2 class="text-2xl font-bold">{{ content.question.content }}</h2>
     </div>
 

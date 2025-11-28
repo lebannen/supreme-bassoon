@@ -133,7 +133,7 @@ defineExpose({setResult})
 
 <template>
   <div class="cloze-exercise">
-    <div class="p-lg bg-surface-card rounded-lg">
+    <div class="p-4 bg-surface-card rounded-lg">
       <div class="passage-text">
         <template v-for="(segment, index) in textSegments" :key="index">
           <span v-if="segment.type === 'text'">{{ segment.content }}</span>

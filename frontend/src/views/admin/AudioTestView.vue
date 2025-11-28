@@ -102,18 +102,18 @@ async function generateAudio() {
     <Card>
       <template #content>
         <div class="content-area-lg">
-          <div class="flex flex-col gap-sm">
+          <div class="flex flex-column gap-2">
             <label for="text" class="font-semibold">Text to Convert</label>
             <Textarea id="text" v-model="text" rows="3" placeholder="Enter text..." :disabled="isGenerating"/>
           </div>
 
-          <div class="grid md:grid-cols-2 gap-lg">
-            <div class="flex flex-col gap-sm">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="flex flex-column gap-2">
               <label for="language" class="font-semibold">Language</label>
               <Select id="language" v-model="languageCode" :options="languages" optionLabel="label" optionValue="value"
                       :disabled="isGenerating"/>
             </div>
-            <div class="flex flex-col gap-sm">
+            <div class="flex flex-column gap-2">
               <label for="voice" class="font-semibold">Voice</label>
               <Select id="voice" v-model="voice" :options="voices" optionLabel="label" optionValue="value"
                       :disabled="isGenerating"/>

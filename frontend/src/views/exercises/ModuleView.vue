@@ -4,7 +4,6 @@ import {useRouter} from 'vue-router'
 import {storeToRefs} from 'pinia'
 import Card from 'primevue/card'
 import Select from 'primevue/select'
-import Button from 'primevue/button'
 import Tag from 'primevue/tag'
 import Message from 'primevue/message'
 import ProgressSpinner from 'primevue/progressspinner'
@@ -51,7 +50,7 @@ onMounted(loadExercises)
   <div class="view-container content-area-lg">
     <div class="page-header">
       <h1>{{ moduleTitle }}</h1>
-      <div class="flex gap-md">
+      <div class="flex gap-3">
         <Select v-model="selectedLanguage" :options="languages" optionLabel="label" optionValue="value"
                 @change="loadExercises"/>
         <Select v-model="selectedModule" :options="modules" optionLabel="label" optionValue="value"
@@ -74,7 +73,7 @@ onMounted(loadExercises)
           <div class="card-title-icon"><i class="pi pi-chart-line"></i><span>Your Progress</span></div>
         </template>
         <template #content>
-          <div class="summary-stats mb-xl">
+          <div class="summary-stats mb-5">
             <div class="stat">
               <div class="stat-icon stat-icon-success"><i class="pi pi-check-circle"></i></div>
               <div><span class="stat-value">{{ Math.round(moduleStats.completionPercentage) }}%</span><span
@@ -106,9 +105,9 @@ onMounted(loadExercises)
               :class="{ 'border-2 border-green-500': getExerciseStatus(progress) === 'MASTERED' }"
               @click="router.push(`/exercises/${progress.exerciseId}`)">
           <template #header>
-            <div class="p-md flex justify-between items-center bg-surface-section">
+            <div class="p-md flex justify-content-between align-items-center bg-surface-section">
               <Tag :value="progress.exerciseType" :severity="getTypeSeverity(progress.exerciseType)"/>
-              <div class="flex items-center gap-sm">
+              <div class="flex align-items-center gap-2">
                 <Tag v-if="progress.pointsValue" :value="`${progress.pointsValue} pts`" severity="contrast"/>
                 <i v-if="getExerciseStatus(progress) === 'MASTERED'" class="pi pi-check-circle text-xl text-success"
                    v-tooltip.top="'Mastered'"></i>
@@ -118,7 +117,7 @@ onMounted(loadExercises)
             </div>
           </template>
           <template #title>
-            <div class="flex justify-between items-start">
+            <div class="flex justify-content-between align-items-start">
               <span>{{ progress.exerciseTitle }}</span>
               <Tag v-if="progress.bestScore !== null" :value="`${Math.round(progress.bestScore)}%`" severity="success"
                    outlined/>

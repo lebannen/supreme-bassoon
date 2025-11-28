@@ -61,7 +61,7 @@ const handleSave = async () => {
 <template>
   <div class="view-container content-area-lg">
     <div class="page-header">
-      <h1 class="flex items-center gap-md">
+      <h1 class="flex align-items-center gap-3">
         <i class="pi pi-user text-3xl icon-primary"></i>
         My Profile
       </h1>
@@ -74,11 +74,11 @@ const handleSave = async () => {
       <template #content>
         <div class="content-area">
           <div>
-            <h3 class="flex items-center gap-md text-xl font-semibold text-primary mb-lg">
+            <h3 class="flex align-items-center gap-3 text-xl font-semibold text-primary mb-4">
               <i class="pi pi-envelope"></i> Email Address
             </h3>
             <div class="pl-4xl">
-              <label class="font-medium mb-sm block">Email</label>
+              <label class="font-medium mb-2 block">Email</label>
               <InputText :model-value="authStore.user?.email" disabled class="w-full"/>
               <small class="text-secondary mt-sm block">Email cannot be changed.</small>
             </div>
@@ -87,11 +87,11 @@ const handleSave = async () => {
           <Divider/>
 
           <div>
-            <h3 class="flex items-center gap-md text-xl font-semibold text-primary mb-lg">
+            <h3 class="flex align-items-center gap-3 text-xl font-semibold text-primary mb-4">
               <i class="pi pi-id-card"></i> Personal Information
             </h3>
             <div class="pl-4xl">
-              <label for="displayName" class="font-medium mb-sm block">Display Name</label>
+              <label for="displayName" class="font-medium mb-2 block">Display Name</label>
               <InputText id="displayName" v-model="displayName" :disabled="!isEditing"
                          placeholder="Enter your display name" class="w-full"/>
             </div>
@@ -100,18 +100,18 @@ const handleSave = async () => {
           <Divider/>
 
           <div>
-            <h3 class="flex items-center gap-md text-xl font-semibold text-primary mb-lg">
+            <h3 class="flex align-items-center gap-3 text-xl font-semibold text-primary mb-4">
               <i class="pi pi-language"></i> Language Preferences
             </h3>
             <div class="pl-4xl content-area">
               <div>
-                <label for="nativeLanguage" class="font-medium mb-sm block">Native Language</label>
+                <label for="nativeLanguage" class="font-medium mb-2 block">Native Language</label>
                 <Dropdown id="nativeLanguage" v-model="nativeLanguage" :options="languageOptions" option-label="label"
                           option-value="value" :disabled="!isEditing" placeholder="Select your native language"
                           class="w-full"/>
               </div>
               <div>
-                <label for="learningLanguages" class="font-medium mb-sm block">Learning Languages</label>
+                <label for="learningLanguages" class="font-medium mb-2 block">Learning Languages</label>
                 <MultiSelect id="learningLanguages" v-model="learningLanguages" :options="availableLearningLanguages"
                              option-label="label" option-value="value" :disabled="!isEditing"
                              placeholder="Select languages" class="w-full" display="chip"/>
@@ -119,7 +119,7 @@ const handleSave = async () => {
             </div>
           </div>
 
-          <div class="mt-xl pt-xl flex gap-md justify-end border-t border-surface">
+          <div class="mt-xl pt-xl flex gap-3 justify-end border-t border-surface">
             <Button v-if="!isEditing" label="Edit Profile" icon="pi pi-pencil" @click="isEditing = true"/>
             <template v-else>
               <Button label="Cancel" icon="pi pi-times" severity="secondary" @click="handleCancel"/>

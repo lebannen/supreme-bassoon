@@ -90,16 +90,16 @@ function goBack() {
 </script>
 
 <template>
-  <div class="episode-viewer p-xl mx-auto"
+  <div class="episode-viewer p-5 mx-auto"
        :class="{ 'has-margin-images': episodeImages.length > 0, 'max-w-6xl': episodeImages.length === 0 }">
-    <div class="mb-xl">
-      <div class="flex items-center justify-between mb-md">
+    <div class="mb-5">
+      <div class="flex align-items-center justify-content-between mb-3">
         <h1 class="text-3xl font-bold">Episode Content</h1>
         <Button label="Back to Dashboard" icon="pi pi-arrow-left" text @click="goBack"/>
       </div>
     </div>
 
-    <div v-if="loading" class="flex justify-center p-xl">
+    <div v-if="loading" class="flex justify-content-center p-5">
       <ProgressSpinner/>
     </div>
 
@@ -110,31 +110,31 @@ function goBack() {
 
     <div v-else-if="episode">
       <!-- Episode Header -->
-      <div class="episode-content-card-wrapper mb-lg">
+      <div class="episode-content-card-wrapper mb-4">
         <div class="margin-spacer"></div>
         <Card class="episode-main-card">
           <template #title>
-            <div class="flex items-center justify-between">
+            <div class="flex align-items-center justify-content-between">
               <div>Episode {{ episode.episodeNumber }}: {{ episode.title }}</div>
               <Tag :value="episode.type" severity="info"/>
             </div>
           </template>
           <template #content>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label class="block font-bold text-sm mb-xs text-secondary">Type</label>
+                <label class="block font-bold text-sm mb-1 text-secondary">Type</label>
                 <p class="m-0">{{ episode.type }}</p>
               </div>
               <div>
-                <label class="block font-bold text-sm mb-xs text-secondary">Status</label>
+                <label class="block font-bold text-sm mb-1 text-secondary">Status</label>
                 <Tag :value="episode.status || 'DRAFT'"/>
               </div>
               <div class="col-span-2" v-if="episode.summary">
-                <label class="block font-bold text-sm mb-xs text-secondary">Summary</label>
+                <label class="block font-bold text-sm mb-1 text-secondary">Summary</label>
                 <p class="m-0 text-sm">{{ episode.summary }}</p>
               </div>
               <div class="col-span-2" v-if="episode.audioUrl">
-                <label class="block font-bold text-sm mb-xs text-secondary">Audio</label>
+                <label class="block font-bold text-sm mb-1 text-secondary">Audio</label>
                 <audio controls class="w-full">
                   <source :src="episode.audioUrl" type="audio/mpeg"/>
                   Your browser does not support the audio element.
@@ -147,7 +147,7 @@ function goBack() {
       </div>
 
       <!-- Content -->
-      <div class="episode-content-card-wrapper mb-lg">
+      <div class="episode-content-card-wrapper mb-4">
         <!-- Alternating images in margins -->
         <div v-if="episodeImages.length > 0" class="margin-images-alternating">
           <div
@@ -163,7 +163,7 @@ function goBack() {
                 class="episode-image"
             />
             <div class="image-caption">
-              <p class="text-xs font-semibold text-secondary mb-xs">Scene {{ index + 1 }}</p>
+              <p class="text-xs font-semibold text-secondary mb-1">Scene {{ index + 1 }}</p>
               <p class="text-xs font-medium">{{ image.sceneContext }}</p>
             </div>
           </div>
@@ -172,7 +172,7 @@ function goBack() {
         <!-- Main card content -->
         <Card class="episode-main-card">
           <template #title>
-            <div class="flex items-center justify-between">
+            <div class="flex align-items-center justify-content-between">
               <span>{{ episode.type === 'DIALOGUE' ? 'Dialogue' : 'Story' }}</span>
               <Tag v-if="episodeImages.length > 0" :value="`${episodeImages.length} images`" severity="info"
                    icon="pi pi-images"/>
@@ -216,15 +216,15 @@ function goBack() {
               >
                 <div class="space-y-md">
                   <div>
-                    <label class="block font-bold text-sm mb-xs text-secondary">Type</label>
+                    <label class="block font-bold text-sm mb-1 text-secondary">Type</label>
                     <Tag :value="item.exercise?.type"/>
                   </div>
                   <div>
-                    <label class="block font-bold text-sm mb-xs text-secondary">Instructions</label>
+                    <label class="block font-bold text-sm mb-1 text-secondary">Instructions</label>
                     <p class="m-0">{{ item.exercise?.instructions || 'No instructions' }}</p>
                   </div>
                   <div>
-                    <label class="block font-bold text-sm mb-xs text-secondary">Content</label>
+                    <label class="block font-bold text-sm mb-1 text-secondary">Content</label>
                     <pre class="bg-surface-ground p-md rounded text-sm whitespace-pre-wrap">{{
                         JSON.stringify(item.exercise?.content, null, 2)
                       }}</pre>

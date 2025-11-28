@@ -1,19 +1,18 @@
 <script setup lang="ts">
-import {ref, computed, onMounted, onUnmounted} from 'vue'
+import {computed, onMounted, onUnmounted, ref} from 'vue'
 import {useRoute, useRouter} from 'vue-router'
 import {useToast} from 'primevue/usetoast'
 import {useConfirm} from 'primevue/useconfirm'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 import ProgressBar from 'primevue/progressbar'
-import Tag from 'primevue/tag'
 import Message from 'primevue/message'
 import Dialog from 'primevue/dialog'
 import Textarea from 'primevue/textarea'
 import ProgressSpinner from 'primevue/progressspinner'
 import PipelineService from '@/services/PipelineService'
 import type {GenerationProgressResponse, GenerationStage} from '@/types/pipeline'
-import {STAGE_CONFIG, LANGUAGE_OPTIONS} from '@/types/pipeline'
+import {LANGUAGE_OPTIONS, STAGE_CONFIG} from '@/types/pipeline'
 import BlueprintStage from './components/BlueprintStage.vue'
 import ModulePlanStage from './components/ModulePlanStage.vue'
 import EpisodeStage from './components/EpisodeStage.vue'
@@ -386,7 +385,7 @@ function isStageCurrent(stage: GenerationStage): boolean {
         :modal="true"
         :style="{ width: '500px' }"
     >
-      <div class="flex flex-column gap-3">
+      <div class="flex flex-columnumn gap-3">
         <p>Provide optional feedback to guide the regeneration:</p>
         <Textarea
             v-model="regenerateFeedback"

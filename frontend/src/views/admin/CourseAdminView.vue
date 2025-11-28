@@ -253,9 +253,9 @@ onMounted(() => {
 <template>
   <div class="view-container content-area-lg">
     <div class="page-header">
-      <div class="flex justify-between items-center">
+      <div class="flex justify-content-between align-items-center">
         <div>
-          <h1 class="flex items-center gap-md"><i class="pi pi-cog icon-primary"></i> Course Administration</h1>
+          <h1 class="flex align-items-center gap-3"><i class="pi pi-cog icon-primary"></i> Course Administration</h1>
           <p class="text-secondary">Create and manage course content.</p>
         </div>
         <Button label="Create New Course" icon="pi pi-plus" severity="success" @click="$router.push('/admin/wizard')"/>
@@ -270,8 +270,8 @@ onMounted(() => {
         <div class="card-title-icon"><i class="pi pi-upload"></i><span>1. Import New Course</span></div>
       </template>
       <template #content>
-        <p class="text-secondary mb-lg">Upload a course.json file to create a new course.</p>
-        <div class="flex flex-col gap-md">
+        <p class="text-secondary mb-4">Upload a course.json file to create a new course.</p>
+        <div class="flex flex-column gap-3">
           <FileUpload mode="basic" accept="application/json" :auto="false" choose-label="Select course.json"
                       @select="courseFile = $event.files[0]"/>
           <Button label="Import Course" icon="pi pi-cloud-upload" :loading="importingCourse" :disabled="!courseFile"
@@ -285,7 +285,7 @@ onMounted(() => {
         <div class="card-title-icon"><i class="pi pi-folder-open"></i><span>2. Import Module for Course</span></div>
       </template>
       <template #content>
-        <p class="text-secondary mb-lg">Select a course, then upload a module_X.json file.</p>
+        <p class="text-secondary mb-4">Select a course, then upload a module_X.json file.</p>
         <DataTable :value="courses" selection-mode="single" v-model:selection="selectedCourse" stripedRows
                    responsiveLayout="scroll">
           <Column field="name" header="Name"/>
@@ -297,7 +297,7 @@ onMounted(() => {
           <p class="font-bold">Selected Course: {{ selectedCourse.name }}</p>
           <FileUpload mode="basic" accept="application/json" :auto="false" choose-label="Select module_X.json"
                       @select="moduleFile = $event.files[0]"/>
-          <div class="flex items-center gap-sm">
+          <div class="flex align-items-center gap-2">
             <Checkbox v-model="generateAudio" :binary="true" input-id="generateAudio"/>
             <label for="generateAudio">Generate audio for dialogues</label>
           </div>
@@ -325,7 +325,7 @@ onMounted(() => {
         <DataTable :value="courses" v-model:expandedRows="expandedRows" @row-expand="onRowExpand" stripedRows
                    responsiveLayout="scroll" :loading="loading">
           <template #empty>
-            <div class="text-center p-xl">No courses found.</div>
+            <div class="text-center p-5">No courses found.</div>
           </template>
           <Column expander style="width: 3rem"/>
           <Column field="name" header="Name"/>
@@ -372,7 +372,7 @@ onMounted(() => {
           </Column>
           <template #expansion="{ data }">
             <div class="p-md bg-surface-ground">
-              <h4 class="font-bold mb-md">Modules for {{ data.name }}</h4>
+              <h4 class="font-bold mb-3">Modules for {{ data.name }}</h4>
               <DataTable :value="courseModules.get(data.id)" :loading="loadingModules.has(data.id)">
                 <template #empty>
                   <div class="text-center p-md">No modules for this course.</div>

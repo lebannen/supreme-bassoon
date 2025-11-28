@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, onMounted} from 'vue'
+import {onMounted, ref} from 'vue'
 import {useRouter} from 'vue-router'
 import {useToast} from 'primevue/usetoast'
 import {useConfirm} from 'primevue/useconfirm'
@@ -9,15 +9,14 @@ import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 import Tag from 'primevue/tag'
 import Dialog from 'primevue/dialog'
-import InputText from 'primevue/inputtext'
 import Dropdown from 'primevue/dropdown'
 import InputNumber from 'primevue/inputnumber'
 import Textarea from 'primevue/textarea'
 import Checkbox from 'primevue/checkbox'
 import ProgressSpinner from 'primevue/progressspinner'
 import PipelineService from '@/services/PipelineService'
-import type {GenerationSummaryDto, StartGenerationRequest, GenerationStage} from '@/types/pipeline'
-import {STAGE_CONFIG, LANGUAGE_OPTIONS, CEFR_LEVELS} from '@/types/pipeline'
+import type {GenerationStage, GenerationSummaryDto, StartGenerationRequest} from '@/types/pipeline'
+import {CEFR_LEVELS, LANGUAGE_OPTIONS, STAGE_CONFIG} from '@/types/pipeline'
 
 const router = useRouter()
 const toast = useToast()
@@ -245,8 +244,8 @@ function getLanguageLabel(code: string): string {
         :modal="true"
         :style="{ width: '500px' }"
     >
-      <div class="flex flex-column gap-4">
-        <div class="flex flex-column gap-2">
+      <div class="flex flex-columnumn gap-4">
+        <div class="flex flex-columnumn gap-2">
           <label for="language">Language</label>
           <Dropdown
               id="language"
@@ -258,7 +257,7 @@ function getLanguageLabel(code: string): string {
           />
         </div>
 
-        <div class="flex flex-column gap-2">
+        <div class="flex flex-columnumn gap-2">
           <label for="level">CEFR Level</label>
           <Dropdown
               id="level"
@@ -271,7 +270,7 @@ function getLanguageLabel(code: string): string {
         </div>
 
         <div class="flex gap-4">
-          <div class="flex flex-column gap-2 flex-1">
+          <div class="flex flex-columnumn gap-2 flex-1">
             <label for="modules">Number of Modules</label>
             <InputNumber
                 id="modules"
@@ -283,7 +282,7 @@ function getLanguageLabel(code: string): string {
             />
           </div>
 
-          <div class="flex flex-column gap-2 flex-1">
+          <div class="flex flex-columnumn gap-2 flex-1">
             <label for="episodes">Episodes per Module</label>
             <InputNumber
                 id="episodes"
@@ -296,7 +295,7 @@ function getLanguageLabel(code: string): string {
           </div>
         </div>
 
-        <div class="flex flex-column gap-2">
+        <div class="flex flex-columnumn gap-2">
           <label for="themes">Theme Preferences (optional)</label>
           <Textarea
               id="themes"

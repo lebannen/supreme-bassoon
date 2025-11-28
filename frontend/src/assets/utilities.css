@@ -1,164 +1,6 @@
 /* ========== VOCABEE UTILITIES ========== */
-/* Common layout patterns and structural utilities */
-
-/* ========== TYPOGRAPHY ========== */
-
-/* Text sizes */
-.text-xs {
-    font-size: 0.75rem;
-}
-
-.text-sm {
-    font-size: 0.875rem;
-}
-
-.text-base {
-    font-size: 1rem;
-}
-
-.text-lg {
-    font-size: 1.125rem;
-}
-
-.text-xl {
-    font-size: 1.25rem;
-}
-
-.text-2xl {
-    font-size: 1.5rem;
-}
-
-.text-3xl {
-    font-size: 2rem;
-}
-
-.text-4xl {
-    font-size: 2.5rem;
-}
-
-/* Font weights */
-.font-normal {
-    font-weight: 400;
-}
-
-.font-medium {
-    font-weight: 500;
-}
-
-.font-semibold {
-    font-weight: 600;
-}
-
-.font-bold {
-    font-weight: 700;
-}
-
-/* Text colors */
-.text-primary {
-}
-
-.text-secondary {
-}
-
-.text-tertiary {
-}
-
-/* Line height */
-.leading-normal {
-    line-height: 1.5;
-}
-
-.leading-relaxed {
-    line-height: 1.6;
-}
-
-.leading-loose {
-    line-height: 1.8;
-}
-
-/* ========== SPACING ========== */
-
-.gap-xs {
-    gap: var(--spacing-xs);
-}
-
-.gap-sm {
-    gap: var(--spacing-sm);
-}
-
-.gap-md {
-    gap: var(--spacing-md);
-}
-
-.gap-lg {
-    gap: var(--spacing-lg);
-}
-
-.gap-xl {
-    gap: var(--spacing-xl);
-}
-
-.mb-xs {
-    margin-bottom: var(--spacing-xs);
-}
-
-.mb-sm {
-    margin-bottom: var(--spacing-sm);
-}
-
-.mb-md {
-    margin-bottom: var(--spacing-md);
-}
-
-.mb-lg {
-    margin-bottom: var(--spacing-lg);
-}
-
-.mb-xl {
-    margin-bottom: var(--spacing-xl);
-}
-
-.mb-2xl {
-    margin-bottom: var(--spacing-2xl);
-}
-
-.mb-3xl {
-    margin-bottom: var(--spacing-3xl);
-}
-
-/* ========== FLEXBOX UTILITIES ========== */
-
-.flex {
-    display: flex;
-}
-
-.flex-col {
-    flex-direction: column;
-}
-
-.items-center {
-    align-items: center;
-}
-
-.items-start {
-    align-items: flex-start;
-}
-
-.justify-between {
-    justify-content: space-between;
-}
-
-.justify-center {
-    justify-content: center;
-}
-
-.flex-1 {
-    flex: 1;
-}
-
-.flex-wrap {
-    flex-wrap: wrap;
-}
+/* Semantic layout patterns and structural utilities */
+/* Basic utilities (flex, gap, margin, padding) are provided by PrimeFlex */
 
 /* ========== GRID SYSTEMS ========== */
 
@@ -306,9 +148,6 @@
     gap: 0.5rem;
 }
 
-.icon-label-group i {
-}
-
 /* Vertical variant */
 .icon-label-group.vertical {
     flex-direction: column;
@@ -325,9 +164,6 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-}
-
-.card-title-icon i {
 }
 
 /* Checklist - for objectives, features, etc. */
@@ -362,8 +198,6 @@
     align-items: center;
 }
 
-/* ========== COMMON LAYOUT PATTERNS ========== */
-
 /* Centered content wrapper */
 .centered-content {
     max-width: 400px;
@@ -388,37 +222,16 @@
     gap: 2rem;
 }
 
-/* Text center */
-.text-center {
-    text-align: center;
+/* ========== PAGE CONTAINERS ========== */
+
+/* Full-height page container */
+.page-container {
+    min-height: 100vh;
 }
 
-/* Padding utilities */
-.p-lg {
-    padding: var(--spacing-lg);
-}
-
-.p-xl {
-    padding: var(--spacing-xl);
-}
-
-.p-2xl {
+.page-container-with-padding {
+    min-height: 100vh;
     padding: var(--spacing-2xl);
-}
-
-.p-4xl {
-    padding: var(--spacing-4xl);
-}
-
-/* ========== STATE INDICATORS ========== */
-
-.completed-indicator {
-}
-
-.pending-indicator {
-}
-
-.active-indicator {
 }
 
 /* ========== NUMBER BADGES ========== */
@@ -569,12 +382,6 @@
     font-size: 1.5rem;
 }
 
-.audio-icon.has-audio {
-}
-
-.audio-icon.no-audio {
-}
-
 /* Audio link */
 .audio-link {
     display: flex;
@@ -654,9 +461,6 @@
     gap: 0.5rem;
 }
 
-.upload-progress small {
-}
-
 /* Summary stats */
 .summary-stats {
     display: grid;
@@ -677,15 +481,6 @@
     font-size: 2rem;
 }
 
-.stat.success i {
-}
-
-.stat.failed i {
-}
-
-.stat.total i {
-}
-
 .stat-value {
     display: block;
     font-size: 1.5rem;
@@ -695,38 +490,6 @@
 .stat-label {
     display: block;
     font-size: 0.875rem;
-}
-
-/* ========== PAGE CONTAINERS ========== */
-
-/* Full-height page container - most common pattern */
-.page-container {
-    min-height: 100vh;
-}
-
-.page-container-with-padding {
-    min-height: 100vh;
-    padding: var(--spacing-2xl);
-}
-
-/* ========== ICON UTILITIES ========== */
-
-.icon-primary {
-}
-
-.icon-success {
-}
-
-.icon-warning {
-}
-
-.icon-error {
-}
-
-.icon-info {
-}
-
-.icon-secondary {
 }
 
 /* ========== STAT ICON WRAPPER ========== */
@@ -754,31 +517,6 @@
     font-size: 2rem;
 }
 
-/* Colored stat icon variants */
-.stat-icon-warning {
-}
-
-.stat-icon-success {
-}
-
-.stat-icon-info {
-}
-
-.stat-icon-error {
-}
-
-.stat-icon-purple {
-}
-
-.stat-icon-blue {
-}
-
-.stat-icon-yellow {
-}
-
-.stat-icon-green {
-}
-
 /* ========== INTERACTIVE ELEMENTS ========== */
 
 .card-interactive {
@@ -802,53 +540,6 @@
     transform: translateX(4px);
 }
 
-/* ========== GRADIENT BACKGROUNDS ========== */
-
-.gradient-warning {
-}
-
-.gradient-purple {
-}
-
-.gradient-blue {
-}
-
-.gradient-green {
-}
-
-/* ========== TEXT UTILITIES ========== */
-
-.text-uppercase {
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.text-capitalize {
-    text-transform: capitalize;
-}
-
-.line-height-tight {
-    line-height: 1;
-}
-
-.line-height-normal {
-    line-height: 1.5;
-}
-
-/* ========== DIVIDERS ========== */
-
-.divider-top {
-    padding-top: var(--spacing-lg);
-}
-
-.divider-bottom {
-    padding-bottom: var(--spacing-lg);
-}
-
-.divider-both {
-    padding: var(--spacing-lg) 0;
-}
-
 /* ========== HOVER EFFECTS ========== */
 
 .hover-lift {
@@ -865,6 +556,20 @@
 
 .hover-scale:hover {
     transform: scale(1.02);
+}
+
+/* ========== DIVIDERS ========== */
+
+.divider-top {
+    padding-top: var(--spacing-lg);
+}
+
+.divider-bottom {
+    padding-bottom: var(--spacing-lg);
+}
+
+.divider-both {
+    padding: var(--spacing-lg) 0;
 }
 
 /* ========== RESPONSIVE BREAKPOINTS ========== */

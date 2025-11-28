@@ -61,9 +61,9 @@ import Button from 'primevue/button'
       <Card>
         <template #title>Technology Stack</template>
         <template #content>
-          <div class="grid md:grid-cols-3 gap-xl">
+          <div class="grid md:grid-cols-3 gap-5">
             <div>
-              <h3 class="text-lg font-semibold text-primary mb-sm">Frontend</h3>
+              <h3 class="text-lg font-semibold text-primary mb-2">Frontend</h3>
               <ul class="list-none p-0 m-0">
                 <li class="py-1">Vue 3 + TypeScript</li>
                 <li class="py-1">PrimeVue UI Components</li>
@@ -71,7 +71,7 @@ import Button from 'primevue/button'
               </ul>
             </div>
             <div>
-              <h3 class="text-lg font-semibold text-primary mb-sm">Backend</h3>
+              <h3 class="text-lg font-semibold text-primary mb-2">Backend</h3>
               <ul class="list-none p-0 m-0">
                 <li class="py-1">Kotlin + Spring Boot</li>
                 <li class="py-1">PostgreSQL Database</li>
@@ -79,7 +79,7 @@ import Button from 'primevue/button'
               </ul>
             </div>
             <div>
-              <h3 class="text-lg font-semibold text-primary mb-sm">Data</h3>
+              <h3 class="text-lg font-semibold text-primary mb-2">Data</h3>
               <ul class="list-none p-0 m-0">
                 <li class="py-1">Wiktionary XML Dump</li>
                 <li class="py-1">Custom Python Parser</li>
@@ -104,8 +104,8 @@ import Button from 'primevue/button'
         </template>
       </Card>
 
-      <div class="text-center p-4xl bg-surface-section rounded-lg">
-        <h2 class="text-3xl font-semibold text-primary mb-lg">Ready to explore?</h2>
+      <div class="text-center p-8 bg-surface-section rounded-lg">
+        <h2 class="text-3xl font-semibold text-primary mb-4">Ready to explore?</h2>
         <Button label="Start Searching Words" icon="pi pi-search" size="large" @click="$router.push('/search')"/>
       </div>
     </div>

@@ -78,37 +78,37 @@ function getStatusLabel(episodeCount: number) {
 </script>
 
 <template>
-  <div class="course-dashboard p-xl max-w-6xl mx-auto">
-    <div class="header mb-xl">
-      <div class="flex justify-between items-center mb-lg">
+  <div class="course-dashboard p-5 max-w-6xl mx-auto">
+    <div class="header mb-5">
+      <div class="flex justify-content-between align-items-center mb-4">
         <div>
-          <h1 class="text-3xl font-bold mb-sm">{{ course?.name || 'Course Dashboard' }}</h1>
+          <h1 class="text-3xl font-bold mb-2">{{ course?.name || 'Course Dashboard' }}</h1>
           <p class="text-secondary">Manage and generate content for course modules.</p>
         </div>
         <Button label="Back to Courses" icon="pi pi-arrow-left" text @click="router.push('/admin/courses')"/>
       </div>
 
-      <Card v-if="course" class="bg-surface-card mb-xl">
+      <Card v-if="course" class="bg-surface-card mb-5">
         <template #title>Course Details</template>
         <template #content>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label class="block font-bold text-sm mb-xs text-secondary">Language & Level</label>
+              <label class="block font-bold text-sm mb-1 text-secondary">Language & Level</label>
               <p class="m-0">{{ course.languageCode.toUpperCase() }} - {{ course.cefrLevel }}</p>
             </div>
             <div>
-              <label class="block font-bold text-sm mb-xs text-secondary">Total Modules</label>
+              <label class="block font-bold text-sm mb-1 text-secondary">Total Modules</label>
               <p class="m-0">{{ modules.length }}</p>
             </div>
             <div>
-              <label class="block font-bold text-sm mb-xs text-secondary">Status</label>
+              <label class="block font-bold text-sm mb-1 text-secondary">Status</label>
               <Tag :value="course.isPublished ? 'PUBLISHED' : 'DRAFT'"
                    :severity="course.isPublished ? 'success' : 'warning'"/>
             </div>
           </div>
 
           <div v-if="course.seriesContext" class="mt-lg">
-            <label class="block font-bold text-sm mb-xs text-secondary">Series Context</label>
+            <label class="block font-bold text-sm mb-1 text-secondary">Series Context</label>
             <p class="m-0 text-sm">{{
                 course.seriesContext.substring(0, 300)
               }}{{ course.seriesContext.length > 300 ? '...' : '' }}</p>
@@ -130,7 +130,7 @@ function getStatusLabel(episodeCount: number) {
     </div>
 
     <div class="modules-section">
-      <div class="flex justify-between items-center mb-md">
+      <div class="flex justify-content-between align-items-center mb-3">
         <h2 class="text-2xl font-bold">Modules</h2>
       </div>
 
@@ -192,7 +192,7 @@ function getStatusLabel(episodeCount: number) {
         </Column>
         <template #expansion="slotProps">
           <div class="p-md bg-surface-ground">
-            <h4 class="font-bold mb-md">Episodes for {{ slotProps.data.title }}</h4>
+            <h4 class="font-bold mb-3">Episodes for {{ slotProps.data.title }}</h4>
             <DataTable
                 :value="moduleEpisodes.get(slotProps.data.id) || []"
                 class="p-datatable-sm"

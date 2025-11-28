@@ -71,9 +71,9 @@ onMounted(() => {
           <Card v-for="episode in module.episodes" :key="episode.id" class="card-interactive"
                 @click="router.push(`/episodes/${episode.id}`)">
             <template #header>
-              <div class="p-md flex justify-between items-center bg-surface-section">
+              <div class="p-md flex justify-content-between align-items-center bg-surface-section">
                 <div class="number-badge-sm bg-primary text-primary-contrast">{{ episode.episodeNumber }}</div>
-                <div class="flex gap-sm flex-wrap">
+                <div class="flex gap-2 flex-wrap">
                   <Tag :value="episode.type" :icon="episodeTypeIcon(episode.type)"/>
                   <Tag v-if="episode.hasAudio" value="Audio" severity="success" icon="pi pi-volume-up"/>
                 </div>

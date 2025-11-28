@@ -87,23 +87,23 @@ const handleTaskAction = (taskId: number) => {
     <div v-else class="landing-page">
       <section class="hero-section text-center">
         <div class="view-container">
-          <h1 class="text-4xl font-bold text-primary mb-md">Welcome to Vocabee</h1>
-          <p class="text-xl text-secondary mb-2xl">Master French through engaging dialogues, stories, and exercises.</p>
-          <div class="flex justify-center gap-md">
+          <h1 class="text-4xl font-bold text-primary mb-3">Welcome to Vocabee</h1>
+          <p class="text-xl text-secondary mb-6">Master French through engaging dialogues, stories, and exercises.</p>
+          <div class="flex justify-content-center gap-3">
             <Button label="Start Learning" size="large" @click="router.push('/register')"/>
             <Button label="Browse Courses" size="large" severity="secondary" @click="router.push('/courses')"/>
           </div>
         </div>
       </section>
 
-      <section class="p-4xl">
+      <section class="p-8">
         <div class="view-container">
-          <h2 class="text-3xl font-bold text-center mb-3xl">Why Choose Vocabee?</h2>
+          <h2 class="text-3xl font-bold text-center mb-7">Why Choose Vocabee?</h2>
           <div class="content-grid">
-            <Card v-for="feature in features" :key="feature.title" class="text-center p-lg card-interactive">
+            <Card v-for="feature in features" :key="feature.title" class="text-center p-4 card-interactive">
               <template #content>
-                <i :class="feature.icon" class="text-4xl text-primary mb-lg"></i>
-                <h3 class="text-xl font-bold mb-sm">{{ feature.title }}</h3>
+                <i :class="feature.icon" class="text-4xl text-primary mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">{{ feature.title }}</h3>
                 <p class="text-secondary m-0">{{ feature.description }}</p>
               </template>
             </Card>
@@ -111,10 +111,10 @@ const handleTaskAction = (taskId: number) => {
         </div>
       </section>
 
-      <section class="bg-primary text-center p-4xl">
+      <section class="bg-primary text-center p-8">
         <div class="view-container">
-          <h2 class="text-3xl font-bold mb-md">Ready to Start Your Journey?</h2>
-          <p class="text-xl opacity-80 mb-2xl">Join thousands of learners mastering French with Vocabee.</p>
+          <h2 class="text-3xl font-bold mb-3">Ready to Start Your Journey?</h2>
+          <p class="text-xl opacity-80 mb-6">Join thousands of learners mastering French with Vocabee.</p>
           <Button label="Get Started for Free" size="large" severity="contrast" @click="router.push('/register')"/>
         </div>
       </section>

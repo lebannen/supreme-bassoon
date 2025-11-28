@@ -141,7 +141,7 @@ defineExpose({setResult})
 
 <template>
   <div class="matching-exercise">
-    <h2 class="text-xl font-bold mb-lg">Match the pairs:</h2>
+    <h2 class="text-xl font-bold mb-4">Match the pairs:</h2>
 
     <div class="matching-container">
       <!-- Left Column -->

@@ -77,26 +77,26 @@ const formatDueInfo = () => {
 
 <template>
   <div class="view-container content-area-lg">
-    <div class="page-header"><h1 class="flex items-center gap-md"><i
+    <div class="page-header"><h1 class="flex align-items-center gap-3"><i
         class="pi pi-graduation-cap text-3xl icon-primary"></i> Study Mode</h1></div>
     <Message v-if="studyStore.error" severity="error">{{ studyStore.error }}</Message>
 
     <Card v-if="studyStore.isSessionActive" class="border-2 border-primary bg-primary-50 dark:bg-primary-900">
       <template #title>
-        <div class="flex items-center gap-sm"><i class="pi pi-play-circle"></i> Active Session</div>
+        <div class="flex align-items-center gap-2"><i class="pi pi-play-circle"></i> Active Session</div>
       </template>
       <template #content>
         <div class="content-area-lg">
-          <div class="flex gap-xl">
-            <div class="flex flex-col gap-xs"><span class="text-sm text-secondary uppercase">Progress</span><span
+          <div class="flex gap-5">
+            <div class="flex flex-column gap-1"><span class="text-sm text-secondary uppercase">Progress</span><span
                 class="text-2xl font-bold">{{
                 studyStore.activeSession?.wordsCompleted
               }} / {{ studyStore.activeSession?.totalWords }}</span></div>
-            <div class="flex flex-col gap-xs"><span class="text-sm text-secondary uppercase">Accuracy</span><span
+            <div class="flex flex-column gap-1"><span class="text-sm text-secondary uppercase">Accuracy</span><span
                 class="text-2xl font-bold">{{ Math.round(studyStore.activeSession?.stats.accuracy || 0) }}%</span></div>
           </div>
           <ProgressBar :value="studyStore.progressPercentage" style="height: 1rem"/>
-          <div class="flex gap-md">
+          <div class="flex gap-3">
             <Button label="Resume Session" icon="pi pi-play" @click="router.push('/study/session')" size="large"/>
             <Button label="Abandon" icon="pi pi-times" severity="danger" @click="handleAbandonSession" outlined/>
           </div>
@@ -106,7 +106,7 @@ const formatDueInfo = () => {
 
     <Card v-if="!loading && studyStore.dueWords" class="bg-primary text-primary-contrast">
       <template #content>
-        <div class="flex items-center gap-lg">
+        <div class="flex align-items-center gap-4">
           <div class="stat-icon-lg bg-primary-400 dark:bg-primary-600"><i class="pi pi-clock"></i></div>
           <div>
             <h3 class="text-4xl font-bold m-0">{{ studyStore.dueWords.totalDue }}</h3>
@@ -137,7 +137,7 @@ const formatDueInfo = () => {
             <InputNumber v-model="sessionSize" :min="5" :max="maxSessionSize" :step="5" show-buttons
                          button-layout="horizontal" class="w-full"/>
           </div>
-          <div class="flex items-center gap-sm">
+          <div class="flex align-items-center gap-2">
             <Checkbox v-model="includeNewWords" :binary="true" input-id="includeNew"/>
             <label for="includeNew" class="font-medium cursor-pointer">Include new words</label>
           </div>

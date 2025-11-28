@@ -68,7 +68,7 @@ onMounted(fetchAllExercises)
       </Card>
     </div>
 
-    <div v-if="selectedType" class="flex justify-center mb-2xl">
+    <div v-if="selectedType" class="flex justify-content-center mb-6">
       <Select v-model="selectedModule" :options="modules" optionLabel="label" optionValue="value"
               placeholder="Filter by Module" class="w-full max-w-xs"/>
     </div>

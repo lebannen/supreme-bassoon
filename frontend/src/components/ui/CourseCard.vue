@@ -44,8 +44,9 @@ const emit = defineEmits<{
 <template>
   <Card class="card-interactive course-card" @click="emit('click')">
     <template #header>
-      <div class="p-xl flex items-center justify-between" :style="{ background: 'var(--gradient-dialogue)' }">
-        <div class="flex flex-col gap-sm">
+      <div class="p-5 flex align-items-center justify-content-between"
+           :style="{ background: 'var(--gradient-dialogue)' }">
+        <div class="flex flex-column gap-2">
           <Tag :value="languageCode.toUpperCase()"/>
           <Tag :value="cefrLevel" severity="contrast"/>
         </div>
@@ -57,7 +58,7 @@ const emit = defineEmits<{
     </template>
 
     <template #content>
-      <p class="text-sm text-secondary mb-lg">{{ description }}</p>
+      <p class="text-sm text-secondary mb-4">{{ description }}</p>
     </template>
 
     <template #footer>

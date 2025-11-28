@@ -46,9 +46,9 @@ const handleAction = () => {
 </script>
 
 <template>
-  <Card class="p-lg">
+  <Card class="p-4">
     <template #content>
-      <div class="flex items-center gap-md">
+      <div class="flex align-items-center gap-3">
         <div
             class="number-badge-sm"
             :class="completed ? 'bg-success' : 'bg-surface'"
@@ -57,7 +57,7 @@ const handleAction = () => {
         </div>
 
         <div class="flex-1 min-w-0">
-          <div class="font-semibold text-primary mb-xs">{{ title }}</div>
+          <div class="font-semibold text-primary mb-1">{{ title }}</div>
           <div class="text-sm text-secondary">{{ meta }}</div>
         </div>
 

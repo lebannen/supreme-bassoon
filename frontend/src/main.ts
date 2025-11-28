@@ -1,7 +1,7 @@
 import './assets/main.css'
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import {createApp} from 'vue'
+import {createPinia} from 'pinia'
 import PrimeVue from 'primevue/config'
 import Aura from '@primevue/themes/aura'
 import ConfirmationService from 'primevue/confirmationservice'
@@ -10,10 +10,13 @@ import Tooltip from 'primevue/tooltip'
 
 import App from './App.vue'
 import router from './router'
-import { useAuthStore } from './stores/auth'
+import {useAuthStore} from './stores/auth'
 
 // PrimeIcons
 import 'primeicons/primeicons.css'
+
+// PrimeFlex utility classes
+import 'primeflex/primeflex.css'
 
 const app = createApp(App)
 

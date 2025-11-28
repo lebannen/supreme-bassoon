@@ -135,11 +135,11 @@ const getStatusSeverity = (status: string) => ({
                       placeholder="Paste module_X_exercises.json content here..."
                       :disabled="isImporting || selectedFiles.length > 0"/>
           </div>
-          <div class="flex flex-col gap-md">
-            <div class="flex items-center gap-sm">
+          <div class="flex flex-column gap-3">
+            <div class="flex align-items-center gap-2">
               <Checkbox id="generateAudio" v-model="generateAudio" :binary="true" :disabled="isImporting"/>
               <label for="generateAudio">Generate Audio</label></div>
-            <div class="flex items-center gap-sm">
+            <div class="flex align-items-center gap-2">
               <Checkbox id="overwriteExisting" v-model="overwriteExisting" :binary="true" :disabled="isImporting"/>
               <label for="overwriteExisting">Overwrite Existing</label></div>
           </div>

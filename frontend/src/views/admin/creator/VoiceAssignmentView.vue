@@ -219,9 +219,9 @@ function goBack() {
 </script>
 
 <template>
-  <div class="voice-assignment p-xl max-w-7xl mx-auto">
-    <div class="mb-xl">
-      <div class="flex items-center justify-between mb-md">
+  <div class="voice-assignment p-5 max-w-7xl mx-auto">
+    <div class="mb-5">
+      <div class="flex align-items-center justify-content-between mb-3">
         <div>
           <h1 class="text-3xl font-bold">Voice Assignment</h1>
           <p class="text-secondary">Assign Gemini TTS voices to characters for audio generation</p>
@@ -230,22 +230,22 @@ function goBack() {
       </div>
     </div>
 
-    <div v-if="loading" class="flex justify-center p-xl">
+    <div v-if="loading" class="flex justify-content-center p-5">
       <ProgressSpinner/>
     </div>
 
-    <Message v-else-if="!generationResult" severity="warn" :closable="false" class="mb-lg">
+    <Message v-else-if="!generationResult" severity="warn" :closable="false" class="mb-4">
       No generation result found. Please go back and generate content first.
     </Message>
 
     <div v-else>
-      <Message v-if="error" severity="error" :closable="false" class="mb-lg">{{ error }}</Message>
+      <Message v-if="error" severity="error" :closable="false" class="mb-4">{{ error }}</Message>
 
       <!-- Summary Card -->
-      <Card class="mb-lg">
+      <Card class="mb-4">
         <template #title>Summary</template>
         <template #content>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <div class="text-3xl font-bold text-primary">
                 {{ characters.length }}
@@ -338,12 +338,12 @@ function goBack() {
             </Column>
           </DataTable>
 
-          <div class="flex justify-between items-center mt-lg pt-lg border-t border-surface">
+          <div class="flex justify-content-between align-items-center mt-lg pt-lg border-t border-surface">
             <div class="text-sm text-secondary">
               <i class="pi pi-info-circle mr-xs"></i>
               All valid episodes will be saved and audio will be generated using assigned voices
             </div>
-            <div class="flex gap-md">
+            <div class="flex gap-3">
               <Button
                   label="Cancel"
                   severity="secondary"
@@ -366,14 +366,14 @@ function goBack() {
     <!-- Saving Overlay -->
     <div
         v-if="saving"
-        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+        class="fixed inset-0 bg-black bg-opacity-50 flex align-items-center justify-content-center z-50"
     >
-      <Card class="p-xl">
+      <Card class="p-5">
         <template #content>
-          <div class="flex flex-col items-center gap-lg">
+          <div class="flex flex-column align-items-center gap-4">
             <ProgressSpinner/>
             <div class="text-center">
-              <h3 class="text-xl font-bold mb-sm">Saving Course Content</h3>
+              <h3 class="text-xl font-bold mb-2">Saving Course Content</h3>
               <p class="text-secondary">Generating audio for all episodes... This may take several minutes.</p>
             </div>
           </div>

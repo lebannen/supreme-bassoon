@@ -22,7 +22,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="page-container flex items-center justify-center">
+  <div class="page-container flex align-items-center justify-content-center">
     <div class="loading-state">
       <ProgressSpinner/>
       <p class="text-secondary mt-md">Completing authentication...</p>

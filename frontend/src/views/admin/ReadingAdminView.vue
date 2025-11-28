@@ -121,7 +121,7 @@ onMounted(() => readingStore.loadTexts({}))
 <template>
   <div class="view-container content-area-lg">
     <div class="page-header">
-      <div class="flex justify-between items-center">
+      <div class="flex justify-content-between align-items-center">
         <div>
           <h1>Reading Texts Administration</h1>
           <p class="text-secondary">Manage reading texts and their audio files.</p>
@@ -130,16 +130,16 @@ onMounted(() => readingStore.loadTexts({}))
       </div>
     </div>
 
-    <Card class="mb-lg">
+    <Card class="mb-4">
       <template #content>
-        <div class="flex gap-md items-end">
+        <div class="flex gap-3 items-end">
           <div class="flex-1">
-            <label class="font-semibold text-sm mb-xs block">Language</label>
+            <label class="font-semibold text-sm mb-1 block">Language</label>
             <Select v-model="selectedLanguage" :options="languages" optionLabel="label" optionValue="value"
                     placeholder="All Languages" class="w-full"/>
           </div>
           <div class="flex-1">
-            <label class="font-semibold text-sm mb-xs block">Level</label>
+            <label class="font-semibold text-sm mb-1 block">Level</label>
             <Select v-model="selectedLevel" :options="levels" optionLabel="label" optionValue="value"
                     placeholder="All Levels" class="w-full"/>
           </div>
@@ -149,7 +149,7 @@ onMounted(() => readingStore.loadTexts({}))
       </template>
     </Card>
 
-    <div v-if="loading" class="flex justify-center p-xl">
+    <div v-if="loading" class="flex justify-content-center p-5">
       <ProgressSpinner/>
     </div>
     <Message v-else-if="error" severity="error">{{ error }}</Message>
@@ -200,7 +200,7 @@ onMounted(() => readingStore.loadTexts({}))
           </Column>
           <Column header="Actions" style="width: 10rem">
             <template #body="slotProps">
-              <div class="flex gap-sm">
+              <div class="flex gap-2">
                 <Button
                     icon="pi pi-trash"
                     severity="danger"
@@ -213,8 +213,8 @@ onMounted(() => readingStore.loadTexts({}))
             </template>
           </Column>
         </DataTable>
-        <div v-else class="text-center p-xl text-secondary">
-          <i class="pi pi-inbox text-4xl mb-md"></i>
+        <div v-else class="text-center p-5 text-secondary">
+          <i class="pi pi-inbox text-4xl mb-3"></i>
           <p>No texts found</p>
         </div>
       </template>

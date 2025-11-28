@@ -56,7 +56,7 @@
   <aside class="sidebar bg-surface-section border-r border-surface">
     <router-link to="/" class="logo text-primary">Vocabee</router-link>
 
-    <ThemeToggle class="mb-2xl"/>
+    <ThemeToggle class="mb-6"/>
 
     <div class="flex-1 overflow-y-auto">
       <!-- Main Navigation -->
@@ -105,7 +105,7 @@
     <!-- User Section -->
     <div v-if="authStore.isAuthenticated" class="mt-auto pt-md border-t border-surface">
       <div @click="navigateTo('/profile')"
-           class="p-sm rounded-md flex items-center gap-sm cursor-pointer hover:bg-surface-hover">
+           class="p-sm rounded-md flex align-items-center gap-2 cursor-pointer hover:bg-surface-hover">
         <div class="user-avatar text-white">
           {{ getUserInitials(authStore.user?.displayName || null) }}
         </div>
@@ -118,7 +118,7 @@
     </div>
 
     <!-- Login/Register buttons -->
-    <div v-else class="mt-auto pt-md border-t border-surface flex flex-col gap-sm">
+    <div v-else class="mt-auto pt-md border-t border-surface flex flex-column gap-2">
       <Button label="Login" @click="navigateTo('/login')" severity="secondary" outlined class="w-full"/>
       <Button label="Register" @click="navigateTo('/register')" class="w-full"/>
     </div>

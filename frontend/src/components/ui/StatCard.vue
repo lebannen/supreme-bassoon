@@ -31,11 +31,11 @@ withDefaults(defineProps<StatCardProps>(), {
 <template>
   <Card>
     <template #content>
-      <div class="flex items-center gap-lg">
+      <div class="flex align-items-center gap-4">
         <div class="stat-icon" :class="`stat-icon-${variant}`">
           <i :class="icon"></i>
         </div>
-        <div class="flex flex-col">
+        <div class="flex flex-column">
           <span class="text-sm font-semibold text-secondary text-uppercase">{{ label }}</span>
           <span class="text-3xl font-bold text-primary">{{ value }}</span>
         </div>

@@ -107,8 +107,8 @@ defineExpose({ setResult, reset })
 
 <template>
   <div class="sentence-scramble-exercise">
-    <div class="p-lg bg-surface-card rounded-lg">
-      <h2 class="text-xl font-bold text-center mb-lg">Unscramble the sentence:</h2>
+    <div class="p-4 bg-surface-card rounded-lg">
+      <h2 class="text-xl font-bold text-center mb-4">Unscramble the sentence:</h2>
 
       <div class="answer-area" :class="{ 'correct': showResult && isCorrect, 'incorrect': showResult && !isCorrect }">
         <Chip

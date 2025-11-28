@@ -91,7 +91,7 @@ function formatTopic(topic: string | null | undefined): string {
 <template>
   <div class="view-container content-area-lg">
     <div class="page-header">
-      <div class="flex justify-between items-center">
+      <div class="flex justify-content-between align-items-center">
         <div>
           <h1>Reading Library</h1>
           <p class="text-secondary">Browse and select texts to practice reading.</p>
@@ -106,10 +106,10 @@ function formatTopic(topic: string | null | undefined): string {
     </div>
 
     <!-- Filters -->
-    <Card class="mb-lg">
+    <Card class="mb-4">
       <template #content>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-md">
-          <div class="flex flex-col gap-xs">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+          <div class="flex flex-column gap-1">
             <label class="font-semibold text-sm">Search</label>
             <InputText
                 v-model="searchQuery"
@@ -121,7 +121,7 @@ function formatTopic(topic: string | null | undefined): string {
               </template>
             </InputText>
           </div>
-          <div class="flex flex-col gap-xs">
+          <div class="flex flex-column gap-1">
             <label class="font-semibold text-sm">Language</label>
             <Dropdown
                 v-model="selectedLanguage"
@@ -131,7 +131,7 @@ function formatTopic(topic: string | null | undefined): string {
                 :disabled="loading"
             />
           </div>
-          <div class="flex flex-col gap-xs">
+          <div class="flex flex-column gap-1">
             <label class="font-semibold text-sm">Level</label>
             <Dropdown
                 v-model="selectedLevel"
@@ -155,15 +155,15 @@ function formatTopic(topic: string | null | undefined): string {
     </Card>
 
     <!-- Loading State -->
-    <div v-if="loading" class="flex justify-center p-xl">
+    <div v-if="loading" class="flex justify-content-center p-5">
       <ProgressSpinner/>
     </div>
 
     <!-- Error State -->
     <Card v-else-if="error">
       <template #content>
-        <div class="text-center p-lg text-red-600">
-          <i class="pi pi-exclamation-triangle text-4xl mb-md"></i>
+        <div class="text-center p-4 text-red-600">
+          <i class="pi pi-exclamation-triangle text-4xl mb-3"></i>
           <p>{{ error }}</p>
           <Button label="Retry" icon="pi pi-refresh" @click="loadTexts" class="mt-md"/>
         </div>
@@ -191,11 +191,11 @@ function formatTopic(topic: string | null | undefined): string {
     </Card>
 
     <!-- Texts Grid -->
-    <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+    <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       <Card v-for="text in filteredTexts" :key="text.id" class="cursor-pointer hover:shadow-lg transition-shadow">
         <template #header>
           <div class="p-md pb-0">
-            <div class="flex gap-sm mb-sm">
+            <div class="flex gap-2 mb-2">
               <Tag :value="text.languageCode.toUpperCase()" severity="info"/>
               <Tag v-if="text.level" :value="text.level" severity="secondary"/>
               <Tag v-if="text.topic" :value="formatTopic(text.topic)" severity="contrast"/>
@@ -209,11 +209,11 @@ function formatTopic(topic: string | null | undefined): string {
 
         <template #content>
           <div class="px-md">
-            <p v-if="text.description" class="text-sm text-secondary mb-md">
+            <p v-if="text.description" class="text-sm text-secondary mb-3">
               {{ text.description }}
             </p>
 
-            <div class="flex gap-md text-sm text-secondary">
+            <div class="flex gap-3 text-sm text-secondary">
               <span><i class="pi pi-book mr-xs"></i>{{ text.wordCount }} words</span>
               <span><i class="pi pi-clock mr-xs"></i>{{ text.estimatedMinutes }} min</span>
             </div>
@@ -221,7 +221,7 @@ function formatTopic(topic: string | null | undefined): string {
         </template>
 
         <template #footer>
-          <div class="flex gap-sm px-md pb-md">
+          <div class="flex gap-2 px-md pb-md">
             <Button
                 label="Read"
                 icon="pi pi-book"

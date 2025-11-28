@@ -50,8 +50,8 @@ const isInVocabulary = (wordId: number) => vocabularyStore.isWordInVocabulary(wo
   <Dialog :visible="visible" @update:visible="$emit('update:visible', $event)" :header="word?.lemma" modal
           :style="{ width: '50vw' }" :breakpoints="{ '960px': '75vw', '640px': '90vw' }">
     <div v-if="word && !loading" class="word-details">
-      <div class="flex justify-between items-center gap-md pb-lg border-b border-surface">
-        <div class="flex items-center gap-md flex-1">
+      <div class="flex justify-content-between align-items-center gap-3 pb-lg border-b border-surface">
+        <div class="flex align-items-center gap-3 flex-1">
           <h2 class="text-2xl font-bold m-0">{{ word.lemma }}</h2>
           <Tag v-if="word.partOfSpeech" :value="word.partOfSpeech"/>
           <Tag v-if="word.isInflectedForm" value="inflected" severity="secondary"/>
@@ -63,16 +63,16 @@ const isInVocabulary = (wordId: number) => vocabularyStore.isWordInVocabulary(wo
         </div>
       </div>
 
-      <div v-if="word.baseForm" class="p-lg bg-surface-section rounded-lg">
-        <h3 class="text-lg font-semibold mb-md">Base Form</h3>
-        <div class="flex items-center gap-md mb-md">
+      <div v-if="word.baseForm" class="p-4 bg-surface-section rounded-lg">
+        <h3 class="text-lg font-semibold mb-3">Base Form</h3>
+        <div class="flex align-items-center gap-3 mb-3">
           <a class="text-xl font-bold text-primary hover:underline cursor-pointer"
              @click="$emit('word-click', word.baseForm.lemma)">
             {{ word.baseForm.lemma }}
           </a>
           <Tag v-if="word.baseForm.partOfSpeech" :value="word.baseForm.partOfSpeech"/>
         </div>
-        <div v-if="word.grammaticalFeatures" class="flex flex-wrap gap-sm">
+        <div v-if="word.grammaticalFeatures" class="flex flex-wrap gap-2">
           <Tag v-for="(value, key) in word.grammaticalFeatures" :key="key" :value="`${key}: ${value}`"
                severity="contrast"/>
         </div>
@@ -80,8 +80,8 @@ const isInVocabulary = (wordId: number) => vocabularyStore.isWordInVocabulary(wo
 
       <div v-if="word.definitions.length > 0" class="content-section">
         <h3 class="section-title">Definitions</h3>
-        <div v-for="def in word.definitions" :key="def.id" class="mb-lg">
-          <div class="mb-sm">
+        <div v-for="def in word.definitions" :key="def.id" class="mb-4">
+          <div class="mb-2">
             <span class="font-bold mr-sm">{{ def.definitionNumber }}.</span>
             <span>{{ def.definitionText }}</span>
           </div>
@@ -109,12 +109,12 @@ const isInVocabulary = (wordId: number) => vocabularyStore.isWordInVocabulary(wo
 
       <div v-if="word.inflectedForms.length > 0" class="content-section">
         <h3 class="section-title">Inflected Forms</h3>
-        <div class="flex flex-wrap gap-sm">
+        <div class="flex flex-wrap gap-2">
           <Tag v-for="form in word.inflectedForms" :key="form.id" :value="form.form" severity="secondary"/>
         </div>
       </div>
     </div>
-    <div v-else-if="loading" class="flex justify-center p-4xl">
+    <div v-else-if="loading" class="flex justify-content-center p-8">
       <ProgressSpinner/>
     </div>
     <div v-else-if="error">

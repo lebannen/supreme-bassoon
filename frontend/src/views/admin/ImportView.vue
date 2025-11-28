@@ -139,14 +139,14 @@ onUnmounted(() => cleanupProgress?.())
       <template #content>
         <div class="content-area">
           <div>
-            <label class="font-semibold mb-sm block">Select File</label>
+            <label class="font-semibold mb-2 block">Select File</label>
             <FileUpload mode="basic" name="file" :auto="false" :customUpload="true" @select="onFileSelect"
                         accept=".jsonl.gz" :maxFileSize="1000000000" chooseLabel="Choose File"/>
             <small v-if="selectedFile" class="text-secondary mt-sm block">
               Selected: {{ selectedFile.name }} ({{ formatFileSize(selectedFile.size) }})
             </small>
           </div>
-          <div class="flex gap-sm flex-wrap">
+          <div class="flex gap-2 flex-wrap">
             <Button label="Start Import" icon="pi pi-upload" @click="startImport"
                     :disabled="!selectedFile || isUploading" :loading="isUploading"/>
             <Button label="Clear Database" icon="pi pi-trash" severity="danger" @click="confirmClearDatabase"
@@ -161,7 +161,7 @@ onUnmounted(() => cleanupProgress?.())
 
     <Card v-if="currentImport">
       <template #title>
-        <div class="flex items-center justify-between">
+        <div class="flex align-items-center justify-content-between">
           <span>Importing {{ currentImport.languageName }}</span>
           <Tag :value="currentImport.status" :severity="getStatusSeverity(currentImport.status)"/>
         </div>

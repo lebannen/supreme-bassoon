@@ -61,10 +61,11 @@ const formatDuration = (duration: string) => {
 
 <template>
   <div class="view-container content-area-lg">
-    <div v-if="studyStore.isSessionActive" class="flex justify-between items-center p-lg bg-surface-card rounded-lg">
+    <div v-if="studyStore.isSessionActive"
+         class="flex justify-content-between align-items-center p-4 bg-surface-card rounded-lg">
       <div class="content-area">
         <h2 class="text-2xl font-bold m-0">Study Session</h2>
-        <div class="flex items-center gap-lg">
+        <div class="flex align-items-center gap-4">
           <span class="font-semibold text-secondary">{{
               studyStore.activeSession?.wordsCompleted
             }} / {{ studyStore.activeSession?.totalWords }} words</span>
@@ -97,7 +98,7 @@ const formatDuration = (duration: string) => {
     <Dialog v-model:visible="showSummaryDialog" header="Session Complete!" :modal="true" :closable="false"
             style="width: 600px" :breakpoints="{ '960px': '75vw', '640px': '90vw' }">
       <div v-if="studyStore.sessionSummary" class="content-area-lg">
-        <div class="text-center"><i class="pi pi-check-circle text-4xl mb-md text-success"></i>
+        <div class="text-center"><i class="pi pi-check-circle text-4xl mb-3 text-success"></i>
           <h2 class="text-3xl font-bold">Great job!</h2>
           <p class="text-secondary">You completed your study session.</p></div>
         <div class="summary-stats">
@@ -120,18 +121,22 @@ const formatDuration = (duration: string) => {
               }}</span><span class="stat-label">Duration</span></div>
           </div>
         </div>
-        <div class="p-lg bg-surface-section rounded-lg content-area">
-          <div class="flex justify-between items-center"><span class="flex items-center gap-sm text-secondary"><i
+        <div class="p-4 bg-surface-section rounded-lg content-area">
+          <div class="flex justify-content-between align-items-center"><span
+              class="flex align-items-center gap-2 text-secondary"><i
               class="pi pi-check"></i>Correct</span><span
               class="font-semibold text-success">{{ studyStore.sessionSummary.stats.correctAttempts }}</span></div>
-          <div class="flex justify-between items-center"><span class="flex items-center gap-sm text-secondary"><i
+          <div class="flex justify-content-between align-items-center"><span
+              class="flex align-items-center gap-2 text-secondary"><i
               class="pi pi-times"></i>Incorrect</span><span
               class="font-semibold text-error">{{ studyStore.sessionSummary.stats.incorrectAttempts }}</span></div>
-          <div class="flex justify-between items-center"><span class="flex items-center gap-sm text-secondary"><i
+          <div class="flex justify-content-between align-items-center"><span
+              class="flex align-items-center gap-2 text-secondary"><i
               class="pi pi-arrow-up"></i>Advanced</span><span
               class="font-semibold">{{ studyStore.sessionSummary.srsUpdates.wordsAdvanced }}</span></div>
-          <div v-if="studyStore.sessionSummary.srsUpdates.wordsReset > 0" class="flex justify-between items-center">
-            <span class="flex items-center gap-sm text-secondary"><i class="pi pi-refresh"></i>Reset</span><span
+          <div v-if="studyStore.sessionSummary.srsUpdates.wordsReset > 0"
+               class="flex justify-content-between align-items-center">
+            <span class="flex align-items-center gap-2 text-secondary"><i class="pi pi-refresh"></i>Reset</span><span
               class="font-semibold">{{ studyStore.sessionSummary.srsUpdates.wordsReset }}</span></div>
         </div>
         <div class="text-center">

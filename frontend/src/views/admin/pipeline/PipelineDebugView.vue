@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, computed, onMounted} from 'vue'
+import {computed, onMounted, ref} from 'vue'
 import {useRoute, useRouter} from 'vue-router'
 import {useToast} from 'primevue/usetoast'
 import Card from 'primevue/card'
@@ -12,7 +12,7 @@ import Divider from 'primevue/divider'
 import ProgressSpinner from 'primevue/progressspinner'
 import PipelineService from '@/services/PipelineService'
 import type {GenerationDebugResponse, StepStatus} from '@/types/pipeline'
-import {STAGE_CONFIG, LANGUAGE_OPTIONS} from '@/types/pipeline'
+import {LANGUAGE_OPTIONS, STAGE_CONFIG} from '@/types/pipeline'
 
 const route = useRoute()
 const router = useRouter()
@@ -177,7 +177,7 @@ function isEpisodeExpanded(id: string): boolean {
             <div class="grid">
               <div class="col-12 lg:col-6">
                 <Fieldset legend="Metadata" class="mb-3">
-                  <div class="flex flex-column gap-2">
+                  <div class="flex flex-columnumn gap-2">
                     <div><strong>Title:</strong> {{ data.blueprint.courseTitle || '-' }}</div>
                     <div><strong>Description:</strong> {{ data.blueprint.courseDescription || '-' }}</div>
                     <div><strong>Setting:</strong> {{ data.blueprint.setting || '-' }}</div>
@@ -239,7 +239,7 @@ function isEpisodeExpanded(id: string): boolean {
                 <div class="grid">
                   <div class="col-12 lg:col-6">
                     <Fieldset legend="Module Info" class="mb-3">
-                      <div class="flex flex-column gap-2">
+                      <div class="flex flex-columnumn gap-2">
                         <div><strong>Theme:</strong> {{ module.theme || '-' }}</div>
                         <div><strong>Description:</strong> {{ module.description || '-' }}</div>
                         <div><strong>Plot Summary:</strong> {{ module.plotSummary || '-' }}</div>
@@ -280,7 +280,7 @@ function isEpisodeExpanded(id: string): boolean {
                     <div class="grid">
                       <div class="col-12 lg:col-6">
                         <Fieldset legend="Episode Info" class="mb-3">
-                          <div class="flex flex-column gap-2">
+                          <div class="flex flex-columnumn gap-2">
                             <div><strong>Scene:</strong> {{ episode.sceneDescription || '-' }}</div>
                             <div><strong>Plot Points:</strong> {{ episode.plotPoints || '-' }}</div>
                           </div>
@@ -307,7 +307,7 @@ function isEpisodeExpanded(id: string): boolean {
                         <Fieldset legend="Content" class="mb-3">
                           <div class="grid">
                             <div class="col-12">
-                              <div class="flex flex-column gap-2 mb-3">
+                              <div class="flex flex-columnumn gap-2 mb-3">
                                 <div><strong>Type:</strong> {{ episode.content.contentType || '-' }}</div>
                                 <div><strong>Summary:</strong> {{ episode.content.summary || '-' }}</div>
                                 <div>
@@ -356,7 +356,7 @@ function isEpisodeExpanded(id: string): boolean {
                         <Fieldset legend="Exercises" class="mb-3">
                           <div class="grid">
                             <div class="col-12">
-                              <div class="flex flex-column gap-2 mb-3">
+                              <div class="flex flex-columnumn gap-2 mb-3">
                                 <div><strong>Count:</strong> {{ episode.exercises.exerciseCount || 0 }}</div>
                                 <div>
                                   <strong>Status:</strong>
@@ -399,7 +399,7 @@ function isEpisodeExpanded(id: string): boolean {
                   <template #title>{{ character.name }}</template>
                   <template #subtitle>{{ character.role }} - {{ character.gender || 'Unknown gender' }}</template>
                   <template #content>
-                    <div class="flex flex-column gap-2">
+                    <div class="flex flex-columnumn gap-2">
                       <div><strong>Age:</strong> {{ character.ageRange || '-' }}</div>
                       <div><strong>Initial Description:</strong> {{ character.initialDescription || '-' }}</div>
                       <div><strong>Background:</strong> {{ character.background || '-' }}</div>
@@ -435,7 +435,7 @@ function isEpisodeExpanded(id: string): boolean {
                     </div>
                   </template>
                   <template #content>
-                    <div class="flex flex-column gap-2">
+                    <div class="flex flex-columnumn gap-2">
                       <div>
                         <strong>Status:</strong>
                         <Tag :value="media.status" :severity="getStatusSeverity(media.status)" class="ml-2"/>
@@ -470,7 +470,7 @@ function isEpisodeExpanded(id: string): boolean {
           <Fieldset legend="Generation Details">
             <div class="grid">
               <div class="col-12 md:col-6">
-                <div class="flex flex-column gap-2">
+                <div class="flex flex-columnumn gap-2">
                   <div><strong>ID:</strong> <span class="text-xs">{{ data.id }}</span></div>
                   <div><strong>Language:</strong> {{ getLanguageLabel(data.languageCode) }}</div>
                   <div><strong>CEFR Level:</strong> {{ data.cefrLevel }}</div>
@@ -480,7 +480,7 @@ function isEpisodeExpanded(id: string): boolean {
                 </div>
               </div>
               <div class="col-12 md:col-6">
-                <div class="flex flex-column gap-2">
+                <div class="flex flex-columnumn gap-2">
                   <div><strong>Current Stage:</strong> {{ STAGE_CONFIG[data.currentStage]?.label }}</div>
                   <div><strong>Created:</strong> {{ formatDate(data.createdAt) }}</div>
                   <div><strong>Completed:</strong> {{ formatDate(data.completedAt) }}</div>

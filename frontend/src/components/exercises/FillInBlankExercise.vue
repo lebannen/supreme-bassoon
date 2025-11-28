@@ -107,7 +107,7 @@ defineExpose({ setResult, reset })
 
 <template>
   <div class="fill-in-blank-exercise">
-    <div class="p-lg bg-surface-card rounded-lg text-center">
+    <div class="p-4 bg-surface-card rounded-lg text-center">
       <div class="sentence-display">
         <span v-for="(part, index) in sentenceParts" :key="index">
           <span v-if="part.type === 'text'" class="sentence-text">{{ part.content }}</span>

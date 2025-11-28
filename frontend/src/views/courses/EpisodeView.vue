@@ -169,13 +169,14 @@ onMounted(loadEpisode)
         <Card class="episode-main-card">
           <template #content>
             <div class="content-area">
-              <div class="flex justify-between items-center"><span class="font-semibold">Your Progress</span><span
+              <div class="flex justify-content-between align-items-center"><span
+                  class="font-semibold">Your Progress</span><span
                   class="font-bold text-primary">{{ progress }}%</span></div>
               <ProgressBar :value="progress" style="height: 1rem"/>
-              <div class="text-sm text-secondary flex flex-col gap-sm">
-                <span class="flex items-center gap-sm"><i
+              <div class="text-sm text-secondary flex flex-column gap-2">
+                <span class="flex align-items-center gap-2"><i
                     :class="hasReadContent ? 'pi pi-check-circle text-success' : 'pi pi-circle'"></i> Content read</span>
-                <span class="flex items-center gap-sm"><i
+                <span class="flex align-items-center gap-2"><i
                     :class="completedExercises.length > 0 ? 'pi pi-check-circle text-success' : 'pi pi-circle'"></i> {{
                     completedExercises.length
                   }} / {{ episode.contentItems.length }} exercises completed</span>
@@ -248,7 +249,7 @@ onMounted(loadEpisode)
         <div class="margin-spacer"></div>
         <div class="episode-main-card content-area-lg">
           <h2 class="text-2xl font-bold">Practice Exercises</h2>
-          <div class="flex gap-sm flex-wrap">
+          <div class="flex gap-2 flex-wrap">
             <Button v-for="(item, index) in episode.contentItems" :key="item.id" :label="`${index + 1}`"
                     :severity="currentExerciseIndex === index ? 'primary' : 'secondary'"
                     :outlined="currentExerciseIndex !== index"
@@ -262,7 +263,7 @@ onMounted(loadEpisode)
               <span class="font-bold">{{ currentExercise.exercise.title }}</span></div>
           </template>
           <template #content>
-            <p class="text-secondary mb-lg">{{ currentExercise.exercise.instructions }}</p>
+            <p class="text-secondary mb-4">{{ currentExercise.exercise.instructions }}</p>
             <component :is="{
               multiple_choice: MultipleChoiceExercise, fill_in_blank: FillInBlankExercise, sentence_scramble: SentenceScrambleExercise,
               matching: MatchingExercise, cloze_reading: ClozeReadingExercise, listening: ListeningExercise
@@ -279,7 +280,7 @@ onMounted(loadEpisode)
         <div class="margin-spacer"></div>
         <Card class="episode-main-card bg-success-50 dark:bg-success-900 border-2 border-success">
           <template #content>
-            <div class="text-center p-xl content-area">
+            <div class="text-center p-5 content-area">
               <i class="pi pi-check-circle text-4xl text-success"></i>
               <h3 class="text-2xl font-bold">Episode Complete! 🎉</h3>
               <p class="text-secondary">Great work! You've completed all exercises for this episode.</p>

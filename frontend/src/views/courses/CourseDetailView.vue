@@ -66,10 +66,10 @@ onMounted(() => {
           <Card v-for="module in course.modules" :key="module.id" class="card-interactive"
                 @click="router.push(`/course-modules/${module.id}`)">
             <template #content>
-              <div class="flex items-center gap-lg">
+              <div class="flex align-items-center gap-4">
                 <div class="number-badge bg-primary text-primary-contrast">{{ module.moduleNumber }}</div>
                 <div class="flex-1">
-                  <h3 class="text-xl font-bold mb-xs">{{ module.title }}</h3>
+                  <h3 class="text-xl font-bold mb-1">{{ module.title }}</h3>
                   <p v-if="module.theme" class="text-sm text-secondary m-0">{{ module.theme }}</p>
                 </div>
                 <i class="pi pi-chevron-right text-secondary text-xl"></i>

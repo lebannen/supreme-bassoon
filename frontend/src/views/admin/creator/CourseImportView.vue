@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, onMounted, computed} from 'vue'
+import {computed, onMounted, ref} from 'vue'
 import {useRoute, useRouter} from 'vue-router'
 import {CourseService} from '@/services/CourseService'
 import Button from 'primevue/button'
@@ -145,16 +145,16 @@ function proceedToVoiceAssignment() {
 </script>
 
 <template>
-  <div class="course-import p-xl max-w-7xl mx-auto">
-    <div class="mb-xl">
-      <div class="flex items-center justify-between mb-md">
+  <div class="course-import p-5 max-w-7xl mx-auto">
+    <div class="mb-5">
+      <div class="flex align-items-center justify-content-between mb-3">
         <h1 class="text-3xl font-bold">Course Content Generation</h1>
         <Button label="Back to Dashboard" icon="pi pi-arrow-left" text @click="goBack"/>
       </div>
     </div>
 
     <!-- Start Generation -->
-    <div v-if="!generationResult && !generating" class="text-center p-xl">
+    <div v-if="!generationResult && !generating" class="text-center p-5">
       <Card>
         <template #content>
           <div class="space-y-lg">
@@ -176,7 +176,7 @@ function proceedToVoiceAssignment() {
     </div>
 
     <!-- Generating -->
-    <div v-if="generating" class="flex flex-col items-center justify-center p-xl">
+    <div v-if="generating" class="flex flex-column align-items-center justify-content-center p-5">
       <ProgressSpinner/>
       <p class="mt-lg text-lg">Generating course content... This may take several minutes.</p>
     </div>
@@ -193,7 +193,7 @@ function proceedToVoiceAssignment() {
       <Card>
         <template #title>Generation Summary</template>
         <template #content>
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-lg mb-lg">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
             <div class="text-center">
               <div class="text-3xl font-bold text-primary">
                 {{ generationResult.validationSummary.totalEpisodes }}
@@ -223,10 +223,10 @@ function proceedToVoiceAssignment() {
           <ProgressBar
               :value="progressPercent"
               :showValue="true"
-              class="mb-md"
+              class="mb-3"
           />
 
-          <div class="flex justify-end gap-md">
+          <div class="flex justify-end gap-3">
             <Button
                 label="Regenerate"
                 icon="pi pi-refresh"
@@ -250,13 +250,13 @@ function proceedToVoiceAssignment() {
           Characters Found ({{ generationResult.characterAnalysis.characters.length }})
         </template>
         <template #content>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             <div
                 v-for="character in generationResult.characterAnalysis.characters"
                 :key="character.name"
                 class="p-md border border-surface rounded"
             >
-              <div class="flex items-center justify-between mb-sm">
+              <div class="flex align-items-center justify-content-between mb-2">
                 <div class="font-bold text-lg">{{ character.name }}</div>
                 <Tag :value="`${character.appearances} lines`" severity="info"/>
               </div>
@@ -278,7 +278,7 @@ function proceedToVoiceAssignment() {
                 :key="module.moduleId"
             >
               <template #header>
-                <div class="flex items-center justify-between w-full pr-md">
+                <div class="flex align-items-center justify-content-between w-full pr-md">
                   <span class="font-bold">
                     Module {{ module.moduleNumber }}: {{ module.title }}
                   </span>
@@ -296,7 +296,7 @@ function proceedToVoiceAssignment() {
                     :toggleable="true"
                 >
                   <template #header>
-                    <div class="flex items-center gap-md w-full">
+                    <div class="flex align-items-center gap-3 w-full">
                       <i
                           :class="getValidationStatusIcon(episode)"
                           :style="{ color: `var(--${getValidationStatusColor(episode)}-500)` }"
@@ -311,7 +311,7 @@ function proceedToVoiceAssignment() {
                   <div class="space-y-md">
                     <!-- Validation Issues -->
                     <div v-if="episode.validation.issues.length > 0">
-                      <h4 class="font-bold mb-sm">Validation Issues:</h4>
+                      <h4 class="font-bold mb-2">Validation Issues:</h4>
                       <div class="space-y-xs">
                         <Message
                             v-for="(issue, idx) in episode.validation.issues"
@@ -326,18 +326,18 @@ function proceedToVoiceAssignment() {
 
                     <!-- Content Preview -->
                     <div v-if="episode.content">
-                      <h4 class="font-bold mb-sm">Content:</h4>
+                      <h4 class="font-bold mb-2">Content:</h4>
 
                       <!-- Dialogue Preview -->
                       <div v-if="episode.type === 'DIALOGUE' && episode.content.dialogue">
-                        <div class="text-sm text-secondary mb-xs">
+                        <div class="text-sm text-secondary mb-1">
                           {{ episode.content.dialogue.lines.length }} dialogue lines
                         </div>
                         <div class="bg-surface-ground p-md rounded max-h-60 overflow-y-auto">
                           <div
                               v-for="(line, idx) in episode.content.dialogue.lines.slice(0, 5)"
                               :key="idx"
-                              class="mb-sm"
+                              class="mb-2"
                           >
                             <strong>{{ line.speaker }}:</strong> {{ line.text }}
                           </div>

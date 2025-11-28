@@ -111,7 +111,7 @@ defineExpose({setResult})
   <div class="listening-exercise">
     <AudioPlayer :audio-url="content.audioUrl"/>
 
-    <div class="p-lg bg-surface-card rounded-lg">
+    <div class="p-4 bg-surface-card rounded-lg">
       <h2 class="text-lg font-bold">{{ content.question }}</h2>
     </div>
 
@@ -142,7 +142,7 @@ defineExpose({setResult})
 
     <!-- Text Input -->
     <div v-if="questionType === 'text_input'">
-      <InputText v-model="userAnswer" placeholder="Type your answer..." :disabled="showResult" class="w-full p-lg"
+      <InputText v-model="userAnswer" placeholder="Type your answer..." :disabled="showResult" class="w-full p-4"
                  @keyup.enter="!showResult && submitAnswer()"/>
     </div>
 
