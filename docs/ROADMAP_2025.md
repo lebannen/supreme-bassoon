@@ -1,6 +1,6 @@
 # Vocabee 2025 Roadmap
 
-**Version:** 5.0
+**Version:** 6.0
 **Created:** November 24, 2024
 **Updated:** November 29, 2024
 **Status:** Active Development
@@ -276,53 +276,169 @@ If not: Generate with AI → Validate → Store as CourseVocabulary
 - Multi-language support without Wiktionary limitations
 - Course-relevant examples and context
 
----
+**Known Issues:**
 
-### Priority 3: Accommodating Experienced Learners
-
-**Focus:** Users with existing knowledge should find their fit easily
-
-#### 3.1 Placement Assessment
-
-- Quick assessment to recommend starting point
-- Adaptive questioning (adjusts based on answers)
-- CEFR level estimation
-- Recommended course suggestions
-
-#### 3.2 Flexible Entry Points
-
-- Topic-based entry ("I want business vocabulary")
-- Skip basics option per module
-- "I know this" test-out feature
-- Module-level placement tests
-
-#### 3.3 Vocabulary Import
-
-- Import from Anki decks
-- Import from CSV/text lists
-- Mark imported words as "known"
-- Adjust SRS intervals for known vocabulary
-
-#### 3.4 Custom Learning Paths
-
-- Choose specific modules without full course
-- Mix content from different courses
-- Create personal study collections
+- Homograph disambiguation: AI may generate wrong definition for words with multiple meanings (e.g., "tu" as past
+  participle of "taire" instead of pronoun "you"). Needs context from word set or part-of-speech hints to disambiguate.
 
 ---
 
-### Priority 4: Speaking Practice (New Feature Area)
+### Priority 3: Episode Flow & Grammar Integration
+
+**Focus:** Make learning feel structured and pedagogically sound
+
+**Current Problem:**
+Episodes feel chaotic - users jump into dialogues/stories without clear learning objectives or grammar preparation. The
+`grammarFocus` field exists on modules but isn't surfaced to users.
+
+#### 3.1 Structured Episode Flow
+
+Each episode should follow a clear pedagogical pattern:
+
+```
+1. Learning Objectives → "In this episode, you'll learn..."
+2. Grammar Introduction → Brief explanation of new structures
+3. Content (Dialogue/Story) → Apply grammar in context
+4. Comprehension Check → Verify understanding
+5. Practice Exercises → Reinforce learning
+6. Summary → Recap key points
+```
+
+#### 3.2 Grammar Explanations
+
+- Add `GrammarExplanation` content type to episodes
+- Simple, CEFR-appropriate explanations with examples
+- Visual aids for grammar patterns (tables, diagrams)
+- Link to related grammar rules in database
+
+#### 3.3 Learning Objectives Display
+
+- Show module objectives before starting
+- Episode-level objectives visible in UI
+- Progress indicators tied to objectives
+- "What you'll learn" preview cards
+
+#### 3.4 Content Type Sequencing
+
+- Enforce logical order of content items within episodes
+- Grammar explanation → Example → Practice pattern
+- Vocabulary introduction before content using new words
+
+---
+
+### Priority 4: Internationalization (i18n)
+
+**Focus:** Support learners with different native languages
+
+**Strategy:** Two-tier approach based on CEFR level
+
+#### 4.1 A1-A2: Bilingual Support
+
+For beginners, UI and exercise instructions in user's native language:
+
+**Approach:**
+
+- Define a limited set of translatable instruction phrases
+- Examples: "Which statements are true?", "Listen and repeat", "Match the pairs"
+- Store as translation keys, not hardcoded English
+- All course content remains in target language
+
+**Implementation:**
+
+- Use vue-i18n for frontend translations
+- Create `instruction_keys` table for exercise instructions
+- Limit instruction variety to ~50-100 phrases
+- Initially support: English, Spanish, Russian, German, French
+
+**Benefits:**
+
+- Reduces cognitive load for beginners
+- Same exercises work for any native language
+- Manageable translation scope
+
+#### 4.2 B1+: Full Immersion
+
+For intermediate+ learners, everything in target language:
+
+- All users see identical content regardless of native language
+- Exercise instructions in target language
+- Grammar explanations in target language
+- Simpler localization (no per-language-pair content)
+
+#### 4.3 UI Localization
+
+Separate from content i18n:
+
+- Navigation labels
+- Button text
+- Error messages
+- Settings and profile UI
+
+**Target Languages (UI):** English, Spanish, French, German, Russian, Portuguese, Italian, Japanese, Korean, Chinese
+
+#### 4.4 Technical Implementation
+
+```
+User Settings:
+  - nativeLanguage: "es"
+  - targetLanguage: "fr"
+  - cefrLevel: "A1"
+
+Content Selection Logic:
+  if (cefrLevel in ["A1", "A2"]) {
+    instructions = translate(instructionKey, nativeLanguage)
+  } else {
+    instructions = getInstructionInTargetLanguage(instructionKey, targetLanguage)
+  }
+```
+
+---
+
+### Priority 5: Content Generation Expansion
+
+**Focus:** Expand generation capabilities beyond courses
+
+#### 5.1 Standalone Reading Content
+
+- Reuse `EpisodeContentGenerationService` for standalone stories/articles
+- Generate graded readers at specific CEFR levels
+- Topic-based generation (travel, food, culture, news)
+- Variable length (short articles to multi-chapter stories)
+
+#### 5.2 Standalone Exercise Generation
+
+- Generate exercises without full course context
+- Grammar-focused drill generation
+- Vocabulary practice generation
+- Speaking exercise generation (phrases for repetition, conversation prompts)
+
+#### 5.3 Speaking Content Generation
+
+- Generate phrases for pronunciation practice
+- Create conversation scenarios
+- Question-answer pair generation
+- Dialogue completion exercises
+
+#### 5.4 Admin Tools
+
+- UI for generating standalone content
+- Batch generation for content libraries
+- Quality review workflow for generated content
+
+---
+
+### Priority 6: Speaking Practice
 
 **Focus:** Add speaking component to complete the learning experience
 
-#### 4.1 Tier 1: Pronunciation Comparison (Recommended Start)
+#### 6.1 Tier 1: Pronunciation Comparison (Recommended Start)
 
 - User records word/phrase
 - Visual waveform comparison to native audio
 - Similarity score (pattern matching)
 - **Tech:** Web Audio API, simple spectrogram comparison
 
-#### 4.2 Tier 2: Speech-to-Text Validation
+#### 6.2 Tier 2: Speech-to-Text Validation
 
 - User speaks, system transcribes
 - Compare transcription to expected text
@@ -330,7 +446,7 @@ If not: Generate with AI → Validate → Store as CourseVocabulary
 - **Tech:** Whisper API or Google Speech-to-Text
 - **Cost:** ~$0.006/minute
 
-#### 4.3 Tier 3: AI Conversation Partner (Future/Premium)
+#### 6.3 Tier 3: AI Conversation Partner (Future/Premium)
 
 - Chat with episode characters via voice
 - AI responds contextually
@@ -338,7 +454,7 @@ If not: Generate with AI → Validate → Store as CourseVocabulary
 - **Tech:** Gemini Live / GPT-4o realtime API
 - **Cost:** Higher, premium feature
 
-#### 4.4 Tier 4: Pronunciation Coaching (Future/Premium)
+#### 6.4 Tier 4: Pronunciation Coaching (Future/Premium)
 
 - Phoneme-level feedback
 - Language-specific pronunciation tips
@@ -352,15 +468,98 @@ If not: Generate with AI → Validate → Store as CourseVocabulary
 
 ---
 
-### Priority 5: Writing Practice (Future)
+### Priority 7: Analytics & Learning Effectiveness
 
-#### 5.1 Guided Writing Prompts
+**Focus:** Measure actual learning outcomes, not just engagement
+
+#### 7.1 Retention Metrics
+
+- Track vocabulary recall rates over time
+- Measure SRS effectiveness (% words retained at each interval)
+- Compare predicted vs actual recall
+- Identify words with unusually high failure rates
+
+#### 7.2 Progress Tracking
+
+- Grammar accuracy trends per structure
+- Exercise type performance (which types help most?)
+- Time-to-mastery metrics per word/grammar point
+- CEFR level progression estimation
+
+#### 7.3 Weak Point Detection
+
+- Identify struggling vocabulary (high error rate, frequent resets)
+- Flag problematic grammar patterns
+- Detect pronunciation difficulties (if speaking enabled)
+- Suggest targeted review sessions
+
+#### 7.4 Learning Insights Dashboard
+
+- Personal analytics for users:
+    - Words mastered over time graph
+    - Accuracy trends
+    - Time spent per skill area
+    - Comparison to goals
+- Admin analytics:
+    - Aggregate learning outcomes
+    - Content effectiveness metrics
+    - Drop-off points in courses
+
+#### 7.5 Adaptive Recommendations
+
+- Suggest optimal study times based on performance patterns
+- Recommend session length based on retention data
+- Identify when user is ready for next level
+- Surface content that matches weak areas
+
+---
+
+### Priority 8: User Onboarding & Content Discovery
+
+**Focus:** Help users find appropriate content quickly
+
+#### 8.1 New User Flow
+
+- Language selection with clear level descriptions
+- Background assessment (not a test, just questions):
+    - "Have you studied [language] before?"
+    - "Can you understand basic conversations?"
+    - "Can you read simple texts?"
+- Recommend starting course based on responses
+- Allow easy course switching if level is wrong
+
+#### 8.2 Content Labeling
+
+- Clear CEFR level badges on all content
+- Topic tags for easy filtering
+- Difficulty indicators beyond CEFR (vocabulary density, sentence complexity)
+- "Good for beginners" / "Challenging" labels
+
+#### 8.3 Home Page Improvements
+
+- Personalized recommendations based on history
+- "Continue Learning" prominent for returning users
+- Discovery section for new content
+- Clear paths: "Start French" → Course selection → Begin
+
+#### 8.4 Search & Filtering
+
+- Search courses by topic, level, duration
+- Filter exercises by type, grammar point, difficulty
+- Browse vocabulary by theme
+- "Similar to what you've studied" recommendations
+
+---
+
+### Priority 9: Writing Practice (Future)
+
+#### 9.1 Guided Writing Prompts
 
 - Short answer exercises based on episode content
 - Sentence construction from vocabulary
 - Grammar-focused writing tasks
 
-#### 5.2 AI Evaluation
+#### 9.2 AI Evaluation
 
 - Grammar checking with explanations
 - Vocabulary usage feedback
@@ -369,26 +568,55 @@ If not: Generate with AI → Validate → Store as CourseVocabulary
 
 ---
 
-### Priority 6: Analytics & Insights
+### Priority 10: User Feedback & Content Quality
 
-#### 6.1 Learning Analytics Dashboard
+**Focus:** Get signal from users to improve content
 
-- Words mastered over time
-- Grammar structures learned
-- Time spent per skill area
-- Comparison to learning goals
+#### 10.1 Content Flagging
 
-#### 6.2 Weak Point Detection
+- "Report issue" button on all content
+- Categories: Wrong translation, Grammar error, Confusing, Too difficult, Audio problem
+- Quick feedback (thumbs up/down) after exercises
+- Optional comment field for details
 
-- Identify struggling vocabulary
-- Flag problematic grammar patterns
-- Suggest targeted review sessions
+#### 10.2 Feedback Processing
 
-#### 6.3 Optimal Study Recommendations
+- Admin dashboard for flagged content
+- Priority queue based on flag frequency
+- Link feedback to specific content items
+- Track resolution status
 
-- Best times to study (based on performance patterns)
-- Session length recommendations
-- Spaced repetition optimization insights
+#### 10.3 Content Versioning
+
+- Minor fixes applied to existing content
+- Major issues → regenerate or hide content
+- Track content quality scores over time
+- A/B testing for content variations (future)
+
+---
+
+### Priority 11: Accommodating Experienced Learners
+
+**Focus:** Users with existing knowledge should find their fit easily
+
+#### 11.1 Vocabulary Import
+
+- Import from Anki decks
+- Import from CSV/text lists
+- Mark imported words as "known"
+- Adjust SRS intervals for known vocabulary
+
+#### 11.2 Custom Learning Paths
+
+- Choose specific modules without full course
+- Mix content from different courses
+- Create personal study collections
+
+#### 11.3 Skip/Test-Out Options
+
+- "I know this" option per module
+- Quick quiz to verify knowledge
+- Skip to more advanced content
 
 ---
 
@@ -418,26 +646,128 @@ If not: Generate with AI → Validate → Store as CourseVocabulary
 
 ---
 
+## Production Readiness
+
+### Infrastructure & Deployment
+
+- [ ] Docker containerization for backend and frontend
+- [ ] Docker Compose for local development
+- [ ] Kubernetes manifests or cloud deployment configs
+- [ ] Environment-specific configuration (dev/staging/prod)
+- [ ] CORS configuration for production domains
+- [ ] SSL/TLS setup
+- [ ] CDN for static assets and audio files
+
+### Monitoring & Observability
+
+- [ ] Application logging (structured logs)
+- [ ] Error tracking (Sentry or similar)
+- [ ] Performance monitoring (APM)
+- [ ] Health check endpoints
+- [ ] Alerting for critical failures (API down, Gemini errors)
+- [ ] Database monitoring
+
+### Backup & Recovery
+
+- [ ] Database backup strategy
+- [ ] S3/MinIO backup for media files
+- [ ] Disaster recovery plan
+- [ ] Data export functionality for users
+
+---
+
 ## Mobile Strategy
 
-**Current Decision:** Wait until feature set is finalized
+**Current Decision:** Native apps after web feature set is stable
 
 **Rationale:**
 
 - Prevents duplicate development effort
 - Avoids API contract changes breaking mobile
 - Prevents maintaining dead features across platforms
+- Mobile apps don't need admin functionality
+
+**Approach:**
+
+- **NOT PWA** - Native apps preferred for better UX and offline capability
+- **Technology:** React Native or Flutter (TBD based on team expertise)
+- **Scope:** Learning features only (no course generation/admin)
+- **Timeline:** After web MVP is stable and API contracts are finalized
 
 **Preparation:**
 
 - Keep API mobile-friendly (already mostly there)
-- Design components with responsive-first approach
-- Consider PWA as intermediate step
+- Design API responses with mobile bandwidth in mind
+- Document API contracts thoroughly
+- Plan offline-first architecture for vocabulary/SRS
 
-**Future Options:**
+**Mobile-Specific Features:**
 
-- Native apps (React Native or Flutter)
-- PWA enhancement for offline capability
+- Push notifications for study reminders
+- Offline vocabulary review
+- Audio download for offline listening
+- Widget for daily progress
+
+---
+
+## Content Volume Strategy
+
+**Goal:** 15-20 courses per language, targeting A1-B1 initially
+
+### Target Content Library
+
+**Per Language (French, German, Spanish, Italian, Portuguese):**
+
+- 5-7 courses at A1 level (complete beginner to basic)
+- 5-7 courses at A2 level (elementary)
+- 3-5 courses at B1 level (intermediate)
+- Additional topic-specific courses (travel, business, culture)
+
+**Content Types:**
+
+- Structured courses (8-12 modules each)
+- Standalone reading content (graded readers)
+- Vocabulary practice sets
+- Grammar drill exercises
+
+### Generation Workflow
+
+1. **Generate** - Use pipeline to create course structure and content
+2. **Review** - Human verification of key content (dialogues, grammar explanations)
+3. **Test** - Internal testing of full course flow
+4. **Publish** - Release to users
+5. **Monitor** - Track user feedback and engagement
+6. **Iterate** - Fix issues, improve based on feedback
+
+### Quality Control
+
+- AI-generated content requires review before publishing
+- Flag system for user-reported issues
+- Quality score tracking per course
+- Periodic content audits
+
+### Wiktionary Dictionary
+
+**Current Status:**
+
+- French and German partially imported
+- Quality issues with orphaned inflected forms
+- Inconsistent formatting
+
+**Improvement Plan:**
+
+- Audit parsing logic for accuracy
+- Fix inflected form linking
+- Expand to additional languages
+- Use as fallback/reference (Tier 2), not primary vocabulary source
+
+### Content Priorities
+
+1. **French A1** - Most complete, use as template
+2. **Spanish A1** - High demand language
+3. **German A1** - Already has dictionary data
+4. **French A2** - Build on A1 foundation
+5. **Expand to B1** - After A1-A2 content is solid
 
 ---
 
@@ -478,18 +808,22 @@ If not: Generate with AI → Validate → Store as CourseVocabulary
 3. **Learning Validation:** How will we measure actual learning outcomes?
 4. **Speaking Implementation:** Which speech-to-text provider offers best quality/cost for language learning?
 5. **Tutor Features:** What specific features would tutors need?
-6. **Offline Capability:** How important is offline access for target users?
+6. **Mobile Technology:** React Native vs Flutter - which has better audio/recording support?
+7. **i18n Scope:** Exactly which phrases need translation for A1-A2? Need to audit existing exercises.
+8. **Content Review:** Who reviews AI-generated content? Internal team or crowdsourced?
+9. **Wiktionary Parsing:** How much effort to fix vs. rely entirely on AI-generated cards?
+10. **Analytics Privacy:** What learning data can we collect while respecting user privacy?
 
 ---
 
 ## Not In Scope (Yet)
 
-- Native mobile apps (until feature set is stable)
 - Multi-user collaboration features
 - Live tutoring integration
 - Advanced gamification (leaderboards, competitions)
 - User-generated content
 - Enterprise/school admin features
+- C1/C2 level content (focus on A1-B1 first)
 
 ---
 
@@ -506,7 +840,46 @@ If not: Generate with AI → Validate → Store as CourseVocabulary
 ---
 
 **Document Status:** Active Development
-**Next Review:** After speaking practice scoping
+**Next Review:** After MVP scope finalization
 **Owner:** Vocabee Product Team
 
 **Last Updated:** November 29, 2024
+
+---
+
+## Priority Summary
+
+### Phase 1: Content & Learning Core
+
+*Content is the product. Users come for rich, varied learning material.*
+
+| Priority | Area                               | Why Critical                                                                    |
+|----------|------------------------------------|---------------------------------------------------------------------------------|
+| 1        | Content Generation Expansion       | Standalone reading, exercises, speaking - content variety is the differentiator |
+| 2        | Content Pipeline Quality           | AI-generated vocabulary cards, pedagogical validation                           |
+| 3        | Episode Flow & Grammar Integration | Structured learning feels professional, not chaotic                             |
+| 4        | Analytics & Learning Effectiveness | Prove the platform actually teaches; identify weak points                       |
+| 5        | Speaking Practice                  | Differentiator from text-only competitors                                       |
+| -        | Content Volume                     | 15-20 courses per language (parallel effort)                                    |
+
+### Phase 2: User Experience
+
+*Make content discoverable and accessible to all users.*
+
+| Priority | Area                                | Why Critical                                          |
+|----------|-------------------------------------|-------------------------------------------------------|
+| 6        | User Onboarding & Content Discovery | Match users to appropriate content quickly            |
+| 7        | User Feedback & Content Quality     | Get signal to improve content                         |
+| 8        | UI & Learning Experience Polish     | Study flow, progress visualization                    |
+| 9        | Internationalization (i18n)         | Enable non-English speakers (A1-A2 bilingual support) |
+
+### Phase 3: Scale & Deploy
+
+*Infrastructure to reach users at scale.*
+
+| Priority | Area                               | Why Critical                     |
+|----------|------------------------------------|----------------------------------|
+| 10       | Production Readiness               | Security, deployment, monitoring |
+| 11       | Mobile Apps                        | Native apps after web is stable  |
+| 12       | Accommodating Experienced Learners | Import, skip, custom paths       |
+| 13       | Writing Practice                   | Future enhancement               |
