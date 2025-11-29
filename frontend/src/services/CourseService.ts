@@ -1,5 +1,5 @@
-import { BaseAPI } from '@/api/base'
-import type {GeneratedSyllabus, GeneratedEpisodeSummary} from '@/types/generation'
+import {BaseAPI} from '@/api/base'
+import type {GeneratedEpisodeSummary, GeneratedSyllabus} from '@/types/generation'
 
 export interface CreateCourseRequest {
     name: string
@@ -77,6 +77,37 @@ class CourseAPI extends BaseAPI {
     async saveCourseContent(request: any): Promise<any> {
         return this.post<any>('/api/admin/courses/save-course-content', request)
     }
+
+    async getLatestReview(courseId: number): Promise<CourseReviewDto | null> {
+        try {
+            return await this.get<CourseReviewDto>(`/api/admin/courses/${courseId}/reviews/latest`)
+        } catch (e: any) {
+            // 404 means no review exists yet - return null
+            if (e.message === 'Resource not found') {
+                return null
+            }
+            throw e
+        }
+    }
+
+    async createReview(courseId: number): Promise<CourseReviewDto> {
+        return this.post<CourseReviewDto>(`/api/admin/courses/${courseId}/review`)
+    }
+}
+
+export interface CourseReviewDto {
+    id: number
+    overallScore: number | null
+    cefrAlignmentScore: number | null
+    structureScore: number | null
+    contentQualityScore: number | null
+    summary: string
+    strengths: string[]
+    weaknesses: string[]
+    recommendations: string[]
+    moduleFeedback: { moduleNumber: number; score: number | null; feedback: string }[]
+    detailedAnalysis: string | null
+    createdAt: string
 }
 
 export const CourseService = new CourseAPI()

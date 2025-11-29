@@ -47,3 +47,23 @@ export interface UserProgress {
   lastAttemptAt: string | null
   isCompleted: boolean
 }
+
+// Speaking exercise types
+
+export interface SpeakingContent {
+    mode: 'repeat' | 'read_aloud' | 'respond'
+    targetText: string
+    targetLanguage: string
+    nativeAudioUrl?: string
+    prompt?: string
+    promptAudioUrl?: string
+    hint?: string
+    acceptableVariations?: string[]
+}
+
+export interface SpeakingAttemptResult {
+    transcription: string
+    accuracy: number
+    isCorrect: boolean
+    feedback: string
+}

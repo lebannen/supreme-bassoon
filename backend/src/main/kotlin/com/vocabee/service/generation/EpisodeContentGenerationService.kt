@@ -275,6 +275,11 @@ class EpisodeContentGenerationService(
         val feedbackSection = feedback?.let { "## Feedback\nPlease incorporate: $it\n" } ?: ""
 
         val cefrGuidelines = CefrLevelGuidelines.getContentPromptSection(generation.cefrLevel)
+        val functionalConstraints = CefrLevelGuidelines.getModuleFunctionalConstraints(
+            generation.cefrLevel,
+            modulePlan.moduleNumber,
+            generation.moduleCount
+        )
 
         val typeSpecificRules = if (episodePlan.episodeType == "DIALOGUE") {
             """
@@ -319,6 +324,8 @@ class EpisodeContentGenerationService(
             - Grammar points to demonstrate: ${grammarRules.joinToString(", ")}
 
             $cefrGuidelines
+
+            $functionalConstraints
 
             $typeSpecificRules
 

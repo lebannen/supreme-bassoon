@@ -10,7 +10,9 @@ import com.vocabee.web.dto.ModuleDetailDto
 import com.vocabee.web.dto.admin.*
 import com.vocabee.web.dto.admin.generation.GenerateEpisodeContentRequest
 import org.slf4j.LoggerFactory
+import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
+import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.*
@@ -30,6 +32,7 @@ class CourseAdminController(
     private val contentGenerationService: ContentGenerationService,
     private val episodeValidationService: EpisodeValidationService,
     private val characterProfileService: CharacterProfileService,
+    private val courseReviewService: CourseReviewService,
     private val objectMapper: com.fasterxml.jackson.databind.ObjectMapper
 ) {
     private val logger = LoggerFactory.getLogger(javaClass)
@@ -886,6 +889,141 @@ class CourseAdminController(
                 "imagesGenerated" to totalImagesGenerated
             )
         )
+    }
+
+    @PostMapping("/{courseId}/review")
+    fun reviewCourse(@PathVariable courseId: Long): ResponseEntity<CourseReviewDto> {
+        logger.info("Admin: Starting AI review for course $courseId")
+
+        return try {
+            val review = courseReviewService.reviewCourse(courseId)
+            ResponseEntity.ok(review.toDto())
+        } catch (e: Exception) {
+            logger.error("Failed to review course $courseId", e)
+            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()
+        }
+    }
+
+    @GetMapping("/{courseId}/reviews")
+    fun getReviews(@PathVariable courseId: Long): ResponseEntity<List<CourseReviewDto>> {
+        logger.info("Admin: Getting reviews for course $courseId")
+
+        val reviews = courseReviewService.getReviewHistory(courseId)
+        return ResponseEntity.ok(reviews.map { it.toDto() })
+    }
+
+    @GetMapping("/{courseId}/reviews/latest")
+    fun getLatestReview(@PathVariable courseId: Long): ResponseEntity<CourseReviewDto> {
+        logger.info("Admin: Getting latest review for course $courseId")
+
+        val review = courseReviewService.getLatestReview(courseId)
+            ?: return ResponseEntity.notFound().build()
+
+        return ResponseEntity.ok(review.toDto())
+    }
+
+    @GetMapping("/{courseId}/export")
+    @Transactional(readOnly = true)
+    fun exportCourse(@PathVariable courseId: Long): ResponseEntity<ByteArray> {
+        logger.info("Admin: Exporting course $courseId")
+
+        val course = courseRepository.findById(courseId)
+            .orElseThrow { IllegalArgumentException("Course not found: $courseId") }
+
+        val modules = moduleRepository.findByCourseIdOrderByModuleNumber(courseId)
+
+        val exportData = CourseExportDto(
+            exportedAt = java.time.Instant.now().toString(),
+            exportVersion = "1.0",
+            course = CourseExportInfo(
+                id = course.id!!,
+                slug = course.slug,
+                name = course.name,
+                languageCode = course.languageCode,
+                cefrLevel = course.cefrLevel,
+                description = course.description,
+                seriesContext = course.seriesContext,
+                estimatedHours = course.estimatedHours,
+                isPublished = course.isPublished
+            ),
+            modules = modules.map { module ->
+                val episodes = episodeRepository.findByModuleIdOrderByEpisodeNumber(module.id!!)
+
+                ModuleExportDto(
+                    id = module.id,
+                    moduleNumber = module.moduleNumber,
+                    title = module.title,
+                    theme = module.theme,
+                    description = module.description,
+                    objectives = module.objectives?.let { node ->
+                        if (node.isArray) node.map { it.asText() } else null
+                    },
+                    vocabularyFocus = module.vocabularyFocus?.let { node ->
+                        if (node.isArray) node.map { it.asText() } else null
+                    },
+                    grammarFocus = module.grammarFocus?.let { node ->
+                        if (node.isArray) node.map { it.asText() } else null
+                    },
+                    episodes = episodes.map { episode ->
+                        val contentItems = episodeContentItemRepository.findByEpisodeIdOrderByOrderIndex(episode.id!!)
+                        val exercises = contentItems
+                            .filter { it.contentType == com.vocabee.domain.model.ContentItemType.EXERCISE }
+                            .mapNotNull { item ->
+                                exerciseRepository.findById(item.contentId).orElse(null)?.let { exercise ->
+                                    ExerciseExportDto(
+                                        id = exercise.id!!,
+                                        type = exercise.exerciseType.typeKey,
+                                        title = exercise.title,
+                                        instructions = exercise.instructions,
+                                        content = exercise.content
+                                    )
+                                }
+                            }
+
+                        EpisodeExportDto(
+                            id = episode.id,
+                            episodeNumber = episode.episodeNumber,
+                            type = episode.episodeType.name,
+                            title = episode.title,
+                            summary = episode.summary,
+                            content = episode.content,
+                            data = episode.data?.let { objectMapper.readTree(it) },
+                            audioUrl = episode.audioUrl,
+                            exercises = exercises
+                        )
+                    }
+                )
+            },
+            statistics = CourseStatistics(
+                totalModules = modules.size,
+                totalEpisodes = modules.sumOf { module ->
+                    episodeRepository.findByModuleIdOrderByEpisodeNumber(module.id!!).size
+                },
+                totalExercises = modules.sumOf { module ->
+                    episodeRepository.findByModuleIdOrderByEpisodeNumber(module.id!!).sumOf { episode ->
+                        episodeContentItemRepository.findByEpisodeIdOrderByOrderIndex(episode.id!!)
+                            .count { it.contentType == com.vocabee.domain.model.ContentItemType.EXERCISE }
+                    }
+                },
+                episodesWithAudio = modules.sumOf { module ->
+                    episodeRepository.findByModuleIdOrderByEpisodeNumber(module.id!!)
+                        .count { it.audioUrl != null }
+                }
+            )
+        )
+
+        val jsonBytes = objectMapper.writerWithDefaultPrettyPrinter()
+            .writeValueAsBytes(exportData)
+
+        val headers = HttpHeaders()
+        headers.contentType = MediaType.APPLICATION_JSON
+        headers.setContentDispositionFormData("attachment", "${course.slug}-export.json")
+
+        logger.info("Exported course ${course.slug}: ${modules.size} modules, ${exportData.statistics.totalEpisodes} episodes")
+
+        return ResponseEntity.ok()
+            .headers(headers)
+            .body(jsonBytes)
     }
 
     /**

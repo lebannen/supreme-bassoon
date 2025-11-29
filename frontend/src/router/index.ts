@@ -1,6 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import { useAuthStore } from '@/stores/auth'
+import {useAuthStore} from '@/stores/auth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -137,6 +137,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+        path: '/admin/speaking-test',
+        name: 'speaking-test',
+        component: () => import('../views/admin/SpeakingTestView.vue'),
+        meta: {requiresAuth: true},
+    },
+      {
       path: '/admin/exercise-import',
       name: 'exercise-import',
       component: () => import('../views/admin/ExerciseImportView.vue'),

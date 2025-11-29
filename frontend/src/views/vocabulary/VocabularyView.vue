@@ -76,7 +76,7 @@ const formatDate = (dateString: string) => new Date(dateString).toLocaleDateStri
     <template v-if="!loading && vocabularyStore.words.length > 0">
       <div class="section-header"><h2>Study Sessions</h2></div>
       <div class="study-sessions">
-        <Card class="session-card border-2 border-primary bg-primary-50 dark:bg-primary-900">
+        <Card class="session-card due-reviews-card">
           <template #content>
             <div class="session-content">
               <div class="session-header-content"><span class="session-icon">⏰</span><span class="session-title">Due Reviews</span>
@@ -195,5 +195,26 @@ const formatDate = (dateString: string) => new Date(dateString).toLocaleDateStri
   font-size: 0.9rem;
   color: var(--text-color-secondary);
   margin: 0;
+}
+
+/* Due Reviews card - highlighted styling */
+.due-reviews-card {
+  border: 2px solid var(--p-primary-color);
+  background: var(--p-primary-50);
+}
+
+/* Dark mode override */
+:root.p-dark .due-reviews-card,
+.dark-theme .due-reviews-card {
+  background: color-mix(in srgb, var(--p-primary-color) 15%, var(--p-surface-900));
+}
+
+.due-reviews-card .session-description {
+  color: var(--p-primary-700);
+}
+
+:root.p-dark .due-reviews-card .session-description,
+.dark-theme .due-reviews-card .session-description {
+  color: var(--p-primary-300);
 }
 </style>

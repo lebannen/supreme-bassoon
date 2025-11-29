@@ -1,675 +1,512 @@
-# Vocabee 2025 Roadmap - Pedagogical Foundation
+# Vocabee 2025 Roadmap
 
-**Version:** 4.0
+**Version:** 5.0
 **Created:** November 24, 2024
-**Updated:** November 25, 2024
-**Status:** 📋 PLANNING - Revised with Pedagogical Focus
+**Updated:** November 29, 2024
+**Status:** Active Development
 
 ---
 
-## 🎯 Core Insight: Pedagogy Over Story
+## Executive Summary
 
-### The Fundamental Realization
+Vocabee is a language learning platform with AI-powered course generation, spaced repetition vocabulary learning, and
+structured content delivery. The platform targets self-learners initially, with plans to evolve into a comprehensive
+learning solution suitable for both independent study and tutor-assisted learning.
 
-**Previous assumption:** Make content engaging and natural → students will learn
-**Corrected assumption:** Make content pedagogically rigorous → students will learn (engagement varies by level)
+---
+
+## Current State Analysis
+
+### What's Built
+
+**Frontend (Vue 3 + TypeScript + Pinia + PrimeVue)**
+
+- Complete authentication flow (JWT + OAuth2)
+- Course browsing and enrollment
+- Module/episode content delivery
+- 6 exercise types (multiple choice, fill-in-blank, matching, sentence scramble, cloze reading, listening)
+- Flashcard study sessions with SRS
+- Progress tracking and daily goals
+- Admin dashboard with generation pipeline UI
+- Reading library
+
+**Backend (Kotlin + Spring Boot 3.2 + PostgreSQL)**
+
+- 8-stage course generation pipeline (Blueprint → Module Planning → Episode Content → Vocabulary Linking → Character
+  Profiles → Exercises → Media → Publishing)
+- Spaced repetition system (20h → 30 day intervals)
+- User progress tracking across courses/modules/episodes
+- Exercise validation and attempt logging
+- Audio generation via Google Gemini
+- S3/MinIO file storage
+- 29 database migrations
+
+**Content Pipeline**
+
+- AI-powered course structure generation
+- Dialogue and story content generation
+- Character profile management
+- Vocabulary linking to episodes
+- Exercise auto-generation
+- Voice assignment for audio
+
+### Architecture Strengths
+
+1. **Clean separation of concerns** - Clear domain/service/controller boundaries
+2. **Type safety** - Full TypeScript (frontend) and Kotlin (backend)
+3. **Decoupled generation phases** - Can iterate on content before expensive media generation
+4. **Comprehensive SRS** - Interval progression with ease factor adjustments
+5. **Flexible content types** - 4 episode formats (DIALOGUE, STORY, ARTICLE, AUDIO_LESSON)
+
+### Known Technical Debt
+
+| Area        | Issue                                                         | Priority              |
+|-------------|---------------------------------------------------------------|-----------------------|
+| Security    | `/api/admin/generation/**` is `permitAll()`                   | High (pre-production) |
+| Security    | Admin endpoints lack RBAC (just `authenticated()`)            | High (pre-production) |
+| Performance | `.block()` calls in GeminiTextClient defeat reactive benefits | Medium                |
+| Frontend    | No token refresh mechanism                                    | Medium                |
+| Frontend    | localStorage token storage (XSS vulnerable)                   | Medium                |
+| Frontend    | No error boundaries                                           | Low                   |
+| Backend     | N+1 query potential in CourseController                       | Low                   |
+| Testing     | Only ~10 integration tests                                    | Medium                |
+
+---
+
+## Core Insight: Pedagogy Over Story
+
+### The Fundamental Principle
 
 **Key Insight:**
-
 - **A1 learners** need textbook-like, repetitive, controlled content (clarity > naturalness)
 - **B1+ learners** benefit from natural, story-driven content (engagement enhances learning)
-- **Current problem:** We're generating "engaging" content for all levels, making A1 too complex
+- Content generation must be pedagogically constrained, not just "engaging"
 
----
-
-## 🏗️ The Architectural Problem
-
-### Current System: Coupled Generation
+### Current Architecture: Decoupled Generation Phases
 
 ```
-Generate Everything → Audio → Images → Exercises → Hope it's pedagogically sound
-```
+Phase 1: Blueprint & Planning
+  → Define course structure, characters, grammar taxonomy
 
-**Problems:**
+Phase 2: Module Planning
+  → Define vocabulary scope, grammar focus per module
 
-1. ❌ No pedagogical planning (vocabulary/grammar progression is accidental)
-2. ❌ Content generation happens without constraints
-3. ❌ Expensive operations (audio/images) happen before validation
-4. ❌ Exercises generated from content without knowing what should be taught
-5. ❌ Can't iterate on content without wasting resources
-
-### Proposed System: Decoupled Phases
-
-```
-Phase 1: Pedagogical Planning
-  → Define vocabulary scope, grammar progression, learning objectives
-
-Phase 2: Content Generation (No Media)
+Phase 3: Episode Content (No Media)
   → Generate constrained content based on pedagogical plan
   → Validate against vocabulary/grammar requirements
   → Iterate cheaply until content is sound
 
-Phase 3: Content Analysis
-  → Extract character map from all content
-  → Analyze vocabulary usage
-  → Generate targeted exercises based on what was actually taught
+Phase 4: Vocabulary Linking
+  → Map vocabulary to episodes
+  → Ensure proper recycling and introduction rates
 
-Phase 4: Media Generation (Optional)
-  → Generate audio using character map
+Phase 5: Character Profiles
+  → Consolidate character descriptions from all dialogue
+
+Phase 6: Exercise Generation
+  → Generate targeted exercises based on what was taught
+
+Phase 7: Media Generation (Optional)
+  → Generate audio using character voices
   → Generate images using character references
   → Only for validated, approved content
+
+Phase 8: Publishing
+  → Make course available to users
 ```
 
 ---
 
-## 🎓 PRIORITY 1: Pedagogical Foundation System
+## Strategic Vision
 
-**Priority:** 🔥🔥🔥🔥🔥 CRITICAL (Must have before anything else)
-**Complexity:** High
-**Estimated Time:** 8-10 weeks
-**Cost Impact:** Massive savings (don't regenerate expensive media)
+### Target Audience Evolution
 
-### 1.1 Pedagogical Profile & Syllabus Generation
+**Phase 1 (Current):** Self-learners
 
-#### What It Is
+- Focus on polishing core learning experience
+- Build content library across languages and CEFR levels
+- Perfect the study session flow
 
-A system that takes a course level and story premise, then generates a pedagogically rigorous syllabus with vocabulary
-budgets, grammar progression, and learning objectives.
+**Phase 2 (Future):** Tutor-compatible platform
 
-#### Why It Matters
+- Tutors can assign courses to students
+- Progress visible to tutors
+- Custom content creation for specific needs
 
-- Ensures CEFR compliance
-- Controls vocabulary introduction rate
-- Sequences grammar logically
-- Sets clear learning objectives per episode
-- Foundation for all content generation
+### Monetization Strategy (Future)
 
-#### Implementation
+**Free Tier:**
 
-**New Domain Models:**
+- Unlimited access to AI-generated content
+- Daily review limits (aligned with learning science - prevents cramming)
+- Core SRS and exercise functionality
 
-```kotlin
-data class PedagogicalProfile(
-    val courseId: Long,
-    val targetLevel: String,              // A1, A2, B1, etc.
-    val storyPremise: String,
-    val totalModules: Int,
-    val vocabularyScope: VocabularyScope,
-    val grammarScope: GrammarScope
-)
+**Premium Tier:**
 
-data class VocabularyScope(
-    val cefrLevel: String,
-    val totalTargetWords: Int,            // e.g., 300 for A1
-    val wordsPerEpisode: Int,             // e.g., 8-12 for A1
-    val recyclingRate: Double,            // e.g., 0.80 (80% known words)
-    val allowedWordLists: List<String>    // Pre-vetted CEFR lists
-)
+- Unlimited daily activity
+- Priority course generation (faster custom courses)
+- Human-curated "Featured Courses"
+- Advanced analytics (weak point detection, optimal study times)
+- Speaking practice (when implemented)
+- Offline access
 
-data class GrammarScope(
-    val cefrLevel: String,
-    val structures: List<GrammarStructure>,
-    val progressionOrder: List<String>
-)
+**One-Time Purchases:**
 
-data class EpisodePlan(
-    val episodeNumber: Int,
-    val title: String,
-    val learningObjective: String,        // "Student can order food using 'je voudrais'"
-    val targetVocabulary: List<String>,   // NEW words (8-12)
-    val recycledVocabulary: List<String>, // From previous episodes
-    val grammarStructure: GrammarStructure, // ONE structure to drill (A1)
-    val repetitionsNeeded: Int            // Min times to use structure (5+ for A1)
-)
-```
+- Premium course packs (human-verified, professionally designed)
+- Topic-specific bundles (Business French, Medical Spanish, etc.)
 
-**Database Schema:**
+### Content as Differentiator
 
-```sql
-CREATE TABLE pedagogical_profiles
-(
-    id               BIGSERIAL PRIMARY KEY,
-    course_id        BIGINT REFERENCES courses (id),
-    target_level     VARCHAR(10),
-    story_premise    TEXT,
-    vocabulary_scope JSONB,
-    grammar_scope    JSONB,
-    created_at       TIMESTAMP DEFAULT NOW()
-);
+The generation pipeline is the competitive advantage:
 
-CREATE TABLE episode_plans
-(
-    id                  BIGSERIAL PRIMARY KEY,
-    module_id           BIGINT REFERENCES modules (id),
-    episode_number      INT,
-    learning_objective  TEXT,
-    target_vocabulary   JSONB,
-    recycled_vocabulary JSONB,
-    grammar_structure   JSONB,
-    repetitions_needed  INT
-);
-```
-
-**Service:**
-
-```kotlin
-@Service
-class PedagogicalPlanningService {
-    fun generatePedagogicalProfile(
-        level: String,
-        storyPremise: String,
-        language: String
-    ): PedagogicalProfile
-
-    fun generateSyllabus(profile: PedagogicalProfile): GeneratedSyllabus
-}
-```
-
-#### Success Criteria
-
-- ✅ Vocabulary budget enforced per episode
-- ✅ Grammar structures sequenced logically
-- ✅ Learning objectives are specific and measurable
-- ✅ A1 episodes have 8-12 new words max
-- ✅ 80% vocabulary recycling rate maintained
+- **Breadth:** Generate content for any CEFR level, any topic
+- **Personalization:** User interests → custom courses (future)
+- **Freshness:** Current events, trending topics (future)
+- **Volume:** Large library with consistent quality
 
 ---
 
-### 1.2 Constrained Content Generation
+## Development Priorities
 
-#### What It Is
+### Priority 1: UI & Learning Experience Polish
 
-Content generation that respects pedagogical constraints: vocabulary limits, grammar focus, difficulty level.
+**Focus:** Make the core learning loop feel excellent
 
-#### Why It Matters
+#### 1.1 Study Session Flow Enhancement
 
-- Prevents overwhelming A1 learners
-- Ensures content matches learning objectives
-- Allows validation before expensive operations
-- Can regenerate content without wasting money
+- Flashcard → exercise → completion loop should feel satisfying
+- Smooth transitions and feedback animations
+- Clear progress indicators during sessions
+- Session summary with meaningful insights
 
-#### Implementation
+#### 1.2 Progress Visualization
 
-**Level-Specific Prompt Templates:**
+- Module map showing journey through course
+- Completion percentages with visual progress bars
+- Streak calendar for daily activity
+- CEFR level progress estimation
 
-**A1 Template:**
+#### 1.3 Episode Visual Variety
 
-```
-PEDAGOGICAL CONSTRAINTS (CRITICAL):
-- You MUST use exactly these NEW words: [8-12 words from plan]
-- You MUST recycle these known words: [words from previous episodes]
-- You CANNOT use any other vocabulary
-- Focus on this ONE grammar structure: [pattern]
-- Use this structure at least [5-8] times
-- Keep sentences simple (max 8 words)
-- NO idioms, NO complex tenses
+- Distinct visual treatments for episode types:
+    - DIALOGUE: Conversation bubbles, character avatars
+    - STORY: Narrative layout with illustrations
+    - ARTICLE: Reading-focused layout
+    - AUDIO_LESSON: Audio-centric with transcript
 
-STYLE REQUIREMENTS:
-- Textbook-like is GOOD (repetitive helps learning)
-- Clarity is MORE important than naturalness
-- Drill the grammar pattern explicitly
+#### 1.4 Vocabulary Integration
 
-Learning Objective: [specific objective from plan]
-```
-
-**B1 Template:**
-
-```
-PEDAGOGICAL CONSTRAINTS:
-- Introduce these vocabulary words naturally: [12-15 words]
-- Assume A2 knowledge
-- Demonstrate these grammar structures: [2-3 structures]
-- Sentence complexity: moderate
-
-STYLE REQUIREMENTS:
-- Natural dialogue is important
-- Story continuity matters
-- Grammar should be contextual, not drilled
-
-Learning Objective: [specific objective]
-```
-
-**Validation:**
-
-```kotlin
-fun validatePedagogicalCompliance(
-    content: GeneratedEpisodeContent,
-    plan: EpisodePlan
-): ValidationResult {
-    // Extract all words used
-    val usedWords = extractVocabulary(content)
-
-    // Check for unauthorized vocabulary
-    val unauthorized = usedWords - (plan.targetVocabulary + plan.recycledVocabulary)
-
-    // Check grammar structure repetition
-    val structureCount = countStructureUsage(content, plan.grammarStructure)
-
-    // Check complexity
-    val avgWordsPerSentence = calculateComplexity(content)
-
-    return ValidationResult(
-        vocabularyCompliant = unauthorized.isEmpty(),
-        grammarSufficient = structureCount >= plan.repetitionsNeeded,
-        complexityAppropriate = avgWordsPerSentence <= getMaxForLevel(plan.level)
-    )
-}
-```
-
-**Updated Episode Schema:**
-
-```kotlin
-data class Episode(
-    // ... existing fields
-    val generationPhase: GenerationPhase = GenerationPhase.PLANNING,
-    val pedagogicalCompliance: PedagogicalCompliance?,
-    val audioGenerated: Boolean = false,
-    val imagesGenerated: Boolean = false
-)
-
-enum class GenerationPhase {
-    PLANNING,           // Syllabus exists
-    CONTENT_GENERATED,  // Content created (no media)
-    VALIDATED,          // Pedagogy validated
-    EXERCISES_ADDED,    // Exercises generated
-    MEDIA_GENERATED,    // Audio/images created
-    PUBLISHED
-}
-```
-
-#### Success Criteria
-
-- ✅ A1 content uses only planned vocabulary
-- ✅ Grammar structures repeated minimum times
-- ✅ Content can be validated without media generation
-- ✅ Failed validation triggers regeneration, not media waste
-- ✅ Complexity metrics match CEFR level
-
----
-
-### 1.3 Content Analysis & Targeted Exercise Generation
-
-#### What It Is
-
-After content is generated and validated, analyze it to extract character profiles, vocabulary usage, and generate
-exercises that test what was actually taught.
-
-#### Why It Matters
-
-- Character profiles based on ALL their dialogue (not predicted)
-- Exercises test specific learning objectives
-- Fill-in-blank uses actual sentences from episode
-- Multiple choice tests actual vocabulary introduced
-- Quality exercises without guessing what to test
-
-#### Implementation
-
-**Character Map Extraction:**
-
-```kotlin
-@Service
-class ContentAnalysisService {
-    fun extractCharacterMap(moduleId: Long): CharacterMap {
-        val episodes = episodeRepository.findByModuleId(moduleId)
-        val characters = mutableMapOf<String, CharacterAppearances>()
-
-        // Collect ALL dialogue for each character
-        episodes.forEach { episode ->
-            val dialogue = parseDialogue(episode)
-            dialogue.lines.forEach { line ->
-                characters.getOrPut(line.speaker) {
-                    CharacterAppearances(name = line.speaker, lines = mutableListOf())
-                }.lines.add(line.text)
-            }
-        }
-
-        // Generate profiles based on actual dialogue
-        return characters.mapValues { (name, appearances) ->
-            generateCharacterProfile(name, appearances.lines)
-        }
-    }
-}
-```
-
-**Targeted Exercise Generation:**
-
-```kotlin
-@Service
-class ExerciseGenerationService {
-    fun generateForEpisode(
-        episodeId: Long,
-        episodePlan: EpisodePlan
-    ): List<GeneratedExercise> {
-        val episode = episodeRepository.findById(episodeId)
-        val content = parseContent(episode)
-
-        return listOf(
-            // Fill-in-blank: Test grammar structure from plan
-            generateFillInBlank(
-                sentences = extractSentencesWithStructure(content, episodePlan.grammarStructure),
-                targetStructure = episodePlan.grammarStructure
-            ),
-
-            // Multiple choice: Test NEW vocabulary from plan
-            generateMultipleChoice(
-                contextSentences = findVocabularyUsage(content, episodePlan.targetVocabulary),
-                targetWords = episodePlan.targetVocabulary
-            ),
-
-            // Sentence scramble: Drill grammar pattern
-            generateSentenceScramble(
-                sentences = extractSentencesWithStructure(content, episodePlan.grammarStructure)
-            )
-        )
-    }
-}
-```
-
-#### Success Criteria
-
-- ✅ Character profiles reflect actual dialogue patterns
-- ✅ Exercises test planned learning objectives
-- ✅ Fill-in-blank uses real sentences from episode
-- ✅ Multiple choice tests actual new vocabulary
-- ✅ Exercises aligned with pedagogy, not random
-
----
-
-### 1.4 Decoupled Media Generation
-
-#### What It Is
-
-Audio and image generation as a separate, optional phase that happens AFTER content is validated and approved.
-
-#### Why It Matters
-
-- **Cost savings:** Don't generate media for bad content
-- **Iteration speed:** Regenerate content cheaply
-- **Quality control:** Only generate media for approved content
-- **Transparency:** Show cost estimates before generation
-
-#### Implementation
-
-**Separate Media Workflow:**
-
-```kotlin
-@Service
-class MediaGenerationService {
-    fun generateMediaForCourse(
-        courseId: Long,
-        options: MediaGenerationOptions
-    ): MediaGenerationResult {
-        // Get all validated episodes
-        val episodes = episodeRepository.findByCourseIdAndPhase(
-            courseId,
-            GenerationPhase.VALIDATED
-        )
-
-        if (episodes.isEmpty()) {
-            throw IllegalStateException("No validated content to generate media for")
-        }
-
-        // Estimate costs first
-        val estimate = estimateCosts(episodes, options)
-
-        // Generate in phases
-        val results = if (options.generateCharacterImages) {
-            val characterMap = contentAnalysisService.extractCharacterMap(courseId)
-            generateCharacterReferenceImages(characterMap)
-        }
-
-        episodes.forEach { episode ->
-            if (options.generateAudio) {
-                generateAudioForEpisode(episode)
-            }
-            if (options.generateImages) {
-                generateImagesForEpisode(episode, characterReferenceImages)
-            }
-
-            episode.generationPhase = GenerationPhase.MEDIA_GENERATED
-            episodeRepository.save(episode)
-        }
-
-        return results
-    }
-
-    fun estimateCosts(
-        episodes: List<Episode>,
-        options: MediaGenerationOptions
-    ): CostEstimate {
-        // Calculate based on:
-        // - Number of audio files
-        // - Number of images
-        // - Character images needed
-        // Return estimate in USD
-    }
-}
-```
-
-**Updated Wizard:**
-
-```
-Phase 1: Pedagogical Planning (New)
-  → Set level, story premise
-  → Review vocabulary/grammar scope
-  → Generate and approve syllabus
-
-Phase 2: Content Generation (Updated)
-  → Generate episode content (no media)
-  → Validate pedagogical compliance
-  → Review and regenerate if needed
-  → Approve content
-
-Phase 3: Analysis & Exercises (New)
-  → Extract character map
-  → Generate targeted exercises
-  → Review exercises
-
-Phase 4: Media Generation (New, Optional)
-  → Show cost estimate
-  → Select what to generate (audio, images, both)
-  → Assign voices using character map
-  → Generate media
-  → Publish course
-```
-
-#### Success Criteria
-
-- ✅ Can generate content without media
-- ✅ Media generation is separate workflow
-- ✅ Cost estimates shown before generation
-- ✅ Can regenerate content without wasting media costs
-- ✅ 60-80% cost savings during iteration
-
----
-
-## 🔧 PRIORITY 2: Learning Loop Enhancement
-
-**Priority:** 🔥🔥🔥 HIGH (After pedagogical foundation)
-**Complexity:** Medium
-**Estimated Time:** 4-6 weeks
-
-These improvements remain important but depend on having pedagogically sound content first.
-
-### 2.1 Inline Vocabulary Integration
-
-- Detect new words in episodes
-- One-click "Add to vocabulary"
+- One-click "Add to vocabulary" from episode content
 - Post-episode vocabulary summary
+- Show word context from episodes in study sessions
+- "First seen in Episode X" references
 
-### 2.2 Post-Episode Review
+---
 
-- Quick review of new vocabulary
-- Test learning objective achievement
-- Immediate SRS enrollment
+### Priority 2: Content Pipeline Quality
 
-### 2.3 Enhanced Study Sessions
+**Focus:** Make generated content pedagogically excellent
 
-- Show word context from episodes
-- Display related images
-- Audio pronunciation
-- "First seen in Episode X"
+#### 2.1 Pedagogical Validation
 
-### 2.4 Progress Analytics
+- Automated vocabulary budget enforcement (8-12 new words for A1)
+- Grammar structure repetition checks (5+ uses per episode)
+- Complexity metrics validation (sentence length, vocabulary level)
+- CEFR compliance scoring
 
-- Words mastered per week
-- Grammar structures learned
+#### 2.2 Content Variety
+
+- Ensure modules don't feel repetitive
+- Different scenarios and character rotations
+- Topic diversity within courses
+- Cultural context integration
+
+#### 2.3 Quality Feedback Loop
+
+- User flag system for problematic content
+- Quality metrics dashboard for admin
+- Feedback integration into generation prompts
+- A/B testing for content variations (future)
+
+#### 2.4 Course Vocabulary Cards (AI-Generated)
+
+**Problem:** Current Wiktionary-based dictionary has quality issues:
+
+- 4,000+ orphaned inflected forms (French), 24,000+ (German)
+- Inconsistent formatting across entries
+- Missing links between inflected forms and base forms
+- Variable definition quality
+
+**Solution:** Two-tier vocabulary system:
+
+**Tier 1: Course Vocabulary (AI-Generated, Curated)**
+
+- Generate cards only for words appearing in course episodes
+- Consistent structure: base form, IPA, definitions, examples, translations
+- Multi-language translations (configurable target languages)
+- CEFR level tagging
+- Linked to episodes where word appears ("First seen in Module 2, Episode 3")
+- Validation pipeline before release
+
+**Tier 2: Reference Dictionary (Wiktionary, As-Is)**
+
+- Keep for "look up any word" functionality
+- Accept variable quality as supplementary resource
+
+**Generation Flow:**
+
+```
+Episode Content → Extract Vocabulary → Check if Card Exists →
+If not: Generate with AI → Validate → Store as CourseVocabulary
+```
+
+**Card Structure:**
+
+- Lemma (base form) + common inflections
+- IPA pronunciation
+- 2-3 definitions (CEFR-appropriate)
+- 2-3 contextual examples (from course or generated)
+- Translations to user's native language
+- Grammar notes (gender, conjugation class, etc.)
+
+**Benefits:**
+
+- Manageable scope (500-2000 words per course)
+- Consistent quality across all cards
+- Multi-language support without Wiktionary limitations
+- Course-relevant examples and context
+
+---
+
+### Priority 3: Accommodating Experienced Learners
+
+**Focus:** Users with existing knowledge should find their fit easily
+
+#### 3.1 Placement Assessment
+
+- Quick assessment to recommend starting point
+- Adaptive questioning (adjusts based on answers)
 - CEFR level estimation
-- Learning insights
+- Recommended course suggestions
+
+#### 3.2 Flexible Entry Points
+
+- Topic-based entry ("I want business vocabulary")
+- Skip basics option per module
+- "I know this" test-out feature
+- Module-level placement tests
+
+#### 3.3 Vocabulary Import
+
+- Import from Anki decks
+- Import from CSV/text lists
+- Mark imported words as "known"
+- Adjust SRS intervals for known vocabulary
+
+#### 3.4 Custom Learning Paths
+
+- Choose specific modules without full course
+- Mix content from different courses
+- Create personal study collections
 
 ---
 
-## ✨ PRIORITY 3: Advanced Features
+### Priority 4: Speaking Practice (New Feature Area)
 
-**Priority:** 🔥🔥 MEDIUM (After foundation + learning loop)
-**Complexity:** High
-**Estimated Time:** 8-12 weeks each
+**Focus:** Add speaking component to complete the learning experience
 
-### 3.1 Speaking Practice
+#### 4.1 Tier 1: Pronunciation Comparison (Recommended Start)
 
-- Only pursue after content quality is excellent
-- Record and compare pronunciation
-- AI feedback using speech recognition
-- Conversation simulation for B1+
+- User records word/phrase
+- Visual waveform comparison to native audio
+- Similarity score (pattern matching)
+- **Tech:** Web Audio API, simple spectrogram comparison
 
-### 3.2 Writing Practice
+#### 4.2 Tier 2: Speech-to-Text Validation
 
-- Guided writing prompts
-- AI feedback on grammar/vocabulary
-- Progressive difficulty
+- User speaks, system transcribes
+- Compare transcription to expected text
+- Accuracy scoring with feedback
+- **Tech:** Whisper API or Google Speech-to-Text
+- **Cost:** ~$0.006/minute
 
-### 3.3 Gamification
+#### 4.3 Tier 3: AI Conversation Partner (Future/Premium)
 
-- Study streaks
-- Achievement badges
-- Progress milestones
+- Chat with episode characters via voice
+- AI responds contextually
+- Gentle correction of mistakes
+- **Tech:** Gemini Live / GPT-4o realtime API
+- **Cost:** Higher, premium feature
 
----
+#### 4.4 Tier 4: Pronunciation Coaching (Future/Premium)
 
-## 📋 Implementation Roadmap
+- Phoneme-level feedback
+- Language-specific pronunciation tips
+- **Tech:** Specialized APIs (Speechace, ELSA)
 
-### Q1 2025: Pedagogical Foundation (Critical)
+**Recommended Implementation Path:**
 
-**Weeks 1-4: Pedagogical Planning System**
-
-- [ ] Create PedagogicalProfile domain model
-- [ ] Build vocabulary scope management
-- [ ] Build grammar scope management
-- [ ] Implement syllabus generation with constraints
-- [ ] Update wizard Phase 1
-
-**Weeks 5-8: Constrained Content Generation**
-
-- [ ] Level-specific prompt templates (A1, A2, B1)
-- [ ] Pedagogical validation system
-- [ ] Content regeneration workflow
-- [ ] Update wizard Phase 2
-
-**Weeks 9-12: Content Analysis & Exercises**
-
-- [ ] Character map extraction
-- [ ] Vocabulary usage analysis
-- [ ] Targeted exercise generation
-- [ ] Update wizard Phase 3
-
-**Weeks 13-14: Decoupled Media**
-
-- [ ] Separate media generation service
-- [ ] Cost estimation
-- [ ] Update wizard Phase 4
-- [ ] Testing and refinement
-
-**Deliverable:** Complete pedagogical foundation with decoupled architecture
+1. Start with Tier 2 (Speech-to-Text Validation)
+2. Integrate with existing episode dialogues
+3. Flow: Show phrase → User records → Transcribe → Compare → Feedback
 
 ---
 
-### Q2 2025: Learning Loop & Testing
+### Priority 5: Writing Practice (Future)
 
-**Weeks 1-4: Learning Loop**
+#### 5.1 Guided Writing Prompts
 
-- [ ] Inline vocabulary detection
-- [ ] Post-episode review system
-- [ ] Enhanced study sessions
+- Short answer exercises based on episode content
+- Sentence construction from vocabulary
+- Grammar-focused writing tasks
 
-**Weeks 5-8: Analytics & Validation**
+#### 5.2 AI Evaluation
 
-- [ ] Progress tracking dashboard
-- [ ] Learning effectiveness metrics
-- [ ] User testing with real students
-- [ ] Iterate based on feedback
-
-**Deliverable:** Complete learning loop with validated effectiveness
+- Grammar checking with explanations
+- Vocabulary usage feedback
+- Suggestions for improvement
+- Progressive difficulty based on performance
 
 ---
 
-### Q3-Q4 2025: Advanced Features
+### Priority 6: Analytics & Insights
 
-**Only if foundation is solid:**
+#### 6.1 Learning Analytics Dashboard
 
-- Speaking practice
-- Writing practice
-- Gamification
+- Words mastered over time
+- Grammar structures learned
+- Time spent per skill area
+- Comparison to learning goals
+
+#### 6.2 Weak Point Detection
+
+- Identify struggling vocabulary
+- Flag problematic grammar patterns
+- Suggest targeted review sessions
+
+#### 6.3 Optimal Study Recommendations
+
+- Best times to study (based on performance patterns)
+- Session length recommendations
+- Spaced repetition optimization insights
 
 ---
 
-## 🎯 Success Metrics
+## Technical Improvements (Pre-Production)
 
-### Pedagogical Effectiveness (Primary)
+### Security Hardening
 
-- **Vocabulary Control:** 100% of A1 episodes within budget (8-12 new words)
-- **Grammar Coverage:** All CEFR-required structures covered in order
-- **Repetition Rate:** 5+ uses of target structure per A1 episode
-- **Recycling Rate:** 80%+ of words in episode are from previous episodes
-- **Student Performance:** Students can use what was taught (test this!)
+- [ ] Implement RBAC with `@PreAuthorize("hasRole('ADMIN')")`
+- [ ] Remove `permitAll()` from admin generation endpoints
+- [ ] Move to HttpOnly cookies for tokens
+- [ ] Implement token refresh mechanism
+- [ ] Add rate limiting on public endpoints
 
-### Cost Efficiency (Secondary)
+### Performance Optimization
 
-- **Iteration Cost:** 60-80% reduction vs current (no wasted media)
-- **Content Quality:** >90% of content passes validation on first generation
+- [ ] Replace `.block()` calls with proper async patterns
+- [ ] Add `@EntityGraph` for N+1 query prevention
+- [ ] Implement Redis caching for frequently accessed data
+- [ ] Add request debouncing on frontend
+
+### Quality Assurance
+
+- [ ] Add error boundaries to Vue app
+- [ ] Expand integration test coverage
+- [ ] Add API documentation (OpenAPI/Swagger)
+- [ ] Implement comprehensive form validation (Zod)
+
+---
+
+## Mobile Strategy
+
+**Current Decision:** Wait until feature set is finalized
+
+**Rationale:**
+
+- Prevents duplicate development effort
+- Avoids API contract changes breaking mobile
+- Prevents maintaining dead features across platforms
+
+**Preparation:**
+
+- Keep API mobile-friendly (already mostly there)
+- Design components with responsive-first approach
+- Consider PWA as intermediate step
+
+**Future Options:**
+
+- Native apps (React Native or Flutter)
+- PWA enhancement for offline capability
+
+---
+
+## Success Metrics
+
+### Learning Effectiveness (Primary)
+
+- **Vocabulary Retention:** >80% recall after 30 days
+- **Grammar Accuracy:** Improvement in exercise scores over time
+- **Course Completion:** >60% completion rate
+- **User Progression:** Users advancing through CEFR levels
+
+### Content Quality
+
+- **Pedagogical Compliance:** >90% of A1 episodes within vocabulary budget
+- **Grammar Coverage:** All CEFR-required structures covered
+- **User Satisfaction:** <5% content flagged as problematic
+
+### Engagement
+
+- **Daily Active Users:** Growth month-over-month
+- **Session Length:** Average >10 minutes
+- **Streak Retention:** >50% maintain 7-day streaks
+- **Return Rate:** >60% weekly return rate
+
+### Cost Efficiency
+
+- **Content Iteration Cost:** 60-80% reduction vs media-first approach
 - **Media ROI:** Only generate media for approved content
-
-### User Satisfaction (Tertiary)
-
-- **Retention:** Month-over-month retention improves
-- **Completion:** Course completion rate >60%
-- **Feedback:** Student reports of learning effectiveness
+- **Infrastructure Cost:** Sustainable per-user cost
 
 ---
 
-## 💭 Key Principles
+## Open Questions
 
-1. **Pedagogy > Engagement:** For A1, boring but effective beats engaging but confusing
-2. **Level-Appropriate:** A1 needs textbook exercises, B1 needs stories
-3. **Measure Learning:** Not just engagement metrics, but actual learning outcomes
+1. **CEFR Word Lists:** Do we have pre-vetted A1/A2/B1 vocabulary lists per language?
+2. **Grammar Sequencing:** Do we have definitive grammar progression orders per language?
+3. **Learning Validation:** How will we measure actual learning outcomes?
+4. **Speaking Implementation:** Which speech-to-text provider offers best quality/cost for language learning?
+5. **Tutor Features:** What specific features would tutors need?
+6. **Offline Capability:** How important is offline access for target users?
+
+---
+
+## Not In Scope (Yet)
+
+- Native mobile apps (until feature set is stable)
+- Multi-user collaboration features
+- Live tutoring integration
+- Advanced gamification (leaderboards, competitions)
+- User-generated content
+- Enterprise/school admin features
+
+---
+
+## Key Principles
+
+1. **Pedagogy > Engagement:** For A1, effective beats engaging
+2. **Level-Appropriate:** A1 needs drills, B1 needs stories
+3. **Measure Learning:** Not just engagement, but actual outcomes
 4. **Iterate Cheaply:** Validate content before expensive operations
-5. **Foundation First:** Can't build features on pedagogically unsound content
+5. **Foundation First:** Polish core experience before adding features
+6. **Self-Learner Focus:** Build for independent study, extend to tutors later
+7. **Content Volume:** Large, quality library is the differentiator
 
 ---
 
-## 🚫 What We're NOT Doing (Yet)
-
-- ❌ Story continuity improvements (until B1+ content)
-- ❌ Character personality enhancement (secondary to pedagogy)
-- ❌ Cultural authenticity (nice-to-have, not critical for A1)
-- ❌ Image quality improvements (happens in Phase 4)
-- ❌ New features (until foundation is solid)
-
-These may matter later, but **learning effectiveness comes first**.
-
----
-
-## 📝 Open Questions
-
-1. **CEFR Word Lists:** Do we have pre-vetted A1/A2/B1 vocabulary lists?
-2. **Grammar Sequencing:** Do we have a definitive A1 grammar progression order?
-3. **Testing Students:** How will we validate that students are actually learning?
-4. **Cost Budget:** What's the acceptable cost per course for media generation?
-5. **Iteration Timeline:** How many rounds of content generation before media?
-
----
-
-**Document Status:** 📋 REVISED - Focuses on Pedagogical Foundation
-**Next Review:** After feedback on decoupled architecture approach
+**Document Status:** Active Development
+**Next Review:** After speaking practice scoping
 **Owner:** Vocabee Product Team
 
-**Last Updated:** November 25, 2024
+**Last Updated:** November 29, 2024

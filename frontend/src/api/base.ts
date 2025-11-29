@@ -171,4 +171,59 @@ export class BaseAPI {
             method: 'DELETE',
         })
     }
+
+    /**
+     * POST multipart form data (for file uploads)
+     * Note: Don't set Content-Type header - browser will set it with boundary
+     */
+    protected async postFormData<T>(endpoint: string, formData: FormData): Promise<T> {
+        const url = `${this.baseURL}${endpoint}`
+
+        const headers: HeadersInit = {}
+        const token = localStorage.getItem('auth_token')
+        if (token) {
+            headers['Authorization'] = `Bearer ${token}`
+        }
+
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers,
+                body: formData,
+            })
+
+            if (response.status === 401) {
+                await this.handle401()
+                throw new Error('Authentication required')
+            }
+
+            if (response.status === 404) {
+                throw new Error('Resource not found')
+            }
+
+            if (!response.ok) {
+                const errorText = await response.text()
+                let errorMessage = `HTTP ${response.status}: ${response.statusText}`
+
+                try {
+                    const errorJson = JSON.parse(errorText)
+                    errorMessage = errorJson.message || errorJson.error || errorMessage
+                } catch {
+                    if (errorText) {
+                        errorMessage = errorText
+                    }
+                }
+
+                throw new Error(errorMessage)
+            }
+
+            if (response.status === 204) {
+                return null as T
+            }
+
+            return await response.json()
+        } catch (error) {
+            throw error
+        }
+    }
 }

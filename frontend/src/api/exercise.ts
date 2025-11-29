@@ -1,5 +1,12 @@
 import {BaseAPI} from './base'
-import type {AttemptResult, Exercise, ExerciseSummary, SubmitAttemptRequest, UserProgress,} from '@/types/exercise'
+import type {
+    AttemptResult,
+    Exercise,
+    ExerciseSummary,
+    SpeakingAttemptResult,
+    SubmitAttemptRequest,
+    UserProgress,
+} from '@/types/exercise'
 import type {UserStats} from '@/types/stats'
 
 export interface ExerciseFilters {
@@ -64,5 +71,41 @@ export class ExerciseAPI extends BaseAPI {
      */
     async getStats(): Promise<UserStats> {
         return this.get<UserStats>('/api/exercises/stats')
+    }
+
+    /**
+     * Submit a speaking exercise attempt
+     */
+    async submitSpeakingAttempt(
+        exerciseId: number,
+        audioBlob: Blob
+    ): Promise<SpeakingAttemptResult> {
+        const formData = new FormData()
+        formData.append('audio', audioBlob, 'recording.webm')
+
+        return this.postFormData<SpeakingAttemptResult>(
+            `/api/exercises/${exerciseId}/speaking`,
+            formData
+        )
+    }
+
+    /**
+     * Validate speaking directly (for vocabulary practice, not tied to an exercise)
+     */
+    async validateSpeaking(
+        audioBlob: Blob,
+        expectedText: string,
+        targetLanguage: string,
+        acceptableVariations?: string[]
+    ): Promise<SpeakingAttemptResult> {
+        const formData = new FormData()
+        formData.append('audio', audioBlob, 'recording.webm')
+        formData.append('expectedText', expectedText)
+        formData.append('targetLanguage', targetLanguage)
+        if (acceptableVariations) {
+            acceptableVariations.forEach((v) => formData.append('acceptableVariations', v))
+        }
+
+        return this.postFormData<SpeakingAttemptResult>('/api/exercises/speaking/validate', formData)
     }
 }

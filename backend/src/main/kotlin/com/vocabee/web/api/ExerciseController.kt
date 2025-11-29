@@ -2,17 +2,21 @@ package com.vocabee.web.api
 
 import com.vocabee.service.ExerciseService
 import com.vocabee.service.JwtService
+import com.vocabee.service.SpeakingExerciseService
 import com.vocabee.web.dto.*
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
+import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.multipart.MultipartFile
 
 @RestController
 @RequestMapping("/api/exercises")
 class ExerciseController(
     private val exerciseService: ExerciseService,
-    private val jwtService: JwtService
+    private val jwtService: JwtService,
+    private val speakingExerciseService: SpeakingExerciseService
 ) {
     private val logger = LoggerFactory.getLogger(javaClass)
 
@@ -97,6 +101,56 @@ class ExerciseController(
 
         val stats = exerciseService.getUserStats(userId)
         return ResponseEntity.ok(stats)
+    }
+
+    @PostMapping("/{id}/speaking", consumes = [MediaType.MULTIPART_FORM_DATA_VALUE])
+    fun submitSpeakingAttempt(
+        @RequestHeader("Authorization") authorization: String,
+        @PathVariable id: Long,
+        @RequestParam("audio") audio: MultipartFile
+    ): ResponseEntity<SpeakingAttemptResult> {
+        val userId = getUserIdFromToken(authorization)
+            ?: return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build()
+
+        logger.info("User $userId submitting speaking attempt for exercise $id, audio size: ${audio.size} bytes")
+
+        return try {
+            val result = speakingExerciseService.validateSpeaking(id, audio, userId)
+            ResponseEntity.ok(result)
+        } catch (e: jakarta.persistence.EntityNotFoundException) {
+            logger.warn("Exercise not found: $id")
+            ResponseEntity.notFound().build()
+        } catch (e: Exception) {
+            logger.error("Error processing speaking attempt for exercise $id", e)
+            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()
+        }
+    }
+
+    @PostMapping("/speaking/validate", consumes = [MediaType.MULTIPART_FORM_DATA_VALUE])
+    fun validateSpeakingDirect(
+        @RequestHeader("Authorization") authorization: String,
+        @RequestParam("audio") audio: MultipartFile,
+        @RequestParam("expectedText") expectedText: String,
+        @RequestParam("targetLanguage") targetLanguage: String,
+        @RequestParam("acceptableVariations", required = false) acceptableVariations: List<String>?
+    ): ResponseEntity<SpeakingAttemptResult> {
+        val userId = getUserIdFromToken(authorization)
+            ?: return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build()
+
+        logger.info("User $userId validating direct speaking attempt, expected: '$expectedText'")
+
+        return try {
+            val result = speakingExerciseService.validateSpeakingDirect(
+                audioFile = audio,
+                expectedText = expectedText,
+                targetLanguage = targetLanguage,
+                acceptableVariations = acceptableVariations ?: emptyList()
+            )
+            ResponseEntity.ok(result)
+        } catch (e: Exception) {
+            logger.error("Error processing direct speaking validation", e)
+            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()
+        }
     }
 
     private fun getUserIdFromToken(authorization: String): Long? {

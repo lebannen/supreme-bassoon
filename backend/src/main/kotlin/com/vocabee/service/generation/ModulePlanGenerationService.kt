@@ -210,6 +210,11 @@ class ModulePlanGenerationService(
 
         val cefrVocabGuidelines = CefrLevelGuidelines.getVocabularyPromptSection(generation.cefrLevel)
         val cefrGuidelines = CefrLevelGuidelines.getCurriculumPromptSection(generation.cefrLevel)
+        val functionalConstraints = CefrLevelGuidelines.getModuleFunctionalConstraints(
+            generation.cefrLevel,
+            moduleNumber,
+            generation.moduleCount
+        )
 
         return """
             You are an expert language curriculum designer. Create a detailed module plan for a language learning course.
@@ -240,6 +245,8 @@ class ModulePlanGenerationService(
             $cefrGuidelines
 
             $cefrVocabGuidelines
+
+            $functionalConstraints
 
             $feedbackSection
 
