@@ -51,7 +51,8 @@ class CourseAdminController(
                 cefrLevel = course.cefrLevel,
                 estimatedHours = course.estimatedHours,
                 isPublished = course.isPublished,
-                seriesContext = course.seriesContext
+                seriesContext = course.seriesContext,
+                createdAt = course.createdAt.toString()
             )
         }
 
@@ -74,7 +75,8 @@ class CourseAdminController(
                 cefrLevel = course.cefrLevel,
                 estimatedHours = course.estimatedHours,
                 isPublished = course.isPublished,
-                seriesContext = course.seriesContext
+                seriesContext = course.seriesContext,
+                createdAt = course.createdAt.toString()
             )
         )
     }

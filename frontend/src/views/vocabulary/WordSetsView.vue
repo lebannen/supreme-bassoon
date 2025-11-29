@@ -17,6 +17,7 @@ import {useAuthStore} from '@/stores/auth'
 import {useVocabularyStore} from '@/stores/vocabulary'
 import {useWordSetStore} from '@/stores/wordSet'
 import type {WordSet} from '@/types/wordSet'
+import {type GenerationResult, VocabularyCardService} from '@/services/VocabularyCardService'
 
 const router = useRouter()
 const toast = useToast()
@@ -25,6 +26,11 @@ const authStore = useAuthStore()
 const vocabularyStore = useVocabularyStore()
 const wordSetStore = useWordSetStore()
 const {wordSets, loading, error} = storeToRefs(wordSetStore)
+
+// Vocabulary card generation
+const generatingCardSetId = ref<number | null>(null)
+const showGenerationResultDialog = ref(false)
+const generationResult = ref<GenerationResult | null>(null)
 
 const languages = [
   {code: 'fr', name: 'French'}, {code: 'de', name: 'German'}, {code: 'es', name: 'Spanish'},
@@ -85,6 +91,30 @@ async function uploadWordSets() {
     uploadError.value = err instanceof Error ? err.message : 'Failed to load word sets'
   } finally {
     isUploading.value = false
+  }
+}
+
+async function generateVocabularyCards(wordSet: WordSet) {
+  generatingCardSetId.value = wordSet.id
+  try {
+    const result = await VocabularyCardService.generateForWordSet(wordSet.id, wordSet.level || undefined)
+    generationResult.value = result
+    showGenerationResultDialog.value = true
+    toast.add({
+      severity: result.failed > 0 ? 'warn' : 'success',
+      summary: 'Generation Complete',
+      detail: `Generated ${result.generated} cards, skipped ${result.skipped}, failed ${result.failed}`,
+      life: 5000
+    })
+  } catch (err) {
+    toast.add({
+      severity: 'error',
+      summary: 'Generation Failed',
+      detail: err instanceof Error ? err.message : 'Failed to generate vocabulary cards',
+      life: 5000
+    })
+  } finally {
+    generatingCardSetId.value = null
   }
 }
 
@@ -161,10 +191,51 @@ onMounted(loadWordSets)
                       @click="confirmImportWordSet(wordSet)" :loading="importingSetId === wordSet.id"
                       :disabled="importingSetId !== null && importingSetId !== wordSet.id"/>
               <Button v-else label="Login to Import" icon="pi pi-sign-in" @click="router.push('/login')" outlined/>
+              <Button v-if="authStore.isAuthenticated" label="Generate Cards" icon="pi pi-sparkles"
+                      severity="secondary" outlined
+                      @click="generateVocabularyCards(wordSet)" :loading="generatingCardSetId === wordSet.id"
+                      :disabled="generatingCardSetId !== null && generatingCardSetId !== wordSet.id"/>
             </div>
           </div>
         </template>
       </Card>
     </div>
+
+    <!-- Generation Result Dialog -->
+    <Dialog v-model:visible="showGenerationResultDialog" header="Vocabulary Card Generation Results" :modal="true"
+            class="w-full max-w-lg">
+      <div v-if="generationResult" class="content-area">
+        <div class="flex flex-column gap-3">
+          <div class="flex justify-content-between align-items-center p-3 bg-surface-ground border-round">
+            <span class="font-semibold">Total Words</span>
+            <span>{{ generationResult.totalWords }}</span>
+          </div>
+          <div class="flex justify-content-between align-items-center p-3 bg-green-50 border-round">
+            <span class="font-semibold text-green-700">Generated</span>
+            <Tag :value="generationResult.generated.toString()" severity="success"/>
+          </div>
+          <div class="flex justify-content-between align-items-center p-3 bg-blue-50 border-round">
+            <span class="font-semibold text-blue-700">Skipped (already exist)</span>
+            <Tag :value="generationResult.skipped.toString()" severity="info"/>
+          </div>
+          <div v-if="generationResult.failed > 0"
+               class="flex justify-content-between align-items-center p-3 bg-red-50 border-round">
+            <span class="font-semibold text-red-700">Failed</span>
+            <Tag :value="generationResult.failed.toString()" severity="danger"/>
+          </div>
+          <div v-if="generationResult.errors.length > 0" class="mt-3">
+            <h4 class="font-semibold mb-2">Errors:</h4>
+            <ul class="text-sm text-secondary pl-4">
+              <li v-for="(err, index) in generationResult.errors" :key="index">{{ err }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <template #footer>
+        <Button label="View Cards" icon="pi pi-external-link"
+                @click="router.push('/admin/vocabulary-cards'); showGenerationResultDialog = false"/>
+        <Button label="Close" severity="secondary" @click="showGenerationResultDialog = false"/>
+      </template>
+    </Dialog>
   </div>
 </template>

@@ -36,15 +36,13 @@ data class GeneratedImage(
 @Service
 class ImageGenerationService(
     private val objectMapper: ObjectMapper,
-    @Value("\${gemini.api-key}") private val apiKey: String
+    @Value("\${gemini.api.key}") private val apiKey: String,
+    @Value("\${gemini.models.image:gemini-2.5-flash-image}") private val basicModel: String,
+    @Value("\${gemini.models.image-advanced:gemini-3-pro-image-preview}") private val advancedModel: String
 ) {
     private val logger = LoggerFactory.getLogger(javaClass)
     private val httpClient: HttpClient = HttpClient.newBuilder().build()
     private val baseUrl = "https://generativelanguage.googleapis.com/v1beta"
-
-    // Model selection based on whether reference images are used
-    private val basicModel = "gemini-2.5-flash-image" // Fast, cost-effective, 1024px resolution
-    private val advancedModel = "gemini-3-pro-image-preview" // Supports reference images
 
     /**
      * Generate an image using Gemini's image generation API

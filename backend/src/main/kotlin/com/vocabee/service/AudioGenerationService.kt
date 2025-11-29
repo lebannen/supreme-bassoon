@@ -76,7 +76,7 @@ interface AudioGenerationService {
 @Service
 class GeminiAudioGenerationService(
     @Value("\${gemini.api.key}") private val apiKey: String,
-    @Value("\${gemini.tts.model:gemini-2.5-flash-preview-tts}") private val model: String,
+    @Value("\${gemini.models.tts:gemini-2.5-flash-preview-tts}") private val model: String,
     private val storageService: StorageService,
     private val objectMapper: ObjectMapper
 ) : AudioGenerationService {

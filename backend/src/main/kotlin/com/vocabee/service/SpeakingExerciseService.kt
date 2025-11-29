@@ -15,7 +15,7 @@ import java.util.*
 @Service
 class SpeakingExerciseService(
     @Value("\${gemini.api.key}") private val apiKey: String,
-    @Value("\${gemini.text.model:gemini-3-pro-preview}") private val model: String,
+    @Value("\${gemini.models.text:gemini-2.5-pro-preview-05-06}") private val model: String,
     private val exerciseRepository: ExerciseRepository,
     private val objectMapper: ObjectMapper
 ) {

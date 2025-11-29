@@ -19,7 +19,8 @@ interface Course {
   name: string;
   languageCode: string;
   cefrLevel: string;
-  isPublished: boolean
+  isPublished: boolean;
+  createdAt?: string;
 }
 
 interface Module {
@@ -338,6 +339,11 @@ onMounted(() => {
           <Column field="isPublished" header="Published">
             <template #body="{data}">
               <Tag :value="data.isPublished ? 'Yes' : 'No'" :severity="data.isPublished ? 'success' : 'warning'"/>
+            </template>
+          </Column>
+          <Column field="createdAt" header="Created">
+            <template #body="{data}">
+              <span class="text-sm">{{ data.createdAt ? new Date(data.createdAt).toLocaleDateString() : '-' }}</span>
             </template>
           </Column>
           <Column header="Actions" style="width: 14rem">

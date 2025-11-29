@@ -52,8 +52,11 @@ storage:
 gemini:
   api:
     key: ${GEMINI_API_KEY:}
-  tts:
-    model: gemini-2.5-flash-preview-tts
+  models:
+    text: gemini-3-pro-preview    # Default for text generation (course content, reviews, etc.)
+    tts: gemini-2.5-flash-preview-tts     # Text-to-speech
+    image: gemini-2.5-flash-image         # Image generation
+    image-advanced: gemini-3-pro-preview  # Advanced image generation with reference support
 
 logging:
   level:

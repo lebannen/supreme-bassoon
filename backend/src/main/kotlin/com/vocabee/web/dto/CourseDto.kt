@@ -42,7 +42,8 @@ data class CourseAdminDto(
     val cefrLevel: String,
     val estimatedHours: Int,
     val isPublished: Boolean,
-    val seriesContext: String? = null
+    val seriesContext: String? = null,
+    val createdAt: String? = null
 )
 
 // ============================================================================

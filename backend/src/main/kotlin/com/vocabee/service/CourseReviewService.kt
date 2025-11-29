@@ -38,7 +38,7 @@ class CourseReviewService(
         // Generate review prompt
         val prompt = buildReviewPrompt(course, courseData)
 
-        logger.info("Sending course to Gemini for review (${prompt.length} chars)")
+        logger.info("Sending course to Gemini for review (${prompt.length} chars, model: ${geminiTextClient.getModelName()})")
 
         // Call Gemini for review
         val reviewJson = geminiTextClient.generateText(prompt, "application/json")
@@ -52,7 +52,7 @@ class CourseReviewService(
         val review = CourseReview(
             courseId = courseId,
             reviewType = ReviewType.FULL_REVIEW,
-            modelUsed = "gemini-2.0-flash",
+            modelUsed = geminiTextClient.getModelName(),
             overallScore = reviewData.path("overallScore").asInt(0),
             cefrAlignmentScore = reviewData.path("cefrAlignmentScore").asInt(0),
             structureScore = reviewData.path("structureScore").asInt(0),

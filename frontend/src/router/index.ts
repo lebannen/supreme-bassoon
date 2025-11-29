@@ -209,6 +209,12 @@ const router = createRouter({
           component: () => import('../views/admin/pipeline/PipelineDebugView.vue'),
           meta: {requiresAuth: true}
       },
+      {
+          path: '/admin/vocabulary-cards',
+          name: 'vocabulary-cards-admin',
+          component: () => import('../views/admin/VocabularyCardsAdminView.vue'),
+          meta: {requiresAuth: true}
+      },
     // Course Structure Routes
     {
       path: '/courses',

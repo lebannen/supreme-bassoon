@@ -19,6 +19,7 @@ export interface CourseAdminDto {
     estimatedHours: number
     isPublished: boolean
     seriesContext?: string
+    createdAt?: string
 }
 
 export interface ModuleAdminDto {
